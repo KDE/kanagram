@@ -44,10 +44,10 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase)
 	m_back = new QPixmap(locate("appdata", "images/kanagram.png"));
 	m_hintOverlay = new QPixmap(locate("appdata", "images/hint.png"));
 
-	m_newWordRect = QRect(477, 31, 611, 107);
-	m_settingsRect = QRect(477, 122, 611, 198);
-	m_helpRect = QRect(477, 212, 611, 288);
-	m_quitRect = QRect(453, 352, 635, 456);
+	m_newWordRect = QRect(477, 31, 134, 76);
+	m_settingsRect = QRect(477, 122, 134, 76);
+	m_helpRect = QRect(477, 212, 134, 76);
+	m_quitRect = QRect(453, 352, 182, 104);
 	
 	setMouseTracking(true);
 	setMinimumSize(650, 471);
