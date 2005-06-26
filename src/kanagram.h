@@ -39,11 +39,15 @@ Q_OBJECT
 		
 		
 	private:
-		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QString font, QColor fontColor, int fontSize = 18);
+		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QString font, int fontSize = 18);
 		
 		void paintEvent(QPaintEvent *);
 
 		void mousePressEvent(QMouseEvent *e);
+
+		void mouseMoveEvent(QMouseEvent *e);
+
+		void updateButtonHighlighting(const QPoint &p);
 
 		void drawChalkboardText();
 
@@ -52,8 +56,11 @@ Q_OBJECT
 		QPixmap *m_back, *m_hintOverlay;
 		QRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect;
 
-		QString anagram;
-		QColor m_fillColor, m_fontColor, m_fontHighlightColor;	
+		bool m_overNewWord, m_overSettings, m_overHelp, m_overQuit, m_overReveal, m_overHint;
+
+		bool m_showHint;
+
+		QColor m_fillColor, m_fontColor, m_fontHighlightColor, m_chalkColor, m_chalkHighlightColor;
 		
 		KHelpMenu *m_helpMenu;
 };
