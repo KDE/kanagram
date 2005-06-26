@@ -1,4 +1,4 @@
-'TODO items for Kanagram:
+TODO items for Kanagram:
 
 * Make Kanagram banner show about box when clicked.
 * Implement text input box, along with status indicator.
@@ -14,3 +14,4 @@
 * Move the "hint" and "reveal word" buttons about 2 pixels down :D
 
 * Create sounds for events
+* Make anagram string accessible through Kanagram class without calling accessor method
