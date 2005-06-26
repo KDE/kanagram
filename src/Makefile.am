@@ -28,8 +28,7 @@ kanagram_LDADD =  $(LIB_KDEUI) -lkdeeducore
 
 
 # this is where the desktop file will go 
-# TODO someone should create it
-# xdg_apps_DATA = kanagram.desktop
+xdg_apps_DATA = kanagram.desktop
 
 # this is where the shell's XML-GUI resource file goes
 # TODO does this app need an ui.rc ? If it does put it here
