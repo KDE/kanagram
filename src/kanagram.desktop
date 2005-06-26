@@ -5,3 +5,4 @@ Exec=kanagram
 Icon=kanagram
 Type=Application
 Comment=An anagram game
+Categories=Qt;KDE;Education

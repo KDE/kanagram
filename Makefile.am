@@ -1,1 +1,1 @@
-SUBDIRS = data images src
+SUBDIRS = data images src icons
