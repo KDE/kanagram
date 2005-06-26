@@ -48,6 +48,8 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase)
 	m_settingsRect = QRect(477, 122, 134, 76);
 	m_helpRect = QRect(477, 212, 134, 76);
 	m_quitRect = QRect(453, 352, 182, 104);
+	m_hintRect = QRect(0, 0, 0, 0);
+	m_revealRect = QRect(0, 0, 0, 0);
 	
 	setMouseTracking(true);
 	setMinimumSize(650, 471);
@@ -185,7 +187,35 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		m_overQuit = false;
 		haveToUpdate = true;
 	}
+
+	if(m_hintRect.contains(p))
+	{
+		if(!m_overHint)
+		{
+			m_overHint = true;
+			haveToUpdate = true;
+		}
+	}
+	else if(m_overHint)
+	{
+		m_overHint = false;
+		haveToUpdate = true;
+	}
 	
+	if(m_revealRect.contains(p))
+	{
+		if(!m_overReveal)
+		{
+			m_overReveal = true;
+			haveToUpdate = true;
+		}
+	}
+	else if(m_overReveal)
+	{
+		m_overReveal = false;
+		haveToUpdate = true;
+	}
+
 	if (haveToUpdate) update();
 }
 
