@@ -1,5 +1,5 @@
 # set the include path for X, qt and KDE
-INCLUDES = -I/usr/include/libkdeedu/kdeeducore $(all_includes)
+INCLUDES = $(all_includes)
 
 # these are the headers for your project
 noinst_HEADERS = kanagram.h kanagramgame.h fontutils.h
@@ -23,14 +23,16 @@ bin_PROGRAMS = kanagram
 # the application source, library search path, and link libraries
 kanagram_SOURCES = main.cpp kanagram.cpp kanagramgame.cpp fontutils.cpp
 kanagram_LDFLAGS = $(KDE_RPATH) $(all_libraries)
-kanagram_LDADD =  $(LIB_KDEUI) /usr/lib/libkdeeducore.la
+#TODO -libkdeeducore will have to be changed to ../../libkdeedu/kdeeducore/libkdeeducore.la when kanagram gets in kdeedu module
+kanagram_LDADD =  $(LIB_KDEUI) -lkdeeducore
 
 
 # this is where the desktop file will go 
-shelldesktopdir   = $(kde_appsdir)/Utilities
-shelldesktop_DATA = kanagram.desktop
+# TODO someone should create it
+# xdg_apps_DATA = kanagram.desktop
 
 # this is where the shell's XML-GUI resource file goes
-shellrcdir   = $(kde_datadir)/kanagram
-shellrc_DATA = kanagramui.rc
+# TODO does this app need an ui.rc ? If it does put it here
+# shellrcdir   = $(kde_datadir)/kanagram
+# shellrc_DATA = kanagramui.rc
 

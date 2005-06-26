@@ -24,7 +24,7 @@
 #include <qobject.h>
 
 #include <kstandarddirs.h>
-#include <keduvocdata.h>
+#include <libkdeedu/keduvocdata.h>
 #include <krandomsequence.h>
 
 class KanagramGame : public QObject
