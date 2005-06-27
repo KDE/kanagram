@@ -89,8 +89,8 @@ void Kanagram::paintEvent(QPaintEvent *)
 	drawText(p, "Settings", QPoint(543, 147), false, 0, 0, 0, m_overSettings, true, "Steve", m_fontColor, m_fontHighlightColor);
 	drawText(p, "Help", QPoint(543, 235), false, 0, 0, 0, m_overHelp, true, "Steve", m_fontColor, m_fontHighlightColor);
 	drawText(p, "Quit", QPoint(543, 391), false, 0, 0, 0, m_overQuit, true, "Steve", m_fontColor, m_fontHighlightColor);
-	drawText(p, "reveal word", QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, "squeaky chalk sound", m_fontColor, m_fontHighlightColor, 14);
-	drawText(p, "hint", QPoint(70, 353), false, 0, 0, 0, m_overHint, true, "squeaky chalk sound", m_fontColor, m_fontHighlightColor, 14);
+	drawText(p, "reveal word", QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, "squeaky chalk sound", m_chalkColor, m_chalkHighlightColor, 14);
+	drawText(p, "hint", QPoint(70, 353), false, 0, 0, 0, m_overHint, true, "squeaky chalk sound", m_chalkColor, m_chalkHighlightColor, 14);
 	drawText(p, i18n("Try"), QPoint(369, 443), true, 10, 5, &m_tryRect, m_overTry, true, "Bitstream Vera Sans", m_fontColor, m_fontHighlightColor);
 	
 	if(m_showHint)
