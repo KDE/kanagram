@@ -150,8 +150,10 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		}
 		else
 		{
+			m_inputBox->setPaletteBackgroundColor(QColor(255, 0, 0));
 			cout << "Sorry, try again!" << endl;
 			m_inputBox->clear();
+			update();
 		}
 	}
 }
