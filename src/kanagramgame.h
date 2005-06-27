@@ -36,6 +36,7 @@ Q_OBJECT
 		void nextAnagram();
 		QString getAnagram();
 		QString getHint();
+		void restoreWord();
 	private:
 		QString createAnagram(QString original);
 		KRandomSequence m_random;

@@ -60,6 +60,11 @@ QString KanagramGame::getHint()
 	return m_hint;
 }
 
+void KanagramGame::restoreWord()
+{
+	m_anagram = m_originalWord;
+}
+
 QString KanagramGame::createAnagram(QString original)
 {
 	QStringList objData = QStringList::split(QString(""), original);

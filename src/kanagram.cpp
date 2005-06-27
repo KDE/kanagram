@@ -48,8 +48,8 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase)
 	m_settingsRect = QRect(477, 122, 134, 76);
 	m_helpRect = QRect(477, 212, 134, 76);
 	m_quitRect = QRect(453, 352, 182, 104);
-	m_hintRect = QRect(0, 0, 0, 0);
-	m_revealRect = QRect(0, 0, 0, 0);
+	m_hintRect = QRect(51, 337, 39, 28);
+	m_revealRect = QRect(279, 338, 119, 28);
 	
 	setMouseTracking(true);
 	setMinimumSize(650, 471);
@@ -64,6 +64,10 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase)
 	KConfig *kc = kapp->config();
 	
 	m_helpMenu = new KHelpMenu(this, kapp->aboutData());
+	m_inputBox = new QLineEdit(this);
+	m_inputBox->setGeometry(QRect(54, 426, 272, 33));
+	m_inputBox->setFrame(false);
+	m_inputBox->show();
 }
 
 Kanagram::~Kanagram()
@@ -79,19 +83,19 @@ void Kanagram::paintEvent(QPaintEvent *)
 	
 	p.drawPixmap(0, 0, *m_back);
 	
-	drawText(p, m_game.getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, true, "squeaky chalk sound", 28);
+	drawText(p, m_game.getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, true, "squeaky chalk sound", m_chalkColor, m_chalkHighlightColor, 28);
 	
-	drawText(p, "New Word", QPoint(543, 62), false, 0, 0, 0, m_overNewWord, true, "Steve");
-	drawText(p, "Settings", QPoint(543, 147), false, 0, 0, 0, m_overSettings, true, "Steve");
-	drawText(p, "Help", QPoint(543, 235), false, 0, 0, 0, m_overHelp, true, "Steve");
-	drawText(p, "Quit", QPoint(543, 391), false, 0, 0, 0, m_overQuit, true, "Steve");
-	drawText(p, "reveal word", QPoint(330, 348), false, 0, 0, 0, m_overReveal, true, "squeaky chalk sound", 14);
-	drawText(p, "hint", QPoint(230, 348), false, 0, 0, 0, m_overHint, true, "squeaky chalk sound", 14);
+	drawText(p, "New Word", QPoint(543, 62), false, 0, 0, 0, m_overNewWord, true, "Steve", m_fontColor, m_fontHighlightColor);
+	drawText(p, "Settings", QPoint(543, 147), false, 0, 0, 0, m_overSettings, true, "Steve", m_fontColor, m_fontHighlightColor);
+	drawText(p, "Help", QPoint(543, 235), false, 0, 0, 0, m_overHelp, true, "Steve", m_fontColor, m_fontHighlightColor);
+	drawText(p, "Quit", QPoint(543, 391), false, 0, 0, 0, m_overQuit, true, "Steve", m_fontColor, m_fontHighlightColor);
+	drawText(p, "reveal word", QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, "squeaky chalk sound", m_fontColor, m_fontHighlightColor, 14);
+	drawText(p, "hint", QPoint(70, 353), false, 0, 0, 0, m_overHint, true, "squeaky chalk sound", m_fontColor, m_fontHighlightColor, 14);
 	
 	if(m_showHint)
 	{
 		p.drawPixmap(439, 204, *m_hintOverlay);
-		drawText(p, m_game.getHint(), QPoint(537, 254), false, 0, 0, 0, false, true, "Steve", 8);
+		drawText(p, m_game.getHint(), QPoint(537, 254), false, 0, 0, 0, false, true, "Steve", m_fontColor, m_fontHighlightColor, 8);
 	}
 
 	bitBlt(this, 0, 0, &buf);
@@ -119,6 +123,18 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	if(m_quitRect.contains(e->pos()))
 	{
 		kapp->quit();
+	}
+
+	if(m_revealRect.contains(e->pos()))
+	{
+		m_game.restoreWord();
+		update();
+	}
+
+	if(m_hintRect.contains(e->pos()))
+	{
+		m_showHint = true;
+		update();
 	}
 }
 
@@ -219,7 +235,7 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 	if (haveToUpdate) update();
 }
 
-void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QString font, int fontSize)
+void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QString font, QColor fontColor, QColor fontHighlightColor,int fontSize)
 {
 	QRect r;
 	QFont f = font;
@@ -231,8 +247,8 @@ void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, 
 	r = QRect(0, 0, r.width() + xMargin, r.height() + yMargin);
 	r.moveBy(center.x() - r.width() / 2, center.y() - r.height() / 2);
 	
-	if (!highlight) p.setPen(m_fontColor);
-	else p.setPen(m_fontHighlightColor);
+	if (!highlight) p.setPen(fontColor);
+	else p.setPen(fontHighlightColor);
 	p.drawText(r, Qt::AlignCenter, text);
 }
 

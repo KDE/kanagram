@@ -22,6 +22,8 @@
 #define KANAGRAM_H
 
 #include <qwidget.h>
+#include <qlineedit.h>
+
 #include <kxmlguiclient.h>
 
 #include "kanagramgame.h"
@@ -35,11 +37,8 @@ Q_OBJECT
 		Kanagram();
 		~Kanagram();
 	
-	protected:
-		
-		
 	private:
-		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QString font, int fontSize = 18);
+		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QString font, QColor fontColor, QColor fontHighlightColor, int fontSize = 18);
 		
 		void paintEvent(QPaintEvent *);
 
@@ -48,8 +47,6 @@ Q_OBJECT
 		void mouseMoveEvent(QMouseEvent *e);
 
 		void updateButtonHighlighting(const QPoint &p);
-
-		void drawChalkboardText();
 
 		KanagramGame m_game;	
 
@@ -63,6 +60,8 @@ Q_OBJECT
 		QColor m_fillColor, m_fontColor, m_fontHighlightColor, m_chalkColor, m_chalkHighlightColor;
 		
 		KHelpMenu *m_helpMenu;
+
+		QLineEdit *m_inputBox;
 };
 
 #endif
