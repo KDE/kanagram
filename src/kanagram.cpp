@@ -39,7 +39,7 @@
 #include "fontutils.h"
 
 
-Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase)
+Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_showHint(false)
 {
 	m_back = new QPixmap(locate("appdata", "images/kanagram.png"));
 	m_hintOverlay = new QPixmap(locate("appdata", "images/hint.png"));
@@ -50,6 +50,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase)
 	m_quitRect = QRect(453, 352, 182, 104);
 	m_hintRect = QRect(51, 337, 39, 28);
 	m_revealRect = QRect(279, 338, 119, 28);
+	m_tryRect = QRect(341, 426, 55, 33);
 	
 	setMouseTracking(true);
 	setMinimumSize(650, 471);
@@ -64,6 +65,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase)
 	KConfig *kc = kapp->config();
 	
 	m_helpMenu = new KHelpMenu(this, kapp->aboutData());
+	
 	m_inputBox = new QLineEdit(this);
 	m_inputBox->setGeometry(QRect(54, 426, 272, 33));
 	m_inputBox->setFrame(false);
@@ -72,8 +74,6 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase)
 
 Kanagram::~Kanagram()
 {
-	delete m_back;
-	delete m_hintOverlay;
 }
 
 void Kanagram::paintEvent(QPaintEvent *)
@@ -91,6 +91,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 	drawText(p, "Quit", QPoint(543, 391), false, 0, 0, 0, m_overQuit, true, "Steve", m_fontColor, m_fontHighlightColor);
 	drawText(p, "reveal word", QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, "squeaky chalk sound", m_fontColor, m_fontHighlightColor, 14);
 	drawText(p, "hint", QPoint(70, 353), false, 0, 0, 0, m_overHint, true, "squeaky chalk sound", m_fontColor, m_fontHighlightColor, 14);
+	drawText(p, i18n("Try"), QPoint(369, 443), true, 10, 5, &m_tryRect, m_overTry, true, "Bitstream Vera Sans", m_fontColor, m_fontHighlightColor);
 	
 	if(m_showHint)
 	{
@@ -133,7 +134,14 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_hintRect.contains(e->pos()))
 	{
-		m_showHint = true;
+		if(m_showHint == true) m_showHint = false;
+		else m_showHint = true;
+		update();
+	}
+
+	if(m_tryRect.contains(e->pos()))
+	{
+		//TODO: ADD THIS
 		update();
 	}
 }
@@ -232,6 +240,20 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		haveToUpdate = true;
 	}
 
+	if(m_tryRect.contains(p))
+	{
+		if(!m_overTry)
+		{
+			m_overTry = true;
+			haveToUpdate = true;
+		}
+	}
+	else if(m_overTry)
+	{
+		m_overTry = false;
+		haveToUpdate = true;
+	}
+
 	if (haveToUpdate) update();
 }
 
@@ -246,6 +268,13 @@ void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, 
 	r = p.boundingRect(QRect(), Qt::AlignAuto, text);
 	r = QRect(0, 0, r.width() + xMargin, r.height() + yMargin);
 	r.moveBy(center.x() - r.width() / 2, center.y() - r.height() / 2);
+
+	if (withMargin)
+	{
+		p.fillRect(r, m_fillColor);
+		p.setPen(QPen(black, 3));
+		p.drawRoundRect(r.left(), r.top(), r.width(), r.height(), 15, 15);
+	}
 	
 	if (!highlight) p.setPen(fontColor);
 	else p.setPen(fontHighlightColor);
