@@ -60,6 +60,11 @@ QString KanagramGame::getHint()
 	return m_hint;
 }
 
+QString KanagramGame::getWord()
+{
+	return m_originalWord;
+}
+
 void KanagramGame::restoreWord()
 {
 	m_anagram = m_originalWord;

@@ -28,6 +28,10 @@
 
 #include "kanagramgame.h"
 
+#include <iostream>
+
+using namespace std;
+
 class KHelpMenu;
 
 class Kanagram : public QWidget

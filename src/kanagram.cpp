@@ -141,8 +141,18 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_tryRect.contains(e->pos()))
 	{
-		//TODO: ADD THIS
-		update();
+		if(m_inputBox->text() == m_game.getWord())
+		{
+			cout << "Correct!" << endl;
+			m_inputBox->clear();
+			m_game.nextAnagram();
+			update();
+		}
+		else
+		{
+			cout << "Sorry, try again!" << endl;
+			m_inputBox->clear();
+		}
 	}
 }
 
