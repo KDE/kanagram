@@ -102,7 +102,10 @@ void Kanagram::paintEvent(QPaintEvent *)
 	if(m_showHint)
 	{
 		p.drawPixmap(439, 204, *m_hintOverlay);
-		drawText(p, m_game.getHint(), QPoint(537, 254), false, 0, 0, 0, false, true, "Steve", m_fontColor, m_fontHighlightColor, 8);
+		QFont f = QFont("Steve");
+		f.setPointSize(12);
+		p.setFont(f);
+		p.drawText(446, 207, 171, 85, WordBreak | AlignCenter, m_game.getHint());
 	}
 
 	bitBlt(this, 0, 0, &buf);
