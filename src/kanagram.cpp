@@ -67,10 +67,10 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_helpMenu = new KHelpMenu(this, kapp->aboutData());
 	
 	m_inputBox = new QLineEdit(this);
-	m_inputBox->setGeometry(QRect(52, 425, 272, 34));
+	m_inputBox->setGeometry(QRect(52, 427, 273, 29));
 	m_inputBox->setFrame(false);
 	QFont f = QFont();
-	f.setPointSize(18);
+	f.setPointSize(17);
 	m_inputBox->setFont(f);
 	m_inputBox->show();
 }
@@ -97,7 +97,13 @@ void Kanagram::paintEvent(QPaintEvent *)
 	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, "Bitstream Vera Sans", QColor(126, 126, 126), m_chalkHighlightColor);
 
 	p.setPen(QPen(black, 3));
-	p.drawRoundRect(m_inputBox->geometry(), 10, 5);
+	
+	QRect borderRect = m_inputBox->geometry();
+	borderRect.setLeft(borderRect.left() - 2);
+	borderRect.setTop(borderRect.top() - 2);
+	borderRect.setWidth(borderRect.width() + 2 * 1);
+	borderRect.setHeight(borderRect.height() + 2 * 1);
+	p.drawRoundRect(borderRect, 10, 5);
 	
 	if(m_showHint)
 	{
