@@ -1,0 +1,9 @@
+#Remove this file once kanagram is inside kdeedu
+AC_MSG_CHECKING([for keduvocdata.h])
+keduvocdata_incdir="no"
+if test -e $kde_includes/libkdeedu/keduvocdata.h; then
+	keduvocdata_incdir=$kde_includes/libkdeedu/keduvocdata.h
+else
+	DO_NOT_COMPILE="$DO_NOT_COMPILE kanagram"
+fi
+AC_MSG_RESULT([$keduvocdata_incdir])
