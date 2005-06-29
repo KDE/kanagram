@@ -69,6 +69,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_inputBox = new QLineEdit(this);
 	m_inputBox->setGeometry(QRect(52, 427, 273, 29));
 	m_inputBox->setFrame(false);
+	connect(m_inputBox, SIGNAL(returnPressed()), this, SLOT(checkWord()));
 	QFont f = QFont();
 	f.setPointSize(17);
 	m_inputBox->setFont(f);
@@ -308,6 +309,13 @@ void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, 
 	if (!highlight) p.setPen(fontColor);
 	else p.setPen(fontHighlightColor);
 	p.drawText(r, Qt::AlignCenter, text);
+}
+
+void Kanagram::checkWord()
+{
+	QPoint p = m_tryRect.topLeft() + QPoint( 1, 1 );
+	QMouseEvent *e = new QMouseEvent( QEvent::MouseButtonPress, p, Qt::LeftButton, Qt::NoButton );
+	mousePressEvent(e);
 }
 
 #include "kanagram.moc"

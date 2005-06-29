@@ -40,7 +40,10 @@ Q_OBJECT
 	public:
 		Kanagram();
 		~Kanagram();
-	
+
+	private slots:
+		void checkWord();
+
 	private:
 		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QString font, QColor fontColor, QColor fontHighlightColor, int fontSize = 18);
 		
