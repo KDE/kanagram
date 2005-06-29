@@ -5,6 +5,7 @@ Exec=kanagram
 Icon=kanagram
 Type=Application
 Comment=An anagram game
+Comment[bg]=Игра с анаграми
 Comment[et]=Anagrammimäng
 Comment[it]=Un gioco di anagrammi
 Comment[pt]=Um jogo de anagramas
