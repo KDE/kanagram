@@ -53,26 +53,26 @@
                         </widget>
                         <widget class="QPushButton">
                             <property name="name">
-                                <cstring>btnDelete</cstring>
+                                <cstring>btnRemove</cstring>
                             </property>
                             <property name="text">
-                                <string>Delete</string>
+                                <string>Remove</string>
                             </property>
                         </widget>
                         <widget class="QComboBox">
                             <item>
                                 <property name="text">
-                                    <string>Get New</string>
+                                    <string>Get New from...</string>
                                 </property>
                             </item>
                             <item>
                                 <property name="text">
-                                    <string>From your computer</string>
+                                    <string>your computer</string>
                                 </property>
                             </item>
                             <item>
                                 <property name="text">
-                                    <string>From the Internet</string>
+                                    <string>the Internet</string>
                                 </property>
                             </item>
                             <property name="name">
