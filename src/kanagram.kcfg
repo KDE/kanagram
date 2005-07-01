@@ -1,0 +1,28 @@
+<kcfgfile name="kanagramrc">
+<group name="kanagram">
+<entry name="defaultVocabulary" type="String">
+	<label>Sets the default vocabulary</label>
+	<default>Easy</default>
+</entry>
+<entry name="hintHideTime" type="String">
+	<label>Sets how long hints should be shown</label>
+	<default>5 seconds</default>
+</entry>
+<entry name="newWordOnAnswer" type="Bool">
+	<label>Displays a new word after a correct answer</label>
+	<default>true</default>
+</entry>
+<entry name="useSounds" type="Bool">
+	<label>Turns on sound effects</label>
+	<default>true</default>
+</entry>
+<entry name="standardInterfaceFonts" type="Bool">
+	<label>Uses a standard font for the interface</label>
+	<default>false</default>
+</entry>
+<entry name="standardBlackboardFonts" type="Bool">
+	<label>Uses a standard font for the blackboard</label>
+	<default>false</default>
+</entry>
+</group>
+</kcfgfile>

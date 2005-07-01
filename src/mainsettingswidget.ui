@@ -1,0 +1,141 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>MainSettingsWidget</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>MainSettingsWidget</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>379</width>
+            <height>240</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>General</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QGroupBox" row="4" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>groupBox2</cstring>
+            </property>
+            <property name="title">
+                <string>Fonts</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QCheckBox" row="0" column="0">
+                    <property name="name">
+                        <cstring>kcfg_standardInterfaceFonts</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use standard fonts for interface</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="1" column="0">
+                    <property name="name">
+                        <cstring>kcfg_standardBlackboardFonts</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use standard fonts for blackboard</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QLabel" row="0" column="0">
+            <property name="name">
+                <cstring>textLabel1</cstring>
+            </property>
+            <property name="text">
+                <string>Default vocabulary:</string>
+            </property>
+        </widget>
+        <widget class="QComboBox" row="1" column="1">
+            <item>
+                <property name="text">
+                    <string>3 Seconds</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>5 Seconds</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>7 Seconds</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>9 Seconds</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>No Limit</string>
+                </property>
+            </item>
+            <property name="name">
+                <cstring>kcfg_hintHideTime</cstring>
+            </property>
+        </widget>
+        <widget class="QLabel" row="1" column="0">
+            <property name="name">
+                <cstring>textLabel1_2</cstring>
+            </property>
+            <property name="text">
+                <string>Hide hints after:</string>
+            </property>
+        </widget>
+        <widget class="QComboBox" row="0" column="1">
+            <item>
+                <property name="text">
+                    <string>Easy</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>Difficult</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>Animals</string>
+                </property>
+            </item>
+            <item>
+                <property name="text">
+                    <string>World Capitals</string>
+                </property>
+            </item>
+            <property name="name">
+                <cstring>kcfg_defaultVocabulary</cstring>
+            </property>
+        </widget>
+        <widget class="QCheckBox" row="2" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>kcfg_newWordOnAnswer</cstring>
+            </property>
+            <property name="text">
+                <string>Display new word on correct answer</string>
+            </property>
+        </widget>
+        <widget class="QCheckBox" row="3" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>kcfg_useSounds</cstring>
+            </property>
+            <property name="text">
+                <string>Use sounds</string>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

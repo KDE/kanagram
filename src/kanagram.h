@@ -33,6 +33,7 @@
 using namespace std;
 
 class KHelpMenu;
+class KConfigDialog;
 
 class Kanagram : public QWidget
 {
@@ -69,6 +70,8 @@ Q_OBJECT
 		KHelpMenu *m_helpMenu;
 
 		QLineEdit *m_inputBox;
+		
+		KConfigDialog *m_configDialog;
 };
 
 #endif

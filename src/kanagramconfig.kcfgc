@@ -1,0 +1,4 @@
+File=kanagram.kcfg
+ClassName=KanagramConfig
+Mutators=true
+Singleton=true

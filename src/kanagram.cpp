@@ -34,9 +34,13 @@
 #include <kmessagebox.h>
 #include <kpopupmenu.h>
 #include <kstandarddirs.h>
+#include <kconfigdialog.h>
+#include <kconfigskeleton.h>
 
 #include "kanagram.h"
 #include "fontutils.h"
+#include "kanagramconfig.h"
+#include "mainsettingswidget.h"
 
 
 Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewWord(false), m_overSettings(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overTry(false), m_showHint(false)
@@ -74,6 +78,9 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	f.setPointSize(17);
 	m_inputBox->setFont(f);
 	m_inputBox->show();
+
+	m_configDialog = new KConfigDialog( 0, "settings", KanagramConfig::self() );
+	m_configDialog->addPage( new MainSettingsWidget( m_configDialog ), i18n( "Settings" ), QString::null );
 }
 
 Kanagram::~Kanagram()
@@ -130,7 +137,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_settingsRect.contains(e->pos()))
 	{
-		kapp->quit();
+		m_configDialog->show();
 	}
 
 	if(m_helpRect.contains(e->pos()))
