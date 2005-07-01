@@ -39,6 +39,7 @@ using namespace std;
 #include <kstandarddirs.h>
 #include <kconfigdialog.h>
 #include <kconfigskeleton.h>
+#include <krandomsequence.h>
 
 #include "kanagram.h"
 #include "fontutils.h"
@@ -50,7 +51,6 @@ using namespace std;
 Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewWord(false), m_overSettings(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overTry(false), m_showHint(false)
 {
 	m_back = new QPixmap(locate("appdata", "images/kanagram.png"));
-	m_hintOverlay = new QPixmap(locate("appdata", "images/hint.png"));
 
 	m_newWordRect = QRect(477, 31, 134, 76);
 	m_settingsRect = QRect(477, 122, 134, 76);
@@ -78,7 +78,9 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_inputBox = new QLineEdit(this);
 	m_inputBox->setGeometry(QRect(52, 427, 273, 29));
 	m_inputBox->setFrame(false);
+	
 	connect(m_inputBox, SIGNAL(returnPressed()), this, SLOT(checkWord()));
+	
 	QFont f = QFont();
 	f.setPointSize(17);
 	m_inputBox->setFont(f);
@@ -165,7 +167,11 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	if(m_hintRect.contains(e->pos()))
 	{
 		if(m_showHint == true) m_showHint = false;
-		else m_showHint = true;
+		else
+		{
+			m_showHint = true;
+			randomHintImage();
+		}
 		update();
 	}
 
@@ -329,6 +335,17 @@ void Kanagram::checkWord()
 	QPoint p = m_tryRect.topLeft() + QPoint( 1, 1 );
 	QMouseEvent *e = new QMouseEvent( QEvent::MouseButtonPress, p, Qt::LeftButton, Qt::NoButton );
 	mousePressEvent(e);
+}
+
+void Kanagram::randomHintImage()
+{
+	unsigned long imageNum = m_randomImage.getLong(8);
+	if (imageNum == 0)
+	{
+		imageNum = 5;
+	}
+	QString dir = "images/eyes" + QString::number(imageNum) + ".png";
+	m_hintOverlay = new QPixmap(locate("appdata", dir));
 }
 
 #include "kanagram.moc"

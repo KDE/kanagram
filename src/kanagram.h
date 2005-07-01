@@ -34,6 +34,7 @@ using namespace std;
 
 class KHelpMenu;
 class KConfigDialog;
+class KRandomSequence;
 
 class Kanagram : public QWidget
 {
@@ -56,6 +57,8 @@ Q_OBJECT
 
 		void updateButtonHighlighting(const QPoint &p);
 
+		void randomHintImage();
+
 		KanagramGame m_game;	
 
 		QPixmap *m_back, *m_hintOverlay;
@@ -72,6 +75,8 @@ Q_OBJECT
 		QLineEdit *m_inputBox;
 		
 		KConfigDialog *m_configDialog;
+
+		KRandomSequence m_randomImage;
 };
 
 #endif
