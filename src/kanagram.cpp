@@ -61,7 +61,8 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_tryRect = QRect(341, 426, 55, 33);
 	
 	setMouseTracking(true);
-	setMinimumSize(650, 471);
+	//setMinimumSize(650, 471);
+	setFixedSize(650, 471);
 	show();
 	
 	m_chalkColor = QColor(155, 155, 155);
