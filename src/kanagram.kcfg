@@ -2,7 +2,7 @@
 <group name="kanagram">
 <entry name="defaultVocabulary" type="String">
 	<label>Sets the default vocabulary</label>
-	<default>Easy</default>
+	<default>Difficult</default>
 </entry>
 <entry name="hintHideTime" type="String">
 	<label>Sets how long hints should be shown</label>

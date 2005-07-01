@@ -20,6 +20,9 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <iostream>
+using namespace std;
+
 #include <qcursor.h>
 #include <qpainter.h>
 #include <qpixmap.h>
@@ -41,6 +44,7 @@
 #include "fontutils.h"
 #include "kanagramconfig.h"
 #include "mainsettingswidget.h"
+#include "vocabsettingswidget.h"
 
 
 Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewWord(false), m_overSettings(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overTry(false), m_showHint(false)
@@ -80,7 +84,8 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_inputBox->show();
 
 	m_configDialog = new KConfigDialog( 0, "settings", KanagramConfig::self() );
-	m_configDialog->addPage( new MainSettingsWidget( m_configDialog ), i18n( "Settings" ), QString::null );
+	m_configDialog->addPage( new MainSettingsWidget( m_configDialog ), i18n( "Settings" ), "configure" );
+	m_configDialog->addPage( new VocabSettingsWidget( m_configDialog ), i18n("Vocabularies"), "edit" );
 }
 
 Kanagram::~Kanagram()
