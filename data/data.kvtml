@@ -1,184 +1,180 @@
 <?xml version="1.0"?>
 <!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<kvtml encoding="UTF-8" title="Difficult">
+<kvtml encoding="UTF-8">
  <e>
- <o>machine</o>
- <t>apparatus for applying mechanical power</t>
+ <o>kitten</o>
+ <t>the young of a cat, ferret, etc.</t>
  </e>
   <e>
- <o>bedroom</o>
- <t>a room for sleeping in</t>
+ <o>bear</o>
+ <t>large heavy animal with thick fur</t>
  </e>
   <e>
- <o>magistrate</o>
- <t>an official with authority to administer the law</t>
+ <o>dolphin</o>
+ <t>sea mammal</t>
  </e>
   <e>
- <o>gymnasium</o>
- <t>a building equipped for gymnastics</t>
+ <o>zebra</o>
+ <t>African animal with black and white stripes</t>
  </e>
   <e>
- <o>appointment</o>
- <t>an arrangement to meet at a particular time</t>
+ <o>kangaroo</o>
+ <t>Australian jumping animal</t>
  </e>
   <e>
- <o>antibiotic</o>
- <t>a substance capable of destroying a bacteria</t>
+ <o>whale</o>
+ <t>very large sea mammal</t>
  </e>
   <e>
- <o>delegation</o>
- <t>a body of delegates</t>
+ <o>horse</o>
+ <t>four-legged animal used for riding</t>
  </e>
   <e>
- <o>pharmacist</o>
- <t>a specialist in medications</t>
+ <o>monkey</o>
+ <t>animal of a group closely related to man</t>
  </e>
   <e>
- <o>cheeseburger</o>
- <t>a hamburger with cheese</t>
+ <o>woodpecker</o>
+ <t>bird that clings to tree trunks</t>
  </e>
   <e>
- <o>assessment</o>
- <t>the amount or value is fixed</t>
+ <o>kingfisher</o>
+ <t>small bird with bright bluish plumage</t>
  </e>
   <e>
- <o>surroundings</o>
- <t>the things or conditions around</t>
+ <o>snake</o>
+ <t>reptile with no legs</t>
  </e>
   <e>
- <o>supermarket</o>
- <t>a large self-service shop</t>
+ <o>giraffe</o>
+ <t>long-necked African animal</t>
  </e>
   <e>
- <o>indication</o>
- <t>a sign to show the presence of something</t>
+ <o>elephant</o>
+ <t>largest living land animal with a trunk</t>
  </e>
   <e>
- <o>radiography</o>
- <t>the production of X-ray photographs</t>
+ <o>mouse</o>
+ <t>small rodent with a long thin tail</t>
  </e>
   <e>
- <o>information</o>
- <t>facts told or discovered</t>
+ <o>worm</o>
+ <t>animal with no bachbone or limbs</t>
  </e>
   <e>
- <o>mincemeat</o>
- <t>a mixture used in pies</t>
+ <o>dragonfly</o>
+ <t>large insect with transparent wings</t>
  </e>
   <e>
- <o>signature</o>
- <t>a person's name written by himself</t>
+ <o>penguin</o>
+ <t>sea bird of the Antarctic regions</t>
  </e>
   <e>
- <o>enthusiasm</o>
- <t>a feeling of eager liking for something</t>
+ <o>rabbit</o>
+ <t>burrowing animal with long ears</t>
  </e>
   <e>
- <o>asparagus</o>
- <t>a plant whose young shoots are cooked and eaten as vegetable</t>
+ <o>hamster</o>
+ <t>small mouselike rodent with cheek-pouches</t>
  </e>
   <e>
- <o>vocabulary</o>
- <t>a list of words with their meanings</t>
+ <o>piglet</o>
+ <t>young pig</t>
  </e>
   <e>
- <o>government</o>
- <t>the organization governing a country</t>
+ <o>wolf</o>
+ <t>fierce wild animal of the dog family</t>
  </e>
   <e>
- <o>conservatory</o>
- <t>a greenhouse attached to a house</t>
+ <o>lion</o>
+ <t>large powerful animal of the cat family</t>
  </e>
   <e>
- <o>bookshelf</o>
- <t>a piece of furniture where you put books</t>
+ <o>tiger</o>
+ <t>large Asian animal of the cat family</t>
  </e>
   <e>
- <o>photograph</o>
- <t>a picture obtained from a camera</t>
+ <o>octopus</o>
+ <t>sea animal with eight long tentacles</t>
  </e>
   <e>
- <o>intelligence</o>
- <t>mental ability</t>
+ <o>rhinoceros</o>
+ <t>large thick-skinned animal of Africa</t>
  </e>
   <e>
- <o>lawnmower</o>
- <t>a machine for cutting lawns</t>
+ <o>hedgehog</o>
+ <t>small insect-eating animal with a back covered in stiff spines</t>
  </e>
   <e>
- <o>arithmetic</o>
- <t>the science of numbers</t>
+ <o>reindeer</o>
+ <t>deer with large antlers</t>
  </e>
   <e>
- <o>membership</o>
- <t>being a member</t>
+ <o>squirrel</o>
+ <t>small tree-climbing animal with a bushy tail</t>
  </e>
   <e>
- <o>tranquility</o>
- <t>calm and undisturbed</t>
+ <o>tortoise</o>
+ <t>a slow-moving four-footed reptile</t>
  </e>
   <e>
- <o>contribution</o>
- <t>given jointly with others</t>
+ <o>hippopotamus</o>
+ <t>large African river animal</t>
  </e>
   <e>
- <o>apostrophe</o>
- <t>a punctuation mark</t>
+ <o>dinosaur</o>
+ <t>extinct reptile</t>
  </e>
   <e>
- <o>amusement</o>
- <t>for entertainments</t>
+ <o>turkey</o>
+ <t>large bird reared for its flesh</t>
  </e>
   <e>
- <o>umbrella</o>
- <t>protect you from the rain</t>
+ <o>eagle</o>
+ <t>large bird of prey</t>
  </e>
   <e>
- <o>illumination</o>
- <t>a decoration with lights</t>
+ <o>shark</o>
+ <t>large sea fish with a triangular fin on its back</t>
  </e>
   <e>
- <o>millimetre</o>
- <t>0.04 inch</t>
+ <o>duck</o>
+ <t>swimming bird</t>
  </e>
   <e>
- <o>milligram</o>
- <t>one-thousandth of a gram</t>
+ <o>fish</o>
+ <t>live in water</t>
  </e>
   <e>
- <o>aquarium</o>
- <t>a tank in which fish are kept for display</t>
+ <o>parrot</o>
+ <t>can repeat your words</t>
  </e>
   <e>
- <o>miscount</o>
- <t>an incorrect count</t>
+ <o>frog</o>
+ <t>smal green jumping animal</t>
  </e>
   <e>
- <o>population</o>
- <t>the number of people</t>
+ <o>snail</o>
+ <t>has a spiral shell</t>
  </e>
   <e>
- <o>innovation</o>
- <t>introduction of a new process</t>
- </e>
-   <e>
- <o>innuendo</o>
- <t>an unpleasant insinuation</t>
+ <o>camel</o>
+ <t>can survive a long time in the desert</t>
  </e>
   <e>
- <o>strawberry</o>
- <t>a red fruit delicious with cream</t>
+ <o>alligator</o>
+ <t>reptile of the crocodile family</t>
  </e>
   <e>
- <o>nephew</o>
- <t>the son of your brother or sister</t>
+ <o>mosquito</o>
+ <t>kind of gnat, the female of which bites</t>
  </e>
   <e>
- <o>countryside</o>
- <t>rural areas</t>
+ <o>sheep</o>
+ <t>grass-eating animal with a thick fleecy coat</t>
  </e>
   <e>
- <o>collection</o>
- <t>a set</t>
+ <o>shellfish</o>
+ <t>water animal that has a shell</t>
  </e>
 </kvtml>
