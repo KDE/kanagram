@@ -47,6 +47,7 @@ void KanagramGame::nextAnagram()
 	m_anagram = createAnagram(m_originalWord);
 	m_hint = wordList[wordNumber].translatedText();
 
+	cout << "Title of the file: " << wordList[0].title();
 	cout << "Original word: " << m_originalWord << endl;
 }
 

@@ -1,8 +1,14 @@
 <kcfgfile name="kanagramrc">
 <group name="kanagram">
-<entry name="defaultVocabulary" type="String">
+<entry name="defaultVocabulary" type="Enum">
 	<label>Sets the default vocabulary</label>
-	<default>Difficult</default>
+	<choices>
+		<choice name="Easy"/>
+		<choice name="Difficult"/>
+		<choice name="Animals"/>
+		<choice name="WorldCapitals"/>
+	</choices>
+	<default>Easy</default>
 </entry>
 <entry name="hintHideTime" type="String">
 	<label>Sets how long hints should be shown</label>
