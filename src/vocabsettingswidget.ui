@@ -90,5 +90,8 @@
         </widget>
     </grid>
 </widget>
+<slots>
+    <slot>createNew()</slot>
+</slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

@@ -2,7 +2,7 @@
 INCLUDES = $(all_includes)
 
 # these are the headers for your project
-noinst_HEADERS = kanagram.h kanagramgame.h fontutils.h
+noinst_HEADERS = kanagram.h kanagramgame.h fontutils.h vocabsettings.h vocabedit.h vocabsettingswidget.h vocabeditwidget.h mainsettingswidget.h
 
 # let automoc handle all of the meta source files (moc)
 METASOURCES = AUTO
@@ -21,7 +21,7 @@ KDE_ICON = AUTO
 bin_PROGRAMS = kanagram
 
 # the application source, library search path, and link libraries
-kanagram_SOURCES = main.cpp kanagram.cpp kanagramgame.cpp fontutils.cpp kanagramconfig.kcfgc mainsettingswidget.ui vocabsettingswidget.ui vocabeditwidget.ui
+kanagram_SOURCES = main.cpp kanagram.cpp kanagramgame.cpp fontutils.cpp kanagramconfig.kcfgc mainsettingswidget.ui vocabsettingswidget.ui vocabeditwidget.ui vocabsettings.cpp vocabedit.cpp
 kanagram_LDFLAGS = $(KDE_RPATH) $(all_libraries)
 #TODO -libkdeeducore will have to be changed to ../../libkdeedu/kdeeducore/libkdeeducore.la when kanagram gets in kdeedu module
 kanagram_LDADD =  $(LIB_KDEUI) -lkdeeducore
