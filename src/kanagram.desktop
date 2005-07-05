@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Kanagram
+Name[tr]=KAnagram
 Exec=kanagram
 Icon=kanagram
 Type=Application
@@ -11,4 +12,5 @@ Comment[it]=Un gioco di anagrammi
 Comment[pt]=Um jogo de anagramas
 Comment[pt_BR]=Um jogo de anagramas
 Comment[sv]=Ett anagramspel
+Comment[tr]=Bir anagram oyunu
 Categories=Qt;KDE;Education
