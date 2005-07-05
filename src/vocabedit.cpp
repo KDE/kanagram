@@ -63,3 +63,6 @@ void VocabEdit::wordTextChanged(const QString &changedText)
 void VocabEdit::wordLostFocus()
 {
 }
+
+#include "vocabedit.moc"
+

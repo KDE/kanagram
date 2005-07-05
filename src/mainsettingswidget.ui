@@ -26,9 +26,6 @@
             <property name="text">
                 <string>&amp;Display new word on correct answer</string>
             </property>
-            <property name="accel">
-                <string>Alt+D</string>
-            </property>
         </widget>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
@@ -118,9 +115,6 @@
             <property name="text">
                 <string>Use sou&amp;nds</string>
             </property>
-            <property name="accel">
-                <string>Alt+N</string>
-            </property>
         </widget>
         <spacer row="0" column="0">
             <property name="name">
@@ -182,9 +176,6 @@
                     <property name="text">
                         <string>&amp;Use standard fonts for interface</string>
                     </property>
-                    <property name="accel">
-                        <string>Alt+U</string>
-                    </property>
                 </widget>
                 <widget class="QCheckBox" row="1" column="0">
                     <property name="name">
@@ -192,9 +183,6 @@
                     </property>
                     <property name="text">
                         <string>Use standard fonts for &amp;blackboard</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+B</string>
                     </property>
                 </widget>
             </grid>
