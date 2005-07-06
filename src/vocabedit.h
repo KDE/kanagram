@@ -3,7 +3,11 @@
 
 #include "vocabeditwidget.h"
 
-typedef QMap<QString, QString> WordMap;
+#include <vector>
+
+using namespace std;
+
+class VocData;
 
 class VocabEdit : public VocabEditWidget
 {
@@ -17,13 +21,13 @@ Q_OBJECT
 		void slotNewWord();
 		void slotRemoveWord();
 		void slotCancel();
-		void wordLostFocus();
-		void wordTextChanged(const QString &changedText);
-		void wordsSelectionChanged();
+		//void slotItemClicked(QListBoxItem *item);
+		void slotSelectionChanged();
+		void slotWordTextChanged(const QString &changes);
+		void slotHintTextChanged(const QString &changes);
 
 	private:
-		WordMap m_wordMap;
-		WordMap::Iterator it;
+		vector<VocData> m_vocabList;
 };
 
 #endif

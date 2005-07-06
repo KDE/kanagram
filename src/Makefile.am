@@ -21,10 +21,10 @@ KDE_ICON = AUTO
 bin_PROGRAMS = kanagram
 
 # the application source, library search path, and link libraries
-kanagram_SOURCES = main.cpp kanagram.cpp kanagramgame.cpp fontutils.cpp kanagramconfig.kcfgc mainsettingswidget.ui vocabsettingswidget.ui vocabeditwidget.ui vocabsettings.cpp vocabedit.cpp
+kanagram_SOURCES = main.cpp kanagram.cpp kanagramgame.cpp fontutils.cpp kanagramconfig.kcfgc mainsettingswidget.ui vocabsettingswidget.ui vocabeditwidget.ui vocabsettings.cpp vocabedit.cpp vocdata.cpp
 kanagram_LDFLAGS = $(KDE_RPATH) $(all_libraries)
 #TODO -libkdeeducore will have to be changed to ../../libkdeedu/kdeeducore/libkdeeducore.la when kanagram gets in kdeedu module
-kanagram_LDADD =  $(LIB_KDEUI) -lkdeeducore
+kanagram_LDADD =  $(LIB_KDEUI) -lknewstuff -lkdeeducore
 
 kde_kcfg_DATA=kanagram.kcfg
 
