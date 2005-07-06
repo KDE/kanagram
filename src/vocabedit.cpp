@@ -63,6 +63,7 @@ void VocabEdit::slotNewWord()
 {
 	lboxWords->insertItem("New Item");
 	VocData data = VocData();
+        data.setWord("New Item");
 	m_vocabList.push_back(data);
 	//lboxWords->setSelected((lboxWords->count() - 1), true);
 }
@@ -78,8 +79,12 @@ void VocabEdit::slotItemClicked(QListBoxItem *item)
 void VocabEdit::slotSelectionChanged()
 {
 	cout << lboxWords->currentItem() << endl;
+        disconnect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
+	disconnect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));        
 	txtWord->setText(m_vocabList[lboxWords->currentItem()].getWord());
 	txtHint->setText(m_vocabList[lboxWords->currentItem()].getHint());
+        connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
+	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));        
 }
 
 void VocabEdit::slotWordTextChanged(const QString &changes)
