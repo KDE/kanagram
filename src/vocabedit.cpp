@@ -70,7 +70,7 @@ void VocabEdit::slotNewWord()
 {
 	lboxWords->insertItem("New Item");
 	VocData data = VocData();
-        data.setWord("New Item");
+        //data.setWord("New Item");
 	m_vocabList.push_back(data);
 }
 
@@ -92,8 +92,6 @@ void VocabEdit::slotSelectionChanged()
 void VocabEdit::slotWordTextChanged(const QString &changes)
 {
 	m_vocabList[lboxWords->currentItem()].setWord(changes);
-	//QListBoxItem *item = lboxWords->selectedItem();
-	//item->setText(changes);
 	lboxWords->changeItem(changes, lboxWords->currentItem()); 
 }
 

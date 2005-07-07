@@ -22,7 +22,6 @@
 
 #include "kanagramgame.h"
 #include <iostream>
-
 using namespace std;
 
 KanagramGame::KanagramGame()
@@ -36,16 +35,17 @@ KanagramGame::~KanagramGame()
 
 void KanagramGame::nextAnagram()
 {
-	KEduVocDataItemList wordList = KEduVocData::parse(locate("appdata", "data/data.kvtml"));
-	int totalWords = wordList.count();
+	QValueVector<VocData> wordList = VocDataUtils::parseWords(locate("appdata", "data/Animals.kanagram"));
+	int totalWords = wordList.size();
+	cout << wordList.count() << endl;
 	int wordNumber = m_random.getLong(totalWords);
-	while(m_anagram == wordList[wordNumber].originalText())
+	while(m_anagram == wordList[wordNumber].getWord())
 	{
 		wordNumber = m_random.getLong(totalWords);
 	}
-	m_originalWord = wordList[wordNumber].originalText();
+	m_originalWord = wordList[wordNumber].getWord();
 	m_anagram = createAnagram(m_originalWord);
-	m_hint = wordList[wordNumber].translatedText();
+	m_hint = wordList[wordNumber].getHint();
 
 	cout << "Original word: " << m_originalWord << endl;
 }
