@@ -102,8 +102,10 @@ void VocabEdit::slotHintTextChanged(const QString &changes)
 
 void VocabEdit::slotRemoveWord()
 {
-	m_vocabList.erase(m_vocabList.begin() + lboxWords->currentItem());
-	lboxWords->removeItem(lboxWords->currentItem());
+	if (lboxWords->count()) {
+		m_vocabList.erase(m_vocabList.begin() + lboxWords->currentItem());
+		lboxWords->removeItem(lboxWords->currentItem());
+	}
 }
 
 void VocabEdit::slotCancel()
