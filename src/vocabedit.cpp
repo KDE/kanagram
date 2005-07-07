@@ -27,6 +27,7 @@
 #include <qfile.h>
 
 #include <kstandarddirs.h>
+#include <kglobal.h>
 
 #include "vocdata.h"
 
@@ -51,7 +52,7 @@ VocabEdit::~VocabEdit()
 
 void VocabEdit::slotSave()
 {
-	QFile file(txtVocabName->text() + ".kanagram");
+	QFile file(KGlobal::dirs()->saveLocation("data", "kanagram", true) + txtVocabName->text() + ".kanagram");
 	if (file.open(IO_WriteOnly))
 	{
 		QTextStream stream(&file);
