@@ -24,6 +24,9 @@
 #include <qpushbutton.h>
 #include <qlistbox.h>
 #include <qlineedit.h>
+#include <qfile.h>
+
+#include <kstandarddirs.h>
 
 #include "vocdata.h"
 
@@ -48,12 +51,17 @@ VocabEdit::~VocabEdit()
 
 void VocabEdit::slotSave()
 {
-	cout << (const char *)(txtVocabName->text()) << endl;
-	cout << (const char *)(txtDescription->text()) << endl;
-	for(int i = 0; i < m_vocabList.size(); i++)
+	QFile file(txtVocabName->text() + ".kanagram");
+	if (file.open(IO_WriteOnly))
 	{
-		cout << (const char *)(m_vocabList[i].getWord()) << endl;
-		cout << (const char *)(m_vocabList[i].getHint()) << endl;
+		QTextStream stream(&file);
+		stream << (const char *)(txtVocabName->text()) << endl;
+		stream << (const char *)(txtDescription->text()) << endl;
+		for(int i = 0; i < m_vocabList.size(); i++)
+		{
+			stream << (const char *)(m_vocabList[i].getWord()) << endl;
+			stream << (const char *)(m_vocabList[i].getHint()) << endl;
+		}
 	}
 	close();
 }

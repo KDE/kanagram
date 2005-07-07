@@ -25,7 +25,7 @@
 
 #include "vocabeditwidget.h"
 
-#include <vector>
+#include <qvaluevector.h>
 
 using namespace std;
 
@@ -48,7 +48,7 @@ Q_OBJECT
 		void slotHintTextChanged(const QString &changes);
 
 	private:
-		vector<VocData> m_vocabList;
+		QValueVector<VocData> m_vocabList;
 };
 
 #endif
