@@ -43,7 +43,6 @@ Q_OBJECT
 		void slotNewWord();
 		void slotRemoveWord();
 		void slotCancel();
-		//void slotItemClicked(QListBoxItem *item);
 		void slotSelectionChanged();
 		void slotWordTextChanged(const QString &changes);
 		void slotHintTextChanged(const QString &changes);

@@ -39,7 +39,6 @@ VocabEdit::VocabEdit(QWidget *parent) : VocabEditWidget(parent)
 	
 	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
 	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
-	//connect(lboxWords, SIGNAL(clicked(QListBoxItem *)), this, SLOT(slotItemClicked(QListBoxItem *)));
 	connect(lboxWords, SIGNAL(selectionChanged()), this, SLOT(slotSelectionChanged()));
 }
 
@@ -65,32 +64,29 @@ void VocabEdit::slotNewWord()
 	VocData data = VocData();
         data.setWord("New Item");
 	m_vocabList.push_back(data);
-	//lboxWords->setSelected((lboxWords->count() - 1), true);
 }
-
-/*
-void VocabEdit::slotItemClicked(QListBoxItem *item)
-{
-	txtWord->setText(m_vocabList[lboxWords->currentItem()].getWord());
-	txtHint->setText(m_vocabList[lboxWords->currentItem()].getHint());
-}
-*/
 
 void VocabEdit::slotSelectionChanged()
 {
 	cout << lboxWords->currentItem() << endl;
-        disconnect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
-	disconnect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));        
-	txtWord->setText(m_vocabList[lboxWords->currentItem()].getWord());
-	txtHint->setText(m_vocabList[lboxWords->currentItem()].getHint());
-        connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
-	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));        
+	disconnect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
+	disconnect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
+	if(lboxWords->currentItem() >= 0)
+	{
+		txtWord->setText(m_vocabList[lboxWords->currentItem()].getWord());
+		txtHint->setText(m_vocabList[lboxWords->currentItem()].getHint());
+	}
+	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
+	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
+	cout << "The end.." << endl;
 }
 
 void VocabEdit::slotWordTextChanged(const QString &changes)
 {
 	m_vocabList[lboxWords->currentItem()].setWord(changes);
-	lboxWords->changeItem(changes, lboxWords->currentItem());
+	//QListBoxItem *item = lboxWords->selectedItem();
+	//item->setText(changes);
+	lboxWords->changeItem(changes, lboxWords->currentItem()); 
 }
 
 void VocabEdit::slotHintTextChanged(const QString &changes)
