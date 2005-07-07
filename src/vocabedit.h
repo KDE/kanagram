@@ -52,3 +52,4 @@ Q_OBJECT
 };
 
 #endif
+

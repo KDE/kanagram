@@ -110,3 +110,6 @@ void VocabEdit::slotCancel()
 {
 	close();
 }
+
+#include "vocabedit.moc"
+

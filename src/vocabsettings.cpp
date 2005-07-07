@@ -21,3 +21,4 @@ void VocabSettings::slotCreateNew()
 }
 
 #include "vocabsettings.moc"
+
