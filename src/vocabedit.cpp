@@ -38,7 +38,7 @@ VocabEdit::VocabEdit(QWidget *parent) : VocabEditWidget(parent)
 	connect(btnSave, SIGNAL(clicked()), this, SLOT(slotSave()));
 	connect(btnNewWord, SIGNAL(clicked()), this, SLOT(slotNewWord()));
 	connect(btnRemoveWord, SIGNAL(clicked()), this, SLOT(slotRemoveWord()));
-	connect(btnCancel, SIGNAL(clicked()), this, SLOT(slotCancel()));
+	connect(btnCancel, SIGNAL(clicked()), this, SLOT(accept()));
 	
 	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
 	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
@@ -106,11 +106,6 @@ void VocabEdit::slotRemoveWord()
 		m_vocabList.erase(m_vocabList.begin() + lboxWords->currentItem());
 		lboxWords->removeItem(lboxWords->currentItem());
 	}
-}
-
-void VocabEdit::slotCancel()
-{
-	close();
 }
 
 #include "vocabedit.moc"

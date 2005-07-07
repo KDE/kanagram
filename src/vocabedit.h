@@ -42,7 +42,6 @@ Q_OBJECT
 		void slotSave();
 		void slotNewWord();
 		void slotRemoveWord();
-		void slotCancel();
 		void slotSelectionChanged();
 		void slotWordTextChanged(const QString &changes);
 		void slotHintTextChanged(const QString &changes);
