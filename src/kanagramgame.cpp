@@ -21,8 +21,12 @@
  ***************************************************************************/
 
 #include "kanagramgame.h"
-#include <iostream>
-using namespace std;
+
+#include <kurl.h>
+#include <kdebug.h>
+
+#include "keduvocdocument.h"
+
 
 KanagramGame::KanagramGame()
 {
@@ -35,19 +39,21 @@ KanagramGame::~KanagramGame()
 
 void KanagramGame::nextAnagram()
 {
-	QValueVector<VocData> wordList = VocDataUtils::parseWords(locate("appdata", "data/Animals.kanagram"));
-	int totalWords = wordList.size();
-	cout << wordList.count() << endl;
+	//TODO: Fix this so that it doesn't load the list every time
+	//Make sure that no word gets repeated twice
+	
+        KEduVocDocument	*doc = new KEduVocDocument(this);
+	doc->open(KURL(locate("appdata", "frogs.kvtml")), false);
+	int totalWords = doc->numEntries();
+	kdDebug() << "Number of entries:" << totalWords << endl;
 	int wordNumber = m_random.getLong(totalWords);
-	while(m_anagram == wordList[wordNumber].getWord())
+	while(m_anagram == doc->getEntry(wordNumber)->getOriginal())
 	{
 		wordNumber = m_random.getLong(totalWords);
 	}
-	m_originalWord = wordList[wordNumber].getWord();
+	m_originalWord = doc->getEntry(wordNumber)->getOriginal();
 	m_anagram = createAnagram(m_originalWord);
-	m_hint = wordList[wordNumber].getHint();
-
-	cout << "Original word: " << m_originalWord << endl;
+	m_hint = doc->getEntry(wordNumber)->getRemark(0);
 }
 
 QString KanagramGame::getAnagram()

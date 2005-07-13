@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>493</width>
-            <height>372</height>
+            <width>394</width>
+            <height>369</height>
         </rect>
     </property>
     <property name="caption">
@@ -45,10 +45,10 @@
                         </widget>
                         <widget class="QPushButton">
                             <property name="name">
-                                <cstring>btnCancel</cstring>
+                                <cstring>btnClose</cstring>
                             </property>
                             <property name="text">
-                                <string>Cancel</string>
+                                <string>Close</string>
                             </property>
                         </widget>
                     </hbox>
@@ -188,7 +188,7 @@
     <tabstop>txtWord</tabstop>
     <tabstop>txtHint</tabstop>
     <tabstop>btnSave</tabstop>
-    <tabstop>btnCancel</tabstop>
+    <tabstop>btnClose</tabstop>
     <tabstop>lboxWords</tabstop>
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>

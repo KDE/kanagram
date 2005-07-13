@@ -25,9 +25,7 @@
 
 #include <kstandarddirs.h>
 #include <krandomsequence.h>
-
-#include "vocdatautils.h"
-#include "vocdata.h"
+#include <keduvocdata.h>
 
 class KanagramGame : public QObject
 {

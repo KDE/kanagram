@@ -25,21 +25,24 @@
 #include <qlistbox.h>
 #include <qlineedit.h>
 #include <qfile.h>
+#include <qstring.h>
+#include <qvaluevector.h>
 
 #include <kstandarddirs.h>
 #include <kglobal.h>
+#include <kurl.h>
+#include <kdebug.h>
 
-#include "vocdata.h"
+#include "keduvocdocument.h"
+#include "keduvocexpression.h"
 
-#include <iostream>
-using namespace std;
 
 VocabEdit::VocabEdit(QWidget *parent) : VocabEditWidget(parent)
 {
 	connect(btnSave, SIGNAL(clicked()), this, SLOT(slotSave()));
 	connect(btnNewWord, SIGNAL(clicked()), this, SLOT(slotNewWord()));
 	connect(btnRemoveWord, SIGNAL(clicked()), this, SLOT(slotRemoveWord()));
-	connect(btnCancel, SIGNAL(clicked()), this, SLOT(accept()));
+	connect(btnClose, SIGNAL(clicked()), this, SLOT(accept()));
 	
 	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
 	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
@@ -52,53 +55,47 @@ VocabEdit::~VocabEdit()
 
 void VocabEdit::slotSave()
 {
-	QFile file(KGlobal::dirs()->saveLocation("data", "kanagram", true) + txtVocabName->text() + ".kanagram");
-	if (file.open(IO_WriteOnly))
+	KEduVocDocument *doc = new KEduVocDocument(this);
+	doc->setTitle(txtVocabName->text());
+	for(int i = 0; i < m_vocabList.size(); i++)
 	{
-		QTextStream stream(&file);
-		stream << (const char *)(txtVocabName->text()) << endl;
-		stream << (const char *)(txtDescription->text()) << endl;
-		for(int i = 0; i < m_vocabList.size(); i++)
-		{
-			stream << (const char *)(m_vocabList[i].getWord()) << endl;
-			stream << (const char *)(m_vocabList[i].getHint()) << endl;
-		}
+		KEduVocExpression *expr = new KEduVocExpression();
+		expr->setOriginal(txtWord->text());
+		expr->setRemark(0, txtHint->text());
+		doc->appendEntry(expr);
 	}
-	close();
+	doc->saveAs(this, KURL(KGlobal::dirs()->saveLocation("data", "kanagram/") + txtVocabName->text().lower() +".kvtml"), KEduVocDocument::automatic, "kanagram");
 }
 
 void VocabEdit::slotNewWord()
 {
 	lboxWords->insertItem("New Item");
-	VocData data = VocData();
-        //data.setWord("New Item");
-	m_vocabList.push_back(data);
+	KEduVocExpression expr = KEduVocExpression();
+        m_vocabList.append(expr);
 }
 
 void VocabEdit::slotSelectionChanged()
 {
-	cout << lboxWords->currentItem() << endl;
 	disconnect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
 	disconnect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
 	if(lboxWords->currentItem() >= 0)
 	{
-		txtWord->setText(m_vocabList[lboxWords->currentItem()].getWord());
-		txtHint->setText(m_vocabList[lboxWords->currentItem()].getHint());
+		txtWord->setText(m_vocabList[lboxWords->currentItem()].getOriginal());
+		txtHint->setText(m_vocabList[lboxWords->currentItem()].getRemark(0));
 	}
 	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
 	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
-	cout << "The end.." << endl;
 }
 
 void VocabEdit::slotWordTextChanged(const QString &changes)
 {
-	m_vocabList[lboxWords->currentItem()].setWord(changes);
-	lboxWords->changeItem(changes, lboxWords->currentItem()); 
+	m_vocabList[lboxWords->currentItem()].setOriginal(changes);
+	lboxWords->changeItem(changes, lboxWords->currentItem());
 }
 
 void VocabEdit::slotHintTextChanged(const QString &changes)
 {
-	m_vocabList[lboxWords->currentItem()].setHint(changes);
+	m_vocabList[lboxWords->currentItem()].setRemark(0, changes);
 }
 
 void VocabEdit::slotRemoveWord()
@@ -110,4 +107,3 @@ void VocabEdit::slotRemoveWord()
 }
 
 #include "vocabedit.moc"
-

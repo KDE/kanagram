@@ -27,9 +27,7 @@
 
 #include <qvaluevector.h>
 
-using namespace std;
-
-class VocData;
+class KEduVocExpression;
 
 class VocabEdit : public VocabEditWidget
 {
@@ -47,7 +45,7 @@ Q_OBJECT
 		void slotHintTextChanged(const QString &changes);
 
 	private:
-		QValueVector<VocData> m_vocabList;
+		QValueVector<KEduVocExpression> m_vocabList;
 };
 
 #endif

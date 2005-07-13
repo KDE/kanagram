@@ -63,7 +63,6 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_tryRect = QRect(341, 426, 55, 33);
 	
 	setMouseTracking(true);
-	//setMinimumSize(650, 471);
 	setFixedSize(650, 471);
 	show();
 	
@@ -72,8 +71,6 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_fillColor = QColor(40, 40, 40);
 	m_fontColor = QColor(55, 55, 55);
 	m_fontHighlightColor = QColor(99, 99, 99);
-	
-	//KConfig *kc = kapp->config();
 	
 	m_helpMenu = new KHelpMenu(this, kapp->aboutData());
 	
@@ -91,7 +88,6 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_configDialog = new KConfigDialog( this, "settings", KanagramConfig::self() );
 	m_configDialog->addPage( new MainSettingsWidget( m_configDialog ), i18n( "Settings" ), "configure" );
 	m_configDialog->addPage( new VocabSettings( m_configDialog ), i18n("Vocabularies"), "edit" );
-	//m_configDialog->addPage( new KNS::DownloadDialog(m_configDialog, "Caption Me"), i18n("New Stuff"), "new" );
 	//KNS::DownloadDialog::open("myapp/templates");
 }
 
