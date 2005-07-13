@@ -64,7 +64,7 @@ void VocabEdit::slotSave()
 		expr->setRemark(0, txtHint->text());
 		doc->appendEntry(expr);
 	}
-	doc->saveAs(this, KURL(KGlobal::dirs()->saveLocation("data", "kanagram/") + txtVocabName->text().lower() +".kvtml"), KEduVocDocument::automatic, "kanagram");
+	doc->saveAs(this, KURL(KGlobal::dirs()->saveLocation("data", "kanagram/data/") + txtVocabName->text().lower() +".kvtml"), KEduVocDocument::automatic, "kanagram");
 }
 
 void VocabEdit::slotNewWord()
