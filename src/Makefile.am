@@ -24,7 +24,7 @@ bin_PROGRAMS = kanagram
 kanagram_SOURCES = main.cpp kanagram.cpp kanagramgame.cpp fontutils.cpp kanagramconfig.kcfgc mainsettingswidget.ui vocabsettingswidget.ui vocabeditwidget.ui vocabsettings.cpp vocabedit.cpp keduvocdocument.cpp keduvocexpression.cpp keduvockvtmlreader.cpp keduvockvtmlwriter.cpp leitnerbox.cpp leitnersystem.cpp multiplechoice.cpp grammarmanager.cpp leitnersystemview.cpp
 kanagram_LDFLAGS = $(KDE_RPATH) $(all_libraries)
 #TODO -libkdeeducore will have to be changed to ../../libkdeedu/kdeeducore/libkdeeducore.la when kanagram gets in kdeedu module
-kanagram_LDADD =  $(LIB_KDEUI) -lknewstuff -lkdeeducore
+kanagram_LDADD =  $(LIB_KDEUI) -lkio
 
 kde_kcfg_DATA=kanagram.kcfg
 

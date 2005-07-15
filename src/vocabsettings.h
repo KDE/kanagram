@@ -10,8 +10,14 @@ Q_OBJECT
 		VocabSettings(QWidget *parent);
 		~VocabSettings();
 
+	private:
+		QStringList m_fileList;
+		QMap<const QListViewItem*, int> m_itemMap;
+
 	private slots:
 		void slotCreateNew();
+		void slotEdit();
+		void slotRemove();
 };
 
 #endif

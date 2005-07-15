@@ -8,7 +8,7 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>460</width>
+            <width>456</width>
             <height>338</height>
         </rect>
     </property>
@@ -59,31 +59,36 @@
                                 <string>Remove</string>
                             </property>
                         </widget>
-                        <widget class="QComboBox">
-                            <item>
-                                <property name="text">
-                                    <string>Get New from...</string>
-                                </property>
-                            </item>
-                            <item>
-                                <property name="text">
-                                    <string>your computer</string>
-                                </property>
-                            </item>
-                            <item>
-                                <property name="text">
-                                    <string>the Internet</string>
-                                </property>
-                            </item>
-                            <property name="name">
-                                <cstring>comboBox1</cstring>
-                            </property>
-                        </widget>
                     </hbox>
                 </widget>
-                <widget class="QListBox">
+                <widget class="QListView">
+                    <column>
+                        <property name="text">
+                            <string>Title</string>
+                        </property>
+                        <property name="clickable">
+                            <bool>true</bool>
+                        </property>
+                        <property name="resizable">
+                            <bool>true</bool>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Description</string>
+                        </property>
+                        <property name="clickable">
+                            <bool>true</bool>
+                        </property>
+                        <property name="resizable">
+                            <bool>true</bool>
+                        </property>
+                    </column>
                     <property name="name">
-                        <cstring>lboxVocab</cstring>
+                        <cstring>lviewVocab</cstring>
+                    </property>
+                    <property name="allColumnsShowFocus">
+                        <bool>true</bool>
                     </property>
                 </widget>
             </vbox>

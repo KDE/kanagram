@@ -49,6 +49,29 @@ VocabEdit::VocabEdit(QWidget *parent) : VocabEditWidget(parent)
 	connect(lboxWords, SIGNAL(selectionChanged()), this, SLOT(slotSelectionChanged()));
 }
 
+VocabEdit::VocabEdit(QWidget *parent, QString fileName = "") : VocabEditWidget(parent)
+{
+	m_fileName = fileName;
+	KEduVocDocument	*doc = new KEduVocDocument(this);
+	doc->open(KURL(m_fileName), false);
+	kdDebug() << doc->numEntries() << endl;
+	for(int i = 0; i < doc->numEntries(); i++)
+	{
+		KEduVocExpression expr = *doc->getEntry(i);
+		m_vocabList.append(expr);
+		lboxWords->insertItem(doc->getEntry(i)->getOriginal());	
+	}
+
+	connect(btnSave, SIGNAL(clicked()), this, SLOT(slotSave()));
+	connect(btnNewWord, SIGNAL(clicked()), this, SLOT(slotNewWord()));
+	connect(btnRemoveWord, SIGNAL(clicked()), this, SLOT(slotRemoveWord()));
+	connect(btnClose, SIGNAL(clicked()), this, SLOT(accept()));
+	
+	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
+	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
+	connect(lboxWords, SIGNAL(selectionChanged()), this, SLOT(slotSelectionChanged()));
+}
+
 VocabEdit::~VocabEdit()
 {
 }
@@ -57,6 +80,7 @@ void VocabEdit::slotSave()
 {
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->setTitle(txtVocabName->text());
+	doc->setDocRemark(txtDescription->text());
 	for(int i = 0; i < m_vocabList.size(); i++)
 	{
 		KEduVocExpression *expr = new KEduVocExpression();
@@ -71,7 +95,7 @@ void VocabEdit::slotNewWord()
 {
 	lboxWords->insertItem("New Item");
 	KEduVocExpression expr = KEduVocExpression();
-        m_vocabList.append(expr);
+	m_vocabList.append(expr);
 }
 
 void VocabEdit::slotSelectionChanged()

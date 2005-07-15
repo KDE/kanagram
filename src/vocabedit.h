@@ -34,6 +34,7 @@ class VocabEdit : public VocabEditWidget
 Q_OBJECT
 	public:
 		VocabEdit(QWidget *parent);
+		VocabEdit(QWidget *parent, QString fileName);
 		~VocabEdit();
 	
 	public slots:
@@ -46,6 +47,7 @@ Q_OBJECT
 
 	private:
 		QValueVector<KEduVocExpression> m_vocabList;
+		QString m_fileName;
 };
 
 #endif
