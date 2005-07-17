@@ -43,7 +43,7 @@ void KanagramGame::nextAnagram()
 	//Make sure that no word gets repeated twice
 	
         KEduVocDocument	*doc = new KEduVocDocument(this);
-	doc->open(KURL(locate("appdata", "data/animals.kvtml")), false);
+	doc->open(KURL(locate("appdata", "data/objects.kvtml")), false);
 	int totalWords = doc->numEntries();
 	kdDebug() << "Number of entries:" << totalWords << endl;
 	int wordNumber = m_random.getLong(totalWords);

@@ -83,10 +83,7 @@ void VocabEdit::slotSave()
 	doc->setDocRemark(txtDescription->text());
 	for(int i = 0; i < m_vocabList.size(); i++)
 	{
-		KEduVocExpression *expr = new KEduVocExpression();
-		expr->setOriginal(txtWord->text());
-		expr->setRemark(0, txtHint->text());
-		doc->appendEntry(expr);
+		doc->appendEntry(&m_vocabList[i]);
 	}
 	doc->saveAs(this, KURL(KGlobal::dirs()->saveLocation("data", "kanagram/data/") + txtVocabName->text().lower() +".kvtml"), KEduVocDocument::automatic, "kanagram");
 }
