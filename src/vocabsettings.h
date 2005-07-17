@@ -17,7 +17,7 @@ Q_OBJECT
 	private slots:
 		void slotCreateNew();
 		void slotEdit();
-		void slotRemove();
+		void slotDelete();
 };
 
 #endif

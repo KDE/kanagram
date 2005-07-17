@@ -8,6 +8,7 @@
 #include <qstringlist.h>
 #include <qlistview.h>
 #include <qvaluevector.h>
+#include <qfile.h>
 
 #include <kurl.h>
 
@@ -17,7 +18,7 @@ VocabSettings::VocabSettings(QWidget *parent) : VocabSettingsWidget(parent)
 {
 	connect(btnCreateNew, SIGNAL(clicked()), this, SLOT(slotCreateNew()));
 	connect(btnEdit, SIGNAL(clicked()), this, SLOT(slotEdit()));
-	connect(btnRemove, SIGNAL(clicked()), this, SLOT(slotRemove()));
+	connect(btnDelete, SIGNAL(clicked()), this, SLOT(slotDelete()));
 
 	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/*.kvtml");
 	for(int i = 0; i < m_fileList.size(); i++)
@@ -45,8 +46,13 @@ void VocabSettings::slotEdit()
 	}
 }
 
-void VocabSettings::slotRemove()
+void VocabSettings::slotDelete()
 {
+	if(lviewVocab->selectedItem())
+	{
+		int index = m_itemMap[lviewVocab->selectedItem()];
+		bool itWorked = QFile::remove(m_fileList[index]);
+	}
 }
 
 void VocabSettings::slotCreateNew()

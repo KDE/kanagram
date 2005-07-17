@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Objects" remark="Everyday objects from the home." cols="0" generator="kanagram" lines="20" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e i="1" >
+  <o width="150" l="original" r="electrical device that displays moving images" >television</o>
+ </e>
+ <e i="1" >
+  <o r="for sitting down on" >chair</o>
+ </e>
+ <e i="1" >
+  <o r="used to keep food items extra cold" >freezer</o>
+ </e>
+ <e i="1" >
+  <o r="to keep food cool" >fridge</o>
+ </e>
+ <e i="1" >
+  <o r="used to cook food" >cooker</o>
+ </e>
+ <e i="1" >
+  <o r="keep warm by flame in cold weather" >fireplace</o>
+ </e>
+ <e i="1" >
+  <o r="holds items above the floor" >table</o>
+ </e>
+ <e i="1" >
+  <o r="storage for personal items" >drawers</o>
+ </e>
+ <e i="1" >
+  <o r="reflects the area in front of it" >mirror</o>
+ </e>
+ <e i="1" >
+  <o r="keeps the time" >clock</o>
+ </e>
+ <e i="1" >
+  <o r="stores clothing items upright" >wardrobe</o>
+ </e>
+ <e i="1" >
+  <o r="storage for books" >bookcase</o>
+ </e>
+ <e i="1" >
+  <o r="liquidates food items" >blender</o>
+ </e>
+ <e i="1" >
+  <o r="for comfortable seating" >settee</o>
+ </e>
+ <e i="1" >
+  <o r="to wash the hands and face" >washbasin</o>
+ </e>
+ <e i="1" >
+  <o r="to clean your body whilst standing" >shower</o>
+ </e>
+ <e i="1" >
+  <o r="to clean the body whilst lying horizontally" >bath</o>
+ </e>
+ <e i="1" >
+  <o r="dedicated to boiling water" >kettle</o>
+ </e>
+ <e i="1" >
+  <o r="a vocal communication device" >telephone</o>
+ </e>
+ <e i="1" >
+  <o r="increase the temperature of the house" >radiator</o>
+ </e>
+</kvtml>

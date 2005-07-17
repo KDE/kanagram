@@ -53,10 +53,10 @@
                         </widget>
                         <widget class="QPushButton">
                             <property name="name">
-                                <cstring>btnRemove</cstring>
+                                <cstring>btnDelete</cstring>
                             </property>
                             <property name="text">
-                                <string>Remove</string>
+                                <string>Delete</string>
                             </property>
                         </widget>
                     </hbox>
