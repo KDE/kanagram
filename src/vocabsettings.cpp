@@ -9,6 +9,7 @@
 #include <qlistview.h>
 #include <qvaluevector.h>
 #include <qfile.h>
+#include <qfileinfo.h>
 
 #include <kurl.h>
 
@@ -19,6 +20,18 @@ VocabSettings::VocabSettings(QWidget *parent) : VocabSettingsWidget(parent)
 	connect(btnCreateNew, SIGNAL(clicked()), this, SLOT(slotCreateNew()));
 	connect(btnEdit, SIGNAL(clicked()), this, SLOT(slotEdit()));
 	connect(btnDelete, SIGNAL(clicked()), this, SLOT(slotDelete()));
+	connect(lviewVocab, SIGNAL(selectionChanged(QListViewItem *)), this, SLOT(slotSelectionChanged(QListViewItem *)));
+
+	refreshView();
+}
+
+VocabSettings::~VocabSettings()
+{
+}
+
+void VocabSettings::refreshView()
+{
+	lviewVocab->clear();
 
 	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/*.kvtml");
 	for(int i = 0; i < m_fileList.size(); i++)
@@ -30,10 +43,6 @@ VocabSettings::VocabSettings(QWidget *parent) : VocabSettingsWidget(parent)
 		item->setText( 1, doc->getDocRemark() );
 		m_itemMap[item] = i;
 	}
-}
-
-VocabSettings::~VocabSettings()
-{
 }
 
 void VocabSettings::slotEdit()
@@ -53,12 +62,28 @@ void VocabSettings::slotDelete()
 		int index = m_itemMap[lviewVocab->selectedItem()];
 		bool itWorked = QFile::remove(m_fileList[index]);
 	}
+
+	refreshView();
 }
 
 void VocabSettings::slotCreateNew()
 {
 	VocabEdit *vocabEdit = new VocabEdit(this);
 	vocabEdit->show();
+}
+
+void VocabSettings::slotSelectionChanged(QListViewItem *item)
+{
+	int index = m_itemMap[item];
+	QFileInfo info = QFileInfo(m_fileList[index]);
+	if(!info.isWritable())
+	{
+		btnDelete->setEnabled(false);
+	}
+	else
+	{
+		btnDelete->setEnabled(true);
+	}
 }
 
 #include "vocabsettings.moc"

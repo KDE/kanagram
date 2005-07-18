@@ -35,6 +35,7 @@
 
 #include "keduvocdocument.h"
 #include "keduvocexpression.h"
+#include "vocabsettings.h"
 
 
 VocabEdit::VocabEdit(QWidget *parent) : VocabEditWidget(parent)
@@ -86,6 +87,9 @@ void VocabEdit::slotSave()
 		doc->appendEntry(&m_vocabList[i]);
 	}
 	doc->saveAs(this, KURL(KGlobal::dirs()->saveLocation("data", "kanagram/data/") + txtVocabName->text().lower() +".kvtml"), KEduVocDocument::automatic, "kanagram");
+
+	VocabSettings *settings = (VocabSettings*)this->parentWidget();
+	settings->refreshView();
 }
 
 void VocabEdit::slotNewWord()

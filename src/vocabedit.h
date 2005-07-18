@@ -44,7 +44,7 @@ Q_OBJECT
 		void slotSelectionChanged();
 		void slotWordTextChanged(const QString &changes);
 		void slotHintTextChanged(const QString &changes);
-
+		
 	private:
 		QValueVector<KEduVocExpression> m_vocabList;
 		QString m_fileName;

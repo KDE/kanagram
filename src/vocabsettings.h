@@ -9,6 +9,7 @@ Q_OBJECT
 	public:
 		VocabSettings(QWidget *parent);
 		~VocabSettings();
+		void refreshView();
 
 	private:
 		QStringList m_fileList;
@@ -18,6 +19,7 @@ Q_OBJECT
 		void slotCreateNew();
 		void slotEdit();
 		void slotDelete();
+		void slotSelectionChanged(QListViewItem *item);
 };
 
 #endif
