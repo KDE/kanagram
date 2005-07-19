@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="World Capitals" remark="Capital cities of the World." cols="0" generator="kanagram" lines="25" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e i="1" >
+  <o width="150" l="original" r="Capital of England" >london</o>
+ </e>
+ <e i="1" >
+  <o r="Capital of France" >paris</o>
+ </e>
+ <e>
+  <o r="Capital of Germany" >berlin</o>
+ </e>
+ <e>
+  <o r="Capital of Ireland" >dublin</o>
+ </e>
+ <e>
+  <o r="Capital of Spain" >madrid</o>
+ </e>
+ <e>
+  <o r="Capital of Russia" >moscow</o>
+ </e>
+ <e>
+  <o r="Capital of Afganistan" >kabul</o>
+ </e>
+ <e>
+  <o r="Capital of the USA" >washington</o>
+ </e>
+ <e>
+  <o r="Capital of Australia" >canberra</o>
+ </e>
+ <e>
+  <o r="Capital of Japan" >tokyo</o>
+ </e>
+ <e>
+  <o r="Capital of Portugal" >lisbon</o>
+ </e>
+ <e>
+  <o r="Capital of Scotland" >edinburgh</o>
+ </e>
+ <e>
+  <o r="Capital of Iraq" >baghdad</o>
+ </e>
+ <e>
+  <o r="Capital of China" >beijing</o>
+ </e>
+ <e>
+  <o r="Capital of South Korea" >seoul</o>
+ </e>
+ <e>
+  <o r="Capital of Iran" >tehran</o>
+ </e>
+ <e>
+  <o r="Capital of Canada" >ottawa</o>
+ </e>
+ <e>
+  <o r="Capital of Greece" >athens</o>
+ </e>
+ <e>
+  <o r="Capital of Sweden" >stockholm</o>
+ </e>
+ <e>
+  <o r="Capital of Norway" >oslo</o>
+ </e>
+ <e>
+  <o r="Capital of Bulgaria" >sofia</o>
+ </e>
+ <e>
+  <o r="Capital of the Netherlands" >amsterdam</o>
+ </e>
+ <e>
+  <o r="Capital of Italy" >rome</o>
+ </e>
+ <e>
+  <o r="Capital of Austria" >vienna</o>
+ </e>
+ <e>
+  <o r="Capital of Chile" >santiago</o>
+ </e>
+</kvtml>
