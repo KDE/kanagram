@@ -1,2 +1,2 @@
-txt_DATA = objects.kvtml world capitals.kvtml
+txt_DATA = objects.kvtml
 txtdir = $(kde_datadir)/kanagram/data
