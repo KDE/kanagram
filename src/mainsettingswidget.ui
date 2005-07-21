@@ -35,39 +35,6 @@
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
-                <widget class="QLabel" row="0" column="0">
-                    <property name="name">
-                        <cstring>textLabel1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Default vocabulary:</string>
-                    </property>
-                </widget>
-                <widget class="QComboBox" row="1" column="0">
-                    <item>
-                        <property name="text">
-                            <string>Easy</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Difficult</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>Animals</string>
-                        </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>World Capitals</string>
-                        </property>
-                    </item>
-                    <property name="name">
-                        <cstring>kcfg_defaultVocabulary</cstring>
-                    </property>
-                </widget>
                 <widget class="QLabel" row="2" column="0">
                     <property name="name">
                         <cstring>textLabel1_2</cstring>
@@ -190,7 +157,6 @@
     </grid>
 </widget>
 <tabstops>
-    <tabstop>kcfg_defaultVocabulary</tabstop>
     <tabstop>kcfg_hintHideTime</tabstop>
     <tabstop>kcfg_newWordOnAnswer</tabstop>
     <tabstop>kcfg_useSounds</tabstop>
