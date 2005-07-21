@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Computers" remark="Items surrounding your computer" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="original" r="A device to visualize bits" >monitor</o>
+ </e>
+ <e>
+  <o r="Creates waves through the air" >speakers</o>
+ </e>
+ <e>
+  <o r="Used to visualize bits on paper" >printer</o>
+ </e>
+ <e>
+  <o r="A way to instruct a computer" >mouse</o>
+ </e>
+ <e>
+  <o r="A standard computer input device" >keyboard</o>
+ </e>
+ <e>
+  <o r="Used to communicate over the Internet" >modem</o>
+ </e>
+ <e>
+  <o r="An internet communications device" >router</o>
+ </e>
+ <e>
+  <o r="A substance ensuring alertness" >caffeine</o>
+ </e>
+ <e>
+  <o r="An ancient storage device" >floppy</o>
+ </e>
+ <e>
+  <o r="Used for software backups" >tape</o>
+ </e>
+ <e>
+  <o r="Creates a digital representation of an object" >scanner</o>
+ </e>
+</kvtml>
