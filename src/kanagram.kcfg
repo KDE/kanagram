@@ -1,15 +1,5 @@
 <kcfgfile name="kanagramrc">
 <group name="kanagram">
-<entry name="defaultVocabulary" type="Enum">
-	<label>Sets the default vocabulary</label>
-	<choices>
-		<choice name="Easy"/>
-		<choice name="Difficult"/>
-		<choice name="Animals"/>
-		<choice name="WorldCapitals"/>
-	</choices>
-	<default>Easy</default>
-</entry>
 <entry name="hintHideTime" type="String">
 	<label>Sets how long hints should be shown</label>
 	<default>5 seconds</default>
