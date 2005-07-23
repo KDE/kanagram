@@ -86,7 +86,9 @@ void VocabEdit::slotSave()
 	{
 		doc->appendEntry(&m_vocabList[i]);
 	}
-	doc->saveAs(this, KURL(KGlobal::dirs()->saveLocation("data", "kanagram/data/") + txtVocabName->text().lower() +".kvtml"), KEduVocDocument::automatic, "kanagram");
+	
+	QString fileName = txtVocabName->text().lower().replace(" ", "") + ".kvtml";
+	doc->saveAs(this, KURL(KGlobal::dirs()->saveLocation("data", "kanagram/data/") + fileName), KEduVocDocument::automatic, "kanagram");
 
 	VocabSettings *settings = (VocabSettings*)this->parentWidget();
 	settings->refreshView();
