@@ -72,6 +72,8 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_fillColor = QColor(40, 40, 40);
 	m_fontColor = QColor(55, 55, 55);
 	m_fontHighlightColor = QColor(99, 99, 99);
+
+	loadSettings();
 	
 	m_helpMenu = new KHelpMenu(this, kapp->aboutData());
 	
