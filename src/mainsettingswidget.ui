@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>347</width>
-            <height>287</height>
+            <width>340</width>
+            <height>186</height>
         </rect>
     </property>
     <property name="caption">
@@ -19,14 +19,6 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QCheckBox" row="2" column="0">
-            <property name="name">
-                <cstring>kcfg_newWordOnAnswer</cstring>
-            </property>
-            <property name="text">
-                <string>&amp;Display new word on correct answer</string>
-            </property>
-        </widget>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
                 <cstring>layout5</cstring>
@@ -81,6 +73,9 @@
             </property>
             <property name="text">
                 <string>Use sou&amp;nds</string>
+            </property>
+            <property name="accel">
+                <string>Alt+N</string>
             </property>
         </widget>
         <spacer row="0" column="0">
@@ -158,7 +153,6 @@
 </widget>
 <tabstops>
     <tabstop>kcfg_hintHideTime</tabstop>
-    <tabstop>kcfg_newWordOnAnswer</tabstop>
     <tabstop>kcfg_useSounds</tabstop>
     <tabstop>kcfg_standardInterfaceFonts</tabstop>
     <tabstop>kcfg_standardBlackboardFonts</tabstop>

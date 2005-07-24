@@ -4,10 +4,6 @@
 	<label>Sets how long hints should be shown</label>
 	<default>5 seconds</default>
 </entry>
-<entry name="newWordOnAnswer" type="Bool">
-	<label>Displays a new word after a correct answer</label>
-	<default>true</default>
-</entry>
 <entry name="useSounds" type="Bool">
 	<label>Turns on sound effects</label>
 	<default>true</default>

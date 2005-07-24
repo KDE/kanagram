@@ -27,6 +27,7 @@ using namespace std;
 #include <qpainter.h>
 #include <qpixmap.h>
 #include <qtimer.h>
+#include <qstring.h>
 
 #include <kaction.h>
 #include <kapplication.h>
@@ -45,7 +46,7 @@ using namespace std;
 
 #include "kanagram.h"
 #include "fontutils.h"
-#include "kanagramconfig.h"
+#include "kanagramsettings.h"
 #include "mainsettingswidget.h"
 #include "vocabsettings.h"
 
@@ -84,15 +85,31 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	f.setPointSize(17);
 	m_inputBox->setFont(f);
 	m_inputBox->show();
-
-	m_configDialog = new KConfigDialog( this, "settings", KanagramConfig::self() );
-	m_configDialog->addPage( new MainSettingsWidget( m_configDialog ), i18n( "Settings" ), "configure" );
-	m_configDialog->addPage( new VocabSettings( m_configDialog ), i18n("Vocabularies"), "edit" );
-	//KNS::DownloadDialog::open("myapp/templates");
 }
 
 Kanagram::~Kanagram()
 {
+}
+
+void Kanagram::loadSettings()
+{
+	QString hideTime = KanagramSettings::hintHideTime();
+	if(hideTime[0].isDigit())
+		m_hintHideTime = hideTime[0].digitValue();
+	else
+		m_hintHideTime = 0;
+	m_useSounds = KanagramSettings::useSounds();
+	m_standardInterfaceFonts = KanagramSettings::standardInterfaceFonts();
+	m_standardBlackboardFonts = KanagramSettings::standardBlackboardFonts();
+
+	if(m_standardInterfaceFonts)
+		m_font = KGlobalSettings::generalFont();
+	else
+		m_font = QFont("steve");
+	if(m_standardBlackboardFonts)
+		m_blackboardFont = KGlobalSettings::generalFont();
+	else
+		m_blackboardFont = QFont("squeaky chalk sound");
 }
 
 void Kanagram::paintEvent(QPaintEvent *)
@@ -102,15 +119,15 @@ void Kanagram::paintEvent(QPaintEvent *)
 	
 	p.drawPixmap(0, 0, *m_back);
 	
-	drawText(p, m_game.getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, true, "squeaky chalk sound", m_chalkColor, m_chalkHighlightColor, 28);
+	drawText(p, m_game.getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 28);
 	
-	drawText(p, i18n("New Word"), QPoint(543, 62), false, 0, 0, 0, m_overNewWord, true, "Steve", m_fontColor, m_fontHighlightColor);
-	drawText(p, i18n("Settings"), QPoint(543, 147), false, 0, 0, 0, m_overSettings, true, "Steve", m_fontColor, m_fontHighlightColor);
-	drawText(p, i18n("Help"), QPoint(543, 235), false, 0, 0, 0, m_overHelp, true, "Steve", m_fontColor, m_fontHighlightColor);
-	drawText(p, i18n("Quit"), QPoint(543, 391), false, 0, 0, 0, m_overQuit, true, "Steve", m_fontColor, m_fontHighlightColor);
-	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, "squeaky chalk sound", m_chalkColor, m_chalkHighlightColor, 14);
-	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, 0, m_overHint, true, "squeaky chalk sound", m_chalkColor, m_chalkHighlightColor, 14);
-	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, "Bitstream Vera Sans", QColor(126, 126, 126), m_chalkHighlightColor);
+	drawText(p, i18n("New Word"), QPoint(543, 62), false, 0, 0, 0, m_overNewWord, true, m_font, m_fontColor, m_fontHighlightColor);
+	drawText(p, i18n("Settings"), QPoint(543, 147), false, 0, 0, 0, m_overSettings, true, m_font, m_fontColor, m_fontHighlightColor);
+	drawText(p, i18n("Help"), QPoint(543, 235), false, 0, 0, 0, m_overHelp, true, m_font, m_fontColor, m_fontHighlightColor);
+	drawText(p, i18n("Quit"), QPoint(543, 391), false, 0, 0, 0, m_overQuit, true, m_font, m_fontColor, m_fontHighlightColor);
+	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
+	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, 0, m_overHint, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
+	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, m_font, QColor(126, 126, 126), m_chalkHighlightColor);
 
 	p.setPen(QPen(black, 3));
 	
@@ -124,7 +141,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 	if(m_showHint)
 	{
 		p.drawPixmap(439, 204, *m_hintOverlay);
-		QFont f = QFont("Steve");
+		QFont f = QFont(m_font);
 		f.setPointSize(12);
 		p.setFont(f);
 		p.drawText(446, 207, 171, 85, WordBreak | AlignCenter, m_game.getHint());
@@ -145,7 +162,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_settingsRect.contains(e->pos()))
 	{
-		m_configDialog->show();
+		showSettings();
 	}
 
 	if(m_helpRect.contains(e->pos()))
@@ -169,6 +186,10 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		if(m_showHint == true) m_showHint = false;
 		else
 		{
+			if(m_hintHideTime)
+			{
+				QTimer::singleShot( m_hintHideTime * 1000, this, SLOT(hideHint()) );
+			}
 			m_showHint = true;
 			randomHintImage();
 		}
@@ -306,13 +327,13 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 	if (haveToUpdate) update();
 }
 
-void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QString font, QColor fontColor, QColor fontHighlightColor,int fontSize)
+void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QFont &font, QColor fontColor, QColor fontHighlightColor,int fontSize)
 {
 	QRect r;
-	QFont f = font;
-	f.setPointSize(fontSize);
-	if (bold) f.setBold(true);
-	p.setFont(f);
+	//QFont f = font;
+	font.setPointSize(fontSize);
+	if (bold) font.setBold(true);
+	p.setFont(font);
 	
 	r = p.boundingRect(QRect(), Qt::AlignAuto, text);
 	r = QRect(0, 0, r.width() + xMargin, r.height() + yMargin);
@@ -346,6 +367,24 @@ void Kanagram::randomHintImage()
 	}
 	QString dir = "images/eyes" + QString::number(imageNum) + ".png";
 	m_hintOverlay = new QPixmap(locate("appdata", dir));
+}
+
+void Kanagram::showSettings()
+{
+	if(KConfigDialog::showDialog("settings"))
+		return;
+
+	m_configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
+	m_configDialog->addPage( new MainSettingsWidget( m_configDialog ), i18n( "Settings" ), "configure" );
+	m_configDialog->addPage( new VocabSettings( m_configDialog ), i18n("Vocabularies"), "edit" );
+	connect(m_configDialog, SIGNAL(settingsChanged()), this, SLOT(loadSettings()));
+	m_configDialog->show();
+}
+
+void Kanagram::hideHint()
+{
+	if(m_showHint == true) m_showHint = false;
+	update();
 }
 
 #include "kanagram.moc"

@@ -1,4 +1,4 @@
 File=kanagram.kcfg
-ClassName=KanagramConfig
+ClassName=KanagramSettings
 Mutators=true
 Singleton=true
