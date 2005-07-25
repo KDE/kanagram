@@ -79,10 +79,12 @@ void VocabSettings::slotSelectionChanged(QListViewItem *item)
 	if(!info.isWritable())
 	{
 		btnDelete->setEnabled(false);
+		btnEdit->setEnabled(false);
 	}
 	else
 	{
 		btnDelete->setEnabled(true);
+		btnEdit->setEnabled(true);
 	}
 }
 

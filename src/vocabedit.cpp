@@ -62,6 +62,8 @@ VocabEdit::VocabEdit(QWidget *parent, QString fileName = "") : VocabEditWidget(p
 		m_vocabList.append(expr);
 		lboxWords->insertItem(doc->getEntry(i)->getOriginal());	
 	}
+	txtVocabName->setText(doc->getTitle());
+	txtDescription->setText(doc->getDocRemark());
 
 	connect(btnSave, SIGNAL(clicked()), this, SLOT(slotSave()));
 	connect(btnNewWord, SIGNAL(clicked()), this, SLOT(slotNewWord()));

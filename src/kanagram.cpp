@@ -2,7 +2,6 @@
  *   Copyright (C) 2005 by Joshua Keel                                     *
  *   joshuakeel@gmail.com                                                  *
  *                                                                         *
- *   Portions of this code taken from KSimon by Albert Astals Cid.         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -289,6 +288,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		else
 		{
 			m_inputBox->setPaletteBackgroundColor(QColor(255, 0, 0));
+			QTimer::singleShot(2000, this, SLOT(resetInputBox()));
 			cout << "Sorry, try again!" << endl;
 			m_inputBox->clear();
 			update();
@@ -539,6 +539,11 @@ void Kanagram::hideHint()
 {
 	if(m_showHint == true) m_showHint = false;
 	update();
+}
+
+void Kanagram::resetInputBox()
+{
+	m_inputBox->unsetPalette();
 }
 
 #include "kanagram.moc"

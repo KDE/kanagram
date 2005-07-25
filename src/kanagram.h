@@ -47,6 +47,7 @@ Q_OBJECT
 		void checkWord();
 		void loadSettings();
 		void hideHint();
+		void resetInputBox();
 
 	private:
 		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QFont &font, QColor fontColor, QColor fontHighlightColor, int fontSize = 18);
