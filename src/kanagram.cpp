@@ -143,7 +143,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, 0, m_overHint, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
 	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, m_font, QColor(126, 126, 126), m_chalkHighlightColor);
 
-	drawSwitcherText(p, "Objects");
+	drawSwitcherText(p, m_game.getDocTitle());
 	p.drawPixmap(385, 134, *m_arrow);
 
 	p.setPen(QPen(black, 3));
@@ -246,6 +246,13 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	if(m_revealRect.contains(e->pos()))
 	{
 		m_game.restoreWord();
+		update();
+	}
+
+	if(m_switcherRect.contains(e->pos()))
+	{
+		m_game.nextVocab();
+		m_game.nextAnagram();
 		update();
 	}
 

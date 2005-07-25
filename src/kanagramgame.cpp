@@ -26,10 +26,12 @@
 #include <kdebug.h>
 
 #include "keduvocdocument.h"
+#include "kanagramsettings.h"
 
 
 KanagramGame::KanagramGame()
 {
+	nextVocab();
 	nextAnagram();
 }
 
@@ -37,13 +39,30 @@ KanagramGame::~KanagramGame()
 {
 }
 
+void KanagramGame::nextVocab()
+{
+	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/*.kvtml");
+	m_index++;
+	if(m_index >= m_fileList.size())
+		m_index = 0;
+	KEduVocDocument *doc = new KEduVocDocument(this);
+	doc->open(KURL(locate("appdata", m_fileList[m_index])), false);
+	m_docTitle = doc->getTitle();
+}
+
+QString KanagramGame::getDocTitle()
+{
+	return m_docTitle;
+}
+
 void KanagramGame::nextAnagram()
 {
 	//TODO: Fix this so that it doesn't load the list every time
 	//Make sure that no word gets repeated twice
-	
-        KEduVocDocument	*doc = new KEduVocDocument(this);
-	doc->open(KURL(locate("appdata", "data/objects.kvtml")), false);
+
+	KEduVocDocument	*doc = new KEduVocDocument(this);
+	doc->open(KURL(locate("appdata", m_fileList[m_index])), false);
+	kdDebug() << m_fileList[m_index] << endl;
 	int totalWords = doc->numEntries();
 	kdDebug() << "Number of entries:" << totalWords << endl;
 	int wordNumber = m_random.getLong(totalWords);
