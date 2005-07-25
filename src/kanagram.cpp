@@ -63,6 +63,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_handbookOverlayOver = new QPixmap(locate("appdata", "images/handbookiconover.png"));
 	m_card = new QPixmap(locate("appdata", "images/card.png"));
 	m_arrow = new QPixmap(locate("appdata", "images/arrow.png"));
+	m_arrowOver = new QPixmap(locate("appdata", "images/arrowover.png"));
 
 	m_newWordRect = QRect(477, 31, 134, 76);
 	m_settingsRect = QRect(477, 122, 134, 76);
@@ -74,6 +75,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_aboutKDERect = QRect(567, 213, 44, 44);
 	m_aboutAppRect = QRect(522, 213, 44, 44);
 	m_handbookRect = QRect(478, 213, 44, 44);
+	m_arrowRect = QRect(380, 134, 13, 20);
 	
 	setMouseTracking(true);
 	setFixedSize(650, 471);
@@ -144,7 +146,10 @@ void Kanagram::paintEvent(QPaintEvent *)
 	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, m_font, QColor(126, 126, 126), m_chalkHighlightColor);
 
 	drawSwitcherText(p, m_game.getDocTitle());
-	p.drawPixmap(385, 134, *m_arrow);
+	if(m_overSwitcher)
+		p.drawPixmap(385, 134, *m_arrowOver);
+	else
+		p.drawPixmap(385, 134, *m_arrow);
 
 	p.setPen(QPen(black, 3));
 	
@@ -213,13 +218,13 @@ void Kanagram::drawSwitcherText(QPainter &p, QString text)
 	QFontMetrics fm(font);
 	int width = fm.width(text);
 	int height = fm.height();
-	m_switcherRect = QRect(375 - width, 150 - height, width, height);
+	m_switcherRect = QRect(380 - width, 150 - height, width, height);
 	p.setFont(font);
 	if(!m_overSwitcher)
 		p.setPen(m_chalkColor);
 	else
 		p.setPen(m_chalkHighlightColor);
-	p.drawText(375 - width, 150, text);
+	p.drawText(380 - width, 150, text);
 	p.restore();
 }
 
@@ -249,7 +254,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		update();
 	}
 
-	if(m_switcherRect.contains(e->pos()))
+	if(m_switcherRect.contains(e->pos()) || m_arrowRect.contains(e->pos()))
 	{
 		m_game.nextVocab();
 		m_game.nextAnagram();
@@ -417,7 +422,7 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		haveToUpdate = true;
 	}
 
-	if(m_switcherRect.contains(p))
+	if(m_switcherRect.contains(p) || m_arrowRect.contains(p))
 	{
 		if(!m_overSwitcher)
 		{
