@@ -63,13 +63,17 @@ Q_OBJECT
 
 		void showSettings();
 
+		void drawHelpText(QPainter &p, QString text);
+
+		void drawSwitcherText(QPainter &p, QString text);
+
 		KanagramGame m_game;
 
-		QPixmap *m_back, *m_hintOverlay;
+		QPixmap *m_back, *m_hintOverlay, *m_aboutKDEOverlay, *m_aboutAppOverlay, *m_handbookOverlay, *m_aboutKDEOverlayOver, *m_aboutAppOverlayOver, *m_handbookOverlayOver, *m_card, *m_arrow;
 
-		QRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_tryRect;
+		QRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_tryRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect;
 
-		bool m_overNewWord, m_overSettings, m_overHelp, m_overQuit, m_overReveal, m_overHint, m_overTry;
+		bool m_overNewWord, m_overSettings, m_overHelp, m_overQuit, m_overReveal, m_overHint, m_overTry, m_overAboutKDE, m_overAboutApp, m_overHandbook, m_overSwitcher;
 
 		bool m_showHint;
 
