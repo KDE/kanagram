@@ -74,9 +74,6 @@
             <property name="text">
                 <string>Use sou&amp;nds</string>
             </property>
-            <property name="accel">
-                <string>Alt+N</string>
-            </property>
         </widget>
         <spacer row="0" column="0">
             <property name="name">
