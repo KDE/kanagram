@@ -66,60 +66,87 @@ Valid xml means:
   <o width="150" l="original" r="electrical device that displays moving images" >television</o>
  </e>
  <e i="1" >
-  <o r="for sitting down on" >chair</o>
+  <o r="For sitting down on" >chair</o>
  </e>
  <e i="1" >
-  <o r="used to keep food items extra cold" >freezer</o>
+  <o r="Used to keep food items extra cold" >freezer</o>
  </e>
  <e i="1" >
-  <o r="to keep food cool" >fridge</o>
+  <o r="To keep food cool" >fridge</o>
  </e>
  <e i="1" >
-  <o r="used to cook food" >cooker</o>
+  <o r="Used to cook food" >cooker</o>
  </e>
  <e i="1" >
-  <o r="keep warm by flame in cold weather" >fireplace</o>
+  <o r="Keep warm by flame in cold weather" >fireplace</o>
  </e>
  <e i="1" >
-  <o r="holds items above the floor" >table</o>
+  <o r="Holds items above the floor" >table</o>
  </e>
  <e i="1" >
-  <o r="storage for personal items" >drawers</o>
+  <o r="Storage for personal items" >drawers</o>
  </e>
  <e i="1" >
-  <o r="reflects the area in front of it" >mirror</o>
+  <o r="Reflects the area in front of it" >mirror</o>
  </e>
  <e i="1" >
-  <o r="keeps the time" >clock</o>
+  <o r="Keeps the time" >clock</o>
  </e>
  <e i="1" >
-  <o r="stores clothing items upright" >wardrobe</o>
+  <o r="Stores clothing items upright" >wardrobe</o>
  </e>
  <e i="1" >
-  <o r="storage for books" >bookcase</o>
+  <o r="Storage for books" >bookcase</o>
  </e>
  <e i="1" >
-  <o r="liquidates food items" >blender</o>
+  <o r="Liquidates food items" >blender</o>
  </e>
  <e i="1" >
-  <o r="for comfortable seating" >settee</o>
+  <o r="For comfortable seating" >settee</o>
  </e>
  <e i="1" >
-  <o r="to wash the hands and face" >washbasin</o>
+  <o r="To wash the hands and face" >washbasin</o>
  </e>
  <e i="1" >
-  <o r="to clean your body whilst standing" >shower</o>
+  <o r="To clean your body whilst standing" >shower</o>
  </e>
  <e i="1" >
-  <o r="to clean the body whilst lying horizontally" >bath</o>
+  <o r="To clean the body whilst lying horizontally" >bath</o>
  </e>
  <e i="1" >
-  <o r="dedicated to boiling water" >kettle</o>
+  <o r="Dedicated to boiling water" >kettle</o>
  </e>
  <e i="1" >
-  <o r="a vocal communication device" >telephone</o>
+  <o r="A vocal communication device" >telephone</o>
  </e>
  <e i="1" >
-  <o r="increase the temperature of the house" >radiator</o>
+  <o r="Increase the temperature of the house" >radiator</o>
+ </e>
+ <e i="1" >
+  <o r="Plays audio from the airwaves" >radio</o>
+ </e>
+ <e i="1" >
+  <o r="Interactive electronic device" >computer</o>
+ </e>
+ <e i="1" >
+  <o r="Alive, and often cuddly" >pets</o>
+ </e>
+ <e i="1" >
+  <o r="Images in frames" >pictures</o>
+ </e>
+ <e i="1" >
+  <o r="To brush teeth" >toothbrush</o>
+ </e>
+ <e i="1" >
+  <o r="Soft floor covering" >carpet</o>
+ </e>
+ <e i="1" >
+  <o r="Things to play with" >toys</o>
+ </e>
+ <e i="1" >
+  <o r="Objects with no obvious function" >ornaments</o>
+ </e>
+ <e i="1" >
+  <o r="Larger storage areas" >cupboards</o>
  </e>
 </kvtml>
