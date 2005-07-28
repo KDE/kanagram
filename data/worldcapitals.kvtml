@@ -137,4 +137,76 @@ Valid xml means:
  <e>
   <o r="Capital of Chile" >santiago</o>
  </e>
+ <e>
+  <o r="Capital of Albania" >tirana</o>
+ </e>
+ <e>
+  <o r="Capital of Belgium" >brussels</o>
+ </e>
+ <e>
+  <o r="Capital of Croatia" >zagreb</o>
+ </e>
+ <e>
+  <o r="Capital of Estonia" >tallinn</o>
+ </e>
+ <e>
+  <o r="Capital of Finland" >helsinki</o>
+ </e>
+ <e>
+  <o r="Capital of Iceland" >reykjavik</o>
+ </e>
+ <e>
+  <o r="Capital of Hungary" >budapest</o>
+ </e>
+ <e>
+  <o r="Capital of Turkey" >istanbul</o>
+ </e>
+ <e>
+  <o r="Capital of Indonesia" >jakarta</o>
+ </e>
+ <e>
+  <o r="Capital of Jamaica" >kingston</o>
+ </e>
+ <e>
+  <o r="Capital of Kenya" >nairobi</o>
+ </e>
+ <e>
+  <o r="Capital of Latvia" >riga</o>
+ </e>
+ <e>
+  <o r="Capital of Lebanon" >beirut</o>
+ </e>
+ <e>
+  <o r="Capital of Libya" >tripoli</o>
+ </e>
+ <e>
+  <o r="Capital of Macedonia" >skopje</o>
+ </e>
+ <e>
+  <o r="Capital of Nepal" >kathmandu</o>
+ </e>
+ <e>
+  <o r="Capital of Peru" >lima</o>
+ </e>
+ <e>
+  <o r="Capital of Poland" >warsaw</o>
+ </e>
+ <e>
+  <o r="Capital of Romania" >bucharest</o>
+ </e>
+ <e>
+  <o r="Capital of Slovakia" >bratislava</o>
+ </e>
+ <e>
+  <o r="Capital of Somalia" >mogadishu</o>
+ </e>
+ <e>
+  <o r="Capital of Syria" >damascus</o>
+ </e>
+ <e>
+  <o r="Capital of Switzerland" >bern</o>
+ </e>
+ <e>
+  <o r="Capital of Thailand" >bangkok</o>
+ </e>
 </kvtml>
