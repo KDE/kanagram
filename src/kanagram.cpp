@@ -287,8 +287,6 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		{
 			if(m_hintHideTime)
 			{
-				if(m_hintTimer->isActive())
-					m_hintTimer->stop();
 				m_hintTimer->start(m_hintHideTime * 1000, TRUE);
 			}
 			m_showHint = true;
