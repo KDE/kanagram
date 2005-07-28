@@ -63,10 +63,7 @@ Valid xml means:
   <sort on="1" />
  </options>
  <e>
-  <o width="150" l="original" r="The young of a cat, ferret, etc." >kitten</o>
- </e>
- <e>
-  <o r="Large heavy animal with thick fur" >bear</o>
+  <o width="150" l="original" r="Large heavy animal with thick fur" >bear</o>
  </e>
  <e>
   <o r="Sea mammal" >dolphin</o>
