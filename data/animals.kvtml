@@ -3,15 +3,15 @@
 <kvtml encoding="UTF-8">
  <e>
  <o>kitten</o>
- <t>the young of a cat, ferret, etc.</t>
+ <t>The young of a cat, ferret, etc.</t>
  </e>
   <e>
  <o>bear</o>
- <t>large heavy animal with thick fur</t>
+ <t>Large heavy animal with thick fur</t>
  </e>
   <e>
  <o>dolphin</o>
- <t>sea mammal</t>
+ <t>Sea mammal</t>
  </e>
   <e>
  <o>zebra</o>
@@ -23,158 +23,150 @@
  </e>
   <e>
  <o>whale</o>
- <t>very large sea mammal</t>
+ <t>Very large sea mammal</t>
  </e>
   <e>
  <o>horse</o>
- <t>four-legged animal used for riding</t>
+ <t>Four-legged animal used for riding</t>
  </e>
   <e>
  <o>monkey</o>
- <t>animal of a group closely related to man</t>
+ <t>Closely related to humans</t>
  </e>
   <e>
  <o>woodpecker</o>
- <t>bird that clings to tree trunks</t>
- </e>
-  <e>
- <o>kingfisher</o>
- <t>small bird with bright bluish plumage</t>
+ <t>Bird that drills through wood</t>
  </e>
   <e>
  <o>snake</o>
- <t>reptile with no legs</t>
+ <t>Reptile with no legs</t>
  </e>
   <e>
  <o>giraffe</o>
- <t>long-necked African animal</t>
+ <t>Long-necked African animal</t>
  </e>
   <e>
  <o>elephant</o>
- <t>largest living land animal with a trunk</t>
+ <t>Largest living land animal with a trunk</t>
  </e>
   <e>
  <o>mouse</o>
- <t>small rodent with a long thin tail</t>
+ <t>Small rodent with a long tail</t>
  </e>
   <e>
  <o>worm</o>
- <t>animal with no bachbone or limbs</t>
+ <t>Animal with no backbone or limbs</t>
  </e>
   <e>
  <o>dragonfly</o>
- <t>large insect with transparent wings</t>
+ <t>Large insect with transparent wings</t>
  </e>
   <e>
  <o>penguin</o>
- <t>sea bird of the Antarctic regions</t>
+ <t>Sea bird of the Antarctic regions</t>
  </e>
   <e>
  <o>rabbit</o>
- <t>burrowing animal with long ears</t>
+ <t>Burrowing animal with long ears</t>
  </e>
   <e>
  <o>hamster</o>
- <t>small mouselike rodent with cheek-pouches</t>
+ <t>Small mouse-like rodent, kept as pets</t>
  </e>
   <e>
  <o>piglet</o>
- <t>young pig</t>
+ <t>Young pig</t>
  </e>
   <e>
  <o>wolf</o>
- <t>fierce wild animal of the dog family</t>
+ <t>Fierce, wild animal of the dog family</t>
  </e>
   <e>
  <o>lion</o>
- <t>large powerful animal of the cat family</t>
+ <t>Large, powerful animal of the cat family</t>
  </e>
   <e>
  <o>tiger</o>
- <t>large Asian animal of the cat family</t>
+ <t>Large Asian animal of the cat family</t>
  </e>
   <e>
  <o>octopus</o>
- <t>sea animal with eight long tentacles</t>
+ <t>Sea animal with eight long tentacles</t>
  </e>
   <e>
  <o>rhinoceros</o>
- <t>large thick-skinned animal of Africa</t>
+ <t>Large, thick-skinned animal of Africa</t>
  </e>
   <e>
  <o>hedgehog</o>
- <t>small insect-eating animal with a back covered in stiff spines</t>
+ <t>Small, with a back covered in stiff spines</t>
  </e>
   <e>
  <o>reindeer</o>
- <t>deer with large antlers</t>
+ <t>Deer with large antlers</t>
  </e>
   <e>
  <o>squirrel</o>
- <t>small tree-climbing animal with a bushy tail</t>
+ <t>Small tree-climbing animal with a bushy tail</t>
  </e>
   <e>
  <o>tortoise</o>
- <t>a slow-moving four-footed reptile</t>
+ <t>A slow-moving, four-footed reptile</t>
  </e>
   <e>
  <o>hippopotamus</o>
- <t>large African river animal</t>
+ <t>Large African river animal</t>
  </e>
   <e>
  <o>dinosaur</o>
- <t>extinct reptile</t>
- </e>
-  <e>
- <o>turkey</o>
- <t>large bird reared for its flesh</t>
+ <t>Extinct reptile</t>
  </e>
   <e>
  <o>eagle</o>
- <t>large bird of prey</t>
+ <t>Large bird of prey</t>
  </e>
   <e>
  <o>shark</o>
- <t>large sea fish with a triangular fin on its back</t>
+ <t>Large sea fish with a triangular fin</t>
  </e>
   <e>
  <o>duck</o>
- <t>swimming bird</t>
+ <t>Swimming bird</t>
  </e>
   <e>
  <o>fish</o>
- <t>live in water</t>
+ <t>Live in water</t>
  </e>
   <e>
  <o>parrot</o>
- <t>can repeat your words</t>
+ <t>Can repeat your words</t>
  </e>
   <e>
  <o>frog</o>
- <t>smal green jumping animal</t>
+ <t>Small green jumping animal</t>
  </e>
   <e>
  <o>snail</o>
- <t>has a spiral shell</t>
+ <t>Slow-moving, has a spiral shell</t>
  </e>
   <e>
  <o>camel</o>
- <t>can survive a long time in the desert</t>
+ <t>Can survive a long time in the desert</t>
  </e>
   <e>
  <o>alligator</o>
- <t>reptile of the crocodile family</t>
+ <t>Reptile of the crocodile family</t>
  </e>
   <e>
  <o>mosquito</o>
- <t>kind of gnat, the female of which bites</t>
+ <t>Its bite spreads malaria</t>
  </e>
   <e>
  <o>sheep</o>
- <t>grass-eating animal with a thick fleecy coat</t>
+ <t>Grass-eating animal with a thick fleecy coat</t>
  </e>
   <e>
  <o>shellfish</o>
- <t>water animal that has a shell</t>
+ <t>Water animal that has a shell</t>
  </e>
 </kvtml>
