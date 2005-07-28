@@ -524,11 +524,7 @@ void Kanagram::checkWord()
 void Kanagram::randomHintImage()
 {
 	unsigned long imageNum = m_randomImage.getLong(8);
-	if (imageNum == 0)
-	{
-		imageNum = 5;
-	}
-	QString dir = "images/eyes" + QString::number(imageNum) + ".png";
+	QString dir = "images/eyes" + QString::number(imageNum + 1) + ".png";
 	m_hintOverlay = new QPixmap(locate("appdata", dir));
 }
 
