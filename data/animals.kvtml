@@ -1,172 +1,188 @@
-<?xml version="1.0"?>
+<?xml version = '1.0' encoding = 'UTF-8'?>
 <!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<kvtml encoding="UTF-8">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Animals" remark="Animals from across the planet" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
  <e>
- <o>kitten</o>
- <t>The young of a cat, ferret, etc.</t>
+  <o width="150" l="original" r="The young of a cat, ferret, etc." >kitten</o>
  </e>
-  <e>
- <o>bear</o>
- <t>Large heavy animal with thick fur</t>
+ <e>
+  <o r="Large heavy animal with thick fur" >bear</o>
  </e>
-  <e>
- <o>dolphin</o>
- <t>Sea mammal</t>
+ <e>
+  <o r="Sea mammal" >dolphin</o>
  </e>
-  <e>
- <o>zebra</o>
- <t>African animal with black and white stripes</t>
+ <e>
+  <o r="African animal with black and white stripes" >zebra</o>
  </e>
-  <e>
- <o>kangaroo</o>
- <t>Australian jumping animal</t>
+ <e>
+  <o r="Australian jumping animal" >kangaroo</o>
  </e>
-  <e>
- <o>whale</o>
- <t>Very large sea mammal</t>
+ <e>
+  <o r="Very large sea mammal" >whale</o>
  </e>
-  <e>
- <o>horse</o>
- <t>Four-legged animal used for riding</t>
+ <e>
+  <o r="Four-legged animal used for riding" >horse</o>
  </e>
-  <e>
- <o>monkey</o>
- <t>Closely related to humans</t>
+ <e>
+  <o r="Closely related to humans" >monkey</o>
  </e>
-  <e>
- <o>woodpecker</o>
- <t>Bird that drills through wood</t>
+ <e>
+  <o r="Bird that drills through wood" >woodpecker</o>
  </e>
-  <e>
- <o>snake</o>
- <t>Reptile with no legs</t>
+ <e>
+  <o r="Reptile with no legs" >snake</o>
  </e>
-  <e>
- <o>giraffe</o>
- <t>Long-necked African animal</t>
+ <e>
+  <o r="Long-necked African animal" >giraffe</o>
  </e>
-  <e>
- <o>elephant</o>
- <t>Largest living land animal with a trunk</t>
+ <e>
+  <o r="Largest living land animal with a trunk" >elephant</o>
  </e>
-  <e>
- <o>mouse</o>
- <t>Small rodent with a long tail</t>
+ <e>
+  <o r="Small rodent with a long tail" >mouse</o>
  </e>
-  <e>
- <o>worm</o>
- <t>Animal with no backbone or limbs</t>
+ <e>
+  <o r="Animal with no backbone or limbs" >worm</o>
  </e>
-  <e>
- <o>dragonfly</o>
- <t>Large insect with transparent wings</t>
+ <e>
+  <o r="Large insect with transparent wings" >dragonfly</o>
  </e>
-  <e>
- <o>penguin</o>
- <t>Sea bird of the Antarctic regions</t>
+ <e>
+  <o r="Sea bird of the Antarctic regions" >penguin</o>
  </e>
-  <e>
- <o>rabbit</o>
- <t>Burrowing animal with long ears</t>
+ <e>
+  <o r="Burrowing animal with long ears" >rabbit</o>
  </e>
-  <e>
- <o>hamster</o>
- <t>Small mouse-like rodent, kept as pets</t>
+ <e>
+  <o r="Small mouse-like rodent, kept as pets" >hamster</o>
  </e>
-  <e>
- <o>piglet</o>
- <t>Young pig</t>
+ <e>
+  <o r="Fierce, wild animal of the dog family" >wolf</o>
  </e>
-  <e>
- <o>wolf</o>
- <t>Fierce, wild animal of the dog family</t>
+ <e>
+  <o r="Large, powerful animal of the cat family" >lion</o>
  </e>
-  <e>
- <o>lion</o>
- <t>Large, powerful animal of the cat family</t>
+ <e>
+  <o r="Large Asian animal of the cat family" >tiger</o>
  </e>
-  <e>
- <o>tiger</o>
- <t>Large Asian animal of the cat family</t>
+ <e>
+  <o r="Sea animal with eight long tentacles" >octopus</o>
  </e>
-  <e>
- <o>octopus</o>
- <t>Sea animal with eight long tentacles</t>
+ <e>
+  <o r="Large, thick-skinned animal of Africa" >rhinoceros</o>
  </e>
-  <e>
- <o>rhinoceros</o>
- <t>Large, thick-skinned animal of Africa</t>
+ <e>
+  <o r="Small, with a back covered in stiff spines" >hedgehog</o>
  </e>
-  <e>
- <o>hedgehog</o>
- <t>Small, with a back covered in stiff spines</t>
+ <e>
+  <o r="Deer with large antlers" >reindeer</o>
  </e>
-  <e>
- <o>reindeer</o>
- <t>Deer with large antlers</t>
+ <e>
+  <o r="Small tree-climbing animal with a bushy tail" >squirrel</o>
  </e>
-  <e>
- <o>squirrel</o>
- <t>Small tree-climbing animal with a bushy tail</t>
+ <e>
+  <o r="A slow-moving, four-footed reptile" >tortoise</o>
  </e>
-  <e>
- <o>tortoise</o>
- <t>A slow-moving, four-footed reptile</t>
+ <e>
+  <o r="Large African river animal" >hippopotamus</o>
  </e>
-  <e>
- <o>hippopotamus</o>
- <t>Large African river animal</t>
+ <e>
+  <o r="Extinct reptile" >dinosaur</o>
  </e>
-  <e>
- <o>dinosaur</o>
- <t>Extinct reptile</t>
+ <e>
+  <o r="Large bird of prey" >eagle</o>
  </e>
-  <e>
- <o>eagle</o>
- <t>Large bird of prey</t>
+ <e>
+  <o r="Large sea fish with a triangular fin" >shark</o>
  </e>
-  <e>
- <o>shark</o>
- <t>Large sea fish with a triangular fin</t>
+ <e>
+  <o r="Swimming bird" >duck</o>
  </e>
-  <e>
- <o>duck</o>
- <t>Swimming bird</t>
+ <e>
+  <o r="Live in water" >fish</o>
  </e>
-  <e>
- <o>fish</o>
- <t>Live in water</t>
+ <e>
+  <o r="Can repeat your words" >parrot</o>
  </e>
-  <e>
- <o>parrot</o>
- <t>Can repeat your words</t>
+ <e>
+  <o r="Small green jumping animal" >frog</o>
  </e>
-  <e>
- <o>frog</o>
- <t>Small green jumping animal</t>
+ <e>
+  <o r="Slow-moving, has a spiral shell" >snail</o>
  </e>
-  <e>
- <o>snail</o>
- <t>Slow-moving, has a spiral shell</t>
+ <e>
+  <o r="Can survive a long time in the desert" >camel</o>
  </e>
-  <e>
- <o>camel</o>
- <t>Can survive a long time in the desert</t>
+ <e>
+  <o r="Reptile of the crocodile family" >alligator</o>
  </e>
-  <e>
- <o>alligator</o>
- <t>Reptile of the crocodile family</t>
+ <e>
+  <o r="Its bite spreads malaria" >mosquito</o>
  </e>
-  <e>
- <o>mosquito</o>
- <t>Its bite spreads malaria</t>
+ <e>
+  <o r="Grass-eating animal with a thick fleecy coat" >sheep</o>
  </e>
-  <e>
- <o>sheep</o>
- <t>Grass-eating animal with a thick fleecy coat</t>
- </e>
-  <e>
- <o>shellfish</o>
- <t>Water animal that has a shell</t>
+ <e>
+  <o r="Water animal that has a shell" >shellfish</o>
  </e>
 </kvtml>

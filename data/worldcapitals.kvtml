@@ -58,7 +58,7 @@ Valid xml means:
  - Close all tags
  - Keep proper hierarchy
  - All attributes are quoted
---><kvtml title="World Capitals" remark="Capital cities of the World." cols="0" generator="kanagram" lines="25" encoding="UTF-8" >
+--><kvtml title="World Capitals" remark="Capital cities of the World" cols="0" generator="kanagram" lines="25" encoding="UTF-8" >
  <options>
   <sort on="1" />
  </options>
