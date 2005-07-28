@@ -75,13 +75,13 @@ Valid xml means:
   <o r="A way to instruct a computer" >mouse</o>
  </e>
  <e>
-  <o r="A standard computer input device" >keyboard</o>
+  <o r="A standard input device" >keyboard</o>
+ </e>
+ <e>
+  <o r="Input device used for games" >joystick</o>
  </e>
  <e>
   <o r="Used to communicate over the Internet" >modem</o>
- </e>
- <e>
-  <o r="An internet communications device" >router</o>
  </e>
  <e>
   <o r="A substance ensuring alertness" >caffeine</o>
