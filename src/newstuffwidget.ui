@@ -25,11 +25,10 @@
             </property>
             <property name="text">
                 <string>Kanagram allows you to download
-new data from the Internet. 
+new data from the Internet.
 
-When you have connected to the Internet, 
-press the button to proceed 
-to the download area.</string>
+If you are connected to the Internet, press 
+the button to get new vocabulary files.</string>
             </property>
         </widget>
         <spacer row="1" column="0">

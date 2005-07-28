@@ -545,7 +545,7 @@ void Kanagram::showSettings()
 	m_configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
 	m_configDialog->addPage( new MainSettingsWidget( m_configDialog ), i18n( "Settings" ), "configure" );
 	m_configDialog->addPage( new VocabSettings( m_configDialog ), i18n("Vocabularies"), "edit" );
-	m_configDialog->addPage( new NewStuff( m_configDialog ), i18n("New Stuff"), "new");
+	m_configDialog->addPage( new NewStuff( m_configDialog ), i18n("New Stuff"), "knewstuff");
 	connect(m_configDialog, SIGNAL(settingsChanged()), this, SLOT(loadSettings()));
 	m_configDialog->show();
 }
