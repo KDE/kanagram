@@ -41,14 +41,14 @@ using namespace std;
 #include <kconfigdialog.h>
 #include <kconfigskeleton.h>
 #include <krandomsequence.h>
-#include <knewstuff/downloaddialog.h>
-#include <knewstuff/knewstuff.h>
+#include <kdebug.h>
 
 #include "kanagram.h"
 #include "fontutils.h"
 #include "kanagramsettings.h"
 #include "mainsettingswidget.h"
 #include "vocabsettings.h"
+#include "newstuff.h"
 
 
 Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewWord(false), m_overSettings(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overTry(false), m_showHint(false)
@@ -100,6 +100,8 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	f.setPointSize(17);
 	m_inputBox->setFont(f);
 	m_inputBox->show();
+
+	m_buttonFont = KGlobalSettings::generalFont();
 }
 
 Kanagram::~Kanagram()
@@ -125,6 +127,8 @@ void Kanagram::loadSettings()
 		m_blackboardFont = KGlobalSettings::generalFont();
 	else
 		m_blackboardFont = QFont("squeaky chalk sound");
+
+	m_defaultVocab = KanagramSettings::defaultVocab();
 }
 
 void Kanagram::paintEvent(QPaintEvent *)
@@ -142,7 +146,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 	drawText(p, i18n("Quit"), QPoint(543, 391), false, 0, 0, 0, m_overQuit, true, m_font, m_fontColor, m_fontHighlightColor);
 	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
 	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, 0, m_overHint, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
-	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, m_font, QColor(126, 126, 126), m_chalkHighlightColor);
+	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, m_buttonFont, QColor(126, 126, 126), m_chalkHighlightColor);
 
 	drawSwitcherText(p, m_game.getDocTitle());
 	if(m_overSwitcher)
@@ -255,8 +259,13 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_switcherRect.contains(e->pos()) || m_arrowRect.contains(e->pos()))
 	{
-		m_game.nextVocab();
+		if(!(e->button() == RightButton))
+			m_game.nextVocab();
+		else
+			m_game.previousVocab();
 		m_game.nextAnagram();
+		KanagramSettings::setDefaultVocab(m_game.getFilename());
+		KanagramSettings::writeConfig();
 		update();
 	}
 
@@ -531,6 +540,7 @@ void Kanagram::showSettings()
 	m_configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
 	m_configDialog->addPage( new MainSettingsWidget( m_configDialog ), i18n( "Settings" ), "configure" );
 	m_configDialog->addPage( new VocabSettings( m_configDialog ), i18n("Vocabularies"), "edit" );
+	m_configDialog->addPage( new NewStuff( m_configDialog ), i18n("New Stuff"), "new");
 	connect(m_configDialog, SIGNAL(settingsChanged()), this, SLOT(loadSettings()));
 	m_configDialog->show();
 }

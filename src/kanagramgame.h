@@ -34,11 +34,13 @@ Q_OBJECT
 		~KanagramGame();
 		void nextAnagram();
 		void nextVocab();
+		void previousVocab();
 		QString getAnagram();
 		QString getHint();
 		QString getWord();
 		void restoreWord();
 		QString getDocTitle();
+		QString getFilename();
 	private:
 		QString createAnagram(QString original);
 		KRandomSequence m_random;
@@ -49,6 +51,7 @@ Q_OBJECT
 		int m_index;
 		QStringList m_fileList;
 		QString m_docTitle;
+		QString m_filename;
 };
 
 #endif

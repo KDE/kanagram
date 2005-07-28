@@ -29,9 +29,12 @@
 #include "kanagramsettings.h"
 
 
-KanagramGame::KanagramGame()
+KanagramGame::KanagramGame() : m_index(0)
 {
-	nextVocab();
+	//m_fileList.append(KanagramSettings::defaultVocab());
+	//KEduVocDocument *doc = new KEduVocDocument(this);
+	//doc->open(KURL(locate("appdata", m_fileList[m_index])), false);
+	//m_docTitle = doc->getTitle();
 	nextAnagram();
 }
 
@@ -39,10 +42,22 @@ KanagramGame::~KanagramGame()
 {
 }
 
+void KanagramGame::previousVocab()
+{
+	m_index--;
+	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/*.kvtml");
+	if(m_index < 0)
+		m_index = m_fileList.size() - 1;
+	KEduVocDocument *doc = new KEduVocDocument(this);
+	doc->open(KURL(locate("appdata", m_fileList[m_index])), false);
+	m_docTitle = doc->getTitle();
+}
+
 void KanagramGame::nextVocab()
 {
+	if(!m_fileList.empty())
+		m_index++;
 	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/*.kvtml");
-	m_index++;
 	if(m_index >= m_fileList.size())
 		m_index = 0;
 	KEduVocDocument *doc = new KEduVocDocument(this);
@@ -55,16 +70,26 @@ QString KanagramGame::getDocTitle()
 	return m_docTitle;
 }
 
+QString KanagramGame::getFilename()
+{
+	if(m_fileList.empty())
+		return m_filename;
+	else
+		return m_fileList[m_index];
+}
+
 void KanagramGame::nextAnagram()
 {
-	//TODO: Fix this so that it doesn't load the list every time
-	//Make sure that no word gets repeated twice
-
 	KEduVocDocument	*doc = new KEduVocDocument(this);
-	doc->open(KURL(locate("appdata", m_fileList[m_index])), false);
-	kdDebug() << m_fileList[m_index] << endl;
+	if(m_fileList.empty())
+	{
+		doc->open(KURL(KanagramSettings::defaultVocab()), false);
+		m_docTitle = doc->getTitle();
+		m_filename = KanagramSettings::defaultVocab();
+	}
+	else
+		doc->open(KURL(locate("appdata", m_fileList[m_index])), false);
 	int totalWords = doc->numEntries();
-	kdDebug() << "Number of entries:" << totalWords << endl;
 	int wordNumber = m_random.getLong(totalWords);
 	while(m_anagram == doc->getEntry(wordNumber)->getOriginal())
 	{

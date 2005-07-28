@@ -2,7 +2,7 @@
 INCLUDES = $(all_includes)
 
 # these are the headers for your project
-noinst_HEADERS = kanagram.h kanagramgame.h fontutils.h vocabsettings.h vocabedit.h vocabsettingswidget.h vocabeditwidget.h mainsettingswidget.h
+noinst_HEADERS = kanagram.h kanagramgame.h fontutils.h vocabsettings.h vocabedit.h vocabsettingswidget.h vocabeditwidget.h mainsettingswidget.h newstuffwidget.h newstuff.h
 
 # let automoc handle all of the meta source files (moc)
 METASOURCES = AUTO
@@ -21,10 +21,9 @@ KDE_ICON = AUTO
 bin_PROGRAMS = kanagram
 
 # the application source, library search path, and link libraries
-kanagram_SOURCES = main.cpp kanagram.cpp kanagramgame.cpp fontutils.cpp kanagramsettings.kcfgc mainsettingswidget.ui vocabsettingswidget.ui vocabeditwidget.ui vocabsettings.cpp vocabedit.cpp keduvocdocument.cpp keduvocexpression.cpp keduvockvtmlreader.cpp keduvockvtmlwriter.cpp leitnerbox.cpp leitnersystem.cpp multiplechoice.cpp grammarmanager.cpp leitnersystemview.cpp
+kanagram_SOURCES = main.cpp kanagram.cpp kanagramgame.cpp fontutils.cpp kanagramsettings.kcfgc mainsettingswidget.ui vocabsettingswidget.ui vocabeditwidget.ui vocabsettings.cpp vocabedit.cpp keduvocdocument.cpp keduvocexpression.cpp keduvockvtmlreader.cpp keduvockvtmlwriter.cpp leitnerbox.cpp leitnersystem.cpp multiplechoice.cpp grammarmanager.cpp leitnersystemview.cpp newstuffwidget.ui newstuff.cpp
 kanagram_LDFLAGS = $(KDE_RPATH) $(all_libraries)
-#TODO -libkdeeducore will have to be changed to ../../libkdeedu/kdeeducore/libkdeeducore.la when kanagram gets in kdeedu module
-kanagram_LDADD =  $(LIB_KDEUI) -lkio
+kanagram_LDADD =  $(LIB_KDEUI) $(LIB_KNEWSTUFF) $(LIB_KIO)
 
 kde_kcfg_DATA=kanagram.kcfg
 
@@ -36,4 +35,3 @@ xdg_apps_DATA = kanagram.desktop
 # TODO does this app need an ui.rc ? If it does put it here
 # shellrcdir   = $(kde_datadir)/kanagram
 # shellrc_DATA = kanagramui.rc
-

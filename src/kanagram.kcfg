@@ -16,5 +16,9 @@
 	<label>Uses a standard font for the blackboard</label>
 	<default>false</default>
 </entry>
+<entry name="defaultVocab" type="Path">
+	<label>Set the default vocabulary</label>
+	<default>/usr/share/apps/kanagram/data/objects.kvtml</default>
+</entry>
 </group>
 </kcfgfile>
