@@ -1,0 +1,334 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+ <!ENTITY kanagram "<application>Kanagram</application>">
+ <!ENTITY kappname "&kanagram;">
+ <!ENTITY package "playground-edu">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % English "INCLUDE"><!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title>The &kanagram; Handbook</title>
+
+<authorgroup>
+<author>
+<firstname>Danny</firstname>
+<othername></othername>
+<surname>Allen</surname>
+<affiliation>
+<address><email>danny@dannyallen.co.uk</email></address>
+</affiliation>
+</author>
+</authorgroup>
+
+
+<copyright>
+<year>2005</year>
+<holder>Danny Allen</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+
+<date>2005-06-14</date>
+<releaseinfo>0.1</releaseinfo>
+
+<abstract>
+<para>
+&kanagram; brings a retro electronic memory game from the 1970's to &kde;.
+</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kdeedu</keyword>
+<keyword>Kanagram</keyword>
+<keyword>game</keyword>
+<keyword>child</keyword>
+<keyword>anagram</keyword>
+<keyword>words</keyword>
+<keyword>jumble</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>
+&kanagram; is based on an electronic game released in 1978, which challenges players to remember sequences of increasing length. On the face of the device, there are 4 different color buttons, each one with their own distinctive sound. These buttons light up randomly, creating the sequence that the player must then recall. If the player is successful in remembering the sequence of lights in the correct order, they advance to the next stage, where an identical sequence with one extra step is presented. If they are incorrect, the game is lost, and the player must start again from the beginning.
+
+The goal is to get a highscore - each step in the sequence is worth one point, so correct recollection of a sequence of 8 lights is worth 8 points on the highscore table.
+</para>
+
+</chapter>
+
+
+<chapter id="using-ksimon">
+<title>Using &kanagram;</title>
+
+<screenshot>
+<screeninfo>Here is the screen that is presented on startup of &kanagram;</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="ksimon1.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>&kanagram; screenshot</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para>
+Here is the screen that is presented on startup of &kanagram;, showing the general interface to the application. Most of the screen is taken up by the device, with the 4 color buttons, with the device controls (score counter, start button, etc) in the center of the screen. The current status of the application is displayed on the piece of paper under the device. In the corners of the application, there are 3 buttons:
+</para>
+
+<screenshot>
+<screeninfo>Highscores button</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="ksimon_highscoresbutton.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase>Highscores button</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para>
+The highscores button opens a dialog that displays the highscores table for each of the 3 difficulty levels. The highscores table can also be accessed by clicking on the score counter.
+</para>
+
+<screenshot>
+<screeninfo>Quit button</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="ksimon_quitbutton.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase>Quit button</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para>
+The Quit button exits the application.
+</para>
+
+<screenshot>
+<screeninfo>Help button</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="ksimon_helpbutton.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase>Help button</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para>
+The help button is special, in that it reveals 3 sub-buttons. These buttons are shown when the help button is hovered over, and provide access to the &kanagram; handbook (this document), and the "About &kanagram;" and "About &kde;" dialogs.
+</para>
+
+<para>
+To become familiar with the workings of the game, you can interact with the buttons whilst on the main screen. The buttons will illuminate and produce a tone upon being pressed.
+</para>
+
+<sect1 id="starting-game">
+<title>Starting a Game</title>
+
+<para>
+Once you are familiar with the workings of the application, a game can be started by pressing the "Start" button in the center of the screen. This "powers on" the device, as shown by the illuminated score counter. You can then choose the difficulty level that you want to attempt:
+ </para>
+
+<screenshot>
+<screeninfo>Select difficulty level</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="ksimon2.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase>Select difficulty level</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para>
+There are 3 levels in &kanagram;:
+ </para>
+
+<itemizedlist>
+<listitem>
+<para>
+Level 1 is the easiest level, as it provides the longest time break between each sequence playback.
+</para>
+</listitem>
+<listitem>
+<para>
+Level 2 is the intermediate level. It is identical to the previous level, but has a smaller time break between each sequence playback.
+</para>
+</listitem>
+<listitem>
+<para>
+Level ? is the most difficult level of &kanagram;. It takes the timings from Level 2, but each sequence is totally random, rather than following on from the previous sequence, as in the standard game type.
+</para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+
+
+<sect1 id="enter-highscore">
+<title>Entering a New Highscore</title>
+
+<para>
+If you are lucky enough to get a highscore, it will be entered into highscores table. A dialog will ask for a nickname to associate with your score in the table:
+</para>
+
+<screenshot>
+<screeninfo>Highscore nickname prompt dialog</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="ksimon_nickprompt.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase>Highscore nickname prompt dialog</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para>
+Only 5 scores are kept for each level, so try not to be disappointed if you don't make it!
+</para>
+
+</sect1>
+
+
+<sect1 id="playing-tips">
+<title>Playing Tips</title>
+<para>
+&kanagram; is the ultimate memory game, though you need not possess the ultimate memory to be successful. These tips will help you in your pursuit of the best score:
+</para>
+
+<itemizedlist>
+<listitem>
+<para>
+If you have PC speakers, turn them on with the sound at a good level so that you can hear the tones alongside seeing the flashing lights.
+</para>
+</listitem>
+<listitem>
+<para>
+Experiment with both the mouse and keyboard interaction methods, to see which one suites your memory best.
+</para>
+</listitem>
+<listitem>
+<para>
+Try remembering the sequence as a list of colors.
+</para>
+</listitem>
+<listitem>
+<para>
+Try remembering the sequence as positions on the screen.
+</para>
+</listitem>
+</itemizedlist>
+
+</sect1>
+</chapter>
+
+
+<chapter id="accessibility">
+<title>Accessibility Features</title>
+
+<para>
+Alongside use of the mouse, &kanagram; also allows the user to operate the game using the keyboard. To display the current keymap settings, and to modify them to your preferences, hold in the <keycap>ctrl</keycap> key:
+</para>
+
+<screenshot>
+<screeninfo>&kanagram; access keys</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="ksimon_accesskeys.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase>&kanagram; access keys</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para>
+The keys are 1, 2, 3, 4 by default.
+</para>
+
+<para>
+To change the mapping of any button, click it using the mouse. It will then be highlighted, waiting for input. Press the desired key on the keyboard to change the assigned key.
+</para>
+
+</chapter>
+
+
+<chapter id="credits">
+<title>Credits and License</title>
+
+<para>
+&kanagram;
+</para>
+<para>
+Program copyright 2005 Albert Astals Cid <email>tsdgeos@terra.es</email> and Danny Allen <email>danny@dannyallen.co.uk</email>
+</para>
+<para>
+Contributors:
+</para>
+<itemizedlist>
+<listitem>
+<para>"Steve" font: Steve Jordi
+<email>fillme</email>
+</para>
+</listitem>
+</itemizedlist>
+
+<para>
+Documentation copyright 2005 Danny Allen <email>danny@dannyallen.co.uk</email>
+</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+
+<appendix id="installation">
+<title>Installation</title>
+
+<sect1 id="getting-khangman">
+<title>How to obtain &kanagram;</title>
+
+&install.intro.documentation;
+
+</sect1>
+
+<sect1 id="compilation">
+<title>Compilation and installation</title>
+
+&install.compile.documentation;
+
+</sect1>
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet:noai
+-->
