@@ -94,6 +94,8 @@ Q_OBJECT
 		KConfigDialog *m_configDialog;
 
 		KRandomSequence m_randomImage;
+
+		QTimer *m_hintTimer;
 };
 
 #endif

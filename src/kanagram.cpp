@@ -88,6 +88,8 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_fontHighlightColor = QColor(99, 99, 99);
 
 	loadSettings();
+
+	m_hintTimer = new QTimer(this);
 	
 	m_helpMenu = new KHelpMenu(this, kapp->aboutData());
 	
@@ -96,6 +98,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_inputBox->setFrame(false);
 	
 	connect(m_inputBox, SIGNAL(returnPressed()), this, SLOT(checkWord()));
+	connect(m_hintTimer, SIGNAL(timeout()), this, SLOT(hideHint()));
 	
 	QFont f = QFont();
 	f.setPointSize(17);
@@ -130,6 +133,8 @@ void Kanagram::loadSettings()
 		m_blackboardFont = QFont("squeaky chalk sound");
 
 	m_defaultVocab = KanagramSettings::defaultVocab();
+
+	kdDebug() << "Configuration loaded..." << endl;
 }
 
 void Kanagram::paintEvent(QPaintEvent *)
@@ -282,7 +287,9 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		{
 			if(m_hintHideTime)
 			{
-				QTimer::singleShot( m_hintHideTime * 1000, this, SLOT(hideHint()) );
+				if(m_hintTimer->isActive())
+					m_hintTimer->stop();
+				m_hintTimer->start(m_hintHideTime * 1000, TRUE);
 			}
 			m_showHint = true;
 			randomHintImage();
@@ -295,7 +302,6 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		if(m_inputBox->text() == m_game.getWord())
 		{
 			m_inputBox->unsetPalette();
-			cout << "Correct!" << endl;
 			m_inputBox->clear();
 			m_game.nextAnagram();
 			update();
@@ -304,7 +310,6 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		{
 			m_inputBox->setPaletteBackgroundColor(QColor(255, 0, 0));
 			QTimer::singleShot(2000, this, SLOT(resetInputBox()));
-			cout << "Sorry, try again!" << endl;
 			m_inputBox->clear();
 			update();
 		}
