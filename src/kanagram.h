@@ -72,7 +72,7 @@ Q_OBJECT
 
 		QPixmap *m_back, *m_hintOverlay, *m_aboutKDEOverlay, *m_aboutAppOverlay, *m_handbookOverlay, *m_aboutKDEOverlayOver, *m_aboutAppOverlayOver, *m_handbookOverlayOver, *m_card, *m_arrow, *m_arrowOver;
 
-		QRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_tryRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect, m_arrowRect;
+		QRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_tryRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect, m_arrowRect, m_logoRect;
 
 		bool m_overNewWord, m_overSettings, m_overHelp, m_overQuit, m_overReveal, m_overHint, m_overTry, m_overAboutKDE, m_overAboutApp, m_overHandbook, m_overSwitcher;
 

@@ -75,6 +75,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_aboutAppRect = QRect(522, 213, 44, 44);
 	m_handbookRect = QRect(478, 213, 44, 44);
 	m_arrowRect = QRect(380, 134, 13, 20);
+	m_logoRect = QRect(76, 24, 297, 50);
 	
 	setMouseTracking(true);
 	setFixedSize(650, 471);
@@ -255,6 +256,11 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	{
 		m_game.restoreWord();
 		update();
+	}
+
+	if(m_logoRect.contains(e->pos()))
+	{
+		m_helpMenu->aboutApplication();
 	}
 
 	if(m_switcherRect.contains(e->pos()) || m_arrowRect.contains(e->pos()))
