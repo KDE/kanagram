@@ -75,9 +75,9 @@ Q_OBJECT
 		//Deprecated
 		//QRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect;
 		
-		QRect m_nextRect, m_configRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_tryRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect, m_arrowRect, m_logoRect, m_helpBoxRect;
+		QRect m_nextRect, m_configRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_tryRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect, m_arrowRect, m_logoRect;
 
-		bool m_overNext, m_overConfig, m_overHelp, m_overQuit, m_overReveal, m_overHint, m_overTry, m_overAboutKDE, m_overAboutApp, m_overHandbook, m_overSwitcher, m_overHelpBox;
+		bool m_overNext, m_overConfig, m_overHelp, m_overQuit, m_overReveal, m_overHint, m_overTry, m_overAboutKDE, m_overAboutApp, m_overHandbook, m_overSwitcher;
 
 		bool m_showHint;
 

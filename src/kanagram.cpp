@@ -50,7 +50,7 @@ using namespace std;
 #include "newstuff.h"
 
 
-Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overTry(false), m_showHint(false), m_overHelpBox(false)
+Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overTry(false), m_showHint(false)
 {
 	m_back = new QPixmap(locate("appdata", "images/kanagram.png"));
 	m_aboutKDEOverlay = new QPixmap(locate("appdata", "images/kicon.png"));
@@ -77,12 +77,10 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_quitRect = QRect(453, 352, 182, 104);
 	*/
 
-	m_nextRect = QRect(525, 38, 39, 39);
-	m_configRect = QRect(525, 130, 39, 39);
-	m_helpRect = QRect(525, 218, 39, 39);
-	m_quitRect = QRect(520, 362, 39, 39);
-
-	m_helpBoxRect = QRect(477, 212, 134, 76);
+	m_nextRect = QRect(477, 31, 134, 76);
+	m_configRect = QRect(477, 122, 134, 76);
+	m_helpRect = QRect(477, 212, 134, 76);
+	m_quitRect = QRect(453, 352, 182, 104);
 	
 	m_hintRect = QRect(51, 337, 39, 28);
 	m_revealRect = QRect(279, 338, 119, 28);
@@ -224,7 +222,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 		p.drawText(446, 207, 171, 85, WordBreak | AlignCenter, m_game.getHint());
 	}
 
-	if(m_overHelpBox)
+	if(m_overHelp)
 	{
 		p.drawPixmap(456, 275, *m_card);
 		if(m_overAboutApp)
@@ -359,7 +357,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		}
 	}
 
-	if(m_overHelpBox)
+	if(m_overHelp)
 	{
 		if(m_handbookRect.contains(e->pos()))
 		{
@@ -539,20 +537,6 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 	else if(m_overAboutKDE)
 	{
 		m_overAboutKDE = false;
-		haveToUpdate = true;
-	}
-
-	if(m_helpBoxRect.contains(p))
-	{
-		if(!m_overHelpBox)
-		{
-			m_overHelpBox = true;
-			haveToUpdate = true;
-		}
-	}
-	else if(m_overHelpBox)
-	{
-		m_overHelpBox = false;
 		haveToUpdate = true;
 	}
 
