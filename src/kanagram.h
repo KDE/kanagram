@@ -70,11 +70,14 @@ Q_OBJECT
 
 		KanagramGame m_game;
 
-		QPixmap *m_back, *m_hintOverlay, *m_aboutKDEOverlay, *m_aboutAppOverlay, *m_handbookOverlay, *m_aboutKDEOverlayOver, *m_aboutAppOverlayOver, *m_handbookOverlayOver, *m_card, *m_arrow, *m_arrowOver;
+		QPixmap *m_back, *m_hintOverlay, *m_aboutKDEOverlay, *m_aboutAppOverlay, *m_handbookOverlay, *m_aboutKDEOverlayOver, *m_aboutAppOverlayOver, *m_handbookOverlayOver, *m_card, *m_arrow, *m_arrowOver, *m_next, *m_nextOver, *m_config, *m_configOver, *m_help, *m_helpOver, *m_quit, *m_quitOver;
 
-		QRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_tryRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect, m_arrowRect, m_logoRect;
+		//Deprecated
+		//QRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect;
+		
+		QRect m_nextRect, m_configRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_tryRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect, m_arrowRect, m_logoRect, m_helpBoxRect;
 
-		bool m_overNewWord, m_overSettings, m_overHelp, m_overQuit, m_overReveal, m_overHint, m_overTry, m_overAboutKDE, m_overAboutApp, m_overHandbook, m_overSwitcher;
+		bool m_overNext, m_overConfig, m_overHelp, m_overQuit, m_overReveal, m_overHint, m_overTry, m_overAboutKDE, m_overAboutApp, m_overHandbook, m_overSwitcher, m_overHelpBox;
 
 		bool m_showHint;
 

@@ -16,7 +16,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Steet, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Steet, Fifth Floor, Boston, MA 02110-1301, USA.           *
  ***************************************************************************/
 
 #include <iostream>
@@ -44,14 +44,13 @@ using namespace std;
 #include <kdebug.h>
 
 #include "kanagram.h"
-#include "fontutils.h"
 #include "kanagramsettings.h"
 #include "mainsettingswidget.h"
 #include "vocabsettings.h"
 #include "newstuff.h"
 
 
-Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewWord(false), m_overSettings(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overTry(false), m_showHint(false)
+Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overTry(false), m_showHint(false), m_overHelpBox(false)
 {
 	m_back = new QPixmap(locate("appdata", "images/kanagram.png"));
 	m_aboutKDEOverlay = new QPixmap(locate("appdata", "images/kicon.png"));
@@ -61,13 +60,30 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNewW
 	m_handbookOverlay = new QPixmap(locate("appdata", "images/handbookicon.png"));
 	m_handbookOverlayOver = new QPixmap(locate("appdata", "images/handbookiconover.png"));
 	m_card = new QPixmap(locate("appdata", "images/card.png"));
-	m_arrow = new QPixmap(locate("appdata", "images/arrow.png"));
-	m_arrowOver = new QPixmap(locate("appdata", "images/arrowover.png"));
 
+	m_next = new QPixmap(locate("appdata", "images/next.png"));
+	m_nextOver = new QPixmap(locate("appdata", "images/nextover.png"));
+	m_config = new QPixmap(locate("appdata", "images/config.png"));
+	m_configOver = new QPixmap(locate("appdata", "images/configover.png"));
+	m_help = new QPixmap(locate("appdata", "images/help.png"));
+	m_helpOver = new QPixmap(locate("appdata", "images/helpover.png"));
+	m_quit = new QPixmap(locate("appdata", "images/quit.png"));
+	m_quitOver = new QPixmap(locate("appdata", "images/quitover.png"));
+
+	/* Deprecated since iconization of the menu
 	m_newWordRect = QRect(477, 31, 134, 76);
 	m_settingsRect = QRect(477, 122, 134, 76);
 	m_helpRect = QRect(477, 212, 134, 76);
 	m_quitRect = QRect(453, 352, 182, 104);
+	*/
+
+	m_nextRect = QRect(525, 38, 39, 39);
+	m_configRect = QRect(525, 130, 39, 39);
+	m_helpRect = QRect(525, 218, 39, 39);
+	m_quitRect = QRect(520, 362, 39, 39);
+
+	m_helpBoxRect = QRect(477, 212, 134, 76);
+	
 	m_hintRect = QRect(51, 337, 39, 28);
 	m_revealRect = QRect(279, 338, 119, 28);
 	m_tryRect = QRect(341, 426, 55, 33);
@@ -134,7 +150,16 @@ void Kanagram::loadSettings()
 
 	m_defaultVocab = KanagramSettings::defaultVocab();
 
-	kdDebug() << "Configuration loaded..." << endl;
+	if(m_standardBlackboardFonts)
+	{
+		m_arrow = new QPixmap(locate("appdata", "images/basicarrow.png"));
+		m_arrowOver = new QPixmap(locate("appdata", "images/basicarrowover.png"));
+	}
+	else
+	{
+		m_arrow = new QPixmap(locate("appdata", "images/arrow.png"));
+		m_arrowOver = new QPixmap(locate("appdata", "images/arrowover.png"));
+	}
 }
 
 void Kanagram::paintEvent(QPaintEvent *)
@@ -143,13 +168,34 @@ void Kanagram::paintEvent(QPaintEvent *)
 	QPainter p(&buf);
 	
 	p.drawPixmap(0, 0, *m_back);
-	
+
+	if(m_overNext)
+		p.drawPixmap(525, 38, *m_nextOver);
+	else
+		p.drawPixmap(525, 38, *m_next);
+	if(m_overConfig)
+		p.drawPixmap(525, 130, *m_configOver);
+	else
+		p.drawPixmap(525, 130, *m_config);
+	if(m_overHelp)
+		p.drawPixmap(525, 218, *m_helpOver);
+	else
+		p.drawPixmap(525, 218, *m_help);
+	if(m_overQuit)
+		p.drawPixmap(520, 362, *m_quitOver);
+	else
+		p.drawPixmap(520, 362, *m_quit);
+
 	drawText(p, m_game.getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 28);
-	
+
+		
+	/* Deprecated code that is no longer needed with the new iconized menu
 	drawText(p, i18n("New Word"), QPoint(543, 62), false, 0, 0, 0, m_overNewWord, true, m_font, m_fontColor, m_fontHighlightColor);
 	drawText(p, i18n("Settings"), QPoint(543, 147), false, 0, 0, 0, m_overSettings, true, m_font, m_fontColor, m_fontHighlightColor);
 	drawText(p, i18n("Help"), QPoint(543, 235), false, 0, 0, 0, m_overHelp, true, m_font, m_fontColor, m_fontHighlightColor);
 	drawText(p, i18n("Quit"), QPoint(543, 391), false, 0, 0, 0, m_overQuit, true, m_font, m_fontColor, m_fontHighlightColor);
+	*/
+
 	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
 	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, 0, m_overHint, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
 	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, m_buttonFont, QColor(126, 126, 126), m_chalkHighlightColor);
@@ -178,7 +224,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 		p.drawText(446, 207, 171, 85, WordBreak | AlignCenter, m_game.getHint());
 	}
 
-	if(m_overHelp)
+	if(m_overHelpBox)
 	{
 		p.drawPixmap(456, 275, *m_card);
 		if(m_overAboutApp)
@@ -240,14 +286,14 @@ void Kanagram::drawSwitcherText(QPainter &p, QString text)
 void Kanagram::mousePressEvent(QMouseEvent *e)
 {
 	
-	if (m_newWordRect.contains(e->pos()))
+	if (m_nextRect.contains(e->pos()))
 	{
 		m_game.nextAnagram();
 		m_inputBox->unsetPalette();
 		update();
 	}
 
-	if(m_settingsRect.contains(e->pos()))
+	if(m_configRect.contains(e->pos()))
 	{
 		showSettings();
 	}
@@ -313,7 +359,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		}
 	}
 
-	if(m_overHelp)
+	if(m_overHelpBox)
 	{
 		if(m_handbookRect.contains(e->pos()))
 		{
@@ -342,31 +388,31 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 	bool haveToUpdate;
 	haveToUpdate = false;
 	
-	if (m_newWordRect.contains(p))
+	if (m_nextRect.contains(p))
 	{
-		if (!m_overNewWord)
+		if (!m_overNext)
 		{
-			m_overNewWord = true;
+			m_overNext = true;
 			haveToUpdate = true;
 		}
 	}
-	else if (m_overNewWord)
+	else if (m_overNext)
 	{
-		m_overNewWord = false;
+		m_overNext = false;
 		haveToUpdate = true;
 	}
 
-	if(m_settingsRect.contains(p))
+	if(m_configRect.contains(p))
 	{
-		if(!m_overSettings)
+		if(!m_overConfig)
 		{
-			m_overSettings = true;
+			m_overConfig = true;
 			haveToUpdate = true;
 		}
 	}
-	else if(m_overSettings)
+	else if(m_overConfig)
 	{
-		m_overSettings = false;
+		m_overConfig = false;
 		haveToUpdate = true;
 	}
 
@@ -493,6 +539,20 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 	else if(m_overAboutKDE)
 	{
 		m_overAboutKDE = false;
+		haveToUpdate = true;
+	}
+
+	if(m_helpBoxRect.contains(p))
+	{
+		if(!m_overHelpBox)
+		{
+			m_overHelpBox = true;
+			haveToUpdate = true;
+		}
+	}
+	else if(m_overHelpBox)
+	{
+		m_overHelpBox = false;
 		haveToUpdate = true;
 	}
 
