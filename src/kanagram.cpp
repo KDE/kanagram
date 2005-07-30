@@ -259,7 +259,8 @@ void Kanagram::drawHelpText(QPainter &p, QString text)
 	p.setFont(font);
 	p.rotate(-3.29);
 	p.setPen(black);
-	p.drawText(450, 340, text);
+	p.drawText(450, 340, text.section(' ', 0, 0));
+	p.drawText(450, 360, text.section(' ', 1));
 	p.restore();
 }
 
