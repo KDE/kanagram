@@ -95,4 +95,13 @@ Valid xml means:
  <e>
   <o r="Creates a digital representation of an object" >scanner</o>
  </e>
+ <e>
+  <o r="For listening to sound privately" >headphones</o>
+ </e>
+ <e>
+  <o r="Sends moving images over the Internet" >webcam</o>
+ </e>
+ <e>
+  <o r="Allows you to record sound" >microphone</o>
+ </e>
 </kvtml>
