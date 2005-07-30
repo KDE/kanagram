@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="People" remark="Infuential people of history" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="original" r="Influential Greek philosopher" >aristotle</o>
+ </e>
+ <e>
+  <o r="Composer" >beethoven</o>
+ </e>
+ <e>
+  <o r="This explorer discovered the Americas" >columbus</o>
+ </e>
+ <e>
+  <o r="Theory of Evolution" >darwin</o>
+ </e>
+ <e>
+  <o r="Inventor of the Light Bulb" >edison</o>
+ </e>
+ <e>
+  <o r="Theory of Relativity" >einstein</o>
+ </e>
+ <e>
+  <o r="Discovered Penicillin" >fleming</o>
+ </e>
+ <e>
+  <o r="'The Earth revolves around the Sun'" >galileo</o>
+ </e>
+ <e>
+  <o r="Non-violent independence for India" >gandhi</o>
+ </e>
+ <e>
+  <o r="Helped end Communism in USSR" >gorbachev</o>
+ </e>
+ <e>
+  <o r="Inventor of radio" >marconi</o>
+ </e>
+ <e>
+  <o r="A painter, sculptor and architect" >michelangelo</o>
+ </e>
+ <e>
+  <o r="French conqueror" >napoleon</o>
+ </e>
+ <e>
+  <o r="Discovered Gravity" >newton</o>
+ </e>
+ <e>
+  <o r="Invented Vaccination" >pasteur</o>
+ </e>
+ <e>
+  <o r="First president of United States" >washington</o>
+ </e>
+</kvtml>
