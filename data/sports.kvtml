@@ -1,0 +1,158 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Sports" remark="Events of the Olympics" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="original" r="Water sports" >aquatics</o>
+ </e>
+ <e>
+  <o r="Shooting arrows with a bow" >archery</o>
+ </e>
+ <e>
+  <o r="Track and field events" >athletics</o>
+ </e>
+ <e>
+  <o r="Hit the shuttlecock over the net" >badminton</o>
+ </e>
+ <e>
+  <o r="4 bases arranged in a diamond" >baseball</o>
+ </e>
+ <e>
+  <o r="Throw the ball through the hoop" >basketball</o>
+ </e>
+ <e>
+  <o r="Fighting with the fists" >boxing</o>
+ </e>
+ <e>
+  <o r="Small boat propelled with a paddle" >canoe</o>
+ </e>
+ <e>
+  <o r="Riding bicycles" >cycling</o>
+ </e>
+ <e>
+  <o r="Horseback riding" >equestrian</o>
+ </e>
+ <e>
+  <o r="Fighting with swords" >fencing</o>
+ </e>
+ <e>
+  <o r="Kick the ball into the opponent's goal" >football</o>
+ </e>
+ <e>
+  <o r="Graceful display of athletic ability" >gymnastics</o>
+ </e>
+ <e>
+  <o r="Using hands and a rubber ball" >handball</o>
+ </e>
+ <e>
+  <o r="Curved sticks and a ball or puck" >hockey</o>
+ </e>
+ <e>
+  <o r="A martial art" >judo</o>
+ </e>
+ <e>
+  <o r="5 athletic events" >pentathlon</o>
+ </e>
+ <e>
+  <o r="Propelling a boat with oars" >rowing</o>
+ </e>
+ <e>
+  <o r="Boating propelled by wind" >sailing</o>
+ </e>
+ <e>
+  <o r="Firing projectiles from a weapon" >shooting</o>
+ </e>
+ <e>
+  <o r="A game resembling baseball" >softball</o>
+ </e>
+ <e>
+  <o r="Korean martial art" >taekwondo</o>
+ </e>
+ <e>
+  <o r="Played with rackets on a court" >tennis</o>
+ </e>
+ <e>
+  <o r="3 athletic events" >triathlon</o>
+ </e>
+ <e>
+  <o r="Hit an inflated ball over a high net" >volleyball</o>
+ </e>
+ <e>
+  <o r="Lifting heavy weights" >weightlifting</o>
+ </e>
+ <e>
+  <o r="Grappling between 2 opponents" >wrestling</o>
+ </e>
+ <e>
+  <o r="A sled racing down an icy track" >bobsleigh</o>
+ </e>
+ <e>
+  <o r="Stones slid across ice" >curling</o>
+ </e>
+ <e>
+  <o r="Gliding on ice" >skating</o>
+ </e>
+ <e>
+  <o r="Downhill on snow using flat feet" >skiing</o>
+ </e>
+</kvtml>
