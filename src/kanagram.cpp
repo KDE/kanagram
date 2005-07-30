@@ -540,6 +540,11 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		haveToUpdate = true;
 	}
 
+	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || m_overTry || m_overAboutApp)
+		this->setCursor(PointingHandCursor);
+	else
+		this->unsetCursor();
+
 	if (haveToUpdate) update();
 }
 
