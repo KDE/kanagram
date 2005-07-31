@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Currencies" remark="Modern World currencies" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="original" r="Algeria, Bahrain, Kuwait, etc." >dinar</o>
+ </e>
+ <e>
+  <o r="USA, Canada, Australia, etc." >dollar</o>
+ </e>
+ <e>
+  <o r="Greece" >drachma</o>
+ </e>
+ <e>
+  <o r="12 European Union countries, etc." >euro</o>
+ </e>
+ <e>
+  <o r="France (until 1998), Switzerland, etc." >franc</o>
+ </e>
+ <e>
+  <o r="The Netherlands (until 1998)" >guilder</o>
+ </e>
+ <e>
+  <o r="Czech Republic, Slovakia" >koruna</o>
+ </e>
+ <e>
+  <o r="Sweden" >krona</o>
+ </e>
+ <e>
+  <o r="Denmark, Greenland, Norway" >krone</o>
+ </e>
+ <e>
+  <o r="Italy (until 1998)" >lira</o>
+ </e>
+ <e>
+  <o r="Germany (until 1998)" >mark</o>
+ </e>
+ <e>
+  <o r="Spain (until 1998)" >peseta</o>
+ </e>
+ <e>
+  <o r="Argentina, Chile, Mexico, Cuba, Colombia, etc." >peso</o>
+ </e>
+ <e>
+  <o r="UK, Cyprus, Egypt, etc." >pound</o>
+ </e>
+ <e>
+  <o r="South Africa" >rand</o>
+ </e>
+ <e>
+  <o r="China" >renminbi</o>
+ </e>
+ <e>
+  <o r="Russia, Belarus, etc." >ruble</o>
+ </e>
+ <e>
+  <o r="India, Pakistan, Sri Lanka, etc." >rupee</o>
+ </e>
+ <e>
+  <o r="Kenya, Tanzania, etc." >shilling</o>
+ </e>
+ <e>
+  <o r="Bangladesh" >taka</o>
+ </e>
+ <e>
+  <o r="Japan" >yen</o>
+ </e>
+ <e>
+  <o r="Poland" >zloty</o>
+ </e>
+</kvtml>
