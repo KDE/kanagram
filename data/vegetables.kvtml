@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Vegetables" remark="Vegetables of the Earth" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="original" r="Succulent young shoots" >asparagus</o>
+ </e>
+ <e>
+  <o r="Dense clusters of tight green buds grow from a thick stalk" >broccoli</o>
+ </e>
+ <e>
+  <o r="Has leaves that form a characteristic compact head" >cabbage</o>
+ </e>
+ <e>
+  <o r="Orange root vegetable that grows underground" >carrot</o>
+ </e>
+ <e>
+  <o r="Type of Cabbage, with bunches of creamy white florets" >cauliflower</o>
+ </e>
+ <e>
+  <o r="Crisp, green vegetable" >celery</o>
+ </e>
+ <e>
+  <o r="Also known as garbanzo beans, with a nut-like flavor" >chickpeas</o>
+ </e>
+ <e>
+  <o r="Long, green, cylinder-shaped vegetable" >cucumber</o>
+ </e>
+ <e>
+  <o r="A bulb made up of sections of cloves" >garlic</o>
+ </e>
+ <e>
+  <o r="Long narrow white bulb and long dark-green leaves" >leek</o>
+ </e>
+ <e>
+  <o r="Small brown beans that cook quickly" >lentils</o>
+ </e>
+ <e>
+  <o r="Leafy greens enjoyed in salads" >lettuce</o>
+ </e>
+ <e>
+  <o r="A type of fungi" >mushrooms</o>
+ </e>
+ <e>
+  <o r="Its odor can make you cry" >onion</o>
+ </e>
+ <e>
+  <o r="Spicy seasoning ground from red pepper" >paprika</o>
+ </e>
+ <e>
+  <o r="Fresh-flavored bright green herb" >parsley</o>
+ </e>
+ <e>
+  <o r="Root vegetable that looks like a white carrot" >parsnip</o>
+ </e>
+ <e>
+  <o r="Small light brown nuts, often served salted" >peanuts</o>
+ </e>
+ <e>
+  <o r="Small round green seed which grows in a pod" >peas</o>
+ </e>
+ <e>
+  <o r="Mid-sized, yellow, and grown underground" >potato</o>
+ </e>
+ <e>
+  <o r="Popular at Halloween" >pumpkin</o>
+ </e>
+ <e>
+  <o r="Celery-like vegetable" >rhubarb</o>
+ </e>
+ <e>
+  <o r="High-protein, used in tofu" >soybeans</o>
+ </e>
+ <e>
+  <o r="Crisp, dark green leafy vegetable" >spinach</o>
+ </e>
+ <e>
+  <o r="The yellow seeds of a type of maize" >sweetcorn</o>
+ </e>
+ <e>
+  <o r="Very hot red peppers" >tabasco</o>
+ </e>
+ <e>
+  <o r="Red, technically considered a fruit" >tomato</o>
+ </e>
+ <e>
+  <o r="Vegetable with a succulent, bulbous root" >turnip</o>
+ </e>
+ <e>
+  <o r="Green leafy little plant, only grows in running water" >watercress</o>
+ </e>
+</kvtml>
