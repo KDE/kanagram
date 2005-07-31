@@ -81,7 +81,7 @@ Valid xml means:
   <o r="Red fruit with a single hard stone" >cherry</o>
  </e>
  <e>
-  <o r="Has a hard brown outer husk, with a creamy white flesh" >coconut</o>
+  <o r="Has a hard brown outer husk and creamy white flesh" >coconut</o>
  </e>
  <e>
   <o r="A bright red berry" >cranberry</o>
