@@ -63,7 +63,7 @@ Valid xml means:
   <sort on="1" />
  </options>
  <e i="1" >
-  <o width="150" l="original" r="electrical device that displays moving images" >television</o>
+  <o width="150" l="original" r="Electrical device that displays moving images" >television</o>
  </e>
  <e i="1" >
   <o r="For sitting down on" >chair</o>

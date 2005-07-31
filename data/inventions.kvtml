@@ -1,0 +1,149 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Inventions" remark="Greatest inventions of humans" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="original" r="Achieve flight through fixed wings" >aircraft</o>
+ </e>
+ <e>
+  <o r="Drugs that kill bacteria" >antibiotics</o>
+ </e>
+ <e>
+  <o r="A motor vehicle for passengers" >automobile</o>
+ </e>
+ <e>
+  <o r="Store electrical energy" >batteries</o>
+ </e>
+ <e>
+  <o r="Efficient human powered vehicle with 2 wheels" >bicycle</o>
+ </e>
+ <e>
+  <o r="When thrown, it returns" >boomerang</o>
+ </e>
+ <e>
+  <o r="Accurately displays the time" >clocks</o>
+ </e>
+ <e>
+  <o r="One is in front of you right now" >computers</o>
+ </e>
+ <e>
+  <o r="A powerful high explosive" >dynamite</o>
+ </e>
+ <e>
+  <o r="The flow of electrons" >electricity</o>
+ </e>
+ <e>
+  <o r="Allows for speedy vertical travels within tall buildings" >elevator</o>
+ </e>
+ <e>
+  <o r="Fast method of sending mail through the internet" >email</o>
+ </e>
+ <e>
+  <o r="Rotating blades on this craft allow flight" >helicopter</o>
+ </e>
+ <e>
+  <o r="Vessel that floats on a cushion of air" >hovercraft</o>
+ </e>
+ <e>
+  <o r="The global computer communications network" >internet</o>
+ </e>
+ <e>
+  <o r="Intense beam of light" >lasers</o>
+ </e>
+ <e>
+  <o r="Holds paper objects together temporarily" >paperclip</o>
+ </e>
+ <e>
+  <o r="Snapshots of moments in time" >photography</o>
+ </e>
+ <e>
+  <o r="Petroleum-based polymers with a range of properties" >plastics</o>
+ </e>
+ <e>
+  <o r="Radio waves provide the spatial location of objects" >radar</o>
+ </e>
+ <e>
+  <o r="Sound recieved from electromagnetic waves" >radio</o>
+ </e>
+ <e>
+  <o r="The pressure of water vapour drives this engine" >steamengine</o>
+ </e>
+ <e>
+  <o r="A vocal communication device" >telephone</o>
+ </e>
+ <e>
+  <o r="Electrical device that displays moving images" >television</o>
+ </e>
+ <e>
+  <o r="Puzzle game made famous by the Gameboy console" >tetris</o>
+ </e>
+ <e>
+  <o r="Foundation of modern electronics" >transistor</o>
+ </e>
+ <e>
+  <o r="Hook and loop fasteners" >velcro</o>
+ </e>
+ <e>
+  <o r="Circular object that allows for low-friction motion" >wheel</o>
+ </e>
+</kvtml>
