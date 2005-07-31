@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Fruits" remark="Fruits of the Earth" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="original" r="One a day keeps the doctor away" >apple</o>
+ </e>
+ <e>
+  <o r="Resembles a small Peach" >apricot</o>
+ </e>
+ <e>
+  <o r="A long yellow fruit that bends along its length" >banana</o>
+ </e>
+ <e>
+  <o r="A Shiny black berry" >blackberry</o>
+ </e>
+ <e>
+  <o r="Sweet edible dark-blue berries" >blueberry</o>
+ </e>
+ <e>
+  <o r="Red fruit with a single hard stone" >cherry</o>
+ </e>
+ <e>
+  <o r="Has a hard brown outer husk, with a creamy white flesh" >coconut</o>
+ </e>
+ <e>
+  <o r="A bright red berry" >cranberry</o>
+ </e>
+ <e>
+  <o r="Used to make wine" >grape</o>
+ </e>
+ <e>
+  <o r="Large yellow citrus fruit with somewhat acid juicy pulp" >grapefruit</o>
+ </e>
+ <e>
+  <o r="Fuzzy brown egg-shaped fruit with slightly green flesh" >kiwi</o>
+ </e>
+ <e>
+  <o r="Yellow oval fruit with juicy acidic flesh" >lemon</o>
+ </e>
+ <e>
+  <o r="Small, green citrus fruit that resembles a lemon" >lime</o>
+ </e>
+ <e>
+  <o r="Reddish-orange loose-skinned citrus of China" >mandarin</o>
+ </e>
+ <e>
+  <o r="Large oval smooth-skinned fruit from the tropics" >mango</o>
+ </e>
+ <e>
+  <o r="Small fruit with a high oil content" >olive</o>
+ </e>
+ <e>
+  <o r="Round citrus fruit, associated with a color" >orange</o>
+ </e>
+ <e>
+  <o r="Juicy fruit with sweet yellowish flesh" >peach</o>
+ </e>
+ <e>
+  <o r="Small, bell-shaped juicy, gritty-textured fruit" >pear</o>
+ </e>
+ <e>
+  <o r="Resembling a pine cone, with a tangy sweet taste" >pineapple</o>
+ </e>
+ <e>
+  <o r="Sweet, juicy, purple fruit with smooth skin" >plum</o>
+ </e>
+ <e>
+  <o r="Strongly-flavored berry of several colors" >raspberry</o>
+ </e>
+ <e>
+  <o r="Small, sweet and fleshy red fruit" >strawberry</o>
+ </e>
+ <e>
+  <o r="This melon from Africa has a moist red flesh" >watermelon</o>
+ </e>
+</kvtml>
