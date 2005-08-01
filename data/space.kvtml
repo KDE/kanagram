@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Space" remark="Space objects, terms and missions" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="original" r="The American moon program" >apollo</o>
+ </e>
+ <e>
+  <o r="Small planetary body in orbit around the Sun" >asteroid</o>
+ </e>
+ <e>
+  <o r="Person from the USA who travels into space" >astronaut</o>
+ </e>
+ <e>
+  <o r="Russian reusable spacecraft program" >buran</o>
+ </e>
+ <e>
+  <o r="Medium-sized icy object orbiting the Sun" >comet</o>
+ </e>
+ <e>
+  <o r="Grouping of stars which can form a shape or pattern" >constellation</o>
+ </e>
+ <e>
+  <o r="Person from Russia who travels into space" >cosmonaut</o>
+ </e>
+ <e>
+  <o r="The planet on which we live" >earth</o>
+ </e>
+ <e>
+  <o r="When one celestial body obscures another" >eclipse</o>
+ </e>
+ <e>
+  <o r="Very large cluster of stars" >galaxy</o>
+ </e>
+ <e>
+  <o r="Fifth from the Sun, the largest planet" >jupiter</o>
+ </e>
+ <e>
+  <o r="Fourth planet from the Sun" >mars</o>
+ </e>
+ <e>
+  <o r="The smallest planet and nearest the Sun" >mercury</o>
+ </e>
+ <e>
+  <o r="Meteoroid that burns up in the Earth's atmosphere" >meteor</o>
+ </e>
+ <e>
+  <o r="Matter that has reached Earth from outer space" >meteorite</o>
+ </e>
+ <e>
+  <o r="Russian space station, launched in 1986" >mir</o>
+ </e>
+ <e>
+  <o r="The natural satellite of the Earth" >moon</o>
+ </e>
+ <e>
+  <o r="Giant planet, eighth from the sun" >neptune</o>
+ </e>
+ <e>
+  <o r="Path an object makes around another" >orbit</o>
+ </e>
+ <e>
+  <o r="Ninth planet from the Sun" >pluto</o>
+ </e>
+ <e>
+  <o r="An object that revolves around a planet" >satellite</o>
+ </e>
+ <e>
+  <o r="Giant planet with rings, sixth from the Sun" >saturn</o>
+ </e>
+ <e>
+  <o r="The first American space station, launched in 1973" >skylab</o>
+ </e>
+ <e>
+  <o r="The first artificial Earth satellite, launched in 1957" >sputnik</o>
+ </e>
+ <e>
+  <o r="The star at the center of the Solar System" >sun</o>
+ </e>
+ <e>
+  <o r="Person from China who travels into space" >taikonaut</o>
+ </e>
+ <e>
+  <o r="Seventh planet from the Sun" >uranus</o>
+ </e>
+ <e>
+  <o r="Second planet from the Sun" >venus</o>
+ </e>
+ <e>
+  <o r="Twin space probes launched in 1977" >voyager</o>
+ </e>
+</kvtml>

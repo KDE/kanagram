@@ -84,6 +84,9 @@ Valid xml means:
   <o r="Capital of Afganistan" >kabul</o>
  </e>
  <e>
+  <o r="Capital of Sudan" >khartoum</o>
+ </e>
+ <e>
   <o r="Capital of the USA" >washington</o>
  </e>
  <e>
