@@ -110,4 +110,7 @@ Valid xml means:
  <e>
   <o r="Warmers for the hands" >gloves</o>
  </e>
+ <e>
+  <o r="Keeps your pants from falling down" >belt</o>
+ </e>
 </kvtml>

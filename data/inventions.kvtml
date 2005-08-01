@@ -126,7 +126,7 @@ Valid xml means:
   <o r="Sound recieved from electromagnetic waves" >radio</o>
  </e>
  <e>
-  <o r="The pressure of water vapour drives this engine" >steamengine</o>
+  <o r="The pressure of water vapor drives this engine" >steamengine</o>
  </e>
  <e>
   <o r="A vocal communication device" >telephone</o>
