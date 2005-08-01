@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Professions" remark="The jobs people do" cols="0" generator="kanagram" lines="21" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e s="1" >
+  <o width="150" l="original" r="One who helps the sick" >doctor</o>
+ </e>
+ <e s="1" >
+  <o r="One who puts out fires" >fireman</o>
+ </e>
+ <e s="1" >
+  <o r="A catcher of ocean creatures" >fisherman</o>
+ </e>
+ <e s="1" >
+  <o r="One who defends his country" >soldier</o>
+ </e>
+ <e>
+  <o r="An extra-terrestrial traveler" >astronaut</o>
+ </e>
+ <e>
+  <o r="A person that maintains an electrical system" >electrician</o>
+ </e>
+ <e>
+  <o r="Someone that repairs water systems" >plumber</o>
+ </e>
+ <e>
+  <o r="A doctor for the mind" >psychiatrist</o>
+ </e>
+ <e>
+  <o r="An officer of the law" >policeman</o>
+ </e>
+ <e>
+  <o r="One who writes for a living" >author</o>
+ </e>
+ <e>
+  <o r="A news writer" >journalist</o>
+ </e>
+ <e>
+  <o r="A maker of computer software" >programmer</o>
+ </e>
+ <e>
+  <o r="One who performs for an audience" >actor</o>
+ </e>
+ <e>
+  <o r="A player of music" >musician</o>
+ </e>
+ <e>
+  <o r="One who invokes laughter" >comedian</o>
+ </e>
+ <e>
+  <o r="A student of chemicals" >chemist</o>
+ </e>
+ <e>
+  <o r="One who instructs students" >teacher</o>
+ </e>
+ <e>
+  <o r="A person that repairs machinery" >mechanic</o>
+ </e>
+ <e>
+  <o r="Someone that grows crops" >farmer</o>
+ </e>
+ <e>
+  <o r="A creative person" >artist</o>
+ </e>
+ <e>
+  <o r="A door-to-door seller" >salesman</o>
+ </e>
+</kvtml>

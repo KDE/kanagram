@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Clothing" remark="Things humans wear" cols="0" generator="kanagram" lines="16" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="original" r="Athletic shoes" >sneakers</o>
+ </e>
+ <e>
+  <o r="Shoes meant for working" >boots</o>
+ </e>
+ <e>
+  <o r="Leg coverings" >pants</o>
+ </e>
+ <e>
+  <o r="Short leg coverings" >shorts</o>
+ </e>
+ <e>
+  <o r="The bottom half of a dress" >skirt</o>
+ </e>
+ <e>
+  <o r="A full-body covering" >dress</o>
+ </e>
+ <e>
+  <o r="A cold-weather full-body covering" >parka</o>
+ </e>
+ <e>
+  <o r="A light upper-body warmer" >jacket</o>
+ </e>
+ <e>
+  <o r="Heavy upper-body covering" >coat</o>
+ </e>
+ <e>
+  <o r="A head covering" >hat</o>
+ </e>
+ <e>
+  <o r="Cold-weather head covering" >tobogan</o>
+ </e>
+ <e>
+  <o r="Ear warmer" >earmuffs</o>
+ </e>
+ <e>
+  <o r="Sunny weather eyewear" >sunglasses</o>
+ </e>
+ <e>
+  <o r="Foot protection" >socks</o>
+ </e>
+ <e>
+  <o r="Beach footwear" >sandals</o>
+ </e>
+ <e>
+  <o r="Warmers for the hands" >gloves</o>
+ </e>
+</kvtml>

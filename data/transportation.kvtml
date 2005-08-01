@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Transportation" remark="Ways of getting around" cols="0" generator="kanagram" lines="16" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="original" r="Four-wheeled vehicle" >automobile</o>
+ </e>
+ <e>
+  <o r="Motorized two-wheeled vehicle" >motorcycle</o>
+ </e>
+ <e>
+  <o r="A vehicle that travels on tracks" >train</o>
+ </e>
+ <e>
+  <o r="A flying machine" >airplane</o>
+ </e>
+ <e>
+  <o r="A vertical takeoff aircraft" >helicopter</o>
+ </e>
+ <e>
+  <o r="A two-wheeled human-powered vehicle" >bicycle</o>
+ </e>
+ <e>
+  <o r="An electrified bus" >streetcar</o>
+ </e>
+ <e>
+  <o r="It goes up, it comes down" >elevator</o>
+ </e>
+ <e>
+  <o r="A sea-faring vehicle" >ship</o>
+ </e>
+ <e>
+  <o r="For underwater transportation" >submarine</o>
+ </e>
+ <e>
+  <o r="Open-air bus" >trolley</o>
+ </e>
+ <e>
+  <o r="Heavy duty with four wheels" >truck</o>
+ </e>
+ <e>
+  <o r="For transporting several people at once" >bus</o>
+ </e>
+ <e>
+  <o r="An underground train" >subway</o>
+ </e>
+ <e>
+  <o r="A two-wheeled scooter" >moped</o>
+ </e>
+ <e>
+  <o r="A hub for airplanes" >airport</o>
+ </e>
+</kvtml>
