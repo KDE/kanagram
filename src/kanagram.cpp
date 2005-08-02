@@ -50,7 +50,7 @@ using namespace std;
 #include "newstuff.h"
 
 
-Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overTry(false), m_showHint(false)
+Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overTry(false), m_showHint(false), m_overHintBox(false)
 {
 	m_back = new QPixmap(locate("appdata", "images/kanagram.png"));
 	m_aboutKDEOverlay = new QPixmap(locate("appdata", "images/kicon.png"));
@@ -83,6 +83,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_quitRect = QRect(453, 352, 182, 104);
 	
 	m_hintRect = QRect(51, 337, 39, 28);
+	m_hintBoxRect = QRect(446, 207, 171, 85);
 	m_revealRect = QRect(279, 338, 119, 28);
 	m_tryRect = QRect(341, 426, 55, 33);
 	m_aboutKDERect = QRect(567, 213, 44, 44);
@@ -213,10 +214,10 @@ void Kanagram::paintEvent(QPaintEvent *)
 		QFont f = QFont(m_font);
 		f.setPointSize(10);
 		p.setFont(f);
-		p.drawText(459, 216, 148, 67, WordBreak | AlignCenter, m_game.getHint());
+		p.drawText(459, 217, 148, 67, WordBreak | AlignCenter, m_game.getHint());
 	}
 
-	if(m_overHelp)
+	if(m_overHelp && !m_showHint)
 	{
 		p.drawPixmap(456, 275, *m_card);
 		if(m_overAboutApp)
@@ -307,6 +308,29 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		m_helpMenu->aboutApplication();
 	}
 
+	if(!m_showHint && m_overHelp)
+	{
+		if(m_handbookRect.contains(e->pos()))
+		{
+			m_helpMenu->appHelpActivated();
+		}
+
+		if(m_aboutKDERect.contains(e->pos()))
+		{
+			m_helpMenu->aboutKDE();
+		}
+
+		if(m_aboutAppRect.contains(e->pos()))
+		{
+			m_helpMenu->aboutApplication();
+		}
+	}
+
+	if(m_hintBoxRect.contains(e->pos()))
+	{
+		hideHint();
+	}
+
 	if(m_switcherRect.contains(e->pos()) || m_arrowRect.contains(e->pos()))
 	{
 		if(!(e->button() == RightButton))
@@ -349,24 +373,6 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 			QTimer::singleShot(2000, this, SLOT(resetInputBox()));
 			m_inputBox->clear();
 			update();
-		}
-	}
-
-	if(m_overHelp)
-	{
-		if(m_handbookRect.contains(e->pos()))
-		{
-			m_helpMenu->appHelpActivated();
-		}
-
-		if(m_aboutKDERect.contains(e->pos()))
-		{
-			m_helpMenu->aboutKDE();
-		}
-
-		if(m_aboutAppRect.contains(e->pos()))
-		{
-			m_helpMenu->aboutApplication();
 		}
 	}
 }
@@ -450,6 +456,20 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		m_overHint = false;
 		haveToUpdate = true;
 	}
+
+	if(m_hintBoxRect.contains(p))
+	{
+		if(!m_overHintBox)
+		{
+			m_overHintBox = true;
+			haveToUpdate = true;
+		}
+	}
+	else if(m_overHintBox)
+	{
+		m_overHintBox = false;
+		haveToUpdate = true;
+	}
 	
 	if(m_revealRect.contains(p))
 	{
@@ -507,35 +527,38 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		haveToUpdate = true;
 	}
 
-	if(m_handbookRect.contains(p))
+	if(!m_showHint)
 	{
-		if(!m_overHandbook)
+		if(m_handbookRect.contains(p))
 		{
-			m_overHandbook = true;
+			if(!m_overHandbook)
+			{
+				m_overHandbook = true;
+				haveToUpdate = true;
+			}
+		}
+		else if(m_overHandbook)
+		{
+			m_overHandbook = false;
+			haveToUpdate = true;
+		}
+	
+		if(m_aboutKDERect.contains(p))
+		{
+			if(!m_overAboutKDE)
+			{
+				m_overAboutKDE = true;
+				haveToUpdate = true;
+			}
+		}
+		else if(m_overAboutKDE)
+		{
+			m_overAboutKDE = false;
 			haveToUpdate = true;
 		}
 	}
-	else if(m_overHandbook)
-	{
-		m_overHandbook = false;
-		haveToUpdate = true;
-	}
 
-	if(m_aboutKDERect.contains(p))
-	{
-		if(!m_overAboutKDE)
-		{
-			m_overAboutKDE = true;
-			haveToUpdate = true;
-		}
-	}
-	else if(m_overAboutKDE)
-	{
-		m_overAboutKDE = false;
-		haveToUpdate = true;
-	}
-
-	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || m_overTry || m_overAboutApp)
+	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || m_overTry || m_overAboutApp || m_overHintBox)
 		this->setCursor(PointingHandCursor);
 	else
 		this->unsetCursor();
