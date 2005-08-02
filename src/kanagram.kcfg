@@ -14,7 +14,7 @@
 </entry>
 <entry name="defaultVocab" type="Path">
 	<label>Set the default vocabulary</label>
-	<default>/usr/share/apps/kanagram/data/objects.kvtml</default>
+	<default>data/objects.kvtml</default>
 </entry>
 </group>
 </kcfgfile>

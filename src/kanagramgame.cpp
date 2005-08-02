@@ -83,7 +83,7 @@ void KanagramGame::nextAnagram()
 	KEduVocDocument	*doc = new KEduVocDocument(this);
 	if(m_fileList.empty())
 	{
-		doc->open(KURL(KanagramSettings::defaultVocab()), false);
+		doc->open(KURL(locate("appdata", KanagramSettings::defaultVocab())), false);
 		m_docTitle = doc->getTitle();
 		m_filename = KanagramSettings::defaultVocab();
 	}
