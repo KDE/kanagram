@@ -19,6 +19,9 @@ NewStuff::~NewStuff()
 
 void NewStuff::slotGetNewVocabs()
 {
-	KNS::DownloadDialog::open("kanagram/templates", i18n("Kanagram Vocab Updater"));
+	KNS::DownloadDialog *dlgDownload = new KNS::DownloadDialog();
+	dlgDownload->setProviderList("http://tuxipuxi.org/knewstuff/providers.xml");
+	dlgDownload->load();
+	dlgDownload->show();
 }
 
