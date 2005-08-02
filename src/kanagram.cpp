@@ -213,7 +213,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 		QFont f = QFont(m_font);
 		f.setPointSize(10);
 		p.setFont(f);
-		p.drawText(461, 216, 148, 67, WordBreak | AlignCenter, m_game.getHint());
+		p.drawText(459, 216, 148, 67, WordBreak | AlignCenter, m_game.getHint());
 	}
 
 	if(m_overHelp)
