@@ -108,7 +108,7 @@ Valid xml means:
   <o r="One who invokes laughter" >comedian</o>
  </e>
  <e>
-  <o r="A student of chemicals" >chemist</o>
+  <o r="Scientist who specializes in chemistry" >chemist</o>
  </e>
  <e>
   <o r="One who instructs students" >teacher</o>
@@ -120,9 +120,66 @@ Valid xml means:
   <o r="Someone that grows crops" >farmer</o>
  </e>
  <e>
-  <o r="A creative person" >artist</o>
+  <o r="One who practices art" >artist</o>
  </e>
  <e>
   <o r="A door-to-door seller" >salesman</o>
+ </e>
+ <e>
+  <o r="Makes and alteres clothes" >tailor</o>
+ </e>
+ <e>
+  <o r="Crafter of iron and steel" >blacksmith</o>
+ </e>
+ <e>
+  <o r="Specializes in oral medical care" >dentist</o>
+ </e>
+ <e>
+  <o r="Develops and communicates ideas" >designer</o>
+ </e>
+ <e>
+  <o r="Expert in an area of science" >scientist</o>
+ </e>
+ <e>
+  <o r="The first to think of or make something" >inventor</o>
+ </e>
+ <e>
+  <o r="Uses scientific knowledge to solve practical problems" >engineer</o>
+ </e>
+ <e>
+  <o r="Look after the finances in an organisastion" >accountant</o>
+ </e>
+ <e>
+  <o r="Bake bread" >baker</o>
+ </e>
+ <e>
+  <o r="Involved in the construction of buildings" >builder</o>
+ </e>
+ <e>
+  <o r="Crafts furniture" >carpenter</o>
+ </e>
+ <e>
+  <o r="Prepare and cook food" >chef</o>
+ </e>
+ <e>
+  <o r="Fixes machinery, especially automobiles" >mechanic</o>
+ </e>
+ <e>
+  <o r="Cut and style people's hair" >hairdresser</o>
+ </e>
+ <e>
+  <o r="Defend and prosecute people" >lawyer</o>
+ </e>
+ <e>
+  <o r="Look after people's eye sight" >optician</o>
+ </e>
+ <e>
+  <o r="Find and report the news" >reporter</o>
+ </e>
+ <e>
+  <o r="Arrange appointments and organise meetings" >secretary</o>
+ </e>
+ <e>
+  <o r="Designs the blueprints for new structures" >architect</o>
  </e>
 </kvtml>
