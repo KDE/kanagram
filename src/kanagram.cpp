@@ -119,7 +119,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_inputBox->setFont(f);
 	m_inputBox->show();
 
-	m_buttonFont = KGlobalSettings::generalFont();
+	m_font = KGlobalSettings::generalFont();
 }
 
 Kanagram::~Kanagram()
@@ -133,28 +133,22 @@ void Kanagram::loadSettings()
 		m_hintHideTime = hideTime[0].digitValue();
 	else
 		m_hintHideTime = 0;
+	
 	m_useSounds = KanagramSettings::useSounds();
-	m_standardInterfaceFonts = KanagramSettings::standardInterfaceFonts();
-	m_standardBlackboardFonts = KanagramSettings::standardBlackboardFonts();
-
-	if(m_standardInterfaceFonts)
-		m_font = KGlobalSettings::generalFont();
-	else
-		m_font = QFont("steve");
-	if(m_standardBlackboardFonts)
-		m_blackboardFont = KGlobalSettings::generalFont();
-	else
-		m_blackboardFont = QFont("squeaky chalk sound");
 
 	m_defaultVocab = KanagramSettings::defaultVocab();
+	
+	m_useStandardFonts = KanagramSettings::useStandardFonts();
 
-	if(m_standardBlackboardFonts)
+	if(m_useStandardFonts)
 	{
+		m_blackboardFont = KGlobalSettings::generalFont();
 		m_arrow = new QPixmap(locate("appdata", "images/basicarrow.png"));
 		m_arrowOver = new QPixmap(locate("appdata", "images/basicarrowover.png"));
 	}
 	else
 	{
+		m_blackboardFont = QFont("squeaky chalk sound");
 		m_arrow = new QPixmap(locate("appdata", "images/arrow.png"));
 		m_arrowOver = new QPixmap(locate("appdata", "images/arrowover.png"));
 	}
@@ -196,7 +190,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 
 	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
 	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, 0, m_overHint, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
-	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, m_buttonFont, QColor(126, 126, 126), m_chalkHighlightColor);
+	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, m_font, QColor(126, 126, 126), m_chalkHighlightColor);
 
 	drawSwitcherText(p, m_game.getDocTitle());
 	if(m_overSwitcher)

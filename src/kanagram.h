@@ -85,10 +85,10 @@ Q_OBJECT
 
 		//Values for settings
 		int m_hintHideTime;
-		bool m_useSounds, m_standardBlackboardFonts, m_standardInterfaceFonts;
+		bool m_useSounds, m_useStandardFonts;
 		QString m_defaultVocab;
 
-		QFont m_font, m_blackboardFont, m_buttonFont;
+		QFont m_blackboardFont, m_font;
 		
 		KHelpMenu *m_helpMenu;
 
