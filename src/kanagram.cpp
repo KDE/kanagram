@@ -211,9 +211,9 @@ void Kanagram::paintEvent(QPaintEvent *)
 	{
 		p.drawPixmap(439, 204, *m_hintOverlay);
 		QFont f = QFont(m_font);
-		f.setPointSize(12);
+		f.setPointSize(10);
 		p.setFont(f);
-		p.drawText(446, 207, 171, 85, WordBreak | AlignCenter, m_game.getHint());
+		p.drawText(461, 216, 148, 67, WordBreak | AlignCenter, m_game.getHint());
 	}
 
 	if(m_overHelp)
