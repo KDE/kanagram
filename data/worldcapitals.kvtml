@@ -75,6 +75,9 @@ Valid xml means:
   <o r="Capital of Ireland" >dublin</o>
  </e>
  <e>
+  <o r="Capital of Wales" >cardiff</o>
+ </e>
+ <e>
   <o r="Capital of Spain" >madrid</o>
  </e>
  <e>

@@ -108,9 +108,6 @@ Valid xml means:
   <o r="A two-wheeled scooter" >moped</o>
  </e>
  <e>
-  <o r="A hub for airplanes" >airport</o>
- </e>
- <e>
   <o r="Efficient human powered vehicle with 2 wheels" >bicycle</o>
  </e>
  <e>
@@ -118,5 +115,11 @@ Valid xml means:
  </e>
  <e>
   <o r="Motorized transport over snow" >snowmobile</o>
+ </e>
+ <e>
+  <o r="Strap wheels to your feet" >rollerskates</o>
+ </e>
+ <e>
+  <o r="One-wheeled, often seen in the circus" >unicycle</o>
  </e>
 </kvtml>
