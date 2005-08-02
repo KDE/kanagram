@@ -1,7 +1,0 @@
-#Remove this file once kanagram is inside kdeedu
-if test "x$keduvocdata_incdir" = "xno"; then
-	echo ""
-	echo "Kanagram will not be compiled because you are missing libkdeeducore headers"
-	echo "Please install them first and try again"
-	echo ""
-fi
