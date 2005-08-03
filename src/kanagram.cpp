@@ -153,6 +153,8 @@ void Kanagram::loadSettings()
 		m_arrow = new QPixmap(locate("appdata", "images/arrow.png"));
 		m_arrowOver = new QPixmap(locate("appdata", "images/arrowover.png"));
 	}
+
+	m_game.refreshVocabList();
 }
 
 void Kanagram::paintEvent(QPaintEvent *)

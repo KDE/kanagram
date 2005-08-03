@@ -32,6 +32,9 @@ Q_OBJECT
 	public:
 		KanagramGame();
 		~KanagramGame();
+		void refreshVocabList();
+		void loadDefaultVocab();
+		int findIndex();
 		void nextAnagram();
 		void nextVocab();
 		void previousVocab();

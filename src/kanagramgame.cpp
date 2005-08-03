@@ -31,38 +31,76 @@
 
 KanagramGame::KanagramGame() : m_index(0)
 {
-	//m_fileList.append(KanagramSettings::defaultVocab());
-	//KEduVocDocument *doc = new KEduVocDocument(this);
-	//doc->open(KURL(locate("appdata", m_fileList[m_index])), false);
-	//m_docTitle = doc->getTitle();
-	nextAnagram();
+	loadDefaultVocab();
 }
 
 KanagramGame::~KanagramGame()
 {
 }
 
+void KanagramGame::loadDefaultVocab()
+{
+	m_filename = KanagramSettings::defaultVocab();
+	KEduVocDocument *doc = new KEduVocDocument(this);
+	doc->open(KURL(locate("appdata", m_filename)), false);
+	m_docTitle = doc->getTitle();
+	nextAnagram();
+}
+
+void KanagramGame::refreshVocabList()
+{
+	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/*.kvtml");
+	m_index = findIndex();
+}
+
+int KanagramGame::findIndex()
+{
+	int tempIndex = 0;
+	for(int i = 0; i < m_fileList.size(); i++)
+	{
+		if(m_filename == m_fileList[i])
+		{
+			tempIndex = i;
+		}
+	}
+	return tempIndex;
+}
+
 void KanagramGame::previousVocab()
 {
 	m_index--;
-	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/*.kvtml");
 	if(m_index < 0)
 		m_index = m_fileList.size() - 1;
+	m_filename = m_fileList[m_index];
 	KEduVocDocument *doc = new KEduVocDocument(this);
-	doc->open(KURL(locate("appdata", m_fileList[m_index])), false);
+	doc->open(KURL(locate("appdata", m_filename)), false);
 	m_docTitle = doc->getTitle();
 }
 
 void KanagramGame::nextVocab()
 {
-	if(!m_fileList.empty())
-		m_index++;
-	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/*.kvtml");
+	m_index++;
 	if(m_index >= m_fileList.size())
 		m_index = 0;
+	m_filename = m_fileList[m_index];
 	KEduVocDocument *doc = new KEduVocDocument(this);
-	doc->open(KURL(locate("appdata", m_fileList[m_index])), false);
+	doc->open(KURL(locate("appdata", m_filename)), false);
 	m_docTitle = doc->getTitle();
+}
+
+void KanagramGame::nextAnagram()
+{
+	KEduVocDocument	*doc = new KEduVocDocument(this);
+	doc->open(KURL(locate("appdata", m_filename)), false);
+	int totalWords = doc->numEntries();
+	int wordNumber = m_random.getLong(totalWords);
+	while(m_anagram == doc->getEntry(wordNumber)->getOriginal())
+	{
+		wordNumber = m_random.getLong(totalWords);
+	}
+	m_originalWord = doc->getEntry(wordNumber)->getOriginal();
+	m_anagram = createAnagram(m_originalWord);
+	m_hint = doc->getEntry(wordNumber)->getRemark(0);
 }
 
 QString KanagramGame::getDocTitle()
@@ -76,28 +114,6 @@ QString KanagramGame::getFilename()
 		return m_filename;
 	else
 		return m_fileList[m_index];
-}
-
-void KanagramGame::nextAnagram()
-{
-	KEduVocDocument	*doc = new KEduVocDocument(this);
-	if(m_fileList.empty())
-	{
-		doc->open(KURL(locate("appdata", KanagramSettings::defaultVocab())), false);
-		m_docTitle = doc->getTitle();
-		m_filename = KanagramSettings::defaultVocab();
-	}
-	else
-		doc->open(KURL(locate("appdata", m_fileList[m_index])), false);
-	int totalWords = doc->numEntries();
-	int wordNumber = m_random.getLong(totalWords);
-	while(m_anagram == doc->getEntry(wordNumber)->getOriginal())
-	{
-		wordNumber = m_random.getLong(totalWords);
-	}
-	m_originalWord = doc->getEntry(wordNumber)->getOriginal();
-	m_anagram = createAnagram(m_originalWord);
-	m_hint = doc->getEntry(wordNumber)->getRemark(0);
 }
 
 QString KanagramGame::getAnagram()

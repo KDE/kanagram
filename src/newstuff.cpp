@@ -20,7 +20,7 @@ NewStuff::~NewStuff()
 void NewStuff::slotGetNewVocabs()
 {
 	KNS::DownloadDialog *dlgDownload = new KNS::DownloadDialog();
-	dlgDownload->setProviderList("http://tuxipuxi.org/knewstuff/providers.xml");
+	dlgDownload->setProviderList("http://kde-edu.org/kanagram/providers.xml");
 	dlgDownload->load();
 	dlgDownload->show();
 }
