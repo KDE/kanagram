@@ -53,6 +53,7 @@ Q_OBJECT
 
 		int m_index;
 		QStringList m_fileList;
+		QStringList m_answeredWords;
 		QString m_docTitle;
 		QString m_filename;
 };

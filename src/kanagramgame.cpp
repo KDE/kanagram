@@ -75,6 +75,7 @@ void KanagramGame::previousVocab()
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);
 	m_docTitle = doc->getTitle();
+	m_answeredWords.clear();
 }
 
 void KanagramGame::nextVocab()
@@ -86,6 +87,7 @@ void KanagramGame::nextVocab()
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);
 	m_docTitle = doc->getTitle();
+	m_answeredWords.clear();
 }
 
 void KanagramGame::nextAnagram()
@@ -94,11 +96,19 @@ void KanagramGame::nextAnagram()
 	doc->open(KURL(locate("appdata", m_filename)), false);
 	int totalWords = doc->numEntries();
 	int wordNumber = m_random.getLong(totalWords);
-	while(m_anagram == doc->getEntry(wordNumber)->getOriginal())
+	if(doc->numEntries() - 1 == m_answeredWords.size())
 	{
+		m_answeredWords.clear();
+		kdDebug() << "Cleared." << endl;
+	}
+	while(m_answeredWords.findIndex(doc->getEntry(wordNumber)->getOriginal()) != -1)
+	{
+		kdDebug() << "Wordnumber before: " << wordNumber << endl;
 		wordNumber = m_random.getLong(totalWords);
+		kdDebug() << "Wordnumber after: " << wordNumber << endl;
 	}
 	m_originalWord = doc->getEntry(wordNumber)->getOriginal();
+	m_answeredWords.append(m_originalWord);
 	m_anagram = createAnagram(m_originalWord);
 	m_hint = doc->getEntry(wordNumber)->getRemark(0);
 }
