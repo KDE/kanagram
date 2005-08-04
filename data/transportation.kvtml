@@ -122,4 +122,7 @@ Valid xml means:
  <e>
   <o r="One-wheeled, often seen in the circus" >unicycle</o>
  </e>
+ <e>
+  <o r="Filled with a lighter-than-air gas" >airship</o>
+ </e>
 </kvtml>
