@@ -15,7 +15,6 @@
 <authorgroup>
 <author>
 <firstname>Danny</firstname>
-<othername></othername>
 <surname>Allen</surname>
 <affiliation>
 <address><email>danny@dannyallen.co.uk</email></address>
@@ -207,9 +206,10 @@ Alongside use of the mouse, &kanagram; also allows the user to operate the game 
 	</mediaobject>
 </screenshot>
 
-
+<!-- 
 <sect1 id="general-config">
 <title>General</title>
+
 
 </sect1>
 
@@ -222,7 +222,7 @@ Alongside use of the mouse, &kanagram; also allows the user to operate the game 
 <title>New Stuff</title>
 
 </sect1>
-
+-->
 </chapter>
 
 
