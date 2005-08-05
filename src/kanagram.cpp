@@ -70,13 +70,6 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_quit = new QPixmap(locate("appdata", "images/quit.png"));
 	m_quitOver = new QPixmap(locate("appdata", "images/quitover.png"));
 
-	/* Deprecated since iconization of the menu
-	m_newWordRect = QRect(477, 31, 134, 76);
-	m_settingsRect = QRect(477, 122, 134, 76);
-	m_helpRect = QRect(477, 212, 134, 76);
-	m_quitRect = QRect(453, 352, 182, 104);
-	*/
-
 	m_nextRect = QRect(477, 31, 134, 76);
 	m_configRect = QRect(477, 122, 134, 76);
 	m_helpRect = QRect(477, 212, 134, 76);
@@ -98,7 +91,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	
 	m_chalkColor = QColor(155, 155, 155);
 	m_chalkHighlightColor = QColor(255, 255, 255);
-	m_fillColor = QColor(40, 40, 40);
+	m_fillColor = QColor(45, 45, 45);
 	m_fontColor = QColor(55, 55, 55);
 	m_fontHighlightColor = QColor(99, 99, 99);
 
@@ -182,15 +175,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 		p.drawPixmap(520, 362, *m_quit);
 
 	drawText(p, m_game.getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 28);
-
-		
-	/* Deprecated code that is no longer needed with the new iconized menu
-	drawText(p, i18n("New Word"), QPoint(543, 62), false, 0, 0, 0, m_overNewWord, true, m_font, m_fontColor, m_fontHighlightColor);
-	drawText(p, i18n("Settings"), QPoint(543, 147), false, 0, 0, 0, m_overSettings, true, m_font, m_fontColor, m_fontHighlightColor);
-	drawText(p, i18n("Help"), QPoint(543, 235), false, 0, 0, 0, m_overHelp, true, m_font, m_fontColor, m_fontHighlightColor);
-	drawText(p, i18n("Quit"), QPoint(543, 391), false, 0, 0, 0, m_overQuit, true, m_font, m_fontColor, m_fontHighlightColor);
-	*/
-
+	
 	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
 	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, 0, m_overHint, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
 	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, m_font, QColor(126, 126, 126), m_chalkHighlightColor);
