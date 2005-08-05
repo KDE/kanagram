@@ -201,10 +201,6 @@ void Kanagram::paintEvent(QPaintEvent *)
 	//Draw the border of the Up arrow
 	borderRect = m_upRect;
 	p.fillRect(borderRect, m_fillColor);
-	//borderRect.setLeft(borderRect.left() - 2);
-	//borderRect.setTop(borderRect.top() - 2);
-	//borderRect.setWidth(borderRect.width() + 2 * 1);
-	//borderRect.setHeight(borderRect.height() + 2 * 1);
 	p.drawRoundRect(borderRect, 10, 5);
 	
 	if(m_overUp)
@@ -364,7 +360,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_upRect.contains(e->pos()))
 	{
-		if(m_inputBox->text() == m_game.getWord())
+		if(m_inputBox->text().lower() == m_game.getWord())
 		{
 			m_inputBox->unsetPalette();
 			m_inputBox->clear();
