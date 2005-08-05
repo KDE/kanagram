@@ -15,6 +15,9 @@
     <property name="caption">
         <string>General</string>
     </property>
+    <property name="whatsThis" stdset="0">
+        <string>This setting allows you to set how long Kanagram's hint bubble is shown.</string>
+    </property>
     <grid>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -29,6 +32,9 @@
             <property name="accel">
                 <string></string>
             </property>
+            <property name="whatsThis" stdset="0">
+                <string>Uses a standard font for the chalkboard/interface.</string>
+            </property>
         </widget>
         <widget class="QCheckBox" row="3" column="0">
             <property name="name">
@@ -39,6 +45,9 @@
             </property>
             <property name="accel">
                 <string>Alt+N</string>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>Turns sounds on/off.</string>
             </property>
         </widget>
         <widget class="QLayoutWidget" row="0" column="0">

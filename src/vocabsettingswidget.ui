@@ -42,6 +42,9 @@
                             <property name="text">
                                 <string>Create New</string>
                             </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Creates a new vocabulary.</string>
+                            </property>
                         </widget>
                         <widget class="QPushButton">
                             <property name="name">
@@ -50,6 +53,9 @@
                             <property name="text">
                                 <string>Edit</string>
                             </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Edits the selected vocabulary.</string>
+                            </property>
                         </widget>
                         <widget class="QPushButton">
                             <property name="name">
@@ -57,6 +63,9 @@
                             </property>
                             <property name="text">
                                 <string>Delete</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Deletes the selected vocabulary.</string>
                             </property>
                         </widget>
                     </hbox>
@@ -89,6 +98,9 @@
                     </property>
                     <property name="allColumnsShowFocus">
                         <bool>true</bool>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>The list of installed vocabularies.</string>
                     </property>
                 </widget>
             </vbox>

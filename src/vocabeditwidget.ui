@@ -76,6 +76,12 @@
                                     <property name="text">
                                         <string>Description:</string>
                                     </property>
+                                    <property name="buddy" stdset="0">
+                                        <cstring>txtDescription</cstring>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>The description of the vocabulary. If you're creating a new vocabulary, add a description so that users of your vocabulary will know what kinds of words it contains.</string>
+                                    </property>
                                 </widget>
                                 <widget class="QLineEdit" row="0" column="1">
                                     <property name="name">
@@ -88,6 +94,12 @@
                                     </property>
                                     <property name="text">
                                         <string>Vocabulary Name:</string>
+                                    </property>
+                                    <property name="buddy" stdset="0">
+                                        <cstring>txtVocabName</cstring>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>The name of the vocabulary you are editing.</string>
                                     </property>
                                 </widget>
                                 <widget class="QLineEdit" row="1" column="1">
@@ -120,6 +132,9 @@
                                             <property name="text">
                                                 <string>Remove Word</string>
                                             </property>
+                                            <property name="whatsThis" stdset="0">
+                                                <string>Removes the selected word.</string>
+                                            </property>
                                         </widget>
                                         <widget class="QPushButton">
                                             <property name="name">
@@ -128,12 +143,18 @@
                                             <property name="text">
                                                 <string>New Word</string>
                                             </property>
+                                            <property name="whatsThis" stdset="0">
+                                                <string>Creates a new word.</string>
+                                            </property>
                                         </widget>
                                     </vbox>
                                 </widget>
                                 <widget class="QListBox">
                                     <property name="name">
                                         <cstring>lboxWords</cstring>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>The list of words in the vocabulary.</string>
                                     </property>
                                 </widget>
                             </hbox>
@@ -153,6 +174,12 @@
                                     <property name="text">
                                         <string>Word:</string>
                                     </property>
+                                    <property name="buddy" stdset="0">
+                                        <cstring>txtWord</cstring>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>The selected word. This box allows you to edit the selected word.</string>
+                                    </property>
                                 </widget>
                                 <widget class="QLineEdit" row="1" column="1">
                                     <property name="name">
@@ -170,6 +197,12 @@
                                     </property>
                                     <property name="text">
                                         <string>Hint</string>
+                                    </property>
+                                    <property name="buddy" stdset="0">
+                                        <cstring>txtHint</cstring>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>The selected hint. Add a hint to aid in guessing the word.</string>
                                     </property>
                                 </widget>
                             </grid>

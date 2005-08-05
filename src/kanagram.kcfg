@@ -1,15 +1,15 @@
 <kcfgfile name="kanagramrc">
 <group name="kanagram">
 <entry name="hintHideTime" type="String">
-	<label>Sets how long hints should be shown</label>
+	<label>This setting allows you to set how long Kanagram's hint bubble is shown.</label>
 	<default>5 seconds</default>
 </entry>
 <entry name="useSounds" type="Bool">
-	<label>Turns on sound effects</label>
+	<label>Turns sounds on/off.</label>
 	<default>true</default>
 </entry>
 <entry name="useStandardFonts" type="Bool">
-	<label>Uses a standard font</label>
+	<label>Uses a standard font for the chalkboard/interface.</label>
 	<default>false</default>
 </entry>
 <entry name="defaultVocab" type="Path">
