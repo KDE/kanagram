@@ -37,7 +37,7 @@
 
 <abstract>
 <para>
-&kanagram; brings a retro electronic memory game from the 1970's to &kde;.
+&kanagram; brings fun anagram puzzles to &kde;.
 </para>
 </abstract>
 
@@ -54,27 +54,28 @@
 
 </bookinfo>
 
-
 <chapter id="introduction">
 <title>Introduction</title>
 
 <para>
-&kanagram; is based on an electronic game released in 1978, which challenges players to remember sequences of increasing length. On the face of the device, there are 4 different color buttons, each one with their own distinctive sound. These buttons light up randomly, creating the sequence that the player must then recall. If the player is successful in remembering the sequence of lights in the correct order, they advance to the next stage, where an identical sequence with one extra step is presented. If they are incorrect, the game is lost, and the player must start again from the beginning.
-
-The goal is to get a highscore - each step in the sequence is worth one point, so correct recollection of a sequence of 8 lights is worth 8 points on the highscore table.
+&kanagram; is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or amount of attempts to solve the word. Included with &kanagram; are several vocabularies ready to play, with many more available from the Internet.
 </para>
 
 </chapter>
 
 
-<chapter id="using-ksimon">
+<chapter id="using-kanagram">
 <title>Using &kanagram;</title>
+
+<para>
+Here is the screen that is presented on startup of &kanagram;, showing the general interface to the application. Much of the screen is taken up by the blackboard, where the puzzles are written onto, with the "filing cabinet" on the right containing application controls.
+</para>
 
 <screenshot>
 <screeninfo>Here is the screen that is presented on startup of &kanagram;</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="ksimon1.png" format="PNG"/>
+	    <imagedata fileref="kanagram.png" format="PNG"/>
 	  </imageobject>
 	  <textobject>
 	    <phrase>&kanagram; screenshot</phrase>
@@ -82,68 +83,72 @@ The goal is to get a highscore - each step in the sequence is worth one point, s
 	</mediaobject>
 </screenshot>
 
+<orderedlist>
+<listitem>
 <para>
-Here is the screen that is presented on startup of &kanagram;, showing the general interface to the application. Most of the screen is taken up by the device, with the 4 color buttons, with the device controls (score counter, start button, etc) in the center of the screen. The current status of the application is displayed on the piece of paper under the device. In the corners of the application, there are 3 buttons:
+The <guibutton>Vocabulary Selector</guibutton> allows the user to quickly change the active game vocabulary by clicking on it: the left mouse button advances to the next installed vocabulary, with the right mouse button allowing you to return to the previously-played vocabulary. 
 </para>
-
+</listitem>
+<listitem>
+<para>
+In the centre of the board is the anagram puzzle to be solved.
+</para>
+</listitem>
+<listitem>
+<para>
+When the <guibutton>Hint</guibutton> button is clicked, a short sentence will appear, describing the current word puzzle.
+</para>
+</listitem>
+<listitem>
+<para>
+The <guibutton>Reveal Word</guibutton> button solves the current word puzzle.
+</para>
+</listitem>
+<listitem>
+<para>
+The entry box allows you to enter your attempts to solve the current word puzzle.
+</para>
+</listitem>
+<listitem>
+<para>
+This is the <guibutton>Next Word</guibutton> button, and allows you to advance to the next anagram puzzle.
+</para>
+</listitem>
+<listitem>
+<para>
+This is the <guibutton>Configuration</guibutton> button, which opens the Kanagram Configuration dialog.
+</para>
+</listitem>
+<listitem>
+<para>
+The <guibutton>Help</guibutton> button is special, in that it reveals 3 sub-buttons. These buttons are shown when the help button is hovered over, and provide access to the &kanagram; handbook (this document), and the "About &kanagram;" and "About &kde;" dialogs.
 <screenshot>
-<screeninfo>Highscores button</screeninfo>
+<screeninfo>The 3 different states of the <guibutton>Help</guibutton> button</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="ksimon_highscoresbutton.png" format="PNG"/>
+	    <imagedata fileref="helpstates.png" format="PNG"/>
 	  </imageobject>
-	    <textobject>
-	    <phrase>Highscores button</phrase>
+	  <textobject>
+	    <phrase>&kanagram; screenshot</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
-
-<para>
-The highscores button opens a dialog that displays the highscores table for each of the 3 difficulty levels. The highscores table can also be accessed by clicking on the score counter.
 </para>
-
-<screenshot>
-<screeninfo>Quit button</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="ksimon_quitbutton.png" format="PNG"/>
-	  </imageobject>
-	    <textobject>
-	    <phrase>Quit button</phrase>
-	  </textobject>
-	</mediaobject>
-</screenshot>
-
+</listitem>
+<listitem>
 <para>
-The Quit button exits the application.
+The <guibutton>Quit</guibutton> button closes the application.
 </para>
+</listitem>
+</orderedlist>
 
-<screenshot>
-<screeninfo>Help button</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="ksimon_helpbutton.png" format="PNG"/>
-	  </imageobject>
-	    <textobject>
-	    <phrase>Help button</phrase>
-	  </textobject>
-	</mediaobject>
-</screenshot>
-
-<para>
-The help button is special, in that it reveals 3 sub-buttons. These buttons are shown when the help button is hovered over, and provide access to the &kanagram; handbook (this document), and the "About &kanagram;" and "About &kde;" dialogs.
-</para>
-
-<para>
-To become familiar with the workings of the game, you can interact with the buttons whilst on the main screen. The buttons will illuminate and produce a tone upon being pressed.
-</para>
 
 <sect1 id="starting-game">
-<title>Starting a Game</title>
+<title>Playing the Game</title>
 
 <para>
-Once you are familiar with the workings of the application, a game can be started by pressing the "Start" button in the center of the screen. This "powers on" the device, as shown by the illuminated score counter. You can then choose the difficulty level that you want to attempt:
- </para>
+Kanagram creates an anagram puzzle on application startup, so that you may start playing straight away.
+</para>
 
 <screenshot>
 <screeninfo>Select difficulty level</screeninfo>
@@ -158,8 +163,8 @@ Once you are familiar with the workings of the application, a game can be starte
 </screenshot>
 
 <para>
-There are 3 levels in &kanagram;:
- </para>
+a
+</para>
 
 <itemizedlist>
 <listitem>
@@ -180,69 +185,11 @@ Level ? is the most difficult level of &kanagram;. It takes the timings from Lev
 </itemizedlist>
 
 </sect1>
-
-
-<sect1 id="enter-highscore">
-<title>Entering a New Highscore</title>
-
-<para>
-If you are lucky enough to get a highscore, it will be entered into highscores table. A dialog will ask for a nickname to associate with your score in the table:
-</para>
-
-<screenshot>
-<screeninfo>Highscore nickname prompt dialog</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="ksimon_nickprompt.png" format="PNG"/>
-	  </imageobject>
-	    <textobject>
-	    <phrase>Highscore nickname prompt dialog</phrase>
-	  </textobject>
-	</mediaobject>
-</screenshot>
-
-<para>
-Only 5 scores are kept for each level, so try not to be disappointed if you don't make it!
-</para>
-
-</sect1>
-
-
-<sect1 id="playing-tips">
-<title>Playing Tips</title>
-<para>
-&kanagram; is the ultimate memory game, though you need not possess the ultimate memory to be successful. These tips will help you in your pursuit of the best score:
-</para>
-
-<itemizedlist>
-<listitem>
-<para>
-If you have PC speakers, turn them on with the sound at a good level so that you can hear the tones alongside seeing the flashing lights.
-</para>
-</listitem>
-<listitem>
-<para>
-Experiment with both the mouse and keyboard interaction methods, to see which one suites your memory best.
-</para>
-</listitem>
-<listitem>
-<para>
-Try remembering the sequence as a list of colors.
-</para>
-</listitem>
-<listitem>
-<para>
-Try remembering the sequence as positions on the screen.
-</para>
-</listitem>
-</itemizedlist>
-
-</sect1>
 </chapter>
 
 
-<chapter id="accessibility">
-<title>Accessibility Features</title>
+<chapter id="configuring">
+<title>Configuring &kanagram;</title>
 
 <para>
 Alongside use of the mouse, &kanagram; also allows the user to operate the game using the keyboard. To display the current keymap settings, and to modify them to your preferences, hold in the <keycap>ctrl</keycap> key:
@@ -260,13 +207,21 @@ Alongside use of the mouse, &kanagram; also allows the user to operate the game 
 	</mediaobject>
 </screenshot>
 
-<para>
-The keys are 1, 2, 3, 4 by default.
-</para>
 
-<para>
-To change the mapping of any button, click it using the mouse. It will then be highlighted, waiting for input. Press the desired key on the keyboard to change the assigned key.
-</para>
+<sect1 id="general-config">
+<title>General</title>
+
+</sect1>
+
+<sect1 id="vocabularies-config">
+<title>Vocabularies</title>
+
+</sect1>
+
+<sect1 id="newstuff-config">
+<title>New Stuff</title>
+
+</sect1>
 
 </chapter>
 
@@ -278,14 +233,14 @@ To change the mapping of any button, click it using the mouse. It will then be h
 &kanagram;
 </para>
 <para>
-Program copyright 2005 Albert Astals Cid <email>tsdgeos@terra.es</email> and Danny Allen <email>danny@dannyallen.co.uk</email>
+Program copyright 2005 Joshua Keel <email>joshuakeel@gmail.com</email> and Danny Allen <email>danny@dannyallen.co.uk</email>
 </para>
 <para>
 Contributors:
 </para>
 <itemizedlist>
 <listitem>
-<para>"Steve" font: Steve Jordi
+<para>Sound effects: Artemio
 <email>fillme</email>
 </para>
 </listitem>
@@ -304,7 +259,7 @@ Documentation copyright 2005 Danny Allen <email>danny@dannyallen.co.uk</email>
 <appendix id="installation">
 <title>Installation</title>
 
-<sect1 id="getting-khangman">
+<sect1 id="getting-kanagram">
 <title>How to obtain &kanagram;</title>
 
 &install.intro.documentation;
