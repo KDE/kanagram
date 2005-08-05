@@ -50,7 +50,7 @@ using namespace std;
 #include "newstuff.h"
 
 
-Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overTry(false), m_showHint(false), m_overHintBox(false)
+Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_showHint(false), m_overHintBox(false)
 {
 	m_back = new QPixmap(locate("appdata", "images/kanagram.png"));
 	m_aboutKDEOverlay = new QPixmap(locate("appdata", "images/kicon.png"));
@@ -70,6 +70,9 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_quit = new QPixmap(locate("appdata", "images/quit.png"));
 	m_quitOver = new QPixmap(locate("appdata", "images/quitover.png"));
 
+	m_up = new QPixmap(locate("appdata", "images/up.png"));
+	m_upOver = new QPixmap(locate("appdata", "images/upover.png"));
+
 	m_nextRect = QRect(477, 31, 134, 76);
 	m_configRect = QRect(477, 122, 134, 76);
 	m_helpRect = QRect(477, 212, 134, 76);
@@ -78,7 +81,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_hintRect = QRect(51, 337, 39, 28);
 	m_hintBoxRect = QRect(446, 207, 171, 85);
 	m_revealRect = QRect(279, 338, 119, 28);
-	m_tryRect = QRect(341, 426, 55, 33);
+	m_upRect = QRect(341, 426, 55, 33);
 	m_aboutKDERect = QRect(567, 213, 44, 44);
 	m_aboutAppRect = QRect(522, 213, 44, 44);
 	m_handbookRect = QRect(478, 213, 44, 44);
@@ -178,8 +181,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 	
 	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
 	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, 0, m_overHint, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
-	drawText(p, i18n("Try"), QPoint(369, 442), true, 10, 5, &m_tryRect, m_overTry, true, m_font, QColor(126, 126, 126), m_chalkHighlightColor);
-
+	
 	drawSwitcherText(p, m_game.getDocTitle());
 	if(m_overSwitcher)
 		p.drawPixmap(385, 134, *m_arrowOver);
@@ -187,14 +189,29 @@ void Kanagram::paintEvent(QPaintEvent *)
 		p.drawPixmap(385, 134, *m_arrow);
 
 	p.setPen(QPen(black, 3));
-	
+
+	//Draw the border of the input box
 	QRect borderRect = m_inputBox->geometry();
 	borderRect.setLeft(borderRect.left() - 2);
 	borderRect.setTop(borderRect.top() - 2);
 	borderRect.setWidth(borderRect.width() + 2 * 1);
 	borderRect.setHeight(borderRect.height() + 2 * 1);
 	p.drawRoundRect(borderRect, 10, 5);
+
+	//Draw the border of the Up arrow
+	borderRect = m_upRect;
+	p.fillRect(borderRect, m_fillColor);
+	//borderRect.setLeft(borderRect.left() - 2);
+	//borderRect.setTop(borderRect.top() - 2);
+	//borderRect.setWidth(borderRect.width() + 2 * 1);
+	//borderRect.setHeight(borderRect.height() + 2 * 1);
+	p.drawRoundRect(borderRect, 10, 5);
 	
+	if(m_overUp)
+		p.drawPixmap(350, 432, *m_upOver);
+	else
+		p.drawPixmap(350, 432, *m_up);
+
 	if(m_showHint)
 	{
 		p.drawPixmap(439, 204, *m_hintOverlay);
@@ -345,7 +362,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		update();
 	}
 
-	if(m_tryRect.contains(e->pos()))
+	if(m_upRect.contains(e->pos()))
 	{
 		if(m_inputBox->text() == m_game.getWord())
 		{
@@ -472,17 +489,17 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		haveToUpdate = true;
 	}
 
-	if(m_tryRect.contains(p))
+	if(m_upRect.contains(p))
 	{
-		if(!m_overTry)
+		if(!m_overUp)
 		{
-			m_overTry = true;
+			m_overUp = true;
 			haveToUpdate = true;
 		}
 	}
-	else if(m_overTry)
+	else if(m_overUp)
 	{
-		m_overTry = false;
+		m_overUp = false;
 		haveToUpdate = true;
 	}
 
@@ -545,7 +562,7 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		}
 	}
 
-	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || m_overTry || m_overAboutApp || m_overHintBox)
+	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || m_overUp || m_overAboutApp || m_overHintBox)
 		this->setCursor(PointingHandCursor);
 	else
 		this->unsetCursor();
@@ -579,7 +596,7 @@ void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, 
 
 void Kanagram::checkWord()
 {
-	QPoint p = m_tryRect.topLeft() + QPoint( 1, 1 );
+	QPoint p = m_upRect.topLeft() + QPoint( 1, 1 );
 	QMouseEvent *e = new QMouseEvent( QEvent::MouseButtonPress, p, Qt::LeftButton, Qt::NoButton );
 	mousePressEvent(e);
 }
