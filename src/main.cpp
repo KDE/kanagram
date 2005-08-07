@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
 	KAboutData about("kanagram", I18N_NOOP("Kanagram"), "0.1", I18N_NOOP("An anagram game"), KAboutData::License_GPL, "© 2005 Joshua Keel\n© 2005 Danny Allen");
 	about.addAuthor("Joshua Keel", I18N_NOOP("Coding"), "joshuakeel@gmail.com");
 	about.addAuthor("Danny Allen", I18N_NOOP("Design, Graphics and many Vocabularies"), "danny@dannyallen.co.uk");
+	about.addCredit("Artemiy Pavlov", I18N_NOOP("Sound effects"), 0, "http://artemiolabs.com");
 	KCmdLineArgs::init(argc, argv, &about);
 	KApplication app;
 	app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
