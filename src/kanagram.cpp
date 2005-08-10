@@ -283,6 +283,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	if (m_nextRect.contains(e->pos()))
 	{
 		m_game.nextAnagram();
+		play("sounds/chalk.ogg");
 		m_inputBox->unsetPalette();
 		update();
 	}
@@ -338,6 +339,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		else
 			m_game.previousVocab();
 		m_game.nextAnagram();
+		play("sounds/chalk.ogg");
 		KanagramSettings::setDefaultVocab(m_game.getFilename());
 		KanagramSettings::writeConfig();
 		update();
@@ -362,13 +364,16 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	{
 		if(m_inputBox->text().lower() == m_game.getWord())
 		{
+			play("sounds/right.ogg");
 			m_inputBox->unsetPalette();
 			m_inputBox->clear();
 			m_game.nextAnagram();
+			play("sounds/chalk.ogg");
 			update();
 		}
 		else
 		{
+			play("sounds/wrong.ogg");
 			m_inputBox->setPaletteBackgroundColor(QColor(255, 0, 0));
 			QTimer::singleShot(2000, this, SLOT(resetInputBox()));
 			m_inputBox->clear();
@@ -626,6 +631,15 @@ void Kanagram::hideHint()
 void Kanagram::resetInputBox()
 {
 	m_inputBox->unsetPalette();
+}
+
+void Kanagram::play(QString filename)
+{
+	KArtsDispatcher *dispatcher = new KArtsDispatcher();
+	KArtsServer *server = new KArtsServer();
+	KDE::PlayObjectFactory *factory = new KDE::PlayObjectFactory(server->server());
+	KDE::PlayObject *playobj = factory->createPlayObject(locate("appdata", filename), true);
+	playobj->play();
 }
 
 #include "kanagram.moc"

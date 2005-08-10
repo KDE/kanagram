@@ -25,6 +25,10 @@
 #include <qlineedit.h>
 
 #include <kxmlguiclient.h>
+#include <arts/kartsdispatcher.h>
+#include <arts/kartsserver.h>
+#include <arts/kplayobject.h>
+#include <arts/kplayobjectfactory.h>
 
 #include "kanagramgame.h"
 
@@ -51,7 +55,9 @@ Q_OBJECT
 
 	private:
 		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QFont &font, QColor fontColor, QColor fontHighlightColor, int fontSize = 18);
-		
+
+		void play(QString filename);
+
 		void paintEvent(QPaintEvent *);
 
 		void mousePressEvent(QMouseEvent *e);
