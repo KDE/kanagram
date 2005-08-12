@@ -22,6 +22,8 @@
 #include <iostream>
 using namespace std;
 
+#include <config.h>
+
 #include <qcursor.h>
 #include <qpainter.h>
 #include <qpixmap.h>
@@ -119,11 +121,11 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_font = KGlobalSettings::generalFont();
 
 	//Initialize the sound server
-	#ifndef WITHOUT_ARTS
+#ifndef WITHOUT_ARTS
 	m_artsDispatcher = new KArtsDispatcher();
 	m_artsServer = new KArtsServer();
 	m_artsFactory = new KDE::PlayObjectFactory(m_artsServer->server());
-	#endif
+#endif
 }
 
 Kanagram::~Kanagram()
@@ -642,10 +644,12 @@ void Kanagram::resetInputBox()
 
 void Kanagram::play(QString filename)
 {
-	#ifndef WITHOUT_ARTS
+#ifndef WITHOUT_ARTS
 	KDE::PlayObject *playobj = m_artsFactory->createPlayObject(locate("appdata", "sounds/" + filename), true);
 	playobj->play();
-	#endif
+#else
+	(void)filename;
+#endif
 }
 
 #include "kanagram.moc"

@@ -21,6 +21,8 @@
 #ifndef KANAGRAM_H
 #define KANAGRAM_H
 
+#include <config.h>
+
 #include <qwidget.h>
 #include <qlineedit.h>
 
@@ -31,6 +33,13 @@
 #include <arts/kartsserver.h>
 #include <arts/kplayobject.h>
 #include <arts/kplayobjectfactory.h>
+#else
+class KArtsDispatcher;
+class KArtsServer;
+namespace KDE
+{
+	class PlayObjectFactory;
+};
 #endif
 
 #include "kanagramgame.h"
@@ -109,11 +118,9 @@ Q_OBJECT
 
 		QTimer *m_hintTimer;
 
-		#ifndef WITHOUT_ARTS
 		KArtsDispatcher *m_artsDispatcher;
 		KArtsServer *m_artsServer;
 		KDE::PlayObjectFactory *m_artsFactory;
-		#endif
 };
 
 #endif

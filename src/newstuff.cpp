@@ -25,3 +25,4 @@ void NewStuff::slotGetNewVocabs()
 	dlgDownload->show();
 }
 
+#include "newstuff.moc"
