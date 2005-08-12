@@ -25,10 +25,13 @@
 #include <qlineedit.h>
 
 #include <kxmlguiclient.h>
+
+#ifndef WITHOUT_ARTS
 #include <arts/kartsdispatcher.h>
 #include <arts/kartsserver.h>
 #include <arts/kplayobject.h>
 #include <arts/kplayobjectfactory.h>
+#endif
 
 #include "kanagramgame.h"
 
@@ -105,6 +108,12 @@ Q_OBJECT
 		KRandomSequence m_randomImage;
 
 		QTimer *m_hintTimer;
+
+		#ifndef WITHOUT_ARTS
+		KArtsDispatcher *m_artsDispatcher;
+		KArtsServer *m_artsServer;
+		KDE::PlayObjectFactory *m_artsFactory;
+		#endif
 };
 
 #endif

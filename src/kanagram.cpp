@@ -117,6 +117,13 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_inputBox->show();
 
 	m_font = KGlobalSettings::generalFont();
+
+	//Initialize the sound server
+	#ifndef WITHOUT_ARTS
+	m_artsDispatcher = new KArtsDispatcher();
+	m_artsServer = new KArtsServer();
+	m_artsFactory = new KDE::PlayObjectFactory(m_artsServer->server());
+	#endif
 }
 
 Kanagram::~Kanagram()
@@ -212,6 +219,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 	{
 		p.drawPixmap(439, 204, *m_hintOverlay);
 		QFont f = QFont(m_font);
+		f.setWeight(QFont::Bold);
 		f.setPointSize(10);
 		p.setFont(f);
 		p.drawText(459, 217, 148, 67, WordBreak | AlignCenter, m_game.getHint());
@@ -283,7 +291,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	if (m_nextRect.contains(e->pos()))
 	{
 		m_game.nextAnagram();
-		play("sounds/chalk.ogg");
+		play("chalk.ogg");
 		m_inputBox->unsetPalette();
 		update();
 	}
@@ -339,7 +347,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		else
 			m_game.previousVocab();
 		m_game.nextAnagram();
-		play("sounds/chalk.ogg");
+		play("chalk.ogg");
 		KanagramSettings::setDefaultVocab(m_game.getFilename());
 		KanagramSettings::writeConfig();
 		update();
@@ -364,16 +372,15 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	{
 		if(m_inputBox->text().lower() == m_game.getWord())
 		{
-			play("sounds/right.ogg");
+			play("right.ogg");
 			m_inputBox->unsetPalette();
 			m_inputBox->clear();
 			m_game.nextAnagram();
-			play("sounds/chalk.ogg");
 			update();
 		}
 		else
 		{
-			play("sounds/wrong.ogg");
+			play("wrong.ogg");
 			m_inputBox->setPaletteBackgroundColor(QColor(255, 0, 0));
 			QTimer::singleShot(2000, this, SLOT(resetInputBox()));
 			m_inputBox->clear();
@@ -635,11 +642,10 @@ void Kanagram::resetInputBox()
 
 void Kanagram::play(QString filename)
 {
-	KArtsDispatcher *dispatcher = new KArtsDispatcher();
-	KArtsServer *server = new KArtsServer();
-	KDE::PlayObjectFactory *factory = new KDE::PlayObjectFactory(server->server());
-	KDE::PlayObject *playobj = factory->createPlayObject(locate("appdata", filename), true);
+	#ifndef WITHOUT_ARTS
+	KDE::PlayObject *playobj = m_artsFactory->createPlayObject(locate("appdata", "sounds/" + filename), true);
 	playobj->play();
+	#endif
 }
 
 #include "kanagram.moc"
