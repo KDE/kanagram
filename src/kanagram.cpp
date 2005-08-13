@@ -83,7 +83,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_hintRect = QRect(51, 337, 39, 28);
 	m_hintBoxRect = QRect(446, 207, 171, 85);
 	m_revealRect = QRect(279, 338, 119, 28);
-	m_upRect = QRect(341, 426, 55, 33);
+	m_upRect = QRect(341, 425, 55, 33);
 	m_aboutKDERect = QRect(567, 213, 44, 44);
 	m_aboutAppRect = QRect(522, 213, 44, 44);
 	m_handbookRect = QRect(478, 213, 44, 44);
@@ -213,9 +213,9 @@ void Kanagram::paintEvent(QPaintEvent *)
 	p.drawRoundRect(borderRect, 10, 5);
 	
 	if(m_overUp)
-		p.drawPixmap(350, 432, *m_upOver);
+		p.drawPixmap(350, 431, *m_upOver);
 	else
-		p.drawPixmap(350, 432, *m_up);
+		p.drawPixmap(350, 431, *m_up);
 
 	if(m_showHint)
 	{
@@ -375,7 +375,8 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		if(m_inputBox->text().lower() == m_game.getWord())
 		{
 			play("right.ogg");
-			m_inputBox->unsetPalette();
+			m_inputBox->setPaletteBackgroundColor(QColor(0, 255, 0));
+			QTimer::singleShot(1000, this, SLOT(resetInputBox()));
 			m_inputBox->clear();
 			m_game.nextAnagram();
 			update();
@@ -384,7 +385,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		{
 			play("wrong.ogg");
 			m_inputBox->setPaletteBackgroundColor(QColor(255, 0, 0));
-			QTimer::singleShot(2000, this, SLOT(resetInputBox()));
+			QTimer::singleShot(1000, this, SLOT(resetInputBox()));
 			m_inputBox->clear();
 			update();
 		}
