@@ -43,9 +43,6 @@
             <property name="text">
                 <string>Use sou&amp;nds</string>
             </property>
-            <property name="accel">
-                <string>Alt+N</string>
-            </property>
             <property name="whatsThis" stdset="0">
                 <string>Turns sounds on/off.</string>
             </property>
