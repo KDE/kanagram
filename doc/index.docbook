@@ -72,20 +72,20 @@ Here is the screen that is presented on startup of &kanagram;, showing the main 
 
 <screenshot>
 <screeninfo>Here is the screen that is presented on startup of &kanagram;</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="kanagram.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>&kanagram; screenshot</phrase>
-	  </textobject>
-	</mediaobject>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&kanagram; screenshot</phrase>
+</textobject>
+</mediaobject>
 </screenshot>
 
 <orderedlist>
 <listitem>
 <para>
-The <guibutton>Vocabulary Selector</guibutton> allows the user to quickly <action>change the active game vocabulary</action> by clicking on it: the &LMB; <action>advances to the next vocabulary</action>, with the &RMB; allowing you to <action>return to the previously-played vocabulary</action>.
+The <interface>Vocabulary Switcher</interface> allows the user to quickly <action>change the active game vocabulary</action> by clicking on it: the &LMB; <action>advances to the next vocabulary</action>, with the &RMB; allowing you to <action>return to the previously-played vocabulary</action>.
 </para>
 </listitem>
 <listitem>
@@ -105,7 +105,7 @@ The <guibutton>Reveal Word</guibutton> button <action>solves the current word pu
 </listitem>
 <listitem>
 <para>
-The <interface>Entry Box</interface> allows you to <action>enter your attempts</action> to solve the current word puzzle.
+The <interface>Entry Box</interface> allows you to <action>input your attempts</action> to solve the current word puzzle.
 </para>
 </listitem>
 <listitem>
@@ -115,7 +115,7 @@ This is the <guiicon>Next Word</guiicon> button, and allows you to <action>advan
 </listitem>
 <listitem>
 <para>
-This is the <guiicon>Configure</guiicon> button, which <action>opens the &kanagram; Configuration dialog</action>.
+This is the <guiicon>Configure</guiicon> button, which <action>opens the <guilabel>Configure</guilabel> &kanagram; dialog</action>.
 </para>
 </listitem>
 <listitem>
@@ -124,14 +124,14 @@ The <guiicon>Help</guiicon> button is special, in that it <action>reveals 3 sub-
 
 <screenshot>
 <screeninfo>The 3 different states of the <guiicon>Help</guiicon> button</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="helpstates.png" format="PNG"/>
-	  </imageobject>
-	  <textobject>
-	    <phrase>&kanagram; screenshot</phrase>
-	  </textobject>
-	</mediaobject>
+<mediaobject>
+<imageobject>
+<imagedata fileref="helpstates.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&kanagram; screenshot</phrase>
+</textobject>
+</mediaobject>
 </screenshot>
 </para>
 </listitem>
@@ -149,6 +149,54 @@ The <guiicon>Quit</guiicon> button <action>closes the application</action>.
 Now that you are familiar with the interface of &kanagram;, lets play a game!
 </para>
 
+<procedure>
+<step>
+<para>
+Using the <interface>Vocabulary Switcher</interface>, <action>select the vocabulary theme</action> that you would like to attempt. A word from this vocabulary will then be presented in the middle of the <interface>blackboard</interface>. Now, try and guess what word the jumble of letters represents.
+<tip>
+<para>
+If you cannot guess what the word is, press the <guibutton>Hint</guibutton> button to get some friendly advice from your friend in the <interface>filing cabinet</interface>:
+</para>
+<screenshot>
+<screeninfo>&kanagram; hint</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram-hint.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&kanagram; hint</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</tip>
+</para>
+</step>
+
+<step>
+<para>
+Once you think you know the correct answer, type it into the <interface>Entry Box</interface> below the <interface>blackboard</interface>. Either press the <keycap>Enter</keycap> key, or click on the <interface>Enter</interface> button to the right of the <interface>Entry Box</interface> to check your answer: it will <action>change green on a correct answer</action>, and <action>red on an incorrect attempt</action>:
+</para>
+
+<screenshot>
+<screeninfo>answer highlighted</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="answer-highlight.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>answer highlighted</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</step>
+
+<step>
+<para>
+If you were correct, try and guess the next word! Alternatively, you can attempt one of the many other vocabularies bundled with &kanagram;.
+</para>
+</step>
+</procedure>
+
 </sect1>
 
 </chapter>
@@ -158,34 +206,67 @@ Now that you are familiar with the interface of &kanagram;, lets play a game!
 <title>Configuring &kanagram;</title>
 
 <para>
-The <guilabel>Configure Kanagram</guilabel> dialog is opened by clicking on the <guiicon>Configure</guiicon> button, or by pressing <keycombo action="simul">&Ctrl;<keycap>E</keycap></keycombo>:
+The <guilabel>Configure</guilabel> dialog is opened by clicking on the <guiicon>Configure</guiicon> button, or by pressing <keycombo action="simul">&Ctrl;<keycap>E</keycap></keycombo>:
 </para>
 
 <screenshot>
 <screeninfo>&kanagram; general settings</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="general-settings.png" format="PNG"/>
-	  </imageobject>
-	    <textobject>
-	    <phrase>&kanagram; general settings</phrase>
-	  </textobject>
-	</mediaobject>
+<mediaobject>
+<imageobject>
+<imagedata fileref="general-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&kanagram; general settings</phrase>
+</textobject>
+</mediaobject>
 </screenshot>
+
+<itemizedlist>
+<listitem>
+<para>
+The <quote>Auto-hide hints</quote> <interface>drop-down box</interface> allows you to specify how hints are presented to you. Here, you can set the hint box to disappear after a certain amount of seconds (&eg; 5 seconds), or you can leave it as default (<quote>Do not auto-hide hints</quote>).
+</para>
+</listitem>
+
+<listitem>
+<para>
+The <guilabel>Use sounds</guilabel> <interface>checkbox</interface> allows you to either allow or suppress the &kanagram; sound effects.
+</para>
+</listitem>
+
+<listitem>
+<para>
+The <guilabel>Use standard fonts</guilabel> <interface>checkbox</interface>, if checked, makes &kanagram; display the <interface>blackboard</interface> text in a standard, rather than chalk-styled font. This should aid readability of the text:
+
+<screenshot>
+<screeninfo>&kanagram; standard font</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="standard-fonts.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&kanagram; standard font</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+</para>
+</listitem>
+</itemizedlist>
 
 <sect1 id="vocabularies-config">
 <title>Vocabularies</title>
 
 <screenshot>
 <screeninfo>&kanagram; vocabulary settings</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="vocab-settings.png" format="PNG"/>
-	  </imageobject>
-	    <textobject>
-	    <phrase>&kanagram; vocabulary settings</phrase>
-	  </textobject>
-	</mediaobject>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&kanagram; vocabulary settings</phrase>
+</textobject>
+</mediaobject>
 </screenshot>
 </sect1>
 
@@ -194,14 +275,14 @@ The <guilabel>Configure Kanagram</guilabel> dialog is opened by clicking on the 
 
 <screenshot>
 <screeninfo>&kanagram; new stuff settings</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="newstuff-settings.png" format="PNG"/>
-	  </imageobject>
-	    <textobject>
-	    <phrase>&kanagram; newstuff settings</phrase>
-	  </textobject>
-	</mediaobject>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&kanagram; newstuff settings</phrase>
+</textobject>
+</mediaobject>
 </screenshot>
 
 </sect1>
