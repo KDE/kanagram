@@ -67,7 +67,7 @@
 <title>Using &kanagram;</title>
 
 <para>
-Here is the screen that is presented on startup of &kanagram;, showing the main interface to the application. Much of the screen is taken up by the <interface>blackboard</interface>, where the puzzles are written onto, with the <interface>filing cabinet</interface> on the right containing application controls:
+Here is the screen that is presented on startup of &kanagram;, showing the main interface to the application. Much of the window is taken up by the <interface>blackboard</interface>, where the puzzles are written onto, with the <interface>filing cabinet</interface> on the right containing application controls:
 </para>
 
 <screenshot>
@@ -106,6 +106,11 @@ The <guibutton>Reveal Word</guibutton> button <action>solves the current word pu
 <listitem>
 <para>
 The <interface>Entry Box</interface> allows you to <action>input your attempts</action> to solve the current word puzzle.
+</para>
+</listitem>
+<listitem>
+<para>
+The <interface>Enter</interface> button lets you <action>check if your answer is correct</action>. This function is also provided by the <keycap>Enter</keycap> key.
 </para>
 </listitem>
 <listitem>
@@ -237,6 +242,9 @@ The <guilabel>Use sounds</guilabel> <interface>checkbox</interface> allows you t
 <listitem>
 <para>
 The <guilabel>Use standard fonts</guilabel> <interface>checkbox</interface>, if checked, makes &kanagram; display the <interface>blackboard</interface> text in a standard, rather than chalk-styled font. This should aid readability of the text:
+</para>
+</listitem>
+</itemizedlist>
 
 <screenshot>
 <screeninfo>&kanagram; standard font</screeninfo>
@@ -250,12 +258,12 @@ The <guilabel>Use standard fonts</guilabel> <interface>checkbox</interface>, if 
 </mediaobject>
 </screenshot>
 
-</para>
-</listitem>
-</itemizedlist>
-
 <sect1 id="vocabularies-config">
 <title>Vocabularies</title>
+
+<para>
+The <guilabel>Vocabularies</guilabel> configuration page allows you to manage your installed vocabularies. Using this dialog, you can <action>edit</action> and <action>remove</action> downloaded vocabularies, as well as <action>create</action> your very own:
+</para>
 
 <screenshot>
 <screeninfo>&kanagram; vocabulary settings</screeninfo>
@@ -268,10 +276,112 @@ The <guilabel>Use standard fonts</guilabel> <interface>checkbox</interface>, if 
 </textobject>
 </mediaobject>
 </screenshot>
+
+<itemizedlist>
+<listitem>
+<para>
+The <guibutton>Create New</guibutton> button <action>opens the <link
+linkend="vocab-editor"><guilabel>Vocabulary Editor</guilabel></link> dialog</action> so that you can author your own vocabularies which you can then play.
+</para>
+</listitem>
+<listitem>
+<para>
+The <guibutton>Edit</guibutton> button allows you to <action>make changes to vocabularies that you have either created or downloaded off the Internet</action>.
+</para>
+</listitem>
+<listitem>
+<para>
+The <guibutton>Delete</guibutton> button allows you to <action>delete vocabularies that you have created or downloaded</action>.
+</para>
+</listitem>
+<listitem>
+<para>
+You can select which vocabulary you would like to apply these actions to by using the <interface>list of vocabularies</interface>.
+</para>
+</listitem>
+</itemizedlist>
+
+<sect2 id="vocab-editor">
+<title><guilabel>Vocabulary Editor</guilabel></title>
+
+<para>
+The Vocabulary Editor allows you to create your own vocabularies, which &kanagram; can then test you with:
+</para>
+
+<screenshot>
+<screeninfo>&kanagram; <guilabel>Vocabulary Editor</guilabel></screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-editor.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&kanagram; <guilabel>Vocabulary Editor</guilabel></phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para>
+The <guilabel>Vocabulary Name</guilabel> field lets you <action>name your vocabulary</action>.
+</para>
+</listitem>
+<listitem>
+<para>
+The <guilabel>Description</guilabel> field enables you to <action>expand on your vocabulary name</action>, providing your user with more details of the content of your vocabulary.
+</para>
+<note>
+<para>
+Try to keep both the name and description fields as short as possible. Effective vocabularies cover a narrow, focussed set of words for a single subject. Try to write at least 20 words for your vocabulary, so that it will not be quickly finished by the user.
+</para>
+</note>
+</listitem>
+<listitem>
+<para>
+The <guibutton>Delete Word</guibutton> button lets you <action>remove words from your vocabulary</action>.
+</para>
+</listitem>
+<listitem>
+<para>
+The <guibutton>New Word</guibutton> button <action>creates a new word entry in your vocabulary</action>, ready for you to expand.
+</para>
+</listitem>
+<listitem>
+<para>
+The <guilabel>Word</guilabel> field lets you <action>write word values into your vocabulary</action>.
+</para>
+</listitem>
+<listitem>
+<para>
+The <guilabel>Hint</guilabel> field allows you to <action>write hints to accompany your words</action>.
+</para>
+<note>
+<para>
+Good hints clearly, yet subtly describe the word, whilst increasing the knowledge of the vocabulary subject for your user. Also ensure that your hints are fairly short (under 40 characters in length).
+</para>
+</note>
+</listitem>
+<listitem>
+<para>
+The <guibutton>Save</guibutton> button <action>saves your vocabulary content</action>, and enables its use directly in &kanagram; (it will immediately become available within the application, selectable via. the <interface>Vocabulary Selector</interface>).
+</para>
+</listitem>
+<listitem>
+<para>
+The <guibutton>Close</guibutton> button <action>closes the <guilabel>Vocabulary Editor</guilabel> dialog</action> without saving the content of your vocabulary.
+</para>
+</listitem>
+</itemizedlist>
+</sect2>
+
 </sect1>
 
 <sect1 id="newstuff-config">
 <title>New Stuff</title>
+
+<para>
+The <guilabel>New Stuff</guilabel> configuration page allows you to obtain new vocabulary files from the Internet:
+</para>
 
 <screenshot>
 <screeninfo>&kanagram; new stuff settings</screeninfo>
@@ -284,6 +394,10 @@ The <guilabel>Use standard fonts</guilabel> <interface>checkbox</interface>, if 
 </textobject>
 </mediaobject>
 </screenshot>
+
+<para>
+Click the <guibutton>Download New Vocabularies</guibutton> button to browse the available online content:
+</para>
 
 </sect1>
 </chapter>
