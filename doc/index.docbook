@@ -57,7 +57,7 @@
 <title>Introduction</title>
 
 <para>
-&kanagram; is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or amount of attempts to solve the word. Included with &kanagram; are several vocabularies ready to play, with many more available from the Internet.
+&kanagram; is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the word. Included with &kanagram; are several vocabularies ready to play, with many more available from the Internet.
 </para>
 
 </chapter>
@@ -67,7 +67,7 @@
 <title>Using &kanagram;</title>
 
 <para>
-Here is the screen that is presented on startup of &kanagram;, showing the general interface to the application. Much of the screen is taken up by the blackboard, where the puzzles are written onto, with the "filing cabinet" on the right containing application controls.
+Here is the screen that is presented on startup of &kanagram;, showing the main interface to the application. Much of the screen is taken up by the <interface>blackboard</interface>, where the puzzles are written onto, with the <interface>filing cabinet</interface> on the right containing application controls:
 </para>
 
 <screenshot>
@@ -85,44 +85,45 @@ Here is the screen that is presented on startup of &kanagram;, showing the gener
 <orderedlist>
 <listitem>
 <para>
-The <guibutton>Vocabulary Selector</guibutton> allows the user to quickly change the active game vocabulary by clicking on it: the left mouse button advances to the next installed vocabulary, with the right mouse button allowing you to return to the previously-played vocabulary. 
+The <guibutton>Vocabulary Selector</guibutton> allows the user to quickly <action>change the active game vocabulary</action> by clicking on it: the &LMB; <action>advances to the next vocabulary</action>, with the &RMB; allowing you to <action>return to the previously-played vocabulary</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-In the centre of the board is the anagram puzzle to be solved.
+In the center of the <interface>blackboard</interface> is the anagram puzzle to be solved.
 </para>
 </listitem>
 <listitem>
 <para>
-When the <guibutton>Hint</guibutton> button is clicked, a short sentence will appear, describing the current word puzzle.
+When the <guibutton>Hint</guibutton> button is clicked, a short sentence will appear, <action>describing the current word puzzle</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-The <guibutton>Reveal Word</guibutton> button solves the current word puzzle.
+The <guibutton>Reveal Word</guibutton> button <action>solves the current word puzzle</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-The entry box allows you to enter your attempts to solve the current word puzzle.
+The <interface>Entry Box</interface> allows you to <action>enter your attempts</action> to solve the current word puzzle.
 </para>
 </listitem>
 <listitem>
 <para>
-This is the <guibutton>Next Word</guibutton> button, and allows you to advance to the next anagram puzzle.
+This is the <guiicon>Next Word</guiicon> button, and allows you to <action>advance to the next anagram puzzle</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-This is the <guibutton>Configuration</guibutton> button, which opens the Kanagram Configuration dialog.
+This is the <guiicon>Configure</guiicon> button, which <action>opens the &kanagram; Configuration dialog</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-The <guibutton>Help</guibutton> button is special, in that it reveals 3 sub-buttons. These buttons are shown when the help button is hovered over, and provide access to the &kanagram; handbook (this document), and the "About &kanagram;" and "About &kde;" dialogs.
+The <guiicon>Help</guiicon> button is special, in that it <action>reveals 3 sub-buttons</action>. These buttons are shown when the <guiicon>Help</guiicon> button is hovered over, and provide access to the <guilabel>&kanagram; handbook</guilabel> (this document), the <guilabel>About &kanagram;</guilabel> and the <guilabel>About &kde;</guilabel> dialogs:
+
 <screenshot>
-<screeninfo>The 3 different states of the <guibutton>Help</guibutton> button</screeninfo>
+<screeninfo>The 3 different states of the <guiicon>Help</guiicon> button</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="helpstates.png" format="PNG"/>
@@ -136,54 +137,19 @@ The <guibutton>Help</guibutton> button is special, in that it reveals 3 sub-butt
 </listitem>
 <listitem>
 <para>
-The <guibutton>Quit</guibutton> button closes the application.
+The <guiicon>Quit</guiicon> button <action>closes the application</action>.
 </para>
 </listitem>
 </orderedlist>
 
-
-<sect1 id="starting-game">
-<title>Playing the Game</title>
-
-<para>
-Kanagram creates an anagram puzzle on application startup, so that you may start playing straight away.
-</para>
-
-<screenshot>
-<screeninfo>Select difficulty level</screeninfo>
-	<mediaobject>
-	  <imageobject>
-	    <imagedata fileref="ksimon2.png" format="PNG"/>
-	  </imageobject>
-	    <textobject>
-	    <phrase>Select difficulty level</phrase>
-	  </textobject>
-	</mediaobject>
-</screenshot>
+<sect1 id="playing-game">
+<title>Playing a game</title>
 
 <para>
-a
 </para>
-
-<itemizedlist>
-<listitem>
-<para>
-Level 1 is the easiest level, as it provides the longest time break between each sequence playback.
-</para>
-</listitem>
-<listitem>
-<para>
-Level 2 is the intermediate level. It is identical to the previous level, but has a smaller time break between each sequence playback.
-</para>
-</listitem>
-<listitem>
-<para>
-Level ? is the most difficult level of &kanagram;. It takes the timings from Level 2, but each sequence is totally random, rather than following on from the previous sequence, as in the standard game type.
-</para>
-</listitem>
-</itemizedlist>
 
 </sect1>
+
 </chapter>
 
 
@@ -191,38 +157,53 @@ Level ? is the most difficult level of &kanagram;. It takes the timings from Lev
 <title>Configuring &kanagram;</title>
 
 <para>
-Alongside use of the mouse, &kanagram; also allows the user to operate the game using the keyboard. To display the current keymap settings, and to modify them to your preferences, hold in the <keycap>ctrl</keycap> key:
+The <guilabel>Configure Kanagram</guilabel> dialog is opened by clicking on the <guiicon>Configure</guiicon> button, or by pressing <keycombo action="simul">&Ctrl;<keycap>E</keycap></keycombo>:
 </para>
 
 <screenshot>
-<screeninfo>&kanagram; access keys</screeninfo>
+<screeninfo>&kanagram; general settings</screeninfo>
 	<mediaobject>
 	  <imageobject>
-	    <imagedata fileref="ksimon_accesskeys.png" format="PNG"/>
+	    <imagedata fileref="general-settings.png" format="PNG"/>
 	  </imageobject>
 	    <textobject>
-	    <phrase>&kanagram; access keys</phrase>
+	    <phrase>&kanagram; general settings</phrase>
 	  </textobject>
 	</mediaobject>
 </screenshot>
 
-<!-- 
-<sect1 id="general-config">
-<title>General</title>
-
-
-</sect1>
-
 <sect1 id="vocabularies-config">
 <title>Vocabularies</title>
 
+<screenshot>
+<screeninfo>&kanagram; vocabulary settings</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="vocab-settings.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase>&kanagram; vocabulary settings</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
 </sect1>
 
 <sect1 id="newstuff-config">
 <title>New Stuff</title>
 
+<screenshot>
+<screeninfo>&kanagram; new stuff settings</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="newstuff-settings.png" format="PNG"/>
+	  </imageobject>
+	    <textobject>
+	    <phrase>&kanagram; newstuff settings</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
 </sect1>
--->
 </chapter>
 
 
