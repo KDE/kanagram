@@ -90,7 +90,7 @@ Valid xml means:
   <o r="Used to make wine" >grape</o>
  </e>
  <e>
-  <o r="Large yellow citrus fruit with somewhat acid juicy pulp" >grapefruit</o>
+  <o r="Large yellow citrus fruit with acidic, juicy pulp" >grapefruit</o>
  </e>
  <e>
   <o r="Fuzzy brown egg-shaped fruit with slightly green flesh" >kiwi</o>

@@ -93,7 +93,7 @@ Valid xml means:
   <o r="Used for software backups" >tape</o>
  </e>
  <e>
-  <o r="Creates a digital representation of an object" >scanner</o>
+  <o r="Creates a digital representation of a flat object" >scanner</o>
  </e>
  <e>
   <o r="For listening to sound privately" >headphones</o>
