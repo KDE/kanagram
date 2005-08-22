@@ -49,7 +49,7 @@ void KanagramGame::loadDefaultVocab()
 
 void KanagramGame::refreshVocabList()
 {
-	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/*.kvtml");
+	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::defaultTranslation() + "/*.kvtml");
 	m_index = findIndex();
 }
 
@@ -99,13 +99,10 @@ void KanagramGame::nextAnagram()
 	if(doc->numEntries() - 1 == m_answeredWords.size())
 	{
 		m_answeredWords.clear();
-		kdDebug() << "Cleared." << endl;
 	}
 	while(m_answeredWords.findIndex(doc->getEntry(wordNumber)->getOriginal()) != -1)
 	{
-		kdDebug() << "Wordnumber before: " << wordNumber << endl;
 		wordNumber = m_random.getLong(totalWords);
-		kdDebug() << "Wordnumber after: " << wordNumber << endl;
 	}
 	m_originalWord = doc->getEntry(wordNumber)->getOriginal();
 	m_answeredWords.append(m_originalWord);

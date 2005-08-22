@@ -30,6 +30,7 @@ using namespace std;
 #include <qtimer.h>
 #include <qstring.h>
 #include <qfontmetrics.h>
+#include <qdir.h>
 
 #include <kaction.h>
 #include <kapplication.h>
@@ -47,7 +48,7 @@ using namespace std;
 
 #include "kanagram.h"
 #include "kanagramsettings.h"
-#include "mainsettingswidget.h"
+#include "mainsettings.h"
 #include "vocabsettings.h"
 #include "newstuff.h"
 
@@ -121,11 +122,11 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_font = KGlobalSettings::generalFont();
 
 	//Initialize the sound server
-#ifndef WITHOUT_ARTS
-	m_artsDispatcher = new KArtsDispatcher();
-	m_artsServer = new KArtsServer();
-	m_artsFactory = new KDE::PlayObjectFactory(m_artsServer->server());
-#endif
+	#ifndef WITHOUT_ARTS
+		m_artsDispatcher = new KArtsDispatcher();
+		m_artsServer = new KArtsServer();
+		m_artsFactory = new KDE::PlayObjectFactory(m_artsServer->server());
+	#endif
 }
 
 Kanagram::~Kanagram()
@@ -293,7 +294,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	if (m_nextRect.contains(e->pos()))
 	{
 		m_game.nextAnagram();
-		play("chalk.ogg");
+		if(m_useSounds) play("chalk.ogg");
 		m_inputBox->unsetPalette();
 		update();
 	}
@@ -349,7 +350,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		else
 			m_game.previousVocab();
 		m_game.nextAnagram();
-		play("chalk.ogg");
+		if(m_useSounds) play("chalk.ogg");
 		KanagramSettings::setDefaultVocab(m_game.getFilename());
 		KanagramSettings::writeConfig();
 		update();
@@ -374,7 +375,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	{
 		if(m_inputBox->text().lower() == m_game.getWord())
 		{
-			play("right.ogg");
+			if(m_useSounds) play("right.ogg");
 			m_inputBox->setPaletteBackgroundColor(QColor(0, 255, 0));
 			QTimer::singleShot(1000, this, SLOT(resetInputBox()));
 			m_inputBox->clear();
@@ -383,7 +384,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		}
 		else
 		{
-			play("wrong.ogg");
+			if(m_useSounds) play("wrong.ogg");
 			m_inputBox->setPaletteBackgroundColor(QColor(255, 0, 0));
 			QTimer::singleShot(1000, this, SLOT(resetInputBox()));
 			m_inputBox->clear();
@@ -625,10 +626,11 @@ void Kanagram::showSettings()
 		return;
 
 	m_configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
-	m_configDialog->addPage( new MainSettingsWidget( m_configDialog ), i18n( "General" ), "configure" );
+	m_configDialog->addPage( new MainSettings( m_configDialog ), i18n( "General" ), "configure" );
 	m_configDialog->addPage( new VocabSettings( m_configDialog ), i18n("Vocabularies"), "edit" );
-	m_configDialog->addPage( new NewStuff( m_configDialog ), i18n("New Stuff"), "knewstuff");
+	m_configDialog->addPage( new NewStuff( m_configDialog ), i18n("New Stuff"), "knewstuff" );
 	connect(m_configDialog, SIGNAL(settingsChanged()), this, SLOT(loadSettings()));
+	connect(m_configDialog, SIGNAL(okClicked()), this, SLOT(refreshVocabularies()));
 	m_configDialog->show();
 }
 
@@ -643,14 +645,20 @@ void Kanagram::resetInputBox()
 	m_inputBox->unsetPalette();
 }
 
+void Kanagram::refreshVocabularies()
+{
+	kdDebug() << "Refreshing vocab list..." << endl;
+	m_game.refreshVocabList();
+}
+
 void Kanagram::play(QString filename)
 {
-#ifndef WITHOUT_ARTS
-	KDE::PlayObject *playobj = m_artsFactory->createPlayObject(locate("appdata", "sounds/" + filename), true);
-	playobj->play();
-#else
-	(void)filename;
-#endif
+	#ifndef WITHOUT_ARTS
+		KDE::PlayObject *playobj = m_artsFactory->createPlayObject(locate("appdata", "sounds/" + filename), true);
+		playobj->play();
+	#else
+		(void)filename;
+	#endif
 }
 
 #include "kanagram.moc"

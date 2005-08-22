@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>210</width>
-            <height>175</height>
+            <width>254</width>
+            <height>207</height>
         </rect>
     </property>
     <property name="caption">
@@ -42,6 +42,9 @@
             </property>
             <property name="text">
                 <string>Use sou&amp;nds</string>
+            </property>
+            <property name="accel">
+                <string>Alt+N</string>
             </property>
             <property name="whatsThis" stdset="0">
                 <string>Turns sounds on/off.</string>
@@ -129,6 +132,29 @@
                 </size>
             </property>
         </spacer>
+        <widget class="QLayoutWidget" row="5" column="0">
+            <property name="name">
+                <cstring>layout2</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Default translation:</string>
+                    </property>
+                </widget>
+                <widget class="QComboBox">
+                    <property name="name">
+                        <cstring>cboxTranslation</cstring>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
     </grid>
 </widget>
 <tabstops>

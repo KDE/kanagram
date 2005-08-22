@@ -14,7 +14,11 @@
 </entry>
 <entry name="defaultVocab" type="Path">
 	<label>Set the default vocabulary</label>
-	<default>data/objects.kvtml</default>
+	<default>objects.kvtml</default>
+</entry>
+<entry name="defaultTranslation" type="String">
+	<label>Set the default translation</label>
+	<default>en</default>
 </entry>
 </group>
 </kcfgfile>
