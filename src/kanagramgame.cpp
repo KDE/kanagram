@@ -56,7 +56,7 @@ void KanagramGame::refreshVocabList()
 int KanagramGame::findIndex()
 {
 	int tempIndex = 0;
-	for(int i = 0; i < m_fileList.size(); i++)
+	for(uint i = 0; i < m_fileList.size(); i++)
 	{
 		if(m_filename == m_fileList[i])
 		{
@@ -81,7 +81,7 @@ void KanagramGame::previousVocab()
 void KanagramGame::nextVocab()
 {
 	m_index++;
-	if(m_index >= m_fileList.size())
+	if((uint)m_index >= m_fileList.size())
 		m_index = 0;
 	m_filename = m_fileList[m_index];
 	KEduVocDocument *doc = new KEduVocDocument(this);
@@ -96,7 +96,7 @@ void KanagramGame::nextAnagram()
 	doc->open(KURL(locate("appdata", m_filename)), false);
 	int totalWords = doc->numEntries();
 	int wordNumber = m_random.getLong(totalWords);
-	if(doc->numEntries() - 1 == m_answeredWords.size())
+	if(doc->numEntries() - 1 == (int)m_answeredWords.size())
 	{
 		m_answeredWords.clear();
 	}

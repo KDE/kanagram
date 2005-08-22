@@ -582,7 +582,7 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 	if (haveToUpdate) update();
 }
 
-void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QFont &font, QColor fontColor, QColor fontHighlightColor,int fontSize)
+void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect * /*rect*/, bool highlight, bool bold, QFont &font, QColor fontColor, QColor fontHighlightColor,int fontSize)
 {
 	QRect r;
 	//QFont f = font;

@@ -34,7 +34,7 @@ void VocabSettings::refreshView()
 	lviewVocab->clear();
 
 	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/*.kvtml");
-	for(int i = 0; i < m_fileList.size(); i++)
+	for(uint i = 0; i < m_fileList.size(); i++)
 	{
 		KEduVocDocument *doc = new KEduVocDocument(this);
 		doc->open(KURL(m_fileList[i]), false);
@@ -60,7 +60,7 @@ void VocabSettings::slotDelete()
 	if(lviewVocab->selectedItem())
 	{
 		int index = m_itemMap[lviewVocab->selectedItem()];
-		bool itWorked = QFile::remove(m_fileList[index]);
+		/*bool itWorked = */QFile::remove(m_fileList[index]);
 	}
 
 	refreshView();

@@ -44,7 +44,7 @@ using namespace std;
 //  KEduVocDocument
 //********************************************************
 
-KEduVocDocument::KEduVocDocument(QObject *parent)
+KEduVocDocument::KEduVocDocument(QObject * /*parent*/)
 {
   Init();
 }
@@ -93,7 +93,7 @@ void KEduVocDocument::Init ()
 }
 
 
-bool KEduVocDocument::open(const KURL& url, bool append)
+bool KEduVocDocument::open(const KURL& url, bool /*append*/)
 {
   Init();
   if (!url.isEmpty())
@@ -180,7 +180,7 @@ bool KEduVocDocument::open(const KURL& url, bool append)
 }
 
 
-bool KEduVocDocument::saveAs(QObject *parent, const KURL & url, FileType ft, const QString & generator)
+bool KEduVocDocument::saveAs(QObject * /*parent*/, const KURL & url, FileType ft, const QString & generator)
 {
 //  connect( this, SIGNAL(progressChanged(KEduVocDocument*,int)), parent, SLOT(slotProgress(KEduVocDocument*,int)) );
 
