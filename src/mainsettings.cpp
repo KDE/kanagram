@@ -41,6 +41,7 @@ MainSettings::MainSettings(QWidget *parent) : MainSettingsWidget(parent)
 	setupTranslations();
 
 	cboxTranslation->insertStringList(m_languageNames);
+	cboxTranslation->setCurrentItem(m_languages.findIndex(KanagramSettings::defaultTranslation()));
 }
 
 MainSettings::~MainSettings()

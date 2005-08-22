@@ -631,7 +631,6 @@ void Kanagram::showSettings()
 	m_configDialog->addPage( new NewStuff( m_configDialog ), i18n("New Stuff"), "knewstuff" );
 	connect(m_configDialog, SIGNAL(settingsChanged()), this, SLOT(loadSettings()));
 	connect(m_configDialog, SIGNAL(applyClicked()), this, SLOT(refreshVocabularies()));
-	connect(m_configDialog, SIGNAL(okClicked()), this, SLOT(refreshVocabularies()));
 	m_configDialog->show();
 }
 

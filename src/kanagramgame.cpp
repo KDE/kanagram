@@ -43,6 +43,7 @@ void KanagramGame::loadDefaultVocab()
 	m_filename = KanagramSettings::defaultVocab();
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);
+	kdDebug() << m_filename << endl;
 	m_docTitle = doc->getTitle();
 	nextAnagram();
 }
@@ -50,6 +51,7 @@ void KanagramGame::loadDefaultVocab()
 void KanagramGame::refreshVocabList()
 {
 	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::defaultTranslation() + "/*.kvtml");
+	nextVocab();
 	m_index = findIndex();
 }
 
