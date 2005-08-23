@@ -22,9 +22,6 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <property name="margin">
-            <number>0</number>
-        </property>
         <widget class="QGroupBox">
             <property name="name">
                 <cstring>groupBox1</cstring>
@@ -136,9 +133,6 @@
             <property name="text">
                 <string>Use sou&amp;nds</string>
             </property>
-            <property name="accel">
-                <string>Alt+N</string>
-            </property>
             <property name="whatsThis" stdset="0">
                 <string>Turns sounds on/off.</string>
             </property>
@@ -156,7 +150,7 @@
             <property name="sizeHint">
                 <size>
                     <width>16</width>
-                    <height>5</height>
+                    <height>15</height>
                 </size>
             </property>
         </spacer>
