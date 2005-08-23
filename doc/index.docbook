@@ -237,6 +237,7 @@ The <quote>Auto-hide hints</quote> <interface>drop-down box</interface> allows y
 <para>
 The <guilabel>Use sounds</guilabel> <interface>checkbox</interface> allows you to either allow or suppress the &kanagram; sound effects.
 </para>
+<note><para>You need to have aRts support in kdelibs to hear the sounds.</para></note>
 </listitem>
 
 <listitem>
