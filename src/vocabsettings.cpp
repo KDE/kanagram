@@ -14,6 +14,7 @@
 #include <kurl.h>
 
 #include "keduvocdocument.h"
+#include "kanagramsettings.h"
 
 VocabSettings::VocabSettings(QWidget *parent) : VocabSettingsWidget(parent)
 {
@@ -33,7 +34,7 @@ void VocabSettings::refreshView()
 {
 	lviewVocab->clear();
 
-	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/*.kvtml");
+	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::defaultTranslation() + "/" + "*.kvtml");
 	for(uint i = 0; i < m_fileList.size(); i++)
 	{
 		KEduVocDocument *doc = new KEduVocDocument(this);
