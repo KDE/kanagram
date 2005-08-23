@@ -36,6 +36,7 @@
 #include "keduvocdocument.h"
 #include "keduvocexpression.h"
 #include "vocabsettings.h"
+#include "kanagramsettings.h"
 
 
 VocabEdit::VocabEdit(QWidget *parent) : VocabEditWidget(parent)
@@ -55,7 +56,6 @@ VocabEdit::VocabEdit(QWidget *parent, QString fileName = "") : VocabEditWidget(p
 	m_fileName = fileName;
 	KEduVocDocument	*doc = new KEduVocDocument(this);
 	doc->open(KURL(m_fileName), false);
-	kdDebug() << doc->numEntries() << endl;
 	for(int i = 0; i < doc->numEntries(); i++)
 	{
 		KEduVocExpression expr = *doc->getEntry(i);
@@ -90,7 +90,7 @@ void VocabEdit::slotSave()
 	}
 	
 	QString fileName = txtVocabName->text().lower().replace(" ", "") + ".kvtml";
-	doc->saveAs(this, KURL(KGlobal::dirs()->saveLocation("data", "kanagram/data/") + fileName), KEduVocDocument::automatic, "kanagram");
+	doc->saveAs(this, KURL(KGlobal::dirs()->saveLocation("data", "kanagram/data/" + KanagramSettings::defaultTranslation()) + fileName), KEduVocDocument::automatic, "kanagram");
 
 	VocabSettings *settings = (VocabSettings*)this->parentWidget();
 	settings->refreshView();
@@ -118,13 +118,17 @@ void VocabEdit::slotSelectionChanged()
 
 void VocabEdit::slotWordTextChanged(const QString &changes)
 {
-	m_vocabList[lboxWords->currentItem()].setOriginal(changes);
-	lboxWords->changeItem(changes, lboxWords->currentItem());
+	if(lboxWords->currentItem() != -1)
+	{
+		m_vocabList[lboxWords->currentItem()].setOriginal(changes);
+		lboxWords->changeItem(changes, lboxWords->currentItem());
+	}
 }
 
 void VocabEdit::slotHintTextChanged(const QString &changes)
 {
-	m_vocabList[lboxWords->currentItem()].setRemark(0, changes);
+	if(lboxWords->currentItem() != -1)
+		m_vocabList[lboxWords->currentItem()].setRemark(0, changes);
 }
 
 void VocabEdit::slotRemoveWord()
