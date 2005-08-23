@@ -45,7 +45,7 @@ KanagramGame::~KanagramGame()
 
 void KanagramGame::checkFile()
 {
-	if(!QFile::exists(m_filename))
+	if(!QFile::exists(locate("appdata", m_filename)))
 	{
 		QString msg = i18n("File " + m_filename + " cannot be found.\n Please ensure that Kanagram is properly installed.");
 		KMessageBox::sorry(m_parent, msg, i18n("Error"));
