@@ -20,17 +20,22 @@
  *   51 Franklin Steet, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include "kanagramgame.h"
+#include <qfile.h>
 
 #include <kurl.h>
 #include <kdebug.h>
+#include <kmessagebox.h>
+#include <kapplication.h>
+#include <klocale.h>
 
+#include "kanagramgame.h"
 #include "keduvocdocument.h"
 #include "kanagramsettings.h"
 
 
-KanagramGame::KanagramGame() : m_index(0)
+KanagramGame::KanagramGame(QWidget* parent) : m_index(0)
 {
+	m_parent = parent;
 	loadDefaultVocab();
 }
 
@@ -38,12 +43,22 @@ KanagramGame::~KanagramGame()
 {
 }
 
+void KanagramGame::checkFile()
+{
+	if(!QFile::exists(m_filename))
+	{
+		QString msg = i18n("File " + m_filename + "cannot be found.\n Please ensure that Kanagram is properly installed.");
+		KMessageBox::sorry(m_parent, msg, i18n("Error"));
+		exit(0);
+	}
+}
+
 void KanagramGame::loadDefaultVocab()
 {
 	m_filename = KanagramSettings::defaultVocab();
+	checkFile();
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);
-	kdDebug() << m_filename << endl;
 	m_docTitle = doc->getTitle();
 	nextAnagram();
 }
@@ -74,6 +89,7 @@ void KanagramGame::previousVocab()
 	if(m_index < 0)
 		m_index = m_fileList.size() - 1;
 	m_filename = m_fileList[m_index];
+	checkFile();
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);
 	m_docTitle = doc->getTitle();
@@ -86,6 +102,7 @@ void KanagramGame::nextVocab()
 	if((uint)m_index >= m_fileList.size())
 		m_index = 0;
 	m_filename = m_fileList[m_index];
+	checkFile();
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);
 	m_docTitle = doc->getTitle();
@@ -94,6 +111,7 @@ void KanagramGame::nextVocab()
 
 void KanagramGame::nextAnagram()
 {
+	checkFile();
 	KEduVocDocument	*doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);
 	int totalWords = doc->numEntries();

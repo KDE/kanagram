@@ -51,6 +51,7 @@ using namespace std;
 class KHelpMenu;
 class KConfigDialog;
 class KRandomSequence;
+class KanagramGame;
 
 class Kanagram : public QWidget
 {
@@ -87,7 +88,7 @@ Q_OBJECT
 
 		void drawSwitcherText(QPainter &p, QString text);
 
-		KanagramGame m_game;
+		KanagramGame *m_game;
 
 		QPixmap *m_back, *m_hintOverlay, *m_aboutKDEOverlay, *m_aboutAppOverlay, *m_handbookOverlay, *m_aboutKDEOverlayOver, *m_aboutAppOverlayOver, *m_handbookOverlayOver, *m_card, *m_arrow, *m_arrowOver, *m_next, *m_nextOver, *m_config, *m_configOver, *m_help, *m_helpOver, *m_quit, *m_quitOver, *m_up, *m_upOver;
 

@@ -26,11 +26,13 @@
 #include <kstandarddirs.h>
 #include <krandomsequence.h>
 
+class QWidget;
+
 class KanagramGame : public QObject
 {
 Q_OBJECT
 	public:
-		KanagramGame();
+		KanagramGame(QWidget *parent);
 		~KanagramGame();
 		void refreshVocabList();
 		void loadDefaultVocab();
@@ -46,6 +48,8 @@ Q_OBJECT
 		QString getFilename();
 	private:
 		QString createAnagram(QString original);
+		void checkFile();
+		QWidget *m_parent;
 		KRandomSequence m_random;
 		QString m_anagram;
 		QString m_hint;

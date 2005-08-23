@@ -55,6 +55,8 @@ using namespace std;
 
 Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false)
 {
+	m_game = new KanagramGame(this);
+
 	m_back = new QPixmap(locate("appdata", "images/kanagram.png"));
 	m_aboutKDEOverlay = new QPixmap(locate("appdata", "images/kicon.png"));
 	m_aboutKDEOverlayOver = new QPixmap(locate("appdata", "images/kiconover.png"));
@@ -160,7 +162,7 @@ void Kanagram::loadSettings()
 		m_arrowOver = new QPixmap(locate("appdata", "images/arrowover.png"));
 	}
 
-	m_game.refreshVocabList();
+	m_game->refreshVocabList();
 }
 
 void Kanagram::paintEvent(QPaintEvent *)
@@ -187,12 +189,12 @@ void Kanagram::paintEvent(QPaintEvent *)
 	else
 		p.drawPixmap(520, 362, *m_quit);
 
-	drawText(p, m_game.getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 28);
+	drawText(p, m_game->getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 28);
 	
 	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
 	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, 0, m_overHint, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
 	
-	drawSwitcherText(p, m_game.getDocTitle());
+	drawSwitcherText(p, m_game->getDocTitle());
 	if(m_overSwitcher)
 		p.drawPixmap(385, 134, *m_arrowOver);
 	else
@@ -225,7 +227,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 		f.setWeight(QFont::Bold);
 		f.setPointSize(10);
 		p.setFont(f);
-		p.drawText(459, 217, 148, 67, WordBreak | AlignCenter, m_game.getHint());
+		p.drawText(459, 217, 148, 67, WordBreak | AlignCenter, m_game->getHint());
 	}
 
 	if(m_overHelp && !m_showHint)
@@ -293,7 +295,8 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	
 	if (m_nextRect.contains(e->pos()))
 	{
-		m_game.nextAnagram();
+		hideHint();
+		m_game->nextAnagram();
 		if(m_useSounds) play("chalk.ogg");
 		m_inputBox->unsetPalette();
 		update();
@@ -311,7 +314,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_revealRect.contains(e->pos()))
 	{
-		m_game.restoreWord();
+		m_game->restoreWord();
 		update();
 	}
 
@@ -346,12 +349,13 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	if(m_switcherRect.contains(e->pos()) || m_arrowRect.contains(e->pos()))
 	{
 		if(!(e->button() == RightButton))
-			m_game.nextVocab();
+			m_game->nextVocab();
 		else
-			m_game.previousVocab();
-		m_game.nextAnagram();
+			m_game->previousVocab();
+		hideHint();
+		m_game->nextAnagram();
 		if(m_useSounds) play("chalk.ogg");
-		KanagramSettings::setDefaultVocab(m_game.getFilename());
+		KanagramSettings::setDefaultVocab(m_game->getFilename());
 		KanagramSettings::writeConfig();
 		update();
 	}
@@ -373,13 +377,14 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_upRect.contains(e->pos()))
 	{
-		if(m_inputBox->text().lower() == m_game.getWord())
+		if(m_inputBox->text().lower() == m_game->getWord())
 		{
 			if(m_useSounds) play("right.ogg");
 			m_inputBox->setPaletteBackgroundColor(QColor(0, 255, 0));
 			QTimer::singleShot(1000, this, SLOT(resetInputBox()));
 			m_inputBox->clear();
-			m_game.nextAnagram();
+			hideHint();
+			m_game->nextAnagram();
 			update();
 		}
 		else
@@ -648,7 +653,7 @@ void Kanagram::resetInputBox()
 void Kanagram::refreshVocabularies()
 {
 	kdDebug() << "Refreshing vocab list..." << endl;
-	m_game.refreshVocabList();
+	m_game->refreshVocabList();
 }
 
 void Kanagram::play(QString filename)
