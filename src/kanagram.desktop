@@ -5,4 +5,5 @@ Exec=kanagram
 Icon=kanagram
 Type=Application
 GenericName=Letter Order Game
+GenericName[cy]=GÃªm Trefn Llythrennau
 Categories=Qt;KDE;Education;X-KDE-Edu-Language;
