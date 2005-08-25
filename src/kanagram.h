@@ -68,7 +68,7 @@ Q_OBJECT
 		void refreshVocabularies();
 
 	private:
-		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, bool bold, QFont &font, QColor fontColor, QColor fontHighlightColor, int fontSize = 18);
+		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, int fontSize = 18);
 
 		void play(QString filename);
 

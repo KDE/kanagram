@@ -189,10 +189,10 @@ void Kanagram::paintEvent(QPaintEvent *)
 	else
 		p.drawPixmap(520, 362, *m_quit);
 
-	drawText(p, m_game->getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 28);
+	drawText(p, m_game->getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, 28);
 	
-	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, 0, m_overReveal, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
-	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, 0, m_overHint, true, m_blackboardFont, m_chalkColor, m_chalkHighlightColor, 14);
+	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, &m_revealRect, m_overReveal, 14);
+	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, &m_hintRect, m_overHint, 14);
 	
 	drawSwitcherText(p, m_game->getDocTitle());
 	if(m_overSwitcher)
@@ -602,12 +602,12 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 	if (haveToUpdate) update();
 }
 
-void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect * /*rect*/, bool highlight, bool bold, QFont &font, QColor fontColor, QColor fontHighlightColor,int fontSize)
+void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, int fontSize)
 {
 	QRect r;
-	//QFont f = font;
+	QFont font = m_blackboardFont;
 	font.setPointSize(fontSize);
-	if (bold) font.setBold(true);
+	font.setBold(true);
 	p.setFont(font);
 	
 	r = p.boundingRect(QRect(), Qt::AlignAuto, text);
@@ -621,9 +621,11 @@ void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, 
 		p.drawRoundRect(r.left(), r.top(), r.width(), r.height(), 15, 15);
 	}
 	
-	if (!highlight) p.setPen(fontColor);
-	else p.setPen(fontHighlightColor);
+	if (!highlight) p.setPen(m_chalkColor);
+	else p.setPen(m_chalkHighlightColor);
 	p.drawText(r, Qt::AlignCenter, text);
+	
+	if(rect) *rect = r;
 }
 
 void Kanagram::checkWord()
