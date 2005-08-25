@@ -99,6 +99,9 @@
                     <property name="allColumnsShowFocus">
                         <bool>true</bool>
                     </property>
+                    <property name="resizeMode">
+                        <enum>LastColumn</enum>
+                    </property>
                     <property name="whatsThis" stdset="0">
                         <string>The list of installed vocabularies.</string>
                     </property>
