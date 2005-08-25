@@ -56,9 +56,11 @@ void KanagramGame::checkFile()
 void KanagramGame::loadDefaultVocab()
 {
 	m_filename = KanagramSettings::defaultVocab();
+        kdDebug() << "in game " << m_filename <<endl;
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);
 	m_docTitle = doc->getTitle();
+        kdDebug() << m_docTitle <<endl; //Animals
 	nextAnagram();
 }
 
@@ -71,14 +73,19 @@ void KanagramGame::refreshVocabList()
 
 int KanagramGame::findIndex()
 {
+        //this m_filename is wrong
+        //you have to use KanagramSettings::defaultVocab() instead of m_filename which is used for something else
+        kdDebug() <<"m_filename " << m_filename << "\n" << endl;
 	int tempIndex = 0;
 	for(uint i = 0; i < m_fileList.size(); i++)
 	{
+                kdDebug() <<"m_file " << m_fileList[i]<<endl;
 		if(m_filename == m_fileList[i])
 		{
 			tempIndex = i;
 		}
 	}
+        kdDebug() << "index founded " << tempIndex <<endl;
 	return tempIndex;
 }
 

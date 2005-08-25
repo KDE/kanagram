@@ -144,9 +144,8 @@ void Kanagram::loadSettings()
 		m_hintHideTime = 0;
 	
 	m_useSounds = KanagramSettings::useSounds();
-
+        //TODO m_defaultVocab seems unused in this class annma 24-08-2005
 	m_defaultVocab = KanagramSettings::defaultVocab();
-	
 	m_useStandardFonts = KanagramSettings::useStandardFonts();
 
 	if(m_useStandardFonts)
