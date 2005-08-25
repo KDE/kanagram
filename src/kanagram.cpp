@@ -670,6 +670,7 @@ void Kanagram::refreshVocabularies()
 {
 	kdDebug() << "Refreshing vocab list..." << endl;
 	m_game->refreshVocabList();
+	m_game->nextVocab();
 }
 
 void Kanagram::play(QString filename)
