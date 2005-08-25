@@ -255,6 +255,21 @@ void Kanagram::paintEvent(QPaintEvent *)
 		else
 			p.drawPixmap(478, 213, *m_handbookOverlayOver);
 	}
+	else if(m_overNext)
+	{
+		p.drawPixmap(456, 275, *m_card);
+		drawHelpText(p, i18n("Next Word"));
+	}
+	else if(m_overConfig)
+	{
+		p.drawPixmap(456, 275, *m_card);
+		drawHelpText(p, i18n("Settings"));
+	}
+	else if(m_overQuit)
+	{
+		p.drawPixmap(456, 275, *m_card);
+		drawHelpText(p, i18n("Quit Kanagram"));
+	}
 
 	bitBlt(this, 0, 0, &buf);
 }
