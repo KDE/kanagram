@@ -77,6 +77,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 
 	m_up = new QPixmap(locate("appdata", "images/up.png"));
 	m_upOver = new QPixmap(locate("appdata", "images/upover.png"));
+	m_upDisabled = new QPixmap(locate("appdata", "images/updisabled.png"));
 
 	m_nextRect = QRect(477, 31, 134, 76);
 	m_configRect = QRect(477, 122, 134, 76);
@@ -115,6 +116,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	
 	connect(m_inputBox, SIGNAL(returnPressed()), this, SLOT(checkWord()));
 	connect(m_hintTimer, SIGNAL(timeout()), this, SLOT(hideHint()));
+	connect(m_inputBox, SIGNAL(textChanged(const QString &)), this, SLOT(update()));
 	
 	QFont f = QFont();
 	f.setPointSize(17);
@@ -214,8 +216,10 @@ void Kanagram::paintEvent(QPaintEvent *)
 	p.fillRect(borderRect, m_fillColor);
 	p.drawRoundRect(borderRect, 10, 5);
 	
-	if(m_overUp)
+	if(m_overUp && m_inputBox->text() != "")
 		p.drawPixmap(350, 431, *m_upOver);
+	else if(m_inputBox->text() == "")
+		p.drawPixmap(350, 431, *m_upDisabled);
 	else
 		p.drawPixmap(350, 431, *m_up);
 
@@ -262,7 +266,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 	else if(m_overConfig)
 	{
 		p.drawPixmap(456, 275, *m_card);
-		drawHelpText(p, i18n("Settings"));
+		drawHelpText(p, i18n("Configure Kanagram"));
 	}
 	else if(m_overQuit)
 	{
@@ -389,7 +393,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		update();
 	}
 
-	if(m_upRect.contains(e->pos()))
+	if(m_upRect.contains(e->pos()) && m_inputBox->text() != "")
 	{
 		if(m_inputBox->text().lower() == m_game->getWord())
 		{
@@ -593,7 +597,7 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		}
 	}
 
-	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || m_overUp || m_overAboutApp || m_overHintBox)
+	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || (m_overUp && m_inputBox->text() != "") || m_overAboutApp || m_overHintBox)
 		this->setCursor(PointingHandCursor);
 	else
 		this->unsetCursor();
