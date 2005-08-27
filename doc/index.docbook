@@ -227,25 +227,23 @@ The <guilabel>Configure</guilabel> dialog is opened by clicking on the <guiicon>
 </screenshot>
 
 <itemizedlist>
+
 <listitem>
 <para>
-The <quote>Auto-hide hints</quote> <interface>drop-down box</interface> allows you to specify how hints are presented to you. Here, you can set the hint box to disappear after a certain amount of seconds (&eg; 5 seconds), or you can leave it as default (<quote>Do not auto-hide hints</quote>).
+The <quote><guilabel>Auto-hide hints after:</guilabel></quote> <interface>drop-down box</interface> allows you to specify how hints are presented to you. Here, you can set the hint box to disappear after a certain amount of seconds (&eg; 5 seconds), or you can leave it as default (<quote>Do not auto-hide hints</quote>).
 </para>
 </listitem>
 
 <listitem>
 <para>
-The <guilabel>Use sounds</guilabel> <interface>checkbox</interface> allows you to either allow or suppress the &kanagram; sound effects.
+The <quote><guilabel>Play Using:</guilabel></quote> <interface>drop-down box</interface> allows you to play &kanagram; using vocabularies of a different language. For this feature to work, you must have vocabularies of a separate language installed.
 </para>
-<note><para>You need to have aRts support in kdelibs to hear the sounds.</para></note>
 </listitem>
 
 <listitem>
 <para>
-The <guilabel>Use standard fonts</guilabel> <interface>checkbox</interface>, if checked, makes &kanagram; display the <interface>blackboard</interface> text in a standard, rather than chalk-styled font. This should aid readability of the text:
+The <quote><guilabel>Use standard fonts</guilabel></quote> <interface>checkbox</interface>, if checked, makes &kanagram; display the <interface>blackboard</interface> text in a standard, rather than chalk-styled font. This should aid readability of the text:
 </para>
-</listitem>
-</itemizedlist>
 
 <screenshot>
 <screeninfo>&kanagram; standard font</screeninfo>
@@ -258,6 +256,19 @@ The <guilabel>Use standard fonts</guilabel> <interface>checkbox</interface>, if 
 </textobject>
 </mediaobject>
 </screenshot>
+</listitem>
+
+<listitem>
+<para>
+The <quote><guilabel>Use sounds</guilabel></quote> <interface>checkbox</interface> allows you to either allow or suppress the &kanagram; sound effects.
+</para>
+<note>
+<para>
+You need to have aRts support in kdelibs to hear the sounds.
+</para>
+</note>
+</listitem>
+</itemizedlist>
 
 <sect1 id="vocabularies-config">
 <title>Vocabularies</title>
@@ -281,18 +292,18 @@ The <guilabel>Vocabularies</guilabel> configuration page allows you to manage yo
 <itemizedlist>
 <listitem>
 <para>
-The <guibutton>Create New</guibutton> button <action>opens the <link
+The <quote><guibutton>Create New</guibutton></quote> button <action>opens the <link
 linkend="vocab-editor"><guilabel>Vocabulary Editor</guilabel></link> dialog</action> so that you can author your own vocabularies which you can then play.
 </para>
 </listitem>
 <listitem>
 <para>
-The <guibutton>Edit</guibutton> button allows you to <action>make changes to vocabularies that you have either created or downloaded off the Internet</action>.
+The <quote><guibutton>Edit</guibutton></quote> button allows you to <action>make changes to vocabularies that you have either created or downloaded off the Internet</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-The <guibutton>Delete</guibutton> button allows you to <action>delete vocabularies that you have created or downloaded</action>.
+The <quote><guibutton>Delete</guibutton></quote> button allows you to <action>delete vocabularies that you have created or downloaded</action>.
 </para>
 </listitem>
 <listitem>
@@ -339,12 +350,12 @@ Try to keep both the name and description fields as short as possible. Effective
 </listitem>
 <listitem>
 <para>
-The <guibutton>Delete Word</guibutton> button lets you <action>remove words from your vocabulary</action>.
+The <quote><guibutton>Delete Word</guibutton></quote> button lets you <action>remove words from your vocabulary</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-The <guibutton>New Word</guibutton> button <action>creates a new word entry in your vocabulary</action>, ready for you to expand.
+The <quote><guibutton>New Word</guibutton></quote> button <action>creates a new word entry in your vocabulary</action>, ready for you to expand.
 </para>
 </listitem>
 <listitem>
@@ -364,12 +375,12 @@ Good hints clearly, yet subtly describe the word, whilst increasing the knowledg
 </listitem>
 <listitem>
 <para>
-The <guibutton>Save</guibutton> button <action>saves your vocabulary content</action>, and enables its use directly in &kanagram; (it will immediately become available within the application, selectable via. the <interface>Vocabulary Selector</interface>).
+The <quote><guibutton>Save</guibutton></quote> button <action>saves your vocabulary content</action>, and enables its use directly in &kanagram; (it will immediately become available within the application, selectable via. the <interface>Vocabulary Selector</interface>).
 </para>
 </listitem>
 <listitem>
 <para>
-The <guibutton>Close</guibutton> button <action>closes the <guilabel>Vocabulary Editor</guilabel> dialog</action> without saving the content of your vocabulary.
+The <quote><guibutton>Close</guibutton></quote> button <action>closes the <guilabel>Vocabulary Editor</guilabel> dialog</action> without saving the content of your vocabulary.
 </para>
 </listitem>
 </itemizedlist>
@@ -397,7 +408,7 @@ The <guilabel>New Stuff</guilabel> configuration page allows you to obtain new v
 </screenshot>
 
 <para>
-Click the <guibutton>Download New Vocabularies</guibutton> button to browse the available online content:
+Click the <quote><guibutton>Download New Vocabularies</guibutton></quote> button to browse the available online content:
 </para>
 
 </sect1>
