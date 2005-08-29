@@ -6,5 +6,6 @@ Icon=kanagram
 Type=Application
 GenericName=Letter Order Game
 GenericName[cy]=GÃªm Trefn Llythrennau
+GenericName[it]=Gioco di anagrammi
 GenericName[pt]=Jogo de Ordenação de Letras
 Categories=Qt;KDE;Education;X-KDE-Edu-Language;
