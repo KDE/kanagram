@@ -52,6 +52,8 @@ using namespace std;
 #include "vocabsettings.h"
 #include "newstuff.h"
 
+static const char* m_textRevealWord = I18N_NOOP("reveal word");
+static const char* m_textHint = I18N_NOOP("hint");
 
 Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false)
 {
@@ -84,16 +86,26 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_helpRect = QRect(477, 212, 134, 76);
 	m_quitRect = QRect(453, 352, 182, 104);
 	
-	m_hintRect = QRect(51, 337, 39, 28);
+	QPainter tmpp(this);
+	QFont font = m_blackboardFont;
+	font.setPointSize(14);
+	font.setBold(true);
+	tmpp.setFont(font);
+	m_blackboardRect = QRect(41, 116, 366, 248);
+//	m_hintRect = QRect(51, 337, 39, 28);
+	QRect r = innerRect(m_blackboardRect, 12, 6);
+	m_hintRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
 	m_hintBoxRect = QRect(446, 207, 171, 85);
-	m_revealRect = QRect(279, 338, 119, 28);
+//	m_revealRect = QRect(279, 338, 119, 28);
+	r = innerRect(m_blackboardRect, 12, 6);
+	m_revealRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
 	m_upRect = QRect(341, 425, 55, 33);
 	m_aboutKDERect = QRect(567, 213, 44, 44);
 	m_aboutAppRect = QRect(522, 213, 44, 44);
 	m_handbookRect = QRect(478, 213, 44, 44);
 	m_arrowRect = QRect(380, 134, 13, 20);
 	m_logoRect = QRect(76, 24, 297, 50);
-	m_blackboardRect = QRect(41, 116, 366, 248);
+	tmpp.end();
 	
 	setMouseTracking(true);
 	setFixedSize(650, 471);
@@ -196,8 +208,8 @@ void Kanagram::paintEvent(QPaintEvent *)
 	
 //	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, &m_revealRect, m_overReveal, 14);
 //	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, &m_hintRect, m_overHint, 14);
-	drawTextNew(p, i18n("reveal word"), Qt::AlignBottom | Qt::AlignRight, 12, 6, m_blackboardRect, m_overReveal, 14);
-	drawTextNew(p, i18n("hint"), Qt::AlignBottom | Qt::AlignLeft, 12, 6, m_blackboardRect, m_overHint, 14);
+	drawTextNew(p, i18n(m_textRevealWord), Qt::AlignBottom | Qt::AlignRight, 12, 6, m_blackboardRect, m_overReveal, 14);
+	drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 12, 6, m_blackboardRect, m_overHint, 14);
 	
 //	drawSwitcherText(p, m_game->getDocTitle());
 	drawSwitcher(p, 9, 8);
