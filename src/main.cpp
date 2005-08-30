@@ -25,6 +25,7 @@
 #include <kstandarddirs.h>
 
 #include "kanagram.h"
+#include "kanagramsettings.h"
 
 int main(int argc, char *argv[])
 {
@@ -35,6 +36,12 @@ int main(int argc, char *argv[])
 	KCmdLineArgs::init(argc, argv, &about);
 	KApplication app;
 	app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
+	
+	QFont f("squeaky chalk sound");
+	if (!QFontInfo(f).exactMatch())
+	{
+		KanagramSettings::setUseStandardFonts(true);
+	}
 	
 	app.setTopWidget(new Kanagram());
 	return app.exec();

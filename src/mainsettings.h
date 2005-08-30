@@ -37,6 +37,9 @@ Q_OBJECT
 	public slots:
 		void slotChangeTranslation();
 		void slotUpdateParent();
+	
+	private slots:
+		void getAndInstallFont();
 
 	private:
 		QStringList m_languages;

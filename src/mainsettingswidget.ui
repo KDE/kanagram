@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>254</width>
-            <height>211</height>
+            <width>281</width>
+            <height>239</height>
         </rect>
     </property>
     <property name="caption">
@@ -112,19 +112,37 @@
                 </widget>
             </vbox>
         </widget>
-        <widget class="QCheckBox">
+        <widget class="QLayoutWidget">
             <property name="name">
-                <cstring>kcfg_useStandardFonts</cstring>
+                <cstring>layout2</cstring>
             </property>
-            <property name="text">
-                <string>Use standard fonts</string>
-            </property>
-            <property name="accel">
-                <string></string>
-            </property>
-            <property name="whatsThis" stdset="0">
-                <string>Uses a standard font for the chalkboard/interface.</string>
-            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>kcfg_useStandardFonts</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use standard fonts</string>
+                    </property>
+                    <property name="accel">
+                        <string></string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Uses a standard font for the chalkboard/interface.</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>getFontsButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Get Chalk Font</string>
+                    </property>
+                </widget>
+            </hbox>
         </widget>
         <widget class="QCheckBox">
             <property name="name">
@@ -132,6 +150,9 @@
             </property>
             <property name="text">
                 <string>Use sou&amp;nds</string>
+            </property>
+            <property name="accel">
+                <string>Alt+N</string>
             </property>
             <property name="whatsThis" stdset="0">
                 <string>Turns sounds on/off.</string>
@@ -150,7 +171,7 @@
             <property name="sizeHint">
                 <size>
                     <width>16</width>
-                    <height>15</height>
+                    <height>16</height>
                 </size>
             </property>
         </spacer>

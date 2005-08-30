@@ -20,13 +20,17 @@
  ***************************************************************************/
 
 #include <qdir.h>
+#include <qcheckbox.h>
 #include <qcombobox.h>
+#include <qpushbutton.h>
 
 #include <kdebug.h>
 #include <kconfig.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <kconfigdialog.h>
+#include <kmessagebox.h>
+#include <kio/netaccess.h>
 
 #include "mainsettings.h"
 #include "kanagramsettings.h"
@@ -42,6 +46,17 @@ MainSettings::MainSettings(QWidget *parent) : MainSettingsWidget(parent)
 
 	cboxTranslation->insertStringList(m_languageNames);
 	cboxTranslation->setCurrentItem(m_languages.findIndex(KanagramSettings::defaultTranslation()));
+	
+	QFont f("squeaky chalk sound");
+	if (!QFontInfo(f).exactMatch())
+	{
+		kcfg_useStandardFonts->setEnabled(false);
+		connect(getFontsButton, SIGNAL(pressed()), this, SLOT(getAndInstallFont()));
+	}
+	else
+	{
+		getFontsButton->hide();
+	}
 }
 
 MainSettings::~MainSettings()
@@ -110,6 +125,20 @@ void MainSettings::setupTranslations()
 		}
 		else
 			m_languageNames.append(entry.readEntry("Name"));
+	}
+}
+
+void MainSettings::getAndInstallFont()
+{
+	bool success = KIO::NetAccess::copy("http://www.kde-edu.org/kanagram/chalk.ttf", "fonts:/Personal/", 0);
+	if (success)
+	{
+		getFontsButton->hide();
+		KMessageBox::information(this, i18n("The font will not be available until Kanagram is restarted."));
+	}
+	else
+	{
+		KMessageBox::error(this, i18n("The font could not be installed, check you are connected to the internet."));
 	}
 }
 
