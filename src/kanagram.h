@@ -69,6 +69,7 @@ Q_OBJECT
 
 	private:
 		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, int fontSize = 18);
+		void drawTextNew(QPainter &p, const QString &text, int textAlign, int xMargin, int yMargin, const QRect &rect, bool highlight, int fontSize = 18);
 
 		void play(QString filename);
 
@@ -87,6 +88,9 @@ Q_OBJECT
 		void drawHelpText(QPainter &p, QString text);
 
 		void drawSwitcherText(QPainter &p, QString text);
+		void drawSwitcher(QPainter &p, const int xMargin, const int yMargin);
+
+		QRect innerRect(const QRect &rect, const int xMargin, const int yMargin);
 
 		KanagramGame *m_game;
 
@@ -95,7 +99,7 @@ Q_OBJECT
 		//Deprecated
 		//QRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect;
 		
-		QRect m_nextRect, m_configRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_upRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect, m_arrowRect, m_logoRect, m_hintBoxRect;
+		QRect m_nextRect, m_configRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_upRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect, m_arrowRect, m_logoRect, m_hintBoxRect, m_blackboardRect;
 
 		bool m_overNext, m_overConfig, m_overHelp, m_overQuit, m_overReveal, m_overHint, m_overUp, m_overAboutKDE, m_overAboutApp, m_overHandbook, m_overSwitcher, m_overHintBox;
 

@@ -93,6 +93,7 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_handbookRect = QRect(478, 213, 44, 44);
 	m_arrowRect = QRect(380, 134, 13, 20);
 	m_logoRect = QRect(76, 24, 297, 50);
+	m_blackboardRect = QRect(41, 116, 366, 248);
 	
 	setMouseTracking(true);
 	setFixedSize(650, 471);
@@ -190,16 +191,22 @@ void Kanagram::paintEvent(QPaintEvent *)
 	else
 		p.drawPixmap(520, 362, *m_quit);
 
-	drawText(p, m_game->getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, 28);
+//	drawText(p, m_game->getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, 28);
+	drawTextNew(p, m_game->getAnagram(), Qt::AlignCenter, 10, 10, m_blackboardRect, true, 28);
 	
-	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, &m_revealRect, m_overReveal, 14);
-	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, &m_hintRect, m_overHint, 14);
+//	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, &m_revealRect, m_overReveal, 14);
+//	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, &m_hintRect, m_overHint, 14);
+	drawTextNew(p, i18n("reveal word"), Qt::AlignBottom | Qt::AlignRight, 12, 6, m_blackboardRect, m_overReveal, 14);
+	drawTextNew(p, i18n("hint"), Qt::AlignBottom | Qt::AlignLeft, 12, 6, m_blackboardRect, m_overHint, 14);
 	
-	drawSwitcherText(p, m_game->getDocTitle());
+//	drawSwitcherText(p, m_game->getDocTitle());
+	drawSwitcher(p, 9, 8);
+/*
 	if(m_overSwitcher)
 		p.drawPixmap(385, 134, *m_arrowOver);
 	else
 		p.drawPixmap(385, 134, *m_arrow);
+*/
 
 	p.setPen(QPen(black, 3));
 
@@ -306,6 +313,51 @@ void Kanagram::drawSwitcherText(QPainter &p, QString text)
 		p.setPen(m_chalkHighlightColor);
 	p.drawText(380 - width, 150, text);
 	p.restore();
+}
+
+void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
+{
+	const int padding = 5;
+	QString text = m_game->getDocTitle();
+	QFont font = m_blackboardFont;
+	font.setPointSize(14);
+	QFontMetrics fm(font);
+	QRect r = innerRect(m_blackboardRect, xMargin, yMargin);
+	r.normalize();
+	r.moveBy(- padding - (m_overSwitcher ? m_arrowOver : m_arrow )->width(), yMargin);
+	r.setHeight( (m_overSwitcher ? m_arrowOver : m_arrow )->height());
+	m_switcherRect = p.boundingRect(r, Qt::AlignVCenter|Qt::AlignRight, text);
+	p.setFont(font);
+	if (m_overSwitcher)
+	{
+		p.setPen(m_chalkHighlightColor);
+		p.drawPixmap(m_switcherRect.right() + padding, m_switcherRect.top(), *m_arrowOver);
+	}
+	else
+	{
+		p.setPen(m_chalkColor);
+		p.drawPixmap(m_switcherRect.right() + padding, m_switcherRect.top(), *m_arrow);
+	}
+	m_switcherRect.moveBy(0, -2);
+	p.drawText(m_switcherRect, Qt::AlignVCenter|Qt::AlignRight, text);
+}
+
+QRect Kanagram::innerRect(const QRect &rect, const int xMargin, const int yMargin)
+{
+	QRect r = rect;
+
+	if (xMargin>0)
+	{
+		r.setWidth(r.width() - 2 * xMargin);
+		r.moveBy(xMargin, 0);
+	}
+	if (yMargin>0)
+	{
+		r.setHeight(r.height() - 2 * yMargin);
+		r.moveBy(0, yMargin);
+	}
+
+	return r;
 }
 
 void Kanagram::mousePressEvent(QMouseEvent *e)
@@ -629,6 +681,29 @@ void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, 
 	p.drawText(r, Qt::AlignCenter, text);
 	
 	if(rect) *rect = r;
+}
+
+void Kanagram::drawTextNew(QPainter &p, const QString &text, int textAlign, int xMargin, int yMargin, const QRect &rect, bool highlight, int fontSize)
+{
+	QRect r = innerRect(rect, xMargin, yMargin);
+	QFont font = m_blackboardFont;
+	font.setPointSize(fontSize);
+	font.setBold(true);
+	p.setFont(font);
+	
+	const bool withMargin = false;
+	if (withMargin)
+	{
+		p.fillRect(r, m_fillColor);
+		p.setPen(QPen(black, 3));
+		p.drawRoundRect(r.left(), r.top(), r.width(), r.height(), 15, 15);
+	}
+	
+	if (highlight)
+		p.setPen(m_chalkHighlightColor);
+	else
+		p.setPen(m_chalkColor);
+	p.drawText(r, textAlign, text);
 }
 
 void Kanagram::checkWord()
