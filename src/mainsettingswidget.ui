@@ -78,7 +78,7 @@
                 <cstring>groupBox3</cstring>
             </property>
             <property name="title">
-                <string>Language Options</string>
+                <string>Vocabulary Options</string>
             </property>
             <vbox>
                 <property name="name">

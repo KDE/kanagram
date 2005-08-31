@@ -48,7 +48,7 @@
                                 <cstring>btnClose</cstring>
                             </property>
                             <property name="text">
-                                <string>Close</string>
+                                <string>Cancel</string>
                             </property>
                         </widget>
                     </hbox>
