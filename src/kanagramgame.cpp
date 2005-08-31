@@ -56,6 +56,17 @@ void KanagramGame::checkFile()
 void KanagramGame::loadDefaultVocab()
 {
 	m_filename = KanagramSettings::defaultVocab();
+	if (m_filename.isEmpty())
+	{
+		// first run
+		m_filename = locate("appdata", "data/" + KanagramSettings::dataLanguage() + "/objects.kvtml");
+		if (m_filename.isEmpty())
+		{
+			refreshVocabList();
+			nextVocab();
+		}
+	}
+	
         kdDebug() << "in game " << m_filename <<endl;
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);

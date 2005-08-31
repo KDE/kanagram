@@ -14,7 +14,7 @@
 </entry>
 <entry name="defaultVocab" type="Path">
 	<label>Set the default vocabulary</label>
-	<default>data/en/objects.kvtml</default>
+	<default></default>
 </entry>
 <entry name="dataLanguage" type="String">
 	<label>Set the default translation</label>
