@@ -42,8 +42,7 @@ Q_OBJECT
 		void getAndInstallFont();
 
 	private:
-		QStringList m_languages;
-		QStringList m_languageNames;
+		QMap<QString, QString> m_languageCodeMap;
 		void setupTranslations();
 		
 		KConfigDialog *m_parent;

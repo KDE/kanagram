@@ -66,7 +66,7 @@ void KanagramGame::loadDefaultVocab()
 
 void KanagramGame::refreshVocabList()
 {
-	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::defaultTranslation() + "/*.kvtml");
+	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::dataLanguage() + "/*.kvtml");
 	//nextVocab();
 	m_index = findIndex();
 }

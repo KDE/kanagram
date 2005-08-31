@@ -16,9 +16,9 @@
 	<label>Set the default vocabulary</label>
 	<default>data/en/objects.kvtml</default>
 </entry>
-<entry name="defaultTranslation" type="String">
+<entry name="dataLanguage" type="String">
 	<label>Set the default translation</label>
-	<default>en</default>
+	<default></default>
 </entry>
 </group>
 </kcfgfile>

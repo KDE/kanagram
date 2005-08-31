@@ -42,6 +42,19 @@ int main(int argc, char *argv[])
 	{
 		KanagramSettings::setUseStandardFonts(true);
 	}
+	if (KanagramSettings::dataLanguage().isEmpty())
+	{
+		QStringList userLanguagesCode = KGlobal::locale()->languageList();
+		QStringList::const_iterator itEnd = userLanguagesCode.end();
+		QStringList::const_iterator it = userLanguagesCode.begin();
+		for ( ; it != itEnd; ++it)
+		{
+			QStringList mdirs = KGlobal::dirs()->findDirs("appdata", "data/" + *it);	
+			if (!mdirs.isEmpty()) break;
+		}
+		if (it == itEnd) KanagramSettings::setDataLanguage("en");
+		else KanagramSettings::setDataLanguage(*it);
+	}
 	
 	app.setTopWidget(new Kanagram());
 	return app.exec();

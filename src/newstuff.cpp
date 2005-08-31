@@ -22,7 +22,7 @@ NewStuff::~NewStuff()
 void NewStuff::slotGetNewVocabs()
 {
 	KNS::DownloadDialog *dlgDownload = new KNS::DownloadDialog();
-	dlgDownload->setProviderList("http://kde-edu.org/kanagram/" + KanagramSettings::defaultTranslation() + ".xml");
+	dlgDownload->setProviderList("http://kde-edu.org/kanagram/" + KanagramSettings::dataLanguage() + ".xml");
 	dlgDownload->load();
 	dlgDownload->show();
 }

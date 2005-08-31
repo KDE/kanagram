@@ -44,8 +44,23 @@ MainSettings::MainSettings(QWidget *parent) : MainSettingsWidget(parent)
 	
 	setupTranslations();
 
-	cboxTranslation->insertStringList(m_languageNames);
-	cboxTranslation->setCurrentItem(m_languages.findIndex(KanagramSettings::defaultTranslation()));
+	QStringList languageNames = m_languageCodeMap.keys();
+	languageNames.sort();
+	cboxTranslation->insertStringList(languageNames);
+	
+	//the language code/name
+	KConfig entry(locate("locale", "all_languages"));
+	QString code = KanagramSettings::dataLanguage();
+	entry.setGroup(code);
+	if (code == "sr")
+		cboxTranslation->setCurrentText(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
+	else if (code == "sr@Latn")
+	{
+		entry.setGroup("sr");
+		cboxTranslation->setCurrentText(entry.readEntry("Name")+" ("+i18n("Latin")+")");
+	}
+	else
+		cboxTranslation->setCurrentText(entry.readEntry("Name"));
 	
 	QFont f("squeaky chalk sound");
 	if (!QFontInfo(f).exactMatch())
@@ -70,61 +85,43 @@ void MainSettings::slotUpdateParent()
 
 void MainSettings::setupTranslations()
 {
-	m_languages.clear();
-	m_languageNames.clear();
+	m_languageCodeMap.clear();
+	QStringList languages, temp_languages;
 	
-	//the program scans in khangman/data/ to see what languages data is found
+	//the program scans in kdereview/data/ to see what languages data is found
 	QStringList mdirs = KGlobal::dirs()->findDirs("appdata", "data/");
 
 	if (mdirs.isEmpty()) return;
 	
-	for (QStringList::Iterator it = mdirs.begin(); it != mdirs.end(); ++it )
+	for (QStringList::const_iterator it = mdirs.begin(); it != mdirs.end(); ++it )
 	{
 		QDir dir(*it);
-		m_languages += dir.entryList(QDir::Dirs, QDir::Name);
-		m_languages.remove(m_languages.find("."));
-		m_languages.remove(m_languages.find(".."));
-	}
-	
-	m_languages.sort();
-
-	if (m_languages.isEmpty())
-		return;
-	//find duplicated entries in KDEDIR and KDEHOME
-
-	QStringList temp_languages;
-	for (uint i = 0;  i < m_languages.count(); i++)
-	{
-		if (m_languages.contains(m_languages[i]) > 1) 
+		temp_languages = dir.entryList(QDir::Dirs, QDir::Name);
+		temp_languages.remove(".");
+		temp_languages.remove("..");
+		for (QStringList::const_iterator it2 = temp_languages.begin(); it2 != temp_languages.end(); ++it2 )
 		{
-			temp_languages.append(m_languages[i]);
-			m_languages.remove(m_languages[i]);
+			if (!languages.contains(*it2)) languages.append(*it2);
 		}
 	}
-
-	for (uint i = 0;  i < temp_languages.count(); i++)
-	{
-		// Append 1 of the 2 instances found.
-		if (i % 2 == 0)
-			m_languages.append(temp_languages[i]);
-	}
-	temp_languages.clear();
+	
+	if (languages.isEmpty())
+		return;
 
 	//the language code/name
 	KConfig entry(locate("locale", "all_languages"));
-	const QStringList::ConstIterator itEnd = m_languages.end();
-	for (QStringList::Iterator it = m_languages.begin(); 
-		it != m_languages.end(); ++it) {
+	const QStringList::ConstIterator itEnd = languages.end();
+	for (QStringList::ConstIterator it = languages.begin(); it != itEnd; ++it) {
 		entry.setGroup(*it);
 		if (*it == "sr")
-			m_languageNames.append(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
+			m_languageCodeMap.insert(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")", "sr");
 		else if (*it == "sr@Latn")
 		{
 			entry.setGroup("sr");
-			m_languageNames.append(entry.readEntry("Name") + " ("+i18n("Latin")+")");
+			m_languageCodeMap.insert(entry.readEntry("Name") + " ("+i18n("Latin")+")", "sr@Latn");
 		}
 		else
-			m_languageNames.append(entry.readEntry("Name"));
+			m_languageCodeMap.insert(entry.readEntry("Name"), *it);
 	}
 }
 
@@ -144,8 +141,8 @@ void MainSettings::getAndInstallFont()
 
 void MainSettings::slotChangeTranslation()
 {
-	kdDebug() << "Writing new default language: " << m_languages[cboxTranslation->currentItem()] << endl;
-	KanagramSettings::setDefaultTranslation(m_languages[cboxTranslation->currentItem()]);
+	kdDebug() << "Writing new default language: " << m_languageCodeMap[cboxTranslation->currentText()] << endl;
+	KanagramSettings::setDataLanguage(m_languageCodeMap[cboxTranslation->currentText()]);
 	KanagramSettings::writeConfig();
 }
 
