@@ -52,6 +52,7 @@ class KHelpMenu;
 class KConfigDialog;
 class KRandomSequence;
 class KanagramGame;
+class VocabSettings;
 
 class Kanagram : public QWidget
 {
@@ -117,7 +118,7 @@ Q_OBJECT
 
 		QLineEdit *m_inputBox;
 		
-		KConfigDialog *m_configDialog;
+		VocabSettings *m_vocabSettings;
 
 		KRandomSequence m_randomImage;
 

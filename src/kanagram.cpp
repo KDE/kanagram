@@ -735,13 +735,15 @@ void Kanagram::showSettings()
 	if(KConfigDialog::showDialog("settings"))
 		return;
 
-	m_configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
-	m_configDialog->addPage( new MainSettings( m_configDialog ), i18n( "General" ), "configure" );
-	m_configDialog->addPage( new VocabSettings( m_configDialog ), i18n("Vocabularies"), "edit" );
-	m_configDialog->addPage( new NewStuff( m_configDialog ), i18n("New Stuff"), "knewstuff" );
-	connect(m_configDialog, SIGNAL(settingsChanged()), this, SLOT(loadSettings()));
-	connect(m_configDialog, SIGNAL(applyClicked()), this, SLOT(refreshVocabularies()));
-	m_configDialog->show();
+	KConfigDialog *configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
+	configDialog->addPage( new MainSettings( configDialog ), i18n( "General" ), "configure" );
+	m_vocabSettings = new VocabSettings( configDialog );
+	configDialog->addPage( m_vocabSettings, i18n("Vocabularies"), "edit" );
+	configDialog->addPage( new NewStuff( configDialog ), i18n("New Stuff"), "knewstuff" );
+	connect(configDialog, SIGNAL(settingsChanged()), this, SLOT(loadSettings()));
+	connect(configDialog, SIGNAL(applyClicked()), this, SLOT(refreshVocabularies()));
+	configDialog->exec();
+	delete configDialog;
 }
 
 void Kanagram::hideHint()
@@ -765,6 +767,7 @@ void Kanagram::refreshVocabularies()
 	if(m_useSounds) play("chalk.ogg");
 	KanagramSettings::setDefaultVocab(m_game->getFilename());
 	KanagramSettings::writeConfig();
+	m_vocabSettings->refreshView();
 }
 
 void Kanagram::play(QString filename)
