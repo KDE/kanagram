@@ -131,11 +131,11 @@ void MainSettings::getAndInstallFont()
 	if (success)
 	{
 		getFontsButton->hide();
-		KMessageBox::information(this, i18n("The font will not be available until Kanagram is restarted."));
+		KMessageBox::information(this, i18n("Please restart Kanagram to activate the new font."));
 	}
 	else
 	{
-		KMessageBox::error(this, i18n("The font could not be installed, check you are connected to the internet."));
+		KMessageBox::error(this, i18n("Sorry, the font could not be installed. Please check that you are properly connected to the Internet."));
 	}
 }
 
