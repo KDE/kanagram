@@ -133,7 +133,7 @@ void KanagramGame::nextAnagram()
 	doc->open(KURL(locate("appdata", m_filename)), false);
 	int totalWords = doc->numEntries();
 	int wordNumber = m_random.getLong(totalWords);
-	if(doc->numEntries() - 1 == (int)m_answeredWords.size())
+	if(doc->numEntries() == (int)m_answeredWords.size())
 	{
 		m_answeredWords.clear();
 	}
