@@ -39,15 +39,18 @@ Q_OBJECT
 	
 	public slots:
 		void slotSave();
+		void slotClose();
 		void slotNewWord();
 		void slotRemoveWord();
 		void slotSelectionChanged();
 		void slotWordTextChanged(const QString &changes);
 		void slotHintTextChanged(const QString &changes);
+		void slotTextChanged(const QString &changes);
 		
 	private:
 		QValueVector<KEduVocExpression> m_vocabList;
 		QString m_fileName;
+		bool m_textChanged;
 };
 
 #endif

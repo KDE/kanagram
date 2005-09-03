@@ -69,7 +69,7 @@ void VocabSettings::slotDelete()
 
 void VocabSettings::slotCreateNew()
 {
-	VocabEdit *vocabEdit = new VocabEdit(this);
+	VocabEdit *vocabEdit = new VocabEdit(this, "");
 	vocabEdit->show();
 }
 
