@@ -8,6 +8,7 @@ Type=Application
 GenericName=Letter Order Game
 GenericName[cy]=GÃªm Trefn Llythrennau
 GenericName[it]=Gioco di anagrammi
+GenericName[pa]=ਅੱਖਰ ਲੜੀਬੱਧ ਖੇਡ
 GenericName[pt]=Jogo de Ordenação de Letras
 GenericName[xx]=xxLetter Order Gamexx
 Categories=Qt;KDE;Education;X-KDE-Edu-Language;
