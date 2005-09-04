@@ -22,7 +22,6 @@
 </author>
 </authorgroup>
 
-
 <copyright>
 <year>2005</year>
 <holder>Danny Allen</holder>
@@ -30,9 +29,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-
-<date>2005-06-14</date>
-<releaseinfo>0.1</releaseinfo>
+<date>2005-09-04</date>
+<releaseinfo>1.0</releaseinfo>
 
 <abstract>
 <para>
@@ -95,12 +93,12 @@ In the center of the <interface>blackboard</interface> is the anagram puzzle to 
 </listitem>
 <listitem>
 <para>
-When the <guibutton>Hint</guibutton> button is clicked, a short sentence will appear, <action>describing the current word puzzle</action>.
+When the <quote><guibutton>Hint</guibutton></quote> button is clicked, a short sentence will appear, <action>describing the current word puzzle</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-The <guibutton>Reveal Word</guibutton> button <action>solves the current word puzzle</action>.
+The <quote><guibutton>Reveal Word</guibutton></quote> button <action>solves the current word puzzle</action>.
 </para>
 </listitem>
 <listitem>
@@ -160,7 +158,7 @@ Now that you are familiar with the interface of &kanagram;, lets play a game!
 Using the <interface>Vocabulary Switcher</interface>, <action>select the vocabulary theme</action> that you would like to attempt. A word from this vocabulary will then be presented in the middle of the <interface>blackboard</interface>. Now, try and guess what word the jumble of letters represents.
 <tip>
 <para>
-If you cannot guess what the word is, press the <guibutton>Hint</guibutton> button to get some friendly advice from your friend in the <interface>filing cabinet</interface>:
+If you cannot guess what the word is, press the <quote><guibutton>Hint</guibutton></quote> button to get some friendly advice from your friend in the <interface>filing cabinet</interface>:
 </para>
 <screenshot>
 <screeninfo>&kanagram; hint</screeninfo>
@@ -211,7 +209,7 @@ If you were correct, try and guess the next word! Alternatively, you can attempt
 <title>Configuring &kanagram;</title>
 
 <para>
-The <guilabel>Configure</guilabel> dialog is opened by clicking on the <guiicon>Configure</guiicon> button, or by pressing <keycombo action="simul">&Ctrl;<keycap>E</keycap></keycombo>:
+The <guilabel>Configure</guilabel> dialog is opened by clicking on the <guiicon>Configure</guiicon> button:
 </para>
 
 <screenshot>
@@ -242,7 +240,7 @@ The <quote><guilabel>Play Using:</guilabel></quote> <interface>drop-down box</in
 
 <listitem>
 <para>
-The <quote><guilabel>Use standard fonts</guilabel></quote> <interface>checkbox</interface>, if checked, makes &kanagram; display the <interface>blackboard</interface> text in a standard, rather than chalk-styled font. This should aid readability of the text:
+The <quote><guibutton>Get Chalk Font</guibutton></quote> button will be visible if you do not have the chalk-styled font installed on your system. Pressing this button will download the font from the Internet, which &kanagram; will then use after the application has been restarted. Once you have the chalk-styled font installed, the <quote><guilabel>Use standard fonts</guilabel></quote> <interface>checkbox</interface> becomes active. If checked, &kanagram; will display the <interface>blackboard</interface> text in a standard, rather than chalk-styled font. This should aid readability of the text:
 </para>
 
 <screenshot>
@@ -409,6 +407,12 @@ The <guilabel>New Stuff</guilabel> configuration page allows you to obtain new v
 
 <para>
 Click the <quote><guibutton>Download New Vocabularies</guibutton></quote> button to browse the available online content:
+</para>
+
+
+
+<para>
+To install a vocabulary from the Internet, click on the vocabulary item in the list, then press the <quote><guibutton>Install</guibutton></quote> button to install to your system. The downloaded vocabulary will then be available to play immediately.
 </para>
 
 </sect1>
