@@ -83,7 +83,7 @@ Here is the screen that is presented on startup of &kanagram;, showing the main 
 <orderedlist>
 <listitem>
 <para>
-The <interface>Vocabulary Switcher</interface> allows the user to quickly <action>change the active game vocabulary</action> by clicking on it: the &LMB; <action>advances to the next vocabulary</action>, with the &RMB; allowing you to <action>return to the previously-played vocabulary</action>.
+The <interface>Vocabulary Switcher</interface> allows the user to quickly <action>change the active vocabulary</action> by clicking on it: the &LMB; <action>advances to the next vocabulary</action>, with the &RMB; allowing you to <action>return to the previously-played vocabulary</action>.
 </para>
 </listitem>
 <listitem>
@@ -240,7 +240,10 @@ The <quote><guilabel>Play Using:</guilabel></quote> <interface>drop-down box</in
 
 <listitem>
 <para>
-The <quote><guibutton>Get Chalk Font</guibutton></quote> button will be visible if you do not have the chalk-styled font installed on your system. Pressing this button will download the font from the Internet, which &kanagram; will then use after the application has been restarted. Once you have the chalk-styled font installed, the <quote><guilabel>Use standard fonts</guilabel></quote> <interface>checkbox</interface> becomes active. If checked, &kanagram; will display the <interface>blackboard</interface> text in a standard, rather than chalk-styled font. This should aid readability of the text:
+The <quote><guibutton>Get Chalk Font</guibutton></quote> button will be visible if you do not have the chalk-styled font installed on your system. Pressing this button will download the font from the Internet, which &kanagram; will then use after the application has been restarted.
+</para>
+<para>
+Once you have the chalk-styled font installed, the <quote><guilabel>Use standard fonts</guilabel></quote> <interface>checkbox</interface> becomes active. If checked, &kanagram; will display the <interface>blackboard</interface> text in a standard, rather than chalk-styled font. This should aid readability of the text:
 </para>
 
 <screenshot>
@@ -409,7 +412,17 @@ The <guilabel>New Stuff</guilabel> configuration page allows you to obtain new v
 Click the <quote><guibutton>Download New Vocabularies</guibutton></quote> button to browse the available online content:
 </para>
 
-
+<screenshot>
+<screeninfo>&kanagram; new stuff dialog</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-dialog.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&kanagram; new stuff dialog</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
 
 <para>
 To install a vocabulary from the Internet, click on the vocabulary item in the list, then press the <quote><guibutton>Install</guibutton></quote> button to install to your system. The downloaded vocabulary will then be available to play immediately.
