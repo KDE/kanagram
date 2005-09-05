@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 	KApplication app;
 	app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
 	
+	KanagramSettings::setJustGotFont(false);
 	QFont f("squeaky chalk sound");
 	if (!QFontInfo(f).exactMatch())
 	{

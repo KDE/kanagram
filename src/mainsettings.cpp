@@ -63,14 +63,22 @@ MainSettings::MainSettings(QWidget *parent) : MainSettingsWidget(parent)
 		cboxTranslation->setCurrentText(entry.readEntry("Name"));
 	
 	QFont f("squeaky chalk sound");
-	if (!QFontInfo(f).exactMatch())
+	if (KanagramSettings::justGotFont())
 	{
-		kcfg_useStandardFonts->setEnabled(false);
-		connect(getFontsButton, SIGNAL(pressed()), this, SLOT(getAndInstallFont()));
+			getFontsButton->hide();
+			kcfg_useStandardFonts->setEnabled(false);
 	}
 	else
 	{
-		getFontsButton->hide();
+		if (!QFontInfo(f).exactMatch())
+		{
+			kcfg_useStandardFonts->setEnabled(false);
+			connect(getFontsButton, SIGNAL(pressed()), this, SLOT(getAndInstallFont()));
+		}
+		else
+		{
+			getFontsButton->hide();
+		}
 	}
 }
 
@@ -132,6 +140,10 @@ void MainSettings::getAndInstallFont()
 	{
 		getFontsButton->hide();
 		KMessageBox::information(this, i18n("Please restart Kanagram to activate the new font."));
+		kcfg_useStandardFonts->setChecked(false);
+		KanagramSettings::setUseStandardFonts(false);
+		KanagramSettings::setJustGotFont(true);
+		KanagramSettings::writeConfig();
 	}
 	else
 	{

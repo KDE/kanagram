@@ -20,5 +20,7 @@
 	<label>Set the default translation</label>
 	<default></default>
 </entry>
+<entry name="justGotFont" type="Bool">
+</entry>
 </group>
 </kcfgfile>
