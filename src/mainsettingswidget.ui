@@ -44,7 +44,7 @@
                 <widget class="QComboBox">
                     <item>
                         <property name="text">
-                            <string>Do not auto-hide hints</string>
+                            <string>Do Not Auto-Hide Hints</string>
                         </property>
                     </item>
                     <item>
@@ -97,7 +97,7 @@
                                 <cstring>textLabel1</cstring>
                             </property>
                             <property name="text">
-                                <string>Play Using:</string>
+                                <string>Play using:</string>
                             </property>
                             <property name="buddy" stdset="0">
                                 <cstring>cboxTranslation</cstring>
@@ -150,9 +150,6 @@
             </property>
             <property name="text">
                 <string>Use sou&amp;nds</string>
-            </property>
-            <property name="accel">
-                <string>Alt+N</string>
             </property>
             <property name="whatsThis" stdset="0">
                 <string>Turns sounds on/off.</string>

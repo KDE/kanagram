@@ -1674,7 +1674,7 @@ void KEduVocKvtmlReader::domErrorUnknownElement(const QString &elem)
      );
   QString msg = format.arg(elem);
   QApplication::setOverrideCursor( arrowCursor, true );
-  QString s = kapp->makeStdCaption(i18n("Unknown element"));
+  QString s = kapp->makeStdCaption(i18n("Unknown Element"));
   KMessageBox::sorry(0, ln+msg, s);
   QApplication::restoreOverrideCursor();
 }
