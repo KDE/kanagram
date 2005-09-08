@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Kanagram
+Name[cy]=blinKen
 Exec=kanagram
 Icon=kanagram
 Type=Application
