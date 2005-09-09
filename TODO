@@ -1,17 +1,31 @@
 TODO items for Kanagram:
+------------
+3.5
+------------
+make the gap to the board edge and text smaller?
+have separate position settings for chalk font (different font dynamics move font off position)
+finish khotstuff server, add to app
 
-* Make Kanagram banner show about box when clicked.
-* Implement text input box, along with status indicator.
-* Create settings dialog.
-* Implement hint text properly.
-* Implement vocabulary switching (with switch mechanism on the blackboard, as in mockup).
+only have "edit" button if editable vocab selected (not on page initialise, as at present)
+only have active "save" button if changes are to be saved
+on new word press, blank entry box?
 
-* Make the "hint" and "reveal word" text darker in "rest state" - maybe #9b9b9b
-* When the "hint" and "reveal word" buttons are hovered over, make the text white (hover-over effect).
-* For the menu text, use a lighter colour - maybe #373737
-* When menu text hovered over, make the text #636363 (hover-over effect).
-* Move the "hint" button to the left side of the blackboard.
-* Move the "hint" and "reveal word" buttons about 2 pixels down :D
+------------
+4.0
+------------
+keyboard shortcuts (skip word 'ctrl-n', etc.)
+more words for vocabs!
+different themes (whiteboard, etc)
+animated (quickly) rising folder?
+Warn "want to save?" on vocab editor close
 
-* Create sounds for events
-* Make anagram string accessible through Kanagram class without calling accessor method
+redesign vocab editor dialog
+
+on reveal word, display hint - help learn words: hide on next word button press?
+info of vocab?
+
+shared "kdeedu" dir for kvtml files?
+
+many descriptions for one word? (to prevent memorisation of words, more interesting)?
+
+speak hints using kde text-to-speech engine!?!
