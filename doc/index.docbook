@@ -20,6 +20,7 @@
 <address><email>danny@dannyallen.co.uk</email></address>
 </affiliation>
 </author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
 <copyright>
@@ -265,7 +266,7 @@ The <quote><guilabel>Use sounds</guilabel></quote> <interface>checkbox</interfac
 </para>
 <note>
 <para>
-You need to have aRts support in kdelibs to hear the sounds.
+You need to have &arts; support in kdelibs to hear the sounds.
 </para>
 </note>
 </listitem>
@@ -455,6 +456,8 @@ Contributors:
 <para>
 Documentation copyright 2005 Danny Allen <email>danny@dannyallen.co.uk</email>
 </para>
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
 &underFDL;
 &underGPL;
