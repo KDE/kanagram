@@ -12,9 +12,9 @@
 #include "leitnersystem.h"
 #include <kdebug.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
-LeitnerSystem::LeitnerSystem(Q3ValueList<LeitnerBox>& boxes, QString name)
+LeitnerSystem::LeitnerSystem(QList<LeitnerBox>& boxes, QString name)
 {
 	if( !boxes.empty() )
 		m_boxes = boxes;
@@ -34,7 +34,7 @@ LeitnerSystem::~LeitnerSystem()
 QStringList LeitnerSystem::getBoxNameList()
 {
 	QStringList boxNameList;
-	Q3ValueList<LeitnerBox>::iterator it;	
+	QList<LeitnerBox>::iterator it;	
 
 
 	for(it = m_boxes.begin(); it != m_boxes.end(); ++it)
@@ -57,7 +57,7 @@ LeitnerBox* LeitnerSystem::getBoxWithNumber( int number )
 
 LeitnerBox* LeitnerSystem::getBoxWithName( const QString& name )
 {
-	Q3ValueList<LeitnerBox>::iterator it;
+	QList<LeitnerBox>::iterator it;
 
 	for(it = m_boxes.begin(); it != m_boxes.end(); ++it)
 	{
