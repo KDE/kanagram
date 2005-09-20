@@ -118,6 +118,8 @@ void KanagramGame::nextVocab()
 	m_index++;
 	if(m_index >= m_fileList.size())
 		m_index = 0;
+	if( m_fileList.isEmpty())
+			return;
 	m_filename = m_fileList[m_index];
 	checkFile();
 	KEduVocDocument *doc = new KEduVocDocument(this);
