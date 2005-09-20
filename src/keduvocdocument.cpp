@@ -25,6 +25,8 @@
 #include <kio/netaccess.h>
 
 #include <qfileinfo.h>
+//Added by qt3to4:
+#include <QTextStream>
 
 #include <algorithm>
 #include <functional>
@@ -105,7 +107,7 @@ bool KEduVocDocument::open(const KURL& url, bool /*append*/)
   if (KIO::NetAccess::download( url, tmpfile, 0 ))
   {
     QFile f(tmpfile);
-    if (!f.open(IO_ReadOnly))
+    if (!f.open(QIODevice::ReadOnly))
     {
       KMessageBox::error(0, i18n("<qt>Cannot open file<br><b>%1</b></qt>").arg(url.path()));
       return false;
@@ -116,7 +118,7 @@ bool KEduVocDocument::open(const KURL& url, bool /*append*/)
     bool read = false;
     while (!read) {
 
-      QApplication::setOverrideCursor( waitCursor );
+      QApplication::setOverrideCursor( Qt::WaitCursor );
       switch (ft) {
         case kvtml:
         {
@@ -209,13 +211,13 @@ bool KEduVocDocument::saveAs(QObject * /*parent*/, const KURL & url, FileType ft
 
     QFile f(tmp.path());
 
-    if (!f.open(IO_WriteOnly))
+    if (!f.open(QIODevice::WriteOnly))
     {
       KMessageBox::error(0, i18n("<qt>Cannot write to file<br><b>%1</b></qt>").arg(tmp.path()));
       return false;
     }
 
-    QApplication::setOverrideCursor( waitCursor );
+    QApplication::setOverrideCursor( Qt::WaitCursor );
     switch (ft) {
       case kvtml: {
         KEduVocKvtmlWriter kvtmlWriter(&f);
@@ -967,7 +969,7 @@ unsigned long KEduVocDocument::decompressDate(QString s) const
 KEduVocDocument::FileType KEduVocDocument::detectFT(const QString &filename)
 {
    QFile f( filename );
-   if (!f.open( IO_ReadOnly ))
+   if (!f.open( QIODevice::ReadOnly ))
      return csv;
 
    QDataStream is( &f );

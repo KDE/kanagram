@@ -22,11 +22,11 @@
 #include "vocabedit.h"
 
 #include <qpushbutton.h>
-#include <qlistbox.h>
+#include <q3listbox.h>
 #include <qlineedit.h>
 #include <qfile.h>
 #include <qstring.h>
-#include <qvaluevector.h>
+#include <q3valuevector.h>
 
 #include <kstandarddirs.h>
 #include <kglobal.h>

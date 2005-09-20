@@ -6,8 +6,8 @@
 #include <kdebug.h>
 #include <kstandarddirs.h>
 #include <qstringlist.h>
-#include <qlistview.h>
-#include <qvaluevector.h>
+#include <q3listview.h>
+#include <q3valuevector.h>
 #include <qfile.h>
 #include <qfileinfo.h>
 
@@ -21,7 +21,7 @@ VocabSettings::VocabSettings(QWidget *parent) : VocabSettingsWidget(parent)
 	connect(btnCreateNew, SIGNAL(clicked()), this, SLOT(slotCreateNew()));
 	connect(btnEdit, SIGNAL(clicked()), this, SLOT(slotEdit()));
 	connect(btnDelete, SIGNAL(clicked()), this, SLOT(slotDelete()));
-	connect(lviewVocab, SIGNAL(selectionChanged(QListViewItem *)), this, SLOT(slotSelectionChanged(QListViewItem *)));
+	connect(lviewVocab, SIGNAL(selectionChanged(Q3ListViewItem *)), this, SLOT(slotSelectionChanged(Q3ListViewItem *)));
 
 	refreshView();
 }
@@ -39,7 +39,7 @@ void VocabSettings::refreshView()
 	{
 		KEduVocDocument *doc = new KEduVocDocument(this);
 		doc->open(KURL(m_fileList[i]), false);
-		QListViewItem *item = new QListViewItem(lviewVocab, 0);
+		Q3ListViewItem *item = new Q3ListViewItem(lviewVocab, 0);
 		item->setText( 0, doc->getTitle() );
 		item->setText( 1, doc->getDocRemark() );
 		m_itemMap[item] = i;
@@ -73,7 +73,7 @@ void VocabSettings::slotCreateNew()
 	vocabEdit->show();
 }
 
-void VocabSettings::slotSelectionChanged(QListViewItem *item)
+void VocabSettings::slotSelectionChanged(Q3ListViewItem *item)
 {
 	int index = m_itemMap[item];
 	QFileInfo info = QFileInfo(m_fileList[index]);

@@ -1673,7 +1673,7 @@ void KEduVocKvtmlReader::domErrorUnknownElement(const QString &elem)
       "read documents with unknown elements.\n"
      );
   QString msg = format.arg(elem);
-  QApplication::setOverrideCursor( arrowCursor, true );
+  QApplication::setOverrideCursor( Qt::arrowCursor, true );
   QString s = kapp->makeStdCaption(i18n("Unknown Element"));
   KMessageBox::sorry(0, ln+msg, s);
   QApplication::restoreOverrideCursor();
@@ -1681,7 +1681,7 @@ void KEduVocKvtmlReader::domErrorUnknownElement(const QString &elem)
 
 void KEduVocKvtmlReader::domError(const QString &text )
 {
-  QApplication::setOverrideCursor( arrowCursor, true );
+  QApplication::setOverrideCursor( Qt::arrowCursor, true );
   QString s = kapp->makeStdCaption(i18n("Error"));
   QString ln = i18n("File:\t%1\n").arg(m_doc->URL().path());
   QString msg = text;

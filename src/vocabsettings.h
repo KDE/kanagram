@@ -13,13 +13,13 @@ Q_OBJECT
 
 	private:
 		QStringList m_fileList;
-		QMap<const QListViewItem*, int> m_itemMap;
+		QMap<const Q3ListViewItem*, int> m_itemMap;
 
 	private slots:
 		void slotCreateNew();
 		void slotEdit();
 		void slotDelete();
-		void slotSelectionChanged(QListViewItem *item);
+		void slotSelectionChanged(Q3ListViewItem *item);
 };
 
 #endif

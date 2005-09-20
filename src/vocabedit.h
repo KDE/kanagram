@@ -25,7 +25,7 @@
 
 #include "vocabeditwidget.h"
 
-#include <qvaluevector.h>
+#include <q3valuevector.h>
 
 class KEduVocExpression;
 
@@ -48,7 +48,7 @@ Q_OBJECT
 		void slotTextChanged(const QString &changes);
 		
 	private:
-		QValueVector<KEduVocExpression> m_vocabList;
+		Q3ValueVector<KEduVocExpression> m_vocabList;
 		QString m_fileName;
 		bool m_textChanged;
 };

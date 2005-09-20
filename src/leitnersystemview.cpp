@@ -17,11 +17,13 @@
 #include <stdlib.h>
 #include <kiconloader.h>
 #include <qpainter.h>
+//Added by qt3to4:
+#include <QMouseEvent>
 
 #include <kdebug.h>
 
-LeitnerSystemView::LeitnerSystemView(QWidget * parent, const char* name, WFlags f)
- : QScrollView(parent, name, f)
+LeitnerSystemView::LeitnerSystemView(QWidget * parent, const char* name, Qt::WFlags f)
+ : Q3ScrollView(parent, name, f)
 {
 	m_highlightedBox = -1;
 }
@@ -64,7 +66,7 @@ void LeitnerSystemView::drawConnections(QPainter* p)
 	int dist, width = 0;
 	int numberOfBoxes = m_leitnerSystem->getNumberOfBoxes();
 	
-	p->setPen( QPen(green, 2) );
+	p->setPen( QPen(Qt::green, 2) );
 
 	//paint the connections for the correct word boxes, above the boxes 
 	for(int i = 0; i < numberOfBoxes; i++)
@@ -89,7 +91,7 @@ void LeitnerSystemView::drawConnections(QPainter* p)
 	}
 	
 	//paint the connections for the wrong word boxes, below the boxes
-	p->setPen(QPen(red, 2));
+	p->setPen(QPen(Qt::red, 2));
 
 	for(int i = 0; i < numberOfBoxes; i++)
 	{

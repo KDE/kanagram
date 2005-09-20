@@ -20,6 +20,10 @@
  ***************************************************************************/
 
 #include <iostream>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QEvent>
+#include <QPaintEvent>
 using namespace std;
 
 #include <config.h>
@@ -55,7 +59,7 @@ using namespace std;
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
 
-Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false)
+Kanagram::Kanagram() : QWidget(0, 0, Qt::WStaticContents | Qt::WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false)
 {
 	m_game = new KanagramGame(this);
 
@@ -218,7 +222,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 		p.drawPixmap(385, 134, *m_arrow);
 */
 
-	p.setPen(QPen(black, 3));
+	p.setPen(QPen(Qt::black, 3));
 
 	//Draw the border of the input box
 	QRect borderRect = m_inputBox->geometry();
@@ -247,7 +251,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 		f.setWeight(QFont::Bold);
 		f.setPointSize(10);
 		p.setFont(f);
-		p.drawText(459, 217, 148, 67, WordBreak | AlignCenter, m_game->getHint());
+		p.drawText(459, 217, 148, 67, Qt::WordBreak | Qt::AlignCenter, m_game->getHint());
 	}
 
 	if(m_overHelp && !m_showHint)
@@ -301,7 +305,7 @@ void Kanagram::drawHelpText(QPainter &p, QString text)
 	font.setPointSize(12);
 	p.setFont(font);
 	p.rotate(-3.29);
-	p.setPen(black);
+	p.setPen(Qt::black);
 	p.drawText(450, 340, text.section(' ', 0, 0));
 	p.drawText(450, 360, text.section(' ', 1));
 	p.restore();
@@ -428,7 +432,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_switcherRect.contains(e->pos()) || m_arrowRect.contains(e->pos()))
 	{
-		if(!(e->button() == RightButton))
+		if(!(e->button() == Qt::RightButton))
 			m_game->nextVocab();
 		else
 			m_game->previousVocab();
@@ -660,7 +664,7 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 	}
 
 	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || (m_overUp && m_inputBox->text() != "") || m_overAboutApp || m_overHintBox)
-		this->setCursor(PointingHandCursor);
+		this->setCursor(Qt::PointingHandCursor);
 	else
 		this->unsetCursor();
 
@@ -682,7 +686,7 @@ void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, 
 	if (withMargin)
 	{
 		p.fillRect(r, m_fillColor);
-		p.setPen(QPen(black, 3));
+		p.setPen(QPen(Qt::black, 3));
 		p.drawRoundRect(r.left(), r.top(), r.width(), r.height(), 15, 15);
 	}
 	
@@ -705,7 +709,7 @@ void Kanagram::drawTextNew(QPainter &p, const QString &text, int textAlign, int 
 	if (withMargin)
 	{
 		p.fillRect(r, m_fillColor);
-		p.setPen(QPen(black, 3));
+		p.setPen(QPen(Qt::black, 3));
 		p.drawRoundRect(r.left(), r.top(), r.width(), r.height(), 15, 15);
 	}
 	
