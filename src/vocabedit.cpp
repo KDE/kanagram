@@ -86,7 +86,7 @@ void VocabEdit::slotSave()
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->setTitle(txtVocabName->text());
 	doc->setDocRemark(txtDescription->text());
-	for(uint i = 0; i < m_vocabList.size(); i++)
+	for(int i = 0; i < m_vocabList.size(); i++)
 	{
 		doc->appendEntry(&m_vocabList[i]);
 	}

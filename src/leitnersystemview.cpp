@@ -49,7 +49,7 @@ void LeitnerSystemView::drawSystem(QPainter* p)
 		{
 			//p->drawPixmap(12 + i * 64 + i*10, m_imageY, KGlobal::iconLoader()->loadIcon("leitnerbox", KIcon::Panel));
 			p->drawRect(12 + i * 64 + i*10, m_imageY,64,64);
-			p->fillRect(12 + i * 64 + i*10, m_imageY,64,64, QBrush(red));
+			p->fillRect(12 + i * 64 + i*10, m_imageY,64,64, QBrush(Qt::red));
 		}
 		else
 		{	//for each box 74 = 64(pixmap) + 10(distance between two boxes)

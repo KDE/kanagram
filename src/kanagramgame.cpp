@@ -194,8 +194,8 @@ QString KanagramGame::createAnagram(QString original)
 		else
 		   objChunk = m_random.getLong(count);
 
-		QStringList::Iterator it = objData.at(objChunk);
-		QString sd = *it;
+		QString it = objData.at(objChunk);
+		QString sd = it;
 		objData.remove(it);
 		if (insaneData.isEmpty())
 			insaneData = sd;
