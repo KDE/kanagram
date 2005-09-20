@@ -88,7 +88,7 @@ int KanagramGame::findIndex()
         //you have to use KanagramSettings::defaultVocab() instead of m_filename which is used for something else
         kdDebug() <<"m_filename " << m_filename << "\n" << endl;
 	int tempIndex = 0;
-	for(uint i = 0; i < m_fileList.size(); i++)
+	for(int i = 0; i < m_fileList.size(); i++)
 	{
                 kdDebug() <<"m_file " << m_fileList[i]<<endl;
 		if(m_filename == m_fileList[i])
@@ -116,7 +116,7 @@ void KanagramGame::previousVocab()
 void KanagramGame::nextVocab()
 {
 	m_index++;
-	if((uint)m_index >= m_fileList.size())
+	if(m_index >= m_fileList.size())
 		m_index = 0;
 	m_filename = m_fileList[m_index];
 	checkFile();
@@ -186,7 +186,7 @@ QString KanagramGame::createAnagram(QString original)
 	QString insaneData;
 	int count;
 	
-	for(int i=0; count = objData.count(); i++)
+	for(int i=0; (count = objData.count()); i++)
 	{
 		int objChunk;
 		if((i == 0) && (count > 1))
