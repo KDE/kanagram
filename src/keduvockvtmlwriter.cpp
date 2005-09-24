@@ -274,13 +274,13 @@ bool KEduVocKvtmlWriter::saveConjugHeader(QDomDocument &domDoc, QDomElement &dom
 
     if (ent == 0)
     {
-      s = m_doc->getOriginalIdent().stripWhiteSpace();  //EPT le Ident doit �re superflu
+      s = m_doc->getOriginalIdent().trimmed();  //EPT le Ident doit �re superflu
       if (s.isEmpty() )
         s = "original";
     }
     else
     {
-      s = m_doc->getIdent(ent).stripWhiteSpace();
+      s = m_doc->getIdent(ent).trimmed();
       if (s.isEmpty() )
       {
         s.setNum(ent);
@@ -483,13 +483,13 @@ bool KEduVocKvtmlWriter::saveArticleKvtMl(QDomDocument &domDoc, QDomElement &dom
     QDomElement domElementEntry = domDoc.createElement(KV_ART_ENTRY);
     if (lfn == 0)
     {
-      s = m_doc->getOriginalIdent().stripWhiteSpace();
+      s = m_doc->getOriginalIdent().trimmed();
       if (s.isEmpty() )
         s = "original";
     }
     else
     {
-      s = m_doc->getIdent(lfn).stripWhiteSpace();
+      s = m_doc->getIdent(lfn).trimmed();
       if (s.isEmpty() )
       {
         s.setNum(lfn);
@@ -741,7 +741,7 @@ bool KEduVocKvtmlWriter::writeDoc(KEduVocDocument *doc, const QString &generator
       s.setNum (m_doc->getSizeHint (0));
       domElementOriginal.setAttribute(KV_SIZEHINT, s);
 
-      s = m_doc->getOriginalIdent().stripWhiteSpace();
+      s = m_doc->getOriginalIdent().trimmed();
       if (s.isEmpty() )
         s = "original";
       domElementOriginal.setAttribute (KV_LANG, s);
@@ -817,7 +817,7 @@ bool KEduVocKvtmlWriter::writeDoc(KEduVocDocument *doc, const QString &generator
         s.setNum (m_doc->getSizeHint (trans));
         domElementTranslation.setAttribute(KV_SIZEHINT, s);
 
-        s = m_doc->getIdent(trans).stripWhiteSpace();
+        s = m_doc->getIdent(trans).trimmed();
         if (s.isEmpty() )
         {
           s.setNum (trans);

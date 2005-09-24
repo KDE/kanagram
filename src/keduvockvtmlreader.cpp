@@ -1633,7 +1633,7 @@ bool KEduVocKvtmlReader::readDoc(KEduVocDocument *doc)
   if (!domAttrGenerator.isNull())
   {
     m_doc->generator = domAttrGenerator.value();
-    int pos = m_doc->generator.findRev (KVD_VERS_PREFIX);
+    int pos = m_doc->generator.lastIndexOf (KVD_VERS_PREFIX);
     if (pos >= 0)
     {
       m_doc->doc_version = m_doc->generator;

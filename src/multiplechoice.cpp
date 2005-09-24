@@ -43,11 +43,11 @@ MultipleChoice::MultipleChoice (
 
 bool MultipleChoice::isEmpty() const
 {
-  return   muc1.stripWhiteSpace().isEmpty()
-        && muc2.stripWhiteSpace().isEmpty()
-        && muc3.stripWhiteSpace().isEmpty()
-        && muc4.stripWhiteSpace().isEmpty()
-        && muc5.stripWhiteSpace().isEmpty();
+  return   muc1.trimmed().isEmpty()
+        && muc2.trimmed().isEmpty()
+        && muc3.trimmed().isEmpty()
+        && muc4.trimmed().isEmpty()
+        && muc5.trimmed().isEmpty();
 }
 
 

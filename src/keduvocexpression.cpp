@@ -37,7 +37,7 @@ void KEduVocExpression::Init()
 KEduVocExpression::KEduVocExpression (QString &expr, int _lesson)
 {
   Init();
-  setOriginal(expr.stripWhiteSpace() );
+  setOriginal(expr.trimmed() );
   lesson = _lesson;
 }
 
@@ -58,22 +58,22 @@ KEduVocExpression::KEduVocExpression (QString &s, QString separator, int _lesson
     int pos = s.find(separator);
 
     if (pos == -1) {
-      setOriginal(s.stripWhiteSpace());
+      setOriginal(s.trimmed());
     }
     else {
-      se = s.left(pos).stripWhiteSpace();
+      se = s.left(pos).trimmed();
       setOriginal(se);
       s.remove (0, pos+separator.length() );
-//      s.stripWhiteSpace();
+//      s.trimmed();
 
       // gather all translations
       while ((pos = s.find(separator)) != -1) {
-        se = s.left(pos).stripWhiteSpace();
+        se = s.left(pos).trimmed();
         addTranslation(se, KV_NORM_GRADE, KV_NORM_GRADE);
         s.remove (0, pos+separator.length() );
-//        s.stripWhiteSpace();
+//        s.trimmed();
       }
-      addTranslation(s.stripWhiteSpace(), KV_NORM_GRADE, KV_NORM_GRADE);
+      addTranslation(s.trimmed(), KV_NORM_GRADE, KV_NORM_GRADE);
     }
   }
 }
@@ -110,7 +110,7 @@ void KEduVocExpression::setRemark (int idx, const QString & expr)
     for (int i = remarks.size(); i < idx+1; i++)
       remarks.push_back ("");
 
-  remarks[idx] = expr.stripWhiteSpace();
+  remarks[idx] = expr.trimmed();
 }
 
 
@@ -124,7 +124,7 @@ void KEduVocExpression::setFauxAmi (int idx, const QString & expr, bool rev_ami)
       for (int i = rev_fauxAmi.size(); i < idx+1; i++)
         rev_fauxAmi.push_back ("");
 
-    rev_fauxAmi[idx] = expr.stripWhiteSpace();
+    rev_fauxAmi[idx] = expr.trimmed();
 
   }
   else {
@@ -133,7 +133,7 @@ void KEduVocExpression::setFauxAmi (int idx, const QString & expr, bool rev_ami)
       for (int i = fauxAmi.size(); i < idx+1; i++)
         fauxAmi.push_back ("");
 
-    fauxAmi[idx] = expr.stripWhiteSpace();
+    fauxAmi[idx] = expr.trimmed();
   }
 }
 
@@ -165,7 +165,7 @@ void KEduVocExpression::setSynonym (int idx, const QString & expr)
     for (int i = synonym.size(); i < idx+1; i++)
       synonym.push_back ("-");
 
-  synonym[idx] = expr.stripWhiteSpace();
+  synonym[idx] = expr.trimmed();
 }
 
 
@@ -189,7 +189,7 @@ void KEduVocExpression::setExample (int idx, const QString & expr)
     for (int i = example.size(); i < idx+1; i++)
       example.push_back ("");
 
-  example[idx] = expr.stripWhiteSpace();
+  example[idx] = expr.trimmed();
 }
 
 
@@ -213,7 +213,7 @@ void KEduVocExpression::setUsageLabel (int idx, const QString & expr)
     for (int i = usageLabels.size(); i < idx+1; i++)
       usageLabels.push_back ("");
 
-  usageLabels[idx] = expr.stripWhiteSpace();
+  usageLabels[idx] = expr.trimmed();
 }
 
 
@@ -237,7 +237,7 @@ void KEduVocExpression::setParaphrase (int idx, const QString & expr)
     for (int i = paraphrases.size(); i < idx+1; i++)
       paraphrases.push_back ("");
 
-  paraphrases[idx] = expr.stripWhiteSpace();
+  paraphrases[idx] = expr.trimmed();
 }
 
 
@@ -261,7 +261,7 @@ void KEduVocExpression::setAntonym (int idx, const QString & expr)
     for (int i = antonym.size(); i < idx+1; i++)
       antonym.push_back ("");
 
-  antonym[idx] = expr.stripWhiteSpace();
+  antonym[idx] = expr.trimmed();
 }
 
 
@@ -368,7 +368,7 @@ void KEduVocExpression::setPronunce (int idx, const QString & expr)
     for (int i = pronunces.size(); i < idx+1; i++)
       pronunces.push_back ("");
 
-  pronunces[idx] = expr.stripWhiteSpace();
+  pronunces[idx] = expr.trimmed();
 }
 
 
@@ -383,7 +383,7 @@ void KEduVocExpression::addTranslation (QString expr,
 
   grades.push_back (grade);
   rev_grades.push_back (rev_grade);
-  translations.push_back (expr.stripWhiteSpace());
+  translations.push_back (expr.trimmed());
 }
 
 
@@ -476,7 +476,7 @@ void KEduVocExpression::setTranslation (int idx, const QString & expr)
       translations.push_back ("");
 
 //  if (idx <= (int)translations.size())
-  translations[idx-1] = expr.stripWhiteSpace();
+  translations[idx-1] = expr.trimmed();
 }
 
 
@@ -787,6 +787,6 @@ void KEduVocExpression::setType (int idx, const QString &type)
     for (int i = exprtypes.size(); i < idx+1; i++)
       exprtypes.push_back ("");
 
-  exprtypes[idx] = type.stripWhiteSpace();
+  exprtypes[idx] = type.trimmed();
 }
 

@@ -461,7 +461,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_upRect.contains(e->pos()) && m_inputBox->text() != "")
 	{
-		if(m_inputBox->text().lower().stripWhiteSpace() == m_game->getWord())
+		if(m_inputBox->text().lower().trimmed() == m_game->getWord())
 		{
 			if(m_useSounds) play("right.ogg");
 			m_inputBox->setPaletteBackgroundColor(QColor(0, 255, 0));

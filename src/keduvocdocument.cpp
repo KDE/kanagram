@@ -861,25 +861,25 @@ QString KEduVocDocument::getDocRemark() const
 
 void KEduVocDocument::setTitle(const QString & title)
 {
-  doctitle = title.stripWhiteSpace();
+  doctitle = title.trimmed();
 }
 
 
 void KEduVocDocument::setAuthor(const QString & s)
 {
-  author = s.stripWhiteSpace();
+  author = s.trimmed();
 }
 
 
 void KEduVocDocument::setLicense(const QString & s)
 {
-  license = s.stripWhiteSpace();
+  license = s.trimmed();
 }
 
 
 void KEduVocDocument::setDocRemark(const QString & s)
 {
-  doc_remark = s.stripWhiteSpace();
+  doc_remark = s.trimmed();
 }
 
 
@@ -958,7 +958,7 @@ unsigned long KEduVocDocument::decompressDate(QString s) const
    long res = 0;
    unsigned incr = 0;
    for (int i = s.length()-1; i >= 0; i--) {
-     char c = s.local8Bit()[i];
+     char c = s.toLocal8Bit()[i];
      res += ((c - _OFFSET) & _BITMASK) << incr ;
      incr += _BITUSED;
    }
