@@ -93,11 +93,11 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	tmpp.setFont(font);
 	m_blackboardRect = QRect(41, 116, 366, 248);
 //	m_hintRect = QRect(51, 337, 39, 28);
-	QRect r = innerRect(m_blackboardRect, 12, 6);
+	QRect r = innerRect(m_blackboardRect, 6, 0);
 	m_hintRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
 	m_hintBoxRect = QRect(446, 207, 171, 85);
 //	m_revealRect = QRect(279, 338, 119, 28);
-	r = innerRect(m_blackboardRect, 12, 6);
+	r = innerRect(m_blackboardRect, 6, 0);
 	m_revealRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
 	m_upRect = QRect(341, 425, 55, 33);
 	m_aboutKDERect = QRect(567, 213, 44, 44);
@@ -206,8 +206,8 @@ void Kanagram::paintEvent(QPaintEvent *)
 	
 //	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, &m_revealRect, m_overReveal, 14);
 //	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, &m_hintRect, m_overHint, 14);
-	drawTextNew(p, i18n(m_textRevealWord), Qt::AlignBottom | Qt::AlignRight, 12, 6, m_blackboardRect, m_overReveal, 14);
-	drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 12, 6, m_blackboardRect, m_overHint, 14);
+	drawTextNew(p, i18n(m_textRevealWord), Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, 14);
+	drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 6, 0, m_blackboardRect, m_overHint, 14);
 	
 //	drawSwitcherText(p, m_game->getDocTitle());
 	drawSwitcher(p, 9, 8);
