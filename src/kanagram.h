@@ -72,6 +72,8 @@ Q_OBJECT
 		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, int fontSize = 18);
 		void drawTextNew(QPainter &p, const QString &text, int textAlign, int xMargin, int yMargin, const QRect &rect, bool highlight, int fontSize = 18);
 
+		void setupRects();
+
 		void play(QString filename);
 
 		void paintEvent(QPaintEvent *);

@@ -85,28 +85,20 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	m_configRect = QRect(477, 122, 134, 76);
 	m_helpRect = QRect(477, 212, 134, 76);
 	m_quitRect = QRect(453, 352, 182, 104);
-	
-	QPainter tmpp(this);
-	QFont font = m_blackboardFont;
-	font.setPointSize(14);
-	font.setBold(true);
-	tmpp.setFont(font);
-	m_blackboardRect = QRect(41, 116, 366, 248);
-//	m_hintRect = QRect(51, 337, 39, 28);
-	QRect r = innerRect(m_blackboardRect, 6, 0);
-	m_hintRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
+
 	m_hintBoxRect = QRect(446, 207, 171, 85);
-//	m_revealRect = QRect(279, 338, 119, 28);
-	r = innerRect(m_blackboardRect, 6, 0);
-	m_revealRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
 	m_upRect = QRect(341, 425, 55, 33);
 	m_aboutKDERect = QRect(567, 213, 44, 44);
 	m_aboutAppRect = QRect(522, 213, 44, 44);
 	m_handbookRect = QRect(478, 213, 44, 44);
 	m_arrowRect = QRect(380, 134, 13, 20);
 	m_logoRect = QRect(76, 24, 297, 50);
-	tmpp.end();
-	
+
+	//blackboardRect intentionally wrong to make sure fonts align correctly
+	m_blackboardRect = QRect(41, 116, 366, 255);
+
+	setupRects();
+
 	setMouseTracking(true);
 	setFixedSize(650, 471);
 	show();
@@ -177,6 +169,22 @@ void Kanagram::loadSettings()
 	m_game->refreshVocabList();
 }
 
+void Kanagram::setupRects()
+{
+	QPainter tmpp(this);
+	QFont font = m_blackboardFont;
+	font.setPointSize(14);
+	font.setBold(true);
+	tmpp.setFont(font);
+	int yOffset = 0;
+	//set appropriate yOffset for different fonts
+	if(m_useStandardFonts) yOffset = 6;
+	QRect r = innerRect(m_blackboardRect, 6, yOffset);
+	m_hintRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
+	m_revealRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
+	tmpp.end();
+}
+
 void Kanagram::paintEvent(QPaintEvent *)
 {
 	QPixmap buf(width(), height());
@@ -201,22 +209,18 @@ void Kanagram::paintEvent(QPaintEvent *)
 	else
 		p.drawPixmap(520, 362, *m_quit);
 
-//	drawText(p, m_game->getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, 28);
+	//draw main Anagram
 	drawTextNew(p, m_game->getAnagram(), Qt::AlignCenter, 10, 10, m_blackboardRect, true, 28);
+
+	int yOffset = 0;
+	//set appropriate yOffset for different fonts
+	if(m_useStandardFonts) yOffset = 6;
+	//draw text using appropriate yOffset
+	drawTextNew(p, i18n(m_textRevealWord), Qt::AlignBottom | Qt::AlignRight, 6, yOffset, m_blackboardRect, m_overReveal, 14);
+	drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 6, yOffset, m_blackboardRect, m_overHint, 14);
 	
-//	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, &m_revealRect, m_overReveal, 14);
-//	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, &m_hintRect, m_overHint, 14);
-	drawTextNew(p, i18n(m_textRevealWord), Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, 14);
-	drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 6, 0, m_blackboardRect, m_overHint, 14);
-	
-//	drawSwitcherText(p, m_game->getDocTitle());
+	//draw vocab switcher
 	drawSwitcher(p, 9, 8);
-/*
-	if(m_overSwitcher)
-		p.drawPixmap(385, 134, *m_arrowOver);
-	else
-		p.drawPixmap(385, 134, *m_arrow);
-*/
 
 	p.setPen(QPen(black, 3));
 
