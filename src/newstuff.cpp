@@ -9,6 +9,7 @@
 #include <klocale.h>
 
 #include "kanagramsettings.h"
+#include "newstuffdialog.h"
 
 NewStuff::NewStuff(QWidget *parent) : NewStuffWidget(parent)
 {
@@ -21,10 +22,8 @@ NewStuff::~NewStuff()
 
 void NewStuff::slotGetNewVocabs()
 {
-	KNS::DownloadDialog *dlgDownload = new KNS::DownloadDialog();
-	dlgDownload->setProviderList("http://kde-edu.org/kanagram/" + KanagramSettings::dataLanguage() + ".xml");
-	dlgDownload->load();
-	dlgDownload->show();
+	NewStuffDialog *nsd = new NewStuffDialog();
+	nsd->download();
 }
 
 #include "newstuff.moc"
