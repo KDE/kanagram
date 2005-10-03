@@ -31,8 +31,8 @@ Conjugation::conjug_name_t
 Conjugation::names [] =
 {
   { CONJ_SIMPLE_PRESENT,    I18N_NOOP("Simple Present") },
-  { CONJ_PRESENT_PROGR,     I18N_NOOP("Preset Progressive") },
-  { CONJ_PRESENT_PERFECT,   I18N_NOOP("Preset Perfect") },
+  { CONJ_PRESENT_PROGR,     I18N_NOOP("Present Progressive") },
+  { CONJ_PRESENT_PERFECT,   I18N_NOOP("Present Perfect") },
 
   { CONJ_SIMPLE_PAST,       I18N_NOOP("Simple Past") },
   { CONJ_PAST_PROGR,        I18N_NOOP("Past Progressive") },
