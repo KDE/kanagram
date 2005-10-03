@@ -43,7 +43,6 @@ using namespace std;
 #include <kinputdialog.h>
 #include <klocale.h>
 #include <kmessagebox.h>
-#include <kpopupmenu.h>
 #include <kstandarddirs.h>
 #include <kconfigdialog.h>
 #include <kconfigskeleton.h>
