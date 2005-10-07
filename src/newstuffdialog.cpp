@@ -19,6 +19,7 @@ NewStuffDialog::~NewStuffDialog()
 
 bool NewStuffDialog::install(const QString &fileName)
 {
+		return true;
 }
 
 QString NewStuffDialog::downloadDestination(KNS::Entry *entry)
@@ -30,4 +31,5 @@ QString NewStuffDialog::downloadDestination(KNS::Entry *entry)
 
 bool NewStuffDialog::createUploadFile(const QString &fileName)
 {
+		return true;
 }
