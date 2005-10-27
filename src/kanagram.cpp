@@ -250,7 +250,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 		f.setWeight(QFont::Bold);
 		f.setPointSize(10);
 		p.setFont(f);
-		p.drawText(459, 217, 148, 67, Qt::WordBreak | Qt::AlignCenter, m_game->getHint());
+		p.drawText(459, 217, 148, 67, Qt::TextWordWrap | Qt::AlignCenter, m_game->getHint());
 	}
 
 	if(m_overHelp && !m_showHint)
