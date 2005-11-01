@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Name=Kanagram
 Name[cy]=blinKen
+Name[fr]=KAnagram
 Name[xx]=xxKanagramxx
 Exec=kanagram
 Icon=kanagram
