@@ -35,13 +35,13 @@ void VocabSettings::refreshView()
 	lviewVocab->clear();
 
 	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::dataLanguage() + "/" + "*.kvtml");
-	for(uint i = 0; i < m_fileList.size(); i++)
+	for(int i = 0; i < m_fileList.size(); i++)
 	{
 		KEduVocDocument *doc = new KEduVocDocument(this);
 		doc->open(KURL(m_fileList[i]), false);
 		Q3ListViewItem *item = new Q3ListViewItem(lviewVocab, 0);
-		item->setText( 0, doc->getTitle() );
-		item->setText( 1, doc->getDocRemark() );
+		item->setText( 0, doc->title() );
+		item->setText( 1, doc->docRemark() );
 		m_itemMap[item] = i;
 	}
 }

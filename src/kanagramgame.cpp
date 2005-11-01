@@ -20,6 +20,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
+#include <stdlib.h> // for exit
+
 #include <qfile.h>
 
 #include <kurl.h>
@@ -70,7 +72,7 @@ void KanagramGame::loadDefaultVocab()
         kdDebug() << "in game " << m_filename <<endl;
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);
-	m_docTitle = doc->getTitle();
+	m_docTitle = doc->title();
         kdDebug() << m_docTitle <<endl; //Animals
 	nextAnagram();
 }
@@ -109,7 +111,7 @@ void KanagramGame::previousVocab()
 	checkFile();
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);
-	m_docTitle = doc->getTitle();
+	m_docTitle = doc->title();
 	m_answeredWords.clear();
 }
 
@@ -124,7 +126,7 @@ void KanagramGame::nextVocab()
 	checkFile();
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KURL(locate("appdata", m_filename)), false);
-	m_docTitle = doc->getTitle();
+	m_docTitle = doc->title();
 	m_answeredWords.clear();
 }
 
@@ -139,14 +141,14 @@ void KanagramGame::nextAnagram()
 	{
 		m_answeredWords.clear();
 	}
-	while(m_answeredWords.findIndex(doc->getEntry(wordNumber)->getOriginal()) != -1)
+	while(m_answeredWords.findIndex(doc->entry(wordNumber)->original()) != -1)
 	{
 		wordNumber = m_random.getLong(totalWords);
 	}
-	m_originalWord = doc->getEntry(wordNumber)->getOriginal();
+	m_originalWord = doc->entry(wordNumber)->original();
 	m_answeredWords.append(m_originalWord);
 	m_anagram = createAnagram(m_originalWord);
-	m_hint = doc->getEntry(wordNumber)->getRemark(0);
+	m_hint = doc->entry(wordNumber)->remark(0);
 }
 
 QString KanagramGame::getDocTitle()

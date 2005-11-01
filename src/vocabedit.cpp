@@ -50,12 +50,12 @@ VocabEdit::VocabEdit(QWidget *parent, QString fileName) : VocabEditWidget(parent
 		doc->open(KURL(m_fileName), false);
 		for(int i = 0; i < doc->numEntries(); i++)
 		{
-			KEduVocExpression expr = *doc->getEntry(i);
+			KEduVocExpression expr = *doc->entry(i);
 			m_vocabList.append(expr);
-			lboxWords->insertItem(doc->getEntry(i)->getOriginal());	
+			lboxWords->insertItem(doc->entry(i)->original());	
 		}
-		txtVocabName->setText(doc->getTitle());
-		txtDescription->setText(doc->getDocRemark());
+		txtVocabName->setText(doc->title());
+		txtDescription->setText(doc->docRemark());
 	}
 
 	connect(btnSave, SIGNAL(clicked()), this, SLOT(slotSave()));
@@ -136,8 +136,8 @@ void VocabEdit::slotSelectionChanged()
 	disconnect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
 	if(lboxWords->currentItem() >= 0)
 	{
-		txtWord->setText(m_vocabList[lboxWords->currentItem()].getOriginal());
-		txtHint->setText(m_vocabList[lboxWords->currentItem()].getRemark(0));
+		txtWord->setText(m_vocabList[lboxWords->currentItem()].original());
+		txtHint->setText(m_vocabList[lboxWords->currentItem()].remark(0));
 	}
 	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
 	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
