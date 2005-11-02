@@ -17,7 +17,7 @@ NewStuffDialog::~NewStuffDialog()
 {
 }
 
-bool NewStuffDialog::install(const QString &fileName)
+bool NewStuffDialog::install(const QString &/*fileName*/)
 {
   return false;
 }
@@ -29,7 +29,8 @@ QString NewStuffDialog::downloadDestination(KNS::Entry *entry)
 	return KGlobal::dirs()->saveLocation("data", "kanagram/data/" + KanagramSettings::dataLanguage()) + fileName;
 }
 
-bool NewStuffDialog::createUploadFile(const QString &fileName)
+bool NewStuffDialog::createUploadFile(const QString &/*fileName*/)
 {
   return false;
 }
+
