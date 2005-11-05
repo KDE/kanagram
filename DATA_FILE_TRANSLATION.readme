@@ -1,0 +1,26 @@
+In addition to its messages, Kanagram's 
+data files need to be translated. You can find these data files (in English) 
+in SVN in branches/KDE/3.5/kdeedu/kanagram/data. Please note the 
+"translations" don't have to be direct translations. You can add words, 
+remove words, translate words, add new files, etc. What is important is to 
+have files in every language, not necessarily that they are exact equivalents 
+to the English versions.
+
+* Instructions regarding creating translations *
+
+Make a directory called l10n/yourLanguageCode/data/kdeedu/kanagram, and add to 
+it the translated .kvtml files and a Makefile.am containing the following 
+lines:
+
+txt_DATA = file1.kvtml file2.kvtml file3.kvtml (obviously, replacing the fake 
+filenames with the actual filenames of the files you create)
+
+txtdir = $(kde_datadir)/kanagram/data/yourLanguageCode
+
+EXTRA_DIST = $(txt_DATA)
+
+Thanks for your faithful translation efforts. They are greatly appreciated.
+
+-- 
+Joshua Keel
+Code is poetry.
