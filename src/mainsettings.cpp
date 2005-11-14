@@ -147,7 +147,7 @@ void MainSettings::getAndInstallFont()
 	}
 	else
 	{
-		KMessageBox::error(this, i18n("Sorry, the font could not be installed. Please check that you are properly connected to the Internet."));
+		KMessageBox::error(this, i18n("The font could not be installed. Please check that you are properly connected to the Internet."));
 	}
 }
 

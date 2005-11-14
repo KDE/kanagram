@@ -16,7 +16,7 @@
         <string>General</string>
     </property>
     <property name="whatsThis" stdset="0">
-        <string>This setting allows you to set how long Kanagram's hint bubble is shown.</string>
+        <string>This setting allows you to set the length of time Kanagram's hint bubble is shown.</string>
     </property>
     <vbox>
         <property name="name">
