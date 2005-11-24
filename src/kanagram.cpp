@@ -743,7 +743,7 @@ void Kanagram::showSettings()
 	m_vocabSettings = new VocabSettings( configDialog );
 	configDialog->addPage( m_vocabSettings, i18n("Vocabularies"), "edit" );
 	configDialog->addPage( new NewStuff( configDialog ), i18n("New Stuff"), "knewstuff" );
-	connect(configDialog, SIGNAL(settingsChanged()), this, SLOT(loadSettings()));
+	connect(configDialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(loadSettings()));
 	connect(configDialog, SIGNAL(applyClicked()), this, SLOT(refreshVocabularies()));
 	configDialog->exec();
 	delete configDialog;
