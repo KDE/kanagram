@@ -678,7 +678,7 @@ void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, 
 	font.setBold(true);
 	p.setFont(font);
 	
-	r = p.boundingRect(QRect(), Qt::AlignAuto, text);
+	r = p.boundingRect(QRect(), Qt::AlignLeft, text);
 	r = QRect(0, 0, r.width() + xMargin, r.height() + yMargin);
 	r.moveBy(center.x() - r.width() / 2, center.y() - r.height() / 2);
 
