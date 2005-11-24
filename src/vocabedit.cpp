@@ -41,9 +41,9 @@
 #include "kanagramsettings.h"
 
 
-VocabEdit::VocabEdit(QWidget *parent, QString fileName) : VocabEditWidget(parent), m_fileName("")
+VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : VocabEditWidget(parent), m_fileName("")
 {
-	if(fileName != "")
+	if(!fileName.isEmpty())
 	{
 		m_fileName = fileName;
 		KEduVocDocument	*doc = new KEduVocDocument(this);

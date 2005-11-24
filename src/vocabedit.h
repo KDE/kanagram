@@ -34,7 +34,7 @@ class VocabEdit : public VocabEditWidget
 Q_OBJECT
 	public:
 		VocabEdit(QWidget *parent);
-		VocabEdit(QWidget *parent, QString fileName);
+		VocabEdit(QWidget *parent, const QString &fileName);
 		~VocabEdit();
 	
 	public slots:
