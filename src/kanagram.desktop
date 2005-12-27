@@ -6,6 +6,7 @@ Name[fr]=KAnagram
 Exec=kanagram
 Icon=kanagram
 Type=Application
+DocPath=kanagram/index.html
 GenericName=Letter Order Game
 GenericName[af]=Lettervolgorde Speletjie
 GenericName[ar]=لعبة ترتيب الاحرف
