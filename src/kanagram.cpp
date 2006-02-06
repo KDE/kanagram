@@ -762,7 +762,7 @@ void Kanagram::resetInputBox()
 
 void Kanagram::refreshVocabularies()
 {
-	kdDebug() << "Refreshing vocab list..." << endl;
+	kDebug() << "Refreshing vocab list..." << endl;
 	m_game->refreshVocabList();
 	m_game->nextVocab();
 	hideHint();

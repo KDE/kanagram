@@ -153,7 +153,7 @@ void MainSettings::getAndInstallFont()
 
 void MainSettings::slotChangeTranslation()
 {
-	kdDebug() << "Writing new default language: " << m_languageCodeMap[cboxTranslation->currentText()] << endl;
+	kDebug() << "Writing new default language: " << m_languageCodeMap[cboxTranslation->currentText()] << endl;
 	KanagramSettings::setDataLanguage(m_languageCodeMap[cboxTranslation->currentText()]);
 	KanagramSettings::writeConfig();
 }
