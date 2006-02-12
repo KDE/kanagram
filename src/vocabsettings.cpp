@@ -38,7 +38,7 @@ void VocabSettings::refreshView()
 	for(int i = 0; i < m_fileList.size(); i++)
 	{
 		KEduVocDocument *doc = new KEduVocDocument(this);
-		doc->open(KURL(m_fileList[i]), false);
+		doc->open(KUrl(m_fileList[i]), false);
 		Q3ListViewItem *item = new Q3ListViewItem(lviewVocab, 0);
 		item->setText( 0, doc->title() );
 		item->setText( 1, doc->docRemark() );
