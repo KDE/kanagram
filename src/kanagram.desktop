@@ -6,6 +6,7 @@ Exec=kanagram
 Icon=kanagram
 Type=Application
 DocPath=kanagram/index.html
+Comment=KDE Letter Order Game
 GenericName=Letter Order Game
 GenericName[x-test]=xxLetter Order Gamexx
 Categories=Qt;KDE;Education;X-KDE-Edu-Language;
