@@ -8,5 +8,6 @@ Type=Application
 DocPath=kanagram/index.html
 Comment=KDE Letter Order Game
 GenericName=Letter Order Game
+GenericName[fr]=Remettre les lettres dans le bon ordre
 GenericName[x-test]=xxLetter Order Gamexx
 Categories=Qt;KDE;Education;X-KDE-Edu-Language;
