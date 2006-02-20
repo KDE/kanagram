@@ -135,7 +135,7 @@ void MainSettings::setupTranslations()
 
 void MainSettings::getAndInstallFont()
 {
-	bool success = KIO::NetAccess::copy("http://www.kde-edu.org/kanagram/chalk.ttf", "fonts:/Personal/", 0);
+	bool success = KIO::NetAccess::copy(KUrl("http://www.kde-edu.org/kanagram/chalk.ttf"), KUrl("fonts:/Personal/"), 0);
 	if (success)
 	{
 		getFontsButton->hide();
