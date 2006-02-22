@@ -14,7 +14,7 @@ noinst_HEADERS = kanagram.h kanagramgame.h fontutils.h vocabsettings.h vocabedit
 METASOURCES = AUTO
 
 messages: rc.cpp
-	$(EXTRACTRC) `find . -name \*.ui -o -name \*.rc` > rc.cpp
+	$(EXTRACTRC) `find . -name \*.ui -o -name \*.rc` >> rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kanagram.pot
 
 KDE_ICON = AUTO
