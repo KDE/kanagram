@@ -337,7 +337,7 @@ void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
 	QFontMetrics fm(font);
 	QRect r = innerRect(m_blackboardRect, xMargin, yMargin);
 	r.normalize();
-	r.moveBy(- padding - (m_overSwitcher ? m_arrowOver : m_arrow )->width(), yMargin);
+	r.translate(- padding - (m_overSwitcher ? m_arrowOver : m_arrow )->width(), yMargin);
 	r.setHeight( (m_overSwitcher ? m_arrowOver : m_arrow )->height());
 	m_switcherRect = p.boundingRect(r, Qt::AlignVCenter|Qt::AlignRight, text);
 	p.setFont(font);
@@ -351,7 +351,7 @@ void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
 		p.setPen(m_chalkColor);
 		p.drawPixmap(m_switcherRect.right() + padding, m_switcherRect.top(), *m_arrow);
 	}
-	m_switcherRect.moveBy(0, -2);
+	m_switcherRect.translate(0, -2);
 	p.drawText(m_switcherRect, Qt::AlignVCenter|Qt::AlignRight, text);
 }
 
@@ -362,12 +362,12 @@ QRect Kanagram::innerRect(const QRect &rect, const int xMargin, const int yMargi
 	if (xMargin>0)
 	{
 		r.setWidth(r.width() - 2 * xMargin);
-		r.moveBy(xMargin, 0);
+		r.translate(xMargin, 0);
 	}
 	if (yMargin>0)
 	{
 		r.setHeight(r.height() - 2 * yMargin);
-		r.moveBy(0, yMargin);
+		r.translate(0, yMargin);
 	}
 
 	return r;
@@ -680,7 +680,7 @@ void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, 
 	
 	r = p.boundingRect(QRect(), Qt::AlignLeft, text);
 	r = QRect(0, 0, r.width() + xMargin, r.height() + yMargin);
-	r.moveBy(center.x() - r.width() / 2, center.y() - r.height() / 2);
+	r.translate(center.x() - r.width() / 2, center.y() - r.height() / 2);
 
 	if (withMargin)
 	{
