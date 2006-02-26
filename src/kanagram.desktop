@@ -7,6 +7,7 @@ Icon=kanagram
 Type=Application
 DocPath=kanagram/index.html
 Comment=KDE Letter Order Game
+Comment[ca]=Joc d'ordenació de lletres per a KDE
 Comment[da]=KDE's bogstavrækkefølgespil
 Comment[de]=KDE Spiel zum Sortieren von Buchstaben
 Comment[eu]=Letren ordenaren jokoa
