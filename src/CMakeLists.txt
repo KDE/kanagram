@@ -1,6 +1,6 @@
 kde4_header()
 
-include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeducore/  ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
 
 
 ########### next target ###############
@@ -18,7 +18,7 @@ set(kanagram_SRCS
 
 kde4_automoc(${kanagram_SRCS})
 
-kde4_add_ui_files(kanagram_SRCS 
+kde4_add_ui3_files(kanagram_SRCS 
    mainsettingswidget.ui 
    vocabsettingswidget.ui 
    vocabeditwidget.ui 
