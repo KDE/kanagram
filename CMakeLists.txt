@@ -1,4 +1,5 @@
 kde4_header()
+project(kanagram)
 
 add_subdirectory( data ) 
 add_subdirectory( images ) 
