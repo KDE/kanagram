@@ -158,4 +158,13 @@ Valid xml means:
  <e>
   <o r="1,000,000,000" >billion</o>
  </e>
+ <e>
+  <o r="1st" >first</o>
+ </e>
+ <e>
+  <o r="2nd" >second</o>
+ </e>
+ <e>
+  <o r="3rd" >third</o>
+ </e>
 </kvtml>
