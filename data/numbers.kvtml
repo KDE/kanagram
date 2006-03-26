@@ -1,0 +1,161 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Numbers" remark="Written words for numbers" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="original" r="0" >zero</o>
+ </e>
+ <e>
+  <o r="1" >one</o>
+ </e>
+ <e>
+  <o r="2" >two</o>
+ </e>
+ <e>
+  <o r="3" >three</o>
+ </e>
+ <e>
+  <o r="4" >four</o>
+ </e>
+ <e>
+  <o r="5" >five</o>
+ </e>
+ <e>
+  <o r="6" >six</o>
+ </e>
+ <e>
+  <o r="7" >seven</o>
+ </e>
+ <e>
+  <o r="8" >eight</o>
+ </e>
+ <e>
+  <o r="9" >nine</o>
+ </e>
+ <e>
+  <o r="10" >ten</o>
+ </e>
+ <e>
+  <o r="11" >eleven</o>
+ </e>
+ <e>
+  <o r="12" >twelve</o>
+ </e>
+ <e>
+  <o r="13" >thirteen</o>
+ </e>
+ <e>
+  <o r="14" >fourteen</o>
+ </e>
+ <e>
+  <o r="15" >fifteen</o>
+ </e>
+ <e>
+  <o r="16" >sixteen</o>
+ </e>
+ <e>
+  <o r="17" >seventeen</o>
+ </e>
+ <e>
+  <o r="18" >eighteen</o>
+ </e>
+ <e>
+  <o r="19" >nineteen</o>
+ </e>
+ <e>
+  <o r="20" >twenty</o>
+ </e>
+ <e>
+  <o r="30" >thirty</o>
+ </e>
+ <e>
+  <o r="40" >fourty</o>
+ </e>
+ <e>
+  <o r="50" >fifty</o>
+ </e>
+ <e>
+  <o r="60" >sixty</o>
+ </e>
+ <e>
+  <o r="70" >seventy</o>
+ </e>
+ <e>
+  <o r="80" >eighty</o>
+ </e>
+ <e>
+  <o r="90" >ninety</o>
+ </e>
+ <e>
+  <o r="100" >hundred</o>
+ </e>
+ <e>
+  <o r="1000" >thousand</o>
+ </e>
+ <e>
+  <o r="1,000,000" >million</o>
+ </e>
+ <e>
+  <o r="1,000,000,000" >billion</o>
+ </e>
+</kvtml>
