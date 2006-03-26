@@ -141,7 +141,7 @@ void KanagramGame::nextAnagram()
 	{
 		m_answeredWords.clear();
 	}
-	while(m_answeredWords.findIndex(doc->entry(wordNumber)->original()) != -1)
+	while(m_answeredWords.indexOf(doc->entry(wordNumber)->original()) != -1)
 	{
 		wordNumber = m_random.getLong(totalWords);
 	}

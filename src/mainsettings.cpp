@@ -46,7 +46,7 @@ MainSettings::MainSettings(QWidget *parent) : MainSettingsWidget(parent)
 
 	QStringList languageNames = m_languageCodeMap.keys();
 	languageNames.sort();
-	cboxTranslation->insertStringList(languageNames);
+	cboxTranslation->addItems(languageNames);
 	
 	//the language code/name
 	KConfig entry(locate("locale", "all_languages"));
@@ -105,8 +105,8 @@ void MainSettings::setupTranslations()
 	{
 		QDir dir(*it);
 		temp_languages = dir.entryList(QDir::Dirs, QDir::Name);
-		temp_languages.remove(".");
-		temp_languages.remove("..");
+		temp_languages.removeAll(".");
+		temp_languages.removeAll("..");
 		for (QStringList::const_iterator it2 = temp_languages.begin(); it2 != temp_languages.end(); ++it2 )
 		{
 			if (!languages.contains(*it2)) languages.append(*it2);

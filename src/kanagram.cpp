@@ -58,7 +58,7 @@ using namespace std;
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
 
-Kanagram::Kanagram() : QWidget(0, 0, Qt::WStaticContents | Qt::WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false)
+Kanagram::Kanagram() : QWidget(0, Qt::WStaticContents | Qt::WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false)
 {
 	m_game = new KanagramGame(this);
 
@@ -460,7 +460,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_upRect.contains(e->pos()) && m_inputBox->text() != "")
 	{
-		if(m_inputBox->text().lower().trimmed() == m_game->getWord())
+		if(m_inputBox->text().toLower().trimmed() == m_game->getWord())
 		{
 			if(m_useSounds) play("right.ogg");
 			m_inputBox->setPaletteBackgroundColor(QColor(0, 255, 0));
