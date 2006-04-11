@@ -20,5 +20,5 @@ int fontUtils::fontSize(QPainter &p, const QString &s1, int w, int h)
 	
 	aux1 = p.boundingRect(QRect(), Qt::AlignLeft, s1);
 	
-	return QMIN(w * 28 / aux1.width(), h * 28 / aux1.height());
+	return qMin(w * 28 / aux1.width(), h * 28 / aux1.height());
 }

@@ -450,7 +450,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		{
 			if(m_hintHideTime)
 			{
-				m_hintTimer->start(m_hintHideTime * 1000, TRUE);
+				m_hintTimer->start(m_hintHideTime * 1000, true);
 			}
 			m_showHint = true;
 			randomHintImage();
