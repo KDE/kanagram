@@ -1,12 +1,14 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Kanagram
+Name[bn]=কে-অ্যানাগ্রাম
 Name[cy]=blinKen
 Exec=kanagram
 Icon=kanagram
 Type=Application
 DocPath=kanagram/index.html
 Comment=KDE Letter Order Game
+Comment[bn]=কে.ডি.ই. উপস্থাপিত অক্ষর সাজানোর খেলা
 Comment[ca]=Joc d'ordenació de lletres per a KDE
 Comment[da]=Bogstavrækkefølgespil
 Comment[de]=Ein KDE-Spiel, bei dem Buchstaben sortiert werden
