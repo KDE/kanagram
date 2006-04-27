@@ -43,7 +43,7 @@ class KArtsServer;
 namespace KDE
 {
 	class PlayObjectFactory;
-};
+}
 #endif
 
 #include "kanagramgame.h"
