@@ -53,11 +53,11 @@ MainSettings::MainSettings(QWidget *parent) : MainSettingsWidget(parent)
 	QString code = KanagramSettings::dataLanguage();
 	entry.setGroup(code);
 	if (code == "sr")
-		cboxTranslation->setCurrentText(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
+		cboxTranslation->setCurrentText(entry.readEntry("Name")+" ("+i18n("Cyrillic")+')');
 	else if (code == "sr@Latn")
 	{
 		entry.setGroup("sr");
-		cboxTranslation->setCurrentText(entry.readEntry("Name")+" ("+i18n("Latin")+")");
+		cboxTranslation->setCurrentText(entry.readEntry("Name")+" ("+i18n("Latin")+')');
 	}
 	else
 		cboxTranslation->setCurrentText(entry.readEntry("Name"));
@@ -122,11 +122,11 @@ void MainSettings::setupTranslations()
 	for (QStringList::ConstIterator it = languages.begin(); it != itEnd; ++it) {
 		entry.setGroup(*it);
 		if (*it == "sr")
-			m_languageCodeMap.insert(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")", "sr");
+			m_languageCodeMap.insert(entry.readEntry("Name")+" ("+i18n("Cyrillic")+')', "sr");
 		else if (*it == "sr@Latn")
 		{
 			entry.setGroup("sr");
-			m_languageCodeMap.insert(entry.readEntry("Name") + " ("+i18n("Latin")+")", "sr@Latn");
+			m_languageCodeMap.insert(entry.readEntry("Name") + " ("+i18n("Latin")+')', "sr@Latn");
 		}
 		else
 			m_languageCodeMap.insert(entry.readEntry("Name"), *it);

@@ -34,7 +34,7 @@ void VocabSettings::refreshView()
 {
 	lviewVocab->clear();
 
-	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::dataLanguage() + "/" + "*.kvtml");
+	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::dataLanguage() + '/' + "*.kvtml");
 	for(int i = 0; i < m_fileList.size(); i++)
 	{
 		KEduVocDocument *doc = new KEduVocDocument(this);
