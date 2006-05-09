@@ -236,9 +236,9 @@ void Kanagram::paintEvent(QPaintEvent *)
 	p.fillRect(borderRect, m_fillColor);
 	p.drawRoundRect(borderRect, 10, 5);
 	
-	if(m_overUp && m_inputBox->text() != "")
+	if(m_overUp && !m_inputBox->text().isEmpty())
 		p.drawPixmap(350, 431, *m_upOver);
-	else if(m_inputBox->text() == "")
+	else if(m_inputBox->text().isEmpty())
 		p.drawPixmap(350, 431, *m_upDisabled);
 	else
 		p.drawPixmap(350, 431, *m_up);
@@ -458,7 +458,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		update();
 	}
 
-	if(m_upRect.contains(e->pos()) && m_inputBox->text() != "")
+	if(m_upRect.contains(e->pos()) && !m_inputBox->text().isEmpty())
 	{
 		if(m_inputBox->text().toLower().trimmed() == m_game->getWord())
 		{
@@ -662,7 +662,7 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		}
 	}
 
-	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || (m_overUp && m_inputBox->text() != "") || m_overAboutApp || m_overHintBox)
+	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || (m_overUp && !m_inputBox->text().isEmpty()) || m_overAboutApp || m_overHintBox)
 		this->setCursor(Qt::PointingHandCursor);
 	else
 		this->unsetCursor();
