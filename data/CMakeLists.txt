@@ -1,4 +1,3 @@
-kde4_header()
 
 
 
@@ -7,7 +6,6 @@ kde4_header()
 
 install_files( ${DATA_INSTALL_DIR}/kanagram/data/en FILES objects.kvtml worldcapitals.kvtml computers.kvtml animals.kvtml sports.kvtml people.kvtml inventions.kvtml currencies.kvtml fruits.kvtml vegetables.kvtml space.kvtml professions.kvtml clothing.kvtml transportation.kvtml numbers.kvtml )
 
-kde4_footer()
 
 
 

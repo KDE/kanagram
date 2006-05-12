@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/kdeeducore/   )
 
@@ -40,7 +39,6 @@ install_files( ${KCFG_INSTALL_DIR} FILES kanagram.kcfg )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
-kde4_footer()
 
 
 
