@@ -47,7 +47,7 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : VocabEditWidge
 	{
 		m_fileName = fileName;
 		KEduVocDocument	*doc = new KEduVocDocument(this);
-		doc->open(KUrl(m_fileName), false);
+		doc->open(KUrl::fromPath(m_fileName), false);
 		for(int i = 0; i < doc->numEntries(); i++)
 		{
 			KEduVocExpression expr = *doc->entry(i);
@@ -92,7 +92,7 @@ void VocabEdit::slotSave()
 	}
 	
 	QString fileName = txtVocabName->text().toLower().replace(" ", "") + ".kvtml";
-	doc->saveAs(this, KUrl(KGlobal::dirs()->saveLocation("data", "kanagram/data/" + KanagramSettings::dataLanguage()) + fileName), KEduVocDocument::automatic, "kanagram");
+	doc->saveAs(this, KUrl::fromPath(KGlobal::dirs()->saveLocation("data", "kanagram/data/" + KanagramSettings::dataLanguage()) + fileName), KEduVocDocument::automatic, "kanagram");
 
 	VocabSettings *settings = (VocabSettings*)this->parentWidget();
 	settings->refreshView();
