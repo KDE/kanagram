@@ -62,7 +62,7 @@ Kanagram::Kanagram() : QWidget(0, Qt::WStaticContents | Qt::WNoAutoErase), m_ove
 {
 	m_game = new KanagramGame(this);
 
-	m_back = new QPixmap(locate("appdata", "images/kanagram.png"));
+	m_back = new QPixmap(KStandardDirs::locate("appdata", "images/kanagram.png"));
 	m_aboutKDEOverlay = new QPixmap(locate("appdata", "images/kicon.png"));
 	m_aboutKDEOverlayOver = new QPixmap(locate("appdata", "images/kiconover.png"));
 	m_aboutAppOverlay = new QPixmap(locate("appdata", "images/appicon.png"));
@@ -167,13 +167,13 @@ void Kanagram::loadSettings()
 	if(m_useStandardFonts)
 	{
 		m_blackboardFont = KGlobalSettings::generalFont();
-		m_arrow = new QPixmap(locate("appdata", "images/basicarrow.png"));
+		m_arrow = new QPixmap(KStandardDirs::locate("appdata", "images/basicarrow.png"));
 		m_arrowOver = new QPixmap(locate("appdata", "images/basicarrowover.png"));
 	}
 	else
 	{
 		m_blackboardFont = QFont("squeaky chalk sound");
-		m_arrow = new QPixmap(locate("appdata", "images/arrow.png"));
+		m_arrow = new QPixmap(KStandardDirs::locate("appdata", "images/arrow.png"));
 		m_arrowOver = new QPixmap(locate("appdata", "images/arrowover.png"));
 	}
 
@@ -730,7 +730,7 @@ void Kanagram::randomHintImage()
 {
 	unsigned long imageNum = m_randomImage.getLong(8);
 	QString dir = "images/eyes" + QString::number(imageNum + 1) + ".png";
-	m_hintOverlay = new QPixmap(locate("appdata", dir));
+	m_hintOverlay = new QPixmap(KStandardDirs::locate("appdata", dir));
 }
 
 void Kanagram::showSettings()

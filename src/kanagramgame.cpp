@@ -47,7 +47,7 @@ KanagramGame::~KanagramGame()
 
 void KanagramGame::checkFile()
 {
-	if (!QFile::exists(locate("appdata", m_filename))) {
+	if (!QFile::exists(KStandardDirs::locate("appdata", m_filename))) {
 	        QString msg = i18n("File %1 cannot be found.\n Please ensure that Kanagram is properly installed.",
 		   m_filename);
 		KMessageBox::sorry(m_parent, msg, i18n("Error"));
@@ -61,7 +61,7 @@ void KanagramGame::loadDefaultVocab()
 	if (m_filename.isEmpty())
 	{
 		// first run
-		m_filename = locate("appdata", "data/" + KanagramSettings::dataLanguage() + "/objects.kvtml");
+		m_filename = KStandardDirs::locate("appdata", "data/" + KanagramSettings::dataLanguage() + "/objects.kvtml");
 		if (m_filename.isEmpty())
 		{
 			refreshVocabList();
@@ -71,7 +71,7 @@ void KanagramGame::loadDefaultVocab()
 	
         kDebug() << "in game " << m_filename <<endl;
 	KEduVocDocument *doc = new KEduVocDocument(this);
-	doc->open(KUrl::fromPathOrUrl(locate("appdata", m_filename)), false);
+	doc->open(KUrl::fromPathOrUrl(KStandardDirs::locate("appdata", m_filename)), false);
 	m_docTitle = doc->title();
         kDebug() << m_docTitle <<endl; //Animals
 	nextAnagram();
@@ -110,7 +110,7 @@ void KanagramGame::previousVocab()
 	m_filename = m_fileList[m_index];
 	checkFile();
 	KEduVocDocument *doc = new KEduVocDocument(this);
-	doc->open(KUrl::fromPathOrUrl(locate("appdata", m_filename)), false);
+	doc->open(KUrl::fromPathOrUrl(KStandardDirs::locate("appdata", m_filename)), false);
 	m_docTitle = doc->title();
 	m_answeredWords.clear();
 }
@@ -125,7 +125,7 @@ void KanagramGame::nextVocab()
 	m_filename = m_fileList[m_index];
 	checkFile();
 	KEduVocDocument *doc = new KEduVocDocument(this);
-	doc->open(KUrl::fromPathOrUrl(locate("appdata", m_filename)), false);
+	doc->open(KUrl::fromPathOrUrl(KStandardDirs::locate("appdata", m_filename)), false);
 	m_docTitle = doc->title();
 	m_answeredWords.clear();
 }
@@ -134,7 +134,7 @@ void KanagramGame::nextAnagram()
 {
 	checkFile();
 	KEduVocDocument	*doc = new KEduVocDocument(this);
-	doc->open(KUrl::fromPathOrUrl(locate("appdata", m_filename)), false);
+	doc->open(KUrl::fromPathOrUrl(KStandardDirs::locate("appdata", m_filename)), false);
 	int totalWords = doc->numEntries();
 	int wordNumber = m_random.getLong(totalWords);
 	if(doc->numEntries() == (int)m_answeredWords.size())

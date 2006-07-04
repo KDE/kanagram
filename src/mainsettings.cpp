@@ -49,7 +49,7 @@ MainSettings::MainSettings(QWidget *parent) : MainSettingsWidget(parent)
 	cboxTranslation->addItems(languageNames);
 	
 	//the language code/name
-	KConfig entry(locate("locale", "all_languages"));
+	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
 	QString code = KanagramSettings::dataLanguage();
 	entry.setGroup(code);
 	if (code == "sr")
@@ -117,7 +117,7 @@ void MainSettings::setupTranslations()
 		return;
 
 	//the language code/name
-	KConfig entry(locate("locale", "all_languages"));
+	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
 	const QStringList::ConstIterator itEnd = languages.end();
 	for (QStringList::ConstIterator it = languages.begin(); it != itEnd; ++it) {
 		entry.setGroup(*it);
