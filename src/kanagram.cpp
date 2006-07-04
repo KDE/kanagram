@@ -63,7 +63,7 @@ Kanagram::Kanagram() : QWidget(0, Qt::WStaticContents | Qt::WNoAutoErase), m_ove
 	m_game = new KanagramGame(this);
 
 	m_back = new QPixmap(KStandardDirs::locate("appdata", "images/kanagram.png"));
-	m_aboutKDEOverlay = new QPixmap(locate("appdata", "images/kicon.png"));
+	m_aboutKDEOverlay = new QPixmap(KStandardDirs::locate("appdata", "images/kicon.png"));
 	m_aboutKDEOverlayOver = new QPixmap(locate("appdata", "images/kiconover.png"));
 	m_aboutAppOverlay = new QPixmap(locate("appdata", "images/appicon.png"));
 	m_aboutAppOverlayOver = new QPixmap(locate("appdata", "images/appiconover.png"));
@@ -168,13 +168,13 @@ void Kanagram::loadSettings()
 	{
 		m_blackboardFont = KGlobalSettings::generalFont();
 		m_arrow = new QPixmap(KStandardDirs::locate("appdata", "images/basicarrow.png"));
-		m_arrowOver = new QPixmap(locate("appdata", "images/basicarrowover.png"));
+		m_arrowOver = new QPixmap(KStandardDirs::locate("appdata", "images/basicarrowover.png"));
 	}
 	else
 	{
 		m_blackboardFont = QFont("squeaky chalk sound");
 		m_arrow = new QPixmap(KStandardDirs::locate("appdata", "images/arrow.png"));
-		m_arrowOver = new QPixmap(locate("appdata", "images/arrowover.png"));
+		m_arrowOver = new QPixmap(KStandardDirs::locate("appdata", "images/arrowover.png"));
 	}
 
 	m_game->refreshVocabList();
