@@ -66,23 +66,23 @@ Kanagram::Kanagram() : QWidget(0, Qt::WStaticContents | Qt::WNoAutoErase), m_ove
 	m_aboutKDEOverlay = new QPixmap(KStandardDirs::locate("appdata", "images/kicon.png"));
 	m_aboutKDEOverlayOver = new QPixmap(KStandardDirs::locate("appdata", "images/kiconover.png"));
 	m_aboutAppOverlay = new QPixmap(KStandardDirs::locate("appdata", "images/appicon.png"));
-	m_aboutAppOverlayOver = new QPixmap(locate("appdata", "images/appiconover.png"));
-	m_handbookOverlay = new QPixmap(locate("appdata", "images/handbookicon.png"));
-	m_handbookOverlayOver = new QPixmap(locate("appdata", "images/handbookiconover.png"));
-	m_card = new QPixmap(locate("appdata", "images/card.png"));
+	m_aboutAppOverlayOver = new QPixmap(KStandardDirs::locate("appdata", "images/appiconover.png"));
+	m_handbookOverlay = new QPixmap(KStandardDirs::locate("appdata", "images/handbookicon.png"));
+	m_handbookOverlayOver = new QPixmap(KStandardDirs::locate("appdata", "images/handbookiconover.png"));
+	m_card = new QPixmap(KStandardDirs::locate("appdata", "images/card.png"));
 
-	m_next = new QPixmap(locate("appdata", "images/next.png"));
-	m_nextOver = new QPixmap(locate("appdata", "images/nextover.png"));
-	m_config = new QPixmap(locate("appdata", "images/config.png"));
-	m_configOver = new QPixmap(locate("appdata", "images/configover.png"));
-	m_help = new QPixmap(locate("appdata", "images/help.png"));
-	m_helpOver = new QPixmap(locate("appdata", "images/helpover.png"));
-	m_quit = new QPixmap(locate("appdata", "images/quit.png"));
-	m_quitOver = new QPixmap(locate("appdata", "images/quitover.png"));
+	m_next = new QPixmap(KStandardDirs::locate("appdata", "images/next.png"));
+	m_nextOver = new QPixmap(KStandardDirs::locate("appdata", "images/nextover.png"));
+	m_config = new QPixmap(KStandardDirs::locate("appdata", "images/config.png"));
+	m_configOver = new QPixmap(KStandardDirs::locate("appdata", "images/configover.png"));
+	m_help = new QPixmap(KStandardDirs::locate("appdata", "images/help.png"));
+	m_helpOver = new QPixmap(KStandardDirs::locate("appdata", "images/helpover.png"));
+	m_quit = new QPixmap(KStandardDirs::locate("appdata", "images/quit.png"));
+	m_quitOver = new QPixmap(KStandardDirs::locate("appdata", "images/quitover.png"));
 
-	m_up = new QPixmap(locate("appdata", "images/up.png"));
-	m_upOver = new QPixmap(locate("appdata", "images/upover.png"));
-	m_upDisabled = new QPixmap(locate("appdata", "images/updisabled.png"));
+	m_up = new QPixmap(KStandardDirs::locate("appdata", "images/up.png"));
+	m_upOver = new QPixmap(KStandardDirs::locate("appdata", "images/upover.png"));
+	m_upDisabled = new QPixmap(KStandardDirs::locate("appdata", "images/updisabled.png"));
 
 	m_nextRect = QRect(477, 31, 134, 76);
 	m_configRect = QRect(477, 122, 134, 76);
@@ -776,7 +776,7 @@ void Kanagram::refreshVocabularies()
 void Kanagram::play(QString filename)
 {
 	#ifndef WITHOUT_ARTS
-		KDE::PlayObject *playobj = m_artsFactory->createPlayObject(locate("appdata", "sounds/" + filename), true);
+		KDE::PlayObject *playobj = m_artsFactory->createPlayObject(KStandardDirs::locate("appdata", "sounds/" + filename), true);
 		playobj->play();
 	#else
 		(void)filename;
