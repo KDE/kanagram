@@ -65,7 +65,7 @@ Kanagram::Kanagram() : QWidget(0, Qt::WStaticContents | Qt::WNoAutoErase), m_ove
 	m_back = new QPixmap(KStandardDirs::locate("appdata", "images/kanagram.png"));
 	m_aboutKDEOverlay = new QPixmap(KStandardDirs::locate("appdata", "images/kicon.png"));
 	m_aboutKDEOverlayOver = new QPixmap(KStandardDirs::locate("appdata", "images/kiconover.png"));
-	m_aboutAppOverlay = new QPixmap(locate("appdata", "images/appicon.png"));
+	m_aboutAppOverlay = new QPixmap(KStandardDirs::locate("appdata", "images/appicon.png"));
 	m_aboutAppOverlayOver = new QPixmap(locate("appdata", "images/appiconover.png"));
 	m_handbookOverlay = new QPixmap(locate("appdata", "images/handbookicon.png"));
 	m_handbookOverlayOver = new QPixmap(locate("appdata", "images/handbookiconover.png"));
