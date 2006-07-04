@@ -34,8 +34,8 @@ install_targets(/bin kanagram )
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES kanagram.desktop )
-install_files( ${KCFG_INSTALL_DIR} FILES kanagram.kcfg )
+install( FILES kanagram.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES kanagram.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
