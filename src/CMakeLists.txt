@@ -29,7 +29,7 @@ kde4_add_executable(kanagram ${kanagram_SRCS})
 
 target_link_libraries(kanagram  ${KDE4_KDECORE_LIBS} kdeui knewstuff kio kdeeducore )
 
-install_targets(/bin kanagram )
+install(TARGETS kanagram  DESTINATION ${BIN_INSTALL_DIR} )
 
 
 ########### install files ###############
