@@ -18,10 +18,12 @@ set(kanagram_SRCS
 kde4_automoc(${kanagram_SRCS})
 
 kde4_add_ui3_files(kanagram_SRCS 
-   mainsettingswidget.ui 
    vocabsettingswidget.ui 
    vocabeditwidget.ui 
    newstuffwidget.ui )
+
+kde4_add_ui_files(kanagram_SRCS 
+   mainsettingswidget.ui )
 
 kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 

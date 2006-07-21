@@ -35,8 +35,9 @@
 #include "mainsettings.h"
 #include "kanagramsettings.h"
 
-MainSettings::MainSettings(QWidget *parent) : MainSettingsWidget(parent)
+MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 {
+	setupUi( this );
 	m_parent = (KConfigDialog*)parent;
 
 	connect(parent, SIGNAL(applyClicked()), this, SLOT(slotChangeTranslation()));

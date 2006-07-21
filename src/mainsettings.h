@@ -23,11 +23,11 @@
 #ifndef MAINSETTINGS_H
 #define MAINSETTINGS_H
 
-#include "mainsettingswidget.h"
+#include "ui_mainsettingswidget.h"
 
 class KConfigDialog;
 
-class MainSettings : public MainSettingsWidget
+class MainSettings : public QWidget, Ui::MainSettingsWidget
 {
 Q_OBJECT
 	public:

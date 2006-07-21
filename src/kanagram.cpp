@@ -58,8 +58,9 @@ using namespace std;
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
 
-Kanagram::Kanagram() : QWidget(0, Qt::WStaticContents | Qt::WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false)
+Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false)
 {
+	setAttribute(Qt::WA_StaticContents);
 	m_game = new KanagramGame(this);
 
 	m_back = new QPixmap(KStandardDirs::locate("appdata", "images/kanagram.png"));
@@ -123,6 +124,7 @@ Kanagram::Kanagram() : QWidget(0, Qt::WStaticContents | Qt::WNoAutoErase), m_ove
 	loadSettings();
 
 	m_hintTimer = new QTimer(this);
+	m_hintTimer->setSingleShot(true);
 	
 	m_helpMenu = new KHelpMenu(this, kapp->aboutData());
 	
@@ -294,7 +296,8 @@ void Kanagram::paintEvent(QPaintEvent *)
 		drawHelpText(p, i18n("Quit Kanagram"));
 	}
 
-	bitBlt(this, 0, 0, &buf);
+	QPainter p2(this);
+	p2.drawPixmap(0, 0, buf);
 }
 
 void Kanagram::drawHelpText(QPainter &p, QString text)
@@ -336,7 +339,7 @@ void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
 	font.setPointSize(14);
 	QFontMetrics fm(font);
 	QRect r = innerRect(m_blackboardRect, xMargin, yMargin);
-	r.normalize();
+	r = r.normalized();
 	r.translate(- padding - (m_overSwitcher ? m_arrowOver : m_arrow )->width(), yMargin);
 	r.setHeight( (m_overSwitcher ? m_arrowOver : m_arrow )->height());
 	m_switcherRect = p.boundingRect(r, Qt::AlignVCenter|Qt::AlignRight, text);
@@ -381,7 +384,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		hideHint();
 		m_game->nextAnagram();
 		if(m_useSounds) play("chalk.ogg");
-		m_inputBox->unsetPalette();
+		m_inputBox->setPalette(QPalette());
 		update();
 	}
 
@@ -450,7 +453,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		{
 			if(m_hintHideTime)
 			{
-				m_hintTimer->start(m_hintHideTime * 1000, true);
+				m_hintTimer->start(m_hintHideTime * 1000);
 			}
 			m_showHint = true;
 			randomHintImage();
@@ -460,24 +463,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_upRect.contains(e->pos()) && !m_inputBox->text().isEmpty())
 	{
-		if(m_inputBox->text().toLower().trimmed() == m_game->getWord())
-		{
-			if(m_useSounds) play("right.ogg");
-			m_inputBox->setPaletteBackgroundColor(QColor(0, 255, 0));
-			QTimer::singleShot(1000, this, SLOT(resetInputBox()));
-			m_inputBox->clear();
-			hideHint();
-			m_game->nextAnagram();
-			update();
-		}
-		else
-		{
-			if(m_useSounds) play("wrong.ogg");
-			m_inputBox->setPaletteBackgroundColor(QColor(255, 0, 0));
-			QTimer::singleShot(1000, this, SLOT(resetInputBox()));
-			m_inputBox->clear();
-			update();
-		}
+		checkWord();
 	}
 }
 
@@ -721,9 +707,25 @@ void Kanagram::drawTextNew(QPainter &p, const QString &text, int textAlign, int 
 
 void Kanagram::checkWord()
 {
-	QPoint p = m_upRect.topLeft() + QPoint( 1, 1 );
-	QMouseEvent *e = new QMouseEvent( QEvent::MouseButtonPress, p, Qt::LeftButton, Qt::NoButton );
-	mousePressEvent(e);
+	QPalette palette;
+	if(m_inputBox->text().toLower().trimmed() == m_game->getWord())
+	{
+		if(m_useSounds) play("right.ogg");
+		palette.setColor(m_inputBox->backgroundRole(), QColor(0, 255, 0));
+		QTimer::singleShot(1000, this, SLOT(resetInputBox()));
+		m_inputBox->clear();
+		hideHint();
+		m_game->nextAnagram();
+	}
+	else
+	{
+		if(m_useSounds) play("wrong.ogg");
+		palette.setColor(m_inputBox->backgroundRole(), QColor(255, 0, 0));
+		QTimer::singleShot(1000, this, SLOT(resetInputBox()));
+		m_inputBox->clear();
+	}
+	m_inputBox->setPalette(palette);
+	update();
 }
 
 void Kanagram::randomHintImage()
@@ -757,7 +759,7 @@ void Kanagram::hideHint()
 
 void Kanagram::resetInputBox()
 {
-	m_inputBox->unsetPalette();
+	m_inputBox->setPalette(QPalette());
 }
 
 void Kanagram::refreshVocabularies()
