@@ -90,26 +90,24 @@ Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_ove
 	m_helpRect = QRect(477, 212, 134, 76);
 	m_quitRect = QRect(453, 352, 182, 104);
 	
-	QPainter tmpp(this);
 	QFont font = m_blackboardFont;
 	font.setPointSize(14);
 	font.setBold(true);
-	tmpp.setFont(font);
+    QFontMetrics fm(font);
 	m_blackboardRect = QRect(41, 116, 366, 248);
 //	m_hintRect = QRect(51, 337, 39, 28);
 	QRect r = innerRect(m_blackboardRect, 6, 0);
-	m_hintRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
+    m_hintRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
 	m_hintBoxRect = QRect(446, 207, 171, 85);
 //	m_revealRect = QRect(279, 338, 119, 28);
 	r = innerRect(m_blackboardRect, 6, 0);
-	m_revealRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
+    m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
 	m_upRect = QRect(341, 425, 55, 33);
 	m_aboutKDERect = QRect(567, 213, 44, 44);
 	m_aboutAppRect = QRect(522, 213, 44, 44);
 	m_handbookRect = QRect(478, 213, 44, 44);
 	m_arrowRect = QRect(380, 134, 13, 20);
 	m_logoRect = QRect(76, 24, 297, 50);
-	tmpp.end();
 	
 	setMouseTracking(true);
 	setFixedSize(650, 471);
@@ -378,7 +376,6 @@ QRect Kanagram::innerRect(const QRect &rect, const int xMargin, const int yMargi
 
 void Kanagram::mousePressEvent(QMouseEvent *e)
 {
-	
 	if (m_nextRect.contains(e->pos()))
 	{
 		hideHint();
