@@ -194,13 +194,12 @@ QString KanagramGame::createAnagram(QString original)
 	{
 		int objChunk;
 		if((i == 0) && (count > 1))
-		   objChunk = 1 + m_random.getLong(count - 1);
+			objChunk = 1 + m_random.getLong(count - 1);
 		else
-		   objChunk = m_random.getLong(count);
+			objChunk = m_random.getLong(count);
 
-		QString it = objData.at(objChunk);
-		QString sd = it;
-		objData.removeAll(it);
+		QString sd = objData.at(objChunk);
+		objData.removeAt(objChunk);
 		if (insaneData.isEmpty())
 			insaneData = sd;
 		else
