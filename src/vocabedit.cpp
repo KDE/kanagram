@@ -22,11 +22,11 @@
 #include "vocabedit.h"
 
 #include <qpushbutton.h>
-#include <q3listbox.h>
+#include <qlistwidget.h>
 #include <qlineedit.h>
 #include <qfile.h>
 #include <qstring.h>
-#include <q3valuevector.h>
+#include <qvector.h>
 
 #include <kstandarddirs.h>
 #include <kglobal.h>
@@ -41,8 +41,10 @@
 #include "kanagramsettings.h"
 
 
-VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : VocabEditWidget(parent), m_fileName("")
+VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent), m_fileName("")
 {
+	setupUi(this);
+	
 	if(!fileName.isEmpty())
 	{
 		m_fileName = fileName;
@@ -52,7 +54,7 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : VocabEditWidge
 		{
 			KEduVocExpression expr = *doc->entry(i);
 			m_vocabList.append(expr);
-			lboxWords->insertItem(doc->entry(i)->original());	
+			lboxWords->addItem(doc->entry(i)->original());	
 		}
 		txtVocabName->setText(doc->title());
 		txtDescription->setText(doc->docRemark());
@@ -71,7 +73,7 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : VocabEditWidge
 	connect(txtVocabName, SIGNAL(textChanged(const QString &)), this, SLOT(slotTextChanged(const QString &)));
 	connect(txtDescription, SIGNAL(textChanged(const QString &)), this, SLOT(slotTextChanged(const QString &)));
 
-	connect(lboxWords, SIGNAL(selectionChanged()), this, SLOT(slotSelectionChanged()));
+	connect(lboxWords, SIGNAL(itemSelectionChanged()), this, SLOT(slotSelectionChanged()));
 
 	//Has anything in the dialog changed?
 	m_textChanged = false;
@@ -121,7 +123,7 @@ void VocabEdit::slotClose()
 
 void VocabEdit::slotNewWord()
 {
-	lboxWords->insertItem("New Item");
+	lboxWords->addItem("New Item");
 	KEduVocExpression expr = KEduVocExpression();
 	m_vocabList.append(expr);
 
@@ -134,10 +136,10 @@ void VocabEdit::slotSelectionChanged()
 	//A little hack to make things work right
 	disconnect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
 	disconnect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
-	if(lboxWords->currentItem() >= 0)
+	if(lboxWords->currentRow() >= 0)
 	{
-		txtWord->setText(m_vocabList[lboxWords->currentItem()].original());
-		txtHint->setText(m_vocabList[lboxWords->currentItem()].remark(0));
+		txtWord->setText(m_vocabList[lboxWords->currentRow()].original());
+		txtHint->setText(m_vocabList[lboxWords->currentRow()].remark(0));
 	}
 	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
 	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
@@ -145,11 +147,11 @@ void VocabEdit::slotSelectionChanged()
 
 void VocabEdit::slotWordTextChanged(const QString &changes)
 {
-	//Make sure there actually is a currentItem()
-	if(lboxWords->currentItem() != -1)
+	//Make sure there actually is a currentRow()
+	if(lboxWords->currentRow() != -1)
 	{
-		m_vocabList[lboxWords->currentItem()].setOriginal(changes);
-		lboxWords->changeItem(changes, lboxWords->currentItem());
+		m_vocabList[lboxWords->currentRow()].setOriginal(changes);
+		lboxWords->currentItem()->setText(changes);
 	}
 
 	if(m_textChanged == false)
@@ -159,8 +161,8 @@ void VocabEdit::slotWordTextChanged(const QString &changes)
 void VocabEdit::slotHintTextChanged(const QString &changes)
 {
 	//Make sure there actually is a currentItem()
-	if(lboxWords->currentItem() != -1)
-		m_vocabList[lboxWords->currentItem()].setRemark(0, changes);
+	if(lboxWords->currentRow() != -1)
+		m_vocabList[lboxWords->currentRow()].setRemark(0, changes);
 
 	if(m_textChanged == false)
 		m_textChanged = true;
@@ -180,8 +182,8 @@ void VocabEdit::slotTextChanged(const QString &changes)
 void VocabEdit::slotRemoveWord()
 {
 	if (lboxWords->count()) {
-		m_vocabList.erase(m_vocabList.begin() + lboxWords->currentItem());
-		lboxWords->removeItem(lboxWords->currentItem());
+		m_vocabList.erase(m_vocabList.begin() + lboxWords->currentRow());
+		delete lboxWords->takeItem(lboxWords->currentRow());
 	}
 
 	if(m_textChanged == false)

@@ -1,117 +1,98 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>VocabSettingsWidget</class>
-<widget class="QWidget">
-    <property name="name">
-        <cstring>VocabSettingsWidget</cstring>
-    </property>
-    <property name="geometry">
-        <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>456</width>
-            <height>338</height>
-        </rect>
-    </property>
-    <property name="windowTitle">
-        <string>Vocabularies</string>
-    </property>
-    <grid>
-        <property name="name">
-            <cstring>unnamed</cstring>
-        </property>
-        <widget class="QLayoutWidget" row="0" column="0">
-            <property name="name">
-                <cstring>layout3</cstring>
-            </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layout1</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <widget class="QPushButton">
-                            <property name="name">
-                                <cstring>btnCreateNew</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Create New</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>Creates a new vocabulary.</string>
-                            </property>
-                        </widget>
-                        <widget class="QPushButton">
-                            <property name="name">
-                                <cstring>btnEdit</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Edit</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>Edits the selected vocabulary.</string>
-                            </property>
-                        </widget>
-                        <widget class="QPushButton">
-                            <property name="name">
-                                <cstring>btnDelete</cstring>
-                            </property>
-                            <property name="text">
-                                <string>Delete</string>
-                            </property>
-                            <property name="whatsThis" stdset="0">
-                                <string>Deletes the selected vocabulary.</string>
-                            </property>
-                        </widget>
-                    </hbox>
-                </widget>
-                <widget class="QListView">
-                    <column>
-                        <property name="text">
-                            <string>Title</string>
-                        </property>
-                        <property name="clickable">
-                            <bool>true</bool>
-                        </property>
-                        <property name="resizable">
-                            <bool>true</bool>
-                        </property>
-                    </column>
-                    <column>
-                        <property name="text">
-                            <string>Description</string>
-                        </property>
-                        <property name="clickable">
-                            <bool>true</bool>
-                        </property>
-                        <property name="resizable">
-                            <bool>true</bool>
-                        </property>
-                    </column>
-                    <property name="name">
-                        <cstring>lviewVocab</cstring>
-                    </property>
-                    <property name="allColumnsShowFocus">
-                        <bool>true</bool>
-                    </property>
-                    <property name="resizeMode">
-                        <enum>LastColumn</enum>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>The list of installed vocabularies.</string>
-                    </property>
-                </widget>
-            </vbox>
+<ui version="4.0" >
+ <class>VocabSettingsWidget</class>
+ <widget class="QWidget" name="VocabSettingsWidget" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>456</width>
+    <height>338</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Vocabularies</string>
+  </property>
+  <layout class="QGridLayout" >
+   <property name="margin" >
+    <number>11</number>
+   </property>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item row="0" column="0" >
+    <layout class="QVBoxLayout" >
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item>
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btnCreateNew" >
+         <property name="whatsThis" >
+          <string>Creates a new vocabulary.</string>
+         </property>
+         <property name="text" >
+          <string>Create New</string>
+         </property>
         </widget>
-    </grid>
-</widget>
-<slots>
-    <slot>createNew()</slot>
-</slots>
-<layoutdefaults spacing="6" margin="11"/>
-</UI>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnEdit" >
+         <property name="whatsThis" >
+          <string>Edits the selected vocabulary.</string>
+         </property>
+         <property name="text" >
+          <string>Edit</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnDelete" >
+         <property name="whatsThis" >
+          <string>Deletes the selected vocabulary.</string>
+         </property>
+         <property name="text" >
+          <string>Delete</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QTreeWidget" name="lviewVocab" >
+       <property name="whatsThis" >
+        <string>The list of installed vocabularies.</string>
+       </property>
+       <property name="rootIsDecorated" >
+        <bool>false</bool>
+       </property>
+       <column>
+        <property name="text" >
+         <string>Title</string>
+        </property>
+       </column>
+       <column>
+        <property name="text" >
+         <string>Description</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <resources/>
+ <connections/>
+</ui>

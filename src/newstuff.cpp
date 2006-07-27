@@ -11,8 +11,9 @@
 #include "kanagramsettings.h"
 #include "newstuffdialog.h"
 
-NewStuff::NewStuff(QWidget *parent) : NewStuffWidget(parent)
+NewStuff::NewStuff(QWidget *parent):QDialog(parent)
 {
+	setupUi(this);
 	connect(btnGetNew, SIGNAL(clicked()), this, SLOT(slotGetNewVocabs()));
 }
 

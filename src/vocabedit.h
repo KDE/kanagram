@@ -23,13 +23,13 @@
 #ifndef VOCABEDIT_H
 #define VOCABEDIT_H
 
-#include "vocabeditwidget.h"
+#include "ui_vocabeditwidget.h"
 
 #include <QVector>
 
 class KEduVocExpression;
 
-class VocabEdit : public VocabEditWidget
+class VocabEdit : public QDialog, Ui::VocabEditWidget
 {
 Q_OBJECT
 	public:

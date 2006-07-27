@@ -1,9 +1,9 @@
 #ifndef NEWSTUFF_H
 #define NEWSTUFF_H
 
-#include "newstuffwidget.h"
+#include "ui_newstuffwidget.h"
 
-class NewStuff : public NewStuffWidget
+class NewStuff : public QDialog, public Ui::NewStuffWidget
 {
 Q_OBJECT
 	public:

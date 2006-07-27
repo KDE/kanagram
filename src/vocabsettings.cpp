@@ -6,8 +6,8 @@
 #include <kdebug.h>
 #include <kstandarddirs.h>
 #include <qstringlist.h>
-#include <q3listview.h>
-#include <q3valuevector.h>
+#include <qlistwidget.h>
+#include <qvector.h>
 #include <qfile.h>
 #include <qfileinfo.h>
 
@@ -16,12 +16,14 @@
 #include "keduvocdocument.h"
 #include "kanagramsettings.h"
 
-VocabSettings::VocabSettings(QWidget *parent) : VocabSettingsWidget(parent)
+VocabSettings::VocabSettings(QWidget *parent) : QDialog(parent)
 {
+	setupUi(this);
+	
 	connect(btnCreateNew, SIGNAL(clicked()), this, SLOT(slotCreateNew()));
 	connect(btnEdit, SIGNAL(clicked()), this, SLOT(slotEdit()));
 	connect(btnDelete, SIGNAL(clicked()), this, SLOT(slotDelete()));
-	connect(lviewVocab, SIGNAL(selectionChanged(Q3ListViewItem *)), this, SLOT(slotSelectionChanged(Q3ListViewItem *)));
+	connect(lviewVocab, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(slotSelectionChanged(QTreeWidgetItem *)));
 
 	refreshView();
 }
@@ -39,7 +41,7 @@ void VocabSettings::refreshView()
 	{
 		KEduVocDocument *doc = new KEduVocDocument(this);
 		doc->open(KUrl::fromPath(m_fileList[i]), false);
-		Q3ListViewItem *item = new Q3ListViewItem(lviewVocab, 0);
+		QTreeWidgetItem *item = new QTreeWidgetItem(lviewVocab, 0);
 		item->setText( 0, doc->title() );
 		item->setText( 1, doc->docRemark() );
 		m_itemMap[item] = i;
@@ -48,9 +50,9 @@ void VocabSettings::refreshView()
 
 void VocabSettings::slotEdit()
 {
-	if(lviewVocab->selectedItem())
+	if(lviewVocab->currentItem())
 	{
-		int index = m_itemMap[lviewVocab->selectedItem()];
+		int index = m_itemMap[lviewVocab->currentItem()];
 		VocabEdit *vocabEdit = new VocabEdit(this, m_fileList[index]);
 		vocabEdit->show();
 	}
@@ -58,9 +60,9 @@ void VocabSettings::slotEdit()
 
 void VocabSettings::slotDelete()
 {
-	if(lviewVocab->selectedItem())
+	if(lviewVocab->currentItem())
 	{
-		int index = m_itemMap[lviewVocab->selectedItem()];
+		int index = m_itemMap[lviewVocab->currentItem()];
 		/*bool itWorked = */QFile::remove(m_fileList[index]);
 	}
 
@@ -73,7 +75,7 @@ void VocabSettings::slotCreateNew()
 	vocabEdit->show();
 }
 
-void VocabSettings::slotSelectionChanged(Q3ListViewItem *item)
+void VocabSettings::slotSelectionChanged(QTreeWidgetItem *item)
 {
 	int index = m_itemMap[item];
 	QFileInfo info = QFileInfo(m_fileList[index]);
