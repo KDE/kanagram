@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="44"
+   height="44"
+   id="svg1439"
+   sodipodi:version="0.32"
+   inkscape:version="0.43"
+   version="1.0"
+   sodipodi:docbase="/home/danny/work/kde/EDU/kanagram/kde4"
+   sodipodi:docname="handbookiconover.svg">
+  <defs
+     id="defs1441" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.7386371"
+     inkscape:cx="208.86266"
+     inkscape:cy="-44.784295"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1024"
+     inkscape:window-height="712"
+     inkscape:window-x="0"
+     inkscape:window-y="0" />
+  <metadata
+     id="metadata1444">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="color:#000000;fill:#b3b3b3;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.125;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
+       d="M -5e-06,-5.22714e-06 L 44.000005,-5.22714e-06 L 44.000005,44.000005 L -5e-06,44.000005 L -5e-06,-5.22714e-06 z "
+       id="path4147" />
+    <path
+       style="font-size:12px;fill:#0f0f0f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:5.13161612;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+       d="M 8.66757,4.928124 C 8.24074,4.929695 7.8141,5.0271794 7.42501,5.2744204 C 6.64683,5.7688958 6.28427,6.6767366 6.28427,7.4540505 L 6.28427,29.963315 C 6.28427,31.517943 7.07679,32.745621 8.48427,33.405908 L 20.09539,38.865169 C 20.64952,39.125121 21.35235,39.133543 22.0102,38.92628 C 22.66251,39.125818 23.33509,39.122826 23.88427,38.865169 L 35.51573,33.405908 C 36.92438,32.745074 37.71573,31.517897 37.71573,29.963315 L 37.71573,7.4540505 C 37.71579,6.6767561 37.37311,5.77003 36.59539,5.2744204 C 36.20649,5.0266058 35.78005,4.9300339 35.35276,4.928124 C 34.92554,4.9262271 34.48274,5.0277335 34.13054,5.1929389 L 22.51949,10.631829 C 22.29447,10.73739 22.2023,10.946022 22.0102,11.079977 C 21.81823,10.946067 21.72573,10.737299 21.50091,10.631829 L 9.86946,5.1929389 C 9.51759,5.0278639 9.09447,4.9265661 8.66757,4.928124 z M 9.56387,8.6355323 L 20.09539,13.585533 C 20.07355,13.57528 20.33983,14.064501 20.33983,14.094793 L 20.33983,35.381835 L 9.86946,30.472574 C 9.89573,30.484901 9.56387,29.934301 9.56387,29.963315 L 9.56387,8.6355323 z M 34.45647,8.6355323 L 34.45647,29.963315 C 34.45647,29.936863 34.1031,30.485455 34.13054,30.472574 L 23.68057,35.381835 L 23.68057,14.094793 C 23.68057,14.057415 23.90611,13.57528 23.88427,13.585533 L 34.45647,8.6355323 z "
+       id="path4910"
+       sodipodi:nodetypes="cscccccccccsscccccccccccccccccccc" />
+  </g>
+</svg>
