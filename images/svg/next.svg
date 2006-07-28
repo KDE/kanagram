@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="39"
+   height="39"
+   id="svg1448"
+   sodipodi:version="0.32"
+   inkscape:version="0.43"
+   sodipodi:docbase="/home/danny/work/kde/EDU/kanagram/kde4"
+   sodipodi:docname="next.svg"
+   version="1.0">
+  <defs
+     id="defs1450" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6134615"
+     inkscape:cx="32.380952"
+     inkscape:cy="2.5396825"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1024"
+     inkscape:window-height="712"
+     inkscape:window-x="0"
+     inkscape:window-y="0" />
+  <metadata
+     id="metadata1453">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1354"
+       transform="matrix(1.000021,0,0,0.999924,-7.499893,-118.5196)">
+      <path
+         style="color:#000000;fill:#b3b3b3;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;visibility:visible;display:inline;overflow:visible"
+         d="M 7.499742,118.53055 L 46.498842,118.53055 L 46.498842,157.52965 L 7.499742,157.52965 L 7.499742,118.53055 z "
+         id="rect6373" />
+      <path
+         inkscape:export-ydpi="58.500000"
+         inkscape:export-xdpi="58.500000"
+         inkscape:export-filename="/home/danny/work/kde/kanagram/next.png"
+         sodipodi:nodetypes="ccccsccccscccccc"
+         id="path877"
+         d="M 7.5016445,144.18238 C 7.5778877,144.93915 8.2175379,145.514 8.9790604,145.51023 L 26.234862,145.51023 L 26.234862,156.01522 C 26.217833,156.63219 26.587089,157.19462 27.160376,157.42485 C 27.733728,157.65527 28.390017,157.50492 28.805553,157.04812 L 46.090929,139.04776 C 46.634901,138.47791 46.634901,137.58171 46.090929,137.01174 L 28.805553,119.01158 C 28.393592,118.55912 27.744907,118.40729 27.174545,118.62991 C 26.604249,118.85253 26.230507,119.40332 26.234862,120.01489 L 26.234862,130.5494 L 8.9790604,130.5494 C 8.1630692,130.54946 7.5017095,131.21011 7.5016445,132.02486 L 7.5016445,144.03477 C 7.4991745,144.08403 7.4991745,144.13317 7.5016445,144.18238 z "
+         style="font-size:12px;fill:#666666;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.12500048;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

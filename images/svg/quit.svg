@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="49"
+   height="49"
+   id="svg1448"
+   sodipodi:version="0.32"
+   inkscape:version="0.43"
+   sodipodi:docbase="/home/danny/work/kde/EDU/kanagram/kde4"
+   sodipodi:docname="quit.svg"
+   version="1.0">
+  <defs
+     id="defs1450" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="6.7476884"
+     inkscape:cx="12.516525"
+     inkscape:cy="12.424508"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1024"
+     inkscape:window-height="712"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata1453">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="color:#000000;fill:#b3b3b3;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;visibility:visible;display:inline;overflow:visible"
+       d="M 1.335144e-05,1.335144e-05 L 48.999987,1.335144e-05 L 48.999987,48.999987 L 1.335144e-05,48.999987 L 1.335144e-05,1.335144e-05 z "
+       id="rect7105" />
+    <g
+       id="g2183"
+       transform="matrix(0.662269,0,0,0.662269,-477.2039,-369.6487)"
+       inkscape:export-filename="/home/danny/work/kde/kanagram/quit.png"
+       inkscape:export-xdpi="58.500000"
+       inkscape:export-ydpi="58.500000">
+      <path
+         style="font-size:12px;fill:#666666;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.98650759;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 767.6875,569.5625 C 767.44692,569.60552 767.27412,569.81821 767.28125,570.0625 L 767.28125,580.71875 C 767.28426,580.90617 767.39324,581.0757 767.5625,581.15625 C 775.64648,585.43504 780.2365,594.42415 778.625,603.6875 C 776.82337,614.04438 767.85683,621.46942 757.34375,621.375 C 746.83247,621.28063 738.02168,613.63775 736.40625,603.25 C 734.97888,594.07219 739.58593,585.22746 747.5625,581.03125 C 747.71965,580.94219 747.81555,580.77436 747.8125,580.59375 L 747.8125,570.09375 C 747.81352,569.93333 747.73647,569.78244 747.60593,569.68919 C 747.47539,569.59595 747.30767,569.57201 747.15625,569.625 C 736.18607,573.38703 728.30932,582.65673 726.0625,593.53125 C 725.3043,597.20104 725.2102,601.03372 725.8125,604.90625 C 728.22309,620.40722 741.59303,632.01537 757.28125,632.15625 C 772.96929,632.2971 786.49885,620.92418 789.1875,605.46875 C 791.87641,590.01259 782.90683,574.7901 768.09375,569.625 C 767.9687,569.58135 767.93119,569.59179 767.9375,569.59375 C 767.85828,569.56187 767.77213,569.5511 767.6875,569.5625 z "
+         id="path696"
+         sodipodi:nodetypes="ccccssscccssssssssc" />
+      <path
+         style="font-size:12px;fill:#666666;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.98650759;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 752.5625,558.15625 C 752.32192,558.19927 752.14912,558.41196 752.15625,558.65625 L 752.15625,594.96875 C 752.15443,595.10191 752.20652,595.23015 752.30069,595.32431 C 752.39485,595.41848 752.52309,595.47057 752.65625,595.46875 L 762.46875,595.46875 C 762.73417,595.45555 762.94144,595.23447 762.9375,594.96875 L 762.9375,558.65625 C 762.94144,558.39053 762.73417,558.16945 762.46875,558.15625 L 752.65625,558.15625 C 752.62507,558.15327 752.59368,558.15327 752.5625,558.15625 L 752.5625,558.15625 z "
+         id="path701"
+         sodipodi:nodetypes="cccscccccccc" />
+    </g>
+  </g>
+</svg>
