@@ -7,6 +7,7 @@ Icon=kanagram
 Type=Application
 DocPath=kanagram/index.html
 Comment=KDE Letter Order Game
+Comment[x-test]=xxKDE Letter Order Gamexx
 GenericName=Letter Order Game
 GenericName[fr]=Remettre les lettres dans le bon ordre
 GenericName[x-test]=xxLetter Order Gamexx
