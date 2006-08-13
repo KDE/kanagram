@@ -16,7 +16,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
 #include <qdir.h>
@@ -54,14 +54,14 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 	QString code = KanagramSettings::dataLanguage();
 	entry.setGroup(code);
 	if (code == "sr")
-		cboxTranslation->setCurrentText(entry.readEntry("Name")+" ("+i18n("Cyrillic")+')');
+		cboxTranslation->setItemText(cboxTranslation->currentIndex(), (entry.readEntry("Name")+" ("+i18n("Cyrillic")+')'));
 	else if (code == "sr@Latn")
 	{
 		entry.setGroup("sr");
-		cboxTranslation->setCurrentText(entry.readEntry("Name")+" ("+i18n("Latin")+')');
+		cboxTranslation->setItemText(cboxTranslation->currentIndex(), entry.readEntry("Name")+" ("+i18n("Latin")+')');
 	}
 	else
-		cboxTranslation->setCurrentText(entry.readEntry("Name"));
+		cboxTranslation->setItemText(cboxTranslation->currentIndex(), entry.readEntry("Name"));
 	
 	QFont f("squeaky chalk sound");
 	if (KanagramSettings::justGotFont())
@@ -136,7 +136,7 @@ void MainSettings::setupTranslations()
 
 void MainSettings::getAndInstallFont()
 {
-	bool success = KIO::NetAccess::copy(KUrl("http://www.kde-edu.org/kanagram/chalk.ttf"), KUrl("fonts:/Personal/"), 0);
+	bool success = KIO::NetAccess::file_copy(KUrl("http://www.kde-edu.org/kanagram/chalk.ttf"), KUrl("fonts:/Personal/"), 0);
 	if (success)
 	{
 		getFontsButton->hide();
