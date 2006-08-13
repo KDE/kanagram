@@ -47,7 +47,7 @@ Q_OBJECT
 		QString getDocTitle();
 		QString getFilename();
 	private:
-		QString createAnagram(QString original);
+		QString createAnagram(const QString &original);
 		void checkFile();
 		QWidget *m_parent;
 		KRandomSequence m_random;

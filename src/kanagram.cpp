@@ -298,7 +298,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 	p2.drawPixmap(0, 0, buf);
 }
 
-void Kanagram::drawHelpText(QPainter &p, QString text)
+void Kanagram::drawHelpText(QPainter &p, const QString &text)
 {
 	p.save();
 	QFont font = m_font;
@@ -311,7 +311,7 @@ void Kanagram::drawHelpText(QPainter &p, QString text)
 	p.restore();
 }
 
-void Kanagram::drawSwitcherText(QPainter &p, QString text)
+void Kanagram::drawSwitcherText(QPainter &p, const QString &text)
 {
 	p.save();
 	QFont font = m_blackboardFont;
@@ -772,7 +772,7 @@ void Kanagram::refreshVocabularies()
 	m_vocabSettings->refreshView();
 }
 
-void Kanagram::play(QString filename)
+void Kanagram::play(const QString &filename)
 {
 	#ifndef WITHOUT_ARTS
 		KDE::PlayObject *playobj = m_artsFactory->createPlayObject(KStandardDirs::locate("appdata", "sounds/" + filename), true);

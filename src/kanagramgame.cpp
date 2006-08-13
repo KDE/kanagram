@@ -184,7 +184,7 @@ void KanagramGame::restoreWord()
 	m_anagram = m_originalWord;
 }
 
-QString KanagramGame::createAnagram(QString original)
+QString KanagramGame::createAnagram(const QString &original)
 {
 	QStringList objData = original.split(QString(""));
 	QString insaneData;

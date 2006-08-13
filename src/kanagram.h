@@ -76,7 +76,7 @@ Q_OBJECT
 		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, int fontSize = 18);
 		void drawTextNew(QPainter &p, const QString &text, int textAlign, int xMargin, int yMargin, const QRect &rect, bool highlight, int fontSize = 18);
 
-		void play(QString filename);
+		void play(const QString &filename);
 
 		void paintEvent(QPaintEvent *);
 
@@ -90,9 +90,9 @@ Q_OBJECT
 
 		void showSettings();
 
-		void drawHelpText(QPainter &p, QString text);
+		void drawHelpText(QPainter &p, const QString &text);
 
-		void drawSwitcherText(QPainter &p, QString text);
+		void drawSwitcherText(QPainter &p, const QString &text);
 		void drawSwitcher(QPainter &p, const int xMargin, const int yMargin);
 
 		QRect innerRect(const QRect &rect, const int xMargin, const int yMargin);
