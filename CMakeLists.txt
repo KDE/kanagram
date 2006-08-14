@@ -7,14 +7,3 @@ add_subdirectory( icons )
 add_subdirectory( sounds ) 
 
 
-
-
-########### install files ###############
-
-
-
-
-
-#original Makefile.am contents follow:
-
-#SUBDIRS = data images src icons sounds
