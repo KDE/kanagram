@@ -939,6 +939,7 @@ bool KEduVocKvtmlWriter::writeDoc(KEduVocDocument *doc, const QString &generator
   domDoc.appendChild(domElementKvtml);
 
   QTextStream ts( m_outputFile );
+  ts.setEncoding( QTextStream::UnicodeUTF8 );
   ts << domDoc.toString();
 
 // TODO setModified (false);
