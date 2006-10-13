@@ -23,7 +23,7 @@ kde4_add_ui_files(kanagram_SRCS
    newstuffwidget.ui
    mainsettingswidget.ui )
 
-kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
+kde4_add_kcfg_files(kanagram kanagram_SRCS kanagramsettings.kcfgc )
 
 kde4_add_executable(kanagram ${kanagram_SRCS})
 
