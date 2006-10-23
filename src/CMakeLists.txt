@@ -15,7 +15,7 @@ set(kanagram_SRCS
    newstuffdialog.cpp 
    newstuff.cpp )
 
-kde4_automoc(kanagram ${kanagram_SRCS})
+kde4_automoc(${kanagram_SRCS})
 
 kde4_add_ui_files(kanagram_SRCS 
    vocabsettingswidget.ui
@@ -23,7 +23,7 @@ kde4_add_ui_files(kanagram_SRCS
    newstuffwidget.ui
    mainsettingswidget.ui )
 
-kde4_add_kcfg_files(kanagram kanagram_SRCS kanagramsettings.kcfgc )
+kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 
 kde4_add_executable(kanagram ${kanagram_SRCS})
 
