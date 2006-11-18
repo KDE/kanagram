@@ -28,7 +28,7 @@ class VocabSettings : public QDialog, public Ui::VocabSettingsWidget
 {
 Q_OBJECT
 	public:
-		VocabSettings(QWidget *parent);
+		explicit VocabSettings(QWidget *parent);
 		virtual ~VocabSettings();
 		void refreshView();
 

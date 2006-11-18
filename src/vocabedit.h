@@ -33,7 +33,7 @@ class VocabEdit : public QDialog, Ui::VocabEditWidget
 {
 Q_OBJECT
 	public:
-		VocabEdit(QWidget *parent);
+		explicit VocabEdit(QWidget *parent);
 		VocabEdit(QWidget *parent, const QString &fileName);
 		~VocabEdit();
 	

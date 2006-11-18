@@ -31,7 +31,7 @@ class MainSettings : public QWidget, Ui::MainSettingsWidget
 {
 Q_OBJECT
 	public:
-		MainSettings(QWidget *parent);
+		explicit MainSettings(QWidget *parent);
 		~MainSettings();
 	
 	public slots:

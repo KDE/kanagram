@@ -28,7 +28,7 @@ class NewStuff : public QDialog, public Ui::NewStuffWidget
 {
 Q_OBJECT
 	public:
-		NewStuff(QWidget *parent);
+		explicit NewStuff(QWidget *parent);
 		~NewStuff();
 
 	private slots:

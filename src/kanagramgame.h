@@ -32,7 +32,7 @@ class KanagramGame : public QObject
 {
 Q_OBJECT
 	public:
-		KanagramGame(QWidget *parent);
+		explicit KanagramGame(QWidget *parent);
 		~KanagramGame();
 		void refreshVocabList();
 		void loadDefaultVocab();
