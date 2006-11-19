@@ -2,7 +2,7 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
  <!ENTITY kanagram "<application>Kanagram</application>">
  <!ENTITY kappname "&kanagram;">
- <!ENTITY package "playground-edu">
+ <!ENTITY package "kdeedu">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
