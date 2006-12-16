@@ -11,4 +11,4 @@ Comment[x-test]=xxKDE Letter Order Gamexx
 GenericName=Letter Order Game
 GenericName[fr]=Remettre les lettres dans le bon ordre
 GenericName[x-test]=xxLetter Order Gamexx
-Categories=Qt;KDE;Education;X-KDE-Edu-Language;
+Categories=Qt;KDE;Education;Languages;
