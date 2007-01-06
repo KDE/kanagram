@@ -47,6 +47,7 @@ using namespace std;
 #include <kconfigdialog.h>
 #include <kconfigskeleton.h>
 #include <krandomsequence.h>
+#include <kglobalsettings.h>
 #include <kdebug.h>
 
 #include "kanagram.h"
