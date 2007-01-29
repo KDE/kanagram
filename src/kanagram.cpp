@@ -125,7 +125,7 @@ Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_ove
 	m_hintTimer = new QTimer(this);
 	m_hintTimer->setSingleShot(true);
 	
-	m_helpMenu = new KHelpMenu(this, kapp->aboutData());
+	m_helpMenu = new KHelpMenu(this, KGlobal::mainComponent().aboutData());
 	
 	m_inputBox = new QLineEdit(this);
 	m_inputBox->setGeometry(QRect(52, 427, 273, 29));
