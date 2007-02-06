@@ -36,7 +36,6 @@ int main(int argc, char *argv[])
 	about.addCredit("Artemiy Pavlov", I18N_NOOP("Sound effects"), 0, "http://artemiolabs.com");
 	KCmdLineArgs::init(argc, argv, &about);
 	KApplication app;
-	app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
 	
 	KanagramSettings::setJustGotFont(false);
 	QFont f("squeaky chalk sound");
@@ -57,8 +56,10 @@ int main(int argc, char *argv[])
 		if (it == itEnd) KanagramSettings::setDataLanguage("en");
 		else KanagramSettings::setDataLanguage(*it);
 	}
-	
-	app.setTopWidget(new Kanagram());
+
+	Kanagram a;
+	a.show();
+	app.setTopWidget(&a);
 	return app.exec();
 }
 
