@@ -21,8 +21,6 @@
 #ifndef KANAGRAM_H
 #define KANAGRAM_H
 
-#include <config.h>
-
 #include <qwidget.h>
 #include <qlineedit.h>
 //Added by qt3to4:
@@ -31,20 +29,6 @@
 #include <QPaintEvent>
 
 #include <kxmlguiclient.h>
-
-#ifndef WITHOUT_ARTS
-#include <arts/kartsdispatcher.h>
-#include <arts/kartsserver.h>
-#include <arts/kplayobject.h>
-#include <arts/kplayobjectfactory.h>
-#else
-class KArtsDispatcher;
-class KArtsServer;
-namespace KDE
-{
-	class PlayObjectFactory;
-}
-#endif
 
 #include "kanagramgame.h"
 
@@ -55,6 +39,10 @@ using namespace std;
 class KHelpMenu;
 class KConfigDialog;
 class KRandomSequence;
+namespace Phonon
+{
+class AudioPlayer;
+}
 class KanagramGame;
 class VocabSettings;
 
@@ -128,9 +116,7 @@ Q_OBJECT
 
 		QTimer *m_hintTimer;
 
-		KArtsDispatcher *m_artsDispatcher;
-		KArtsServer *m_artsServer;
-		KDE::PlayObjectFactory *m_artsFactory;
+		Phonon::AudioPlayer *m_player;
 };
 
 #endif

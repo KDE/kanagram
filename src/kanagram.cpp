@@ -26,8 +26,6 @@
 #include <QPaintEvent>
 using namespace std;
 
-#include <config.h>
-
 #include <qcursor.h>
 #include <qpainter.h>
 #include <qpixmap.h>
@@ -48,7 +46,9 @@ using namespace std;
 #include <kconfigskeleton.h>
 #include <krandomsequence.h>
 #include <kglobalsettings.h>
+#include <kurl.h>
 #include <kdebug.h>
+#include <phonon/audioplayer.h>
 
 #include "kanagram.h"
 #include "kanagramsettings.h"
@@ -59,7 +59,7 @@ using namespace std;
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
 
-Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false)
+Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false), m_player(0)
 {
 	setAttribute(Qt::WA_StaticContents);
 	m_game = new KanagramGame(this);
@@ -141,17 +141,11 @@ Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_ove
 	m_inputBox->show();
 
 	m_font = KGlobalSettings::generalFont();
-
-	//Initialize the sound server
-	#ifndef WITHOUT_ARTS
-		m_artsDispatcher = new KArtsDispatcher();
-		m_artsServer = new KArtsServer();
-		m_artsFactory = new KDE::PlayObjectFactory(m_artsServer->server());
-	#endif
 }
 
 Kanagram::~Kanagram()
 {
+	delete m_player;
 }
 
 void Kanagram::loadSettings()
@@ -775,12 +769,19 @@ void Kanagram::refreshVocabularies()
 
 void Kanagram::play(const QString &filename)
 {
-	#ifndef WITHOUT_ARTS
-		KDE::PlayObject *playobj = m_artsFactory->createPlayObject(KStandardDirs::locate("appdata", "sounds/" + filename), true);
-		playobj->play();
-	#else
-		(void)filename;
-	#endif
+	if (filename.isEmpty())
+		return;
+
+	QString soundFile = KStandardDirs::locate("appdata", "sounds/" + filename);
+	if (soundFile.isEmpty())
+		return;
+
+	if (!m_player)
+	{
+		m_player = new Phonon::AudioPlayer(Phonon::GameCategory);
+	}
+	m_player->stop();
+	m_player->play(soundFile);
 }
 
 #include "kanagram.moc"
