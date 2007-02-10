@@ -8,6 +8,7 @@ Type=Application
 DocPath=kanagram/index.html
 Comment=KDE Letter Order Game
 Comment[el]=Παιχνίδι σειράς γραμμάτων του KDE
+Comment[fr]=Remettre les lettres dans le bon ordre
 Comment[x-test]=xxKDE Letter Order Gamexx
 GenericName=Letter Order Game
 GenericName[el]=Παιχνίδι σειράς γραμμάτων
