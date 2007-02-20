@@ -52,16 +52,16 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 	//the language code/name
 	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
 	QString code = KanagramSettings::dataLanguage();
-	entry.setGroup(code);
+    KConfigGroup group = entry.group(code);
 	if (code == "sr")
-		cboxTranslation->setItemText(cboxTranslation->currentIndex(), (entry.readEntry("Name")+" ("+i18n("Cyrillic")+')'));
+		cboxTranslation->setItemText(cboxTranslation->currentIndex(), (group.readEntry("Name")+" ("+i18n("Cyrillic")+')'));
 	else if (code == "sr@Latn")
 	{
-		entry.setGroup("sr");
-		cboxTranslation->setItemText(cboxTranslation->currentIndex(), entry.readEntry("Name")+" ("+i18n("Latin")+')');
+		KConfigGroup group = entry.group("sr");
+		cboxTranslation->setItemText(cboxTranslation->currentIndex(), group.readEntry("Name")+" ("+i18n("Latin")+')');
 	}
 	else
-		cboxTranslation->setItemText(cboxTranslation->currentIndex(), entry.readEntry("Name"));
+		cboxTranslation->setItemText(cboxTranslation->currentIndex(), group.readEntry("Name"));
 	
 	QFont f("squeaky chalk sound");
 	if (KanagramSettings::justGotFont())
@@ -121,16 +121,16 @@ void MainSettings::setupTranslations()
 	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
 	const QStringList::ConstIterator itEnd = languages.end();
 	for (QStringList::ConstIterator it = languages.begin(); it != itEnd; ++it) {
-		entry.setGroup(*it);
+		KConfigGroup group = entry.group(*it);
 		if (*it == "sr")
-			m_languageCodeMap.insert(entry.readEntry("Name")+" ("+i18n("Cyrillic")+')', "sr");
+			m_languageCodeMap.insert(group.readEntry("Name")+" ("+i18n("Cyrillic")+')', "sr");
 		else if (*it == "sr@Latn")
 		{
-			entry.setGroup("sr");
-			m_languageCodeMap.insert(entry.readEntry("Name") + " ("+i18n("Latin")+')', "sr@Latn");
+			KConfigGroup group = entry.group("sr");
+			m_languageCodeMap.insert(group.readEntry("Name") + " ("+i18n("Latin")+')', "sr@Latn");
 		}
 		else
-			m_languageCodeMap.insert(entry.readEntry("Name"), *it);
+			m_languageCodeMap.insert(group.readEntry("Name"), *it);
 	}
 }
 
