@@ -135,9 +135,9 @@ void KanagramGame::nextAnagram()
 	checkFile();
 	KEduVocDocument	*doc = new KEduVocDocument(this);
 	doc->open(KUrl(KStandardDirs::locate("appdata", m_filename)), false);
-	int totalWords = doc->numEntries();
+	int totalWords = doc->entryCount();
 	int wordNumber = m_random.getLong(totalWords);
-	if(doc->numEntries() == (int)m_answeredWords.size())
+	if(doc->entryCount() == (int)m_answeredWords.size())
 	{
 		m_answeredWords.clear();
 	}
