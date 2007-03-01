@@ -27,7 +27,6 @@
 #include <kurl.h>
 #include <kdebug.h>
 #include <kmessagebox.h>
-#include <kapplication.h>
 #include <klocale.h>
 
 #include "kanagramgame.h"
