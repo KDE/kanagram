@@ -32,6 +32,7 @@
 
 #include "kanagramgame.h"
 #include "keduvocdocument.h"
+#include "keduvocexpression.h"
 #include "kanagramsettings.h"
 
 
