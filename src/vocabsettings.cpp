@@ -64,7 +64,7 @@ void VocabSettings::refreshView()
 		doc->open(KUrl::fromPath(m_fileList[i]), false);
 		QTreeWidgetItem *item = new QTreeWidgetItem(lviewVocab, 0);
 		item->setText( 0, doc->title() );
-		item->setText( 1, doc->docRemark() );
+		item->setText( 1, doc->documentRemark() );
 		m_itemMap[item] = i;
 	}
 }

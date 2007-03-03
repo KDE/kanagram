@@ -57,7 +57,7 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent
 			lboxWords->addItem(doc->entry(i)->original());	
 		}
 		txtVocabName->setText(doc->title());
-		txtDescription->setText(doc->docRemark());
+		txtDescription->setText(doc->documentRemark());
 	}
 
 	connect(btnSave, SIGNAL(clicked()), this, SLOT(slotSave()));
@@ -87,7 +87,7 @@ void VocabEdit::slotSave()
 {
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->setTitle(txtVocabName->text());
-	doc->setDocRemark(txtDescription->text());
+	doc->setDocumentRemark(txtDescription->text());
 	for(int i = 0; i < m_vocabList.size(); i++)
 	{
 		doc->appendEntry(&m_vocabList[i]);
