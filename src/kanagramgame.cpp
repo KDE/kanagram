@@ -32,6 +32,7 @@
 #include "keduvocdocument.h"
 #include "kanagramsettings.h"
 
+#include <stdlib.h>
 
 KanagramGame::KanagramGame(QWidget* parent) : m_index(0)
 {
