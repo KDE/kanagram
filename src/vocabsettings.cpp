@@ -61,7 +61,7 @@ void VocabSettings::refreshView()
 	for(int i = 0; i < m_fileList.size(); i++)
 	{
 		KEduVocDocument *doc = new KEduVocDocument(this);
-		doc->open(KUrl::fromPath(m_fileList[i]), false);
+		doc->open(KUrl::fromPath(m_fileList[i]));
 		QTreeWidgetItem *item = new QTreeWidgetItem(lviewVocab, 0);
 		item->setText( 0, doc->title() );
 		item->setText( 1, doc->documentRemark() );

@@ -49,7 +49,7 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent
 	{
 		m_fileName = fileName;
 		KEduVocDocument	*doc = new KEduVocDocument(this);
-		doc->open(KUrl::fromPath(m_fileName), false);
+		doc->open(KUrl::fromPath(m_fileName));
 		for(int i = 0; i < doc->entryCount(); i++)
 		{
 			KEduVocExpression expr = *doc->entry(i);
