@@ -23,7 +23,7 @@
 #define NEWSTUFFDIALOG_H
 
 #include <knewstuff/knewstuff.h>
-#include <kdelibs_export.h>
+
 class NewStuffDialog : public KNewStuff
 {
 	public:
