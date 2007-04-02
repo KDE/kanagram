@@ -12,7 +12,6 @@ set(kanagram_SRCS
    mainsettings.cpp 
    vocabsettings.cpp 
    vocabedit.cpp 
-   newstuffdialog.cpp 
    newstuff.cpp )
 
 kde4_automoc(${kanagram_SRCS})
@@ -27,7 +26,7 @@ kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 
 kde4_add_executable(kanagram ${kanagram_SRCS})
 
-target_link_libraries(kanagram  ${KDE4_KNEWSTUFF_LIBS} ${KDE4_KIO_LIBS} ${KDE4_PHONONCORE_LIBRARY} kdeeducore )
+target_link_libraries(kanagram  ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_KIO_LIBS} ${KDE4_PHONONCORE_LIBRARY} kdeeducore )
 
 install(TARGETS kanagram  DESTINATION ${BIN_INSTALL_DIR} )
 
@@ -36,6 +35,7 @@ install(TARGETS kanagram  DESTINATION ${BIN_INSTALL_DIR} )
 
 install( FILES kanagram.desktop  DESTINATION  ${XDG_APPS_DIR} )
 install( FILES kanagram.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
+install( FILES kanagram.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
 

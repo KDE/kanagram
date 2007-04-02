@@ -25,12 +25,10 @@
 #include <qpushbutton.h>
 
 #include <kdebug.h>
-#include <knewstuff/downloaddialog.h>
-#include <knewstuff/knewstuff.h>
+#include <knewstuff2/engine.h>
 #include <klocale.h>
 
 #include "kanagramsettings.h"
-#include "newstuffdialog.h"
 
 NewStuff::NewStuff(QWidget *parent):QDialog(parent)
 {
@@ -44,8 +42,7 @@ NewStuff::~NewStuff()
 
 void NewStuff::slotGetNewVocabs()
 {
-	NewStuffDialog *nsd = new NewStuffDialog();
-	nsd->download();
+	KNS::Entry::List entries = KNS::Engine::download();
 }
 
 #include "newstuff.moc"
