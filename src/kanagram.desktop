@@ -4,6 +4,7 @@ Name=Kanagram
 Name[cy]=blinKen
 Name[hr]=KAnagram
 Name[ne]=कानाग्राम
+Name[pa]=ਕੰਨਗਰਾਮ
 Name[x-test]=xxKanagramxx
 Exec=kanagram
 Icon=kanagram
