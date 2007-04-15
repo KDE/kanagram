@@ -19,6 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
+#include "mainsettings.h"
+
 #include <qdir.h>
 #include <qcheckbox.h>
 #include <qcombobox.h>
@@ -32,7 +34,6 @@
 #include <kmessagebox.h>
 #include <kio/netaccess.h>
 
-#include "mainsettings.h"
 #include "kanagramsettings.h"
 
 MainSettings::MainSettings(QWidget *parent) : QWidget(parent)

@@ -19,6 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.           *
  ***************************************************************************/
 
+#include "kanagram.h"
+
 #include <iostream>
 //Added by qt3to4:
 #include <QMouseEvent>
@@ -50,7 +52,6 @@ using namespace std;
 #include <kdebug.h>
 #include <phonon/audioplayer.h>
 
-#include "kanagram.h"
 #include "kanagramsettings.h"
 #include "mainsettings.h"
 #include "vocabsettings.h"

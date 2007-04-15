@@ -20,6 +20,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
+#include "kanagramgame.h"
+
 #include <stdlib.h> // for exit
 
 #include <qfile.h>
@@ -29,7 +31,6 @@
 #include <kmessagebox.h>
 #include <klocale.h>
 
-#include "kanagramgame.h"
 #include "keduvocdocument.h"
 #include "keduvocexpression.h"
 #include "kanagramsettings.h"
