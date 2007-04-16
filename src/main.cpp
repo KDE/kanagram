@@ -19,12 +19,11 @@
  ***************************************************************************/
 
 #include <kaboutdata.h>
-#include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
 #include <k3process.h>
 #include <kstandarddirs.h>
-
+#include <kapplication.h>
 #include "kanagram.h"
 #include "kanagramsettings.h"
 

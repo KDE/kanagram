@@ -37,7 +37,6 @@ using namespace std;
 #include <qdir.h>
 
 #include <kaction.h>
-#include <kapplication.h>
 #include <kconfig.h>
 #include <khelpmenu.h>
 #include <kinputdialog.h>
@@ -51,6 +50,7 @@ using namespace std;
 #include <kurl.h>
 #include <kdebug.h>
 #include <phonon/audioplayer.h>
+#include <KComponentData>
 
 #include "kanagramsettings.h"
 #include "mainsettings.h"
@@ -388,7 +388,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 	if(m_quitRect.contains(e->pos()))
 	{
-		kapp->quit();
+		qApp->quit();
 	}
 
 	if(m_revealRect.contains(e->pos()))
