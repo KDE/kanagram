@@ -21,13 +21,10 @@
 
 #include "kanagram.h"
 
-#include <iostream>
-//Added by qt3to4:
 #include <QMouseEvent>
 #include <QEvent>
 #include <QPaintEvent>
 #include <QSvgRenderer>
-using namespace std;
 
 #include <qcursor.h>
 #include <qpainter.h>
