@@ -117,7 +117,7 @@ Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_ove
 
 	loadSettings();
 	
-	resize(1000, 725);
+	setMinimumSize(650, 471);
 }
 
 Kanagram::~Kanagram()
