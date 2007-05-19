@@ -15,7 +15,7 @@
    sodipodi:version="0.32"
    inkscape:version="0.45"
    sodipodi:docname="kanagram.svg"
-   sodipodi:docbase="/home/danny/CVS/TRUNK/kdeedu/kanagram/images"
+   sodipodi:docbase="/home/jeremy/devel/kde4/src/kdeedu/kanagram/images"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    sodipodi:modified="true">
   <metadata
@@ -41,8 +41,8 @@
      bordercolor="#666666"
      pagecolor="#ffffff"
      id="base"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-x="122"
+     inkscape:window-y="60"
      inkscape:current-layer="svg1" />
   <defs
      id="defs3" />
@@ -338,11 +338,12 @@
   </g>
   <g
      transform="matrix(0.8410233,0,0,0.8184181,480.81399,624.02352)"
-     id="arrow_over"
+     id="arrow_hover"
      inkscape:export-filename="/home/danny/work/kde/MOCKUPS/kanagram/arrow.png"
      inkscape:export-xdpi="58.500000"
      inkscape:export-ydpi="58.500000"
-     style="stroke:#ffffff;stroke-opacity:1">
+     style="stroke:#ffffff;stroke-opacity:1"
+     inkscape:label="#arrow_hover">
     <path
        style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.125;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
        d="M 600.58507,224.60699 C 600.58507,224.33477 599.54621,201.09279 599.54621,198.63554 C 599.54621,192.53826 614.7828,208.13608 615.64851,209.52122 C 617.0731,211.80056 607.03874,223.74557 600.58507,224.60699 z "
@@ -373,15 +374,16 @@
   <path
      style="color:#000000;fill:#9b9b9b;fill-opacity:1;fill-rule:evenodd;stroke:#9b9b9b;stroke-width:2.59720993;stroke-linecap:square;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
      d="M 937.7756,767.84331 L 937.7756,745.44052 L 951.4283,756.64191 L 937.7756,767.84331 z "
-     id="basic_arrow"
+     id="basicarrow"
      sodipodi:nodetypes="cccc"
      inkscape:export-filename="/home/danny/work/kde/kanagram/stuff/basic_arrow_over.png"
      inkscape:export-xdpi="58.500000"
-     inkscape:export-ydpi="58.500000" />
+     inkscape:export-ydpi="58.500000"
+     inkscape:label="#basicarrow" />
   <path
      style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:2.59720993;stroke-linecap:square;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
      d="M 985.0487,767.84331 L 985.0487,745.44052 L 998.7014,756.64191 L 985.0487,767.84331 z "
-     id="basic_arrow_over"
+     id="basicarrow_hover"
      sodipodi:nodetypes="cccc"
      inkscape:export-filename="/home/danny/work/kde/kanagram/stuff/basic_arrow_over.png"
      inkscape:export-xdpi="58.500000"
@@ -442,7 +444,7 @@
        style="font-size:12px;fill:#666666;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:5.13161612;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1" />
   </g>
   <g
-     id="handbook_help"
+     id="handbook_hover"
      transform="matrix(1.3068178,0,0,1.3068178,-462.71213,-396.71707)">
     <path
        id="path4147"

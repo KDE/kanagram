@@ -36,6 +36,8 @@
 
 using namespace std;
 
+class QSvgRenderer;
+
 class KHelpMenu;
 class KConfigDialog;
 class KRandomSequence;
@@ -67,6 +69,8 @@ Q_OBJECT
 		void play(const QString &filename);
 
 		void paintEvent(QPaintEvent *);
+		
+		void resizeEvent(QResizeEvent *);
 
 		void mousePressEvent(QMouseEvent *e);
 
@@ -87,7 +91,8 @@ Q_OBJECT
 
 		KanagramGame *m_game;
 
-		QPixmap *m_back, *m_hintOverlay, *m_aboutKDEOverlay, *m_aboutAppOverlay, *m_handbookOverlay, *m_aboutKDEOverlayOver, *m_aboutAppOverlayOver, *m_handbookOverlayOver, *m_card, *m_arrow, *m_arrowOver, *m_next, *m_nextOver, *m_config, *m_configOver, *m_help, *m_helpOver, *m_quit, *m_quitOver, *m_up, *m_upOver, *m_upDisabled;
+		QString m_hintOverlayName;
+		QString m_arrowName;
 
 		//Deprecated
 		//QRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect;
@@ -117,6 +122,11 @@ Q_OBJECT
 		QTimer *m_hintTimer;
 
 		Phonon::AudioPlayer *m_player;
+		
+		QSvgRenderer * m_renderer;
+		
+		double m_xRatio;
+		double m_yRatio;
 };
 
 #endif

@@ -26,6 +26,7 @@
 #include <QMouseEvent>
 #include <QEvent>
 #include <QPaintEvent>
+#include <QSvgRenderer>
 using namespace std;
 
 #include <qcursor.h>
@@ -60,68 +61,41 @@ using namespace std;
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
 
+double kWindowWidth = 1000.0;
+double kWindowHeight = 725.0;
+
+double xEyesScale = 270.437 / kWindowWidth;
+double yEyesScale = 195.176 / kWindowHeight;
+
+double xScale57Buttons = 57.5 / kWindowWidth;
+double yScale57Buttons = 57.5 / kWindowHeight;
+
+double xScale55Buttons = 55.0 / kWindowWidth;
+double yScale55Buttons = 55.0 / kWindowHeight;
+
+double xTranslateButtons = 810.053 / kWindowWidth;
+
+double yTranslateNextButton = 59.588 / kWindowHeight;
+double yTranslateConfigButton = 199.85 / kWindowHeight;
+double yTranslateHelpButton = 337.487 / kWindowHeight;
+
+double xScaleQuitButton = 77.484 / kWindowWidth;
+double yScaleQuitButton = 77.5 / kWindowHeight;
+
 Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false), m_player(0)
 {
 	setAttribute(Qt::WA_StaticContents);
+	m_renderer = new QSvgRenderer(KStandardDirs::locate("appdata", "images/kanagram.svg"));
+
 	m_game = new KanagramGame(this);
-
-	m_back = new QPixmap(KStandardDirs::locate("appdata", "images/kanagram.png"));
-	m_aboutKDEOverlay = new QPixmap(KStandardDirs::locate("appdata", "images/kicon.png"));
-	m_aboutKDEOverlayOver = new QPixmap(KStandardDirs::locate("appdata", "images/kiconover.png"));
-	m_aboutAppOverlay = new QPixmap(KStandardDirs::locate("appdata", "images/appicon.png"));
-	m_aboutAppOverlayOver = new QPixmap(KStandardDirs::locate("appdata", "images/appiconover.png"));
-	m_handbookOverlay = new QPixmap(KStandardDirs::locate("appdata", "images/handbookicon.png"));
-	m_handbookOverlayOver = new QPixmap(KStandardDirs::locate("appdata", "images/handbookiconover.png"));
-	m_card = new QPixmap(KStandardDirs::locate("appdata", "images/card.png"));
-
-	m_next = new QPixmap(KStandardDirs::locate("appdata", "images/next.png"));
-	m_nextOver = new QPixmap(KStandardDirs::locate("appdata", "images/nextover.png"));
-	m_config = new QPixmap(KStandardDirs::locate("appdata", "images/config.png"));
-	m_configOver = new QPixmap(KStandardDirs::locate("appdata", "images/configover.png"));
-	m_help = new QPixmap(KStandardDirs::locate("appdata", "images/help.png"));
-	m_helpOver = new QPixmap(KStandardDirs::locate("appdata", "images/helpover.png"));
-	m_quit = new QPixmap(KStandardDirs::locate("appdata", "images/quit.png"));
-	m_quitOver = new QPixmap(KStandardDirs::locate("appdata", "images/quitover.png"));
-
-	m_up = new QPixmap(KStandardDirs::locate("appdata", "images/up.png"));
-	m_upOver = new QPixmap(KStandardDirs::locate("appdata", "images/upover.png"));
-	m_upDisabled = new QPixmap(KStandardDirs::locate("appdata", "images/updisabled.png"));
-
-	m_nextRect = QRect(477, 31, 134, 76);
-	m_configRect = QRect(477, 122, 134, 76);
-	m_helpRect = QRect(477, 212, 134, 76);
-	m_quitRect = QRect(453, 352, 182, 104);
-	
-	QFont font = m_blackboardFont;
-	font.setPointSize(14);
-	font.setBold(true);
-    QFontMetrics fm(font);
-	m_blackboardRect = QRect(41, 116, 366, 248);
-//	m_hintRect = QRect(51, 337, 39, 28);
-	QRect r = innerRect(m_blackboardRect, 6, 0);
-    m_hintRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
-	m_hintBoxRect = QRect(446, 207, 171, 85);
-//	m_revealRect = QRect(279, 338, 119, 28);
-	r = innerRect(m_blackboardRect, 6, 0);
-    m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
-	m_upRect = QRect(341, 425, 55, 33);
-	m_aboutKDERect = QRect(567, 213, 44, 44);
-	m_aboutAppRect = QRect(522, 213, 44, 44);
-	m_handbookRect = QRect(478, 213, 44, 44);
-	m_arrowRect = QRect(380, 134, 13, 20);
-	m_logoRect = QRect(76, 24, 297, 50);
 	
 	setMouseTracking(true);
-	setFixedSize(650, 471);
-	show();
-	
+	//setFixedSize(650, 471);
 	m_chalkColor = QColor(155, 155, 155);
 	m_chalkHighlightColor = QColor(255, 255, 255);
 	m_fillColor = QColor(45, 45, 45);
 	m_fontColor = QColor(55, 55, 55);
 	m_fontHighlightColor = QColor(99, 99, 99);
-
-	loadSettings();
 
 	m_hintTimer = new QTimer(this);
 	m_hintTimer->setSingleShot(true);
@@ -129,7 +103,6 @@ Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_ove
 	m_helpMenu = new KHelpMenu(this, KGlobal::mainComponent().aboutData());
 	
 	m_inputBox = new QLineEdit(this);
-	m_inputBox->setGeometry(QRect(52, 427, 273, 29));
 	m_inputBox->setFrame(false);
 	
 	connect(m_inputBox, SIGNAL(returnPressed()), this, SLOT(checkWord()));
@@ -142,6 +115,12 @@ Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_ove
 	m_inputBox->show();
 
 	m_font = KGlobalSettings::generalFont();
+
+	show();
+
+	loadSettings();
+	
+	resize(1000, 725);
 }
 
 Kanagram::~Kanagram()
@@ -163,14 +142,12 @@ void Kanagram::loadSettings()
 	if(m_useStandardFonts)
 	{
 		m_blackboardFont = KGlobalSettings::generalFont();
-		m_arrow = new QPixmap(KStandardDirs::locate("appdata", "images/basicarrow.png"));
-		m_arrowOver = new QPixmap(KStandardDirs::locate("appdata", "images/basicarrowover.png"));
+		m_arrowName = "basicarrow";
 	}
 	else
 	{
 		m_blackboardFont = QFont("squeaky chalk sound");
-		m_arrow = new QPixmap(KStandardDirs::locate("appdata", "images/arrow.png"));
-		m_arrowOver = new QPixmap(KStandardDirs::locate("appdata", "images/arrowover.png"));
+		m_arrowName = "arrow";
 	}
 
 	m_game->refreshVocabList();
@@ -181,24 +158,42 @@ void Kanagram::paintEvent(QPaintEvent *)
 	QPixmap buf(width(), height());
 	QPainter p(&buf);
 	
-	p.drawPixmap(0, 0, *m_back);
+	m_renderer->render(&p, "background");
+
+	m_xRatio = width() / kWindowWidth;
+	m_yRatio = height() / kWindowHeight;
 
 	if(m_overNext)
-		p.drawPixmap(525, 38, *m_nextOver);
-	else
-		p.drawPixmap(525, 38, *m_next);
+	{
+		p.translate(xTranslateButtons * width(), yTranslateNextButton * height());
+		p.scale(xScale55Buttons, yScale55Buttons);
+		m_renderer->render(&p, "next_hover");
+		p.resetMatrix();
+	}
+
 	if(m_overConfig)
-		p.drawPixmap(525, 130, *m_configOver);
-	else
-		p.drawPixmap(525, 130, *m_config);
+	{
+		p.translate(xTranslateButtons * width(), yTranslateConfigButton * height());
+		p.scale(xScale55Buttons, yScale55Buttons);
+		m_renderer->render(&p, "config_hover");
+		p.resetMatrix();
+	}
+
 	if(m_overHelp)
-		p.drawPixmap(525, 218, *m_helpOver);
-	else
-		p.drawPixmap(525, 218, *m_help);
+	{
+		p.translate(xTranslateButtons * width(), yTranslateHelpButton * height());
+		p.scale(xScale55Buttons, yScale55Buttons);
+		m_renderer->render(&p, "help_hover");
+		p.resetMatrix();
+	}
+
 	if(m_overQuit)
-		p.drawPixmap(520, 362, *m_quitOver);
-	else
-		p.drawPixmap(520, 362, *m_quit);
+	{
+		p.translate(798.811 * m_xRatio, 556.803 * m_yRatio);
+		p.scale(xScaleQuitButton, yScaleQuitButton);
+		m_renderer->render(&p, "quit_hover");
+		p.resetMatrix();
+	}
 
 //	drawText(p, m_game->getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, 28);
 	drawTextNew(p, m_game->getAnagram(), Qt::AlignCenter, 10, 10, m_blackboardRect, true, 28);
@@ -221,8 +216,8 @@ void Kanagram::paintEvent(QPaintEvent *)
 
 	//Draw the border of the input box
 	QRect borderRect = m_inputBox->geometry();
-	borderRect.setLeft(borderRect.left() - 2);
-	borderRect.setTop(borderRect.top() - 2);
+	borderRect.setLeft(borderRect.left() - 1);
+	borderRect.setTop(borderRect.top() - 1);
 	borderRect.setWidth(borderRect.width() + 2 * 1);
 	borderRect.setHeight(borderRect.height() + 2 * 1);
 	p.drawRoundRect(borderRect, 10, 5);
@@ -232,61 +227,94 @@ void Kanagram::paintEvent(QPaintEvent *)
 	p.fillRect(borderRect, m_fillColor);
 	p.drawRoundRect(borderRect, 10, 5);
 	
+	QString upArrow = "up";
 	if(m_overUp && !m_inputBox->text().isEmpty())
-		p.drawPixmap(350, 431, *m_upOver);
+	{
+		upArrow = "up_hover";
+	}
 	else if(m_inputBox->text().isEmpty())
-		p.drawPixmap(350, 431, *m_upDisabled);
-	else
-		p.drawPixmap(350, 431, *m_up);
+	{
+		upArrow = "up_disabled";
+	}
+
+	p.translate(m_inputBox->x() + m_inputBox->width() + 27 * m_xRatio, m_inputBox->y() + 12 * m_yRatio);
+	p.scale(38 / kWindowWidth, 20 / kWindowHeight);
+	m_renderer->render(&p, upArrow);
+	p.resetMatrix();
 
 	if(m_showHint)
 	{
-		p.drawPixmap(439, 204, *m_hintOverlay);
+		p.translate(684.813 * m_xRatio, 319.896 * m_yRatio);
+		p.scale(xEyesScale, yEyesScale);
+		m_renderer->render(&p, m_hintOverlayName);
+		p.resetMatrix();
+
+		// TODO: figure out how to do drawText with svg position and size
 		QFont f = QFont(m_font);
 		f.setWeight(QFont::Bold);
 		f.setPointSize(10);
 		p.setFont(f);
-		p.drawText(459, 217, 148, 67, Qt::TextWordWrap | Qt::AlignCenter, m_game->getHint());
+		p.drawText(694 * m_xRatio, 330 * m_yRatio, 250 * m_xRatio, 100 * m_yRatio, Qt::TextWordWrap | Qt::AlignCenter, m_game->getHint());
 	}
 
 	if(m_overHelp && !m_showHint)
 	{
-		p.drawPixmap(456, 275, *m_card);
 		if(m_overAboutApp)
 		{
-			p.drawPixmap(522, 213, *m_aboutAppOverlay);
+			p.translate(808.377 * m_xRatio, 335.352 * m_yRatio);
+			p.scale(xScale57Buttons, yScale57Buttons);
+			m_renderer->render(&p, "appicon_hover");
+			p.resetMatrix();
 			drawHelpText(p, i18n("About Kanagram"));
 		}
 		else
-			p.drawPixmap(522, 213, *m_aboutAppOverlayOver);
+		{
+			p.translate(808.377 * m_xRatio, 335.352 * m_yRatio);
+			p.scale(xScale57Buttons, yScale57Buttons);
+			m_renderer->render(&p, "appicon");
+			p.resetMatrix();
+		}
 		if(m_overAboutKDE)
 		{
-			p.drawPixmap(567, 213, *m_aboutKDEOverlay);
+			p.translate(865.877 * m_xRatio, 335.352 * m_yRatio);
+			p.scale(xScale57Buttons, yScale57Buttons);
+			m_renderer->render(&p, "kicon_hover");
+			p.resetMatrix();
 			drawHelpText(p, i18n("About KDE"));
 		}
 		else
-			p.drawPixmap(567, 213, *m_aboutKDEOverlayOver);
+		{
+			p.translate(865.877 * m_xRatio, 335.352 * m_yRatio);
+			p.scale(xScale57Buttons, yScale57Buttons);
+			m_renderer->render(&p, "kicon");
+			p.resetMatrix();
+		}
 		if(m_overHandbook)
 		{
-			p.drawPixmap(478, 213, *m_handbookOverlay);
+			p.translate(750.877 * m_xRatio, 335.352 * m_yRatio);
+			p.scale(xScale57Buttons, yScale57Buttons);
+			m_renderer->render(&p, "handbook_hover");
+			p.resetMatrix();
 			drawHelpText(p, i18n("Kanagram Handbook"));
 		}
 		else
-			p.drawPixmap(478, 213, *m_handbookOverlayOver);
+		{
+			p.translate(750.877 * m_xRatio, 335.352 * m_yRatio);
+			p.scale(xScale57Buttons, yScale57Buttons);
+			m_renderer->render(&p, "handbook");
+			p.resetMatrix();
+		}
 	}
 	else if(m_overNext)
 	{
-		p.drawPixmap(456, 275, *m_card);
 		drawHelpText(p, i18n("Next Word"));
 	}
 	else if(m_overConfig)
 	{
-		p.drawPixmap(456, 275, *m_card);
 		drawHelpText(p, i18n("Configure Kanagram"));
 	}
 	else if(m_overQuit)
 	{
-		p.drawPixmap(456, 275, *m_card);
 		drawHelpText(p, i18n("Quit Kanagram"));
 	}
 
@@ -294,16 +322,60 @@ void Kanagram::paintEvent(QPaintEvent *)
 	p2.drawPixmap(0, 0, buf);
 }
 
+void Kanagram::resizeEvent(QResizeEvent *)
+{
+	m_xRatio = width() / kWindowWidth;
+	m_yRatio = height() / kWindowHeight;
+
+	m_blackboardRect = QRect(63.657 * m_xRatio, 182.397 * m_yRatio, 563.273 * m_xRatio, 380.735 * m_yRatio);
+	m_inputBox->setGeometry(QRect(80 * m_xRatio, 657.272 * m_yRatio, 420 * m_xRatio, 44.639 * m_yRatio));
+
+	QFont font = m_blackboardFont;
+	font.setPointSize(14);
+	font.setBold(true);
+    QFontMetrics fm(font);
+//	m_hintRect = QRect(51, 337, 39, 28);
+	QRect r = innerRect(m_blackboardRect, 6, 0);
+    m_hintRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
+	m_hintBoxRect = QRect(684.813 * m_xRatio, 319.896 * m_yRatio, xEyesScale * width(), yEyesScale * height());
+//	m_revealRect = QRect(279, 338, 119, 28);
+	r = innerRect(m_blackboardRect, 6, 0);
+    m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
+
+	m_upRect = QRect(m_inputBox->x() + m_inputBox->width() + 20 * m_xRatio, m_inputBox->y(), 50 * m_xRatio, m_inputBox->height());
+	m_arrowRect = QRect(m_switcherRect.right() + 5, m_switcherRect.top(), 16.250 * m_xRatio, 25.0 * m_yRatio);
+	m_logoRect = QRect(76, 24, 297, 50);
+
+	m_aboutAppRect = QRect(xTranslateButtons * width(), yTranslateHelpButton * height(), 
+							xScale57Buttons * width(), yScale57Buttons * height());
+	m_aboutKDERect = QRect(867 * m_xRatio, 335.352 * m_yRatio, 
+							xScale57Buttons * width(), yScale57Buttons * height());
+	m_handbookRect = QRect(750.877 * m_xRatio, 335.352 * m_yRatio, 
+							xScale57Buttons * width(), yScale57Buttons * height());
+
+	m_nextRect = QRect(735.448 * m_xRatio, 49.028 * m_yRatio,	206.142 * m_xRatio, 117.537 * m_yRatio);	
+	m_configRect = QRect(735.448 * m_xRatio, 188.264 * m_yRatio, 206.142 * m_xRatio, 117.537 * m_yRatio);
+	m_helpRect = QRect(735.448 * m_xRatio, 327.5 * m_yRatio, 206.142 * m_xRatio, 117.537 * m_yRatio);
+	m_quitRect = QRect(697.549 * m_xRatio, 542.337 * m_yRatio, 279.935 * m_xRatio, 160.68 * m_yRatio);
+
+	update();
+}
+
 void Kanagram::drawHelpText(QPainter &p, const QString &text)
 {
+	p.translate(700.582 * m_xRatio, 424.176 * m_yRatio);
+	p.scale(256.582 / kWindowWidth, 101.150 / kWindowHeight);
+	m_renderer->render(&p, "card");
+	p.resetMatrix();
+	
 	p.save();
 	QFont font = m_font;
 	font.setPointSize(12);
 	p.setFont(font);
 	p.rotate(-3.29);
 	p.setPen(Qt::black);
-	p.drawText(450, 340, text.section(' ', 0, 0));
-	p.drawText(450, 360, text.section(' ', 1));
+	p.drawText(715 * m_xRatio, 520 * m_yRatio, text.section(' ', 0, 0));
+	p.drawText(715 * m_xRatio, 550 * m_yRatio, text.section(' ', 1));
 	p.restore();
 }
 
@@ -334,20 +406,21 @@ void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
 	QFontMetrics fm(font);
 	QRect r = innerRect(m_blackboardRect, xMargin, yMargin);
 	r = r.normalized();
-	r.translate(- padding - (m_overSwitcher ? m_arrowOver : m_arrow )->width(), yMargin);
-	r.setHeight( (m_overSwitcher ? m_arrowOver : m_arrow )->height());
+	r.translate(- padding - (16.250 * m_xRatio), yMargin);
+	r.setHeight(25.0 * m_yRatio);
 	m_switcherRect = p.boundingRect(r, Qt::AlignVCenter|Qt::AlignRight, text);
 	p.setFont(font);
+	QString arrow = m_arrowName;
 	if (m_overSwitcher)
 	{
 		p.setPen(m_chalkHighlightColor);
-		p.drawPixmap(m_switcherRect.right() + padding, m_switcherRect.top(), *m_arrowOver);
+		arrow = m_arrowName + "_hover";
 	}
-	else
-	{
-		p.setPen(m_chalkColor);
-		p.drawPixmap(m_switcherRect.right() + padding, m_switcherRect.top(), *m_arrow);
-	}
+	p.translate(m_switcherRect.right() + padding, m_switcherRect.top());
+	p.scale(16.250 / kWindowWidth, 25.0 / kWindowHeight);
+	m_renderer->render(&p, arrow);
+	p.resetMatrix();
+
 	m_switcherRect.translate(0, -2);
 	p.drawText(m_switcherRect, Qt::AlignVCenter|Qt::AlignRight, text);
 }
@@ -724,8 +797,7 @@ void Kanagram::checkWord()
 void Kanagram::randomHintImage()
 {
 	unsigned long imageNum = m_randomImage.getLong(8);
-	QString dir = "images/eyes" + QString::number(imageNum + 1) + ".png";
-	m_hintOverlay = new QPixmap(KStandardDirs::locate("appdata", dir));
+	m_hintOverlayName = "eyes" + QString::number(imageNum + 1);
 }
 
 void Kanagram::showSettings()
