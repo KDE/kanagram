@@ -251,7 +251,8 @@ void Kanagram::paintEvent(QPaintEvent *)
 		f.setWeight(QFont::Bold);
 		f.setPointSize(10);
 		p.setFont(f);
-		p.drawText(694 * m_xRatio, 330 * m_yRatio, 250 * m_xRatio, 100 * m_yRatio, Qt::TextWordWrap | Qt::AlignCenter, m_game->getHint());
+		p.drawText(int(694 * m_xRatio), int(330 * m_yRatio), int(250 * m_xRatio), int(100 * m_yRatio), 
+			Qt::TextWordWrap | Qt::AlignCenter, m_game->getHint());
 	}
 
 	if(m_overHelp && !m_showHint)
@@ -324,8 +325,8 @@ void Kanagram::resizeEvent(QResizeEvent *)
 	m_xRatio = width() / kWindowWidth;
 	m_yRatio = height() / kWindowHeight;
 
-	m_blackboardRect = QRect(63.657 * m_xRatio, 182.397 * m_yRatio, 563.273 * m_xRatio, 380.735 * m_yRatio);
-	m_inputBox->setGeometry(QRect(80 * m_xRatio, 657.272 * m_yRatio, 420 * m_xRatio, 44.639 * m_yRatio));
+	m_blackboardRect = QRect(int(63.657 * m_xRatio), int(182.397 * m_yRatio), int(563.273 * m_xRatio), int(380.735 * m_yRatio));
+	m_inputBox->setGeometry(QRect(int(80 * m_xRatio), int(657.272 * m_yRatio), int(420 * m_xRatio), int(44.639 * m_yRatio)));
 
 	QFont font = m_blackboardFont;
 	font.setPointSize(14);
@@ -334,26 +335,26 @@ void Kanagram::resizeEvent(QResizeEvent *)
 //	m_hintRect = QRect(51, 337, 39, 28);
 	QRect r = innerRect(m_blackboardRect, 6, 0);
     m_hintRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
-	m_hintBoxRect = QRect(684.813 * m_xRatio, 319.896 * m_yRatio, xEyesScale * width(), yEyesScale * height());
+	m_hintBoxRect = QRect(int(684.813 * m_xRatio), int(319.896 * m_yRatio), int(xEyesScale * width()), int(yEyesScale * height()));
 //	m_revealRect = QRect(279, 338, 119, 28);
 	r = innerRect(m_blackboardRect, 6, 0);
     m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
 
-	m_upRect = QRect(m_inputBox->x() + m_inputBox->width() + 20 * m_xRatio, m_inputBox->y(), 50 * m_xRatio, m_inputBox->height());
-	m_arrowRect = QRect(m_switcherRect.right() + 5, m_switcherRect.top(), 16.250 * m_xRatio, 25.0 * m_yRatio);
+	m_upRect = QRect(int(m_inputBox->x() + m_inputBox->width() + 20 * m_xRatio), m_inputBox->y(), int(50 * m_xRatio), m_inputBox->height());
+	m_arrowRect = QRect(m_switcherRect.right() + 5, m_switcherRect.top(), int(16.250 * m_xRatio), int(25.0 * m_yRatio));
 	m_logoRect = QRect(76, 24, 297, 50);
 
-	m_aboutAppRect = QRect(xTranslateButtons * width(), yTranslateHelpButton * height(), 
-							xScale57Buttons * width(), yScale57Buttons * height());
-	m_aboutKDERect = QRect(867 * m_xRatio, 335.352 * m_yRatio, 
-							xScale57Buttons * width(), yScale57Buttons * height());
-	m_handbookRect = QRect(750.877 * m_xRatio, 335.352 * m_yRatio, 
-							xScale57Buttons * width(), yScale57Buttons * height());
+	m_aboutAppRect = QRect(int(xTranslateButtons * width()), int(yTranslateHelpButton * height()), 
+							int(xScale57Buttons * width()), int(yScale57Buttons * height()));
+	m_aboutKDERect = QRect(int(867 * m_xRatio), int(335.352 * m_yRatio), 
+							int(xScale57Buttons * width()), int(yScale57Buttons * height()));
+	m_handbookRect = QRect(int(750.877 * m_xRatio), int(335.352 * m_yRatio), 
+							int(xScale57Buttons * width()), int(yScale57Buttons * height()));
 
-	m_nextRect = QRect(735.448 * m_xRatio, 49.028 * m_yRatio,	206.142 * m_xRatio, 117.537 * m_yRatio);	
-	m_configRect = QRect(735.448 * m_xRatio, 188.264 * m_yRatio, 206.142 * m_xRatio, 117.537 * m_yRatio);
-	m_helpRect = QRect(735.448 * m_xRatio, 327.5 * m_yRatio, 206.142 * m_xRatio, 117.537 * m_yRatio);
-	m_quitRect = QRect(697.549 * m_xRatio, 542.337 * m_yRatio, 279.935 * m_xRatio, 160.68 * m_yRatio);
+	m_nextRect = QRect(int(735.448 * m_xRatio), int(49.028 * m_yRatio), int(206.142 * m_xRatio), int(117.537 * m_yRatio));	
+	m_configRect = QRect(int(735.448 * m_xRatio), int(188.264 * m_yRatio), int(206.142 * m_xRatio), int(117.537 * m_yRatio));
+	m_helpRect = QRect(int(735.448 * m_xRatio), int(327.5 * m_yRatio), int(206.142 * m_xRatio), int(117.537 * m_yRatio));
+	m_quitRect = QRect(int(697.549 * m_xRatio), int(542.337 * m_yRatio), int(279.935 * m_xRatio), int(160.68 * m_yRatio));
 
 	update();
 }
@@ -371,8 +372,8 @@ void Kanagram::drawHelpText(QPainter &p, const QString &text)
 	p.setFont(font);
 	p.rotate(-3.29);
 	p.setPen(Qt::black);
-	p.drawText(715 * m_xRatio, 520 * m_yRatio, text.section(' ', 0, 0));
-	p.drawText(715 * m_xRatio, 550 * m_yRatio, text.section(' ', 1));
+	p.drawText(int(715 * m_xRatio), int(520 * m_yRatio), text.section(' ', 0, 0));
+	p.drawText(int(715 * m_xRatio), int(550 * m_yRatio), text.section(' ', 1));
 	p.restore();
 }
 
@@ -403,8 +404,8 @@ void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
 	QFontMetrics fm(font);
 	QRect r = innerRect(m_blackboardRect, xMargin, yMargin);
 	r = r.normalized();
-	r.translate(- padding - (16.250 * m_xRatio), yMargin);
-	r.setHeight(25.0 * m_yRatio);
+	r.translate(- padding - int(16.250 * m_xRatio), yMargin);
+	r.setHeight(int(25.0 * m_yRatio));
 	m_switcherRect = p.boundingRect(r, Qt::AlignVCenter|Qt::AlignRight, text);
 	p.setFont(font);
 	QString arrow = m_arrowName;
