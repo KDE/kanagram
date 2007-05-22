@@ -125,6 +125,8 @@ Q_OBJECT
 		
 		QSvgRenderer * m_renderer;
 		
+		int m_cornerFontSize;
+		
 		double m_xRatio;
 		double m_yRatio;
 };

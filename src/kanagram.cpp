@@ -54,6 +54,7 @@
 #include "mainsettings.h"
 #include "vocabsettings.h"
 #include "newstuff.h"
+#include "fontutils.h"
 
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
@@ -193,12 +194,27 @@ void Kanagram::paintEvent(QPaintEvent *)
 	}
 
 //	drawText(p, m_game->getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, 28);
-	drawTextNew(p, m_game->getAnagram(), Qt::AlignCenter, 10, 10, m_blackboardRect, true, 28);
+	QString anagram = m_game->getAnagram();
+	int afontSize = fontUtils::fontSize(p, anagram, m_blackboardRect.width(), m_blackboardRect.height() / 5);
+	drawTextNew(p, anagram, Qt::AlignCenter, 10, 10, m_blackboardRect, true, afontSize);
 	
 //	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, &m_revealRect, m_overReveal, 14);
 //	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, &m_hintRect, m_overHint, 14);
-	drawTextNew(p, i18n(m_textRevealWord), Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, 14);
-	drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 6, 0, m_blackboardRect, m_overHint, 14);
+	QString reveal = i18n(m_textRevealWord);
+	m_cornerFontSize = fontUtils::fontSize(p, reveal, m_blackboardRect.width() / 3, m_blackboardRect.height() / 5);
+	drawTextNew(p, i18n(m_textRevealWord), Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, m_cornerFontSize);
+	drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 6, 0, m_blackboardRect, m_overHint, m_cornerFontSize);
+
+	// update these rects because we have access to the painter and thus the fontsize here
+	QFont font = m_blackboardFont;
+	font.setPointSize(m_cornerFontSize);
+	font.setBold(true);
+    QFontMetrics fm(font);
+	QRect r = innerRect(m_blackboardRect, 6, 0);
+    m_hintRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
+	m_hintBoxRect = QRect(int(684.813 * m_xRatio), int(319.896 * m_yRatio), int(xEyesScale * width()), int(yEyesScale * height()));
+	r = innerRect(m_blackboardRect, 6, 0);
+    m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
 	
 //	drawSwitcherText(p, m_game->getDocTitle());
 	drawSwitcher(p, 9, 8);
@@ -249,10 +265,12 @@ void Kanagram::paintEvent(QPaintEvent *)
 		// TODO: figure out how to do drawText with svg position and size
 		QFont f = QFont(m_font);
 		f.setWeight(QFont::Bold);
-		f.setPointSize(10);
+		QString hint = m_game->getHint();
+		int fontSize = fontUtils::fontSize(p, hint, int(400 * m_xRatio), int(150 * m_yRatio));
+		f.setPointSize(fontSize);
 		p.setFont(f);
 		p.drawText(int(694 * m_xRatio), int(330 * m_yRatio), int(250 * m_xRatio), int(100 * m_yRatio), 
-			Qt::TextWordWrap | Qt::AlignCenter, m_game->getHint());
+			Qt::TextWordWrap | Qt::AlignCenter, hint);
 	}
 
 	if(m_overHelp && !m_showHint)
@@ -328,18 +346,6 @@ void Kanagram::resizeEvent(QResizeEvent *)
 	m_blackboardRect = QRect(int(63.657 * m_xRatio), int(182.397 * m_yRatio), int(563.273 * m_xRatio), int(380.735 * m_yRatio));
 	m_inputBox->setGeometry(QRect(int(80 * m_xRatio), int(657.272 * m_yRatio), int(420 * m_xRatio), int(44.639 * m_yRatio)));
 
-	QFont font = m_blackboardFont;
-	font.setPointSize(14);
-	font.setBold(true);
-    QFontMetrics fm(font);
-//	m_hintRect = QRect(51, 337, 39, 28);
-	QRect r = innerRect(m_blackboardRect, 6, 0);
-    m_hintRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
-	m_hintBoxRect = QRect(int(684.813 * m_xRatio), int(319.896 * m_yRatio), int(xEyesScale * width()), int(yEyesScale * height()));
-//	m_revealRect = QRect(279, 338, 119, 28);
-	r = innerRect(m_blackboardRect, 6, 0);
-    m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
-
 	m_upRect = QRect(int(m_inputBox->x() + m_inputBox->width() + 20 * m_xRatio), m_inputBox->y(), int(50 * m_xRatio), m_inputBox->height());
 	m_arrowRect = QRect(m_switcherRect.right() + 5, m_switcherRect.top(), int(16.250 * m_xRatio), int(25.0 * m_yRatio));
 	m_logoRect = QRect(76, 24, 297, 50);
@@ -400,7 +406,7 @@ void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
 	const int padding = 5;
 	QString text = m_game->getDocTitle();
 	QFont font = m_blackboardFont;
-	font.setPointSize(14);
+	font.setPointSize(m_cornerFontSize);
 	QFontMetrics fm(font);
 	QRect r = innerRect(m_blackboardRect, xMargin, yMargin);
 	r = r.normalized();
@@ -413,6 +419,10 @@ void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
 	{
 		p.setPen(m_chalkHighlightColor);
 		arrow = m_arrowName + "_hover";
+	}
+	else
+	{
+		p.setPen(m_chalkColor);
 	}
 	p.translate(m_switcherRect.right() + padding, m_switcherRect.top());
 	p.scale(16.250 / kWindowWidth, 25.0 / kWindowHeight);
