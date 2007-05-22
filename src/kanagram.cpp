@@ -829,9 +829,9 @@ void Kanagram::refreshVocabularies()
 {
 	kDebug() << "Refreshing vocab list..." << endl;
 	m_game->refreshVocabList();
-	m_game->nextVocab();
+	//m_game->nextVocab(); //annma 22 May 2007 
 	hideHint();
-	m_game->nextAnagram();
+	//m_game->nextAnagram(); //annma 22 May 2007 
 	if(m_useSounds) play("chalk.ogg");
 	KanagramSettings::setDefaultVocab(m_game->getFilename());
 	KanagramSettings::writeConfig();

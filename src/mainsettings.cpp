@@ -64,7 +64,7 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 	else
 		cboxTranslation->setItemText(cboxTranslation->currentIndex(), group.readEntry("Name"));
 	
-	/*QFont f("squeaky chalk sound");
+	/*QFont f("squeaky chalk sound"); //annma 22 May 2007 wait to know more about font license
 	if (KanagramSettings::justGotFont())
 	{
 			getFontsButton->hide();
