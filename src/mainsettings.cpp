@@ -53,7 +53,7 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 	//the language code/name
 	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
 	QString code = KanagramSettings::dataLanguage();
-    KConfigGroup group = entry.group(code);
+	KConfigGroup group = entry.group(code);
 	if (code == "sr")
 		cboxTranslation->setItemText(cboxTranslation->currentIndex(), (group.readEntry("Name")+" ("+i18n("Cyrillic")+')'));
 	else if (code == "sr@Latn")
@@ -64,7 +64,7 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 	else
 		cboxTranslation->setItemText(cboxTranslation->currentIndex(), group.readEntry("Name"));
 	
-	QFont f("squeaky chalk sound");
+	/*QFont f("squeaky chalk sound");
 	if (KanagramSettings::justGotFont())
 	{
 			getFontsButton->hide();
@@ -81,7 +81,9 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 		{
 			getFontsButton->hide();
 		}
-	}
+	}*/
+	kcfg_useStandardFonts->setEnabled(true);
+	getFontsButton->hide();
 }
 
 MainSettings::~MainSettings()
@@ -137,7 +139,7 @@ void MainSettings::setupTranslations()
 
 void MainSettings::getAndInstallFont()
 {
-	bool success = KIO::NetAccess::file_copy(KUrl("http://www.kde-edu.org/kanagram/chalk.ttf"), KUrl("fonts:/Personal/"), 0);
+	bool success = KIO::NetAccess::file_copy(KUrl("http://www.edu.org/kanagram/chalk.ttf"), KUrl("fonts:/Personal/"), 0);
 	if (success)
 	{
 		getFontsButton->hide();

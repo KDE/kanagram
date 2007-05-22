@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
 	about.addAuthor("Joshua Keel", I18N_NOOP("Coding"), "joshuakeel@gmail.com");
 	about.addAuthor("Danny Allen", I18N_NOOP("Design, Graphics and many Vocabularies"), "danny@dannyallen.co.uk");
 	about.addCredit("Artemiy Pavlov", I18N_NOOP("Sound effects"), 0, "http://artemiolabs.com");
+	about.addCredit("Jeremy Whiting", I18N_NOOP("Port to SVG"), 0, "jeremy@scitools.com");
 	KCmdLineArgs::init(argc, argv, &about);
 	KApplication app;
 	
