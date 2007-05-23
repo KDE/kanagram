@@ -99,7 +99,7 @@ Q_OBJECT
 		
 		QRect m_nextRect, m_configRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_upRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect, m_arrowRect, m_logoRect, m_hintBoxRect, m_blackboardRect;
 
-		bool m_overNext, m_overConfig, m_overHelp, m_overQuit, m_overReveal, m_overHint, m_overUp, m_overAboutKDE, m_overAboutApp, m_overHandbook, m_overSwitcher, m_overHintBox;
+		bool m_overNext, m_overConfig, m_overHelp, m_overQuit, m_overReveal, m_overHint, m_overUp, m_overAboutKDE, m_overAboutApp, m_overHandbook, m_overSwitcher, m_overLogo, m_overHintBox;
 
 		bool m_showHint;
 

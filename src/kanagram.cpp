@@ -161,6 +161,21 @@ void Kanagram::paintEvent(QPaintEvent *)
 	m_xRatio = width() / kWindowWidth;
 	m_yRatio = height() / kWindowHeight;
 
+	if (m_overLogo)
+	{
+		p.translate(int(112.188 * m_xRatio), int(32.375 * m_yRatio));
+		p.scale(466.981 / kWindowWidth, 91.407 / kWindowHeight);
+		m_renderer->render(&p, "logo_hover");
+		p.resetMatrix();
+	}
+	else
+	{
+		p.translate(int(112.188 * m_xRatio), int(32.375 * m_yRatio));
+		p.scale(466.981 / kWindowWidth, 91.407 / kWindowHeight);
+		m_renderer->render(&p, "logo");
+		p.resetMatrix();
+	}
+	
 	if(m_overNext)
 	{
 		p.translate(xTranslateButtons * width(), yTranslateNextButton * height());
@@ -348,7 +363,7 @@ void Kanagram::resizeEvent(QResizeEvent *)
 
 	m_upRect = QRect(int(m_inputBox->x() + m_inputBox->width() + 20 * m_xRatio), m_inputBox->y(), int(50 * m_xRatio), m_inputBox->height());
 	m_arrowRect = QRect(m_switcherRect.right() + 5, m_switcherRect.top(), int(16.250 * m_xRatio), int(25.0 * m_yRatio));
-	m_logoRect = QRect(76, 24, 297, 50);
+	m_logoRect = QRect(int(112.188 * m_xRatio), int(32.375 * m_yRatio), int(466.981 * m_xRatio), int(91.407 * m_yRatio));
 
 	m_aboutAppRect = QRect(int(xTranslateButtons * width()), int(yTranslateHelpButton * height()), 
 							int(xScale57Buttons * width()), int(yScale57Buttons * height()));
@@ -578,6 +593,20 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		m_overConfig = false;
 		haveToUpdate = true;
 	}
+	
+	if (m_logoRect.contains(p))
+	{
+		if (!m_overLogo)
+		{
+			m_overLogo = true;
+			haveToUpdate = true;
+		}
+	}
+	else if (m_overLogo)
+	{
+		m_overLogo = false;
+		haveToUpdate = true;
+	}
 
 	if(m_helpRect.contains(p))
 	{
@@ -722,7 +751,7 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		}
 	}
 
-	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || (m_overUp && !m_inputBox->text().isEmpty()) || m_overAboutApp || m_overHintBox)
+	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || (m_overUp && !m_inputBox->text().isEmpty()) || m_overAboutApp || m_overHintBox || m_overLogo)
 		this->setCursor(Qt::PointingHandCursor);
 	else
 		this->unsetCursor();
