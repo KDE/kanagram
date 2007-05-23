@@ -531,7 +531,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		m_game->nextAnagram();
 		if(m_useSounds) play("chalk.ogg");
 		KanagramSettings::setDefaultVocab(m_game->getFilename());
-		KanagramSettings::writeConfig();
+		KanagramSettings::self()->writeConfig();
 		update();
 	}
 
@@ -873,7 +873,7 @@ void Kanagram::refreshVocabularies()
 	//m_game->nextAnagram(); //annma 22 May 2007 
 	if(m_useSounds) play("chalk.ogg");
 	KanagramSettings::setDefaultVocab(m_game->getFilename());
-	KanagramSettings::writeConfig();
+	KanagramSettings::self()->writeConfig();
 	m_vocabSettings->refreshView();
 }
 

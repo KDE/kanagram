@@ -147,7 +147,7 @@ void MainSettings::getAndInstallFont()
 		kcfg_useStandardFonts->setChecked(false);
 		KanagramSettings::setUseStandardFonts(false);
 		KanagramSettings::setJustGotFont(true);
-		KanagramSettings::writeConfig();
+		KanagramSettings::self()->writeConfig();
 	}
 	else
 	{
@@ -159,7 +159,7 @@ void MainSettings::slotChangeTranslation()
 {
 	kDebug() << "Writing new default language: " << m_languageCodeMap[cboxTranslation->currentText()] << endl;
 	KanagramSettings::setDataLanguage(m_languageCodeMap[cboxTranslation->currentText()]);
-	KanagramSettings::writeConfig();
+	KanagramSettings::self()->writeConfig();
 }
 
 #include "mainsettings.moc"
