@@ -849,8 +849,8 @@ void Kanagram::showSettings()
 	configDialog->addPage( new NewStuff( configDialog ), i18n("New Stuff"), "get-hot-new-stuff" );
 	connect(configDialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(loadSettings()));
 	connect(configDialog, SIGNAL(applyClicked()), this, SLOT(refreshVocabularies()));
-	configDialog->exec();
-	delete configDialog;
+	configDialog->show();
+	configDialog->setAttribute(Qt::WA_DeleteOnClose);
 }
 
 void Kanagram::hideHint()
