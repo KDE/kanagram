@@ -42,7 +42,9 @@ NewStuff::~NewStuff()
 
 void NewStuff::slotGetNewVocabs()
 {
-	KNS::Entry::List entries = KNS::Engine::download();
+	KNS::Engine engine;
+	engine.init("kanagram.knsrc");
+	KNS::Entry::List entries = engine.downloadDialogModal();
 }
 
 #include "newstuff.moc"
