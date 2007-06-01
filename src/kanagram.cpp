@@ -208,13 +208,10 @@ void Kanagram::paintEvent(QPaintEvent *)
 		p.resetMatrix();
 	}
 
-//	drawText(p, m_game->getAnagram(), QPoint(223, 243), false, 0, 0, 0, true, 28);
 	QString anagram = m_game->getAnagram();
 	int afontSize = fontUtils::fontSize(p, anagram, m_blackboardRect.width(), m_blackboardRect.height() / 5);
 	drawTextNew(p, anagram, Qt::AlignCenter, 10, 10, m_blackboardRect, true, afontSize);
 	
-//	drawText(p, i18n("reveal word"), QPoint(336, 353), false, 0, 0, &m_revealRect, m_overReveal, 14);
-//	drawText(p, i18n("hint"), QPoint(70, 353), false, 0, 0, &m_hintRect, m_overHint, 14);
 	QString reveal = i18n(m_textRevealWord);
 	m_cornerFontSize = fontUtils::fontSize(p, reveal, m_blackboardRect.width() / 3, m_blackboardRect.height() / 5);
 	drawTextNew(p, i18n(m_textRevealWord), Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, m_cornerFontSize);
@@ -231,7 +228,6 @@ void Kanagram::paintEvent(QPaintEvent *)
 	r = innerRect(m_blackboardRect, 6, 0);
     m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
 	
-//	drawSwitcherText(p, m_game->getDocTitle());
 	drawSwitcher(p, 9, 8);
 /*
 	if(m_overSwitcher)
@@ -277,8 +273,8 @@ void Kanagram::paintEvent(QPaintEvent *)
 		m_renderer->render(&p, m_hintOverlayName);
 		p.resetMatrix();
 
-		// TODO: figure out how to do drawText with svg position and size
-		QFont f = QFont(m_font);
+		// do drawText with svg position and size
+		QFont f = m_font;
 		f.setWeight(QFont::Bold);
 		QString hint = m_game->getHint();
 		int fontSize = fontUtils::fontSize(p, hint, int(400 * m_xRatio), int(150 * m_yRatio));
@@ -395,24 +391,6 @@ void Kanagram::drawHelpText(QPainter &p, const QString &text)
 	p.setPen(Qt::black);
 	p.drawText(int(715 * m_xRatio), int(520 * m_yRatio), text.section(' ', 0, 0));
 	p.drawText(int(715 * m_xRatio), int(550 * m_yRatio), text.section(' ', 1));
-	p.restore();
-}
-
-void Kanagram::drawSwitcherText(QPainter &p, const QString &text)
-{
-	p.save();
-	QFont font = m_blackboardFont;
-	font.setPointSize(14);
-	QFontMetrics fm(font);
-	int width = fm.width(text);
-	int height = fm.height();
-	m_switcherRect = QRect(380 - width, 150 - height, width, height);
-	p.setFont(font);
-	if(!m_overSwitcher)
-		p.setPen(m_chalkColor);
-	else
-		p.setPen(m_chalkHighlightColor);
-	p.drawText(380 - width, 150, text);
 	p.restore();
 }
 
@@ -558,11 +536,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
 void Kanagram::mouseMoveEvent(QMouseEvent *e)
 {
-	updateButtonHighlighting(e->pos());
-}
-
-void Kanagram::updateButtonHighlighting(const QPoint &p)
-{
+	QPoint p = e->pos();
 	bool haveToUpdate;
 	haveToUpdate = false;
 	
@@ -757,32 +731,6 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 		this->unsetCursor();
 
 	if (haveToUpdate) update();
-}
-
-void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, int fontSize)
-{
-	QRect r;
-	QFont font = m_blackboardFont;
-	font.setPointSize(fontSize);
-	font.setBold(true);
-	p.setFont(font);
-	
-	r = p.boundingRect(QRect(), Qt::AlignLeft, text);
-	r = QRect(0, 0, r.width() + xMargin, r.height() + yMargin);
-	r.translate(center.x() - r.width() / 2, center.y() - r.height() / 2);
-
-	if (withMargin)
-	{
-		p.fillRect(r, m_fillColor);
-		p.setPen(QPen(Qt::black, 3));
-		p.drawRoundRect(r.left(), r.top(), r.width(), r.height(), 15, 15);
-	}
-	
-	if (!highlight) p.setPen(m_chalkColor);
-	else p.setPen(m_chalkHighlightColor);
-	p.drawText(r, Qt::AlignCenter, text);
-	
-	if(rect) *rect = r;
 }
 
 void Kanagram::drawTextNew(QPainter &p, const QString &text, int textAlign, int xMargin, int yMargin, const QRect &rect, bool highlight, int fontSize)
