@@ -48,18 +48,32 @@ class AudioPlayer;
 class KanagramGame;
 class VocabSettings;
 
+/** 
+  * @brief Kanagram main class.  
+  * @author Joshua Keel <joshuakeel@gmail.com>
+  *
+  * Draws the window, and reacts to mouse events */
 class Kanagram : public QWidget
 {
 Q_OBJECT
 	public:
+		/** default ctor */
 		Kanagram();
+		/** default dtor */
 		~Kanagram();
 
 	private slots:
+		/** check the entered word against the answer, and move on, or reset as necessary */
 		void checkWord();
+		/** load user settings */
 		void loadSettings();
+		/** hide the hint box and text. */
 		void hideHint();
+		/** reset the input box in preparation for the next word */
 		void resetInputBox();
+		/** refresh the list of vocabularies in the vocabulary chooser in the config window.
+		  * This queries the files on disk to see what vocabularies have been added/removed.
+		  */
 		void refreshVocabularies();
 
 	private:
