@@ -41,9 +41,6 @@ VocabSettings::VocabSettings(QWidget *parent) : QDialog(parent)
 {
 	setupUi(this);
 	
-	connect(btnCreateNew, SIGNAL(clicked()), this, SLOT(slotCreateNew()));
-	connect(btnEdit, SIGNAL(clicked()), this, SLOT(slotEdit()));
-	connect(btnDelete, SIGNAL(clicked()), this, SLOT(slotDelete()));
 	connect(lviewVocab, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(slotSelectionChanged(QTreeWidgetItem *)));
 
 	refreshView();
@@ -69,7 +66,7 @@ void VocabSettings::refreshView()
 	}
 }
 
-void VocabSettings::slotEdit()
+void VocabSettings::on_btnEdit_clicked()
 {
 	if(lviewVocab->currentItem())
 	{
@@ -79,18 +76,21 @@ void VocabSettings::slotEdit()
 	}
 }
 
-void VocabSettings::slotDelete()
+void VocabSettings::on_btnDelete_clicked()
 {
 	if(lviewVocab->currentItem())
 	{
 		int index = m_itemMap[lviewVocab->currentItem()];
 		/*bool itWorked = */QFile::remove(m_fileList[index]);
+		// also need to take the filename out of the m_fileList
+		// so we don't try to switch to it and crash :)
+		m_fileList.removeAt(index);
 	}
 
 	refreshView();
 }
 
-void VocabSettings::slotCreateNew()
+void VocabSettings::on_btnCreateNew_clicked()
 {
 	VocabEdit *vocabEdit = new VocabEdit(this, "");
 	vocabEdit->show();

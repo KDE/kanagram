@@ -24,22 +24,38 @@
 
 #include "ui_vocabsettingswidget.h"
 
+/** @brief Vocabulary Settings class
+ *  @author Joshua Keel <joshuakeel@gmail.com>
+ *
+ *  Settings page to choose vocabularies, and buttons to invoke the vocabulary editor
+ */
 class VocabSettings : public QDialog, public Ui::VocabSettingsWidget
 {
 Q_OBJECT
 	public:
+		/** default constructor */
 		explicit VocabSettings(QWidget *parent);
+
+		/** default destructor */
 		virtual ~VocabSettings();
+
+		/** reload the list of vocabularies from what's on disk */
 		void refreshView();
 
 	private:
+
+		/** list of vocabulary files */
 		QStringList m_fileList;
 		QMap<const QTreeWidgetItem*, int> m_itemMap;
 
 	private slots:
-		void slotCreateNew();
-		void slotEdit();
-		void slotDelete();
+
+		/** create a new vocabulary
+		  * called when the btnCreateNew is clicked
+		  */
+		void on_btnCreateNew_clicked();
+		void on_btnEdit_clicked();
+		void on_btnDelete_clicked();
 		void slotSelectionChanged(QTreeWidgetItem *item);
 };
 

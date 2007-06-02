@@ -47,6 +47,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="btnEdit" >
+         <property name="enabled" >
+          <bool>false</bool>
+         </property>
          <property name="whatsThis" >
           <string>Edits the selected vocabulary.</string>
          </property>
@@ -57,6 +60,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="btnDelete" >
+         <property name="enabled" >
+          <bool>false</bool>
+         </property>
          <property name="whatsThis" >
           <string>Deletes the selected vocabulary.</string>
          </property>
