@@ -50,6 +50,7 @@
 #include <phonon/audioplayer.h>
 #include <KComponentData>
 
+#include "kanagramgame.h"
 #include "kanagramsettings.h"
 #include "mainsettings.h"
 #include "vocabsettings.h"
@@ -80,15 +81,17 @@ double yTranslateHelpButton = 337.487 / kWindowHeight;
 double xScaleQuitButton = 77.484 / kWindowWidth;
 double yScaleQuitButton = 77.5 / kWindowHeight;
 
-Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false), m_player(0)
+Kanagram::Kanagram() 
+  : QWidget(0), m_game(NULL), m_overNext(false), m_overConfig(false), m_overHelp(false), 
+	m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), 
+	m_showHint(false), m_player(NULL)
 {
 	setAttribute(Qt::WA_StaticContents);
 	m_renderer = new QSvgRenderer(KStandardDirs::locate("appdata", "images/kanagram.svg"));
 
-	m_game = new KanagramGame(this);
+	m_game = new KanagramGame();
 	
 	setMouseTracking(true);
-	//setFixedSize(650, 471);
 	m_chalkColor = QColor(155, 155, 155);
 	m_chalkHighlightColor = QColor(255, 255, 255);
 	m_fillColor = QColor(45, 45, 45);
@@ -103,16 +106,17 @@ Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_ove
 	m_inputBox = new QLineEdit(this);
 	m_inputBox->setFrame(false);
 	
-	connect(m_inputBox, SIGNAL(returnPressed()), this, SLOT(checkWord()));
-	connect(m_hintTimer, SIGNAL(timeout()), this, SLOT(hideHint()));
-	connect(m_inputBox, SIGNAL(textChanged(const QString &)), this, SLOT(update()));
+	connect(m_inputBox, SIGNAL(returnPressed()), SLOT(checkWord()));
+	connect(m_hintTimer, SIGNAL(timeout()), SLOT(hideHint()));
+	connect(m_inputBox, SIGNAL(textChanged(const QString &)), SLOT(update()));
+	connect(m_game, SIGNAL(fileError(QString)), SLOT(slotFileError(QString)));
 	
 	QFont f = QFont();
 	f.setPointSize(17);
 	m_inputBox->setFont(f);
 	m_inputBox->show();
 
-	m_font = KGlobalSettings::generalFont();
+	KGlobalSettings::generalFont() = KGlobalSettings::generalFont();
 
 	show();
 
@@ -123,7 +127,17 @@ Kanagram::Kanagram() : QWidget(0), m_overNext(false), m_overConfig(false), m_ove
 
 Kanagram::~Kanagram()
 {
-	delete m_player;
+	if (m_player != NULL)
+	{
+		delete m_player;
+		m_player = NULL;
+	}
+
+	if (m_game != NULL)
+	{
+		delete m_game;
+		m_game = NULL;
+	}
 }
 
 void Kanagram::loadSettings()
@@ -135,18 +149,7 @@ void Kanagram::loadSettings()
 		m_hintHideTime = 0;
 	
 	m_useSounds = KanagramSettings::useSounds();
-	m_useStandardFonts = KanagramSettings::useStandardFonts();
-
-	if(m_useStandardFonts)
-	{
-		m_blackboardFont = KGlobalSettings::generalFont();
-		m_arrowName = "basicarrow";
-	}
-	else
-	{
-		m_blackboardFont = QFont("squeaky chalk sound");
-		m_arrowName = "arrow";
-	}
+	m_arrowName = "basicarrow";
 
 	m_game->refreshVocabList();
 }
@@ -218,7 +221,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 	drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 6, 0, m_blackboardRect, m_overHint, m_cornerFontSize);
 
 	// update these rects because we have access to the painter and thus the fontsize here
-	QFont font = m_blackboardFont;
+	QFont font = KGlobalSettings::generalFont();
 	font.setPointSize(m_cornerFontSize);
 	font.setBold(true);
     QFontMetrics fm(font);
@@ -274,7 +277,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 		p.resetMatrix();
 
 		// do drawText with svg position and size
-		QFont f = m_font;
+		QFont f = KGlobalSettings::generalFont();
 		f.setWeight(QFont::Bold);
 		QString hint = m_game->getHint();
 		int fontSize = fontUtils::fontSize(p, hint, int(400 * m_xRatio), int(150 * m_yRatio));
@@ -384,7 +387,7 @@ void Kanagram::drawHelpText(QPainter &p, const QString &text)
 	p.resetMatrix();
 	
 	p.save();
-	QFont font = m_font;
+	QFont font = KGlobalSettings::generalFont();
 	font.setPointSize(12);
 	p.setFont(font);
 	p.rotate(-3.29);
@@ -398,7 +401,7 @@ void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
 {
 	const int padding = 5;
 	QString text = m_game->getDocTitle();
-	QFont font = m_blackboardFont;
+	QFont font = KGlobalSettings::generalFont();
 	font.setPointSize(m_cornerFontSize);
 	QFontMetrics fm(font);
 	QRect r = innerRect(m_blackboardRect, xMargin, yMargin);
@@ -736,7 +739,7 @@ void Kanagram::mouseMoveEvent(QMouseEvent *e)
 void Kanagram::drawTextNew(QPainter &p, const QString &text, int textAlign, int xMargin, int yMargin, const QRect &rect, bool highlight, int fontSize)
 {
 	QRect r = innerRect(rect, xMargin, yMargin);
-	QFont font = m_blackboardFont;
+	QFont font = KGlobalSettings::generalFont();
 	font.setPointSize(fontSize);
 	font.setBold(true);
 	p.setFont(font);
@@ -840,6 +843,13 @@ void Kanagram::play(const QString &filename)
 	}
 	m_player->stop();
 	m_player->play(soundFile);
+}
+
+void Kanagram::slotFileError(QString filename)
+{
+	QString msg = i18n("File %1 cannot be found.\n Please ensure that Kanagram is properly installed.", filename);
+	KMessageBox::sorry(this, msg, i18n("Error"));
+	exit(0);
 }
 
 #include "kanagram.moc"

@@ -36,9 +36,8 @@
 #include "kanagramsettings.h"
 
 
-KanagramGame::KanagramGame(QWidget* parent) : m_index(0)
+KanagramGame::KanagramGame() : m_index(0)
 {
-	m_parent = parent;
 	loadDefaultVocab();
 }
 
@@ -49,10 +48,7 @@ KanagramGame::~KanagramGame()
 void KanagramGame::checkFile()
 {
 	if (!QFile::exists(KStandardDirs::locate("appdata", m_filename))) {
-	        QString msg = i18n("File %1 cannot be found.\n Please ensure that Kanagram is properly installed.",
-		   m_filename);
-		KMessageBox::sorry(m_parent, msg, i18n("Error"));
-		exit(0);
+		emit fileError(m_filename);
 	}
 }
 

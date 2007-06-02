@@ -28,11 +28,14 @@
 
 class QWidget;
 
+/** @brief kanagram game api
+  * @author Joshua Keel <joshuakeel@gmail.com>
+  */
 class KanagramGame : public QObject
 {
 Q_OBJECT
 	public:
-		explicit KanagramGame(QWidget *parent);
+		explicit KanagramGame();
 		~KanagramGame();
 		void refreshVocabList();
 		void loadDefaultVocab();
@@ -46,7 +49,13 @@ Q_OBJECT
 		void restoreWord();
 		QString getDocTitle();
 		QString getFilename();
+
+	signals:
+		
+		void fileError(QString filename);
+
 	private:
+
 		QString createAnagram(const QString &original);
 		void checkFile();
 		QWidget *m_parent;
@@ -63,3 +72,4 @@ Q_OBJECT
 };
 
 #endif
+
