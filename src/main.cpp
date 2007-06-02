@@ -31,20 +31,15 @@ int main(int argc, char *argv[])
 	KAboutData about("kanagram", I18N_NOOP("Kanagram"), "0.1", I18N_NOOP("An anagram game"), KAboutData::License_GPL, "© 2005 Joshua Keel\n© 2005 Danny Allen");
 	about.addAuthor("Joshua Keel", I18N_NOOP("Coding"), "joshuakeel@gmail.com");
 	about.addAuthor("Danny Allen", I18N_NOOP("Design, Graphics and many Vocabularies"), "danny@dannyallen.co.uk");
+	about.addAuthor("Jeremy Whiting", I18N_NOOP("Maintainer"), "jeremy@scitools.com");
 	about.addCredit("Artemiy Pavlov", I18N_NOOP("Sound effects"), 0, "http://artemiolabs.com");
-	about.addCredit("Jeremy Whiting", I18N_NOOP("Port to SVG"), "jeremy@scitools.com");
 	KCmdLineArgs::init(argc, argv, &about);
 	KApplication app;
 	
-	KanagramSettings::setJustGotFont(false);
-	QFont f("squeaky chalk sound");
-	if (!QFontInfo(f).exactMatch())
-	{
-		KanagramSettings::setUseStandardFonts(true);
-	}
 	if (KanagramSettings::dataLanguage().isEmpty())
 	{
 		QStringList userLanguagesCode = KGlobal::locale()->languageList();
+		// TODO: this is going to need to change to work with new kvtml location when it changes
 		QStringList::const_iterator itEnd = userLanguagesCode.end();
 		QStringList::const_iterator it = userLanguagesCode.begin();
 		for ( ; it != itEnd; ++it)
