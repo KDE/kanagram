@@ -41,80 +41,54 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 	setupUi( this );
 	m_parent = (KConfigDialog*)parent;
 
-	connect(parent, SIGNAL(applyClicked()), this, SLOT(slotChangeTranslation()));
-	connect(cboxTranslation, SIGNAL(activated(int)), this, SLOT(slotUpdateParent()));
+	connect(parent, SIGNAL(applyClicked()), this, SLOT(slotUpdateLanguage()));
+	connect(cboxTranslation, SIGNAL(activated(int)), this, SLOT(slotSetDirty()));
 	
-	setupTranslations();
+	populateLanguageBox();
 
-	QStringList languageNames = m_languageCodeMap.keys();
-	languageNames.sort();
-	cboxTranslation->addItems(languageNames);
-	
 	//the language code/name
 	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
 	QString code = KanagramSettings::dataLanguage();
 	KConfigGroup group = entry.group(code);
 	if (code == "sr")
+	{
 		cboxTranslation->setItemText(cboxTranslation->currentIndex(), (group.readEntry("Name")+" ("+i18n("Cyrillic")+')'));
+	}
 	else if (code == "sr@Latn")
 	{
 		KConfigGroup group = entry.group("sr");
 		cboxTranslation->setItemText(cboxTranslation->currentIndex(), group.readEntry("Name")+" ("+i18n("Latin")+')');
 	}
 	else
+	{
 		cboxTranslation->setItemText(cboxTranslation->currentIndex(), group.readEntry("Name"));
-	
-	/*QFont f("squeaky chalk sound"); //annma 22 May 2007 wait to know more about font license
-	if (KanagramSettings::justGotFont())
-	{
-			getFontsButton->hide();
-			kcfg_useStandardFonts->setEnabled(false);
 	}
-	else
-	{
-		if (!QFontInfo(f).exactMatch())
-		{
-			kcfg_useStandardFonts->setEnabled(false);
-			connect(getFontsButton, SIGNAL(pressed()), this, SLOT(getAndInstallFont()));
-		}
-		else
-		{
-			getFontsButton->hide();
-		}
-	}*/
-	kcfg_useStandardFonts->setEnabled(true);
-	getFontsButton->hide();
 }
 
 MainSettings::~MainSettings()
 {
 }
 
-void MainSettings::slotUpdateParent()
+void MainSettings::slotSetDirty()
 {
 	m_parent->enableButtonApply(true);
 }
 
-void MainSettings::setupTranslations()
+void MainSettings::populateLanguageBox()
 {
-	m_languageCodeMap.clear();
-	QStringList languages, temp_languages;
+	QSet<QString> languages;
+	QStringList temp_languages;
 	
 	//the program scans in kdereview/data/ to see what languages data is found
 	QStringList mdirs = KGlobal::dirs()->findDirs("appdata", "data/");
 
 	if (mdirs.isEmpty()) return;
 	
-	for (QStringList::const_iterator it = mdirs.begin(); it != mdirs.end(); ++it )
+	for (int i = 0; i < mdirs.size(); ++i)
 	{
-		QDir dir(*it);
-		temp_languages = dir.entryList(QDir::Dirs, QDir::Name);
-		temp_languages.removeAll(".");
-		temp_languages.removeAll("..");
-		for (QStringList::const_iterator it2 = temp_languages.begin(); it2 != temp_languages.end(); ++it2 )
-		{
-			if (!languages.contains(*it2)) languages.append(*it2);
-		}
+		QDir dir(mdirs[i]);
+		temp_languages = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
+		languages.unite(QSet<QString>::fromList(temp_languages));
 	}
 	
 	if (languages.isEmpty())
@@ -122,43 +96,37 @@ void MainSettings::setupTranslations()
 
 	//the language code/name
 	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
-	const QStringList::ConstIterator itEnd = languages.end();
-	for (QStringList::ConstIterator it = languages.begin(); it != itEnd; ++it) {
+	QStringList languageList = languages.toList();
+	const QStringList::ConstIterator itEnd = languageList.end();
+	for (QStringList::ConstIterator it = languageList.begin(); it != itEnd; ++it) 
+	{
+		QString name = *it;
+		QString locale;
 		KConfigGroup group = entry.group(*it);
 		if (*it == "sr")
-			m_languageCodeMap.insert(group.readEntry("Name")+" ("+i18n("Cyrillic")+')', "sr");
+		{
+			locale = group.readEntry("Name")+" ("+i18n("Cyrillic")+')';
+		}
 		else if (*it == "sr@Latn")
 		{
 			KConfigGroup group = entry.group("sr");
-			m_languageCodeMap.insert(group.readEntry("Name") + " ("+i18n("Latin")+')', "sr@Latn");
+			locale = group.readEntry("Name") + " ("+i18n("Latin")+')';
 		}
 		else
-			m_languageCodeMap.insert(group.readEntry("Name"), *it);
+		{
+			locale = group.readEntry("Name");
+		}
+		
+		cboxTranslation->addItem(locale, name);
 	}
 }
 
-void MainSettings::getAndInstallFont()
+void MainSettings::slotUpdateLanguage()
 {
-	bool success = KIO::NetAccess::file_copy(KUrl("http://www.edu.org/kanagram/chalk.ttf"), KUrl("fonts:/Personal/"), 0);
-	if (success)
-	{
-		getFontsButton->hide();
-		KMessageBox::information(this, i18n("Please restart Kanagram to activate the new font."));
-		kcfg_useStandardFonts->setChecked(false);
-		KanagramSettings::setUseStandardFonts(false);
-		KanagramSettings::setJustGotFont(true);
-		KanagramSettings::self()->writeConfig();
-	}
-	else
-	{
-		KMessageBox::error(this, i18n("The font could not be installed. Please check that you are properly connected to the Internet."));
-	}
-}
-
-void MainSettings::slotChangeTranslation()
-{
-	kDebug() << "Writing new default language: " << m_languageCodeMap[cboxTranslation->currentText()] << endl;
-	KanagramSettings::setDataLanguage(m_languageCodeMap[cboxTranslation->currentText()]);
+	int index = cboxTranslation->currentIndex();
+	QString language = cboxTranslation->itemData(index).toString();
+	kDebug() << "Writing new default language: " << language << endl;
+	KanagramSettings::setDataLanguage(language);
 	KanagramSettings::self()->writeConfig();
 }
 

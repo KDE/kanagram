@@ -1,163 +1,150 @@
-<ui version="4.0" stdsetdef="1" >
-  <author></author>
-  <comment></comment>
-  <exportmacro></exportmacro>
-  <class>MainSettingsWidget</class>
-  <widget class="QWidget" name="MainSettingsWidget" >
-    <property name="geometry" >
-      <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>281</width>
-        <height>239</height>
-      </rect>
-    </property>
-    <property name="windowTitle" >
-      <string>General</string>
-    </property>
-    <property name="whatsThis" stdset="0" >
-      <string>This setting allows you to set the length of time Kanagram's hint bubble is shown.</string>
-    </property>
-    <layout class="QVBoxLayout" >
+<ui version="4.0" >
+ <class>MainSettingsWidget</class>
+ <widget class="QWidget" name="MainSettingsWidget" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>281</width>
+    <height>239</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>General</string>
+  </property>
+  <property name="whatsThis" >
+   <string>This setting allows you to set the length of time Kanagram's hint bubble is shown.</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>11</number>
+   </property>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="groupBox1" >
+     <property name="title" >
+      <string>Hints</string>
+     </property>
+     <layout class="QVBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
       <item>
-        <widget class="QGroupBox" name="groupBox1" >
-          <property name="title" >
-            <string>Hints</string>
-          </property>
-          <layout class="QVBoxLayout" >
-            <property name="margin" >
-              <number>0</number>
-            </property>
-            <item>
-              <widget class="QLabel" name="textLabel1_2" >
-                <property name="text" >
-                  <string>Auto-hide hints after:</string>
-                </property>
-              </widget>
-            </item>
-            <item>
-              <widget class="QComboBox" name="kcfg_hintHideTime" >
-                <item>
-                  <property name="text" >
-                    <string>Do Not Auto-Hide Hints</string>
-                  </property>
-                </item>
-                <item>
-                  <property name="text" >
-                    <string>3 Seconds</string>
-                  </property>
-                </item>
-                <item>
-                  <property name="text" >
-                    <string>5 Seconds</string>
-                  </property>
-                </item>
-                <item>
-                  <property name="text" >
-                    <string>7 Seconds</string>
-                  </property>
-                </item>
-                <item>
-                  <property name="text" >
-                    <string>9 Seconds</string>
-                  </property>
-                </item>
-              </widget>
-            </item>
-          </layout>
-        </widget>
+       <widget class="QLabel" name="textLabel1_2" >
+        <property name="text" >
+         <string>Auto-hide hints after:</string>
+        </property>
+       </widget>
       </item>
       <item>
-        <widget class="QGroupBox" name="groupBox3" >
-          <property name="title" >
-            <string>Vocabulary Options</string>
-          </property>
-          <layout class="QVBoxLayout" >
-            <property name="margin" >
-              <number>0</number>
-            </property>
-            <item>
-              <layout class="QHBoxLayout" >
-                <property name="margin" >
-                  <number>0</number>
-                </property>
-                <item>
-                  <widget class="QLabel" name="textLabel1" >
-                    <property name="text" >
-                      <string>Play using:</string>
-                    </property>
-                    <property name="buddy" stdset="0" >
-                      <cstring>cboxTranslation</cstring>
-                    </property>
-                  </widget>
-                </item>
-                <item>
-                  <widget class="QComboBox" name="cboxTranslation" />
-                </item>
-              </layout>
-            </item>
-          </layout>
-        </widget>
+       <widget class="QComboBox" name="kcfg_hintHideTime" >
+        <item>
+         <property name="text" >
+          <string>Do Not Auto-Hide Hints</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>3 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>5 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>7 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>9 Seconds</string>
+         </property>
+        </item>
+       </widget>
       </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox3" >
+     <property name="title" >
+      <string>Vocabulary Options</string>
+     </property>
+     <layout class="QVBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
       <item>
-        <layout class="QHBoxLayout" >
-          <property name="margin" >
-            <number>0</number>
-          </property>
-          <item>
-            <widget class="QCheckBox" name="kcfg_useStandardFonts" >
-              <property name="text" >
-                <string>Use standard fonts</string>
-              </property>
-              <property name="shortcut" >
-                <string/>
-              </property>
-              <property name="whatsThis" stdset="0" >
-                <string>Uses a standard font for the chalkboard/interface.</string>
-              </property>
-            </widget>
-          </item>
-          <item>
-            <widget class="QPushButton" name="getFontsButton" >
-              <property name="text" >
-                <string>Get Chalk Font</string>
-              </property>
-            </widget>
-          </item>
-        </layout>
-      </item>
-      <item>
-        <widget class="QCheckBox" name="kcfg_useSounds" >
+       <layout class="QHBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="textLabel1" >
           <property name="text" >
-            <string>Use sou&amp;nds</string>
+           <string>Play using:</string>
           </property>
-          <property name="whatsThis" stdset="0" >
-            <string>Turns sounds on/off.</string>
+          <property name="buddy" >
+           <cstring>cboxTranslation</cstring>
           </property>
-        </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="cboxTranslation" />
+        </item>
+       </layout>
       </item>
-      <item>
-        <spacer name="spacer1_2" >
-          <property name="sizeHint" >
-            <size>
-              <width>16</width>
-              <height>16</height>
-            </size>
-          </property>
-          <property name="sizeType" >
-            <enum>Expanding</enum>
-          </property>
-          <property name="orientation" >
-            <enum>Vertical</enum>
-          </property>
-        </spacer>
-      </item>
-    </layout>
-  </widget>
-  <layoutdefault spacing="6" margin="11" />
-  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
-  <tabstops>
-    <tabstop>kcfg_hintHideTime</tabstop>
-    <tabstop>kcfg_useSounds</tabstop>
-  </tabstops>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="kcfg_useSounds" >
+     <property name="whatsThis" >
+      <string>Turns sounds on/off.</string>
+     </property>
+     <property name="text" >
+      <string>Use sou&amp;nds</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType" >
+      <enum>QSizePolicy::Expanding</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <tabstops>
+  <tabstop>kcfg_hintHideTime</tabstop>
+  <tabstop>kcfg_useSounds</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
 </ui>

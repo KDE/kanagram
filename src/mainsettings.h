@@ -27,24 +27,34 @@
 
 class KConfigDialog;
 
+/** main settings widget for choosing the language and the font */
 class MainSettings : public QWidget, Ui::MainSettingsWidget
 {
 Q_OBJECT
 	public:
+		/** default constructor */
 		explicit MainSettings(QWidget *parent);
+		
+		/** default destructor */
 		~MainSettings();
 	
 	public slots:
-		void slotChangeTranslation();
-		void slotUpdateParent();
-	
-	private slots:
-		void getAndInstallFont();
-
-	private:
-		QMap<QString, QString> m_languageCodeMap;
-		void setupTranslations();
 		
+		/** save the language setting that has been chosen */
+		void slotUpdateLanguage();
+		
+		/** enable the apply button on the config dialog because something has been changed */
+		void slotSetDirty();
+	
+	private:
+	
+		/** get languages from data folders
+		  * populate the language combobox with the names
+		  * also puts the folder name in the userData of the combobox for quick retrieval
+		  */
+		void populateLanguageBox();
+		
+		/** cache pointer to config dialog so we can enable the apply button in slotSetDirty */
 		KConfigDialog *m_parent;
 };
 
