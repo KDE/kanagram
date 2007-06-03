@@ -50,19 +50,7 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
 	QString code = KanagramSettings::dataLanguage();
 	KConfigGroup group = entry.group(code);
-	if (code == "sr")
-	{
-		cboxTranslation->setItemText(cboxTranslation->currentIndex(), (group.readEntry("Name")+" ("+i18n("Cyrillic")+')'));
-	}
-	else if (code == "sr@Latn")
-	{
-		KConfigGroup group = entry.group("sr");
-		cboxTranslation->setItemText(cboxTranslation->currentIndex(), group.readEntry("Name")+" ("+i18n("Latin")+')');
-	}
-	else
-	{
-		cboxTranslation->setItemText(cboxTranslation->currentIndex(), group.readEntry("Name"));
-	}
+	cboxTranslation->setItemText(cboxTranslation->currentIndex(), group.readEntry("Name"));
 }
 
 MainSettings::~MainSettings()
@@ -100,24 +88,8 @@ void MainSettings::populateLanguageBox()
 	const QStringList::ConstIterator itEnd = languageList.end();
 	for (QStringList::ConstIterator it = languageList.begin(); it != itEnd; ++it) 
 	{
-		QString name = *it;
-		QString locale;
 		KConfigGroup group = entry.group(*it);
-		if (*it == "sr")
-		{
-			locale = group.readEntry("Name")+" ("+i18n("Cyrillic")+')';
-		}
-		else if (*it == "sr@Latn")
-		{
-			KConfigGroup group = entry.group("sr");
-			locale = group.readEntry("Name") + " ("+i18n("Latin")+')';
-		}
-		else
-		{
-			locale = group.readEntry("Name");
-		}
-		
-		cboxTranslation->addItem(locale, name);
+		cboxTranslation->addItem(group.readEntry("Name"), *it);
 	}
 }
 
