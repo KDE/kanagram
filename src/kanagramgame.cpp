@@ -22,8 +22,6 @@
 
 #include "kanagramgame.h"
 
-#include <stdlib.h> // for exit
-
 #include <qfile.h>
 
 #include <kurl.h>
@@ -184,7 +182,7 @@ void KanagramGame::restoreWord()
 QString KanagramGame::createAnagram(const QString &original)
 {
 	QStringList objData = original.split(QString(""));
-	QString insaneData;
+	QString insaneData = "";
 	int count;
 	
 	for(int i=0; (count = objData.count()); i++)
@@ -197,10 +195,7 @@ QString KanagramGame::createAnagram(const QString &original)
 
 		QString sd = objData.at(objChunk);
 		objData.removeAt(objChunk);
-		if (insaneData.isEmpty())
-			insaneData = sd;
-		else
-			insaneData += sd;
+		insaneData += sd;
 	}
 	return insaneData;
 }

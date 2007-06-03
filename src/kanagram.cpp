@@ -232,12 +232,6 @@ void Kanagram::paintEvent(QPaintEvent *)
     m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
 	
 	drawSwitcher(p, 9, 8);
-/*
-	if(m_overSwitcher)
-		p.drawPixmap(385, 134, *m_arrowOver);
-	else
-		p.drawPixmap(385, 134, *m_arrow);
-*/
 
 	p.setPen(QPen(Qt::black, 3));
 
@@ -388,7 +382,7 @@ void Kanagram::drawHelpText(QPainter &p, const QString &text)
 	
 	p.save();
 	QFont font = KGlobalSettings::generalFont();
-	font.setPointSize(12);
+	font.setPointSize(m_cornerFontSize);
 	p.setFont(font);
 	p.rotate(-3.29);
 	p.setPen(Qt::black);

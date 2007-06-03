@@ -1,6 +1,5 @@
 TODO items for Kanagram:
 
-* Fix folder fontsize
 * Fix hint fontsize for short hints
 * Fix config dialog so apply is enabled when vocabs get deleted/edited/added
 * clean up and simplify code (even though it's just a game)
