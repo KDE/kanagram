@@ -1,0 +1,221 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="World Capitals" remark="Capital cities of the World" cols="0" generator="kanagram" lines="25" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e i="1" >
+  <o width="150" l="original" r="Capital of England" >london</o>
+ </e>
+ <e i="1" >
+  <o r="Capital de Francia" >paris</o>
+ </e>
+ <e>
+  <o r="Capital de Alemania" >berlin</o>
+ </e>
+ <e>
+  <o r="Capital de Irlanda" >dublin</o>
+ </e>
+ <e>
+  <o r="Capital de Gales" >cardiff</o>
+ </e>
+ <e>
+  <o r="Capital de España" >madrid</o>
+ </e>
+ <e>
+  <o r="Capital de Rusia" >moscú</o>
+ </e>
+ <e>
+  <o r="Capital de Afganistán" >kabul</o>
+ </e>
+ <e>
+  <o r="Capital de Sudán" >khartoum</o>
+ </e>
+ <e>
+  <o r="Capital de los Estados Unidos" >washington</o>
+ </e>
+ <e>
+  <o r="Capital de Australia" >canberra</o>
+ </e>
+ <e>
+  <o r="Capital de Japón" >tokio</o>
+ </e>
+ <e>
+  <o r="Capital de Portugal" >lisboa</o>
+ </e>
+ <e>
+  <o r="Capital de Escocia" >edinburgh</o>
+ </e>
+ <e>
+  <o r="Capital de Iraq" >bagdag</o>
+ </e>
+ <e>
+  <o r="Capital de China" >beijing</o>
+ </e>
+ <e>
+  <o r="Capital de Corea del Sur" >seul</o>
+ </e>
+ <e>
+  <o r="Capital de Irán" >teherán</o>
+ </e>
+ <e>
+  <o r="Capital de Canadá" >ottawa</o>
+ </e>
+ <e>
+  <o r="Capital de Grecia" >atenas</o>
+ </e>
+ <e>
+  <o r="Capital de Suecia" >estocolmo</o>
+ </e>
+ <e>
+  <o r="Capital de Noruega" >oslo</o>
+ </e>
+ <e>
+  <o r="Capital de Bulgaria" >sofia</o>
+ </e>
+ <e>
+  <o r="Capital de Holanda" >amsterdam</o>
+ </e>
+ <e>
+  <o r="Capital de Italia" >roma</o>
+ </e>
+ <e>
+  <o r="Capital de Austria" >viena</o>
+ </e>
+ <e>
+  <o r="Capital de Chile" >santiago</o>
+ </e>
+ <e>
+  <o r="Capital de Albania" >tirana</o>
+ </e>
+ <e>
+  <o r="Capital de Bélgica" >bruselas</o>
+ </e>
+ <e>
+  <o r="Capital de Croacia" >zagreb</o>
+ </e>
+ <e>
+  <o r="Capital de Estonia" >tallín</o>
+ </e>
+ <e>
+  <o r="Capital de Finlandia" >helsinki</o>
+ </e>
+ <e>
+  <o r="Capital de Islandia" >reykjavik</o>
+ </e>
+ <e>
+  <o r="Capital de Hungría" >budapest</o>
+ </e>
+ <e>
+  <o r="Capital de Turquía" >ankara</o>
+ </e>
+ <e>
+  <o r="Capital de Indonesia" >jakarta</o>
+ </e>
+ <e>
+  <o r="Capital de Jamaica" >kingston</o>
+ </e>
+ <e>
+  <o r="Capital de Kenia" >nairobi</o>
+ </e>
+ <e>
+  <o r="Capital de Lituania" >riga</o>
+ </e>
+ <e>
+  <o r="Capital de Líbano" >beirut</o>
+ </e>
+ <e>
+  <o r="Capital de Libia" >tripoli</o>
+ </e>
+ <e>
+  <o r="Capital de Macedonia" >skopje</o>
+ </e>
+ <e>
+  <o r="Capital de Nepal" >katmandú</o>
+ </e>
+ <e>
+  <o r="Capital de Perú" >lima</o>
+ </e>
+ <e>
+  <o r="Capital de Polonia" >varsovia</o>
+ </e>
+ <e>
+  <o r="Capital de Rumanía" >bucarest</o>
+ </e>
+ <e>
+  <o r="Capital de Eslovaquia" >bratislava</o>
+ </e>
+ <e>
+  <o r="Capital de Somalia" >mogadishu</o>
+ </e>
+ <e>
+  <o r="Capital de Siria" >damasco</o>
+ </e>
+ <e>
+  <o r="Capital de Suiza" >berna</o>
+ </e>
+ <e>
+  <o r="Capital de Tailandia" >bangok</o>
+ </e>
+ <e>
+  <o r="Capital de Nueva Zelanda" >wellington</o>
+ </e>
+</kvtml>

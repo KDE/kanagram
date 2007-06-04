@@ -1,0 +1,185 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Profesiones" remark="Los trabajos que hace la gente" cols="0" generator="kanagram" lines="21" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e s="1" >
+  <o width="150" l="spanish" r="El que ayuda al enfermo" >doctor</o>
+ </e>
+ <e s="1" >
+  <o r="El que apaga fuegos" >bombero</o>
+ </e>
+ <e s="1" >
+  <o r="El que captura criaturas marinas" >pescador</o>
+ </e>
+ <e s="1" >
+  <o r="El que defiende su país" >soldado</o>
+ </e>
+ <e>
+  <o r="El que viaja fuera de la Tierra" >astronauta</o>
+ </e>
+ <e>
+  <o r="El que mantiene un sistema eléctrico" >electricista</o>
+ </e>
+ <e>
+  <o r="El que repara tuberías" >fontanero</o>
+ </e>
+ <e>
+  <o r="El que trata la mente" >psiquiatra</o>
+ </e>
+ <e>
+  <o r="El que vigila que se cumpla la ley" >policía</o>
+ </e>
+ <e>
+  <o r="El que escribe para vivir" >autor</o>
+ </e>
+ <e>
+  <o r="El que escribe noticias" >periodista</o>
+ </e>
+ <e>
+  <o r="El que hace programas para computadoras" >programador</o>
+ </e>
+ <e>
+  <o r="El que actúa para una audiencia" >actor</o>
+ </e>
+ <e>
+  <o r="El que toca música" >músico</o>
+ </e>
+ <e>
+  <o r="El que provoca la risa" >comediante</o>
+ </e>
+ <e>
+  <o r="El científico especializado en química" >químico</o>
+ </e>
+ <e>
+  <o r="El que enseña a los estudiantes" >profesor</o>
+ </e>
+ <e>
+  <o r="El que repara máquinas" >mecánico</o>
+ </e>
+ <e>
+  <o r="El que planta cosechas" >agricultor</o>
+ </e>
+ <e>
+  <o r="El que hace arte" >artista</o>
+ </e>
+ <e>
+  <o r="El que  vende puerta a puerta" >representante</o>
+ </e>
+ <e>
+  <o r="El que hace ropa a medida" >sastre</o>
+ </e>
+ <e>
+  <o r="El que trabaja con hierro y acero" >herrero</o>
+ </e>
+ <e>
+  <o r="El que se especializa en el cuidado de la boca" >dentista</o>
+ </e>
+ <e>
+  <o r="El que desarrolla y comunica ideas" >diseñador</o>
+ </e>
+ <e>
+  <o r="El que es experto en el área de la ciencia" >científico</o>
+ </e>
+ <e>
+  <o r="El que primero piensa o hace una cosa" >inventor</o>
+ </e>
+ <e>
+  <o r="El que usa conocimiento científico para resolver problemas prácticos" >ingeniero</o>
+ </e>
+ <e>
+  <o r="El que se ocupa de las finanzas de una organización" >contable</o>
+ </e>
+ <e>
+  <o r="El que hace pan" >panadero</o>
+ </e>
+ <e>
+  <o r="El que construye edificios" >constructor</o>
+ </e>
+ <e>
+  <o r="El que hace muebles" >carpintero</o>
+ </e>
+ <e>
+  <o r="El que prepara comida" >cocinero</o>
+ </e>
+ <e>
+  <o r="El que repara automóviles" >mecánicos</o>
+ </e>
+ <e>
+  <o r="El que corta el pelo de la gente" >peluquero</o>
+ </e>
+ <e>
+  <o r="El que defiende y acusa a la gente" >abogado</o>
+ </e>
+ <e>
+  <o r="El que mira por la vista de la gente" >óptico</o>
+ </e>
+ <e>
+  <o r="El que encuentra las noticias" >reportero</o>
+ </e>
+ <e>
+  <o r="La que organiza los eventos" >secretaria</o>
+ </e>
+ <e>
+  <o r="El que diseña los planos de las nuevas estructuras" >arquitecto</o>
+ </e>
+</kvtml>

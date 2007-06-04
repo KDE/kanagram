@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Computadoras" remark="Elementos alrededor de tu computadora" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="spanish" r="Un dispositivo para visualizar bits" >monitor</o>
+ </e>
+ <e>
+  <o r="Crea ondas sonoras por el aire" >altavoces</o>
+ </e>
+ <e>
+  <o r="Usado para ver bits en papel" >impresora</o>
+ </e>
+ <e>
+  <o r="Una forma de ordenar a la computadora" >ratón</o>
+ </e>
+ <e>
+  <o r="Un dispositivo estándar de entrada" >teclado</o>
+ </e>
+ <e>
+  <o r="Dispositivo de entrada usado para juegos" >joystick</o>
+ </e>
+ <e>
+  <o r="Usado para comunicar a través de Internet" >modem</o>
+ </e>
+ <e>
+  <o r="Una sustancia que te mantiene alerta" >cafeina</o>
+ </e>
+ <e>
+  <o r="Un dispositivo de almacenamiento antiguo" >disquete</o>
+ </e>
+ <e>
+  <o r="Usado para copias de seguridad" >cintas</o>
+ </e>
+ <e>
+  <o r="Crea una representación digital de un objeto pesado" >scanner</o>
+ </e>
+ <e>
+  <o r="Para escuchar sonidos de forma privada" >auriculares</o>
+ </e>
+ <e>
+  <o r="Envía imágenes en movimiento a través de Internet" >webcam</o>
+ </e>
+ <e>
+  <o r="Te permite grabar un sonido" >micrófono</o>
+ </e>
+</kvtml>

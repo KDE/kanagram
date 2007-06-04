@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Gente" remark="Gente influyente de la historia" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="spanish" r="Filósofo griego" >aristóteles</o>
+ </e>
+ <e>
+  <o r="Compositor" >beethoven</o>
+ </e>
+ <e>
+  <o r="Este explorador descubrió América" >colón</o>
+ </e>
+ <e>
+  <o r="Teoría de la evolución" >darwin</o>
+ </e>
+ <e>
+  <o r="Inventor de la bombilla" >edison</o>
+ </e>
+ <e>
+  <o r="Teoría de la relatividad" >einstein</o>
+ </e>
+ <e>
+  <o r="Descubrió la penicilina" >fleming</o>
+ </e>
+ <e>
+  <o r="Fue el primero que dijo 'La Tierra gira alrededor del Sol'" >galileo</o>
+ </e>
+ <e>
+  <o r="Indujo la independencia no vilenta de la India" >gandhi</o>
+ </e>
+ <e>
+  <o r="Ayudó a terminar el comunismo en la URSS" >gorbachev</o>
+ </e>
+ <e>
+  <o r="Finalizó el apartheid en Sudáfrica" >mandela</o>
+ </e>
+ <e>
+  <o r="Inventor de la radio" >marconi</o>
+ </e>
+ <e>
+  <o r="Fue pintor, escultor y arquitecto" >michelangelo</o>
+ </e>
+ <e>
+  <o r="Conquistador francés" >napoleón</o>
+ </e>
+ <e>
+  <o r="Descubrió la gravedad" >newton</o>
+ </e>
+ <e>
+  <o r="Inventor de las vacunas" >pasteur</o>
+ </e>
+ <e>
+  <o r="Primer presidente de los Estados Unidos" >washington</o>
+ </e>
+</kvtml>

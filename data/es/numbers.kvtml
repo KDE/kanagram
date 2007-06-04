@@ -1,0 +1,170 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Números" remark="Palabras escritas de números" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="spanish" r="0" >cero</o>
+ </e>
+ <e>
+  <o r="1" >uno</o>
+ </e>
+ <e>
+  <o r="2" >dos</o>
+ </e>
+ <e>
+  <o r="3" >tres</o>
+ </e>
+ <e>
+  <o r="4" >cuatro</o>
+ </e>
+ <e>
+  <o r="5" >cinco</o>
+ </e>
+ <e>
+  <o r="6" >seis</o>
+ </e>
+ <e>
+  <o r="7" >siete</o>
+ </e>
+ <e>
+  <o r="8" >ocho</o>
+ </e>
+ <e>
+  <o r="9" >nueve</o>
+ </e>
+ <e>
+  <o r="10" >diez</o>
+ </e>
+ <e>
+  <o r="11" >once</o>
+ </e>
+ <e>
+  <o r="12" >doce</o>
+ </e>
+ <e>
+  <o r="13" >trece</o>
+ </e>
+ <e>
+  <o r="14" >catorce</o>
+ </e>
+ <e>
+  <o r="15" >quince</o>
+ </e>
+ <e>
+  <o r="16" >dieciseis</o>
+ </e>
+ <e>
+  <o r="17" >diecisiete</o>
+ </e>
+ <e>
+  <o r="18" >dieciocho</o>
+ </e>
+ <e>
+  <o r="19" >diecinueve</o>
+ </e>
+ <e>
+  <o r="20" >veinte</o>
+ </e>
+ <e>
+  <o r="30" >treinta</o>
+ </e>
+ <e>
+  <o r="40" >cuarenta</o>
+ </e>
+ <e>
+  <o r="50" >cincuenta</o>
+ </e>
+ <e>
+  <o r="60" >sesenta</o>
+ </e>
+ <e>
+  <o r="70" >setenta</o>
+ </e>
+ <e>
+  <o r="80" >ochenta</o>
+ </e>
+ <e>
+  <o r="90" >noventa</o>
+ </e>
+ <e>
+  <o r="100" >cien</o>
+ </e>
+ <e>
+  <o r="1000" >mil</o>
+ </e>
+ <e>
+  <o r="1,000,000" >millón</o>
+ </e>
+ <e>
+  <o r="1,000,000,000" >billón</o>
+ </e>
+ <e>
+  <o r="1º" >primero</o>
+ </e>
+ <e>
+  <o r="2º" >segundo</o>
+ </e>
+ <e>
+  <o r="3º" >tercero</o>
+ </e>
+</kvtml>

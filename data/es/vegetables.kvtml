@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Vegetales" remark="Vegetales de la Tierra" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="spanish" r="Suculentos brotes jóvenes" >espárrago</o>
+ </e>
+ <e>
+  <o r="Densos racimos de brotes verdes crecen apretados de un tallo grueso" >brócoli</o>
+ </e>
+ <e>
+  <o r="Tiene hojas que forman una cabeza compacta característica" >repollo</o>
+ </e>
+ <e>
+  <o r="Vegetal de raíz naranja que crece bajo tierra" >zanahoria</o>
+ </e>
+ <e>
+  <o r="Tipo de col, con manojos de floretes de color crema" >coliflor</o>
+ </e>
+ <e>
+  <o r="Vegetal fresco y verde" >apio</o>
+ </e>
+ <e>
+  <o r="También conocido como habas, con un sabor parecido a la nuez" >garbanzos</o>
+ </e>
+ <e>
+  <o r="Vegetal alargado, verde y cilíndrico" >pepino</o>
+ </e>
+ <e>
+  <o r="Un bulbo hecho con secciones o dientes" >ajo</o>
+ </e>
+ <e>
+  <o r="Bulbo blanco, estrecho y largo con hojas verde oscuro alargadas" >puerro</o>
+ </e>
+ <e>
+  <o r="Pequeñas habas de color marrón" >lentejas</o>
+ </e>
+ <e>
+  <o r="Verde, frondosa, y se come en ensaladas" >lechuga</o>
+ </e>
+ <e>
+  <o r="Un tipo de hongo" >seta</o>
+ </e>
+ <e>
+  <o r="Su olor te puede hacer llorar" >cebolla</o>
+ </e>
+ <e>
+  <o r="Condimento picante molido de la pimienta roja" >pimentón</o>
+ </e>
+ <e>
+  <o r="Hierba verde brillante" >perejil</o>
+ </e>
+ <e>
+  <o r="Raíz de vegetal que parece una zanahoria blanca" >chirivía</o>
+ </e>
+ <e>
+  <o r="Pequeños y marrones, suelen servirse salados" >cacahuetes</o>
+ </e>
+ <e>
+  <o r="Semilla verde, redonda y pequeña que crece en una vaina" >guisantes</o>
+ </e>
+ <e>
+  <o r="De tamaño medio, amarilla, crece bajo tierra" >patata</o>
+ </e>
+ <e>
+  <o r="Popular en Halloween" >calabaza</o>
+ </e>
+ <e>
+  <o r="Parecido al apio" >ruibarbo</o>
+ </e>
+ <e>
+  <o r="Con muchas proteinas, se usa en el tofu" >soja</o>
+ </e>
+ <e>
+  <o r="Vegetal fresco de un verde muy oscuro" >espinacas</o>
+ </e>
+ <e>
+  <o r="Sus semillas son amarillas" >maíz</o>
+ </e>
+ <e>
+  <o r="Pimientas rojas muy picantes" >tabasco</o>
+ </e>
+ <e>
+  <o r="De color rojo, considerado una fruta" >tomate</o>
+ </e>
+ <e>
+  <o r="Vegetal con una raíz bulbosa muy suculenta" >nabo</o>
+ </e>
+ <e>
+  <o r="Pequeña planta frondosa y verde, crece solamente en agua corriente" >berro</o>
+ </e>
+</kvtml>

@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
+<!--
+This is a machine generated file.
+Be careful when editing here.
+
+Short definition:
+
+lesson     lesson group
+ desc    name
+   %no     its index
+   %query  is in query selection
+   %current  is current lesson
+type     type group
+ desc    name
+   %no     its index
+e      entry of dictionary
+  %s     is selected
+  %m     lesson member
+  %t     common expression type
+ o       original
+   %q    in query ("o" is given, "t" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type (see QueryManager.h)
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+ t       translation ..
+   %q    in query ("t" is given, "o" is wanted)
+   %l    language code
+   %r    remark
+   %p    pronunciation
+   %width  column width
+   %t    expression type
+   %tf     false friend from
+   %ff     false friend to
+   %a    antonym
+   %y    synonym
+   %x    example
+   %u    usage label
+   %h    paraphrase
+
+   %d    last query date (from;to)
+   %w    dito, compressed and deprecated
+   %g    grade (from;to)
+   %c    count (from;to)
+   %b    bad count (from;to)
+
+
+Valid xml means:
+ - Close all tags
+ - Keep proper hierarchy
+ - All attributes are quoted
+--><kvtml title="Prendas" remark="Cosas con que se visten los humanos" cols="0" generator="kanagram" lines="16" encoding="UTF-8" >
+ <options>
+  <sort on="1" />
+ </options>
+ <e>
+  <o width="150" l="spanish" r="Zapatos de atletismo" >deportivas</o>
+ </e>
+ <e>
+  <o r="Zapatos para trabajar" >botas</o>
+ </e>
+ <e>
+  <o r="Tapan las piernas" >pantalones</o>
+ </e>
+ <e>
+  <o r="Pantalones hasta la mitad" >bermudas</o>
+ </e>
+ <e>
+  <o r="la mitad de abajo de un vestido" >falda</o>
+ </e>
+ <e>
+  <o r="Cubre todo el cuerpo de una mujer" >vestido</o>
+ </e>
+ <e>
+  <o r="Cubre todo el cuerpo para la lluvia" >chubasquero</o>
+ </e>
+ <e>
+  <o r="Cubre la parte superior del cuerpo de forma ligera" >chaqueta</o>
+ </e>
+ <e>
+  <o r="Cubre la parte superior del cuerpo y es grueso" >abrigo</o>
+ </e>
+ <e>
+  <o r="Cubre la cabeza" >sombrero</o>
+ </e>
+ <e>
+  <o r="Cubre la cabeza cuando hay frío" >gorro</o>
+ </e>
+ <e>
+  <o r="Calienta las orejas" >orejeras</o>
+ </e>
+ <e>
+  <o r="Visten los ojos" >gafas</o>
+ </e>
+ <e>
+  <o r="Protección del pie" >calcetines</o>
+ </e>
+ <e>
+  <o r="Calzado de playa" >sandalias</o>
+ </e>
+ <e>
+  <o r="Calientan las manos" >guantes</o>
+ </e>
+ <e>
+  <o r="Evita que se caigan los pantalones" >cinturón</o>
+ </e>
+</kvtml>
