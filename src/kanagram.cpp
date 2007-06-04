@@ -384,10 +384,15 @@ void Kanagram::drawHelpText(QPainter &p, const QString &text)
 	QFont font = KGlobalSettings::generalFont();
 	font.setPointSize(m_cornerFontSize);
 	p.setFont(font);
+	// translate to the same place as the folder plus a margin
+	p.translate(720.582 * m_xRatio, 480 * m_yRatio);
 	p.rotate(-3.29);
 	p.setPen(Qt::black);
-	p.drawText(int(715 * m_xRatio), int(520 * m_yRatio), text.section(' ', 0, 0));
-	p.drawText(int(715 * m_xRatio), int(550 * m_yRatio), text.section(' ', 1));
+	
+	// draw the first word
+	p.drawText(0, 0, text.section(' ', 0, 0));
+	// draw the second word under the first
+	p.drawText(0, 30 * m_yRatio, text.section(' ', 1));
 	p.restore();
 }
 
