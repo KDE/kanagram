@@ -50,7 +50,8 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
 	QString code = KanagramSettings::dataLanguage();
 	KConfigGroup group = entry.group(code);
-	cboxTranslation->setItemText(cboxTranslation->currentIndex(), group.readEntry("Name"));
+	// select the current language
+	cboxTranslation->setCurrentIndex(cboxTranslation->findText(group.readEntry("Name")));
 }
 
 MainSettings::~MainSettings()
