@@ -34,7 +34,6 @@ using namespace std;
 class QSvgRenderer;
 
 class KHelpMenu;
-class KConfigDialog;
 namespace Phonon
 {
 class AudioPlayer;
