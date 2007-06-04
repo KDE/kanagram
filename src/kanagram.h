@@ -80,7 +80,7 @@ Q_OBJECT
           * so we can display an error message and quit
           * @param filename the file that had the error
           */
-        void slotFileError(QString filename);
+        void slotFileError(const QString &filename);
 
     private:
 

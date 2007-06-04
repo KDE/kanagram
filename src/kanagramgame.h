@@ -52,7 +52,7 @@ Q_OBJECT
 
 	signals:
 		
-		void fileError(QString filename);
+		void fileError(const QString &filename);
 
 	private:
 

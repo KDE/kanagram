@@ -109,7 +109,7 @@ Kanagram::Kanagram()
 	connect(m_inputBox, SIGNAL(returnPressed()), SLOT(checkWord()));
 	connect(m_hintTimer, SIGNAL(timeout()), SLOT(hideHint()));
 	connect(m_inputBox, SIGNAL(textChanged(const QString &)), SLOT(update()));
-	connect(m_game, SIGNAL(fileError(QString)), SLOT(slotFileError(QString)));
+	connect(m_game, SIGNAL(fileError(const QString &)), SLOT(slotFileError(const QString &)));
 	
 	QFont f = QFont();
 	f.setPointSize(17);
@@ -392,7 +392,7 @@ void Kanagram::drawHelpText(QPainter &p, const QString &text)
 	// draw the first word
 	p.drawText(0, 0, text.section(' ', 0, 0));
 	// draw the second word under the first
-	p.drawText(0, 30 * m_yRatio, text.section(' ', 1));
+	p.drawText(0, int(30 * m_yRatio), text.section(' ', 1));
 	p.restore();
 }
 
@@ -844,7 +844,7 @@ void Kanagram::play(const QString &filename)
 	m_player->play(soundFile);
 }
 
-void Kanagram::slotFileError(QString filename)
+void Kanagram::slotFileError(const QString &filename)
 {
 	QString msg = i18n("File %1 cannot be found.\n Please ensure that Kanagram is properly installed.", filename);
 	KMessageBox::sorry(this, msg, i18n("Error"));
