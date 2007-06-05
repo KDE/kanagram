@@ -29,7 +29,7 @@
  *
  *  Settings page to choose vocabularies, and buttons to invoke the vocabulary editor
  */
-class VocabSettings : public QDialog, public Ui::VocabSettingsWidget
+class VocabSettings : public QWidget, public Ui::VocabSettingsWidget
 {
 Q_OBJECT
 	public:

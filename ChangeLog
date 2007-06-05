@@ -1,0 +1,8 @@
+2007-06-05  Jeremy Whiting <jeremy@scitools.com>
+
+	* Changelog didn't exist, so created one.
+
+	APIDOX
+	* src/kanagram.h: Document everything. 
+	* src/mainsettings.h: Document everything.
+	* src/vocabsettings.h: Document everything but slots.

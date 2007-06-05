@@ -37,7 +37,7 @@
 #include "keduvocdocument.h"
 #include "kanagramsettings.h"
 
-VocabSettings::VocabSettings(QWidget *parent) : QDialog(parent)
+VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent)
 {
 	setupUi(this);
 	
