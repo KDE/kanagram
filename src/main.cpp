@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Joshua Keel  *
- *   joshuakeel@gmail.com   *
+ *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
+ *             (C) 2007 by Jeremy Whiting <jeremy@scitools.com>            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -21,11 +21,11 @@
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
-#include <kstandarddirs.h>
 #include <kapplication.h>
 #include "kanagram.h"
 #include "kanagramsettings.h"
 
+/** setup about data, create the main window, and start */
 int main(int argc, char *argv[])
 {
 	KAboutData about("kanagram", I18N_NOOP("Kanagram"), "0.1", I18N_NOOP("An anagram game"), KAboutData::License_GPL, "© 2005 Joshua Keel\n© 2005 Danny Allen");
@@ -36,21 +36,6 @@ int main(int argc, char *argv[])
 	KCmdLineArgs::init(argc, argv, &about);
 	KApplication app;
 	
-	if (KanagramSettings::dataLanguage().isEmpty())
-	{
-		QStringList userLanguagesCode = KGlobal::locale()->languageList();
-		// TODO: this is going to need to change to work with new kvtml location when it changes
-		QStringList::const_iterator itEnd = userLanguagesCode.end();
-		QStringList::const_iterator it = userLanguagesCode.begin();
-		for ( ; it != itEnd; ++it)
-		{
-			QStringList mdirs = KGlobal::dirs()->findDirs("appdata", "data/" + *it);	
-			if (!mdirs.isEmpty()) break;
-		}
-		if (it == itEnd) KanagramSettings::setDataLanguage("en");
-		else KanagramSettings::setDataLanguage(*it);
-	}
-
 	Kanagram a;
 	a.show();
 	app.setTopWidget(&a);

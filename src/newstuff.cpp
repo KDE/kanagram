@@ -33,14 +33,13 @@
 NewStuff::NewStuff(QWidget *parent):QDialog(parent)
 {
 	setupUi(this);
-	connect(btnGetNew, SIGNAL(clicked()), this, SLOT(slotGetNewVocabs()));
 }
 
 NewStuff::~NewStuff()
 {
 }
 
-void NewStuff::slotGetNewVocabs()
+void NewStuff::on_btnGetNew_clicked()
 {
 	KNS::Entry::List entries = KNS::Engine::download();
 }

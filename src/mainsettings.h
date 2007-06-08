@@ -27,7 +27,9 @@
 
 class KConfigDialog;
 
-/** main settings widget for choosing the language and the font */
+/** user preferences page of the config dialog
+  * allows choosing a hint hide time,
+  * the language, and the sound settings*/
 class MainSettings : public QWidget, Ui::MainSettingsWidget
 {
 Q_OBJECT

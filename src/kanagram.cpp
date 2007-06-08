@@ -91,6 +91,8 @@ Kanagram::Kanagram()
 
 	m_game = new KanagramGame();
 	
+	loadSettings();
+	
 	setMouseTracking(true);
 	m_chalkColor = QColor(155, 155, 155);
 	m_chalkHighlightColor = QColor(255, 255, 255);
@@ -116,12 +118,8 @@ Kanagram::Kanagram()
 	m_inputBox->setFont(f);
 	m_inputBox->show();
 
-	KGlobalSettings::generalFont() = KGlobalSettings::generalFont();
-
 	show();
 
-	loadSettings();
-	
 	setMinimumSize(650, 471);
 }
 
@@ -138,16 +136,46 @@ Kanagram::~Kanagram()
 		delete m_game;
 		m_game = NULL;
 	}
+	
+	if (m_renderer != NULL)
+	{
+		delete m_renderer;
+		m_renderer = NULL;
+	}
 }
 
 void Kanagram::loadSettings()
 {
 	QString hideTime = KanagramSettings::hintHideTime();
 	if(hideTime[0].isDigit())
+	{
 		m_hintHideTime = hideTime[0].digitValue();
+	}
 	else
+	{
 		m_hintHideTime = 0;
+	}
 	
+	if (KanagramSettings::dataLanguage().isEmpty())
+	{
+		QStringList userLanguagesCode = KGlobal::locale()->languageList();
+		
+		int i = 0;
+		bool foundLanguage = false;
+		while (i < userLanguagesCode.size() && !foundLanguage)
+		{
+			// TODO: this is going to need to change to work with new kvtml location when it changes
+			if (!KGlobal::dirs()->findDirs("appdata", "data/" + userLanguagesCode[i]).isEmpty())
+			{
+				// we found a folder that has files in it
+				foundLanguage = true;
+			}
+		}
+		// at this point either foundLanguage == true, or i > userLanguagesCode.size()
+		
+		KanagramSettings::setDataLanguage(foundLanguage ? userLanguagesCode[i] : "en");
+	}
+
 	m_useSounds = KanagramSettings::useSounds();
 	m_arrowName = "basicarrow";
 
@@ -237,10 +265,10 @@ void Kanagram::paintEvent(QPaintEvent *)
 
 	//Draw the border of the input box
 	QRect borderRect = m_inputBox->geometry();
-	borderRect.setLeft(borderRect.left() - 1);
-	borderRect.setTop(borderRect.top() - 1);
-	borderRect.setWidth(borderRect.width() + 2 * 1);
-	borderRect.setHeight(borderRect.height() + 2 * 1);
+	borderRect.setLeft(borderRect.left());
+	borderRect.setTop(borderRect.top());
+	borderRect.setWidth(borderRect.width());
+	borderRect.setHeight(borderRect.height());
 	p.drawRoundRect(borderRect, 10, 5);
 
 	//Draw the border of the Up arrow

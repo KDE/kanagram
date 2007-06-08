@@ -28,8 +28,9 @@
 
 class QWidget;
 
-/** @brief kanagram game api
+/** @brief game api
   * @author Joshua Keel <joshuakeel@gmail.com>
+  * @author Jeremy Whiting <jeremy@scitools.com>
   */
 class KanagramGame : public QObject
 {

@@ -24,15 +24,22 @@
 
 #include "ui_newstuffwidget.h"
 
+/** settings page to get new vocabularies through KNewStuff */
 class NewStuff : public QDialog, public Ui::NewStuffWidget
 {
 Q_OBJECT
 	public:
+        /** default constructor */
 		explicit NewStuff(QWidget *parent);
+
+        /** default destructor */
 		~NewStuff();
 
 	private slots:
-		void slotGetNewVocabs();
+        /** get new vocabularies
+          * invokes the KNewStuff dialog for downloading
+          */
+		void on_btnGetNew_clicked();
 };
 
 #endif

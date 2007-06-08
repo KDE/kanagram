@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Joshua Keel  *
- *   joshuakeel@gmail.com   *
+ *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
+ *             (C) 2007 by Jeremy Whiting <jeremy@scitools.com>            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -15,9 +15,15 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
+/** @file
+ * \brief header file for kanagram class
+ * @author Joshua Keel <joshuakeel@gmail.com>
+ * @author Jeremy Whiting <jeremy@scitools.com>
+ * \par Maintainer: Jeremy Whiting 
+ */
 #ifndef KANAGRAM_H
 #define KANAGRAM_H
 
@@ -31,29 +37,28 @@
 
 using namespace std;
 
-class QSvgRenderer;
-
-class KHelpMenu;
 namespace Phonon
 {
-class AudioPlayer;
+	class AudioPlayer;
 }
+
+class QSvgRenderer;
+class KHelpMenu;
 class KanagramGame;
 class VocabSettings;
 
 /** 
-  * @brief Kanagram main class.  
-  * @author Joshua Keel <joshuakeel@gmail.com>
+  * @brief main interface widget  
   *
   * Draws the window, and reacts to mouse events */
 class Kanagram : public QWidget
 {
 Q_OBJECT
     public:
-        /** default ctor */
+        /** default constructor */
         Kanagram();
 
-        /** default dtor */
+        /** default destructor */
         ~Kanagram();
 
     private slots:
@@ -61,13 +66,17 @@ Q_OBJECT
         /** check the entered word against the answer, and move on, or reset as necessary */
         void checkWord();
 
-        /** load user settings */
+        /** load user settings 
+         *  loads language choice,
+         *  sound settings,
+         *  and auto-hide hint time
+         */
         void loadSettings();
 
         /** hide the hint box and text. */
         void hideHint();
 
-        /** reset the input box in preparation for the next word */
+        /** reset the input box in preparation for the next word entry */
         void resetInputBox();
 
         /** refresh the list of vocabularies in the vocabulary chooser in the config window.
