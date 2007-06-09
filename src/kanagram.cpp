@@ -390,7 +390,7 @@ void Kanagram::resizeEvent(QResizeEvent *)
 							int(xScale57Buttons * width()), int(yScale57Buttons * height()));
 	m_aboutKDERect = QRect(int(867 * m_xRatio), int(335.352 * m_yRatio), 
 							int(xScale57Buttons * width()), int(yScale57Buttons * height()));
-	m_handbookRect = QRect(int(750.877 * m_xRatio), int(335.352 * m_yRatio), 
+	m_handbookRect = QRect(int(753 * m_xRatio), int(335.352 * m_yRatio), 
 							int(xScale57Buttons * width()), int(yScale57Buttons * height()));
 
 	m_nextRect = QRect(int(735.448 * m_xRatio), int(49.028 * m_yRatio), int(206.142 * m_xRatio), int(117.537 * m_yRatio));	
@@ -564,145 +564,43 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 	}
 }
 
+/** sets or clears flag based on whether p is in rect, and set changed if flag changes */
+void Kanagram::CheckRect(const QRect &rect, const QPoint &p, bool &flag, bool &changed)
+{
+	if (rect.contains(p))
+	{
+		changed = !flag;
+		flag = true;
+	}
+	else if (flag)
+	{
+		flag = false;
+		changed = true;
+	}
+}
+
 void Kanagram::mouseMoveEvent(QMouseEvent *e)
 {
 	QPoint p = e->pos();
-	bool haveToUpdate;
-	haveToUpdate = false;
+	bool haveToUpdate = false;
 	
-	if (m_nextRect.contains(p))
-	{
-		if (!m_overNext)
-		{
-			m_overNext = true;
-			haveToUpdate = true;
-		}
-	}
-	else if (m_overNext)
-	{
-		m_overNext = false;
-		haveToUpdate = true;
-	}
-
-	if(m_configRect.contains(p))
-	{
-		if(!m_overConfig)
-		{
-			m_overConfig = true;
-			haveToUpdate = true;
-		}
-	}
-	else if(m_overConfig)
-	{
-		m_overConfig = false;
-		haveToUpdate = true;
-	}
+	CheckRect(m_nextRect, p, m_overNext, haveToUpdate);
+	CheckRect(m_configRect, p, m_overConfig, haveToUpdate);
+	CheckRect(m_logoRect, p, m_overLogo, haveToUpdate);
+	CheckRect(m_helpRect, p, m_overHelp, haveToUpdate);
+	CheckRect(m_quitRect, p, m_overQuit, haveToUpdate);
+	CheckRect(m_hintRect, p, m_overHint, haveToUpdate);
+	CheckRect(m_hintBoxRect, p, m_overHintBox, haveToUpdate);
+	CheckRect(m_revealRect, p, m_overReveal, haveToUpdate);
+	CheckRect(m_upRect, p, m_overUp, haveToUpdate);
+	CheckRect(m_aboutAppRect, p, m_overAboutApp, haveToUpdate);
 	
-	if (m_logoRect.contains(p))
-	{
-		if (!m_overLogo)
-		{
-			m_overLogo = true;
-			haveToUpdate = true;
-		}
-	}
-	else if (m_overLogo)
-	{
-		m_overLogo = false;
-		haveToUpdate = true;
-	}
-
-	if(m_helpRect.contains(p))
-	{
-		if(!m_overHelp)
-		{
-			m_overHelp = true;
-			haveToUpdate = true;
-		}
-	}
-	else if(m_overHelp)
-	{
-		m_overHelp = false;
-		haveToUpdate = true;
-	}
-
-	if(m_quitRect.contains(p))
-	{
-		if(!m_overQuit)
-		{
-			m_overQuit = true;
-			haveToUpdate = true;
-		}
-	}
-	else if(m_overQuit)
-	{
-		m_overQuit = false;
-		haveToUpdate = true;
-	}
-
-	if(m_hintRect.contains(p))
-	{
-		if(!m_overHint)
-		{
-			m_overHint = true;
-			haveToUpdate = true;
-		}
-	}
-	else if(m_overHint)
-	{
-		m_overHint = false;
-		haveToUpdate = true;
-	}
-
-	if(m_hintBoxRect.contains(p))
-	{
-		if(!m_overHintBox)
-		{
-			m_overHintBox = true;
-			haveToUpdate = true;
-		}
-	}
-	else if(m_overHintBox)
-	{
-		m_overHintBox = false;
-		haveToUpdate = true;
-	}
+	CheckRect(m_logoRect, p, m_overLogo, haveToUpdate);
 	
-	if(m_revealRect.contains(p))
-	{
-		if(!m_overReveal)
-		{
-			m_overReveal = true;
-			haveToUpdate = true;
-		}
-	}
-	else if(m_overReveal)
-	{
-		m_overReveal = false;
-		haveToUpdate = true;
-	}
-
-	if(m_upRect.contains(p))
-	{
-		if(!m_overUp)
-		{
-			m_overUp = true;
-			haveToUpdate = true;
-		}
-	}
-	else if(m_overUp)
-	{
-		m_overUp = false;
-		haveToUpdate = true;
-	}
-
 	if(m_switcherRect.contains(p) || m_arrowRect.contains(p))
 	{
-		if(!m_overSwitcher)
-		{
-			m_overSwitcher = true;
-			haveToUpdate = true;
-		}
+		haveToUpdate = !m_overSwitcher;
+		m_overSwitcher = true;
 	}
 	else if(m_overSwitcher)
 	{
@@ -710,57 +608,27 @@ void Kanagram::mouseMoveEvent(QMouseEvent *e)
 		haveToUpdate = true;
 	}
 
-	if(m_aboutAppRect.contains(p))
-	{
-		if(!m_overAboutApp)
-		{
-			m_overAboutApp = true;
-			haveToUpdate = true;
-		}
-	}
-	else if(m_overAboutApp)
-	{
-		m_overAboutApp = false;
-		haveToUpdate = true;
-	}
-
 	if(!m_showHint)
 	{
-		if(m_handbookRect.contains(p))
-		{
-			if(!m_overHandbook)
-			{
-				m_overHandbook = true;
-				haveToUpdate = true;
-			}
-		}
-		else if(m_overHandbook)
-		{
-			m_overHandbook = false;
-			haveToUpdate = true;
-		}
-	
-		if(m_aboutKDERect.contains(p))
-		{
-			if(!m_overAboutKDE)
-			{
-				m_overAboutKDE = true;
-				haveToUpdate = true;
-			}
-		}
-		else if(m_overAboutKDE)
-		{
-			m_overAboutKDE = false;
-			haveToUpdate = true;
-		}
+		CheckRect(m_handbookRect, p, m_overHandbook, haveToUpdate);
+		CheckRect(m_aboutKDERect, p, m_overAboutKDE, haveToUpdate);
 	}
 
-	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit || m_overConfig || m_overReveal || m_overHint || (m_overUp && !m_inputBox->text().isEmpty()) || m_overAboutApp || m_overHintBox || m_overLogo)
+	if(m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit 
+		|| m_overConfig || m_overReveal || m_overHint || (m_overUp && !m_inputBox->text().isEmpty()) 
+		|| m_overAboutApp || m_overHintBox || m_overLogo)
+	{
 		this->setCursor(Qt::PointingHandCursor);
+	}
 	else
+	{
 		this->unsetCursor();
+	}
 
-	if (haveToUpdate) update();
+	if (haveToUpdate) 
+	{
+		update();
+	}
 }
 
 void Kanagram::drawTextNew(QPainter &p, const QString &text, int textAlign, int xMargin, int yMargin, const QRect &rect, bool highlight, int fontSize)
@@ -817,23 +685,26 @@ void Kanagram::randomHintImage()
 
 void Kanagram::showSettings()
 {
-	if(KConfigDialog::showDialog("settings"))
-		return;
-
-	KConfigDialog *configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
-	configDialog->addPage( new MainSettings( configDialog ), i18n( "General" ), "configure" );
-	m_vocabSettings = new VocabSettings( configDialog );
-	configDialog->addPage( m_vocabSettings, i18n("Vocabularies"), "edit" );
-	configDialog->addPage( new NewStuff( configDialog ), i18n("New Stuff"), "get-hot-new-stuff" );
-	connect(configDialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(loadSettings()));
-	connect(configDialog, SIGNAL(applyClicked()), this, SLOT(refreshVocabularies()));
-	configDialog->show();
-	configDialog->setAttribute(Qt::WA_DeleteOnClose);
+	if (!KConfigDialog::showDialog("settings"))
+	{
+		KConfigDialog *configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
+		configDialog->addPage( new MainSettings( configDialog ), i18n( "General" ), "configure" );
+		m_vocabSettings = new VocabSettings( configDialog );
+		configDialog->addPage( m_vocabSettings, i18n("Vocabularies"), "edit" );
+		configDialog->addPage( new NewStuff( configDialog ), i18n("New Stuff"), "get-hot-new-stuff" );
+		connect(configDialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(loadSettings()));
+		connect(configDialog, SIGNAL(applyClicked()), this, SLOT(refreshVocabularies()));
+		configDialog->show();
+		configDialog->setAttribute(Qt::WA_DeleteOnClose);
+	}
 }
 
 void Kanagram::hideHint()
 {
-	if(m_showHint == true) m_showHint = false;
+	if(m_showHint == true)
+	{
+		m_showHint = false;
+	}
 	update();
 }
 

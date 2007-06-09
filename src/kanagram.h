@@ -164,6 +164,9 @@ Q_OBJECT
           */
         QRect innerRect(const QRect &rect, const int xMargin, const int yMargin);
 
+		/** sets or clears flag based on whether p is in rect, and set changed if flag changes */
+		void CheckRect(const QRect &rect, const QPoint &p, bool &flag, bool &changed);
+		
         /**
           * KanagramGame object to get words,
           * scrambled words,
