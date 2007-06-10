@@ -167,6 +167,9 @@ Q_OBJECT
 		/** sets or clears flag based on whether p is in rect, and set changed if flag changes */
 		void CheckRect(const QRect &rect, const QPoint &p, bool &flag, bool &changed);
 		
+		/** check the font size and set it to a sane minimum if it's an error size <= 0 */
+		void FixFontSize(int &fontSize);
+		
         /**
           * KanagramGame object to get words,
           * scrambled words,

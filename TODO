@@ -1,10 +1,12 @@
 TODO items for Kanagram:
 
+* Fix inputbox fontsize
+* Make changing languages switch vocab and word to use the new language
+* Fix vocab editor ui issues (disable save after save, etc.)
 * Fix hint fontsize for short hints
-* Fix config dialog so apply is enabled when vocabs get deleted/edited/added
 * clean up and simplify code (even though it's just a game)
 * Add Apidox comments all over
-* Test KNS works when the library is doing what it's supposed to
+* Test KNS downloads files with the right extension when support is put in for that
 * Test kvtml location change
 * Make engine work with unicode if kvtml reader in libkdeedu supports reading it
 

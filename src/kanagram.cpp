@@ -241,10 +241,13 @@ void Kanagram::paintEvent(QPaintEvent *)
 
 	QString anagram = m_game->getAnagram();
 	int afontSize = fontUtils::fontSize(p, anagram, m_blackboardRect.width(), m_blackboardRect.height() / 5);
+	FixFontSize(afontSize);
 	drawTextNew(p, anagram, Qt::AlignCenter, 10, 10, m_blackboardRect, true, afontSize);
 	
 	QString reveal = i18n(m_textRevealWord);
 	m_cornerFontSize = fontUtils::fontSize(p, reveal, m_blackboardRect.width() / 3, m_blackboardRect.height() / 5);
+	FixFontSize(m_cornerFontSize);
+
 	drawTextNew(p, i18n(m_textRevealWord), Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, m_cornerFontSize);
 	drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 6, 0, m_blackboardRect, m_overHint, m_cornerFontSize);
 
@@ -303,6 +306,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 		f.setWeight(QFont::Bold);
 		QString hint = m_game->getHint();
 		int fontSize = fontUtils::fontSize(p, hint, int(400 * m_xRatio), int(150 * m_yRatio));
+		FixFontSize(fontSize);
 		f.setPointSize(fontSize);
 		p.setFont(f);
 		p.drawText(int(694 * m_xRatio), int(330 * m_yRatio), int(250 * m_xRatio), int(100 * m_yRatio), 
@@ -372,6 +376,15 @@ void Kanagram::paintEvent(QPaintEvent *)
 
 	QPainter p2(this);
 	p2.drawPixmap(0, 0, buf);
+}
+
+/** check the font size and set it to a sane minimum if it's an error size <= 0 */
+void Kanagram::FixFontSize(int &fontSize)
+{
+	if (fontSize <= 0)
+	{
+		fontSize = 8;
+	}
 }
 
 void Kanagram::resizeEvent(QResizeEvent *)
@@ -594,8 +607,6 @@ void Kanagram::mouseMoveEvent(QMouseEvent *e)
 	CheckRect(m_revealRect, p, m_overReveal, haveToUpdate);
 	CheckRect(m_upRect, p, m_overUp, haveToUpdate);
 	CheckRect(m_aboutAppRect, p, m_overAboutApp, haveToUpdate);
-	
-	CheckRect(m_logoRect, p, m_overLogo, haveToUpdate);
 	
 	if(m_switcherRect.contains(p) || m_arrowRect.contains(p))
 	{
