@@ -268,11 +268,12 @@ void Kanagram::paintEvent(QPaintEvent *)
 
 	//Draw the border of the input box
 	QRect borderRect = m_inputBox->geometry();
-	borderRect.setLeft(borderRect.left());
-	borderRect.setTop(borderRect.top());
-	borderRect.setWidth(borderRect.width());
-	borderRect.setHeight(borderRect.height());
 	p.drawRoundRect(borderRect, 10, 5);
+	int inputBoxFontSize = fontUtils::fontSize(p, "A", borderRect.width(), borderRect.height()) - 1;
+	FixFontSize(inputBoxFontSize);
+	QFont f = QFont();
+	f.setPointSize(inputBoxFontSize);
+	m_inputBox->setFont(f);
 
 	//Draw the border of the Up arrow
 	borderRect = m_upRect;

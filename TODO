@@ -1,6 +1,5 @@
 TODO items for Kanagram:
 
-* Fix inputbox fontsize
 * Make changing languages switch vocab and word to use the new language
 * Fix vocab editor ui issues (disable save after save, etc.)
 * Fix hint fontsize for short hints
