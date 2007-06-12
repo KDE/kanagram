@@ -44,7 +44,7 @@
 VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent), m_fileName("")
 {
 	setupUi(this);
-	
+
 	if(!fileName.isEmpty())
 	{
 		m_fileName = fileName;
@@ -54,7 +54,7 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent
 		{
 			KEduVocExpression expr = *doc->entry(i);
 			m_vocabList.append(expr);
-			lboxWords->addItem(doc->entry(i)->original());	
+			lboxWords->addItem(doc->entry(i)->translation(0).translation());
 		}
 		txtVocabName->setText(doc->title());
 		txtDescription->setText(doc->documentRemark());
@@ -64,7 +64,7 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent
 	connect(btnNewWord, SIGNAL(clicked()), this, SLOT(slotNewWord()));
 	connect(btnRemoveWord, SIGNAL(clicked()), this, SLOT(slotRemoveWord()));
 	connect(btnClose, SIGNAL(clicked()), this, SLOT(slotClose()));
-	
+
 	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
 	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
 
@@ -92,7 +92,7 @@ void VocabEdit::slotSave()
 	{
 		doc->appendEntry(&m_vocabList[i]);
 	}
-	
+
 	QString fileName = txtVocabName->text().toLower().replace(" ", "") + ".kvtml";
 	doc->saveAs(KUrl::fromPath(KGlobal::dirs()->saveLocation("data", "kanagram/data/" + KanagramSettings::dataLanguage()) + fileName), KEduVocDocument::automatic, "kanagram");
 
@@ -138,8 +138,8 @@ void VocabEdit::slotSelectionChanged()
 	disconnect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
 	if(lboxWords->currentRow() >= 0)
 	{
-		txtWord->setText(m_vocabList[lboxWords->currentRow()].original());
-		txtHint->setText(m_vocabList[lboxWords->currentRow()].remark(0));
+		txtWord->setText(m_vocabList[lboxWords->currentRow()].translation(0).translation());
+		txtHint->setText(m_vocabList[lboxWords->currentRow()].translation(0).comment());
 	}
 	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
 	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
@@ -150,7 +150,7 @@ void VocabEdit::slotWordTextChanged(const QString &changes)
 	//Make sure there actually is a currentRow()
 	if(lboxWords->currentRow() != -1)
 	{
-		m_vocabList[lboxWords->currentRow()].setOriginal(changes);
+		m_vocabList[lboxWords->currentRow()].setTranslation(0, changes);
 		lboxWords->currentItem()->setText(changes);
 	}
 
@@ -162,7 +162,7 @@ void VocabEdit::slotHintTextChanged(const QString &changes)
 {
 	//Make sure there actually is a currentItem()
 	if(lboxWords->currentRow() != -1)
-		m_vocabList[lboxWords->currentRow()].setRemark(0, changes);
+		m_vocabList[lboxWords->currentRow()].translation(0).setComment(changes);
 
 	if(m_textChanged == false)
 		m_textChanged = true;

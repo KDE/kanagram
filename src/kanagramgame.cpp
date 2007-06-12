@@ -63,7 +63,7 @@ void KanagramGame::loadDefaultVocab()
 			nextVocab();
 		}
 	}
-	
+
         kDebug() << "in game " << m_filename <<endl;
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KUrl(KStandardDirs::locate("appdata", m_filename)));
@@ -132,18 +132,24 @@ void KanagramGame::nextAnagram()
 	doc->open(KUrl(KStandardDirs::locate("appdata", m_filename)));
 	int totalWords = doc->entryCount();
 	int wordNumber = m_random.getLong(totalWords);
+
+
+    kDebug() << "KanagramGame::nextAnagram() m_filename: " << m_filename << endl;
+
+
 	if(doc->entryCount() == (int)m_answeredWords.size())
 	{
 		m_answeredWords.clear();
 	}
-	while(m_answeredWords.indexOf(doc->entry(wordNumber)->original()) != -1)
+	while(m_answeredWords.indexOf(doc->entry(wordNumber)->translation(0).translation()) != -1)
 	{
 		wordNumber = m_random.getLong(totalWords);
 	}
-	m_originalWord = doc->entry(wordNumber)->original();
+
+	m_originalWord = doc->entry(wordNumber)->translation(0).translation();
 	m_answeredWords.append(m_originalWord);
 	m_anagram = createAnagram(m_originalWord);
-	m_hint = doc->entry(wordNumber)->remark(0);
+	m_hint = doc->entry(wordNumber)->translation(0).comment();
 }
 
 QString KanagramGame::getDocTitle()
@@ -184,7 +190,7 @@ QString KanagramGame::createAnagram(const QString &original)
 	QStringList objData = original.split(QString(""));
 	QString insaneData = "";
 	int count;
-	
+
 	for(int i=0; (count = objData.count()); i++)
 	{
 		int objChunk;
