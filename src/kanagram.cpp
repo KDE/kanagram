@@ -169,6 +169,7 @@ void Kanagram::loadSettings()
 				// we found a folder that has files in it
 				foundLanguage = true;
 			}
+			++i;
 		}
 		// at this point either foundLanguage == true, or i > userLanguagesCode.size()
 
