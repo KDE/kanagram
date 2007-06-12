@@ -66,12 +66,8 @@ Q_OBJECT
         /** check the entered word against the answer, and move on, or reset as necessary */
         void checkWord();
 
-        /** load user settings 
-         *  loads language choice,
-         *  sound settings,
-         *  and auto-hide hint time
-         */
-        void loadSettings();
+		/** reload the settings, and reload the vocab in kanagramgame */
+		void reloadSettings();
 
         /** hide the hint box and text. */
         void hideHint();
@@ -92,6 +88,13 @@ Q_OBJECT
         void slotFileError(const QString &filename);
 
     private:
+
+        /** load user settings 
+         *  loads language choice,
+         *  sound settings,
+         *  and auto-hide hint time
+         */
+        void loadSettings();
 
         /** new method to draw text in a rectangle
           * @param p painter to use

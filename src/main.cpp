@@ -28,7 +28,7 @@
 /** setup about data, create the main window, and start */
 int main(int argc, char *argv[])
 {
-	KAboutData about("kanagram", I18N_NOOP("Kanagram"), "0.1", I18N_NOOP("An anagram game"), KAboutData::License_GPL, "© 2005 Joshua Keel\n© 2005 Danny Allen");
+	KAboutData about("kanagram", I18N_NOOP("Kanagram"), "0.1", I18N_NOOP("An anagram game"), KAboutData::License_GPL, "© 2005 Joshua Keel\n© 2005 Danny Allen\n© 2007 Jeremy Whiting");
 	about.addAuthor("Joshua Keel", I18N_NOOP("Coding"), "joshuakeel@gmail.com");
 	about.addAuthor("Danny Allen", I18N_NOOP("Design, Graphics and many Vocabularies"), "danny@dannyallen.co.uk");
 	about.addAuthor("Jeremy Whiting", I18N_NOOP("Maintainer"), "jeremy@scitools.com");

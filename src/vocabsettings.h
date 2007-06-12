@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Joshua Keel                                     *
- *   joshuakeel@gmail.com                                                  *
+ *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
+ *             (C) 2007 by Jeremy Whiting <jeremy@scitools.com>            *
  *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -23,6 +23,8 @@
 #define VOCABSETTINGS_H
 
 #include "ui_vocabsettingswidget.h"
+
+class KConfigDialog;
 
 /** @brief Vocabulary Settings class
  *  @author Joshua Keel <joshuakeel@gmail.com>
@@ -47,6 +49,9 @@ Q_OBJECT
 		/** list of vocabulary files */
 		QStringList m_fileList;
 		QMap<const QTreeWidgetItem*, int> m_itemMap;
+
+		/** cache pointer to config dialog so we can enable the apply button in slotSetDirty */
+		KConfigDialog *m_parent;
 
 	private slots:
 

@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Joshua Keel                                     *
- *   joshuakeel@gmail.com                                                  *
+ *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
+ *             (C) 2007 by Jeremy Whiting <jeremy@scitools.com>            *
  *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -16,7 +16,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.           *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
 #include "vocabsettings.h"
@@ -26,6 +26,7 @@
 
 #include <kdebug.h>
 #include <kstandarddirs.h>
+#include <kconfigdialog.h>
 #include <qstringlist.h>
 #include <qlistwidget.h>
 #include <qvector.h>
@@ -37,10 +38,11 @@
 #include "keduvocdocument.h"
 #include "kanagramsettings.h"
 
-VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent)
+VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
 {
 	setupUi(this);
-	
+	m_parent = (KConfigDialog*)parent;
+
 	connect(lviewVocab, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(slotSelectionChanged(QTreeWidgetItem *)));
 
 	refreshView();
@@ -64,6 +66,7 @@ void VocabSettings::refreshView()
 		item->setText( 1, doc->documentRemark() );
 		m_itemMap[item] = i;
 	}
+	m_parent->enableButtonApply(true);
 }
 
 void VocabSettings::on_btnEdit_clicked()

@@ -1,7 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Joshua Keel                                     *
- *   joshuakeel@gmail.com                                                  *
- *                                                                         *
+ *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
+ *             (C) 2007 by Jeremy Whiting <jeremy@scitools.com>            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -16,7 +15,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.           *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
 #include "kanagram.h"
@@ -89,9 +88,9 @@ Kanagram::Kanagram()
 	setAttribute(Qt::WA_StaticContents);
 	m_renderer = new QSvgRenderer(KStandardDirs::locate("appdata", "images/kanagram.svg"));
 
-	m_game = new KanagramGame();
-
 	loadSettings();
+
+	m_game = new KanagramGame();
 
 	setMouseTracking(true);
 	m_chalkColor = QColor(155, 155, 155);
@@ -180,7 +179,11 @@ void Kanagram::loadSettings()
 
 	m_useSounds = KanagramSettings::useSounds();
 	m_arrowName = "basicarrow";
+}
 
+void Kanagram::reloadSettings()
+{
+	loadSettings();
 	m_game->refreshVocabList();
 }
 
@@ -706,7 +709,7 @@ void Kanagram::showSettings()
 		m_vocabSettings = new VocabSettings( configDialog );
 		configDialog->addPage( m_vocabSettings, i18n("Vocabularies"), "edit" );
 		configDialog->addPage( new NewStuff( configDialog ), i18n("New Stuff"), "get-hot-new-stuff" );
-		connect(configDialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(loadSettings()));
+		connect(configDialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(reloadSettings()));
 		connect(configDialog, SIGNAL(applyClicked()), this, SLOT(refreshVocabularies()));
 		configDialog->show();
 		configDialog->setAttribute(Qt::WA_DeleteOnClose);
