@@ -1,5 +1,7 @@
 TODO items for Kanagram:
 
+* investigate m_vocabSettings need
+* find a way to detect language change in loadSettings? and tell the api to reload, and refresh the view, etc.
 * Make changing languages switch vocab and word to use the new language
 * Fix vocab editor ui issues (disable save after save, etc.)
 * Fix hint fontsize for short hints

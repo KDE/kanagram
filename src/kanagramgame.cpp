@@ -36,6 +36,10 @@
 
 KanagramGame::KanagramGame() : m_index(0)
 {
+	// first get the list of vocabularies
+	refreshVocabList();
+	
+	// then load the default vocab
 	loadDefaultVocab();
 }
 
