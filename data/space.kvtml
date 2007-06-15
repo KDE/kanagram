@@ -120,7 +120,7 @@ Valid xml means:
   <o r="Path an object makes around another" >orbit</o>
  </e>
  <e>
-  <o r="Ninth planet from the Sun" >pluto</o>
+  <o r="Second-largest known dwarf planet" >pluto</o>
  </e>
  <e>
   <o r="An object that revolves around a planet" >satellite</o>

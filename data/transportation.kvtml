@@ -108,9 +108,6 @@ Valid xml means:
   <o r="A two-wheeled scooter" >moped</o>
  </e>
  <e>
-  <o r="Efficient human powered vehicle with 2 wheels" >bicycle</o>
- </e>
- <e>
   <o r="A fast sea-faring vehicle" >speedboat</o>
  </e>
  <e>
