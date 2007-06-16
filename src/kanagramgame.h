@@ -22,11 +22,9 @@
 #define KANAGRAMGAME_H
 
 #include <qobject.h>
+#include <qstringlist.h>
 
-#include <kstandarddirs.h>
 #include <krandomsequence.h>
-
-class QWidget;
 
 /** @brief game api
   * @author Joshua Keel <joshuakeel@gmail.com>
@@ -36,39 +34,88 @@ class KanagramGame : public QObject
 {
 Q_OBJECT
 	public:
+        /** default constructor */
 		explicit KanagramGame();
+
+        /** default destructor */
 		~KanagramGame();
-		void refreshVocabList();
-		void loadDefaultVocab();
-		int findIndex();
-		void nextAnagram();
-		void nextVocab();
-		void previousVocab();
+
+        /** get the anagram to show */
 		QString getAnagram();
+
+        /** get this anagram's hint */
 		QString getHint();
+
+        /** get this anagram's answer */
 		QString getWord();
-		void restoreWord();
+
+        /** get the current vocabulary file's title */
 		QString getDocTitle();
+
+        /** get the current vocabulary file's filename */
 		QString getFilename();
+
+        /** refresh the list of vocabulary files available 
+         * from what we find on disk
+         */
+		void refreshVocabList();
+
+        /** load the default vocab file */
+		void loadDefaultVocab();
+
+        /** find the current file in the list of files available */
+		int findIndex();
+
+        /** set the index to the next word */
+		void nextAnagram();
+
+        /** use the next vocab file in the list */
+		void nextVocab();
+
+        /** use the previous vocab file in the list */
+		void previousVocab();
+
+        /** restore the word, set the anagram to the answer */
+		void restoreWord();
 
 	signals:
 		
+        /** signal the ui that a there's a file error of some kind */
 		void fileError(const QString &filename);
 
 	private:
 
-		QString createAnagram(const QString &original);
+        /** make the word into an anagram */
+		void createAnagram();
+
+        /** check the current file */
 		void checkFile();
-		QWidget *m_parent;
+
+        /** random sequence used to scramble the letters */
 		KRandomSequence m_random;
+
+        /** the current scrambled word */
 		QString m_anagram;
+
+        /** the current anagram's hint */
 		QString m_hint;
+
+        /** the current anagram's answer */
 		QString m_originalWord;
 
+        /** which index the current filename is in m_fileList */
 		int m_index;
+
+        /** the list of vocabulary files */
 		QStringList m_fileList;
+
+        /** the list of words that have been answered */
 		QStringList m_answeredWords;
+
+        /** the current vocabulary's title */
 		QString m_docTitle;
+
+        /** the current vocabulary's filename */
 		QString m_filename;
 };
 

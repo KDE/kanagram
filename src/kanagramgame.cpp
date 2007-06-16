@@ -27,6 +27,7 @@
 #include <kurl.h>
 #include <kdebug.h>
 #include <kmessagebox.h>
+#include <kstandarddirs.h>
 #include <klocale.h>
 
 #include "keduvocdocument.h"
@@ -152,7 +153,7 @@ void KanagramGame::nextAnagram()
 
 	m_originalWord = doc->entry(wordNumber)->translation(0).translation();
 	m_answeredWords.append(m_originalWord);
-	m_anagram = createAnagram(m_originalWord);
+	createAnagram();
 	m_hint = doc->entry(wordNumber)->translation(0).comment();
 }
 
@@ -189,9 +190,9 @@ void KanagramGame::restoreWord()
 	m_anagram = m_originalWord;
 }
 
-QString KanagramGame::createAnagram(const QString &original)
+void KanagramGame::createAnagram()
 {
-	QStringList objData = original.split(QString(""));
+	QStringList objData = m_originalWord.split(QString(""));
 	QString insaneData = "";
 	int count;
 
@@ -207,7 +208,7 @@ QString KanagramGame::createAnagram(const QString &original)
 		objData.removeAt(objChunk);
 		insaneData += sd;
 	}
-	return insaneData;
+	m_anagram = insaneData;
 }
 
 #include "kanagramgame.moc"
