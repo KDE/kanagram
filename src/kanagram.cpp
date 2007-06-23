@@ -20,18 +20,15 @@
 
 #include "kanagram.h"
 
-#include <QMouseEvent>
+#include <QCursor>
 #include <QEvent>
+#include <QMouseEvent>
+#include <QPainter>
 #include <QPaintEvent>
+#include <QPixmap>
+#include <QString>
 #include <QSvgRenderer>
-
-#include <qcursor.h>
-#include <qpainter.h>
-#include <qpixmap.h>
-#include <qtimer.h>
-#include <qstring.h>
-#include <qfontmetrics.h>
-#include <qdir.h>
+#include <QTimer>
 
 #include <kaction.h>
 #include <kconfig.h>
@@ -48,6 +45,8 @@
 #include <kdebug.h>
 #include <phonon/audioplayer.h>
 #include <KComponentData>
+
+#include <sharedkvtmlfiles.h>
 
 #include "kanagramgame.h"
 #include "kanagramsettings.h"
@@ -163,10 +162,8 @@ void Kanagram::loadSettings()
 		bool foundLanguage = false;
 		while (i < userLanguagesCode.size() && !foundLanguage)
 		{
-			// TODO: this is going to need to change to work with new kvtml location when it changes
-			if (!KGlobal::dirs()->findDirs("appdata", "data/" + userLanguagesCode[i]).isEmpty())
+			if (SharedKvtmlFiles::self()->languages().contains(userLanguagesCode[i]))
 			{
-				// we found a folder that has files in it
 				foundLanguage = true;
 			}
 			++i;
@@ -706,14 +703,21 @@ void Kanagram::showSettings()
 	if (!KConfigDialog::showDialog("settings"))
 	{
 		KConfigDialog *configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
-		configDialog->addPage( new MainSettings( configDialog ), i18n( "General" ), "configure" );
-		m_vocabSettings = new VocabSettings( configDialog );
-		configDialog->addPage( m_vocabSettings, i18n("Vocabularies"), "edit" );
-		configDialog->addPage( new NewStuff( configDialog ), i18n("New Stuff"), "get-hot-new-stuff" );
+		configDialog->setAttribute(Qt::WA_DeleteOnClose);
 		connect(configDialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(reloadSettings()));
 		connect(configDialog, SIGNAL(applyClicked()), this, SLOT(refreshVocabularies()));
+		
+		// add the main settings page
+		configDialog->addPage( new MainSettings( configDialog ), i18n( "General" ), "configure" );
+		
+		// create and add the vocabsettings page
+		m_vocabSettings = new VocabSettings( configDialog );
+		configDialog->addPage( m_vocabSettings, i18n("Vocabularies"), "edit" );
+		
+		// and add the KNS page
+		configDialog->addPage( new NewStuff( configDialog ), i18n("New Stuff"), "get-hot-new-stuff" );
+		
 		configDialog->show();
-		configDialog->setAttribute(Qt::WA_DeleteOnClose);
 	}
 }
 
@@ -738,7 +742,11 @@ void Kanagram::refreshVocabularies()
 	//m_game->nextVocab(); //annma 22 May 2007
 	hideHint();
 	//m_game->nextAnagram(); //annma 22 May 2007
-	if(m_useSounds) play("chalk.ogg");
+	if(m_useSounds) 
+	{
+		play("chalk.ogg");
+	}
+	
 	KanagramSettings::setDefaultVocab(m_game->getFilename());
 	KanagramSettings::self()->writeConfig();
 	m_vocabSettings->refreshView();
@@ -767,5 +775,11 @@ void Kanagram::slotFileError(const QString &filename)
 	KMessageBox::sorry(this, msg, i18n("Error"));
 	exit(0);
 }
+
+/** show the popup menu of vocabularies, and allow choosing of one */
+void Kanagram::slotChooseVocabulary()
+{
+}
+
 
 #include "kanagram.moc"

@@ -35,7 +35,8 @@
 
 #include <kurl.h>
 
-#include "keduvocdocument.h"
+#include <sharedkvtmlfiles.h>
+#include <keduvocdocument.h>
 #include "kanagramsettings.h"
 
 VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
@@ -56,14 +57,16 @@ void VocabSettings::refreshView()
 {
 	lviewVocab->clear();
 
-	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::dataLanguage() + '/' + "*.kvtml");
+	m_fileList = SharedKvtmlFiles::self()->fileNames(KanagramSettings::dataLanguage());
+	m_titleList = SharedKvtmlFiles::self()->titles(KanagramSettings::dataLanguage());
+	m_commentList = SharedKvtmlFiles::self()->comments(KanagramSettings::dataLanguage());
+
+//	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::dataLanguage() + '/' + "*.kvtml");
 	for(int i = 0; i < m_fileList.size(); i++)
 	{
-		KEduVocDocument *doc = new KEduVocDocument(this);
-		doc->open(KUrl::fromPath(m_fileList[i]));
 		QTreeWidgetItem *item = new QTreeWidgetItem(lviewVocab, 0);
-		item->setText( 0, doc->title() );
-		item->setText( 1, doc->documentRemark() );
+		item->setText( 0, m_titleList[i] );
+		item->setText( 1, m_commentList[i] );
 		m_itemMap[item] = i;
 	}
 	m_parent->enableButtonApply(true);
@@ -102,17 +105,9 @@ void VocabSettings::on_btnCreateNew_clicked()
 void VocabSettings::slotSelectionChanged(QTreeWidgetItem *item)
 {
 	int index = m_itemMap[item];
-	QFileInfo info = QFileInfo(m_fileList[index]);
-	if(!info.isWritable())
-	{
-		btnDelete->setEnabled(false);
-		btnEdit->setEnabled(false);
-	}
-	else
-	{
-		btnDelete->setEnabled(true);
-		btnEdit->setEnabled(true);
-	}
+	bool writeable = QFileInfo(m_fileList[index]).isWritable();
+	btnDelete->setEnabled(writeable);
+	btnEdit->setEnabled(writeable);
 }
 
 #include "vocabsettings.moc"

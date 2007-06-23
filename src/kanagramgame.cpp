@@ -30,8 +30,10 @@
 #include <kstandarddirs.h>
 #include <klocale.h>
 
-#include "keduvocdocument.h"
-#include "keduvocexpression.h"
+#include <sharedkvtmlfiles.h>
+#include <keduvocdocument.h>
+#include <keduvocexpression.h>
+
 #include "kanagramsettings.h"
 
 
@@ -50,7 +52,8 @@ KanagramGame::~KanagramGame()
 
 void KanagramGame::checkFile()
 {
-	if (!QFile::exists(KStandardDirs::locate("appdata", m_filename))) {
+	if (!QFile::exists(KStandardDirs::locate("data", m_filename))) 
+	{
 		emit fileError(m_filename);
 	}
 }
@@ -61,7 +64,7 @@ void KanagramGame::loadDefaultVocab()
 	if (m_filename.isEmpty())
 	{
 		// first run
-		m_filename = KStandardDirs::locate("appdata", "data/" + KanagramSettings::dataLanguage() + "/objects.kvtml");
+		m_filename = KStandardDirs::locate("data", "kvtml/objects.kvtml");
 		if (m_filename.isEmpty())
 		{
 			refreshVocabList();
@@ -71,7 +74,7 @@ void KanagramGame::loadDefaultVocab()
 
         kDebug() << "in game " << m_filename <<endl;
 	KEduVocDocument *doc = new KEduVocDocument(this);
-	doc->open(KUrl(KStandardDirs::locate("appdata", m_filename)));
+	doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
 	m_docTitle = doc->title();
         kDebug() << m_docTitle <<endl; //Animals
 	nextAnagram();
@@ -79,9 +82,20 @@ void KanagramGame::loadDefaultVocab()
 
 void KanagramGame::refreshVocabList()
 {
-	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::dataLanguage() + "/*.kvtml");
+	m_fileList = SharedKvtmlFiles::self()->fileNames(KanagramSettings::dataLanguage());
 	//nextVocab();
 	m_index = findIndex();
+}
+
+/** get the list of vocabularies */
+QStringList KanagramGame::getVocabsList()
+{
+	return SharedKvtmlFiles::self()->titles(KanagramSettings::dataLanguage());
+}
+		
+/** set the vocab to use */
+void KanagramGame::useVocab(const QString &/*vocabname*/)
+{
 }
 
 int KanagramGame::findIndex()
@@ -110,7 +124,7 @@ void KanagramGame::previousVocab()
 	m_filename = m_fileList[m_index];
 	checkFile();
 	KEduVocDocument *doc = new KEduVocDocument(this);
-	doc->open(KUrl(KStandardDirs::locate("appdata", m_filename)));
+	doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
 	m_docTitle = doc->title();
 	m_answeredWords.clear();
 }
@@ -125,7 +139,7 @@ void KanagramGame::nextVocab()
 	m_filename = m_fileList[m_index];
 	checkFile();
 	KEduVocDocument *doc = new KEduVocDocument(this);
-	doc->open(KUrl(KStandardDirs::locate("appdata", m_filename)));
+	doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
 	m_docTitle = doc->title();
 	m_answeredWords.clear();
 }
@@ -134,7 +148,7 @@ void KanagramGame::nextAnagram()
 {
 	checkFile();
 	KEduVocDocument	*doc = new KEduVocDocument(this);
-	doc->open(KUrl(KStandardDirs::locate("appdata", m_filename)));
+	doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
 	int totalWords = doc->entryCount();
 	int wordNumber = m_random.getLong(totalWords);
 

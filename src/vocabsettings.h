@@ -48,6 +48,13 @@ Q_OBJECT
 
 		/** list of vocabulary files */
 		QStringList m_fileList;
+		
+		/** list of document titles */
+		QStringList m_titleList;
+		
+		/** list of document comments */
+		QStringList m_commentList;
+		
 		QMap<const QTreeWidgetItem*, int> m_itemMap;
 
 		/** cache pointer to config dialog so we can enable the apply button in slotSetDirty */

@@ -86,6 +86,9 @@ Q_OBJECT
           * @param filename the file that had the error
           */
         void slotFileError(const QString &filename);
+		
+		/** show the popup menu of vocabularies, and allow choosing of one */
+		void slotChooseVocabulary();
 
     private:
 

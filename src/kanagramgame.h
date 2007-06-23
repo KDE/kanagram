@@ -54,6 +54,12 @@ Q_OBJECT
 
         /** get the current vocabulary file's filename */
 		QString getFilename();
+		
+		/** get the list of vocabularies */
+		QStringList getVocabsList();
+		
+		/** set the vocab to use */
+		void useVocab(const QString &vocabname);
 
         /** refresh the list of vocabulary files available 
          * from what we find on disk

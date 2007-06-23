@@ -33,6 +33,7 @@
 #include <kmessagebox.h>
 #include <kio/netaccess.h>
 
+#include <sharedkvtmlfiles.h>
 #include "kanagramsettings.h"
 
 MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
@@ -64,32 +65,21 @@ void MainSettings::slotSetDirty()
 
 void MainSettings::populateLanguageBox()
 {
-	QSet<QString> languages;
-	QStringList temp_languages;
-	
-	//the program scans in kdereview/data/ to see what languages data is found
-	QStringList mdirs = KGlobal::dirs()->findDirs("appdata", "data/");
-
-	if (mdirs.isEmpty()) return;
-	
-	for (int i = 0; i < mdirs.size(); ++i)
-	{
-		QDir dir(mdirs[i]);
-		temp_languages = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
-		languages.unite(QSet<QString>::fromList(temp_languages));
-	}
-	
-	if (languages.isEmpty())
-		return;
+	QStringList languages = SharedKvtmlFiles::self()->languages();
 
 	//the language code/name
 	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
-	QStringList languageList = languages.toList();
-	const QStringList::ConstIterator itEnd = languageList.end();
-	for (QStringList::ConstIterator it = languageList.begin(); it != itEnd; ++it) 
+	for (int i = 0; i < languages.count(); ++i) 
 	{
-		KConfigGroup group = entry.group(*it);
-		cboxTranslation->addItem(group.readEntry("Name"), *it);
+		KConfigGroup group = entry.group(languages[i]);
+		
+		// get the language name
+		QString languageName = group.readEntry("Name");
+		if (languageName.isEmpty())
+		{
+			languageName = i18n("None");
+		}
+		cboxTranslation->addItem(languageName, languages[i]);
 	}
 }
 
