@@ -62,8 +62,14 @@ Valid xml means:
  <options>
   <sort on="1" />
  </options>
+
+ <article>
+  <e l="en">
+  </e>
+ </article>
+
  <e s="1" >
-  <o width="150" l="original" r="One who helps the sick" >doctor</o>
+  <o width="150" r="One who helps the sick" >doctor</o>
  </e>
  <e s="1" >
   <o r="One who puts out fires" >fireman</o>

@@ -62,8 +62,14 @@ Valid xml means:
  <options>
   <sort on="1" />
  </options>
+
+ <article>
+  <e l="en">
+  </e>
+ </article>
+
  <e i="1" >
-  <o width="150" l="original" r="Capital of England" >london</o>
+  <o width="150" r="Capital of England" >london</o>
  </e>
  <e i="1" >
   <o r="Capital of France" >paris</o>
