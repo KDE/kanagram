@@ -65,7 +65,7 @@ void MainSettings::slotSetDirty()
 
 void MainSettings::populateLanguageBox()
 {
-	QStringList languages = SharedKvtmlFiles::self()->languages();
+	QStringList languages = SharedKvtmlFiles::languages();
 
 	//the language code/name
 	KConfig entry(KStandardDirs::locate("locale", "all_languages"));

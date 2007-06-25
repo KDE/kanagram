@@ -57,9 +57,9 @@ void VocabSettings::refreshView()
 {
 	lviewVocab->clear();
 
-	m_fileList = SharedKvtmlFiles::self()->fileNames(KanagramSettings::dataLanguage());
-	m_titleList = SharedKvtmlFiles::self()->titles(KanagramSettings::dataLanguage());
-	m_commentList = SharedKvtmlFiles::self()->comments(KanagramSettings::dataLanguage());
+	m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
+	m_titleList = SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
+	m_commentList = SharedKvtmlFiles::comments(KanagramSettings::dataLanguage());
 
 //	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::dataLanguage() + '/' + "*.kvtml");
 	for(int i = 0; i < m_fileList.size(); i++)

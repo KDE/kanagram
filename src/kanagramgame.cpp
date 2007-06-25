@@ -82,7 +82,7 @@ void KanagramGame::loadDefaultVocab()
 
 void KanagramGame::refreshVocabList()
 {
-	m_fileList = SharedKvtmlFiles::self()->fileNames(KanagramSettings::dataLanguage());
+	m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
 	//nextVocab();
 	m_index = findIndex();
 }
@@ -90,7 +90,7 @@ void KanagramGame::refreshVocabList()
 /** get the list of vocabularies */
 QStringList KanagramGame::getVocabsList()
 {
-	return SharedKvtmlFiles::self()->titles(KanagramSettings::dataLanguage());
+	return SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
 }
 		
 /** set the vocab to use */

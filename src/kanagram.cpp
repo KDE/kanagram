@@ -162,7 +162,7 @@ void Kanagram::loadSettings()
 		bool foundLanguage = false;
 		while (i < userLanguagesCode.size() && !foundLanguage)
 		{
-			if (SharedKvtmlFiles::self()->languages().contains(userLanguagesCode[i]))
+			if (SharedKvtmlFiles::languages().contains(userLanguagesCode[i]))
 			{
 				foundLanguage = true;
 			}
@@ -754,19 +754,19 @@ void Kanagram::refreshVocabularies()
 
 void Kanagram::play(const QString &filename)
 {
-	if (filename.isEmpty())
-		return;
-
-	QString soundFile = KStandardDirs::locate("appdata", "sounds/" + filename);
-	if (soundFile.isEmpty())
-		return;
-
-	if (!m_player)
+	if (!filename.isEmpty())
 	{
-		m_player = new Phonon::AudioPlayer(Phonon::GameCategory);
+		QString soundFile = KStandardDirs::locate("appdata", "sounds/" + filename);
+		if (!soundFile.isEmpty())
+		{
+			if (!m_player)
+			{
+				m_player = new Phonon::AudioPlayer(Phonon::GameCategory);
+			}
+			m_player->stop();
+			m_player->play(soundFile);
+		}
 	}
-	m_player->stop();
-	m_player->play(soundFile);
 }
 
 void Kanagram::slotFileError(const QString &filename)

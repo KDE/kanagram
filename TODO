@@ -1,5 +1,7 @@
 TODO items for Kanagram:
 
+* Add whatsthis to config dialog
+* Add whatsthis with workaround in main widget
 * investigate m_vocabSettings need
 * find a way to detect language change in loadSettings? and tell the api to reload, and refresh the view, etc.
 * Make changing languages switch vocab and word to use the new language
@@ -7,7 +9,6 @@ TODO items for Kanagram:
 * Fix hint fontsize for short hints
 * clean up and simplify code (even though it's just a game)
 * Add Apidox comments all over
-* Test KNS downloads files with the right extension when support is put in for that
 * Test kvtml location change
 * Make engine work with unicode if kvtml reader in libkdeedu supports reading it
 
