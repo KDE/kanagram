@@ -63,14 +63,12 @@ Q_OBJECT
 
         /** refresh the list of vocabulary files available 
          * from what we find on disk
+		 *@returns true if the current vocabulary has changed so the ui can refresh
          */
-		void refreshVocabList();
+		bool refreshVocabList();
 
         /** load the default vocab file */
 		void loadDefaultVocab();
-
-        /** find the current file in the list of files available */
-		int findIndex();
 
         /** set the index to the next word */
 		void nextAnagram();
@@ -96,6 +94,9 @@ Q_OBJECT
 
         /** check the current file */
 		void checkFile();
+
+        /** find the current file in the list of files available */
+		void updateIndex();
 
         /** random sequence used to scramble the letters */
 		KRandomSequence m_random;

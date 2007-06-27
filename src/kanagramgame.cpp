@@ -80,11 +80,13 @@ void KanagramGame::loadDefaultVocab()
 	nextAnagram();
 }
 
-void KanagramGame::refreshVocabList()
+bool KanagramGame::refreshVocabList()
 {
+	bool retval = false;
+	QString oldFilename = m_filename;
 	m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
-	//nextVocab();
-	m_index = findIndex();
+	useVocab(m_docTitle);
+	return oldFilename != m_filename;
 }
 
 /** get the list of vocabularies */
@@ -94,26 +96,28 @@ QStringList KanagramGame::getVocabsList()
 }
 		
 /** set the vocab to use */
-void KanagramGame::useVocab(const QString &/*vocabname*/)
+void KanagramGame::useVocab(const QString &vocabname)
 {
+	QStringList titles = getVocabsList();
+	int vocab = titles.indexOf(vocabname);
+	if (vocab > 0)
+	{
+		m_index = vocab;
+		m_filename = m_fileList[vocab];
+	}
 }
 
-int KanagramGame::findIndex()
+void KanagramGame::updateIndex()
 {
-        //this m_filename is wrong
-        //you have to use KanagramSettings::defaultVocab() instead of m_filename which is used for something else
-        kDebug() <<"m_filename " << m_filename << "\n" << endl;
-	int tempIndex = 0;
+	m_index = 0;
 	for(int i = 0; i < m_fileList.size(); i++)
 	{
                 kDebug() <<"m_file " << m_fileList[i]<<endl;
 		if(m_filename == m_fileList[i])
 		{
-			tempIndex = i;
+			m_index = i;
 		}
 	}
-        kDebug() << "index founded " << tempIndex <<endl;
-	return tempIndex;
 }
 
 void KanagramGame::previousVocab()

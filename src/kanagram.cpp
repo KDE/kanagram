@@ -182,7 +182,7 @@ void Kanagram::loadSettings()
 void Kanagram::reloadSettings()
 {
 	loadSettings();
-	m_game->refreshVocabList();
+	refreshVocabularies();
 }
 
 void Kanagram::paintEvent(QPaintEvent *)
@@ -705,7 +705,7 @@ void Kanagram::showSettings()
 		KConfigDialog *configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
 		configDialog->setAttribute(Qt::WA_DeleteOnClose);
 		connect(configDialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(reloadSettings()));
-		connect(configDialog, SIGNAL(applyClicked()), this, SLOT(refreshVocabularies()));
+//		connect(configDialog, SIGNAL(applyClicked()), this, SLOT(reloadSettings()));
 		
 		// add the main settings page
 		configDialog->addPage( new MainSettings( configDialog ), i18n( "General" ), "configure" );
@@ -737,18 +737,22 @@ void Kanagram::resetInputBox()
 
 void Kanagram::refreshVocabularies()
 {
-	kDebug() << "Refreshing vocab list..." << endl;
-	m_game->refreshVocabList();
-	//m_game->nextVocab(); //annma 22 May 2007
-	hideHint();
-	//m_game->nextAnagram(); //annma 22 May 2007
-	if(m_useSounds) 
+	if (m_game->refreshVocabList())
 	{
-		play("chalk.ogg");
+		// vocab/word are no longer valid, so get new ones and hide the hint
+		m_game->nextVocab();
+		m_game->nextAnagram();
+		hideHint();
+
+		if(m_useSounds)
+		{
+			play("chalk.ogg");
+		}
+
+		// save the default vocab now that it's changed
+		KanagramSettings::setDefaultVocab(m_game->getFilename());
+		KanagramSettings::self()->writeConfig();
 	}
-	
-	KanagramSettings::setDefaultVocab(m_game->getFilename());
-	KanagramSettings::self()->writeConfig();
 	m_vocabSettings->refreshView();
 }
 
