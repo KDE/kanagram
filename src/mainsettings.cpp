@@ -42,7 +42,8 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 	m_parent = (KConfigDialog*)parent;
 
 	connect(parent, SIGNAL(applyClicked()), this, SLOT(slotUpdateLanguage()));
-	connect(cboxTranslation, SIGNAL(activated(int)), this, SLOT(slotSetDirty()));
+	connect(parent, SIGNAL(okClicked()), this, SLOT(slotUpdateLanguage()));
+	connect(languageComboBox, SIGNAL(activated(int)), this, SLOT(slotSetDirty()));
 	
 	populateLanguageBox();
 
@@ -51,7 +52,7 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 	QString code = KanagramSettings::dataLanguage();
 	KConfigGroup group = entry.group(code);
 	// select the current language
-	cboxTranslation->setCurrentIndex(cboxTranslation->findText(group.readEntry("Name")));
+	languageComboBox->setCurrentIndex(languageComboBox->findText(group.readEntry("Name")));
 }
 
 MainSettings::~MainSettings()
@@ -79,14 +80,14 @@ void MainSettings::populateLanguageBox()
 		{
 			languageName = i18n("None");
 		}
-		cboxTranslation->addItem(languageName, languages[i]);
+		languageComboBox->addItem(languageName, languages[i]);
 	}
 }
 
 void MainSettings::slotUpdateLanguage()
 {
-	int index = cboxTranslation->currentIndex();
-	QString language = cboxTranslation->itemData(index).toString();
+	int index = languageComboBox->currentIndex();
+	QString language = languageComboBox->itemData(index).toString();
 	kDebug() << "Writing new default language: " << language << endl;
 	KanagramSettings::setDataLanguage(language);
 	KanagramSettings::self()->writeConfig();

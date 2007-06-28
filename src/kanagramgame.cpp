@@ -105,6 +105,11 @@ void KanagramGame::useVocab(const QString &vocabname)
 		m_index = vocab;
 		m_filename = m_fileList[vocab];
 	}
+    else
+    {
+        m_index = 0;
+        m_filename = m_fileList[0];
+    }
 }
 
 void KanagramGame::updateIndex()

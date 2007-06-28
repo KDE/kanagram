@@ -704,8 +704,7 @@ void Kanagram::showSettings()
 	{
 		KConfigDialog *configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
 		configDialog->setAttribute(Qt::WA_DeleteOnClose);
-		connect(configDialog, SIGNAL(settingsChanged(const QString &)), this, SLOT(reloadSettings()));
-//		connect(configDialog, SIGNAL(applyClicked()), this, SLOT(reloadSettings()));
+		connect(configDialog, SIGNAL(finished()), this, SLOT(reloadSettings()));
 		
 		// add the main settings page
 		configDialog->addPage( new MainSettings( configDialog ), i18n( "General" ), "configure" );
