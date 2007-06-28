@@ -13,10 +13,6 @@
 	<label>Turns sounds on/off.</label>
 	<default>true</default>
 </entry>
-<entry name="useStandardFonts" type="Bool">
-	<label>Uses a standard font for the chalkboard/interface.</label>
-	<default>false</default>
-</entry>
 <entry name="defaultVocab" type="Path">
 	<label>Set the default vocabulary</label>
 	<default></default>
@@ -24,8 +20,6 @@
 <entry name="dataLanguage" type="String">
 	<label>Set the default translation</label>
 	<default></default>
-</entry>
-<entry name="justGotFont" type="Bool">
 </entry>
 </group>
 </kcfg>
