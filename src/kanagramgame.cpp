@@ -83,10 +83,12 @@ void KanagramGame::loadDefaultVocab()
 bool KanagramGame::refreshVocabList()
 {
 	bool retval = false;
+        kDebug() << "refreshVocabList m_filename = " << m_filename << endl;
 	QString oldFilename = m_filename;
 	m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
 	useVocab(m_docTitle);
-	return oldFilename != m_filename;
+        kDebug() << "refreshVocabList after useVocab(" << m_docTitle << ") m_filename = " << m_filename << endl;
+    return oldFilename != m_filename;
 }
 
 /** get the list of vocabularies */
@@ -115,10 +117,10 @@ void KanagramGame::useVocab(const QString &vocabname)
 void KanagramGame::updateIndex()
 {
 	m_index = 0;
-	for(int i = 0; i < m_fileList.size(); i++)
+	for (int i = 0; i < m_fileList.size(); i++)
 	{
                 kDebug() <<"m_file " << m_fileList[i]<<endl;
-		if(m_filename == m_fileList[i])
+		if (m_filename == m_fileList[i])
 		{
 			m_index = i;
 		}
@@ -127,9 +129,11 @@ void KanagramGame::updateIndex()
 
 void KanagramGame::previousVocab()
 {
-	m_index--;
-	if(m_index < 0)
+	if (--m_index < 0)
+    {
 		m_index = m_fileList.size() - 1;
+    }
+
 	m_filename = m_fileList[m_index];
 	checkFile();
 	KEduVocDocument *doc = new KEduVocDocument(this);
@@ -140,17 +144,20 @@ void KanagramGame::previousVocab()
 
 void KanagramGame::nextVocab()
 {
-	m_index++;
-	if(m_index >= m_fileList.size())
+	if (++m_index >= m_fileList.size())
+    {
 		m_index = 0;
-	if( m_fileList.isEmpty())
-			return;
-	m_filename = m_fileList[m_index];
-	checkFile();
-	KEduVocDocument *doc = new KEduVocDocument(this);
-	doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
-	m_docTitle = doc->title();
-	m_answeredWords.clear();
+    }
+
+	if (!m_fileList.isEmpty())
+    {
+        m_filename = m_fileList[m_index];
+        checkFile();
+        KEduVocDocument *doc = new KEduVocDocument(this);
+        doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
+        m_docTitle = doc->title();
+        m_answeredWords.clear();
+    }
 }
 
 void KanagramGame::nextAnagram()
@@ -165,11 +172,12 @@ void KanagramGame::nextAnagram()
     kDebug() << "KanagramGame::nextAnagram() m_filename: " << m_filename << endl;
 
 
-	if(doc->entryCount() == (int)m_answeredWords.size())
+	if (doc->entryCount() == (int)m_answeredWords.size())
 	{
 		m_answeredWords.clear();
 	}
-	while(m_answeredWords.indexOf(doc->entry(wordNumber)->translation(0).translation()) != -1)
+
+	while (m_answeredWords.indexOf(doc->entry(wordNumber)->translation(0).translation()) != -1)
 	{
 		wordNumber = m_random.getLong(totalWords);
 	}
@@ -187,10 +195,7 @@ QString KanagramGame::getDocTitle()
 
 QString KanagramGame::getFilename()
 {
-	if(m_fileList.empty())
-		return m_filename;
-	else
-		return m_fileList[m_index];
+    return m_fileList.empty() ? m_filename : m_fileList[m_index];
 }
 
 QString KanagramGame::getAnagram()
@@ -219,13 +224,17 @@ void KanagramGame::createAnagram()
 	QString insaneData = "";
 	int count;
 
-	for(int i=0; (count = objData.count()); i++)
+	for (int i = 0; (count = objData.count()); i++)
 	{
 		int objChunk;
-		if((i == 0) && (count > 1))
+		if ((i == 0) && (count > 1))
+        {
 			objChunk = 1 + m_random.getLong(count - 1);
+        }
 		else
+        {
 			objChunk = m_random.getLong(count);
+        }
 
 		QString sd = objData.at(objChunk);
 		objData.removeAt(objChunk);
