@@ -166,7 +166,10 @@ void Kanagram::loadSettings()
 			{
 				foundLanguage = true;
 			}
-			++i;
+			else
+			{
+				++i;
+			}
 		}
 		// at this point either foundLanguage == true, or i > userLanguagesCode.size()
 
