@@ -192,6 +192,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 {
 	QPixmap buf(width(), height());
 	QPainter p(&buf);
+	p.setRenderHint(QPainter::Antialiasing);
 
 	m_renderer->render(&p, "background");
 
