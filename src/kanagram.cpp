@@ -711,11 +711,13 @@ void Kanagram::showSettings()
 		connect(configDialog, SIGNAL(finished()), this, SLOT(reloadSettings()));
 		
 		// add the main settings page
-		configDialog->addPage( new MainSettings( configDialog ), i18n( "General" ), "configure" );
+        MainSettings * mainSettingsPage = new MainSettings( configDialog );
+        connect (mainSettingsPage, SIGNAL(settingsChanged()), this, SLOT(reloadSettings()));
+		configDialog->addPage(mainSettingsPage , i18n( "General" ), "configure" );
 		
 		// create and add the vocabsettings page
 		m_vocabSettings = new VocabSettings( configDialog );
-		configDialog->addPage( m_vocabSettings, i18n("Vocabularies"), "edit" );
+		configDialog->addPage(m_vocabSettings, i18n("Vocabularies"), "edit" );
 		
 		// and add the KNS page
 		configDialog->addPage( new NewStuff( configDialog ), i18n("New Stuff"), "get-hot-new-stuff" );

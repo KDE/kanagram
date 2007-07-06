@@ -47,6 +47,11 @@ Q_OBJECT
 		
 		/** enable the apply button on the config dialog because something has been changed */
 		void slotSetDirty();
+        
+    signals:
+
+        /** signifies slotUpdateLanguage has completed, so language setting has been saved */
+        void settingsChanged();
 	
 	private:
 	

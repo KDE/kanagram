@@ -91,6 +91,8 @@ void MainSettings::slotUpdateLanguage()
 	kDebug() << "Writing new default language: " << language << endl;
 	KanagramSettings::setDataLanguage(language);
 	KanagramSettings::self()->writeConfig();
+    
+    emit settingsChanged();
 }
 
 #include "mainsettings.moc"
