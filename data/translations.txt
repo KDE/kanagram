@@ -1,0 +1,9 @@
+translations of data files I know are done
+feel free to add to this list if you do translations of these files :)
+
+ca
+da
+es
+gl
+it
+
