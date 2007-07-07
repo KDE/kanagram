@@ -164,15 +164,26 @@ void KanagramGame::nextAnagram()
 		m_answeredWords.clear();
 	}
 
-	while (m_answeredWords.indexOf(doc->entry(wordNumber)->translation(0).translation()) != -1)
-	{
-		wordNumber = m_random.getLong(totalWords);
-	}
+    if (doc->entryCount() > 0)
+    {
+        while (m_answeredWords.indexOf(doc->entry(wordNumber)->translation(0).translation()) != -1)
+        {
+            wordNumber = m_random.getLong(totalWords);
+        }
 
-	m_originalWord = doc->entry(wordNumber)->translation(0).translation();
-	m_answeredWords.append(m_originalWord);
-	createAnagram();
-	m_hint = doc->entry(wordNumber)->translation(0).comment();
+        m_originalWord = doc->entry(wordNumber)->translation(0).translation();
+        m_answeredWords.append(m_originalWord);
+        createAnagram();
+        m_hint = doc->entry(wordNumber)->translation(0).comment();
+    }
+    else
+    {
+        // this file has no entries
+        m_originalWord = "";
+        createAnagram();
+        m_hint = "";
+        // TODO: add some error reporting here
+    }
 }
 
 QString KanagramGame::getDocTitle()
