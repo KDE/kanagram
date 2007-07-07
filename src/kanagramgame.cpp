@@ -22,7 +22,8 @@
 
 #include "kanagramgame.h"
 
-#include <qfile.h>
+#include <QFile>
+#include <QFileInfo>
 
 #include <kurl.h>
 #include <kdebug.h>
@@ -61,33 +62,24 @@ void KanagramGame::checkFile()
 void KanagramGame::loadDefaultVocab()
 {
 	m_filename = KanagramSettings::defaultVocab();
-	if (m_filename.isEmpty())
+	if (m_filename.isEmpty() || !QFileInfo(m_filename).exists())
 	{
-		// first run
-		m_filename = KStandardDirs::locate("data", "kvtml/objects.kvtml");
-		if (m_filename.isEmpty())
-		{
-			refreshVocabList();
-			nextVocab();
-		}
+        refreshVocabList();
+        nextVocab();
 	}
 
-        kDebug() << "in game " << m_filename <<endl;
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
 	m_docTitle = doc->title();
-        kDebug() << m_docTitle <<endl; //Animals
 	nextAnagram();
 }
 
 bool KanagramGame::refreshVocabList()
 {
 	bool retval = false;
-        kDebug() << "refreshVocabList m_filename = " << m_filename << endl;
 	QString oldFilename = m_filename;
 	m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
 	useVocab(m_docTitle);
-        kDebug() << "refreshVocabList after useVocab(" << m_docTitle << ") m_filename = " << m_filename << endl;
     return oldFilename != m_filename;
 }
 
@@ -119,7 +111,6 @@ void KanagramGame::updateIndex()
 	m_index = 0;
 	for (int i = 0; i < m_fileList.size(); i++)
 	{
-                kDebug() <<"m_file " << m_fileList[i]<<endl;
 		if (m_filename == m_fileList[i])
 		{
 			m_index = i;
@@ -167,10 +158,6 @@ void KanagramGame::nextAnagram()
 	doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
 	int totalWords = doc->entryCount();
 	int wordNumber = m_random.getLong(totalWords);
-
-
-    kDebug() << "KanagramGame::nextAnagram() m_filename: " << m_filename << endl;
-
 
 	if (doc->entryCount() == (int)m_answeredWords.size())
 	{
