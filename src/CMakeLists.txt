@@ -25,7 +25,7 @@ kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 
 kde4_add_executable(kanagram ${kanagram_SRCS})
 
-target_link_libraries(kanagram  ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_KIO_LIBS} ${KDE4_PHONON_LIBS} ${QT_QTXML_LIBRARY} kdeeducore )
+target_link_libraries(kanagram  ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_PHONON_LIBS} ${QT_QTXML_LIBRARY} kdeeducore )
 
 install(TARGETS kanagram  DESTINATION ${BIN_INSTALL_DIR} )
 
