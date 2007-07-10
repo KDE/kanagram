@@ -14,7 +14,6 @@ set(kanagram_SRCS
    vocabedit.cpp 
    newstuff.cpp )
 
-kde4_automoc(${kanagram_SRCS})
 
 kde4_add_ui_files(kanagram_SRCS 
    vocabsettingswidget.ui
