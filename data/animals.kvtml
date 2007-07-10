@@ -1,64 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<!--
-This is a machine generated file.
-Be careful when editing here.
-
-Short definition:
-
-lesson     lesson group
- desc    name
-   %no     its index
-   %query  is in query selection
-   %current  is current lesson
-type     type group
- desc    name
-   %no     its index
-e      entry of dictionary
-  %s     is selected
-  %m     lesson member
-  %t     common expression type
- o       original
-   %q    in query ("o" is given, "t" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type (see QueryManager.h)
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
- t       translation ..
-   %q    in query ("t" is given, "o" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
-
-   %d    last query date (from;to)
-   %w    dito, compressed and deprecated
-   %g    grade (from;to)
-   %c    count (from;to)
-   %b    bad count (from;to)
-
-
-Valid xml means:
- - Close all tags
- - Keep proper hierarchy
- - All attributes are quoted
---><kvtml title="Animals" remark="Animals from across the planet" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
+<kvtml title="Animals" remark="Animals from across the planet" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
  <options>
   <sort on="1" />
  </options>
@@ -68,6 +10,9 @@ Valid xml means:
  </e>
  </article>
  
+ <e>
+ <o r="the young of a cat, ferret, etc.">kitten</o>
+ </e>
  <e>
   <o width="150" r="Large heavy animal with thick fur" >bear</o>
  </e>
@@ -92,6 +37,9 @@ Valid xml means:
  <e>
   <o r="Bird that drills through wood" >woodpecker</o>
  </e>
+  <e>
+ <o r="Small bird with bright bluish plumage">kingfisher</o>
+ </e>
  <e>
   <o r="Reptile with no legs" >snake</o>
  </e>
@@ -102,7 +50,7 @@ Valid xml means:
   <o r="Largest living land animal with a trunk" >elephant</o>
  </e>
  <e>
-  <o r="Small rodent with a long tail" >mouse</o>
+  <o r="Small rodent with a long thin tail" >mouse</o>
  </e>
  <e>
   <o r="Animal with no backbone or limbs" >worm</o>
@@ -118,6 +66,9 @@ Valid xml means:
  </e>
  <e>
   <o r="Small mouse-like rodent, kept as pets" >hamster</o>
+ </e>
+  <e>
+ <o r="young pig">piglet</o>
  </e>
  <e>
   <o r="Fierce, wild animal of the dog family" >wolf</o>
@@ -153,6 +104,9 @@ Valid xml means:
   <o r="Extinct reptile" >dinosaur</o>
  </e>
  <e>
+ <o r="Large bird reared for its flesh">turkey</o>
+ </e>
+  <e>
   <o r="Large bird of prey" >eagle</o>
  </e>
  <e>
