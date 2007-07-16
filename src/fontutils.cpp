@@ -19,7 +19,7 @@ int fontUtils::fontSize(QPainter &p, const QString &s1, int w, int h)
 	
 	size = 28;
 	
-	while (!done)
+	while (!done && size > 1)
 	{
 		QFont f = p.font();
 		f.setPointSize(size);
