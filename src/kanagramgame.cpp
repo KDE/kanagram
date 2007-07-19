@@ -171,7 +171,8 @@ void KanagramGame::nextAnagram()
             wordNumber = m_random.getLong(totalWords);
         }
 
-        m_originalWord = doc->entry(wordNumber)->translation(0).translation();
+        // lowercase the entry text so german words that start capitalized will be lowercased
+        m_originalWord = doc->entry(wordNumber)->translation(0).translation().toLower();
         m_answeredWords.append(m_originalWord);
         createAnagram();
         m_hint = doc->entry(wordNumber)->translation(0).comment();
