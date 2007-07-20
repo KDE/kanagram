@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 	about.addAuthor(ki18n("Jeremy Whiting"), ki18n("Maintainer"), "jeremy@scitools.com");
 	about.addCredit(ki18n("Artemiy Pavlov"), ki18n("Sound effects"), 0, "http://artemiolabs.com");
     about.addCredit(ki18n("Pino Toscano"), ki18n("Italian Data Files"), "pino@kde.org");
+    about.addCredit(ki18n("Kris Thomsen"), ki18n("Danish Data Files"), "kris@scoutzone.dk");
 	KCmdLineArgs::init(argc, argv, &about);
 	KApplication app;
 	
