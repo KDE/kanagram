@@ -32,7 +32,7 @@ install(TARGETS kanagram  DESTINATION ${BIN_INSTALL_DIR} )
 
 ########### install files ###############
 
-install( FILES kanagram.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES kanagram.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kanagram.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES kanagram.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
 
