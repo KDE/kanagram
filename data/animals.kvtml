@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<!DOCTYPE kvtml SYSTEM "kvtml2.dtd">
+<!DOCTYPE kvtml PUBLIC "kvtml2.dtd" "http://edu.kde.org/kanagram/kvtml2.dtd">
 <kvtml version="2.0">
  <information>
    <generator>kanagram</generator>
@@ -280,5 +280,33 @@
    </translation>
  </entry>
 </entries>
+  <lessons>
+    <lesson>
+      <name>Half of the Words</name>
+      <query>true</query>
+      <current>true</current>
+      <entryid>0</entryid>
+      <entryid>1</entryid>
+      <entryid>2</entryid>
+      <entryid>3</entryid>
+      <entryid>4</entryid>
+      <entryid>5</entryid>
+      <entryid>6</entryid>
+      <entryid>7</entryid>
+      <entryid>8</entryid>
+      <entryid>9</entryid>
+      <entryid>10</entryid>
+      <entryid>11</entryid>
+      <entryid>12</entryid>
+      <entryid>13</entryid>
+      <entryid>14</entryid>
+      <entryid>15</entryid>
+      <entryid>16</entryid>
+      <entryid>17</entryid>
+      <entryid>18</entryid>
+      <entryid>19</entryid>
+      <entryid>20</entryid>
+    </lesson>
+  </lessons>
 </kvtml>
 
