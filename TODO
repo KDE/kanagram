@@ -1,6 +1,7 @@
 TODO items for Kanagram:
 
 * Add more shortcut keys
+* enable apply button when keys are changed
 * don't show empty hints
 * get font that shows most/all characters
 * Add whatsthis to config dialog

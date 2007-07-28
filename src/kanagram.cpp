@@ -202,6 +202,8 @@ void Kanagram::setupActions()
     nextAnagramAction->setShortcut(Qt::CTRL+Qt::Key_N);
     connect(nextAnagramAction, SIGNAL(triggered(bool)), this, SLOT(slotNextAnagram()));
     m_actionCollection->addAction("nextanagram", nextAnagramAction);
+    
+    m_actionCollection->readSettings();
 }
 
 void Kanagram::paintEvent(QPaintEvent *)
@@ -788,7 +790,7 @@ void Kanagram::showSettings()
         // now make and add the shortcuts page
         m_shortcutsEditor = new KShortcutsEditor(m_actionCollection, m_configDialog);
         m_configDialog->addPage(m_shortcutsEditor, i18n("Shortcuts"), "shortcuts");
-        connect(m_configDialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(slotSaveSettings()));
+        connect(m_configDialog, SIGNAL(accepted()), this, SLOT(slotSaveSettings()));
         connect(m_configDialog, SIGNAL(rejected()), this, SLOT(slotSettingsCancelled()));
         connect(m_shortcutsEditor, SIGNAL(keyChanged()), this, SLOT(slotEnableApplyButton()));
 
