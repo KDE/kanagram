@@ -1,11 +1,12 @@
 TODO items for Kanagram:
 
+* Add more shortcut keys
+* don't show empty hints
+* get font that shows most/all characters
 * Add whatsthis to config dialog
 * Add whatsthis with workaround in main widget
-* Add shortcut keys
 * Fix vocab editor ui issues (disable save after save, etc.)
 * Fix hint fontsize for short hints
 * clean up and simplify code (even though it's just a game)
 * Add Apidox comments all over
-* Make engine work with unicode if kvtml reader in libkdeedu supports reading it
 
