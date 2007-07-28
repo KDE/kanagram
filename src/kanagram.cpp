@@ -199,7 +199,7 @@ void Kanagram::setupActions()
     KStandardAction::help(this, SLOT(slotShowHint()), m_actionCollection);
 
     KAction *nextAnagramAction = new KAction(i18n("Next Word"), m_actionCollection);
-    nextAnagramAction->setShortcut(KStandardShortcut::forwardWord());
+    nextAnagramAction->setShortcut(Qt::CTRL+Qt::Key_N);
     connect(nextAnagramAction, SIGNAL(triggered(bool)), this, SLOT(slotNextAnagram()));
     m_actionCollection->addAction("nextanagram", nextAnagramAction);
 }
@@ -772,27 +772,46 @@ void Kanagram::showSettings()
 {
     if (!KConfigDialog::showDialog("settings"))
     {
-        KConfigDialog *configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
-        configDialog->setAttribute(Qt::WA_DeleteOnClose);
-        connect(configDialog, SIGNAL(finished()), this, SLOT(reloadSettings()));
+        m_configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
+        m_configDialog->setAttribute(Qt::WA_DeleteOnClose);
+        connect(m_configDialog, SIGNAL(finished()), this, SLOT(reloadSettings()));
 
         // add the main settings page
-        MainSettings * mainSettingsPage = new MainSettings( configDialog );
+        MainSettings * mainSettingsPage = new MainSettings( m_configDialog );
         connect (mainSettingsPage, SIGNAL(settingsChanged()), this, SLOT(reloadSettings()));
-        configDialog->addPage(mainSettingsPage , i18n( "General" ), "configure" );
+        m_configDialog->addPage(mainSettingsPage , i18n( "General" ), "configure" );
 
         // create and add the vocabsettings page
-        m_vocabSettings = new VocabSettings( configDialog );
-        configDialog->addPage(m_vocabSettings, i18n("Vocabularies"), "edit" );
+        m_vocabSettings = new VocabSettings( m_configDialog );
+        m_configDialog->addPage(m_vocabSettings, i18n("Vocabularies"), "edit" );
 
         // now make and add the shortcuts page
-        configDialog->addPage(new KShortcutsEditor(m_actionCollection, this), i18n("Shortcuts"), "shortcuts");
+        m_shortcutsEditor = new KShortcutsEditor(m_actionCollection, m_configDialog);
+        m_configDialog->addPage(m_shortcutsEditor, i18n("Shortcuts"), "shortcuts");
+        connect(m_configDialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(slotSaveSettings()));
+        connect(m_configDialog, SIGNAL(rejected()), this, SLOT(slotSettingsCancelled()));
+        connect(m_shortcutsEditor, SIGNAL(keyChanged()), this, SLOT(slotEnableApplyButton()));
 
         // and add the KNS page
-        configDialog->addPage( new NewStuff( configDialog ), i18n("New Stuff"), "get-hot-new-stuff" );
+        m_configDialog->addPage( new NewStuff( m_configDialog ), i18n("New Stuff"), "get-hot-new-stuff" );
 
-        configDialog->show();
+        m_configDialog->show();
     }
+}
+
+void Kanagram::slotSaveSettings()
+{
+  m_shortcutsEditor->save();
+}
+
+void Kanagram::slotSettingsCancelled()
+{
+  m_shortcutsEditor->undoChanges();
+}
+
+void Kanagram::slotEnableApplyButton()
+{
+  m_configDialog->enableButtonApply(true);
 }
 
 void Kanagram::hideHint()

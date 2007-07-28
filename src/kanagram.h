@@ -47,6 +47,8 @@ class KanagramGame;
 class VocabSettings;
 class KAction;
 class KActionCollection;
+class KConfigDialog;
+class KShortcutsEditor;
 
 /** 
  * @brief main interface widget  
@@ -102,6 +104,15 @@ class Kanagram : public QWidget
 
         /** show the hint */
         void slotShowHint();
+        
+        /** slot to save non kcfg_ settings */
+        void slotSaveSettings();
+
+        /** slot to undo non kcfg_ settings */
+        void slotSettingsCancelled();
+        
+        /** slot to enable the apply button */
+        void slotEnableApplyButton();
 
     private:
 
@@ -262,8 +273,12 @@ class Kanagram : public QWidget
         /** input box for getting answer from the user */
         QLineEdit *m_inputBox;
 
-        /** settings dialog pointer */
+        /** settings dialog */
+        KConfigDialog *m_configDialog;
+
+        /** settings page pointers */
         VocabSettings *m_vocabSettings;
+        KShortcutsEditor *m_shortcutsEditor;
 
         /** random number generator 
          * used to choose random eyes elements
