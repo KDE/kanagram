@@ -108,8 +108,8 @@ class Kanagram : public QWidget
         /** go back to the previous vocabulary */
         void slotPrevVocabulary();
 
-        /** show the hint */
-        void slotShowHint();
+        /** show/hide the hint */
+        void slotToggleHint();
 
         /** slot to save non kcfg_ settings */
         void slotSaveSettings();

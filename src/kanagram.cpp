@@ -200,7 +200,10 @@ void Kanagram::setupActions()
     m_actionCollection->addAction("nextanagram", nextAnagramAction);
     
     // hint action needs to not be help, as that conflicts with helpContents for shortcut key
-    //KStandardAction::help(this, SLOT(slotShowHint()), m_actionCollection);
+    KAction *showHintAction = new KAction(i18n("Show Hint"), m_actionCollection);
+    showHintAction->setShortcut(Qt::CTRL+Qt::Key_H);
+    connect(showHintAction, SIGNAL(triggered(bool)), this, SLOT(slotToggleHint()));
+    m_actionCollection->addAction("showhint", showHintAction);
     
     // reveal word action
     KAction *revealWordAction = new KAction(i18n("Reveal Word"), m_actionCollection);
@@ -586,14 +589,21 @@ void Kanagram::slotPrevVocabulary()
     update();
 }
 
-void Kanagram::slotShowHint()
+void Kanagram::slotToggleHint()
 {
-    if (m_hintHideTime)
+    if (m_showHint)
     {
-        m_hintTimer->start(m_hintHideTime * 1000);
+        m_showHint = false;
     }
-    m_showHint = true;
-    randomHintImage();
+    else
+    {
+        if (m_hintHideTime)
+        {
+            m_hintTimer->start(m_hintHideTime * 1000);
+        }
+        m_showHint = true;
+        randomHintImage();
+    }
     update();
 }
 
@@ -661,15 +671,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
     if (m_hintRect.contains(e->pos()))
     {
-        if (m_showHint == true) 
-        {
-            m_showHint = false;
-            update();
-        }
-        else
-        {
-            slotShowHint();
-        }
+        slotToggleHint();
     }
 
     if (m_upRect.contains(e->pos()) && !m_inputBox->text().isEmpty())
