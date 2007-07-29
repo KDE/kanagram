@@ -83,6 +83,9 @@ class Kanagram : public QWidget
          */
         void refreshVocabularies();
 
+        /** invoke the settings dialog */
+        void slotShowSettings();
+
         /** exit with an error message
          * connected to the game's fileError signal
          * so we can display an error message and quit
@@ -96,6 +99,9 @@ class Kanagram : public QWidget
         /** move on to the next word */
         void slotNextAnagram();
 
+        /** reveal the word */
+        void slotRevealWord();
+
         /** move on to the next vocabulary */
         void slotNextVocabulary();
 
@@ -104,13 +110,13 @@ class Kanagram : public QWidget
 
         /** show the hint */
         void slotShowHint();
-        
+
         /** slot to save non kcfg_ settings */
         void slotSaveSettings();
 
         /** slot to undo non kcfg_ settings */
         void slotSettingsCancelled();
-        
+
         /** slot to enable the apply button */
         void slotEnableApplyButton();
 
@@ -173,9 +179,6 @@ class Kanagram : public QWidget
          * a hint is requested
          */
         void randomHintImage();
-
-        /** invoke the settings dialog */
-        void showSettings();
 
         /** draw given text in the helper element
          * @param p painter to use to draw

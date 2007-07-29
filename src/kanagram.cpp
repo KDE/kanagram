@@ -85,6 +85,8 @@ Kanagram::Kanagram()
     setAttribute(Qt::WA_StaticContents);
     m_renderer = new QSvgRenderer(KStandardDirs::locate("appdata", "images/kanagram.svg"));
 
+    m_helpMenu = new KHelpMenu(this, KGlobal::mainComponent().aboutData());
+
     setupActions();
 
     loadSettings();
@@ -100,8 +102,6 @@ Kanagram::Kanagram()
 
     m_hintTimer = new QTimer(this);
     m_hintTimer->setSingleShot(true);
-
-    m_helpMenu = new KHelpMenu(this, KGlobal::mainComponent().aboutData());
 
     m_inputBox = new QLineEdit(this);
     m_inputBox->setFrame(false);
@@ -193,16 +193,36 @@ void Kanagram::setupActions()
     m_actionCollection = new KActionCollection(this);
     m_actionCollection->setAssociatedWidget(this);
 
-    KStandardAction::quit(kapp, SLOT(quit()), m_actionCollection);
-    KStandardAction::prior(this, SLOT(slotPrevVocabulary()), m_actionCollection);
-    KStandardAction::next(this, SLOT(slotNextVocabulary()), m_actionCollection);
-    KStandardAction::help(this, SLOT(slotShowHint()), m_actionCollection);
-
+    // next anagram action
     KAction *nextAnagramAction = new KAction(i18n("Next Word"), m_actionCollection);
     nextAnagramAction->setShortcut(Qt::CTRL+Qt::Key_N);
     connect(nextAnagramAction, SIGNAL(triggered(bool)), this, SLOT(slotNextAnagram()));
     m_actionCollection->addAction("nextanagram", nextAnagramAction);
     
+    // hint action needs to not be help, as that conflicts with helpContents for shortcut key
+    //KStandardAction::help(this, SLOT(slotShowHint()), m_actionCollection);
+    
+    // reveal word action
+    KAction *revealWordAction = new KAction(i18n("Reveal Word"), m_actionCollection);
+    revealWordAction->setShortcut(Qt::CTRL+Qt::Key_R);
+    connect(revealWordAction, SIGNAL(triggered(bool)), this, SLOT(slotRevealWord()));
+    m_actionCollection->addAction("revealword", revealWordAction);
+    
+    // vocabulary actions
+    KStandardAction::prior(this, SLOT(slotPrevVocabulary()), m_actionCollection);
+    KStandardAction::next(this, SLOT(slotNextVocabulary()), m_actionCollection);
+    
+    // help actions
+    KStandardAction::aboutApp(m_helpMenu, SLOT(aboutApplication()), m_actionCollection);
+    KStandardAction::aboutKDE(m_helpMenu, SLOT(aboutKDE()), m_actionCollection);
+    KStandardAction::helpContents(m_helpMenu, SLOT(appHelpActivated()), m_actionCollection);
+
+    // standard actions
+    KStandardAction::preferences(this, SLOT(slotShowSettings()), m_actionCollection);
+    KStandardAction::quit(kapp, SLOT(quit()), m_actionCollection);
+    
+    
+    // load any user-defined changes to shortcuts
     m_actionCollection->readSettings();
 }
 
@@ -526,6 +546,12 @@ void Kanagram::slotNextAnagram()
     update();
 }
 
+void Kanagram::slotRevealWord()
+{
+    m_game->restoreWord();
+    update();
+}
+
 /** move on to the next vocabulary */
 void Kanagram::slotNextVocabulary()
 {
@@ -580,7 +606,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
     if (m_configRect.contains(e->pos()))
     {
-        showSettings();
+        slotShowSettings();
     }
 
     if (m_quitRect.contains(e->pos()))
@@ -590,8 +616,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
     if (m_revealRect.contains(e->pos()))
     {
-        m_game->restoreWord();
-        update();
+        slotRevealWord();
     }
 
     if (m_logoRect.contains(e->pos()))
@@ -770,7 +795,7 @@ void Kanagram::randomHintImage()
     m_hintOverlayName = "eyes" + QString::number(imageNum + 1);
 }
 
-void Kanagram::showSettings()
+void Kanagram::slotShowSettings()
 {
     if (!KConfigDialog::showDialog("settings"))
     {
@@ -789,7 +814,7 @@ void Kanagram::showSettings()
 
         // now make and add the shortcuts page
         m_shortcutsEditor = new KShortcutsEditor(m_actionCollection, m_configDialog);
-        m_configDialog->addPage(m_shortcutsEditor, i18n("Shortcuts"), "shortcuts");
+        m_configDialog->addPage(m_shortcutsEditor, i18n("Shortcuts"), "configure-shortcuts");
         connect(m_configDialog, SIGNAL(accepted()), this, SLOT(slotSaveSettings()));
         connect(m_configDialog, SIGNAL(rejected()), this, SLOT(slotSettingsCancelled()));
         connect(m_shortcutsEditor, SIGNAL(keyChanged()), this, SLOT(slotEnableApplyButton()));
