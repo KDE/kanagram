@@ -819,7 +819,7 @@ void Kanagram::slotShowSettings()
         m_configDialog->addPage(m_shortcutsEditor, i18n("Shortcuts"), "configure-shortcuts");
         connect(m_configDialog, SIGNAL(accepted()), this, SLOT(slotSaveSettings()));
         connect(m_configDialog, SIGNAL(rejected()), this, SLOT(slotSettingsCancelled()));
-        connect(m_shortcutsEditor, SIGNAL(keyChanged()), this, SLOT(slotEnableApplyButton()));
+        connect(m_shortcutsEditor, SIGNAL(keyChange()), this, SLOT(slotEnableApplyButton()));
 
         // and add the KNS page
         m_configDialog->addPage( new NewStuff( m_configDialog ), i18n("New Stuff"), "get-hot-new-stuff" );
