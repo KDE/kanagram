@@ -38,6 +38,7 @@
 #include <KConfigSkeleton>
 #include <KGlobalSettings>
 #include <KHelpMenu>
+#include <KLineEdit>
 #include <KMessageBox>
 #include <KShortcutsEditor>
 #include <KStandardAction>
@@ -103,7 +104,7 @@ Kanagram::Kanagram()
     m_hintTimer = new QTimer(this);
     m_hintTimer->setSingleShot(true);
 
-    m_inputBox = new QLineEdit(this);
+    m_inputBox = new KLineEdit(this);
     m_inputBox->setFrame(false);
 
     connect(m_inputBox, SIGNAL(returnPressed()), SLOT(checkWord()));

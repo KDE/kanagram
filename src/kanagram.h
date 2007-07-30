@@ -27,7 +27,6 @@
 #ifndef KANAGRAM_H
 #define KANAGRAM_H
 
-#include <QLineEdit>
 #include <QMouseEvent>
 #include <QPaintEvent>
 #include <QWidget>
@@ -41,13 +40,16 @@ namespace Phonon
     class AudioPlayer;
 }
 
-class QSvgRenderer;
-class KHelpMenu;
 class KanagramGame;
 class VocabSettings;
+
+class QSvgRenderer;
+
 class KAction;
 class KActionCollection;
 class KConfigDialog;
+class KHelpMenu;
+class KLineEdit;
 class KShortcutsEditor;
 
 /** 
@@ -274,7 +276,7 @@ class Kanagram : public QWidget
         KHelpMenu *m_helpMenu;
 
         /** input box for getting answer from the user */
-        QLineEdit *m_inputBox;
+        KLineEdit *m_inputBox;
 
         /** settings dialog */
         KConfigDialog *m_configDialog;
