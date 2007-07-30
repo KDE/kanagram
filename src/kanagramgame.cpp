@@ -176,6 +176,11 @@ void KanagramGame::nextAnagram()
         m_answeredWords.append(m_originalWord);
         createAnagram();
         m_hint = doc->entry(wordNumber)->translation(0).comment();
+
+        if (m_hint.isEmpty())
+        {
+          m_hint = i18n("No hint");
+        }
     }
     else
     {
