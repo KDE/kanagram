@@ -1,158 +1,248 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<!--
-This is a machine generated file.
-Be careful when editing here.
-
-Short definition:
-
-lesson     lesson group
- desc    name
-   %no     its index
-   %query  is in query selection
-   %current  is current lesson
-type     type group
- desc    name
-   %no     its index
-e      entry of dictionary
-  %s     is selected
-  %m     lesson member
-  %t     common expression type
- o       original
-   %q    in query ("o" is given, "t" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type (see QueryManager.h)
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
- t       translation ..
-   %q    in query ("t" is given, "o" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
-
-   %d    last query date (from;to)
-   %w    dito, compressed and deprecated
-   %g    grade (from;to)
-   %c    count (from;to)
-   %b    bad count (from;to)
-
-
-Valid xml means:
- - Close all tags
- - Keep proper hierarchy
- - All attributes are quoted
---><kvtml title="Vegetables" remark="Vegetables of the Earth" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
- <options>
-  <sort on="1" />
- </options>
-
- <article>
-  <e l="en">
-  </e>
- </article>
-
- <e>
-  <o width="150" r="Succulent young shoots" >asparagus</o>
- </e>
- <e>
-  <o r="Dense clusters of tight green buds grow from a thick stalk" >broccoli</o>
- </e>
- <e>
-  <o r="Has leaves that form a characteristic compact head" >cabbage</o>
- </e>
- <e>
-  <o r="Orange root vegetable that grows underground" >carrot</o>
- </e>
- <e>
-  <o r="Type of Cabbage, with bunches of creamy white florets" >cauliflower</o>
- </e>
- <e>
-  <o r="Crisp, green vegetable" >celery</o>
- </e>
- <e>
-  <o r="Also known as garbanzo beans, with a nut-like flavor" >chickpeas</o>
- </e>
- <e>
-  <o r="Long, green, cylinder-shaped vegetable" >cucumber</o>
- </e>
- <e>
-  <o r="A bulb made up of sections of cloves" >garlic</o>
- </e>
- <e>
-  <o r="Long narrow white bulb and long dark-green leaves" >leek</o>
- </e>
- <e>
-  <o r="Small brown beans that cook quickly" >lentils</o>
- </e>
- <e>
-  <o r="Leafy greens enjoyed in salads" >lettuce</o>
- </e>
- <e>
-  <o r="A type of fungi" >mushrooms</o>
- </e>
- <e>
-  <o r="Its odor can make you cry" >onion</o>
- </e>
- <e>
-  <o r="Spicy seasoning ground from red pepper" >paprika</o>
- </e>
- <e>
-  <o r="Fresh-flavored bright green herb" >parsley</o>
- </e>
- <e>
-  <o r="Root vegetable that looks like a white carrot" >parsnip</o>
- </e>
- <e>
-  <o r="Small light brown nuts, often served salted" >peanuts</o>
- </e>
- <e>
-  <o r="Small round green seed which grows in a pod" >peas</o>
- </e>
- <e>
-  <o r="Mid-sized, yellow, and grown underground" >potato</o>
- </e>
- <e>
-  <o r="Popular at Halloween" >pumpkin</o>
- </e>
- <e>
-  <o r="Celery-like vegetable" >rhubarb</o>
- </e>
- <e>
-  <o r="High-protein, used in tofu" >soybeans</o>
- </e>
- <e>
-  <o r="Crisp, dark green leafy vegetable" >spinach</o>
- </e>
- <e>
-  <o r="The yellow seeds of a type of maize" >sweetcorn</o>
- </e>
- <e>
-  <o r="Very hot red peppers" >tabasco</o>
- </e>
- <e>
-  <o r="Red, technically considered a fruit" >tomato</o>
- </e>
- <e>
-  <o r="Vegetable with a succulent, bulbous root" >turnip</o>
- </e>
- <e>
-  <o r="Green leafy little plant, only grows in running water" >watercress</o>
- </e>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kvtml PUBLIC "kvtml2.dtd" "http://edu.kde.org/kanagram/kvtml2.dtd">
+<kvtml version="2.0" >
+  <information>
+    <generator>converter</generator>
+    <title>Vegetables</title>
+    <comment>Vegetables of the Earth</comment>
+  </information>
+  <identifiers>
+    <identifier id="0" >
+      <locale>en</locale>
+    </identifier>
+  </identifiers>
+  <entries>
+    <entry id="0" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>asparagus</text>
+        <comment>Succulent young shoots</comment>
+      </translation>
+    </entry>
+    <entry id="1" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>broccoli</text>
+        <comment>Dense clusters of tight green buds grow from a thick stalk</comment>
+      </translation>
+    </entry>
+    <entry id="2" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>cabbage</text>
+        <comment>Has leaves that form a characteristic compact head</comment>
+      </translation>
+    </entry>
+    <entry id="3" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>carrot</text>
+        <comment>Orange root vegetable that grows underground</comment>
+      </translation>
+    </entry>
+    <entry id="4" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>cauliflower</text>
+        <comment>Type of Cabbage, with bunches of creamy white florets</comment>
+      </translation>
+    </entry>
+    <entry id="5" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>celery</text>
+        <comment>Crisp, green vegetable</comment>
+      </translation>
+    </entry>
+    <entry id="6" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>chickpeas</text>
+        <comment>Also known as garbanzo beans, with a nut-like flavor</comment>
+      </translation>
+    </entry>
+    <entry id="7" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>cucumber</text>
+        <comment>Long, green, cylinder-shaped vegetable</comment>
+      </translation>
+    </entry>
+    <entry id="8" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>garlic</text>
+        <comment>A bulb made up of sections of cloves</comment>
+      </translation>
+    </entry>
+    <entry id="9" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>leek</text>
+        <comment>Long narrow white bulb and long dark-green leaves</comment>
+      </translation>
+    </entry>
+    <entry id="10" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>lentils</text>
+        <comment>Small brown beans that cook quickly</comment>
+      </translation>
+    </entry>
+    <entry id="11" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>lettuce</text>
+        <comment>Leafy greens enjoyed in salads</comment>
+      </translation>
+    </entry>
+    <entry id="12" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>mushrooms</text>
+        <comment>A type of fungi</comment>
+      </translation>
+    </entry>
+    <entry id="13" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>onion</text>
+        <comment>Its odor can make you cry</comment>
+      </translation>
+    </entry>
+    <entry id="14" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>paprika</text>
+        <comment>Spicy seasoning ground from red pepper</comment>
+      </translation>
+    </entry>
+    <entry id="15" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>parsley</text>
+        <comment>Fresh-flavored bright green herb</comment>
+      </translation>
+    </entry>
+    <entry id="16" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>parsnip</text>
+        <comment>Root vegetable that looks like a white carrot</comment>
+      </translation>
+    </entry>
+    <entry id="17" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>peanuts</text>
+        <comment>Small light brown nuts, often served salted</comment>
+      </translation>
+    </entry>
+    <entry id="18" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>peas</text>
+        <comment>Small round green seed which grows in a pod</comment>
+      </translation>
+    </entry>
+    <entry id="19" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>potato</text>
+        <comment>Mid-sized, yellow, and grown underground</comment>
+      </translation>
+    </entry>
+    <entry id="20" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>pumpkin</text>
+        <comment>Popular at Halloween</comment>
+      </translation>
+    </entry>
+    <entry id="21" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>rhubarb</text>
+        <comment>Celery-like vegetable</comment>
+      </translation>
+    </entry>
+    <entry id="22" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>soybeans</text>
+        <comment>High-protein, used in tofu</comment>
+      </translation>
+    </entry>
+    <entry id="23" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>spinach</text>
+        <comment>Crisp, dark green leafy vegetable</comment>
+      </translation>
+    </entry>
+    <entry id="24" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>sweetcorn</text>
+        <comment>The yellow seeds of a type of maize</comment>
+      </translation>
+    </entry>
+    <entry id="25" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>tabasco</text>
+        <comment>Very hot red peppers</comment>
+      </translation>
+    </entry>
+    <entry id="26" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>tomato</text>
+        <comment>Red, technically considered a fruit</comment>
+      </translation>
+    </entry>
+    <entry id="27" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>turnip</text>
+        <comment>Vegetable with a succulent, bulbous root</comment>
+      </translation>
+    </entry>
+    <entry id="28" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>watercress</text>
+        <comment>Green leafy little plant, only grows in running water</comment>
+      </translation>
+    </entry>
+  </entries>
 </kvtml>

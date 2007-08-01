@@ -1,158 +1,248 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<!--
-This is a machine generated file.
-Be careful when editing here.
-
-Short definition:
-
-lesson     lesson group
- desc    name
-   %no     its index
-   %query  is in query selection
-   %current  is current lesson
-type     type group
- desc    name
-   %no     its index
-e      entry of dictionary
-  %s     is selected
-  %m     lesson member
-  %t     common expression type
- o       original
-   %q    in query ("o" is given, "t" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type (see QueryManager.h)
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
- t       translation ..
-   %q    in query ("t" is given, "o" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
-
-   %d    last query date (from;to)
-   %w    dito, compressed and deprecated
-   %g    grade (from;to)
-   %c    count (from;to)
-   %b    bad count (from;to)
-
-
-Valid xml means:
- - Close all tags
- - Keep proper hierarchy
- - All attributes are quoted
---><kvtml title="Space" remark="Space objects, terms and missions" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
- <options>
-  <sort on="1" />
- </options>
-
- <article>
-  <e l="en">
-  </e>
- </article>
-
- <e>
-  <o width="150" r="The American moon program" >apollo</o>
- </e>
- <e>
-  <o r="Small planetary body in orbit around the Sun" >asteroid</o>
- </e>
- <e>
-  <o r="Person from the USA who travels into space" >astronaut</o>
- </e>
- <e>
-  <o r="Russian reusable spacecraft program" >buran</o>
- </e>
- <e>
-  <o r="Medium-sized icy object orbiting the Sun" >comet</o>
- </e>
- <e>
-  <o r="Grouping of stars which can form a shape or pattern" >constellation</o>
- </e>
- <e>
-  <o r="Person from Russia who travels into space" >cosmonaut</o>
- </e>
- <e>
-  <o r="The planet on which we live" >earth</o>
- </e>
- <e>
-  <o r="When one celestial body obscures another" >eclipse</o>
- </e>
- <e>
-  <o r="Very large cluster of stars" >galaxy</o>
- </e>
- <e>
-  <o r="Fifth from the Sun, the largest planet" >jupiter</o>
- </e>
- <e>
-  <o r="Fourth planet from the Sun" >mars</o>
- </e>
- <e>
-  <o r="The smallest planet and nearest the Sun" >mercury</o>
- </e>
- <e>
-  <o r="Meteoroid that burns up in the Earth's atmosphere" >meteor</o>
- </e>
- <e>
-  <o r="Matter that has reached Earth from outer space" >meteorite</o>
- </e>
- <e>
-  <o r="Russian space station, launched in 1986" >mir</o>
- </e>
- <e>
-  <o r="The natural satellite of the Earth" >moon</o>
- </e>
- <e>
-  <o r="Giant planet, eighth from the sun" >neptune</o>
- </e>
- <e>
-  <o r="Path an object makes around another" >orbit</o>
- </e>
- <e>
-  <o r="Second-largest known dwarf planet" >pluto</o>
- </e>
- <e>
-  <o r="An object that revolves around a planet" >satellite</o>
- </e>
- <e>
-  <o r="Giant planet with rings, sixth from the Sun" >saturn</o>
- </e>
- <e>
-  <o r="The first American space station, launched in 1973" >skylab</o>
- </e>
- <e>
-  <o r="The first artificial Earth satellite, launched in 1957" >sputnik</o>
- </e>
- <e>
-  <o r="The star at the center of the Solar System" >sun</o>
- </e>
- <e>
-  <o r="Person from China who travels into space" >taikonaut</o>
- </e>
- <e>
-  <o r="Seventh planet from the Sun" >uranus</o>
- </e>
- <e>
-  <o r="Second planet from the Sun" >venus</o>
- </e>
- <e>
-  <o r="Twin space probes launched in 1977" >voyager</o>
- </e>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kvtml PUBLIC "kvtml2.dtd" "http://edu.kde.org/kanagram/kvtml2.dtd">
+<kvtml version="2.0" >
+  <information>
+    <generator>converter</generator>
+    <title>Space</title>
+    <comment>Space objects, terms and missions</comment>
+  </information>
+  <identifiers>
+    <identifier id="0" >
+      <locale>en</locale>
+    </identifier>
+  </identifiers>
+  <entries>
+    <entry id="0" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>apollo</text>
+        <comment>The American moon program</comment>
+      </translation>
+    </entry>
+    <entry id="1" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>asteroid</text>
+        <comment>Small planetary body in orbit around the Sun</comment>
+      </translation>
+    </entry>
+    <entry id="2" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>astronaut</text>
+        <comment>Person from the USA who travels into space</comment>
+      </translation>
+    </entry>
+    <entry id="3" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>buran</text>
+        <comment>Russian reusable spacecraft program</comment>
+      </translation>
+    </entry>
+    <entry id="4" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>comet</text>
+        <comment>Medium-sized icy object orbiting the Sun</comment>
+      </translation>
+    </entry>
+    <entry id="5" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>constellation</text>
+        <comment>Grouping of stars which can form a shape or pattern</comment>
+      </translation>
+    </entry>
+    <entry id="6" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>cosmonaut</text>
+        <comment>Person from Russia who travels into space</comment>
+      </translation>
+    </entry>
+    <entry id="7" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>earth</text>
+        <comment>The planet on which we live</comment>
+      </translation>
+    </entry>
+    <entry id="8" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>eclipse</text>
+        <comment>When one celestial body obscures another</comment>
+      </translation>
+    </entry>
+    <entry id="9" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>galaxy</text>
+        <comment>Very large cluster of stars</comment>
+      </translation>
+    </entry>
+    <entry id="10" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>jupiter</text>
+        <comment>Fifth from the Sun, the largest planet</comment>
+      </translation>
+    </entry>
+    <entry id="11" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>mars</text>
+        <comment>Fourth planet from the Sun</comment>
+      </translation>
+    </entry>
+    <entry id="12" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>mercury</text>
+        <comment>The smallest planet and nearest the Sun</comment>
+      </translation>
+    </entry>
+    <entry id="13" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>meteor</text>
+        <comment>Meteoroid that burns up in the Earth's atmosphere</comment>
+      </translation>
+    </entry>
+    <entry id="14" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>meteorite</text>
+        <comment>Matter that has reached Earth from outer space</comment>
+      </translation>
+    </entry>
+    <entry id="15" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>mir</text>
+        <comment>Russian space station, launched in 1986</comment>
+      </translation>
+    </entry>
+    <entry id="16" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>moon</text>
+        <comment>The natural satellite of the Earth</comment>
+      </translation>
+    </entry>
+    <entry id="17" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>neptune</text>
+        <comment>Giant planet, eighth from the sun</comment>
+      </translation>
+    </entry>
+    <entry id="18" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>orbit</text>
+        <comment>Path an object makes around another</comment>
+      </translation>
+    </entry>
+    <entry id="19" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>pluto</text>
+        <comment>Second-largest known dwarf planet</comment>
+      </translation>
+    </entry>
+    <entry id="20" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>satellite</text>
+        <comment>An object that revolves around a planet</comment>
+      </translation>
+    </entry>
+    <entry id="21" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>saturn</text>
+        <comment>Giant planet with rings, sixth from the Sun</comment>
+      </translation>
+    </entry>
+    <entry id="22" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>skylab</text>
+        <comment>The first American space station, launched in 1973</comment>
+      </translation>
+    </entry>
+    <entry id="23" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>sputnik</text>
+        <comment>The first artificial Earth satellite, launched in 1957</comment>
+      </translation>
+    </entry>
+    <entry id="24" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>sun</text>
+        <comment>The star at the center of the Solar System</comment>
+      </translation>
+    </entry>
+    <entry id="25" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>taikonaut</text>
+        <comment>Person from China who travels into space</comment>
+      </translation>
+    </entry>
+    <entry id="26" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>uranus</text>
+        <comment>Seventh planet from the Sun</comment>
+      </translation>
+    </entry>
+    <entry id="27" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>venus</text>
+        <comment>Second planet from the Sun</comment>
+      </translation>
+    </entry>
+    <entry id="28" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>voyager</text>
+        <comment>Twin space probes launched in 1977</comment>
+      </translation>
+    </entry>
+  </entries>
 </kvtml>

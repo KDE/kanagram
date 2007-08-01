@@ -1,134 +1,184 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<!--
-This is a machine generated file.
-Be careful when editing here.
-
-Short definition:
-
-lesson     lesson group
- desc    name
-   %no     its index
-   %query  is in query selection
-   %current  is current lesson
-type     type group
- desc    name
-   %no     its index
-e      entry of dictionary
-  %s     is selected
-  %m     lesson member
-  %t     common expression type
- o       original
-   %q    in query ("o" is given, "t" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type (see QueryManager.h)
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
- t       translation ..
-   %q    in query ("t" is given, "o" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
-
-   %d    last query date (from;to)
-   %w    dito, compressed and deprecated
-   %g    grade (from;to)
-   %c    count (from;to)
-   %b    bad count (from;to)
-
-
-Valid xml means:
- - Close all tags
- - Keep proper hierarchy
- - All attributes are quoted
---><kvtml title="Currencies" remark="Modern World currencies" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
- <options>
-  <sort on="1" />
- </options>
-
- <article>
-  <e l="en">
-  </e>
- </article>
-
- <e>
-  <o width="150" r="Algeria, Bahrain, Kuwait, etc." >dinar</o>
- </e>
- <e>
-  <o r="USA, Canada, Australia, etc." >dollar</o>
- </e>
- <e>
-  <o r="Greece" >drachma</o>
- </e>
- <e>
-  <o r="12 European Union countries, etc." >euro</o>
- </e>
- <e>
-  <o r="France (until 1998), Switzerland, etc." >franc</o>
- </e>
- <e>
-  <o r="The Netherlands (until 1998)" >guilder</o>
- </e>
- <e>
-  <o r="Czech Republic, Slovakia" >koruna</o>
- </e>
- <e>
-  <o r="Sweden" >krona</o>
- </e>
- <e>
-  <o r="Denmark, Greenland, Norway" >krone</o>
- </e>
- <e>
-  <o r="Italy (until 1998)" >lira</o>
- </e>
- <e>
-  <o r="Germany (until 1998)" >mark</o>
- </e>
- <e>
-  <o r="Spain (until 1998)" >peseta</o>
- </e>
- <e>
-  <o r="Argentina, Chile, Mexico, Cuba, Colombia, etc." >peso</o>
- </e>
- <e>
-  <o r="UK, Cyprus, Egypt, etc." >pound</o>
- </e>
- <e>
-  <o r="South Africa" >rand</o>
- </e>
- <e>
-  <o r="China" >renminbi</o>
- </e>
- <e>
-  <o r="Russia, Belarus, etc." >ruble</o>
- </e>
- <e>
-  <o r="India, Pakistan, Sri Lanka, etc." >rupee</o>
- </e>
- <e>
-  <o r="Kenya, Tanzania, etc." >shilling</o>
- </e>
- <e>
-  <o r="Japan" >yen</o>
- </e>
- <e>
-  <o r="Poland" >zloty</o>
- </e>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kvtml PUBLIC "kvtml2.dtd" "http://edu.kde.org/kanagram/kvtml2.dtd">
+<kvtml version="2.0" >
+  <information>
+    <generator>converter</generator>
+    <title>Currencies</title>
+    <comment>Modern World currencies</comment>
+  </information>
+  <identifiers>
+    <identifier id="0" >
+      <locale>en</locale>
+    </identifier>
+  </identifiers>
+  <entries>
+    <entry id="0" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>dinar</text>
+        <comment>Algeria, Bahrain, Kuwait, etc.</comment>
+      </translation>
+    </entry>
+    <entry id="1" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>dollar</text>
+        <comment>USA, Canada, Australia, etc.</comment>
+      </translation>
+    </entry>
+    <entry id="2" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>drachma</text>
+        <comment>Greece</comment>
+      </translation>
+    </entry>
+    <entry id="3" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>euro</text>
+        <comment>12 European Union countries, etc.</comment>
+      </translation>
+    </entry>
+    <entry id="4" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>franc</text>
+        <comment>France (until 1998), Switzerland, etc.</comment>
+      </translation>
+    </entry>
+    <entry id="5" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>guilder</text>
+        <comment>The Netherlands (until 1998)</comment>
+      </translation>
+    </entry>
+    <entry id="6" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>koruna</text>
+        <comment>Czech Republic, Slovakia</comment>
+      </translation>
+    </entry>
+    <entry id="7" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>krona</text>
+        <comment>Sweden</comment>
+      </translation>
+    </entry>
+    <entry id="8" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>krone</text>
+        <comment>Denmark, Greenland, Norway</comment>
+      </translation>
+    </entry>
+    <entry id="9" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>lira</text>
+        <comment>Italy (until 1998)</comment>
+      </translation>
+    </entry>
+    <entry id="10" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>mark</text>
+        <comment>Germany (until 1998)</comment>
+      </translation>
+    </entry>
+    <entry id="11" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>peseta</text>
+        <comment>Spain (until 1998)</comment>
+      </translation>
+    </entry>
+    <entry id="12" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>peso</text>
+        <comment>Argentina, Chile, Mexico, Cuba, Colombia, etc.</comment>
+      </translation>
+    </entry>
+    <entry id="13" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>pound</text>
+        <comment>UK, Cyprus, Egypt, etc.</comment>
+      </translation>
+    </entry>
+    <entry id="14" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>rand</text>
+        <comment>South Africa</comment>
+      </translation>
+    </entry>
+    <entry id="15" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>renminbi</text>
+        <comment>China</comment>
+      </translation>
+    </entry>
+    <entry id="16" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>ruble</text>
+        <comment>Russia, Belarus, etc.</comment>
+      </translation>
+    </entry>
+    <entry id="17" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>rupee</text>
+        <comment>India, Pakistan, Sri Lanka, etc.</comment>
+      </translation>
+    </entry>
+    <entry id="18" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>shilling</text>
+        <comment>Kenya, Tanzania, etc.</comment>
+      </translation>
+    </entry>
+    <entry id="19" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>yen</text>
+        <comment>Japan</comment>
+      </translation>
+    </entry>
+    <entry id="20" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>zloty</text>
+        <comment>Poland</comment>
+      </translation>
+    </entry>
+  </entries>
 </kvtml>

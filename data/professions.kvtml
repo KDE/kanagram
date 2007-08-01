@@ -1,188 +1,328 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<!--
-This is a machine generated file.
-Be careful when editing here.
-
-Short definition:
-
-lesson     lesson group
- desc    name
-   %no     its index
-   %query  is in query selection
-   %current  is current lesson
-type     type group
- desc    name
-   %no     its index
-e      entry of dictionary
-  %s     is selected
-  %m     lesson member
-  %t     common expression type
- o       original
-   %q    in query ("o" is given, "t" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type (see QueryManager.h)
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
- t       translation ..
-   %q    in query ("t" is given, "o" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
-
-   %d    last query date (from;to)
-   %w    dito, compressed and deprecated
-   %g    grade (from;to)
-   %c    count (from;to)
-   %b    bad count (from;to)
-
-
-Valid xml means:
- - Close all tags
- - Keep proper hierarchy
- - All attributes are quoted
---><kvtml title="Professions" remark="The jobs people do" cols="0" generator="kanagram" lines="21" encoding="UTF-8" >
- <options>
-  <sort on="1" />
- </options>
-
- <article>
-  <e l="en">
-  </e>
- </article>
-
- <e s="1" >
-  <o width="150" r="One who helps the sick" >doctor</o>
- </e>
- <e s="1" >
-  <o r="One who puts out fires" >fireman</o>
- </e>
- <e s="1" >
-  <o r="A catcher of ocean creatures" >fisherman</o>
- </e>
- <e s="1" >
-  <o r="One who defends his country" >soldier</o>
- </e>
- <e>
-  <o r="An extra-terrestrial traveler" >astronaut</o>
- </e>
- <e>
-  <o r="A person that maintains an electrical system" >electrician</o>
- </e>
- <e>
-  <o r="Someone that repairs water systems" >plumber</o>
- </e>
- <e>
-  <o r="A doctor for the mind" >psychiatrist</o>
- </e>
- <e>
-  <o r="An officer of the law" >policeman</o>
- </e>
- <e>
-  <o r="One who writes for a living" >author</o>
- </e>
- <e>
-  <o r="A news writer" >journalist</o>
- </e>
- <e>
-  <o r="A maker of computer software" >programmer</o>
- </e>
- <e>
-  <o r="One who performs for an audience" >actor</o>
- </e>
- <e>
-  <o r="A player of music" >musician</o>
- </e>
- <e>
-  <o r="One who invokes laughter" >comedian</o>
- </e>
- <e>
-  <o r="Scientist who specializes in chemistry" >chemist</o>
- </e>
- <e>
-  <o r="One who instructs students" >teacher</o>
- </e>
- <e>
-  <o r="A person that repairs machinery" >mechanic</o>
- </e>
- <e>
-  <o r="Someone that grows crops" >farmer</o>
- </e>
- <e>
-  <o r="One who practices art" >artist</o>
- </e>
- <e>
-  <o r="A door-to-door seller" >salesman</o>
- </e>
- <e>
-  <o r="Makes and alteres clothes" >tailor</o>
- </e>
- <e>
-  <o r="Crafter of iron and steel" >blacksmith</o>
- </e>
- <e>
-  <o r="Specializes in oral medical care" >dentist</o>
- </e>
- <e>
-  <o r="Develops and communicates ideas" >designer</o>
- </e>
- <e>
-  <o r="Expert in an area of science" >scientist</o>
- </e>
- <e>
-  <o r="The first to think of or make something" >inventor</o>
- </e>
- <e>
-  <o r="Uses scientific knowledge to solve practical problems" >engineer</o>
- </e>
- <e>
-  <o r="Look after the finances in an organisastion" >accountant</o>
- </e>
- <e>
-  <o r="Bake bread" >baker</o>
- </e>
- <e>
-  <o r="Involved in the construction of buildings" >builder</o>
- </e>
- <e>
-  <o r="Crafts furniture" >carpenter</o>
- </e>
- <e>
-  <o r="Prepare and cook food" >chef</o>
- </e>
- <e>
-  <o r="Cut and style people's hair" >hairdresser</o>
- </e>
- <e>
-  <o r="Defend and prosecute people" >lawyer</o>
- </e>
- <e>
-  <o r="Look after people's eye sight" >optician</o>
- </e>
- <e>
-  <o r="Find and report the news" >reporter</o>
- </e>
- <e>
-  <o r="Arrange appointments and organise meetings" >secretary</o>
- </e>
- <e>
-  <o r="Designs the blueprints for new structures" >architect</o>
- </e>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kvtml PUBLIC "kvtml2.dtd" "http://edu.kde.org/kanagram/kvtml2.dtd">
+<kvtml version="2.0" >
+  <information>
+    <generator>converter</generator>
+    <title>Professions</title>
+    <comment>The jobs people do</comment>
+  </information>
+  <identifiers>
+    <identifier id="0" >
+      <locale>en</locale>
+    </identifier>
+  </identifiers>
+  <entries>
+    <entry id="0" >
+      <inactive>false</inactive>
+      <inquery>true</inquery>
+      <translation id="0" >
+        <text>doctor</text>
+        <comment>One who helps the sick</comment>
+      </translation>
+    </entry>
+    <entry id="1" >
+      <inactive>false</inactive>
+      <inquery>true</inquery>
+      <translation id="0" >
+        <text>fireman</text>
+        <comment>One who puts out fires</comment>
+      </translation>
+    </entry>
+    <entry id="2" >
+      <inactive>false</inactive>
+      <inquery>true</inquery>
+      <translation id="0" >
+        <text>fisherman</text>
+        <comment>A catcher of ocean creatures</comment>
+      </translation>
+    </entry>
+    <entry id="3" >
+      <inactive>false</inactive>
+      <inquery>true</inquery>
+      <translation id="0" >
+        <text>soldier</text>
+        <comment>One who defends his country</comment>
+      </translation>
+    </entry>
+    <entry id="4" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>astronaut</text>
+        <comment>An extra-terrestrial traveler</comment>
+      </translation>
+    </entry>
+    <entry id="5" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>electrician</text>
+        <comment>A person that maintains an electrical system</comment>
+      </translation>
+    </entry>
+    <entry id="6" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>plumber</text>
+        <comment>Someone that repairs water systems</comment>
+      </translation>
+    </entry>
+    <entry id="7" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>psychiatrist</text>
+        <comment>A doctor for the mind</comment>
+      </translation>
+    </entry>
+    <entry id="8" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>policeman</text>
+        <comment>An officer of the law</comment>
+      </translation>
+    </entry>
+    <entry id="9" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>author</text>
+        <comment>One who writes for a living</comment>
+      </translation>
+    </entry>
+    <entry id="10" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>journalist</text>
+        <comment>A news writer</comment>
+      </translation>
+    </entry>
+    <entry id="11" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>programmer</text>
+        <comment>A maker of computer software</comment>
+      </translation>
+    </entry>
+    <entry id="12" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>actor</text>
+        <comment>One who performs for an audience</comment>
+      </translation>
+    </entry>
+    <entry id="13" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>musician</text>
+        <comment>A player of music</comment>
+      </translation>
+    </entry>
+    <entry id="14" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>comedian</text>
+        <comment>One who invokes laughter</comment>
+      </translation>
+    </entry>
+    <entry id="15" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>chemist</text>
+        <comment>Scientist who specializes in chemistry</comment>
+      </translation>
+    </entry>
+    <entry id="16" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>teacher</text>
+        <comment>One who instructs students</comment>
+      </translation>
+    </entry>
+    <entry id="17" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>mechanic</text>
+        <comment>A person that repairs machinery</comment>
+      </translation>
+    </entry>
+    <entry id="18" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>farmer</text>
+        <comment>Someone that grows crops</comment>
+      </translation>
+    </entry>
+    <entry id="19" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>artist</text>
+        <comment>One who practices art</comment>
+      </translation>
+    </entry>
+    <entry id="20" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>salesman</text>
+        <comment>A door-to-door seller</comment>
+      </translation>
+    </entry>
+    <entry id="21" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>tailor</text>
+        <comment>Makes and alteres clothes</comment>
+      </translation>
+    </entry>
+    <entry id="22" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>blacksmith</text>
+        <comment>Crafter of iron and steel</comment>
+      </translation>
+    </entry>
+    <entry id="23" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>dentist</text>
+        <comment>Specializes in oral medical care</comment>
+      </translation>
+    </entry>
+    <entry id="24" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>designer</text>
+        <comment>Develops and communicates ideas</comment>
+      </translation>
+    </entry>
+    <entry id="25" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>scientist</text>
+        <comment>Expert in an area of science</comment>
+      </translation>
+    </entry>
+    <entry id="26" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>inventor</text>
+        <comment>The first to think of or make something</comment>
+      </translation>
+    </entry>
+    <entry id="27" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>engineer</text>
+        <comment>Uses scientific knowledge to solve practical problems</comment>
+      </translation>
+    </entry>
+    <entry id="28" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>accountant</text>
+        <comment>Look after the finances in an organisastion</comment>
+      </translation>
+    </entry>
+    <entry id="29" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>baker</text>
+        <comment>Bake bread</comment>
+      </translation>
+    </entry>
+    <entry id="30" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>builder</text>
+        <comment>Involved in the construction of buildings</comment>
+      </translation>
+    </entry>
+    <entry id="31" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>carpenter</text>
+        <comment>Crafts furniture</comment>
+      </translation>
+    </entry>
+    <entry id="32" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>chef</text>
+        <comment>Prepare and cook food</comment>
+      </translation>
+    </entry>
+    <entry id="33" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>hairdresser</text>
+        <comment>Cut and style people's hair</comment>
+      </translation>
+    </entry>
+    <entry id="34" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>lawyer</text>
+        <comment>Defend and prosecute people</comment>
+      </translation>
+    </entry>
+    <entry id="35" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>optician</text>
+        <comment>Look after people's eye sight</comment>
+      </translation>
+    </entry>
+    <entry id="36" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>reporter</text>
+        <comment>Find and report the news</comment>
+      </translation>
+    </entry>
+    <entry id="37" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>secretary</text>
+        <comment>Arrange appointments and organise meetings</comment>
+      </translation>
+    </entry>
+    <entry id="38" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>architect</text>
+        <comment>Designs the blueprints for new structures</comment>
+      </translation>
+    </entry>
+  </entries>
 </kvtml>

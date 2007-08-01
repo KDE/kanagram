@@ -1,131 +1,176 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<!--
-This is a machine generated file.
-Be careful when editing here.
-
-Short definition:
-
-lesson     lesson group
- desc    name
-   %no     its index
-   %query  is in query selection
-   %current  is current lesson
-type     type group
- desc    name
-   %no     its index
-e      entry of dictionary
-  %s     is selected
-  %m     lesson member
-  %t     common expression type
- o       original
-   %q    in query ("o" is given, "t" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type (see QueryManager.h)
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
- t       translation ..
-   %q    in query ("t" is given, "o" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
-
-   %d    last query date (from;to)
-   %w    dito, compressed and deprecated
-   %g    grade (from;to)
-   %c    count (from;to)
-   %b    bad count (from;to)
-
-
-Valid xml means:
- - Close all tags
- - Keep proper hierarchy
- - All attributes are quoted
---><kvtml title="Transportation" remark="Ways of getting around" cols="0" generator="kanagram" lines="16" encoding="UTF-8" >
- <options>
-  <sort on="1" />
- </options>
-
- <article>
-  <e l="en">
-  </e>
- </article>
-
- <e>
-  <o width="150" r="Four-wheeled vehicle" >automobile</o>
- </e>
- <e>
-  <o r="Motorized two-wheeled vehicle" >motorcycle</o>
- </e>
- <e>
-  <o r="A vehicle that travels on tracks" >train</o>
- </e>
- <e>
-  <o r="A flying machine" >airplane</o>
- </e>
- <e>
-  <o r="A vertical takeoff aircraft" >helicopter</o>
- </e>
- <e>
-  <o r="A two-wheeled human-powered vehicle" >bicycle</o>
- </e>
- <e>
-  <o r="An electrified bus" >streetcar</o>
- </e>
- <e>
-  <o r="It goes up, it comes down" >elevator</o>
- </e>
- <e>
-  <o r="A sea-faring vehicle" >ship</o>
- </e>
- <e>
-  <o r="For underwater transportation" >submarine</o>
- </e>
- <e>
-  <o r="Open-air bus" >trolley</o>
- </e>
- <e>
-  <o r="Heavy duty with four wheels" >truck</o>
- </e>
- <e>
-  <o r="For transporting several people at once" >bus</o>
- </e>
- <e>
-  <o r="An underground train" >subway</o>
- </e>
- <e>
-  <o r="A two-wheeled scooter" >moped</o>
- </e>
- <e>
-  <o r="A fast sea-faring vehicle" >speedboat</o>
- </e>
- <e>
-  <o r="Motorized transport over snow" >snowmobile</o>
- </e>
- <e>
-  <o r="Strap wheels to your feet" >rollerskates</o>
- </e>
- <e>
-  <o r="One-wheeled, often seen in the circus" >unicycle</o>
- </e>
- <e>
-  <o r="Filled with a lighter-than-air gas" >airship</o>
- </e>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kvtml PUBLIC "kvtml2.dtd" "http://edu.kde.org/kanagram/kvtml2.dtd">
+<kvtml version="2.0" >
+  <information>
+    <generator>converter</generator>
+    <title>Transportation</title>
+    <comment>Ways of getting around</comment>
+  </information>
+  <identifiers>
+    <identifier id="0" >
+      <locale>en</locale>
+    </identifier>
+  </identifiers>
+  <entries>
+    <entry id="0" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>automobile</text>
+        <comment>Four-wheeled vehicle</comment>
+      </translation>
+    </entry>
+    <entry id="1" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>motorcycle</text>
+        <comment>Motorized two-wheeled vehicle</comment>
+      </translation>
+    </entry>
+    <entry id="2" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>train</text>
+        <comment>A vehicle that travels on tracks</comment>
+      </translation>
+    </entry>
+    <entry id="3" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>airplane</text>
+        <comment>A flying machine</comment>
+      </translation>
+    </entry>
+    <entry id="4" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>helicopter</text>
+        <comment>A vertical takeoff aircraft</comment>
+      </translation>
+    </entry>
+    <entry id="5" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>bicycle</text>
+        <comment>A two-wheeled human-powered vehicle</comment>
+      </translation>
+    </entry>
+    <entry id="6" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>streetcar</text>
+        <comment>An electrified bus</comment>
+      </translation>
+    </entry>
+    <entry id="7" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>elevator</text>
+        <comment>It goes up, it comes down</comment>
+      </translation>
+    </entry>
+    <entry id="8" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>ship</text>
+        <comment>A sea-faring vehicle</comment>
+      </translation>
+    </entry>
+    <entry id="9" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>submarine</text>
+        <comment>For underwater transportation</comment>
+      </translation>
+    </entry>
+    <entry id="10" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>trolley</text>
+        <comment>Open-air bus</comment>
+      </translation>
+    </entry>
+    <entry id="11" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>truck</text>
+        <comment>Heavy duty with four wheels</comment>
+      </translation>
+    </entry>
+    <entry id="12" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>bus</text>
+        <comment>For transporting several people at once</comment>
+      </translation>
+    </entry>
+    <entry id="13" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>subway</text>
+        <comment>An underground train</comment>
+      </translation>
+    </entry>
+    <entry id="14" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>moped</text>
+        <comment>A two-wheeled scooter</comment>
+      </translation>
+    </entry>
+    <entry id="15" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>speedboat</text>
+        <comment>A fast sea-faring vehicle</comment>
+      </translation>
+    </entry>
+    <entry id="16" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>snowmobile</text>
+        <comment>Motorized transport over snow</comment>
+      </translation>
+    </entry>
+    <entry id="17" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>rollerskates</text>
+        <comment>Strap wheels to your feet</comment>
+      </translation>
+    </entry>
+    <entry id="18" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>unicycle</text>
+        <comment>One-wheeled, often seen in the circus</comment>
+      </translation>
+    </entry>
+    <entry id="19" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>airship</text>
+        <comment>Filled with a lighter-than-air gas</comment>
+      </translation>
+    </entry>
+  </entries>
 </kvtml>

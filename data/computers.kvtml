@@ -1,113 +1,128 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<!--
-This is a machine generated file.
-Be careful when editing here.
-
-Short definition:
-
-lesson     lesson group
- desc    name
-   %no     its index
-   %query  is in query selection
-   %current  is current lesson
-type     type group
- desc    name
-   %no     its index
-e      entry of dictionary
-  %s     is selected
-  %m     lesson member
-  %t     common expression type
- o       original
-   %q    in query ("o" is given, "t" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type (see QueryManager.h)
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
- t       translation ..
-   %q    in query ("t" is given, "o" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
-
-   %d    last query date (from;to)
-   %w    dito, compressed and deprecated
-   %g    grade (from;to)
-   %c    count (from;to)
-   %b    bad count (from;to)
-
-
-Valid xml means:
- - Close all tags
- - Keep proper hierarchy
- - All attributes are quoted
---><kvtml title="Computers" remark="Items surrounding your computer" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
- <options>
-  <sort on="1" />
- </options>
-
- <article>
-  <e l="en">
-  </e>
- </article>
-
- <e>
-  <o width="150" r="A device to visualize bits" >monitor</o>
- </e>
- <e>
-  <o r="Creates waves through the air" >speakers</o>
- </e>
- <e>
-  <o r="Used to visualize bits on paper" >printer</o>
- </e>
- <e>
-  <o r="A way to instruct a computer" >mouse</o>
- </e>
- <e>
-  <o r="A standard input device" >keyboard</o>
- </e>
- <e>
-  <o r="Input device used for games" >joystick</o>
- </e>
- <e>
-  <o r="Used to communicate over the Internet" >modem</o>
- </e>
- <e>
-  <o r="A substance ensuring alertness" >caffeine</o>
- </e>
- <e>
-  <o r="An ancient storage device" >floppy</o>
- </e>
- <e>
-  <o r="Used for software backups" >tape</o>
- </e>
- <e>
-  <o r="Creates a digital representation of a flat object" >scanner</o>
- </e>
- <e>
-  <o r="For listening to sound privately" >headphones</o>
- </e>
- <e>
-  <o r="Sends moving images over the Internet" >webcam</o>
- </e>
- <e>
-  <o r="Allows you to record sound" >microphone</o>
- </e>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kvtml PUBLIC "kvtml2.dtd" "http://edu.kde.org/kanagram/kvtml2.dtd">
+<kvtml version="2.0" >
+  <information>
+    <generator>converter</generator>
+    <title>Computers</title>
+    <comment>Items surrounding your computer</comment>
+  </information>
+  <identifiers>
+    <identifier id="0" >
+      <locale>en</locale>
+    </identifier>
+  </identifiers>
+  <entries>
+    <entry id="0" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>monitor</text>
+        <comment>A device to visualize bits</comment>
+      </translation>
+    </entry>
+    <entry id="1" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>speakers</text>
+        <comment>Creates waves through the air</comment>
+      </translation>
+    </entry>
+    <entry id="2" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>printer</text>
+        <comment>Used to visualize bits on paper</comment>
+      </translation>
+    </entry>
+    <entry id="3" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>mouse</text>
+        <comment>A way to instruct a computer</comment>
+      </translation>
+    </entry>
+    <entry id="4" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>keyboard</text>
+        <comment>A standard input device</comment>
+      </translation>
+    </entry>
+    <entry id="5" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>joystick</text>
+        <comment>Input device used for games</comment>
+      </translation>
+    </entry>
+    <entry id="6" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>modem</text>
+        <comment>Used to communicate over the Internet</comment>
+      </translation>
+    </entry>
+    <entry id="7" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>caffeine</text>
+        <comment>A substance ensuring alertness</comment>
+      </translation>
+    </entry>
+    <entry id="8" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>floppy</text>
+        <comment>An ancient storage device</comment>
+      </translation>
+    </entry>
+    <entry id="9" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>tape</text>
+        <comment>Used for software backups</comment>
+      </translation>
+    </entry>
+    <entry id="10" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>scanner</text>
+        <comment>Creates a digital representation of a flat object</comment>
+      </translation>
+    </entry>
+    <entry id="11" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>headphones</text>
+        <comment>For listening to sound privately</comment>
+      </translation>
+    </entry>
+    <entry id="12" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>webcam</text>
+        <comment>Sends moving images over the Internet</comment>
+      </translation>
+    </entry>
+    <entry id="13" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>microphone</text>
+        <comment>Allows you to record sound</comment>
+      </translation>
+    </entry>
+  </entries>
 </kvtml>

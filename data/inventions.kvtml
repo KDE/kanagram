@@ -1,155 +1,240 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<!--
-This is a machine generated file.
-Be careful when editing here.
-
-Short definition:
-
-lesson     lesson group
- desc    name
-   %no     its index
-   %query  is in query selection
-   %current  is current lesson
-type     type group
- desc    name
-   %no     its index
-e      entry of dictionary
-  %s     is selected
-  %m     lesson member
-  %t     common expression type
- o       original
-   %q    in query ("o" is given, "t" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type (see QueryManager.h)
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
- t       translation ..
-   %q    in query ("t" is given, "o" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
-
-   %d    last query date (from;to)
-   %w    dito, compressed and deprecated
-   %g    grade (from;to)
-   %c    count (from;to)
-   %b    bad count (from;to)
-
-
-Valid xml means:
- - Close all tags
- - Keep proper hierarchy
- - All attributes are quoted
---><kvtml title="Inventions" remark="Greatest inventions of humans" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
- <options>
-  <sort on="1" />
- </options>
-
- <article>
-  <e l="en">
-  </e>
- </article>
-
- <e>
-  <o width="150" r="Achieve flight through fixed wings" >aircraft</o>
- </e>
- <e>
-  <o r="Drugs that kill bacteria" >antibiotics</o>
- </e>
- <e>
-  <o r="A motor vehicle for passengers" >automobile</o>
- </e>
- <e>
-  <o r="Store electrical energy" >batteries</o>
- </e>
- <e>
-  <o r="Efficient human powered vehicle with 2 wheels" >bicycle</o>
- </e>
- <e>
-  <o r="When thrown, it returns" >boomerang</o>
- </e>
- <e>
-  <o r="Accurately displays the time" >clocks</o>
- </e>
- <e>
-  <o r="One is in front of you right now" >computers</o>
- </e>
- <e>
-  <o r="A powerful high explosive" >dynamite</o>
- </e>
- <e>
-  <o r="The flow of electrons" >electricity</o>
- </e>
- <e>
-  <o r="Allows for speedy vertical travels within tall buildings" >elevator</o>
- </e>
- <e>
-  <o r="Fast method of sending mail through the internet" >email</o>
- </e>
- <e>
-  <o r="Rotating blades on this craft allow flight" >helicopter</o>
- </e>
- <e>
-  <o r="Vessel that floats on a cushion of air" >hovercraft</o>
- </e>
- <e>
-  <o r="The global computer communications network" >internet</o>
- </e>
- <e>
-  <o r="Intense beam of light" >lasers</o>
- </e>
- <e>
-  <o r="Holds paper objects together temporarily" >paperclip</o>
- </e>
- <e>
-  <o r="Snapshots of moments in time" >photography</o>
- </e>
- <e>
-  <o r="Petroleum-based polymers with a range of properties" >plastics</o>
- </e>
- <e>
-  <o r="Radio waves provide the spatial location of objects" >radar</o>
- </e>
- <e>
-  <o r="Sound recieved from electromagnetic waves" >radio</o>
- </e>
- <e>
-  <o r="The pressure of water vapor drives this engine" >steamengine</o>
- </e>
- <e>
-  <o r="A vocal communication device" >telephone</o>
- </e>
- <e>
-  <o r="Electrical device that displays moving images" >television</o>
- </e>
- <e>
-  <o r="Puzzle game made famous by the Gameboy console" >tetris</o>
- </e>
- <e>
-  <o r="Foundation of modern electronics" >transistor</o>
- </e>
- <e>
-  <o r="Hook and loop fasteners" >velcro</o>
- </e>
- <e>
-  <o r="Circular object that allows for low-friction motion" >wheel</o>
- </e>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kvtml PUBLIC "kvtml2.dtd" "http://edu.kde.org/kanagram/kvtml2.dtd">
+<kvtml version="2.0" >
+  <information>
+    <generator>converter</generator>
+    <title>Inventions</title>
+    <comment>Greatest inventions of humans</comment>
+  </information>
+  <identifiers>
+    <identifier id="0" >
+      <locale>en</locale>
+    </identifier>
+  </identifiers>
+  <entries>
+    <entry id="0" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>aircraft</text>
+        <comment>Achieve flight through fixed wings</comment>
+      </translation>
+    </entry>
+    <entry id="1" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>antibiotics</text>
+        <comment>Drugs that kill bacteria</comment>
+      </translation>
+    </entry>
+    <entry id="2" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>automobile</text>
+        <comment>A motor vehicle for passengers</comment>
+      </translation>
+    </entry>
+    <entry id="3" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>batteries</text>
+        <comment>Store electrical energy</comment>
+      </translation>
+    </entry>
+    <entry id="4" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>bicycle</text>
+        <comment>Efficient human powered vehicle with 2 wheels</comment>
+      </translation>
+    </entry>
+    <entry id="5" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>boomerang</text>
+        <comment>When thrown, it returns</comment>
+      </translation>
+    </entry>
+    <entry id="6" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>clocks</text>
+        <comment>Accurately displays the time</comment>
+      </translation>
+    </entry>
+    <entry id="7" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>computers</text>
+        <comment>One is in front of you right now</comment>
+      </translation>
+    </entry>
+    <entry id="8" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>dynamite</text>
+        <comment>A powerful high explosive</comment>
+      </translation>
+    </entry>
+    <entry id="9" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>electricity</text>
+        <comment>The flow of electrons</comment>
+      </translation>
+    </entry>
+    <entry id="10" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>elevator</text>
+        <comment>Allows for speedy vertical travels within tall buildings</comment>
+      </translation>
+    </entry>
+    <entry id="11" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>email</text>
+        <comment>Fast method of sending mail through the internet</comment>
+      </translation>
+    </entry>
+    <entry id="12" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>helicopter</text>
+        <comment>Rotating blades on this craft allow flight</comment>
+      </translation>
+    </entry>
+    <entry id="13" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>hovercraft</text>
+        <comment>Vessel that floats on a cushion of air</comment>
+      </translation>
+    </entry>
+    <entry id="14" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>internet</text>
+        <comment>The global computer communications network</comment>
+      </translation>
+    </entry>
+    <entry id="15" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>lasers</text>
+        <comment>Intense beam of light</comment>
+      </translation>
+    </entry>
+    <entry id="16" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>paperclip</text>
+        <comment>Holds paper objects together temporarily</comment>
+      </translation>
+    </entry>
+    <entry id="17" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>photography</text>
+        <comment>Snapshots of moments in time</comment>
+      </translation>
+    </entry>
+    <entry id="18" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>plastics</text>
+        <comment>Petroleum-based polymers with a range of properties</comment>
+      </translation>
+    </entry>
+    <entry id="19" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>radar</text>
+        <comment>Radio waves provide the spatial location of objects</comment>
+      </translation>
+    </entry>
+    <entry id="20" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>radio</text>
+        <comment>Sound recieved from electromagnetic waves</comment>
+      </translation>
+    </entry>
+    <entry id="21" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>steamengine</text>
+        <comment>The pressure of water vapor drives this engine</comment>
+      </translation>
+    </entry>
+    <entry id="22" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>telephone</text>
+        <comment>A vocal communication device</comment>
+      </translation>
+    </entry>
+    <entry id="23" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>television</text>
+        <comment>Electrical device that displays moving images</comment>
+      </translation>
+    </entry>
+    <entry id="24" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>tetris</text>
+        <comment>Puzzle game made famous by the Gameboy console</comment>
+      </translation>
+    </entry>
+    <entry id="25" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>transistor</text>
+        <comment>Foundation of modern electronics</comment>
+      </translation>
+    </entry>
+    <entry id="26" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>velcro</text>
+        <comment>Hook and loop fasteners</comment>
+      </translation>
+    </entry>
+    <entry id="27" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>wheel</text>
+        <comment>Circular object that allows for low-friction motion</comment>
+      </translation>
+    </entry>
+  </entries>
 </kvtml>

@@ -1,122 +1,152 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<!--
-This is a machine generated file.
-Be careful when editing here.
-
-Short definition:
-
-lesson     lesson group
- desc    name
-   %no     its index
-   %query  is in query selection
-   %current  is current lesson
-type     type group
- desc    name
-   %no     its index
-e      entry of dictionary
-  %s     is selected
-  %m     lesson member
-  %t     common expression type
- o       original
-   %q    in query ("o" is given, "t" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type (see QueryManager.h)
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
- t       translation ..
-   %q    in query ("t" is given, "o" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
-
-   %d    last query date (from;to)
-   %w    dito, compressed and deprecated
-   %g    grade (from;to)
-   %c    count (from;to)
-   %b    bad count (from;to)
-
-
-Valid xml means:
- - Close all tags
- - Keep proper hierarchy
- - All attributes are quoted
---><kvtml title="Clothing" remark="Things humans wear" cols="0" generator="kanagram" lines="16" encoding="UTF-8" >
- <options>
-  <sort on="1" />
- </options>
-
- <article>
-  <e l="en">
-  </e>
- </article>
-
- <e>
-  <o width="150" r="Athletic shoes" >sneakers</o>
- </e>
- <e>
-  <o r="Shoes meant for working" >boots</o>
- </e>
- <e>
-  <o r="Leg coverings" >pants</o>
- </e>
- <e>
-  <o r="Short leg coverings" >shorts</o>
- </e>
- <e>
-  <o r="The bottom half of a dress" >skirt</o>
- </e>
- <e>
-  <o r="A full-body covering" >dress</o>
- </e>
- <e>
-  <o r="A cold-weather full-body covering" >parka</o>
- </e>
- <e>
-  <o r="A light upper-body warmer" >jacket</o>
- </e>
- <e>
-  <o r="Heavy upper-body covering" >coat</o>
- </e>
- <e>
-  <o r="A head covering" >hat</o>
- </e>
- <e>
-  <o r="Cold-weather head covering" >tobogan</o>
- </e>
- <e>
-  <o r="Ear warmer" >earmuffs</o>
- </e>
- <e>
-  <o r="Sunny weather eyewear" >sunglasses</o>
- </e>
- <e>
-  <o r="Foot protection" >socks</o>
- </e>
- <e>
-  <o r="Beach footwear" >sandals</o>
- </e>
- <e>
-  <o r="Warmers for the hands" >gloves</o>
- </e>
- <e>
-  <o r="Keeps your pants from falling down" >belt</o>
- </e>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kvtml PUBLIC "kvtml2.dtd" "http://edu.kde.org/kanagram/kvtml2.dtd">
+<kvtml version="2.0" >
+  <information>
+    <generator>converter</generator>
+    <title>Clothing</title>
+    <comment>Things humans wear</comment>
+  </information>
+  <identifiers>
+    <identifier id="0" >
+      <locale>en</locale>
+    </identifier>
+  </identifiers>
+  <entries>
+    <entry id="0" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>sneakers</text>
+        <comment>Athletic shoes</comment>
+      </translation>
+    </entry>
+    <entry id="1" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>boots</text>
+        <comment>Shoes meant for working</comment>
+      </translation>
+    </entry>
+    <entry id="2" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>pants</text>
+        <comment>Leg coverings</comment>
+      </translation>
+    </entry>
+    <entry id="3" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>shorts</text>
+        <comment>Short leg coverings</comment>
+      </translation>
+    </entry>
+    <entry id="4" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>skirt</text>
+        <comment>The bottom half of a dress</comment>
+      </translation>
+    </entry>
+    <entry id="5" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>dress</text>
+        <comment>A full-body covering</comment>
+      </translation>
+    </entry>
+    <entry id="6" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>parka</text>
+        <comment>A cold-weather full-body covering</comment>
+      </translation>
+    </entry>
+    <entry id="7" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>jacket</text>
+        <comment>A light upper-body warmer</comment>
+      </translation>
+    </entry>
+    <entry id="8" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>coat</text>
+        <comment>Heavy upper-body covering</comment>
+      </translation>
+    </entry>
+    <entry id="9" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>hat</text>
+        <comment>A head covering</comment>
+      </translation>
+    </entry>
+    <entry id="10" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>tobogan</text>
+        <comment>Cold-weather head covering</comment>
+      </translation>
+    </entry>
+    <entry id="11" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>earmuffs</text>
+        <comment>Ear warmer</comment>
+      </translation>
+    </entry>
+    <entry id="12" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>sunglasses</text>
+        <comment>Sunny weather eyewear</comment>
+      </translation>
+    </entry>
+    <entry id="13" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>socks</text>
+        <comment>Foot protection</comment>
+      </translation>
+    </entry>
+    <entry id="14" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>sandals</text>
+        <comment>Beach footwear</comment>
+      </translation>
+    </entry>
+    <entry id="15" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>gloves</text>
+        <comment>Warmers for the hands</comment>
+      </translation>
+    </entry>
+    <entry id="16" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>belt</text>
+        <comment>Keeps your pants from falling down</comment>
+      </translation>
+    </entry>
+  </entries>
 </kvtml>

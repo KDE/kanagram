@@ -1,164 +1,264 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<!--
-This is a machine generated file.
-Be careful when editing here.
-
-Short definition:
-
-lesson     lesson group
- desc    name
-   %no     its index
-   %query  is in query selection
-   %current  is current lesson
-type     type group
- desc    name
-   %no     its index
-e      entry of dictionary
-  %s     is selected
-  %m     lesson member
-  %t     common expression type
- o       original
-   %q    in query ("o" is given, "t" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type (see QueryManager.h)
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
- t       translation ..
-   %q    in query ("t" is given, "o" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
-
-   %d    last query date (from;to)
-   %w    dito, compressed and deprecated
-   %g    grade (from;to)
-   %c    count (from;to)
-   %b    bad count (from;to)
-
-
-Valid xml means:
- - Close all tags
- - Keep proper hierarchy
- - All attributes are quoted
---><kvtml title="Sports" remark="Events of the Olympics" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
- <options>
-  <sort on="1" />
- </options>
-
- <article>
-  <e l="en">
-  </e>
- </article>
-
- <e>
-  <o width="150" r="Water sports" >aquatics</o>
- </e>
- <e>
-  <o r="Shooting arrows with a bow" >archery</o>
- </e>
- <e>
-  <o r="Track and field events" >athletics</o>
- </e>
- <e>
-  <o r="Hit the shuttlecock over the net" >badminton</o>
- </e>
- <e>
-  <o r="4 bases arranged in a diamond" >baseball</o>
- </e>
- <e>
-  <o r="Throw the ball through the hoop" >basketball</o>
- </e>
- <e>
-  <o r="Fighting with the fists" >boxing</o>
- </e>
- <e>
-  <o r="Small boat propelled with a paddle" >canoe</o>
- </e>
- <e>
-  <o r="Riding bicycles" >cycling</o>
- </e>
- <e>
-  <o r="Horseback riding" >equestrian</o>
- </e>
- <e>
-  <o r="Fighting with swords" >fencing</o>
- </e>
- <e>
-  <o r="Kick the ball into the opponent's goal" >football</o>
- </e>
- <e>
-  <o r="Graceful display of athletic ability" >gymnastics</o>
- </e>
- <e>
-  <o r="Using hands and a rubber ball" >handball</o>
- </e>
- <e>
-  <o r="Curved sticks and a ball or puck" >hockey</o>
- </e>
- <e>
-  <o r="A martial art" >judo</o>
- </e>
- <e>
-  <o r="5 athletic events" >pentathlon</o>
- </e>
- <e>
-  <o r="Propelling a boat with oars" >rowing</o>
- </e>
- <e>
-  <o r="Boating propelled by wind" >sailing</o>
- </e>
- <e>
-  <o r="Firing projectiles from a weapon" >shooting</o>
- </e>
- <e>
-  <o r="A game resembling baseball" >softball</o>
- </e>
- <e>
-  <o r="Korean martial art" >taekwondo</o>
- </e>
- <e>
-  <o r="Played with rackets on a court" >tennis</o>
- </e>
- <e>
-  <o r="3 athletic events" >triathlon</o>
- </e>
- <e>
-  <o r="Hit an inflated ball over a high net" >volleyball</o>
- </e>
- <e>
-  <o r="Lifting heavy weights" >weightlifting</o>
- </e>
- <e>
-  <o r="Grappling between 2 opponents" >wrestling</o>
- </e>
- <e>
-  <o r="A sled racing down an icy track" >bobsleigh</o>
- </e>
- <e>
-  <o r="Stones slid across ice" >curling</o>
- </e>
- <e>
-  <o r="Gliding on ice" >skating</o>
- </e>
- <e>
-  <o r="Downhill on snow using flat feet" >skiing</o>
- </e>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kvtml PUBLIC "kvtml2.dtd" "http://edu.kde.org/kanagram/kvtml2.dtd">
+<kvtml version="2.0" >
+  <information>
+    <generator>converter</generator>
+    <title>Sports</title>
+    <comment>Events of the Olympics</comment>
+  </information>
+  <identifiers>
+    <identifier id="0" >
+      <locale>en</locale>
+    </identifier>
+  </identifiers>
+  <entries>
+    <entry id="0" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>aquatics</text>
+        <comment>Water sports</comment>
+      </translation>
+    </entry>
+    <entry id="1" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>archery</text>
+        <comment>Shooting arrows with a bow</comment>
+      </translation>
+    </entry>
+    <entry id="2" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>athletics</text>
+        <comment>Track and field events</comment>
+      </translation>
+    </entry>
+    <entry id="3" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>badminton</text>
+        <comment>Hit the shuttlecock over the net</comment>
+      </translation>
+    </entry>
+    <entry id="4" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>baseball</text>
+        <comment>4 bases arranged in a diamond</comment>
+      </translation>
+    </entry>
+    <entry id="5" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>basketball</text>
+        <comment>Throw the ball through the hoop</comment>
+      </translation>
+    </entry>
+    <entry id="6" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>boxing</text>
+        <comment>Fighting with the fists</comment>
+      </translation>
+    </entry>
+    <entry id="7" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>canoe</text>
+        <comment>Small boat propelled with a paddle</comment>
+      </translation>
+    </entry>
+    <entry id="8" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>cycling</text>
+        <comment>Riding bicycles</comment>
+      </translation>
+    </entry>
+    <entry id="9" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>equestrian</text>
+        <comment>Horseback riding</comment>
+      </translation>
+    </entry>
+    <entry id="10" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>fencing</text>
+        <comment>Fighting with swords</comment>
+      </translation>
+    </entry>
+    <entry id="11" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>football</text>
+        <comment>Kick the ball into the opponent's goal</comment>
+      </translation>
+    </entry>
+    <entry id="12" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>gymnastics</text>
+        <comment>Graceful display of athletic ability</comment>
+      </translation>
+    </entry>
+    <entry id="13" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>handball</text>
+        <comment>Using hands and a rubber ball</comment>
+      </translation>
+    </entry>
+    <entry id="14" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>hockey</text>
+        <comment>Curved sticks and a ball or puck</comment>
+      </translation>
+    </entry>
+    <entry id="15" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>judo</text>
+        <comment>A martial art</comment>
+      </translation>
+    </entry>
+    <entry id="16" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>pentathlon</text>
+        <comment>5 athletic events</comment>
+      </translation>
+    </entry>
+    <entry id="17" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>rowing</text>
+        <comment>Propelling a boat with oars</comment>
+      </translation>
+    </entry>
+    <entry id="18" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>sailing</text>
+        <comment>Boating propelled by wind</comment>
+      </translation>
+    </entry>
+    <entry id="19" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>shooting</text>
+        <comment>Firing projectiles from a weapon</comment>
+      </translation>
+    </entry>
+    <entry id="20" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>softball</text>
+        <comment>A game resembling baseball</comment>
+      </translation>
+    </entry>
+    <entry id="21" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>taekwondo</text>
+        <comment>Korean martial art</comment>
+      </translation>
+    </entry>
+    <entry id="22" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>tennis</text>
+        <comment>Played with rackets on a court</comment>
+      </translation>
+    </entry>
+    <entry id="23" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>triathlon</text>
+        <comment>3 athletic events</comment>
+      </translation>
+    </entry>
+    <entry id="24" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>volleyball</text>
+        <comment>Hit an inflated ball over a high net</comment>
+      </translation>
+    </entry>
+    <entry id="25" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>weightlifting</text>
+        <comment>Lifting heavy weights</comment>
+      </translation>
+    </entry>
+    <entry id="26" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>wrestling</text>
+        <comment>Grappling between 2 opponents</comment>
+      </translation>
+    </entry>
+    <entry id="27" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>bobsleigh</text>
+        <comment>A sled racing down an icy track</comment>
+      </translation>
+    </entry>
+    <entry id="28" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>curling</text>
+        <comment>Stones slid across ice</comment>
+      </translation>
+    </entry>
+    <entry id="29" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>skating</text>
+        <comment>Gliding on ice</comment>
+      </translation>
+    </entry>
+    <entry id="30" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>skiing</text>
+        <comment>Downhill on snow using flat feet</comment>
+      </translation>
+    </entry>
+  </entries>
 </kvtml>

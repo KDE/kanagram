@@ -1,122 +1,152 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<!DOCTYPE kvtml SYSTEM "kvoctrain.dtd">
-<!--
-This is a machine generated file.
-Be careful when editing here.
-
-Short definition:
-
-lesson     lesson group
- desc    name
-   %no     its index
-   %query  is in query selection
-   %current  is current lesson
-type     type group
- desc    name
-   %no     its index
-e      entry of dictionary
-  %s     is selected
-  %m     lesson member
-  %t     common expression type
- o       original
-   %q    in query ("o" is given, "t" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type (see QueryManager.h)
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
- t       translation ..
-   %q    in query ("t" is given, "o" is wanted)
-   %l    language code
-   %r    remark
-   %p    pronunciation
-   %width  column width
-   %t    expression type
-   %tf     false friend from
-   %ff     false friend to
-   %a    antonym
-   %y    synonym
-   %x    example
-   %u    usage label
-   %h    paraphrase
-
-   %d    last query date (from;to)
-   %w    dito, compressed and deprecated
-   %g    grade (from;to)
-   %c    count (from;to)
-   %b    bad count (from;to)
-
-
-Valid xml means:
- - Close all tags
- - Keep proper hierarchy
- - All attributes are quoted
---><kvtml title="People" remark="Infuential people of history" cols="0" generator="kanagram" lines="11" encoding="UTF-8" >
- <options>
-  <sort on="1" />
- </options>
-
- <article>
-  <e l="en">
-  </e>
- </article>
-
- <e>
-  <o width="150" r="Influential Greek philosopher" >aristotle</o>
- </e>
- <e>
-  <o r="Composer" >beethoven</o>
- </e>
- <e>
-  <o r="This explorer discovered the Americas" >columbus</o>
- </e>
- <e>
-  <o r="Theory of Evolution" >darwin</o>
- </e>
- <e>
-  <o r="Inventor of the Light Bulb" >edison</o>
- </e>
- <e>
-  <o r="Theory of Relativity" >einstein</o>
- </e>
- <e>
-  <o r="Discovered Penicillin" >fleming</o>
- </e>
- <e>
-  <o r="'The Earth revolves around the Sun'" >galileo</o>
- </e>
- <e>
-  <o r="Non-violent independence for India" >gandhi</o>
- </e>
- <e>
-  <o r="Helped end Communism in USSR" >gorbachev</o>
- </e>
- <e>
-  <o r="Ended apartheid in South Africa" >mandela</o>
- </e>
- <e>
-  <o r="Inventor of radio" >marconi</o>
- </e>
- <e>
-  <o r="A painter, sculptor and architect" >michelangelo</o>
- </e>
- <e>
-  <o r="French conqueror" >napoleon</o>
- </e>
- <e>
-  <o r="Discovered Gravity" >newton</o>
- </e>
- <e>
-  <o r="Invented Vaccination" >pasteur</o>
- </e>
- <e>
-  <o r="First president of United States" >washington</o>
- </e>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kvtml PUBLIC "kvtml2.dtd" "http://edu.kde.org/kanagram/kvtml2.dtd">
+<kvtml version="2.0" >
+  <information>
+    <generator>converter</generator>
+    <title>People</title>
+    <comment>Infuential people of history</comment>
+  </information>
+  <identifiers>
+    <identifier id="0" >
+      <locale>en</locale>
+    </identifier>
+  </identifiers>
+  <entries>
+    <entry id="0" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>aristotle</text>
+        <comment>Influential Greek philosopher</comment>
+      </translation>
+    </entry>
+    <entry id="1" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>beethoven</text>
+        <comment>Composer</comment>
+      </translation>
+    </entry>
+    <entry id="2" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>columbus</text>
+        <comment>This explorer discovered the Americas</comment>
+      </translation>
+    </entry>
+    <entry id="3" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>darwin</text>
+        <comment>Theory of Evolution</comment>
+      </translation>
+    </entry>
+    <entry id="4" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>edison</text>
+        <comment>Inventor of the Light Bulb</comment>
+      </translation>
+    </entry>
+    <entry id="5" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>einstein</text>
+        <comment>Theory of Relativity</comment>
+      </translation>
+    </entry>
+    <entry id="6" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>fleming</text>
+        <comment>Discovered Penicillin</comment>
+      </translation>
+    </entry>
+    <entry id="7" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>galileo</text>
+        <comment>'The Earth revolves around the Sun'</comment>
+      </translation>
+    </entry>
+    <entry id="8" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>gandhi</text>
+        <comment>Non-violent independence for India</comment>
+      </translation>
+    </entry>
+    <entry id="9" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>gorbachev</text>
+        <comment>Helped end Communism in USSR</comment>
+      </translation>
+    </entry>
+    <entry id="10" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>mandela</text>
+        <comment>Ended apartheid in South Africa</comment>
+      </translation>
+    </entry>
+    <entry id="11" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>marconi</text>
+        <comment>Inventor of radio</comment>
+      </translation>
+    </entry>
+    <entry id="12" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>michelangelo</text>
+        <comment>A painter, sculptor and architect</comment>
+      </translation>
+    </entry>
+    <entry id="13" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>napoleon</text>
+        <comment>French conqueror</comment>
+      </translation>
+    </entry>
+    <entry id="14" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>newton</text>
+        <comment>Discovered Gravity</comment>
+      </translation>
+    </entry>
+    <entry id="15" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>pasteur</text>
+        <comment>Invented Vaccination</comment>
+      </translation>
+    </entry>
+    <entry id="16" >
+      <inactive>false</inactive>
+      <inquery>false</inquery>
+      <translation id="0" >
+        <text>washington</text>
+        <comment>First president of United States</comment>
+      </translation>
+    </entry>
+  </entries>
 </kvtml>

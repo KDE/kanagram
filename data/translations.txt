@@ -3,6 +3,7 @@ feel free to add to this list if you do translations of these files :)
 
 ca
 da
+de
 en_GB
 es
 gl
