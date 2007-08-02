@@ -88,7 +88,7 @@ void MainSettings::slotUpdateLanguage()
 {
 	int index = languageComboBox->currentIndex();
 	QString language = languageComboBox->itemData(index).toString();
-	kDebug() << "Writing new default language: " << language << endl;
+	kDebug() << "Writing new default language: " << language;
 	KanagramSettings::setDataLanguage(language);
 	KanagramSettings::self()->writeConfig();
     
