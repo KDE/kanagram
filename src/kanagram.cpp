@@ -809,7 +809,7 @@ void Kanagram::slotShowSettings()
         // add the main settings page
         MainSettings * mainSettingsPage = new MainSettings( m_configDialog );
         connect (mainSettingsPage, SIGNAL(settingsChanged()), this, SLOT(reloadSettings()));
-        m_configDialog->addPage(mainSettingsPage , i18n( "General" ), "configure" );
+        m_configDialog->addPage(mainSettingsPage , i18nc("@title:group main settings page name", "General" ), "configure" );
 
         // create and add the vocabsettings page
         m_vocabSettings = new VocabSettings( m_configDialog );

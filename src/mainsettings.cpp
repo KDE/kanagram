@@ -78,7 +78,7 @@ void MainSettings::populateLanguageBox()
 		QString languageName = group.readEntry("Name");
 		if (languageName.isEmpty())
 		{
-			languageName = i18n("None");
+			languageName = i18nc("@item:inlistbox no language for that locale", "None");
 		}
 		languageComboBox->addItem(languageName, languages[i]);
 	}
