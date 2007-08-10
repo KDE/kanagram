@@ -28,7 +28,7 @@
 #include <QSvgRenderer>
 #include <QTimer>
 
-#include <phonon/audioplayer.h>
+#include <Phonon/MediaObject>
 
 #include <KAction>
 #include <KActionCollection>
@@ -888,10 +888,13 @@ void Kanagram::play(const QString &filename)
         {
             if (!m_player)
             {
-                m_player = new Phonon::AudioPlayer(Phonon::GameCategory);
+                m_player = Phonon::createPlayer(Phonon::GameCategory, soundFile);
             }
-            m_player->stop();
-            m_player->play(soundFile);
+            else
+            {
+                m_player->setCurrentSource(soundFile);
+            }
+            m_player->play();
         }
     }
 }

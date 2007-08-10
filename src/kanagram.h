@@ -37,7 +37,7 @@ using namespace std;
 
 namespace Phonon
 {
-    class AudioPlayer;
+    class MediaObject;
 }
 
 class KanagramGame;
@@ -295,7 +295,7 @@ class Kanagram : public QWidget
         QTimer *m_hintTimer;
 
         /** audio player to use for playing sounds */
-        Phonon::AudioPlayer *m_player;
+        Phonon::MediaObject *m_player;
 
         /** renderer used to render gui elements */
         QSvgRenderer * m_renderer;
