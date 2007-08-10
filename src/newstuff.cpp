@@ -28,6 +28,8 @@
 #include <knewstuff2/engine.h>
 #include <klocale.h>
 
+#include <sharedkvtmlfiles.h>
+
 #include "kanagramsettings.h"
 
 NewStuff::NewStuff(QWidget *parent):QDialog(parent)
@@ -42,6 +44,8 @@ NewStuff::~NewStuff()
 void NewStuff::on_btnGetNew_clicked()
 {
 	KNS::Entry::List entries = KNS::Engine::download();
+	
+	SharedKvtmlFiles::sortDownloadedFiles();
 }
 
 #include "newstuff.moc"
