@@ -13,27 +13,57 @@
    <string>Vocabularies</string>
   </property>
   <layout class="QGridLayout" >
-   <property name="margin" >
+   <property name="leftMargin" >
     <number>11</number>
    </property>
-   <property name="spacing" >
+   <property name="topMargin" >
+    <number>11</number>
+   </property>
+   <property name="rightMargin" >
+    <number>11</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>11</number>
+   </property>
+   <property name="horizontalSpacing" >
+    <number>6</number>
+   </property>
+   <property name="verticalSpacing" >
     <number>6</number>
    </property>
    <item row="0" column="0" >
     <layout class="QVBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
      <property name="spacing" >
       <number>6</number>
      </property>
+     <property name="leftMargin" >
+      <number>0</number>
+     </property>
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
      <item>
       <layout class="QHBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
        <property name="spacing" >
         <number>6</number>
+       </property>
+       <property name="leftMargin" >
+        <number>0</number>
+       </property>
+       <property name="topMargin" >
+        <number>0</number>
+       </property>
+       <property name="rightMargin" >
+        <number>0</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>0</number>
        </property>
        <item>
         <widget class="QPushButton" name="btnCreateNew" >
@@ -41,7 +71,7 @@
           <string>Creates a new vocabulary.</string>
          </property>
          <property name="text" >
-          <string>Create New</string>
+          <string>Create &amp;New</string>
          </property>
         </widget>
        </item>
@@ -54,20 +84,7 @@
           <string>Edits the selected vocabulary.</string>
          </property>
          <property name="text" >
-          <string>Edit</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btnDelete" >
-         <property name="enabled" >
-          <bool>false</bool>
-         </property>
-         <property name="whatsThis" >
-          <string>Deletes the selected vocabulary.</string>
-         </property>
-         <property name="text" >
-          <string>Delete</string>
+          <string>&amp;Edit</string>
          </property>
         </widget>
        </item>

@@ -67,7 +67,6 @@ Q_OBJECT
 		  */
 		void on_btnCreateNew_clicked();
 		void on_btnEdit_clicked();
-		void on_btnDelete_clicked();
 		void slotSelectionChanged(QTreeWidgetItem *item);
 };
 

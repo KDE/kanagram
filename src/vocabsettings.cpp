@@ -82,20 +82,6 @@ void VocabSettings::on_btnEdit_clicked()
 	}
 }
 
-void VocabSettings::on_btnDelete_clicked()
-{
-	if(lviewVocab->currentItem())
-	{
-		int index = m_itemMap[lviewVocab->currentItem()];
-		/*bool itWorked = */QFile::remove(m_fileList[index]);
-		// also need to take the filename out of the m_fileList
-		// so we don't try to switch to it and crash :)
-		m_fileList.removeAt(index);
-	}
-
-	refreshView();
-}
-
 void VocabSettings::on_btnCreateNew_clicked()
 {
 	VocabEdit *vocabEdit = new VocabEdit(this, "");
@@ -106,7 +92,6 @@ void VocabSettings::slotSelectionChanged(QTreeWidgetItem *item)
 {
 	int index = m_itemMap[item];
 	bool writeable = QFileInfo(m_fileList[index]).isWritable();
-	btnDelete->setEnabled(writeable);
 	btnEdit->setEnabled(writeable);
 }
 

@@ -13,39 +13,72 @@
    <string>Vocabulary Editor</string>
   </property>
   <layout class="QGridLayout" >
-   <property name="margin" >
+   <property name="leftMargin" >
     <number>11</number>
    </property>
-   <property name="spacing" >
+   <property name="topMargin" >
+    <number>11</number>
+   </property>
+   <property name="rightMargin" >
+    <number>11</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>11</number>
+   </property>
+   <property name="horizontalSpacing" >
+    <number>6</number>
+   </property>
+   <property name="verticalSpacing" >
     <number>6</number>
    </property>
    <item row="0" column="0" >
     <layout class="QGridLayout" >
-     <property name="margin" >
+     <property name="leftMargin" >
       <number>0</number>
      </property>
-     <property name="spacing" >
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
+     <property name="horizontalSpacing" >
+      <number>6</number>
+     </property>
+     <property name="verticalSpacing" >
       <number>6</number>
      </property>
      <item row="1" column="0" >
       <layout class="QHBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
        <property name="spacing" >
         <number>6</number>
+       </property>
+       <property name="leftMargin" >
+        <number>0</number>
+       </property>
+       <property name="topMargin" >
+        <number>0</number>
+       </property>
+       <property name="rightMargin" >
+        <number>0</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>0</number>
        </property>
        <item>
         <widget class="QPushButton" name="btnSave" >
          <property name="text" >
-          <string>Save</string>
+          <string>&amp;Save</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btnClose" >
          <property name="text" >
-          <string>Close</string>
+          <string>&amp;Close</string>
          </property>
         </widget>
        </item>
@@ -53,18 +86,39 @@
      </item>
      <item row="0" column="0" >
       <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
        <property name="spacing" >
         <number>6</number>
        </property>
+       <property name="leftMargin" >
+        <number>0</number>
+       </property>
+       <property name="topMargin" >
+        <number>0</number>
+       </property>
+       <property name="rightMargin" >
+        <number>0</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>0</number>
+       </property>
        <item>
         <layout class="QGridLayout" >
-         <property name="margin" >
+         <property name="leftMargin" >
           <number>0</number>
          </property>
-         <property name="spacing" >
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
+         </property>
+         <property name="horizontalSpacing" >
+          <number>6</number>
+         </property>
+         <property name="verticalSpacing" >
           <number>6</number>
          </property>
          <item row="1" column="0" >
@@ -73,7 +127,7 @@
             <string>The description of the vocabulary. If you're creating a new vocabulary, add a description so that users of your vocabulary will know what kinds of words it contains.</string>
            </property>
            <property name="text" >
-            <string>Description:</string>
+            <string>&amp;Description:</string>
            </property>
            <property name="buddy" >
             <cstring>txtDescription</cstring>
@@ -89,7 +143,7 @@
             <string>The name of the vocabulary you are editing.</string>
            </property>
            <property name="text" >
-            <string>Vocabulary name:</string>
+            <string>Vocabulary &amp;name:</string>
            </property>
            <property name="buddy" >
             <cstring>txtVocabName</cstring>
@@ -103,19 +157,37 @@
        </item>
        <item>
         <layout class="QHBoxLayout" >
-         <property name="margin" >
-          <number>0</number>
-         </property>
          <property name="spacing" >
           <number>6</number>
          </property>
+         <property name="leftMargin" >
+          <number>0</number>
+         </property>
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
+         </property>
          <item>
           <layout class="QVBoxLayout" >
-           <property name="margin" >
-            <number>0</number>
-           </property>
            <property name="spacing" >
             <number>6</number>
+           </property>
+           <property name="leftMargin" >
+            <number>0</number>
+           </property>
+           <property name="topMargin" >
+            <number>0</number>
+           </property>
+           <property name="rightMargin" >
+            <number>0</number>
+           </property>
+           <property name="bottomMargin" >
+            <number>0</number>
            </property>
            <item>
             <widget class="QPushButton" name="btnRemoveWord" >
@@ -123,7 +195,7 @@
               <string>Removes the selected word.</string>
              </property>
              <property name="text" >
-              <string>Remove Word</string>
+              <string>&amp;Remove Word</string>
              </property>
             </widget>
            </item>
@@ -133,7 +205,7 @@
               <string>Creates a new word.</string>
              </property>
              <property name="text" >
-              <string>New Word</string>
+              <string>&amp;New Word</string>
              </property>
             </widget>
            </item>
@@ -150,10 +222,22 @@
        </item>
        <item>
         <layout class="QGridLayout" >
-         <property name="margin" >
+         <property name="leftMargin" >
           <number>0</number>
          </property>
-         <property name="spacing" >
+         <property name="topMargin" >
+          <number>0</number>
+         </property>
+         <property name="rightMargin" >
+          <number>0</number>
+         </property>
+         <property name="bottomMargin" >
+          <number>0</number>
+         </property>
+         <property name="horizontalSpacing" >
+          <number>6</number>
+         </property>
+         <property name="verticalSpacing" >
           <number>6</number>
          </property>
          <item row="0" column="0" >
@@ -162,7 +246,7 @@
             <string>The selected word. This box allows you to edit the selected word.</string>
            </property>
            <property name="text" >
-            <string>Word:</string>
+            <string>&amp;Word:</string>
            </property>
            <property name="buddy" >
             <cstring>txtWord</cstring>
@@ -181,7 +265,7 @@
             <string>The selected hint. Add a hint to aid in guessing the word.</string>
            </property>
            <property name="text" >
-            <string>Hint:</string>
+            <string>&amp;Hint:</string>
            </property>
            <property name="buddy" >
             <cstring>txtHint</cstring>
