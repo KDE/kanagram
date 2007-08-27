@@ -1,6 +1,6 @@
 TODO items for Kanagram:
 
-* get font that shows most/all characters
+* Find a good font that will work for all languages (if it exists...)
 * Add whatsthis to config dialog
 * Add whatsthis with workaround in main widget
 * Fix vocab editor ui issues (disable save after save, etc.)

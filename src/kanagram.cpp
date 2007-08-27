@@ -56,6 +56,7 @@
 
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
+const QString m_nextText = i18n("Next Anagram");
 
 double kWindowWidth = 1000.0;
 double kWindowHeight = 725.0;
@@ -195,7 +196,7 @@ void Kanagram::setupActions()
     m_actionCollection->setAssociatedWidget(this);
 
     // next anagram action
-    KAction *nextAnagramAction = new KAction(i18n("Next Word"), m_actionCollection);
+    KAction *nextAnagramAction = new KAction(m_nextText, m_actionCollection);
     nextAnagramAction->setShortcut(Qt::CTRL+Qt::Key_N);
     connect(nextAnagramAction, SIGNAL(triggered(bool)), this, SLOT(slotNextAnagram()));
     m_actionCollection->addAction("nextanagram", nextAnagramAction);
@@ -207,7 +208,7 @@ void Kanagram::setupActions()
     m_actionCollection->addAction("showhint", showHintAction);
     
     // reveal word action
-    KAction *revealWordAction = new KAction(i18n("Reveal Word"), m_actionCollection);
+    KAction *revealWordAction = new KAction(i18n("Reveal Anagram"), m_actionCollection);
     revealWordAction->setShortcut(Qt::CTRL+Qt::Key_R);
     connect(revealWordAction, SIGNAL(triggered(bool)), this, SLOT(slotRevealWord()));
     m_actionCollection->addAction("revealword", revealWordAction);
@@ -297,7 +298,7 @@ void Kanagram::paintEvent(QPaintEvent *)
     m_cornerFontSize = fontUtils::fontSize(p, reveal, m_blackboardRect.width() / 3, m_blackboardRect.height() / 5);
     FixFontSize(m_cornerFontSize);
 
-    drawTextNew(p, i18n(m_textRevealWord), Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, m_cornerFontSize);
+    drawTextNew(p, reveal, Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, m_cornerFontSize);
     drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 6, 0, m_blackboardRect, m_overHint, m_cornerFontSize);
 
     // update these rects because we have access to the painter and thus the fontsize here
@@ -309,7 +310,7 @@ void Kanagram::paintEvent(QPaintEvent *)
     m_hintRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
     m_hintBoxRect = QRect(int(684.813 * m_xRatio), int(319.896 * m_yRatio), int(xEyesScale * width()), int(yEyesScale * height()));
     r = innerRect(m_blackboardRect, 6, 0);
-    m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
+    m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, reveal);
 
     drawSwitcher(p, 9, 8);
 
@@ -413,7 +414,7 @@ void Kanagram::paintEvent(QPaintEvent *)
     }
     else if (m_overNext)
     {
-        drawHelpText(p, i18n("Next Word"));
+        drawHelpText(p, m_nextText);
     }
     else if (m_overConfig)
     {
