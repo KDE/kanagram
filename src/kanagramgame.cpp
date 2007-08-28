@@ -166,20 +166,20 @@ void KanagramGame::nextAnagram()
 
     if (doc->entryCount() > 0)
     {
-        while (m_answeredWords.indexOf(doc->entry(wordNumber)->translation(0).translation()) != -1)
+        while (m_answeredWords.indexOf(doc->entry(wordNumber)->translation(0).text()) != -1)
         {
             wordNumber = m_random.getLong(totalWords);
         }
 
         // lowercase the entry text so german words that start capitalized will be lowercased
-        m_originalWord = doc->entry(wordNumber)->translation(0).translation().toLower();
+        m_originalWord = doc->entry(wordNumber)->translation(0).text().toLower();
         m_answeredWords.append(m_originalWord);
         createAnagram();
         m_hint = doc->entry(wordNumber)->translation(0).comment();
 
         if (m_hint.isEmpty())
         {
-          m_hint = i18n("No hint");
+            m_hint = i18n("No hint");
         }
     }
     else

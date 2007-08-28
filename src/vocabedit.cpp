@@ -54,7 +54,7 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent
 		{
 			KEduVocExpression expr = *doc->entry(i);
 			m_vocabList.append(expr);
-			lboxWords->addItem(doc->entry(i)->translation(0).translation());
+			lboxWords->addItem(doc->entry(i)->translation(0).text());
 		}
 		txtVocabName->setText(doc->title());
 		txtDescription->setText(doc->documentRemark());
@@ -138,7 +138,7 @@ void VocabEdit::slotSelectionChanged()
 	disconnect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
 	if(lboxWords->currentRow() >= 0)
 	{
-		txtWord->setText(m_vocabList[lboxWords->currentRow()].translation(0).translation());
+		txtWord->setText(m_vocabList[lboxWords->currentRow()].translation(0).text());
 		txtHint->setText(m_vocabList[lboxWords->currentRow()].translation(0).comment());
 	}
 	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
