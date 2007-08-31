@@ -124,7 +124,7 @@
          <item row="1" column="0" >
           <widget class="QLabel" name="textLabel2" >
            <property name="whatsThis" >
-            <string>The description of the vocabulary. If you're creating a new vocabulary, add a description so that users of your vocabulary will know what kinds of words it contains.</string>
+            <string>The description of the vocabulary. If you are creating a new vocabulary, add a description so that users of your vocabulary will know what kinds of words it contains.</string>
            </property>
            <property name="text" >
             <string>&amp;Description:</string>

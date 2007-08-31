@@ -10,7 +10,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>General</string>
+   <string comment="@title:group main settings page name" >General</string>
   </property>
   <property name="whatsThis" >
    <string>This setting allows you to set the length of time Kanagram's hint bubble is shown.</string>
