@@ -26,6 +26,8 @@
 
 #include <krandomsequence.h>
 
+class KEduVocDocument;
+
 /** @brief game api
  * @author Joshua Keel <joshuakeel@gmail.com>
  * @author Jeremy Whiting <jeremy@scitools.com>
@@ -63,7 +65,7 @@ class KanagramGame : public QObject
         /** set the vocab to use */
         void useVocab(const QString &vocabname);
 
-        /** refresh the list of vocabulary files available 
+        /** refresh the list of vocabulary files available
          * from what we find on disk
          *@returns true if the current vocabulary has changed so the ui can refresh
          */
@@ -121,11 +123,11 @@ class KanagramGame : public QObject
         /** the list of words that have been answered */
         QStringList m_answeredWords;
 
-        /** the current vocabulary's title */
-        QString m_docTitle;
-
         /** the current vocabulary's filename */
         QString m_filename;
+
+        /** the current document */
+        KEduVocDocument* m_doc;
 };
 
 #endif

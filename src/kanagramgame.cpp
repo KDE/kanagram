@@ -40,20 +40,23 @@
 
 KanagramGame::KanagramGame() : m_index(0)
 {
+    m_doc = 0;
+
 	// first get the list of vocabularies
 	refreshVocabList();
-	
+
 	// then load the default vocab
 	loadDefaultVocab();
 }
 
 KanagramGame::~KanagramGame()
 {
+    delete m_doc;
 }
 
 void KanagramGame::checkFile()
 {
-	if (!QFile::exists(KStandardDirs::locate("data", m_filename))) 
+	if (!QFile::exists(KStandardDirs::locate("data", m_filename)))
 	{
 		emit fileError(m_filename);
 	}
@@ -68,9 +71,16 @@ void KanagramGame::loadDefaultVocab()
         nextVocab();
 	}
 
-	KEduVocDocument *doc = new KEduVocDocument(this);
-	doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
-	m_docTitle = doc->title();
+    if ( m_doc != 0 ) {
+        delete m_doc;
+    }
+    m_doc = new KEduVocDocument(this);
+
+    ///@todo open returns KEduVocDocument::ErrorCode
+	int result = m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
+    if (result != 0) {
+        KMessageBox::error(0, m_doc->errorDescription(result));
+    }
 	nextAnagram();
 }
 
@@ -79,7 +89,9 @@ bool KanagramGame::refreshVocabList()
 	bool retval = false;
 	QString oldFilename = m_filename;
 	m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
-	useVocab(m_docTitle);
+    if ( m_doc ) {
+        useVocab(m_doc->title());
+    }
     return oldFilename != m_filename;
 }
 
@@ -88,7 +100,7 @@ QStringList KanagramGame::getVocabsList()
 {
 	return SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
 }
-		
+
 /** set the vocab to use */
 void KanagramGame::useVocab(const QString &vocabname)
 {
@@ -127,9 +139,12 @@ void KanagramGame::previousVocab()
 
 	m_filename = m_fileList[m_index];
 	checkFile();
-	KEduVocDocument *doc = new KEduVocDocument(this);
-	doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
-	m_docTitle = doc->title();
+    if ( m_doc != 0 ) {
+        delete m_doc;
+    }
+	m_doc = new KEduVocDocument(this);
+    ///@todo open returns KEduVocDocument::ErrorCode
+	m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
 	m_answeredWords.clear();
 }
 
@@ -144,9 +159,12 @@ void KanagramGame::nextVocab()
     {
         m_filename = m_fileList[m_index];
         checkFile();
-        KEduVocDocument *doc = new KEduVocDocument(this);
-        doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
-        m_docTitle = doc->title();
+        if ( m_doc != 0 ) {
+            delete m_doc;
+        }
+        m_doc = new KEduVocDocument(this);
+        ///@todo open returns KEduVocDocument::ErrorCode
+        m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
         m_answeredWords.clear();
     }
 }
@@ -154,28 +172,28 @@ void KanagramGame::nextVocab()
 void KanagramGame::nextAnagram()
 {
 	checkFile();
-	KEduVocDocument	*doc = new KEduVocDocument(this);
-	doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
-	int totalWords = doc->entryCount();
+
+	int totalWords = m_doc->entryCount();
 	int wordNumber = m_random.getLong(totalWords);
 
-	if (doc->entryCount() == (int)m_answeredWords.size())
-	{
-		m_answeredWords.clear();
-	}
 
-    if (doc->entryCount() > 0)
+    if (m_doc->entryCount() == (int)m_answeredWords.size())
     {
-        while (m_answeredWords.indexOf(doc->entry(wordNumber)->translation(0).text()) != -1)
+        m_answeredWords.clear();
+    }
+
+    if (m_doc->entryCount() > 0)
+    {
+        while (m_answeredWords.indexOf(m_doc->entry(wordNumber)->translation(0).text()) != -1)
         {
             wordNumber = m_random.getLong(totalWords);
         }
 
         // lowercase the entry text so german words that start capitalized will be lowercased
-        m_originalWord = doc->entry(wordNumber)->translation(0).text().toLower();
+        m_originalWord = m_doc->entry(wordNumber)->translation(0).text().toLower();
         m_answeredWords.append(m_originalWord);
         createAnagram();
-        m_hint = doc->entry(wordNumber)->translation(0).comment();
+        m_hint = m_doc->entry(wordNumber)->translation(0).comment();
 
         if (m_hint.isEmpty())
         {
@@ -190,11 +208,6 @@ void KanagramGame::nextAnagram()
         m_hint = "";
         // TODO: add some error reporting here
     }
-}
-
-QString KanagramGame::getDocTitle()
-{
-	return m_docTitle;
 }
 
 QString KanagramGame::getFilename()
@@ -245,6 +258,14 @@ void KanagramGame::createAnagram()
 		insaneData += sd;
 	}
 	m_anagram = insaneData;
+}
+
+QString KanagramGame::getDocTitle()
+{
+    if ( m_doc ) {
+        return m_doc->title();
+    }
+    return QString();
 }
 
 #include "kanagramgame.moc"
