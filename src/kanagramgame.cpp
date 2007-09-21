@@ -38,10 +38,8 @@
 #include "kanagramsettings.h"
 
 
-KanagramGame::KanagramGame() : m_index(0)
+KanagramGame::KanagramGame() : m_index(0), m_doc(NULL)
 {
-    m_doc = 0;
-
 	// first get the list of vocabularies
 	refreshVocabList();
 
@@ -51,7 +49,11 @@ KanagramGame::KanagramGame() : m_index(0)
 
 KanagramGame::~KanagramGame()
 {
-    delete m_doc;
+    if (m_doc != NULL)
+    {
+        delete m_doc;
+        m_doc = NULL;
+    }
 }
 
 void KanagramGame::checkFile()
@@ -71,8 +73,10 @@ void KanagramGame::loadDefaultVocab()
         nextVocab();
 	}
 
-    if ( m_doc != 0 ) {
+    if ( m_doc != 0 ) 
+    {
         delete m_doc;
+        m_doc = NULL;
     }
     m_doc = new KEduVocDocument(this);
 
@@ -262,7 +266,8 @@ void KanagramGame::createAnagram()
 
 QString KanagramGame::getDocTitle()
 {
-    if ( m_doc ) {
+    if (m_doc) 
+    {
         return m_doc->title();
     }
     return QString();
