@@ -29,8 +29,8 @@
 
 #include <QMouseEvent>
 #include <QPaintEvent>
-#include <QWidget>
 
+#include <KMainWindow>
 #include <KRandomSequence>
 
 using namespace std;
@@ -56,7 +56,7 @@ class KShortcutsEditor;
  * @brief main interface widget  
  *
  * Draws the window, and reacts to mouse events */
-class Kanagram : public QWidget
+class Kanagram : public KMainWindow
 {
     Q_OBJECT
     public:
@@ -65,6 +65,9 @@ class Kanagram : public QWidget
 
         /** default destructor */
         ~Kanagram();
+
+        /** sizehint method for initial size */
+        virtual QSize sizeHint() const;
 
     private slots:
 

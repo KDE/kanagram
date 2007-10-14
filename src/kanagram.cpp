@@ -80,7 +80,7 @@ double xScaleQuitButton = 77.484 / kWindowWidth;
 double yScaleQuitButton = 77.5 / kWindowHeight;
 
 Kanagram::Kanagram()
-: QWidget(0), m_game(NULL), m_overNext(false), m_overConfig(false), m_overHelp(false),
+: KMainWindow(), m_game(NULL), m_overNext(false), m_overConfig(false), m_overHelp(false),
     m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false),
     m_showHint(false), m_player(NULL), m_actionCollection(NULL)
 {
@@ -120,6 +120,8 @@ Kanagram::Kanagram()
 
     show();
 
+    setAutoSaveSettings();
+
     setMinimumSize(650, 471);
 }
 
@@ -142,6 +144,11 @@ Kanagram::~Kanagram()
         delete m_renderer;
         m_renderer = NULL;
     }
+}
+
+QSize Kanagram::sizeHint() const
+{
+    return QSize(650, 471);
 }
 
 void Kanagram::loadSettings()
@@ -224,7 +231,7 @@ void Kanagram::setupActions()
 
     // standard actions
     KStandardAction::preferences(this, SLOT(slotShowSettings()), m_actionCollection);
-    KStandardAction::quit(kapp, SLOT(quit()), m_actionCollection);
+    KStandardAction::quit(this, SLOT(close()), m_actionCollection);
     
     
     // load any user-defined changes to shortcuts
@@ -623,7 +630,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 
     if (m_quitRect.contains(e->pos()))
     {
-        qApp->quit();
+        close();
     }
 
     if (m_revealRect.contains(e->pos()))

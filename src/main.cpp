@@ -42,9 +42,9 @@ int main(int argc, char *argv[])
     KCmdLineArgs::init(argc, argv, &about);
     KApplication app;
 
-    Kanagram a;
-    a.show();
-    app.setTopWidget(&a);
+    Kanagram * a = new Kanagram();
+    a->show();
+    app.setTopWidget(a);
     return app.exec();
 }
 
