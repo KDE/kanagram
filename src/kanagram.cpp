@@ -80,9 +80,11 @@ double xScaleQuitButton = 77.484 / kWindowWidth;
 double yScaleQuitButton = 77.5 / kWindowHeight;
 
 Kanagram::Kanagram()
-: KMainWindow(), m_game(NULL), m_overNext(false), m_overConfig(false), m_overHelp(false),
-    m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false),
-    m_showHint(false), m_player(NULL), m_actionCollection(NULL)
+: KMainWindow(), m_game(NULL), m_overNext(false), m_overConfig(false), 
+    m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), 
+    m_overUp(false), m_overAboutKDE(false), m_overAboutApp(false),
+    m_overHandbook(false), m_overSwitcher(false), m_overLogo(false),
+    m_overHintBox(false), m_showHint(false), m_player(NULL), m_actionCollection(NULL)
 {
     setAttribute(Qt::WA_StaticContents);
     m_renderer = new QSvgRenderer(KStandardDirs::locate("appdata", "images/kanagram.svg"));

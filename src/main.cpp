@@ -40,11 +40,11 @@ int main(int argc, char *argv[])
     about.addCredit(ki18n("Patrick Spendrin"), ki18n("German Data Files"), "patrick_spendrin@gmx.de");
     about.addCredit(ki18n("Eric Krüse"), ki18n("British English Data Files"), "bildvontux@yahoo.de");
     KCmdLineArgs::init(argc, argv, &about);
-    KApplication app;
+    KApplication * app = new KApplication();
 
     Kanagram * a = new Kanagram();
     a->show();
-    app.setTopWidget(a);
-    return app.exec();
+    app->setTopWidget(a);
+    return app->exec();
 }
 
