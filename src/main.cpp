@@ -28,21 +28,23 @@
 /** setup about data, create the main window, and start */
 int main(int argc, char *argv[])
 {
-	KAboutData about("kanagram", 0, ki18n("Kanagram"), "0.2", ki18n("An anagram game"), KAboutData::License_GPL, ki18n("© 2005 Joshua Keel\n© 2005 Danny Allen\n© 2007 Jeremy Whiting"));
-	about.addAuthor(ki18n("Joshua Keel"), ki18n("Coding"), "joshuakeel@gmail.com");
-	about.addAuthor(ki18n("Danny Allen"), ki18n("Design, Graphics and many Vocabularies"), "danny@dannyallen.co.uk");
-	about.addAuthor(ki18n("Jeremy Whiting"), ki18n("Maintainer"), "jeremy@scitools.com");
-	about.addCredit(ki18n("Artemiy Pavlov"), ki18n("Sound effects"), 0, "http://artemiolabs.com");
+    KAboutData about("kanagram", 0, ki18n("Kanagram"), "0.2", ki18n("An anagram game"), 
+        KAboutData::License_GPL, 
+        ki18n("© 2005 Joshua Keel\n© 2005 Danny Allen\n© 2007 Jeremy Whiting"));
+    about.addAuthor(ki18n("Joshua Keel"), ki18n("Coding"), "joshuakeel@gmail.com");
+    about.addAuthor(ki18n("Danny Allen"), ki18n("Design, Graphics and many Vocabularies"), "danny@dannyallen.co.uk");
+    about.addAuthor(ki18n("Jeremy Whiting"), ki18n("Maintainer"), "jeremy@scitools.com");
+    about.addCredit(ki18n("Artemiy Pavlov"), ki18n("Sound effects"), 0, "http://artemiolabs.com");
     about.addCredit(ki18n("Pino Toscano"), ki18n("Italian Data Files"), "pino@kde.org");
     about.addCredit(ki18n("Kris Thomsen"), ki18n("Danish Data Files"), "kris@scoutzone.dk");
     about.addCredit(ki18n("Patrick Spendrin"), ki18n("German Data Files"), "patrick_spendrin@gmx.de");
     about.addCredit(ki18n("Eric Krüse"), ki18n("British English Data Files"), "bildvontux@yahoo.de");
-	KCmdLineArgs::init(argc, argv, &about);
-	KApplication app;
-	
-	Kanagram a;
-	a.show();
-	app.setTopWidget(&a);
-	return app.exec();
+    KCmdLineArgs::init(argc, argv, &about);
+    KApplication app;
+
+    Kanagram a;
+    a.show();
+    app.setTopWidget(&a);
+    return app.exec();
 }
 

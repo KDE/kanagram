@@ -13,22 +13,22 @@
 
 int fontUtils::fontSize(QPainter &p, const QString &s1, int w, int h)
 {
-	int size;
-	QRect aux1;
-	bool done = false;
-	
-	size = 28;
-	
-	while (!done && size > 1)
-	{
-		QFont f = p.font();
-		f.setPointSize(size);
-		p.setFont(f);
-		aux1 = p.boundingRect(QRect(), Qt::AlignLeft, s1);
-		if (aux1.width() == 0 || aux1.height() == 0) return -1;
-		else if (aux1.width() > w || aux1.height() > h) size = qMin(w * size / aux1.width(), h * size / aux1.height());
-		else done = true;
-	}
-	
-	return size;
+    int size;
+    QRect aux1;
+    bool done = false;
+
+    size = 28;
+
+    while (!done && size > 1)
+    {
+        QFont f = p.font();
+        f.setPointSize(size);
+        p.setFont(f);
+        aux1 = p.boundingRect(QRect(0, 0, w, h), Qt::TextWordWrap | Qt::AlignCenter, s1);
+        if (aux1.width() == 0 || aux1.height() == 0) return -1;
+        else if (aux1.width() > w || aux1.height() > h) size = qMin(w * size / aux1.width(), h * size / aux1.height());
+        else done = true;
+    }
+
+    return size;
 }

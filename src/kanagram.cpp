@@ -356,7 +356,7 @@ void Kanagram::paintEvent(QPaintEvent *)
         QFont f = KGlobalSettings::generalFont();
         f.setWeight(QFont::Bold);
         QString hint = m_game->getHint();
-        int fontSize = fontUtils::fontSize(p, hint, int(400 * m_xRatio), int(150 * m_yRatio));
+        int fontSize = fontUtils::fontSize(p, hint, int(250 * m_xRatio), int(100 * m_yRatio));
         FixFontSize(fontSize);
         f.setPointSize(fontSize);
         p.setFont(f);
