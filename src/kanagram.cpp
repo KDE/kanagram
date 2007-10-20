@@ -782,7 +782,9 @@ void Kanagram::drawTextNew(QPainter &p, const QString &text, int textAlign, int 
 void Kanagram::checkWord()
 {
     QPalette palette;
-    if (m_inputBox->text().toLower().trimmed() == m_game->getWord())
+    QString enteredWord = m_inputBox->text().toLower().trimmed();
+    QString word = m_game->getWord().toLower().trimmed();
+    if (enteredWord == word || stripAccents(enteredWord) == stripAccents(word))
     {
         if (m_useSounds) play("right.ogg");
         palette.setColor(m_inputBox->backgroundRole(), QColor(0, 255, 0));
@@ -800,6 +802,18 @@ void Kanagram::checkWord()
     }
     m_inputBox->setPalette(palette);
     update();
+}
+
+QString Kanagram::stripAccents(const QString & original)
+{
+    QString noAccents;
+    QString decomposed = original.normalized(QString::NormalizationForm_D);
+    for (int i = 0; i < decomposed.length(); ++i) {
+        if ( decomposed[i].category() != QChar::Mark_NonSpacing ) {
+            noAccents.append(decomposed[i]);
+        }
+    }
+    return noAccents;
 }
 
 void Kanagram::randomHintImage()

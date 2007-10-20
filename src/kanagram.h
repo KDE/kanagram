@@ -210,6 +210,11 @@ class Kanagram : public KMainWindow
 
         /** check the font size and set it to a sane minimum if it's an error size <= 0 */
         void FixFontSize(int &fontSize);
+        
+        /** strip accents from given string
+         * @param original string to strip accents from
+         * @returns string without accents */
+        QString stripAccents(const QString & original);
 
         /**
          * KanagramGame object to get words,
