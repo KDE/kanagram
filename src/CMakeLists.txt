@@ -8,7 +8,6 @@ set(kanagram_SRCS
    main.cpp 
    kanagram.cpp 
    kanagramgame.cpp 
-   fontutils.cpp 
    mainsettings.cpp 
    vocabsettings.cpp 
    vocabedit.cpp 
@@ -25,7 +24,7 @@ kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 
 kde4_add_executable(kanagram ${kanagram_SRCS})
 
-target_link_libraries(kanagram  ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_PHONON_LIBS} ${QT_QTXML_LIBRARY} keduvocdocument )
+target_link_libraries(kanagram  ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_PHONON_LIBS} ${QT_QTXML_LIBRARY} keduvocdocument kdeeduui )
 
 install(TARGETS kanagram  DESTINATION ${BIN_INSTALL_DIR} )
 
