@@ -201,7 +201,6 @@ void Kanagram::reloadSettings()
 void Kanagram::setupActions()
 {
     m_actionCollection = new KActionCollection(this);
-    m_actionCollection->setAssociatedWidget(this);
 
     // next anagram action
     KAction *nextAnagramAction = new KAction(m_nextText, m_actionCollection);
@@ -237,6 +236,8 @@ void Kanagram::setupActions()
     
     // load any user-defined changes to shortcuts
     m_actionCollection->readSettings();
+
+    m_actionCollection->associateWidget(this);
 }
 
 void Kanagram::paintEvent(QPaintEvent *)
