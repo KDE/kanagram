@@ -61,7 +61,6 @@ void VocabSettings::refreshView()
 	m_titleList = SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
 	m_commentList = SharedKvtmlFiles::comments(KanagramSettings::dataLanguage());
 
-//	m_fileList = KGlobal::dirs()->findAllResources("appdata", "data/" + KanagramSettings::dataLanguage() + '/' + "*.kvtml");
 	for(int i = 0; i < m_fileList.size(); i++)
 	{
 		QTreeWidgetItem *item = new QTreeWidgetItem(lviewVocab, 0);

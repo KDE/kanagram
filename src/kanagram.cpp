@@ -899,8 +899,8 @@ void Kanagram::refreshVocabularies()
         // save the default vocab now that it's changed
         KanagramSettings::setDefaultVocab(m_game->getFilename());
         KanagramSettings::self()->writeConfig();
+        m_vocabSettings->refreshView();
     }
-    m_vocabSettings->refreshView();
 }
 
 void Kanagram::play(const QString &filename)
