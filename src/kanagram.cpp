@@ -157,7 +157,8 @@ void Kanagram::loadSettings()
     QString hideTime = KanagramSettings::hintHideTime();
     if (hideTime[0].isDigit())
     {
-        m_hintHideTime = hideTime[0].digitValue();
+        // because the choices are 3, 5, 7, 9
+        m_hintHideTime = (hideTime[0].digitValue() * 2) + 1;
     }
     else
     {
