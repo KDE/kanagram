@@ -6,7 +6,6 @@ Name[hr]=KAnagram
 Name[ne]=कानाग्राम
 Name[pa]=ਕੰਨਗਰਾਮ
 Name[x-test]=xxKanagramxx
-Name[zh_CN]=KHangMan
 Exec=kanagram
 Icon=kanagram
 Type=Application
