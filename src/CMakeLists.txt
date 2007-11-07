@@ -25,7 +25,7 @@ if(MSVC)
 endif(MSVC)
 
 if(MINGW)
-   QT4_ADD_RESOURCES2(kanagram_SRCS kanagram.rc)
+   KDE_ADD_RESOURCES2(kanagram_SRCS kanagram.rc)
 endif(MINGW)
 
 
