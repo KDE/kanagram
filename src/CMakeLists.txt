@@ -20,6 +20,15 @@ kde4_add_ui_files(kanagram_SRCS
    newstuffwidget.ui
    mainsettingswidget.ui )
 
+if(MSVC)
+  set(kanagram_SRCS ${kanagram_SRCS} kanagram.rc)
+endif(MSVC)
+
+if(MINGW)
+   QT4_ADD_RESOURCES2(kanagram_SRCS kanagram.rc)
+endif(MINGW)
+
+
 kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 
 kde4_add_executable(kanagram ${kanagram_SRCS})
