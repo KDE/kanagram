@@ -20,14 +20,14 @@ kde4_add_ui_files(kanagram_SRCS
    newstuffwidget.ui
    mainsettingswidget.ui )
 
-if(MSVC)
-  set(kanagram_SRCS ${kanagram_SRCS} kanagram.rc)
-endif(MSVC)
-
-if(MINGW)
-   KDE_ADD_RESOURCES2(kanagram_SRCS kanagram.rc)
-endif(MINGW)
-
+set(kanagram_icons
+    ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/16x16/apps/kanagram.png
+    ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/32x32/apps/kanagram.png
+    ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/48x48/apps/kanagram.png
+    ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/64x64/apps/kanagram.png
+    ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/128x128/apps/kanagram.png
+)
+kde4_add_win32_app_icon(kanagram kanagram_SRCS ${kanagram_icons})
 
 kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 
