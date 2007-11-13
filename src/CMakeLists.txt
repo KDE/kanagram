@@ -27,7 +27,7 @@ set(kanagram_icons
     ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/64x64/apps/kanagram.png
     ${CMAKE_INSTALL_PREFIX}/share/icons/oxygen/128x128/apps/kanagram.png
 )
-kde4_add_win32_app_icon(kanagram kanagram_SRCS ${kanagram_icons})
+kde4_add_win32_app_icon(kanagram_SRCS ${kanagram_icons})
 
 kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 
