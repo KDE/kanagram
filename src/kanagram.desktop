@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Kanagram
 Name[cy]=blinKen
 Name[hr]=KAnagram
@@ -9,7 +8,7 @@ Name[x-test]=xxKanagramxx
 Exec=kanagram
 Icon=kanagram
 Type=Application
-DocPath=kanagram/index.html
+X-DocPath=kanagram/index.html
 Comment=KDE Letter Order Game
 Comment[be]=Гульня з перамяшчэннем літар
 Comment[bg]=Игра за подредба на букви
