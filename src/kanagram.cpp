@@ -838,7 +838,7 @@ void Kanagram::slotShowSettings()
 
         // create and add the vocabsettings page
         m_vocabSettings = new VocabSettings( m_configDialog );
-        m_configDialog->addPage(m_vocabSettings, i18n("Vocabularies"), "edit" );
+        m_configDialog->addPage(m_vocabSettings, i18n("Vocabularies"), "object-edit" );
 
         // now make and add the shortcuts page
         m_shortcutsEditor = new KShortcutsEditor(m_actionCollection, m_configDialog);
