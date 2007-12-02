@@ -34,7 +34,7 @@
 
 NewStuff::NewStuff(QWidget *parent):QDialog(parent)
 {
-	setupUi(this);
+    setupUi(this);
 }
 
 NewStuff::~NewStuff()
@@ -43,9 +43,9 @@ NewStuff::~NewStuff()
 
 void NewStuff::on_btnGetNew_clicked()
 {
-	KNS::Entry::List entries = KNS::Engine::download();
-	
-	SharedKvtmlFiles::sortDownloadedFiles();
+    KNS::Engine engine(this);
+    engine.downloadDialog();
+    SharedKvtmlFiles::sortDownloadedFiles();
 }
 
 #include "newstuff.moc"

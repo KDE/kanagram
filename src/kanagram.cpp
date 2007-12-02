@@ -187,8 +187,6 @@ void Kanagram::loadSettings()
         KanagramSettings::setDataLanguage(foundLanguage ? userLanguagesCode[i] : "en");
     }
 
-    kDebug() << "Data language: " << KanagramSettings::dataLanguage();
-
     m_useSounds = KanagramSettings::useSounds();
     m_arrowName = "basicarrow";
 }
