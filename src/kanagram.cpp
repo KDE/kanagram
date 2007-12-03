@@ -43,6 +43,7 @@
 #include <KStandardAction>
 #include <KStandardDirs>
 #include <KStandardShortcut>
+#include <kdeversion.h>
 
 #include <sharedkvtmlfiles.h>
 
@@ -236,7 +237,13 @@ void Kanagram::setupActions()
     // load any user-defined changes to shortcuts
     m_actionCollection->readSettings();
 
-    m_actionCollection->associateWidget(this);
+    m_actionCollection->addAssociatedWidget(this);
+    foreach (QAction* action, m_actionCollection->actions())
+#if QT_VERSION < KDE_MAKE_VERSION(4,4,0)
+        action->setShortcutContext(Qt::WidgetShortcut); // remove after Qt4.4 becomes mandatory
+#else
+        action->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+#endif
 }
 
 void Kanagram::paintEvent(QPaintEvent *)
