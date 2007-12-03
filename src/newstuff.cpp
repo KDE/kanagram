@@ -43,7 +43,7 @@ NewStuff::~NewStuff()
 
 void NewStuff::on_btnGetNew_clicked()
 {
-    KNS::Engine::EntryList entries = KNS::Engine::download();
+    KNS::Entry::List entries = KNS::Engine::download();
     // we need to delete the entry* items in the returned list
 	qDeleteAll(entries);
     SharedKvtmlFiles::sortDownloadedFiles();
