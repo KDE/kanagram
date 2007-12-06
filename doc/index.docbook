@@ -241,27 +241,6 @@ The <quote><guilabel>Play Using:</guilabel></quote> <interface>drop-down box</in
 
 <listitem>
 <para>
-The <quote><guibutton>Get Chalk Font</guibutton></quote> button will be visible if you do not have the chalk-styled font installed on your system. Pressing this button will download the font from the Internet, which &kanagram; will then use after the application has been restarted.
-</para>
-<para>
-Once you have the chalk-styled font installed, the <quote><guilabel>Use standard fonts</guilabel></quote> <interface>checkbox</interface> becomes active. If checked, &kanagram; will display the <interface>blackboard</interface> text in a standard, rather than chalk-styled font. This should aid readability of the text:
-</para>
-
-<screenshot>
-<screeninfo>&kanagram; standard font</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata fileref="standard-fonts.png" format="PNG"/>
-</imageobject>
-<textobject>
-<phrase>&kanagram; standard font</phrase>
-</textobject>
-</mediaobject>
-</screenshot>
-</listitem>
-
-<listitem>
-<para>
 The <quote><guilabel>Use sounds</guilabel></quote> <interface>checkbox</interface> allows you to either allow or suppress the &kanagram; sound effects.
 </para>
 <note>
@@ -440,7 +419,7 @@ To install a vocabulary from the Internet, click on the vocabulary item in the l
 &kanagram;
 </para>
 <para>
-Program copyright 2005 Joshua Keel <email>joshuakeel@gmail.com</email> and &Danny.Allen; &Danny.Allen.mail;
+Program copyright 2007 Jeremy Whiting <email>jeremy@scitools.com</email> 2005 Joshua Keel <email>joshuakeel@gmail.com</email> and &Danny.Allen; &Danny.Allen.mail;
 </para>
 <para>
 Contributors:
