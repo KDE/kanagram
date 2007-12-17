@@ -158,8 +158,14 @@ void Kanagram::loadSettings()
     QString hideTime = KanagramSettings::hintHideTime();
     if (hideTime[0].isDigit())
     {
-        // because the choices are 3, 5, 7, 9
+        // because the choices are 0, 3, 5, 7, 9
         m_hintHideTime = (hideTime[0].digitValue() * 2) + 1;
+
+        // reset to 0 if it's 1 to allow for the don't hide option
+        if (m_hintHideTime == 1)
+        {
+            m_hintHideTime = 0;
+        }
     }
     else
     {
@@ -790,24 +796,27 @@ void Kanagram::checkWord()
     QPalette palette;
     QString enteredWord = m_inputBox->text().toLower().trimmed();
     QString word = m_game->getWord().toLower().trimmed();
-    if (enteredWord == word || stripAccents(enteredWord) == stripAccents(word))
+    if (!enteredWord.isEmpty())
     {
-        if (m_useSounds) play("right.ogg");
-        palette.setColor(m_inputBox->backgroundRole(), QColor(0, 255, 0));
-        QTimer::singleShot(1000, this, SLOT(resetInputBox()));
-        m_inputBox->clear();
-        hideHint();
-        m_game->nextAnagram();
+        if (enteredWord == word || stripAccents(enteredWord) == stripAccents(word))
+        {
+            if (m_useSounds) play("right.ogg");
+            palette.setColor(m_inputBox->backgroundRole(), QColor(0, 255, 0));
+            QTimer::singleShot(1000, this, SLOT(resetInputBox()));
+            m_inputBox->clear();
+            hideHint();
+            m_game->nextAnagram();
+        }
+        else
+        {
+            if (m_useSounds) play("wrong.ogg");
+            palette.setColor(m_inputBox->backgroundRole(), QColor(255, 0, 0));
+            QTimer::singleShot(1000, this, SLOT(resetInputBox()));
+            m_inputBox->clear();
+        }
+        m_inputBox->setPalette(palette);
+        update();
     }
-    else
-    {
-        if (m_useSounds) play("wrong.ogg");
-        palette.setColor(m_inputBox->backgroundRole(), QColor(255, 0, 0));
-        QTimer::singleShot(1000, this, SLOT(resetInputBox()));
-        m_inputBox->clear();
-    }
-    m_inputBox->setPalette(palette);
-    update();
 }
 
 QString Kanagram::stripAccents(const QString & original)
