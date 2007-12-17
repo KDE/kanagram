@@ -361,7 +361,7 @@ void Kanagram::paintEvent(QPaintEvent *)
         upArrow = "up_disabled";
     }
 
-    p.translate(m_inputBox->x() + m_inputBox->width() + 27 * m_xRatio, m_inputBox->y() + 12 * m_yRatio);
+    p.translate(m_inputBox->x() + m_inputBox->width() + 26 * m_xRatio, m_inputBox->y() + 12 * m_yRatio);
     p.scale(38 / kWindowWidth, 20 / kWindowHeight);
     m_renderer->render(&p, upArrow);
     p.resetMatrix();
