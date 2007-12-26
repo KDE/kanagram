@@ -848,15 +848,15 @@ void Kanagram::slotShowSettings()
         // add the main settings page
         MainSettings * mainSettingsPage = new MainSettings( m_configDialog );
         connect (mainSettingsPage, SIGNAL(settingsChanged()), this, SLOT(reloadSettings()));
-        m_configDialog->addPage(mainSettingsPage , i18nc("@title:group main settings page name", "General" ), "configure" );
+        m_configDialog->addPage(mainSettingsPage , i18nc("@title:group main settings page name", "General" ), "preferences-other" );
 
         // create and add the vocabsettings page
         m_vocabSettings = new VocabSettings( m_configDialog );
-        m_configDialog->addPage(m_vocabSettings, i18n("Vocabularies"), "object-edit" );
+        m_configDialog->addPage(m_vocabSettings, i18n("Vocabularies"), "document-properties" );
 
         // now make and add the shortcuts page
         m_shortcutsEditor = new KShortcutsEditor(m_actionCollection, m_configDialog);
-        m_configDialog->addPage(m_shortcutsEditor, i18n("Shortcuts"), "configure-shortcuts");
+        m_configDialog->addPage(m_shortcutsEditor, i18n("Shortcuts"), "preferences-desktop-keyboard");
         connect(m_configDialog, SIGNAL(accepted()), this, SLOT(slotSaveSettings()));
         connect(m_configDialog, SIGNAL(rejected()), this, SLOT(slotSettingsCancelled()));
         connect(m_shortcutsEditor, SIGNAL(keyChange()), this, SLOT(slotEnableApplyButton()));
