@@ -20,14 +20,7 @@ kde4_add_ui_files(kanagram_SRCS
    newstuffwidget.ui
    mainsettingswidget.ui )
 
-set(kanagram_icons
-    ${KDE4_ICON_DIR}/oxygen/16x16/apps/kanagram.png
-    ${KDE4_ICON_DIR}/oxygen/32x32/apps/kanagram.png
-    ${KDE4_ICON_DIR}/oxygen/48x48/apps/kanagram.png
-    ${KDE4_ICON_DIR}/oxygen/64x64/apps/kanagram.png
-    ${KDE4_ICON_DIR}/oxygen/128x128/apps/kanagram.png
-)
-kde4_add_win32_app_icon(kanagram_SRCS ${kanagram_icons})
+kde4_add_app_icon(kanagram_SRCS "${KDE4_ICON_DIR}/oxygen/*/apps/kanagram.png")
 
 kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 
