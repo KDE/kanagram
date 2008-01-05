@@ -50,11 +50,11 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent
 		m_fileName = fileName;
 		KEduVocDocument	*doc = new KEduVocDocument(this);
 		doc->open(KUrl::fromPath(m_fileName));
-		for(int i = 0; i < doc->entryCount(); i++)
+		for(int i = 0; i < doc->lesson()->entriesRecursive().count(); i++)
 		{
-			KEduVocExpression expr = *doc->entry(i);
+			KEduVocExpression expr = *doc->lesson()->entriesRecursive().value(i);
 			m_vocabList.append(expr);
-			lboxWords->addItem(doc->entry(i)->translation(0).text());
+			lboxWords->addItem(doc->lesson()->entriesRecursive().value(i)->translation(0)->text());
 		}
 		txtVocabName->setText(doc->title());
 		txtDescription->setText(doc->documentComment());
@@ -90,7 +90,7 @@ void VocabEdit::slotSave()
 	doc->setDocumentComment(txtDescription->text());
 	for(int i = 0; i < m_vocabList.size(); i++)
 	{
-		doc->appendEntry(&m_vocabList[i]);
+		doc->lesson()->appendEntry(&m_vocabList[i]);
 	}
 
 	QString fileName = txtVocabName->text().toLower().replace(" ", "") + ".kvtml";
@@ -138,8 +138,8 @@ void VocabEdit::slotSelectionChanged()
 	disconnect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
 	if(lboxWords->currentRow() >= 0)
 	{
-		txtWord->setText(m_vocabList[lboxWords->currentRow()].translation(0).text());
-		txtHint->setText(m_vocabList[lboxWords->currentRow()].translation(0).comment());
+		txtWord->setText(m_vocabList[lboxWords->currentRow()].translation(0)->text());
+		txtHint->setText(m_vocabList[lboxWords->currentRow()].translation(0)->comment());
 	}
 	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
 	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
@@ -162,7 +162,7 @@ void VocabEdit::slotHintTextChanged(const QString &changes)
 {
 	//Make sure there actually is a currentItem()
 	if(lboxWords->currentRow() != -1)
-		m_vocabList[lboxWords->currentRow()].translation(0).setComment(changes);
+		m_vocabList[lboxWords->currentRow()].translation(0)->setComment(changes);
 
 	if(m_textChanged == false)
 		m_textChanged = true;
