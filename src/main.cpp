@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
     about.addCredit(ki18n("Eric Krüse"), ki18n("British English Data Files"), "bildvontux@yahoo.de");
     about.addCredit(ki18n("Hanna Scott"), ki18n("Swedish Data Files"), "hanna.et.scott@gmail.com");
     about.addCredit(ki18n("Jure Repinc"), ki18n("Slovenian Data Files"), "jlp@holodeck1.com");
+    about.addCredit(ki18n("Yuri Chornoivan"), ki18n("Ukranian Data Files"), "");
     KCmdLineArgs::init(argc, argv, &about);
     KApplication * app = new KApplication();
 
