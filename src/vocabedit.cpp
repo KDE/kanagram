@@ -50,11 +50,11 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent
 		m_fileName = fileName;
 		KEduVocDocument	*doc = new KEduVocDocument(this);
 		doc->open(KUrl::fromPath(m_fileName));
-		for(int i = 0; i < doc->lesson()->entriesRecursive().count(); i++)
+		for(int i = 0; i < doc->lesson()->entryCount(KEduVocLesson::Recursive); i++)
 		{
-			KEduVocExpression expr = *doc->lesson()->entriesRecursive().value(i);
+			KEduVocExpression expr = *doc->lesson()->entries(KEduVocLesson::Recursive).value(i);
 			m_vocabList.append(expr);
-			lboxWords->addItem(doc->lesson()->entriesRecursive().value(i)->translation(0)->text());
+			lboxWords->addItem(doc->lesson()->entries(KEduVocLesson::Recursive).value(i)->translation(0)->text());
 		}
 		txtVocabName->setText(doc->title());
 		txtDescription->setText(doc->documentComment());
