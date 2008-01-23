@@ -56,7 +56,7 @@
 
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
-const QString m_nextText = I18N_NOOP("Next Anagram");
+static const char* m_nextText = I18N_NOOP("Next Anagram");
 
 double kWindowWidth = 1000.0;
 double kWindowHeight = 725.0;
@@ -209,7 +209,7 @@ void Kanagram::setupActions()
     m_actionCollection = new KActionCollection(this);
 
     // next anagram action
-    KAction *nextAnagramAction = new KAction(m_nextText, m_actionCollection);
+    KAction *nextAnagramAction = new KAction(i18n(m_nextText), m_actionCollection);
     nextAnagramAction->setShortcut(Qt::CTRL+Qt::Key_N);
     connect(nextAnagramAction, SIGNAL(triggered(bool)), this, SLOT(slotNextAnagram()));
     m_actionCollection->addAction("nextanagram", nextAnagramAction);
@@ -435,7 +435,7 @@ void Kanagram::paintEvent(QPaintEvent *)
     }
     else if (m_overNext)
     {
-        drawHelpText(p, m_nextText);
+        drawHelpText(p, i18n(m_nextText));
     }
     else if (m_overConfig)
     {
