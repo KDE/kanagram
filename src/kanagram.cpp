@@ -56,7 +56,7 @@
 
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
-const QString m_nextText = i18n("Next Anagram");
+const QString m_nextText = I18N_NOOP("Next Anagram");
 
 double kWindowWidth = 1000.0;
 double kWindowHeight = 725.0;
