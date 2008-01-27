@@ -6,7 +6,9 @@ da
 de
 en_GB
 es
+ga
 gl
 it
+ru
 uk
 
