@@ -1,4 +1,5 @@
 [KNewStuff2]
-ProvidersUrl=http://edu.kde.org/kanagram/download/providers.xml
+ProvidersUrl=http://data.kstuff.org/cgi-bin/hotstuff-provider?site=kanagram
 TargetDir=kvtml
 Uncompress=true
+CachePolicy=resident
