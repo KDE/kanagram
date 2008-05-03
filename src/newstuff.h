@@ -24,22 +24,30 @@
 
 #include "ui_newstuffwidget.h"
 
+namespace KNS
+{
+    class Engine;
+}
+
 /** settings page to get new vocabularies through KNewStuff */
 class NewStuff : public QDialog, public Ui::NewStuffWidget
 {
 Q_OBJECT
-	public:
+    public:
         /** default constructor */
-		explicit NewStuff(QWidget *parent);
+        explicit NewStuff(QWidget *parent);
 
         /** default destructor */
-		~NewStuff();
+        ~NewStuff();
 
-	private slots:
+    private slots:
         /** get new vocabularies
           * invokes the KNewStuff dialog for downloading
           */
-		void on_btnGetNew_clicked();
+        void on_btnGetNew_clicked();
+
+    private:
+        KNS::Engine * m_engine;
 };
 
 #endif

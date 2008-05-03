@@ -1,5 +1,5 @@
 [KNewStuff2]
-ProvidersUrl=http://data.kstuff.org/cgi-bin/hotstuff-provider?site=kanagram
+ProvidersUrl=http://data.kstuff.org/cgi-bin/hotstuff-provider?site=kanagram-dxs
 TargetDir=kvtml
 Uncompress=true
-CachePolicy=resident
+#CachePolicy=resident

@@ -35,17 +35,19 @@
 NewStuff::NewStuff(QWidget *parent):QDialog(parent)
 {
     setupUi(this);
+    m_engine = new KNS::Engine();
 }
 
 NewStuff::~NewStuff()
 {
+    delete m_engine;
 }
 
 void NewStuff::on_btnGetNew_clicked()
 {
-    KNS::Entry::List entries = KNS::Engine::download();
+    KNS::Entry::List entries = m_engine->download();
     // we need to delete the entry* items in the returned list
-	qDeleteAll(entries);
+    qDeleteAll(entries);
     SharedKvtmlFiles::sortDownloadedFiles();
 }
 

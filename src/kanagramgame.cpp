@@ -40,11 +40,11 @@
 
 KanagramGame::KanagramGame() : m_index(0), m_doc(NULL)
 {
-	// first get the list of vocabularies
-	refreshVocabList();
+    // first get the list of vocabularies
+    refreshVocabList();
 
-	// then load the default vocab
-	loadDefaultVocab();
+    // then load the default vocab
+    loadDefaultVocab();
 }
 
 KanagramGame::~KanagramGame()
@@ -58,20 +58,20 @@ KanagramGame::~KanagramGame()
 
 void KanagramGame::checkFile()
 {
-	if (!QFile::exists(KStandardDirs::locate("data", m_filename)))
-	{
-		emit fileError(m_filename);
-	}
+    if (!QFile::exists(KStandardDirs::locate("data", m_filename)))
+    {
+        emit fileError(m_filename);
+    }
 }
 
 void KanagramGame::loadDefaultVocab()
 {
-	m_filename = KanagramSettings::defaultVocab();
-	if (m_filename.isEmpty() || !QFileInfo(m_filename).exists())
-	{
+    m_filename = KanagramSettings::defaultVocab();
+    if (m_filename.isEmpty() || !QFileInfo(m_filename).exists())
+    {
         refreshVocabList();
         nextVocab();
-	}
+    }
 
     if ( m_doc != 0 ) 
     {
@@ -81,18 +81,18 @@ void KanagramGame::loadDefaultVocab()
     m_doc = new KEduVocDocument(this);
 
     ///@todo open returns KEduVocDocument::ErrorCode
-	int result = m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
+    int result = m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
     if (result != 0) {
         KMessageBox::error(0, m_doc->errorDescription(result));
     }
-	nextAnagram();
+    nextAnagram();
 }
 
 bool KanagramGame::refreshVocabList()
 {
-	bool retval = false;
-	QString oldFilename = m_filename;
-	m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
+    bool retval = false;
+    QString oldFilename = m_filename;
+    m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
     if ( m_doc ) {
         useVocab(m_doc->title());
     }
@@ -102,19 +102,19 @@ bool KanagramGame::refreshVocabList()
 /** get the list of vocabularies */
 QStringList KanagramGame::getVocabsList()
 {
-	return SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
+    return SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
 }
 
 /** set the vocab to use */
 void KanagramGame::useVocab(const QString &vocabname)
 {
-	QStringList titles = getVocabsList();
-	int vocab = titles.indexOf(vocabname);
-	if (vocab > 0)
-	{
-		m_index = vocab;
-		m_filename = m_fileList[vocab];
-	}
+    QStringList titles = getVocabsList();
+    int vocab = titles.indexOf(vocabname);
+    if (vocab > 0)
+    {
+        m_index = vocab;
+        m_filename = m_fileList[vocab];
+    }
     else
     {
         m_index = 0;
@@ -124,42 +124,42 @@ void KanagramGame::useVocab(const QString &vocabname)
 
 void KanagramGame::updateIndex()
 {
-	m_index = 0;
-	for (int i = 0; i < m_fileList.size(); i++)
-	{
-		if (m_filename == m_fileList[i])
-		{
-			m_index = i;
-		}
-	}
+    m_index = 0;
+    for (int i = 0; i < m_fileList.size(); i++)
+    {
+        if (m_filename == m_fileList[i])
+        {
+            m_index = i;
+        }
+    }
 }
 
 void KanagramGame::previousVocab()
 {
-	if (--m_index < 0)
+    if (--m_index < 0)
     {
-		m_index = m_fileList.size() - 1;
+        m_index = m_fileList.size() - 1;
     }
 
-	m_filename = m_fileList[m_index];
-	checkFile();
+    m_filename = m_fileList[m_index];
+    checkFile();
     if ( m_doc != 0 ) {
         delete m_doc;
     }
-	m_doc = new KEduVocDocument(this);
+    m_doc = new KEduVocDocument(this);
     ///@todo open returns KEduVocDocument::ErrorCode
-	m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
-	m_answeredWords.clear();
+    m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
+    m_answeredWords.clear();
 }
 
 void KanagramGame::nextVocab()
 {
-	if (++m_index >= m_fileList.size())
+    if (++m_index >= m_fileList.size())
     {
-		m_index = 0;
+        m_index = 0;
     }
 
-	if (!m_fileList.isEmpty())
+    if (!m_fileList.isEmpty())
     {
         m_filename = m_fileList[m_index];
         checkFile();
@@ -221,22 +221,22 @@ QString KanagramGame::getFilename()
 
 QString KanagramGame::getAnagram()
 {
-	return m_anagram;
+    return m_anagram;
 }
 
 QString KanagramGame::getHint()
 {
-	return m_hint;
+    return m_hint;
 }
 
 QString KanagramGame::getWord()
 {
-	return m_originalWord;
+    return m_originalWord;
 }
 
 void KanagramGame::restoreWord()
 {
-	m_anagram = m_originalWord;
+    m_anagram = m_originalWord;
 }
 
 void KanagramGame::createAnagram()

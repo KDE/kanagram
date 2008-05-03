@@ -842,7 +842,7 @@ void Kanagram::slotShowSettings()
     if (!KConfigDialog::showDialog("settings"))
     {
         m_configDialog = new KConfigDialog( this, "settings", KanagramSettings::self() );
-        m_configDialog->setAttribute(Qt::WA_DeleteOnClose);
+        //m_configDialog->setAttribute(Qt::WA_DeleteOnClose);
         connect(m_configDialog, SIGNAL(finished()), this, SLOT(reloadSettings()));
 
         // add the main settings page
