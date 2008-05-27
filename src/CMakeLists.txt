@@ -30,7 +30,7 @@ kde4_add_executable(kanagram ${kanagram_SRCS})
 
 target_link_libraries(kanagram  ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_PHONON_LIBS} ${QT_QTXML_LIBRARY} keduvocdocument kdeeduui )
 
-install(TARGETS kanagram  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS kanagram  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### install files ###############
