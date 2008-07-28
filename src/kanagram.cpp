@@ -129,23 +129,14 @@ Kanagram::Kanagram()
 
 Kanagram::~Kanagram()
 {
-    if (m_player != NULL)
-    {
-        delete m_player;
-        m_player = NULL;
-    }
-
-    if (m_game != NULL)
-    {
-        delete m_game;
-        m_game = NULL;
-    }
-
-    if (m_renderer != NULL)
-    {
-        delete m_renderer;
-        m_renderer = NULL;
-    }
+    delete m_player;
+    m_player = NULL;
+    
+    delete m_game;
+    m_game = NULL;
+    
+    delete m_renderer;
+    m_renderer = NULL;
 }
 
 QSize Kanagram::sizeHint() const
@@ -245,11 +236,7 @@ void Kanagram::setupActions()
 
     m_actionCollection->addAssociatedWidget(this);
     foreach (QAction* action, m_actionCollection->actions())
-#if QT_VERSION < KDE_MAKE_VERSION(4,4,0)
-        action->setShortcutContext(Qt::WidgetShortcut); // remove after Qt4.4 becomes mandatory
-#else
         action->setShortcutContext(Qt::WidgetWithChildrenShortcut);
-#endif
 }
 
 void Kanagram::paintEvent(QPaintEvent *)
