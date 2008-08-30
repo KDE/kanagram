@@ -30,8 +30,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2005-09-04</date>
-<releaseinfo>1.0</releaseinfo>
+<date>2008-08-22</date>
+<releaseinfo>0.2 (&kde; 4.1.2)</releaseinfo>
 
 <abstract>
 <para>
@@ -94,12 +94,12 @@ In the center of the <interface>blackboard</interface> is the anagram puzzle to 
 </listitem>
 <listitem>
 <para>
-When the <quote><guibutton>Hint</guibutton></quote> button is clicked, a short sentence will appear, <action>describing the current word puzzle</action>.
+When the <guibutton>Hint</guibutton> button is clicked, a short sentence will appear, <action>describing the current word puzzle</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-The <quote><guibutton>Reveal Word</guibutton></quote> button <action>solves the current word puzzle</action>.
+The <guibutton>Reveal Word</guibutton> button <action>solves the current word puzzle</action>.
 </para>
 </listitem>
 <listitem>
@@ -159,7 +159,7 @@ Now that you are familiar with the interface of &kanagram;, lets play a game!
 Using the <interface>Vocabulary Switcher</interface>, <action>select the vocabulary theme</action> that you would like to attempt. A word from this vocabulary will then be presented in the middle of the <interface>blackboard</interface>. Now, try and guess what word the jumble of letters represents.
 <tip>
 <para>
-If you cannot guess what the word is, press the <quote><guibutton>Hint</guibutton></quote> button to get some friendly advice from your friend in the <interface>filing cabinet</interface>:
+If you cannot guess what the word is, press the <guibutton>Hint</guibutton> button to get some friendly advice from your friend in the <interface>filing cabinet</interface>:
 </para>
 <screenshot>
 <screeninfo>&kanagram; hint</screeninfo>
@@ -229,25 +229,20 @@ The <guilabel>Configure</guilabel> dialog is opened by clicking on the <guiicon>
 
 <listitem>
 <para>
-The <quote><guilabel>Auto-hide hints after:</guilabel></quote> <interface>drop-down box</interface> allows you to specify how hints are presented to you. Here, you can set the hint box to disappear after a certain amount of seconds (&eg; 5 seconds), or you can leave it as default (<quote>Do not auto-hide hints</quote>).
+The <guilabel>Auto-hide hints after:</guilabel> drop down box allows you to specify how hints are presented to you. Here, you can set the hint box to disappear after a certain amount of seconds (&eg; 5 seconds), or you can leave it as default (<quote>Do not auto-hide hints</quote>).
 </para>
 </listitem>
 
 <listitem>
 <para>
-The <quote><guilabel>Play Using:</guilabel></quote> <interface>drop-down box</interface> allows you to play &kanagram; using vocabularies of a different language. For this feature to work, you must have vocabularies of a separate language installed.
+The <guilabel>Play Using:</guilabel> drop down box allows you to play &kanagram; using vocabularies of a different language. For this feature to work, you must have vocabularies of a separate language installed.
 </para>
 </listitem>
 
 <listitem>
 <para>
-The <quote><guilabel>Use sounds</guilabel></quote> <interface>checkbox</interface> allows you to either allow or suppress the &kanagram; sound effects.
+The <guilabel>Use sounds</guilabel> check box allows you to either allow or suppress the &kanagram; sound effects.
 </para>
-<note>
-<para>
-You need to have &arts; support in kdelibs to hear the sounds.
-</para>
-</note>
 </listitem>
 </itemizedlist>
 
@@ -273,18 +268,18 @@ The <guilabel>Vocabularies</guilabel> configuration page allows you to manage yo
 <itemizedlist>
 <listitem>
 <para>
-The <quote><guibutton>Create New</guibutton></quote> button <action>opens the <link
+The <guibutton>Create New</guibutton> button <action>opens the <link
 linkend="vocab-editor"><guilabel>Vocabulary Editor</guilabel></link> dialog</action> so that you can author your own vocabularies which you can then play.
 </para>
 </listitem>
 <listitem>
 <para>
-The <quote><guibutton>Edit</guibutton></quote> button allows you to <action>make changes to vocabularies that you have either created or downloaded off the Internet</action>.
+The <guibutton>Edit</guibutton> button allows you to <action>make changes to vocabularies that you have either created or downloaded off the Internet</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-The <quote><guibutton>Delete</guibutton></quote> button allows you to <action>delete vocabularies that you have created or downloaded</action>.
+The <guibutton>Delete</guibutton> button allows you to <action>delete vocabularies that you have created or downloaded</action>.
 </para>
 </listitem>
 <listitem>
@@ -331,12 +326,12 @@ Try to keep both the name and description fields as short as possible. Effective
 </listitem>
 <listitem>
 <para>
-The <quote><guibutton>Delete Word</guibutton></quote> button lets you <action>remove words from your vocabulary</action>.
+The <guibutton>Delete Word</guibutton> button lets you <action>remove words from your vocabulary</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-The <quote><guibutton>New Word</guibutton></quote> button <action>creates a new word entry in your vocabulary</action>, ready for you to expand.
+The <guibutton>New Word</guibutton> button <action>creates a new word entry in your vocabulary</action>, ready for you to expand.
 </para>
 </listitem>
 <listitem>
@@ -356,16 +351,37 @@ Good hints clearly, yet subtly describe the word, whilst increasing the knowledg
 </listitem>
 <listitem>
 <para>
-The <quote><guibutton>Save</guibutton></quote> button <action>saves your vocabulary content</action>, and enables its use directly in &kanagram; (it will immediately become available within the application, selectable via. the <interface>Vocabulary Selector</interface>).
+The <guibutton>Save</guibutton> button <action>saves your vocabulary content</action>, and enables its use directly in &kanagram; (it will immediately become available within the application, selectable via. the <interface>Vocabulary Selector</interface>).
 </para>
 </listitem>
 <listitem>
 <para>
-The <quote><guibutton>Close</guibutton></quote> button <action>closes the <guilabel>Vocabulary Editor</guilabel> dialog</action> without saving the content of your vocabulary.
+The <guibutton>Close</guibutton> button <action>closes the <guilabel>Vocabulary Editor</guilabel> dialog</action> without saving the content of your vocabulary.
 </para>
 </listitem>
 </itemizedlist>
 </sect2>
+
+</sect1>
+
+<sect1 id="shortcuts-config">
+<title>Shortcuts</title>
+
+<para>
+The <guilabel>Shortcut</guilabel> configuration page allows you to assign shortcuts
+to &kanagram; action, and configure the shortcuts already assigned.</para>
+
+<screenshot>
+<screeninfo>&kanagram; shortcuts settings</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="shortcuts-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>&kanagram; shortcuts settings</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
 
 </sect1>
 
@@ -389,7 +405,7 @@ The <guilabel>New Stuff</guilabel> configuration page allows you to obtain new v
 </screenshot>
 
 <para>
-Click the <quote><guibutton>Download New Vocabularies</guibutton></quote> button to browse the available online content:
+Click the <guibutton>Download New Vocabularies</guibutton> button to browse the available online content:
 </para>
 
 <screenshot>
@@ -405,7 +421,7 @@ Click the <quote><guibutton>Download New Vocabularies</guibutton></quote> button
 </screenshot>
 
 <para>
-To install a vocabulary from the Internet, click on the vocabulary item in the list, then press the <quote><guibutton>Install</guibutton></quote> button to install to your system. The downloaded vocabulary will then be available to play immediately.
+To install a vocabulary from the Internet, click on the vocabulary item in the list, then press the <guibutton>Install</guibutton> button to install to your system. The downloaded vocabulary will then be available to play immediately.
 </para>
 
 </sect1>
