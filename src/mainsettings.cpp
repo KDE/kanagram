@@ -38,21 +38,21 @@
 
 MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 {
-	setupUi( this );
-	m_parent = (KConfigDialog*)parent;
+    setupUi( this );
+    m_parent = (KConfigDialog*)parent;
 
-	connect(parent, SIGNAL(applyClicked()), this, SLOT(slotUpdateLanguage()));
-	connect(parent, SIGNAL(okClicked()), this, SLOT(slotUpdateLanguage()));
-	connect(languageComboBox, SIGNAL(activated(int)), this, SLOT(slotSetDirty()));
-	
-	populateLanguageBox();
+    connect(parent, SIGNAL(applyClicked()), this, SLOT(slotUpdateLanguage()));
+    connect(parent, SIGNAL(okClicked()), this, SLOT(slotUpdateLanguage()));
+    connect(languageComboBox, SIGNAL(activated(int)), this, SLOT(slotSetDirty()));
+    
+    populateLanguageBox();
 
-	//the language code/name
-	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
-	QString code = KanagramSettings::dataLanguage();
-	KConfigGroup group = entry.group(code);
-	// select the current language
-	languageComboBox->setCurrentIndex(languageComboBox->findText(group.readEntry("Name")));
+    //the language code/name
+    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
+    QString code = KanagramSettings::dataLanguage();
+    KConfigGroup group = entry.group(code);
+    // select the current language
+    languageComboBox->setCurrentIndex(languageComboBox->findText(group.readEntry("Name")));
 }
 
 MainSettings::~MainSettings()
@@ -61,36 +61,36 @@ MainSettings::~MainSettings()
 
 void MainSettings::slotSetDirty()
 {
-	m_parent->enableButtonApply(true);
+    m_parent->enableButtonApply(true);
 }
 
 void MainSettings::populateLanguageBox()
 {
-	QStringList languages = SharedKvtmlFiles::languages();
+    QStringList languages = SharedKvtmlFiles::languages();
 
-	//the language code/name
-	KConfig entry(KStandardDirs::locate("locale", "all_languages"));
-	for (int i = 0; i < languages.count(); ++i) 
-	{
-		KConfigGroup group = entry.group(languages[i]);
-		
-		// get the language name
-		QString languageName = group.readEntry("Name");
-		if (languageName.isEmpty())
-		{
-			languageName = i18nc("@item:inlistbox no language for that locale", "None");
-		}
-		languageComboBox->addItem(languageName, languages[i]);
-	}
+    //the language code/name
+    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
+    for (int i = 0; i < languages.count(); ++i) 
+    {
+        KConfigGroup group = entry.group(languages[i]);
+        
+        // get the language name
+        QString languageName = group.readEntry("Name");
+        if (languageName.isEmpty())
+        {
+            languageName = i18nc("@item:inlistbox no language for that locale", "None");
+        }
+        languageComboBox->addItem(languageName, languages[i]);
+    }
 }
 
 void MainSettings::slotUpdateLanguage()
 {
-	int index = languageComboBox->currentIndex();
-	QString language = languageComboBox->itemData(index).toString();
-	kDebug() << "Writing new default language: " << language;
-	KanagramSettings::setDataLanguage(language);
-	KanagramSettings::self()->writeConfig();
+    int index = languageComboBox->currentIndex();
+    QString language = languageComboBox->itemData(index).toString();
+    kDebug() << "Writing new default language: " << language;
+    KanagramSettings::setDataLanguage(language);
+    KanagramSettings::self()->writeConfig();
     
     emit settingsChanged();
 }
