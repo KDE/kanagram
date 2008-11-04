@@ -27,6 +27,7 @@ kde4_add_app_icon(kanagram_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/hi*-app*-k
 kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 
 kde4_add_executable(kanagram ${kanagram_SRCS})
+add_dependencies(kanagram kvtml_data)
 
 target_link_libraries(kanagram  ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_PHONON_LIBS} ${QT_QTXML_LIBRARY} keduvocdocument kdeeduui )
 
