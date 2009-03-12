@@ -116,8 +116,7 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11" />
- <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
- <tabstops>
+  <tabstops>
   <tabstop>kcfg_hintHideTime</tabstop>
   <tabstop>kcfg_useSounds</tabstop>
  </tabstops>
