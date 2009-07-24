@@ -123,7 +123,7 @@ void VocabEdit::slotClose()
 
 void VocabEdit::slotNewWord()
 {
-	lboxWords->addItem("New Item");
+	lboxWords->addItem(i18n("New Item"));
 	KEduVocExpression expr = KEduVocExpression();
 	m_vocabList.append(expr);
 
