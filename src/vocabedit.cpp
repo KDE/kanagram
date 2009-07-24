@@ -98,9 +98,7 @@ void VocabEdit::slotSave()
 
 	VocabSettings *settings = (VocabSettings*)this->parentWidget();
 	settings->refreshView();
-
-	if(m_textChanged)
-		m_textChanged = false;
+        m_textChanged = false;
 }
 
 void VocabEdit::slotClose()
@@ -126,9 +124,7 @@ void VocabEdit::slotNewWord()
 	lboxWords->addItem(i18n("New Item"));
 	KEduVocExpression expr = KEduVocExpression();
 	m_vocabList.append(expr);
-
-	if(m_textChanged == false)
-		m_textChanged = true;
+        m_textChanged = true;
 }
 
 void VocabEdit::slotSelectionChanged()
@@ -153,9 +149,7 @@ void VocabEdit::slotWordTextChanged(const QString &changes)
 		m_vocabList[lboxWords->currentRow()].setTranslation(0, changes);
 		lboxWords->currentItem()->setText(changes);
 	}
-
-	if(m_textChanged == false)
-		m_textChanged = true;
+        m_textChanged = true;
 }
 
 void VocabEdit::slotHintTextChanged(const QString &changes)
@@ -163,17 +157,14 @@ void VocabEdit::slotHintTextChanged(const QString &changes)
 	//Make sure there actually is a currentItem()
 	if(lboxWords->currentRow() != -1)
 		m_vocabList[lboxWords->currentRow()].translation(0)->setComment(changes);
-
-	if(m_textChanged == false)
-		m_textChanged = true;
+        m_textChanged = true;
 }
 
 void VocabEdit::slotTextChanged(const QString &changes)
 {
 	//Make sure we know when text has been modified and not saved, so we
 	//can notify the user
-	if(m_textChanged == false)
-		m_textChanged = true;
+        m_textChanged = true;
 
 	//Make gcc happy
 	(void)changes;
@@ -186,8 +177,7 @@ void VocabEdit::slotRemoveWord()
 		delete lboxWords->takeItem(lboxWords->currentRow());
 	}
 
-	if(m_textChanged == false)
-		m_textChanged = true;
+        m_textChanged = true;
 }
 
 #include "vocabedit.moc"
