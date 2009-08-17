@@ -88,6 +88,8 @@ void VocabEdit::slotSave()
 	KEduVocDocument *doc = new KEduVocDocument(this);
 	doc->setTitle(txtVocabName->text());
 	doc->setDocumentComment(txtDescription->text());
+    KEduVocIdentifier id;
+    doc->appendIdentifier(id);
 	for(int i = 0; i < m_vocabList.size(); i++)
 	{
 		doc->lesson()->appendEntry(&m_vocabList[i]);
