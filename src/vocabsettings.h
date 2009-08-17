@@ -34,40 +34,42 @@ class KConfigDialog;
 class VocabSettings : public QWidget, public Ui::VocabSettingsWidget
 {
 Q_OBJECT
-	public:
-		/** default constructor */
-		explicit VocabSettings(QWidget *parent);
+    public:
+        /** default constructor */
+        explicit VocabSettings(QWidget *parent);
 
-		/** default destructor */
-		virtual ~VocabSettings();
+        /** default destructor */
+        virtual ~VocabSettings();
 
-		/** reload the list of vocabularies from what's on disk */
-		void refreshView();
+    public slots:
 
-	private:
+        /** reload the list of vocabularies from what's on disk */
+        void refreshView();
 
-		/** list of vocabulary files */
-		QStringList m_fileList;
-		
-		/** list of document titles */
-		QStringList m_titleList;
-		
-		/** list of document comments */
-		QStringList m_commentList;
-		
-		QMap<const QTreeWidgetItem*, int> m_itemMap;
+    private:
 
-		/** cache pointer to config dialog so we can enable the apply button in slotSetDirty */
-		KConfigDialog *m_parent;
+        /** list of vocabulary files */
+        QStringList m_fileList;
+        
+        /** list of document titles */
+        QStringList m_titleList;
+        
+        /** list of document comments */
+        QStringList m_commentList;
+        
+        QMap<const QTreeWidgetItem*, int> m_itemMap;
 
-	private slots:
+        /** cache pointer to config dialog so we can enable the apply button in slotSetDirty */
+        KConfigDialog *m_parent;
 
-		/** create a new vocabulary
-		  * called when the btnCreateNew is clicked
-		  */
-		void on_btnCreateNew_clicked();
-		void on_btnEdit_clicked();
-		void slotSelectionChanged(QTreeWidgetItem *item);
+    private slots:
+
+        /** create a new vocabulary
+          * called when the btnCreateNew is clicked
+          */
+        void on_btnCreateNew_clicked();
+        void on_btnEdit_clicked();
+        void slotSelectionChanged(QTreeWidgetItem *item);
 };
 
 #endif

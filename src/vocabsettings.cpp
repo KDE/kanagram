@@ -41,12 +41,12 @@
 
 VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
 {
-	setupUi(this);
-	m_parent = (KConfigDialog*)parent;
+    setupUi(this);
+    m_parent = (KConfigDialog*)parent;
 
-	connect(lviewVocab, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(slotSelectionChanged(QTreeWidgetItem *)));
+    connect(lviewVocab, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(slotSelectionChanged(QTreeWidgetItem *)));
 
-	refreshView();
+    refreshView();
 }
 
 VocabSettings::~VocabSettings()
@@ -55,43 +55,46 @@ VocabSettings::~VocabSettings()
 
 void VocabSettings::refreshView()
 {
-	lviewVocab->clear();
+    lviewVocab->clear();
 
-	m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
-	m_titleList = SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
-	m_commentList = SharedKvtmlFiles::comments(KanagramSettings::dataLanguage());
+    SharedKvtmlFiles::sortDownloadedFiles();
+    m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
+    m_titleList = SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
+    m_commentList = SharedKvtmlFiles::comments(KanagramSettings::dataLanguage());
 
-	for(int i = 0; i < m_fileList.size(); i++)
-	{
-		QTreeWidgetItem *item = new QTreeWidgetItem(lviewVocab, 0);
-		item->setText( 0, m_titleList[i] );
-		item->setText( 1, m_commentList[i] );
-		m_itemMap[item] = i;
-	}
-	m_parent->enableButtonApply(true);
+    for(int i = 0; i < m_fileList.size(); i++)
+    {
+        QTreeWidgetItem *item = new QTreeWidgetItem(lviewVocab, 0);
+        item->setText( 0, m_titleList[i] );
+        item->setText( 1, m_commentList[i] );
+        m_itemMap[item] = i;
+    }
+    m_parent->enableButtonApply(true);
 }
 
 void VocabSettings::on_btnEdit_clicked()
 {
-	if(lviewVocab->currentItem())
-	{
-		int index = m_itemMap[lviewVocab->currentItem()];
-		VocabEdit *vocabEdit = new VocabEdit(this, m_fileList[index]);
-		vocabEdit->show();
-	}
+    if(lviewVocab->currentItem())
+    {
+        int index = m_itemMap[lviewVocab->currentItem()];
+        VocabEdit *vocabEdit = new VocabEdit(this, m_fileList[index]);
+        connect(vocabEdit, SIGNAL(finished(int)), this, SLOT(refreshView()));
+        vocabEdit->show();
+    }
 }
 
 void VocabSettings::on_btnCreateNew_clicked()
 {
-	VocabEdit *vocabEdit = new VocabEdit(this, "");
-	vocabEdit->show();
+    VocabEdit *vocabEdit = new VocabEdit(this, "");
+    connect(vocabEdit, SIGNAL(finished(int)), this, SLOT(refreshView()));
+    vocabEdit->show();
 }
 
 void VocabSettings::slotSelectionChanged(QTreeWidgetItem *item)
 {
-	int index = m_itemMap[item];
-	bool writeable = QFileInfo(m_fileList[index]).isWritable();
-	btnEdit->setEnabled(writeable);
+    int index = m_itemMap[item];
+    bool writeable = QFileInfo(m_fileList[index]).isWritable();
+    btnEdit->setEnabled(writeable);
 }
 
 #include "vocabsettings.moc"
