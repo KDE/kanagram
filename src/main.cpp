@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
- *             (C) 2007 by Jeremy Whiting <jeremy@scitools.com>            *
+ *             (C) 2007 by Jeremy Whiting <jpwhiting@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
         ki18n("© 2005 Joshua Keel\n© 2005 Danny Allen\n© 2007 Jeremy Whiting"));
     about.addAuthor(ki18n("Joshua Keel"), ki18n("Coding"), "joshuakeel@gmail.com");
     about.addAuthor(ki18n("Danny Allen"), ki18n("Design, Graphics and many Vocabularies"), "danny@dannyallen.co.uk");
-    about.addAuthor(ki18n("Jeremy Whiting"), ki18n("Maintainer"), "jeremy@scitools.com");
+    about.addAuthor(ki18n("Jeremy Whiting"), ki18n("Maintainer"), "jpwhiting@kde.org");
     about.addCredit(ki18n("Artemiy Pavlov"), ki18n("Sound effects"), 0, "http://artemiolabs.com");
     about.addCredit(ki18n("Pino Toscano"), ki18n("Italian Data Files"), "pino@kde.org");
     about.addCredit(ki18n("Kris Thomsen"), ki18n("Danish Data Files"), "kris@scoutzone.dk");

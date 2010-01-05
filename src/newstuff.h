@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
- *             (C) 2007 by Jeremy Whiting <jeremy@scitools.com>            *
+ *             (C) 2007 by Jeremy Whiting <jpwhiting@kde.org>              *
  *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *

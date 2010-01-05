@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
- *             (C) 2007 by Jeremy Whiting <jeremy@scitools.com>            *
+ *             (C) 2007 by Jeremy Whiting <jpwhiting@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -30,7 +30,7 @@ class KEduVocDocument;
 
 /** @brief game api
  * @author Joshua Keel <joshuakeel@gmail.com>
- * @author Jeremy Whiting <jeremy@scitools.com>
+ * @author Jeremy Whiting <jpwhiting@kde.org>
  */
 class KanagramGame : public QObject
 {
