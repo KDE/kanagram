@@ -4,20 +4,18 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/keduvocdocument/   )
 
 ########### next target ###############
 
-set(kanagram_SRCS 
-   main.cpp 
-   kanagram.cpp 
-   kanagramgame.cpp 
-   mainsettings.cpp 
-   vocabsettings.cpp 
-   vocabedit.cpp 
-   newstuff.cpp )
+set(kanagram_SRCS
+   main.cpp
+   kanagram.cpp
+   kanagramgame.cpp
+   mainsettings.cpp
+   vocabsettings.cpp
+   vocabedit.cpp )
 
 
-kde4_add_ui_files(kanagram_SRCS 
+kde4_add_ui_files(kanagram_SRCS
    vocabsettingswidget.ui
    vocabeditwidget.ui
-   newstuffwidget.ui
    mainsettingswidget.ui )
 
 # there is no kanagram icon in oxgen
@@ -29,7 +27,7 @@ kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 kde4_add_executable(kanagram ${kanagram_SRCS})
 add_dependencies(kanagram kvtml_data)
 
-target_link_libraries(kanagram  ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_PHONON_LIBS} ${QT_QTXML_LIBRARY} keduvocdocument kdeeduui )
+target_link_libraries(kanagram  ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_PHONON_LIBS} ${QT_QTXML_LIBRARY} keduvocdocument kdeeduui )
 
 install(TARGETS kanagram  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

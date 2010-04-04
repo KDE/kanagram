@@ -35,6 +35,8 @@
 
 #include <kurl.h>
 
+#include <knewstuff3/downloaddialog.h>
+#include <knewstuff3/knewstuffbutton.h>
 #include <sharedkvtmlfiles.h>
 #include <keduvocdocument.h>
 #include "kanagramsettings.h"
@@ -45,6 +47,8 @@ VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
     m_parent = (KConfigDialog*)parent;
 
     connect(lviewVocab, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(slotSelectionChanged(QTreeWidgetItem *)));
+
+    btnDownloadNew->setIcon(KIcon("get-hot-new-stuff"));
 
     refreshView();
 }
@@ -88,6 +92,15 @@ void VocabSettings::on_btnCreateNew_clicked()
     VocabEdit *vocabEdit = new VocabEdit(this, "");
     connect(vocabEdit, SIGNAL(finished(int)), this, SLOT(refreshView()));
     vocabEdit->show();
+}
+
+void VocabSettings::on_btnDownloadNew_clicked()
+{
+    KNS3::DownloadDialog hotNewStuffdialog( "kanagram.knsrc" );
+    hotNewStuffdialog.exec();
+    if ( hotNewStuffdialog.changedEntries().size() > 0 ){
+        refreshView();
+    }
 }
 
 void VocabSettings::slotSelectionChanged(QTreeWidgetItem *item)

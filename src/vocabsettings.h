@@ -68,6 +68,7 @@ Q_OBJECT
           * called when the btnCreateNew is clicked
           */
         void on_btnCreateNew_clicked();
+        void on_btnDownloadNew_clicked();
         void on_btnEdit_clicked();
         void slotSelectionChanged(QTreeWidgetItem *item);
 };

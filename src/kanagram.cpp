@@ -51,7 +51,6 @@
 #include "kanagramsettings.h"
 #include "mainsettings.h"
 #include "vocabsettings.h"
-#include "newstuff.h"
 #include "libkdeedu/kdeeduui/kedufontutils.h"
 
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
@@ -848,10 +847,8 @@ void Kanagram::slotShowSettings()
         connect(m_configDialog, SIGNAL(rejected()), this, SLOT(slotSettingsCancelled()));
         connect(m_shortcutsEditor, SIGNAL(keyChange()), this, SLOT(slotEnableApplyButton()));
 
-        // and add the KNS page
-        m_configDialog->addPage( new NewStuff( m_configDialog ), i18n("New Stuff"), "get-hot-new-stuff" );
-
         m_configDialog->setHelp("kanagram/index.html");
+        m_configDialog->resize(600, 500);
         m_configDialog->show();
     }
 }

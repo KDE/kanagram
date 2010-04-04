@@ -1,110 +1,97 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>VocabSettingsWidget</class>
- <widget class="QWidget" name="VocabSettingsWidget" >
-  <property name="geometry" >
+ <widget class="QWidget" name="VocabSettingsWidget">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>456</width>
-    <height>338</height>
+    <width>603</width>
+    <height>408</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
    <string>Vocabularies</string>
   </property>
-  <layout class="QGridLayout" >
-   <property name="leftMargin" >
+  <layout class="QGridLayout">
+   <property name="margin">
     <number>11</number>
    </property>
-   <property name="topMargin" >
-    <number>11</number>
-   </property>
-   <property name="rightMargin" >
-    <number>11</number>
-   </property>
-   <property name="bottomMargin" >
-    <number>11</number>
-   </property>
-   <property name="horizontalSpacing" >
+   <property name="spacing">
     <number>6</number>
    </property>
-   <property name="verticalSpacing" >
-    <number>6</number>
-   </property>
-   <item row="0" column="0" >
-    <layout class="QVBoxLayout" >
-     <property name="spacing" >
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="VocabVBox">
+     <property name="spacing">
       <number>6</number>
      </property>
-     <property name="leftMargin" >
-      <number>0</number>
-     </property>
-     <property name="topMargin" >
-      <number>0</number>
-     </property>
-     <property name="rightMargin" >
-      <number>0</number>
-     </property>
-     <property name="bottomMargin" >
+     <property name="margin">
       <number>0</number>
      </property>
      <item>
-      <layout class="QHBoxLayout" >
-       <property name="spacing" >
+      <layout class="QHBoxLayout" name="VocabHBox">
+       <property name="spacing">
         <number>6</number>
        </property>
-       <property name="leftMargin" >
-        <number>0</number>
-       </property>
-       <property name="topMargin" >
-        <number>0</number>
-       </property>
-       <property name="rightMargin" >
-        <number>0</number>
-       </property>
-       <property name="bottomMargin" >
+       <property name="margin">
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="btnCreateNew" >
-         <property name="whatsThis" >
+        <widget class="QPushButton" name="btnCreateNew">
+         <property name="whatsThis">
           <string>Creates a new vocabulary.</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string>Create &amp;New</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnEdit" >
-         <property name="enabled" >
-          <bool>false</bool>
+        <widget class="QPushButton" name="btnDownloadNew">
+         <property name="toolTip">
+          <string>Download new vocabulary from  &quot;Get hot new Stuff&quot;</string>
          </property>
-         <property name="whatsThis" >
-          <string>Edits the selected vocabulary.</string>
-         </property>
-         <property name="text" >
-          <string>&amp;Edit</string>
+         <property name="text">
+          <string>Dowload new vocabulary</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <widget class="QTreeWidget" name="lviewVocab" >
-       <property name="whatsThis" >
+      <widget class="QPushButton" name="btnEdit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="whatsThis">
+        <string>Edits the selected vocabulary.</string>
+       </property>
+       <property name="text">
+        <string>&amp;Edit</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTreeWidget" name="lviewVocab">
+       <property name="whatsThis">
         <string>The list of installed vocabularies.</string>
        </property>
-       <property name="rootIsDecorated" >
+       <property name="rootIsDecorated">
         <bool>false</bool>
        </property>
        <column>
-        <property name="text" >
+        <property name="text">
          <string>Title</string>
         </property>
        </column>
        <column>
-        <property name="text" >
+        <property name="text">
          <string>Description</string>
         </property>
        </column>
@@ -114,6 +101,6 @@
    </item>
   </layout>
  </widget>
-  <resources/>
+ <resources/>
  <connections/>
 </ui>
