@@ -27,7 +27,7 @@
 #ifndef MultipleChoice_included
 #define MultipleChoice_included
 
-#include <qstring.h>
+#include <tqstring.h>
 
 #define MAX_MULTIPLE_CHOICE  5  // select one out of x
 
@@ -39,26 +39,26 @@ public:
    MultipleChoice() {}
 
    MultipleChoice (
-           const QString &mc1,
-           const QString &mc2,
-           const QString &mc3,
-           const QString &mc4,
-           const QString &mc5
+           const TQString &mc1,
+           const TQString &mc2,
+           const TQString &mc3,
+           const TQString &mc4,
+           const TQString &mc5
           );
 
-   void setMC1 (const QString &s) { muc1 = s; }
-   void setMC2 (const QString &s) { muc2 = s; }
-   void setMC3 (const QString &s) { muc3 = s; }
-   void setMC4 (const QString &s) { muc4 = s; }
-   void setMC5 (const QString &s) { muc5 = s; }
+   void setMC1 (const TQString &s) { muc1 = s; }
+   void setMC2 (const TQString &s) { muc2 = s; }
+   void setMC3 (const TQString &s) { muc3 = s; }
+   void setMC4 (const TQString &s) { muc4 = s; }
+   void setMC5 (const TQString &s) { muc5 = s; }
 
-   QString mc1 () const { return muc1; }
-   QString mc2 () const { return muc2; }
-   QString mc3 () const { return muc3; }
-   QString mc4 () const { return muc4; }
-   QString mc5 () const { return muc5; }
+   TQString mc1 () const { return muc1; }
+   TQString mc2 () const { return muc2; }
+   TQString mc3 () const { return muc3; }
+   TQString mc4 () const { return muc4; }
+   TQString mc5 () const { return muc5; }
 
-   QString mc (unsigned idx) const;
+   TQString mc (unsigned idx) const;
 
    bool isEmpty() const;
    void normalize();
@@ -67,7 +67,7 @@ public:
 
 protected:
 
-   QString  muc1, muc2, muc3, muc4, muc5;
+   TQString  muc1, muc2, muc3, muc4, muc5;
 };
 
 

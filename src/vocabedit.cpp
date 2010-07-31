@@ -21,12 +21,12 @@
 
 #include "vocabedit.h"
 
-#include <qpushbutton.h>
-#include <qlistbox.h>
-#include <qlineedit.h>
-#include <qfile.h>
-#include <qstring.h>
-#include <qvaluevector.h>
+#include <tqpushbutton.h>
+#include <tqlistbox.h>
+#include <tqlineedit.h>
+#include <tqfile.h>
+#include <tqstring.h>
+#include <tqvaluevector.h>
 
 #include <kstandarddirs.h>
 #include <kglobal.h>
@@ -41,7 +41,7 @@
 #include "kanagramsettings.h"
 
 
-VocabEdit::VocabEdit(QWidget *parent, QString fileName) : VocabEditWidget(parent), m_fileName("")
+VocabEdit::VocabEdit(TQWidget *parent, TQString fileName) : VocabEditWidget(parent), m_fileName("")
 {
 	if(fileName != "")
 	{
@@ -58,20 +58,20 @@ VocabEdit::VocabEdit(QWidget *parent, QString fileName) : VocabEditWidget(parent
 		txtDescription->setText(doc->getDocRemark());
 	}
 
-	connect(btnSave, SIGNAL(clicked()), this, SLOT(slotSave()));
-	connect(btnNewWord, SIGNAL(clicked()), this, SLOT(slotNewWord()));
-	connect(btnRemoveWord, SIGNAL(clicked()), this, SLOT(slotRemoveWord()));
-	connect(btnClose, SIGNAL(clicked()), this, SLOT(slotClose()));
+	connect(btnSave, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotSave()));
+	connect(btnNewWord, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotNewWord()));
+	connect(btnRemoveWord, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotRemoveWord()));
+	connect(btnClose, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotClose()));
 	
-	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
-	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
+	connect(txtWord, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(slotWordTextChanged(const TQString &)));
+	connect(txtHint, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(slotHintTextChanged(const TQString &)));
 
 	//Connect the name and description boxes to a general textChanged slot, so that we can keep track of
 	//whether they've been changed or not
-	connect(txtVocabName, SIGNAL(textChanged(const QString &)), this, SLOT(slotTextChanged(const QString &)));
-	connect(txtDescription, SIGNAL(textChanged(const QString &)), this, SLOT(slotTextChanged(const QString &)));
+	connect(txtVocabName, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(slotTextChanged(const TQString &)));
+	connect(txtDescription, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(slotTextChanged(const TQString &)));
 
-	connect(lboxWords, SIGNAL(selectionChanged()), this, SLOT(slotSelectionChanged()));
+	connect(lboxWords, TQT_SIGNAL(selectionChanged()), this, TQT_SLOT(slotSelectionChanged()));
 
 	//Has anything in the dialog changed?
 	m_textChanged = false;
@@ -91,7 +91,7 @@ void VocabEdit::slotSave()
 		doc->appendEntry(&m_vocabList[i]);
 	}
 	
-	QString fileName;
+	TQString fileName;
 	if(m_fileName == "")
 	{
 		fileName = KGlobal::dirs()->saveLocation("data", "kanagram/data/" + KanagramSettings::dataLanguage()) + txtVocabName->text().lower().replace(" ", "") + ".kvtml";
@@ -140,18 +140,18 @@ void VocabEdit::slotNewWord()
 void VocabEdit::slotSelectionChanged()
 {
 	//A little hack to make things work right
-	disconnect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
-	disconnect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
+	disconnect(txtWord, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(slotWordTextChanged(const TQString &)));
+	disconnect(txtHint, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(slotHintTextChanged(const TQString &)));
 	if(lboxWords->currentItem() >= 0)
 	{
 		txtWord->setText(m_vocabList[lboxWords->currentItem()].getOriginal());
 		txtHint->setText(m_vocabList[lboxWords->currentItem()].getRemark(0));
 	}
-	connect(txtWord, SIGNAL(textChanged(const QString &)), this, SLOT(slotWordTextChanged(const QString &)));
-	connect(txtHint, SIGNAL(textChanged(const QString &)), this, SLOT(slotHintTextChanged(const QString &)));
+	connect(txtWord, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(slotWordTextChanged(const TQString &)));
+	connect(txtHint, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(slotHintTextChanged(const TQString &)));
 }
 
-void VocabEdit::slotWordTextChanged(const QString &changes)
+void VocabEdit::slotWordTextChanged(const TQString &changes)
 {
 	//Make sure there actually is a currentItem()
 	if(lboxWords->currentItem() != -1)
@@ -164,7 +164,7 @@ void VocabEdit::slotWordTextChanged(const QString &changes)
 		m_textChanged = true;
 }
 
-void VocabEdit::slotHintTextChanged(const QString &changes)
+void VocabEdit::slotHintTextChanged(const TQString &changes)
 {
 	//Make sure there actually is a currentItem()
 	if(lboxWords->currentItem() != -1)
@@ -174,7 +174,7 @@ void VocabEdit::slotHintTextChanged(const QString &changes)
 		m_textChanged = true;
 }
 
-void VocabEdit::slotTextChanged(const QString &changes)
+void VocabEdit::slotTextChanged(const TQString &changes)
 {
 	//Make sure we know when text has been modified and not saved, so we
 	//can notify the user

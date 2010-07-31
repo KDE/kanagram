@@ -26,11 +26,11 @@
 #include "multiplechoice.h"
 
 MultipleChoice::MultipleChoice (
-           const QString &mc1,
-           const QString &mc2,
-           const QString &mc3,
-           const QString &mc4,
-           const QString &mc5
+           const TQString &mc1,
+           const TQString &mc2,
+           const TQString &mc3,
+           const TQString &mc4,
+           const TQString &mc5
           )
 {
    setMC1 (mc1);
@@ -61,7 +61,7 @@ void MultipleChoice::clear()
 }
 
 
-QString MultipleChoice::mc (unsigned idx) const
+TQString MultipleChoice::mc (unsigned idx) const
 {
    switch (idx) {
      case 0: return muc1;

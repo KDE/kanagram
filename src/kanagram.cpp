@@ -24,13 +24,13 @@ using namespace std;
 
 #include <config.h>
 
-#include <qcursor.h>
-#include <qpainter.h>
-#include <qpixmap.h>
-#include <qtimer.h>
-#include <qstring.h>
-#include <qfontmetrics.h>
-#include <qdir.h>
+#include <tqcursor.h>
+#include <tqpainter.h>
+#include <tqpixmap.h>
+#include <tqtimer.h>
+#include <tqstring.h>
+#include <tqfontmetrics.h>
+#include <tqdir.h>
 
 #include <kaction.h>
 #include <kapplication.h>
@@ -55,47 +55,47 @@ using namespace std;
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
 
-Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false)
+Kanagram::Kanagram() : TQWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext(false), m_overConfig(false), m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overUp(false), m_overHintBox(false), m_showHint(false)
 {
 	m_game = new KanagramGame(this);
 
-	m_back = new QPixmap(locate("appdata", "images/kanagram.png"));
-	m_aboutKDEOverlay = new QPixmap(locate("appdata", "images/kicon.png"));
-	m_aboutKDEOverlayOver = new QPixmap(locate("appdata", "images/kiconover.png"));
-	m_aboutAppOverlay = new QPixmap(locate("appdata", "images/appicon.png"));
-	m_aboutAppOverlayOver = new QPixmap(locate("appdata", "images/appiconover.png"));
-	m_handbookOverlay = new QPixmap(locate("appdata", "images/handbookicon.png"));
-	m_handbookOverlayOver = new QPixmap(locate("appdata", "images/handbookiconover.png"));
-	m_card = new QPixmap(locate("appdata", "images/card.png"));
+	m_back = new TQPixmap(locate("appdata", "images/kanagram.png"));
+	m_aboutKDEOverlay = new TQPixmap(locate("appdata", "images/kicon.png"));
+	m_aboutKDEOverlayOver = new TQPixmap(locate("appdata", "images/kiconover.png"));
+	m_aboutAppOverlay = new TQPixmap(locate("appdata", "images/appicon.png"));
+	m_aboutAppOverlayOver = new TQPixmap(locate("appdata", "images/appiconover.png"));
+	m_handbookOverlay = new TQPixmap(locate("appdata", "images/handbookicon.png"));
+	m_handbookOverlayOver = new TQPixmap(locate("appdata", "images/handbookiconover.png"));
+	m_card = new TQPixmap(locate("appdata", "images/card.png"));
 
-	m_next = new QPixmap(locate("appdata", "images/next.png"));
-	m_nextOver = new QPixmap(locate("appdata", "images/nextover.png"));
-	m_config = new QPixmap(locate("appdata", "images/config.png"));
-	m_configOver = new QPixmap(locate("appdata", "images/configover.png"));
-	m_help = new QPixmap(locate("appdata", "images/help.png"));
-	m_helpOver = new QPixmap(locate("appdata", "images/helpover.png"));
-	m_quit = new QPixmap(locate("appdata", "images/quit.png"));
-	m_quitOver = new QPixmap(locate("appdata", "images/quitover.png"));
+	m_next = new TQPixmap(locate("appdata", "images/next.png"));
+	m_nextOver = new TQPixmap(locate("appdata", "images/nextover.png"));
+	m_config = new TQPixmap(locate("appdata", "images/config.png"));
+	m_configOver = new TQPixmap(locate("appdata", "images/configover.png"));
+	m_help = new TQPixmap(locate("appdata", "images/help.png"));
+	m_helpOver = new TQPixmap(locate("appdata", "images/helpover.png"));
+	m_quit = new TQPixmap(locate("appdata", "images/quit.png"));
+	m_quitOver = new TQPixmap(locate("appdata", "images/quitover.png"));
 
-	m_up = new QPixmap(locate("appdata", "images/up.png"));
-	m_upOver = new QPixmap(locate("appdata", "images/upover.png"));
-	m_upDisabled = new QPixmap(locate("appdata", "images/updisabled.png"));
+	m_up = new TQPixmap(locate("appdata", "images/up.png"));
+	m_upOver = new TQPixmap(locate("appdata", "images/upover.png"));
+	m_upDisabled = new TQPixmap(locate("appdata", "images/updisabled.png"));
 
-	m_nextRect = QRect(477, 31, 134, 76);
-	m_configRect = QRect(477, 122, 134, 76);
-	m_helpRect = QRect(477, 212, 134, 76);
-	m_quitRect = QRect(453, 352, 182, 104);
+	m_nextRect = TQRect(477, 31, 134, 76);
+	m_configRect = TQRect(477, 122, 134, 76);
+	m_helpRect = TQRect(477, 212, 134, 76);
+	m_quitRect = TQRect(453, 352, 182, 104);
 
-	m_hintBoxRect = QRect(446, 207, 171, 85);
-	m_upRect = QRect(341, 425, 55, 33);
-	m_aboutKDERect = QRect(567, 213, 44, 44);
-	m_aboutAppRect = QRect(522, 213, 44, 44);
-	m_handbookRect = QRect(478, 213, 44, 44);
-	m_arrowRect = QRect(380, 134, 13, 20);
-	m_logoRect = QRect(76, 24, 297, 50);
+	m_hintBoxRect = TQRect(446, 207, 171, 85);
+	m_upRect = TQRect(341, 425, 55, 33);
+	m_aboutKDERect = TQRect(567, 213, 44, 44);
+	m_aboutAppRect = TQRect(522, 213, 44, 44);
+	m_handbookRect = TQRect(478, 213, 44, 44);
+	m_arrowRect = TQRect(380, 134, 13, 20);
+	m_logoRect = TQRect(76, 24, 297, 50);
 
 	//blackboardRect intentionally wrong to make sure fonts align correctly
-	m_blackboardRect = QRect(41, 116, 366, 255);
+	m_blackboardRect = TQRect(41, 116, 366, 255);
 
 	setupRects();
 
@@ -103,27 +103,27 @@ Kanagram::Kanagram() : QWidget(0, 0, WStaticContents | WNoAutoErase), m_overNext
 	setFixedSize(650, 471);
 	show();
 	
-	m_chalkColor = QColor(155, 155, 155);
-	m_chalkHighlightColor = QColor(255, 255, 255);
-	m_fillColor = QColor(45, 45, 45);
-	m_fontColor = QColor(55, 55, 55);
-	m_fontHighlightColor = QColor(99, 99, 99);
+	m_chalkColor = TQColor(155, 155, 155);
+	m_chalkHighlightColor = TQColor(255, 255, 255);
+	m_fillColor = TQColor(45, 45, 45);
+	m_fontColor = TQColor(55, 55, 55);
+	m_fontHighlightColor = TQColor(99, 99, 99);
 
 	loadSettings();
 
-	m_hintTimer = new QTimer(this);
+	m_hintTimer = new TQTimer(this);
 	
 	m_helpMenu = new KHelpMenu(this, kapp->aboutData());
 	
-	m_inputBox = new QLineEdit(this);
-	m_inputBox->setGeometry(QRect(52, 427, 273, 29));
+	m_inputBox = new TQLineEdit(this);
+	m_inputBox->setGeometry(TQRect(52, 427, 273, 29));
 	m_inputBox->setFrame(false);
 	
-	connect(m_inputBox, SIGNAL(returnPressed()), this, SLOT(checkWord()));
-	connect(m_hintTimer, SIGNAL(timeout()), this, SLOT(hideHint()));
-	connect(m_inputBox, SIGNAL(textChanged(const QString &)), this, SLOT(update()));
+	connect(m_inputBox, TQT_SIGNAL(returnPressed()), this, TQT_SLOT(checkWord()));
+	connect(m_hintTimer, TQT_SIGNAL(timeout()), this, TQT_SLOT(hideHint()));
+	connect(m_inputBox, TQT_SIGNAL(textChanged(const TQString &)), this, TQT_SLOT(update()));
 	
-	QFont f = QFont();
+	TQFont f = TQFont();
 	f.setPointSize(17);
 	m_inputBox->setFont(f);
 	m_inputBox->show();
@@ -144,7 +144,7 @@ Kanagram::~Kanagram()
 
 void Kanagram::loadSettings()
 {
-	QString hideTime = KanagramSettings::hintHideTime();
+	TQString hideTime = KanagramSettings::hintHideTime();
 	if(hideTime[0].isDigit())
 		m_hintHideTime = hideTime[0].digitValue();
 	else
@@ -156,14 +156,14 @@ void Kanagram::loadSettings()
 	if(m_useStandardFonts)
 	{
 		m_blackboardFont = KGlobalSettings::generalFont();
-		m_arrow = new QPixmap(locate("appdata", "images/basicarrow.png"));
-		m_arrowOver = new QPixmap(locate("appdata", "images/basicarrowover.png"));
+		m_arrow = new TQPixmap(locate("appdata", "images/basicarrow.png"));
+		m_arrowOver = new TQPixmap(locate("appdata", "images/basicarrowover.png"));
 	}
 	else
 	{
-		m_blackboardFont = QFont("squeaky chalk sound");
-		m_arrow = new QPixmap(locate("appdata", "images/arrow.png"));
-		m_arrowOver = new QPixmap(locate("appdata", "images/arrowover.png"));
+		m_blackboardFont = TQFont("squeaky chalk sound");
+		m_arrow = new TQPixmap(locate("appdata", "images/arrow.png"));
+		m_arrowOver = new TQPixmap(locate("appdata", "images/arrowover.png"));
 	}
 
 	m_game->refreshVocabList();
@@ -171,24 +171,24 @@ void Kanagram::loadSettings()
 
 void Kanagram::setupRects()
 {
-	QPainter tmpp(this);
-	QFont font = m_blackboardFont;
+	TQPainter tmpp(this);
+	TQFont font = m_blackboardFont;
 	font.setPointSize(14);
 	font.setBold(true);
 	tmpp.setFont(font);
 	int yOffset = 0;
 	//set appropriate yOffset for different fonts
 	if(m_useStandardFonts) yOffset = 6;
-	QRect r = innerRect(m_blackboardRect, 6, yOffset);
+	TQRect r = innerRect(m_blackboardRect, 6, yOffset);
 	m_hintRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
 	m_revealRect = tmpp.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, i18n(m_textRevealWord));
 	tmpp.end();
 }
 
-void Kanagram::paintEvent(QPaintEvent *)
+void Kanagram::paintEvent(TQPaintEvent *)
 {
-	QPixmap buf(width(), height());
-	QPainter p(&buf);
+	TQPixmap buf(width(), height());
+	TQPainter p(&buf);
 	
 	p.drawPixmap(0, 0, *m_back);
 
@@ -222,10 +222,10 @@ void Kanagram::paintEvent(QPaintEvent *)
 	//draw vocab switcher
 	drawSwitcher(p, 9, 8);
 
-	p.setPen(QPen(black, 3));
+	p.setPen(TQPen(black, 3));
 
 	//Draw the border of the input box
-	QRect borderRect = m_inputBox->geometry();
+	TQRect borderRect = m_inputBox->geometry();
 	borderRect.setLeft(borderRect.left() - 2);
 	borderRect.setTop(borderRect.top() - 2);
 	borderRect.setWidth(borderRect.width() + 2 * 1);
@@ -247,8 +247,8 @@ void Kanagram::paintEvent(QPaintEvent *)
 	if(m_showHint)
 	{
 		p.drawPixmap(439, 204, *m_hintOverlay);
-		QFont f = QFont(m_font);
-		f.setWeight(QFont::Bold);
+		TQFont f = TQFont(m_font);
+		f.setWeight(TQFont::Bold);
 		f.setPointSize(10);
 		p.setFont(f);
 		p.drawText(459, 217, 148, 67, WordBreak | AlignCenter, m_game->getHint());
@@ -298,10 +298,10 @@ void Kanagram::paintEvent(QPaintEvent *)
 	bitBlt(this, 0, 0, &buf);
 }
 
-void Kanagram::drawHelpText(QPainter &p, QString text)
+void Kanagram::drawHelpText(TQPainter &p, TQString text)
 {
 	p.save();
-	QFont font = m_font;
+	TQFont font = m_font;
 	font.setPointSize(12);
 	p.setFont(font);
 	p.rotate(-3.29);
@@ -311,15 +311,15 @@ void Kanagram::drawHelpText(QPainter &p, QString text)
 	p.restore();
 }
 
-void Kanagram::drawSwitcherText(QPainter &p, QString text)
+void Kanagram::drawSwitcherText(TQPainter &p, TQString text)
 {
 	p.save();
-	QFont font = m_blackboardFont;
+	TQFont font = m_blackboardFont;
 	font.setPointSize(14);
-	QFontMetrics fm(font);
+	TQFontMetrics fm(font);
 	int width = fm.width(text);
 	int height = fm.height();
-	m_switcherRect = QRect(380 - width, 150 - height, width, height);
+	m_switcherRect = TQRect(380 - width, 150 - height, width, height);
 	p.setFont(font);
 	if(!m_overSwitcher)
 		p.setPen(m_chalkColor);
@@ -329,14 +329,14 @@ void Kanagram::drawSwitcherText(QPainter &p, QString text)
 	p.restore();
 }
 
-void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
+void Kanagram::drawSwitcher(TQPainter &p, const int xMargin, const int yMargin)
 {
 	const int padding = 5;
-	QString text = m_game->getDocTitle();
-	QFont font = m_blackboardFont;
+	TQString text = m_game->getDocTitle();
+	TQFont font = m_blackboardFont;
 	font.setPointSize(14);
-	QFontMetrics fm(font);
-	QRect r = innerRect(m_blackboardRect, xMargin, yMargin);
+	TQFontMetrics fm(font);
+	TQRect r = innerRect(m_blackboardRect, xMargin, yMargin);
 	r.normalize();
 	r.moveBy(- padding - (m_overSwitcher ? m_arrowOver : m_arrow )->width(), yMargin);
 	r.setHeight( (m_overSwitcher ? m_arrowOver : m_arrow )->height());
@@ -356,9 +356,9 @@ void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
 	p.drawText(m_switcherRect, Qt::AlignVCenter|Qt::AlignRight, text);
 }
 
-QRect Kanagram::innerRect(const QRect &rect, const int xMargin, const int yMargin)
+TQRect Kanagram::innerRect(const TQRect &rect, const int xMargin, const int yMargin)
 {
-	QRect r = rect;
+	TQRect r = rect;
 
 	if (xMargin>0)
 	{
@@ -374,7 +374,7 @@ QRect Kanagram::innerRect(const QRect &rect, const int xMargin, const int yMargi
 	return r;
 }
 
-void Kanagram::mousePressEvent(QMouseEvent *e)
+void Kanagram::mousePressEvent(TQMouseEvent *e)
 {
 	
 	if (m_nextRect.contains(e->pos()))
@@ -464,8 +464,8 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		if(m_inputBox->text().lower().stripWhiteSpace() == m_game->getWord())
 		{
 			if(m_useSounds) play("right.ogg");
-			m_inputBox->setPaletteBackgroundColor(QColor(0, 255, 0));
-			QTimer::singleShot(1000, this, SLOT(resetInputBox()));
+			m_inputBox->setPaletteBackgroundColor(TQColor(0, 255, 0));
+			TQTimer::singleShot(1000, this, TQT_SLOT(resetInputBox()));
 			m_inputBox->clear();
 			hideHint();
 			m_game->nextAnagram();
@@ -474,20 +474,20 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
 		else
 		{
 			if(m_useSounds) play("wrong.ogg");
-			m_inputBox->setPaletteBackgroundColor(QColor(255, 0, 0));
-			QTimer::singleShot(1000, this, SLOT(resetInputBox()));
+			m_inputBox->setPaletteBackgroundColor(TQColor(255, 0, 0));
+			TQTimer::singleShot(1000, this, TQT_SLOT(resetInputBox()));
 			m_inputBox->clear();
 			update();
 		}
 	}
 }
 
-void Kanagram::mouseMoveEvent(QMouseEvent *e)
+void Kanagram::mouseMoveEvent(TQMouseEvent *e)
 {
 	updateButtonHighlighting(e->pos());
 }
 
-void Kanagram::updateButtonHighlighting(const QPoint &p)
+void Kanagram::updateButtonHighlighting(const TQPoint &p)
 {
 	bool haveToUpdate;
 	haveToUpdate = false;
@@ -671,22 +671,22 @@ void Kanagram::updateButtonHighlighting(const QPoint &p)
 	if (haveToUpdate) update();
 }
 
-void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, int fontSize)
+void Kanagram::drawText(TQPainter &p, const TQString &text, const TQPoint &center, bool withMargin, int xMargin, int yMargin, TQRect *rect, bool highlight, int fontSize)
 {
-	QRect r;
-	QFont font = m_blackboardFont;
+	TQRect r;
+	TQFont font = m_blackboardFont;
 	font.setPointSize(fontSize);
 	font.setBold(true);
 	p.setFont(font);
 	
-	r = p.boundingRect(QRect(), Qt::AlignAuto, text);
-	r = QRect(0, 0, r.width() + xMargin, r.height() + yMargin);
+	r = p.boundingRect(TQRect(), Qt::AlignAuto, text);
+	r = TQRect(0, 0, r.width() + xMargin, r.height() + yMargin);
 	r.moveBy(center.x() - r.width() / 2, center.y() - r.height() / 2);
 
 	if (withMargin)
 	{
 		p.fillRect(r, m_fillColor);
-		p.setPen(QPen(black, 3));
+		p.setPen(TQPen(black, 3));
 		p.drawRoundRect(r.left(), r.top(), r.width(), r.height(), 15, 15);
 	}
 	
@@ -697,10 +697,10 @@ void Kanagram::drawText(QPainter &p, const QString &text, const QPoint &center, 
 	if(rect) *rect = r;
 }
 
-void Kanagram::drawTextNew(QPainter &p, const QString &text, int textAlign, int xMargin, int yMargin, const QRect &rect, bool highlight, int fontSize)
+void Kanagram::drawTextNew(TQPainter &p, const TQString &text, int textAlign, int xMargin, int yMargin, const TQRect &rect, bool highlight, int fontSize)
 {
-	QRect r = innerRect(rect, xMargin, yMargin);
-	QFont font = m_blackboardFont;
+	TQRect r = innerRect(rect, xMargin, yMargin);
+	TQFont font = m_blackboardFont;
 	font.setPointSize(fontSize);
 	font.setBold(true);
 	p.setFont(font);
@@ -709,7 +709,7 @@ void Kanagram::drawTextNew(QPainter &p, const QString &text, int textAlign, int 
 	if (withMargin)
 	{
 		p.fillRect(r, m_fillColor);
-		p.setPen(QPen(black, 3));
+		p.setPen(TQPen(black, 3));
 		p.drawRoundRect(r.left(), r.top(), r.width(), r.height(), 15, 15);
 	}
 	
@@ -722,16 +722,16 @@ void Kanagram::drawTextNew(QPainter &p, const QString &text, int textAlign, int 
 
 void Kanagram::checkWord()
 {
-	QPoint p = m_upRect.topLeft() + QPoint( 1, 1 );
-	QMouseEvent *e = new QMouseEvent( QEvent::MouseButtonPress, p, Qt::LeftButton, Qt::NoButton );
+	TQPoint p = m_upRect.topLeft() + TQPoint( 1, 1 );
+	TQMouseEvent *e = new TQMouseEvent( TQEvent::MouseButtonPress, p, Qt::LeftButton, Qt::NoButton );
 	mousePressEvent(e);
 }
 
 void Kanagram::randomHintImage()
 {
 	unsigned long imageNum = m_randomImage.getLong(8);
-	QString dir = "images/eyes" + QString::number(imageNum + 1) + ".png";
-	m_hintOverlay = new QPixmap(locate("appdata", dir));
+	TQString dir = "images/eyes" + TQString::number(imageNum + 1) + ".png";
+	m_hintOverlay = new TQPixmap(locate("appdata", dir));
 }
 
 void Kanagram::showSettings()
@@ -744,8 +744,8 @@ void Kanagram::showSettings()
 	m_vocabSettings = new VocabSettings( configDialog );
 	configDialog->addPage( m_vocabSettings, i18n("Vocabularies"), "edit" );
 	configDialog->addPage( new NewStuff( configDialog ), i18n("New Stuff"), "knewstuff" );
-	connect(configDialog, SIGNAL(settingsChanged()), this, SLOT(loadSettings()));
-	connect(configDialog, SIGNAL(applyClicked()), this, SLOT(refreshVocabularies()));
+	connect(configDialog, TQT_SIGNAL(settingsChanged()), this, TQT_SLOT(loadSettings()));
+	connect(configDialog, TQT_SIGNAL(applyClicked()), this, TQT_SLOT(refreshVocabularies()));
 	configDialog->exec();
 	delete configDialog;
 }
@@ -774,7 +774,7 @@ void Kanagram::refreshVocabularies()
 	m_vocabSettings->refreshView();
 }
 
-void Kanagram::play(QString filename)
+void Kanagram::play(TQString filename)
 {
 	#ifndef WITHOUT_ARTS
 		KDE::PlayObject *playobj = m_artsFactory->createPlayObject(locate("appdata", "sounds/" + filename), true);

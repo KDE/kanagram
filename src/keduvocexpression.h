@@ -72,20 +72,20 @@ class KEduVocExpression
 
   KEduVocExpression ();
 
-  KEduVocExpression (QString &s, QString separator, int lesson = 0);
+  KEduVocExpression (TQString &s, TQString separator, int lesson = 0);
 
   /** Constructor for an expression in different languages
    *
    * @param expr             expression
    */
-  KEduVocExpression (QString &expr, int lesson = 0);
+  KEduVocExpression (TQString &expr, int lesson = 0);
 
   /** adds a new translation of this entry
    * @param expr             translation
    * @param grade            grade of knowledge of this translation
    * @param rev_grade        dito, in opposite direction
    */
-  void addTranslation (QString expr, grade_t grade=KV_NORM_GRADE,
+  void addTranslation (TQString expr, grade_t grade=KV_NORM_GRADE,
                                      grade_t rev_grade=KV_NORM_GRADE);
 
   /** removes translation
@@ -104,11 +104,11 @@ class KEduVocExpression
 
   /** returns original expression of this entry
    */
-  QString getOriginal () const;
+  TQString getOriginal () const;
 
   /** sets original expression of this entry
    */
-  void setOriginal (const QString & expr);
+  void setOriginal (const TQString & expr);
 
   /** returns number of max. translations of all expressions
    */
@@ -135,42 +135,42 @@ class KEduVocExpression
    * @param index            number of translation
    * @result                 expression or "" if no translation available
    */
-  QString getTranslation (int index) const;
+  TQString getTranslation (int index) const;
 
   /** sets translation of this expression
    *
    * @param index            number of translation
    * @param expr             expression of this index
    */
-  void setTranslation (int index, const QString & expr);
+  void setTranslation (int index, const TQString & expr);
 
   /** sets remark of this expression
    *
    * @param index            index of expression
    * @param expr             remark of this index
    */
-  void setPronunce (int index, const QString & expr);
+  void setPronunce (int index, const TQString & expr);
 
   /** returns pronunciation of this expression
    *
    * @param index            index of expression
    * @result                 pronunciation or "" if none available
    */
-  QString getPronunce (int index) const;
+  TQString getPronunce (int index) const;
 
   /** returns remarks of this expression
    *
    * @param index            index of expression
    * @result                 remark or "" if no remark available
    */
-  QString getRemark (int index) const;
+  TQString getRemark (int index) const;
 
   /** sets remark of this expression
    *
    * @param index            index of expression
    * @param expr             remark of this index
    */
-  void setRemark (int index, const QString & expr);
+  void setRemark (int index, const TQString & expr);
 
 
   /** sets false friend of this expression
@@ -179,7 +179,7 @@ class KEduVocExpression
    * @param expr             false friend of this index
    * @param rev_grade        dito, in opposite direction
    */
-  void setFauxAmi (int index, const QString & expr, bool rev_ami = false);
+  void setFauxAmi (int index, const TQString & expr, bool rev_ami = false);
 
 
   /** returns false friend of this expression
@@ -188,14 +188,14 @@ class KEduVocExpression
    * @param rev_grade        dito, in opposite direction
    * @result                 false friend or "" if no string available
    */
-  QString getFauxAmi (int index, bool rev_ami = false) const;
+  TQString getFauxAmi (int index, bool rev_ami = false) const;
 
   /** sets synonym this expression
    *
    * @param index            index of expression
    * @param expr             synonym of this index
    */
-  void setSynonym (int index, const QString & expr);
+  void setSynonym (int index, const TQString & expr);
 
 
   /** returns synonym of this expression
@@ -203,14 +203,14 @@ class KEduVocExpression
    * @param index            index of expression
    * @result                 synonym or "" if no string available
    */
-  QString getSynonym (int index) const;
+  TQString getSynonym (int index) const;
 
   /** sets example this expression
    *
    * @param index            index of expression
    * @param expr             example of this index
    */
-  void setExample (int index, const QString & expr);
+  void setExample (int index, const TQString & expr);
 
 
   /** returns example of this expression
@@ -218,14 +218,14 @@ class KEduVocExpression
    * @param index            index of expression
    * @result                 example or "" if no string available
    */
-  QString getExample (int index) const;
+  TQString getExample (int index) const;
 
   /** sets usage label this expression
    *
    * @param index            index of expression
    * @param usage            usage label of this index
    */
-  void setUsageLabel (int index, const QString & usage);
+  void setUsageLabel (int index, const TQString & usage);
 
 
   /** returns usage label of this expression
@@ -233,14 +233,14 @@ class KEduVocExpression
    * @param index            index of expression
    * @result                 usage or "" if no string available
    */
-  QString getUsageLabel (int index) const;
+  TQString getUsageLabel (int index) const;
 
   /** sets paraphrase of this expression
    *
    * @param index            index of expression
    * @param usage            paraphrase of this index
    */
-  void setParaphrase (int index, const QString & usage);
+  void setParaphrase (int index, const TQString & usage);
 
 
   /** returns paraphrase of this expression
@@ -248,14 +248,14 @@ class KEduVocExpression
    * @param index            index of expression
    * @result                 paraphrase or "" if no string available
    */
-  QString getParaphrase (int index) const;
+  TQString getParaphrase (int index) const;
 
   /** sets antonym this expression
    *
    * @param index            index of expression
    * @param expr             antonym of this index
    */
-  void setAntonym (int index, const QString & expr);
+  void setAntonym (int index, const TQString & expr);
 
 
   /** returns antonym of this expression
@@ -263,13 +263,13 @@ class KEduVocExpression
    * @param index            index of expression
    * @result                 antonym or "" if no string available
    */
-  QString getAntonym (int index) const;
+  TQString getAntonym (int index) const;
 
   /** returns type of this expression
    *
    * @result                 type or "" if no type available
    */
-  QString getType (int index) const;
+  TQString getType (int index) const;
 
   /** all langs have same type ?
    *
@@ -282,7 +282,7 @@ class KEduVocExpression
    * @param index            index of type
    * @param type             type of this expression ("" = none)
    */
-  void setType (int index, const QString &type);
+  void setType (int index, const TQString &type);
 
   /** returns grade of given translation as string
    *
@@ -290,7 +290,7 @@ class KEduVocExpression
    * @param rev_grade        dito, in opposite direction
    * @result                 number of knowlegde: 0=known, x=numbers not knows
    */
-  QString gradeStr (int index, bool rev_grade = false) const;
+  TQString gradeStr (int index, bool rev_grade = false) const;
 
   /** sets grade of given translation
    *
@@ -421,20 +421,20 @@ class KEduVocExpression
   void Init();
 
  private:
-  QString            origin;
+  TQString            origin;
 
   // all these vectors must be deleted in removeTranslation()
-  vector<QString>     exprtypes;
-  vector<QString>     translations;
-  vector<QString>     remarks;
-  vector<QString>     usageLabels;
-  vector<QString>     paraphrases;
-  vector<QString>     fauxAmi;
-  vector<QString>     rev_fauxAmi;
-  vector<QString>     synonym;
-  vector<QString>     example;
-  vector<QString>     antonym;
-  vector<QString>     pronunces;
+  vector<TQString>     exprtypes;
+  vector<TQString>     translations;
+  vector<TQString>     remarks;
+  vector<TQString>     usageLabels;
+  vector<TQString>     paraphrases;
+  vector<TQString>     fauxAmi;
+  vector<TQString>     rev_fauxAmi;
+  vector<TQString>     synonym;
+  vector<TQString>     example;
+  vector<TQString>     antonym;
+  vector<TQString>     pronunces;
   vector<grade_t>     grades;
   vector<grade_t>     rev_grades;
   vector<count_t>     qcounts;

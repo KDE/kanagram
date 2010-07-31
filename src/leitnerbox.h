@@ -12,7 +12,7 @@
 #ifndef LEITNERBOX_H
 #define LEITNERBOX_H
 
-#include <qstring.h>
+#include <tqstring.h>
 
 /**
 @author Martin Pfeiffer
@@ -26,19 +26,19 @@ public:
 
 	void setCorrectWordBox( LeitnerBox* );	//sets the correct word box
 	void setWrongWordBox( LeitnerBox* );	//sets the wrong word box
-	void setBoxName( const QString& );	//sets the boxes name
+	void setBoxName( const TQString& );	//sets the boxes name
 
 	void setVocabCount( int count );
 	int getVocabCount();
 	
 	LeitnerBox* getCorrectWordBox();	
 	LeitnerBox* getWrongWordBox();
-	const QString& getBoxName() const;
+	const TQString& getBoxName() const;
 	
 	bool operator == ( const LeitnerBox& a ) const;
 
 private:
-	QString m_name;
+	TQString m_name;
 
 	int m_vocabCount;
 	

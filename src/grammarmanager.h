@@ -27,7 +27,7 @@
 #ifndef grammarmanager_included
 #define grammarmanager_included
 
-#include <qstring.h>
+#include <tqstring.h>
 
 #include <vector>
 using namespace std;
@@ -54,22 +54,22 @@ public:
    Article() {}
 
    Article (
-           const QString &fem_def, const QString &fem_indef,
-           const QString &mal_def, const QString &mal_indef,
-           const QString &nat_def, const QString &nat_indef
+           const TQString &fem_def, const TQString &fem_indef,
+           const TQString &mal_def, const TQString &mal_indef,
+           const TQString &nat_def, const TQString &nat_indef
           );
 
-   void setFemale  (const QString &def, const QString &indef);
-   void setMale    (const QString &def, const QString &indef);
-   void setNatural (const QString &def, const QString &indef);
+   void setFemale  (const TQString &def, const TQString &indef);
+   void setMale    (const TQString &def, const TQString &indef);
+   void setNatural (const TQString &def, const TQString &indef);
 
-   void female  (QString &def, QString &indef) const;
-   void male    (QString &def, QString &indef) const;
-   void natural (QString &def, QString &indef) const;
+   void female  (TQString &def, TQString &indef) const;
+   void male    (TQString &def, TQString &indef) const;
+   void natural (TQString &def, TQString &indef) const;
 
 protected:
 
-   QString  fem_def, fem_indef,
+   TQString  fem_def, fem_indef,
             mal_def, mal_indef,
             nat_def, nat_indef;
 };
@@ -83,25 +83,25 @@ public:
    Comparison() {}
 
    Comparison (
-           const QString &l1,
-           const QString &l2,
-           const QString &l3
+           const TQString &l1,
+           const TQString &l2,
+           const TQString &l3
           );
 
-   void setL1 (const QString &s) { ls1 = s; }
-   void setL2 (const QString &s) { ls2 = s; }
-   void setL3 (const QString &s) { ls3 = s; }
+   void setL1 (const TQString &s) { ls1 = s; }
+   void setL2 (const TQString &s) { ls2 = s; }
+   void setL3 (const TQString &s) { ls3 = s; }
 
-   QString l1 () const { return ls1; }
-   QString l2 () const { return ls2; }
-   QString l3 () const { return ls3; }
+   TQString l1 () const { return ls1; }
+   TQString l2 () const { return ls2; }
+   TQString l3 () const { return ls3; }
 
    bool isEmpty() const;
    void clear();
 
 protected:
 
-   QString  ls1, ls2, ls3;
+   TQString  ls1, ls2, ls3;
 };
 
 
@@ -109,15 +109,15 @@ class TenseRelation
 {
  public:
 
-  TenseRelation (const QString & _short, const QString & _long)
+  TenseRelation (const TQString & _short, const TQString & _long)
     : shortId (_short), longId(_long) {}
 
-  inline QString shortStr() const { return shortId; }
-  inline QString longStr()  const { return longId;  }
+  inline TQString shortStr() const { return shortId; }
+  inline TQString longStr()  const { return longId;  }
 
  protected:
 
-  QString  shortId, longId;
+  TQString  shortId, longId;
 };
 
 
@@ -131,47 +131,47 @@ public:
    int numEntries() const;
 
    static vector<TenseRelation> getRelation ();
-   static void setTenseNames (vector<QString> names);
+   static void setTenseNames (vector<TQString> names);
 
-   static QString getName (const QString &abbrev);
-   static QString getName (int index);
-   static QString getAbbrev (const QString &name);
-   static QString getAbbrev (int index);
+   static TQString getName (const TQString &abbrev);
+   static TQString getName (int index);
+   static TQString getAbbrev (const TQString &name);
+   static TQString getAbbrev (int index);
    static int numInternalNames();
    static int numTenses();
 
-   QString getType (int index);
-   void setType (int index, const QString & type);
+   TQString getType (int index);
+   void setType (int index, const TQString & type);
    void cleanUp();
    bool isEmpty (int idx);
 
-   QString pers1Singular(const QString &type) const;
-   QString pers2Singular(const QString &type) const;
-   bool    pers3SingularCommon(const QString &type) const;
-   QString pers3FemaleSingular(const QString &type) const;
-   QString pers3MaleSingular(const QString &type) const;
-   QString pers3NaturalSingular(const QString &type) const;
+   TQString pers1Singular(const TQString &type) const;
+   TQString pers2Singular(const TQString &type) const;
+   bool    pers3SingularCommon(const TQString &type) const;
+   TQString pers3FemaleSingular(const TQString &type) const;
+   TQString pers3MaleSingular(const TQString &type) const;
+   TQString pers3NaturalSingular(const TQString &type) const;
 
-   QString pers1Plural(const QString &type) const;
-   QString pers2Plural(const QString &type) const;
-   bool    pers3PluralCommon(const QString &type) const;
-   QString pers3FemalePlural(const QString &type) const;
-   QString pers3MalePlural(const QString &type) const;
-   QString pers3NaturalPlural(const QString &type) const;
+   TQString pers1Plural(const TQString &type) const;
+   TQString pers2Plural(const TQString &type) const;
+   bool    pers3PluralCommon(const TQString &type) const;
+   TQString pers3FemalePlural(const TQString &type) const;
+   TQString pers3MalePlural(const TQString &type) const;
+   TQString pers3NaturalPlural(const TQString &type) const;
 
-   void setPers1Singular(const QString &type, const QString &str);
-   void setPers2Singular(const QString &type, const QString &str);
-   void setPers3SingularCommon(const QString &type, bool f);
-   void setPers3FemaleSingular(const QString &type, const QString &str);
-   void setPers3MaleSingular(const QString &type, const QString &str);
-   void setPers3NaturalSingular(const QString &type, const QString &str);
+   void setPers1Singular(const TQString &type, const TQString &str);
+   void setPers2Singular(const TQString &type, const TQString &str);
+   void setPers3SingularCommon(const TQString &type, bool f);
+   void setPers3FemaleSingular(const TQString &type, const TQString &str);
+   void setPers3MaleSingular(const TQString &type, const TQString &str);
+   void setPers3NaturalSingular(const TQString &type, const TQString &str);
 
-   void setPers1Plural(const QString &type, const QString &str);
-   void setPers2Plural(const QString &type, const QString &str);
-   void setPers3PluralCommon(const QString &type, bool f);
-   void setPers3FemalePlural(const QString &type, const QString &str);
-   void setPers3MalePlural(const QString &type, const QString &str);
-   void setPers3NaturalPlural(const QString &type, const QString &str);
+   void setPers1Plural(const TQString &type, const TQString &str);
+   void setPers2Plural(const TQString &type, const TQString &str);
+   void setPers3PluralCommon(const TQString &type, bool f);
+   void setPers3FemalePlural(const TQString &type, const TQString &str);
+   void setPers3MalePlural(const TQString &type, const TQString &str);
+   void setPers3NaturalPlural(const TQString &type, const TQString &str);
 
 private:
 
@@ -182,10 +182,10 @@ private:
         s3common = false;
       }
 
-      QString type;
+      TQString type;
       bool    p3common,
               s3common;
-      QString pers1_sing,
+      TQString pers1_sing,
               pers2_sing,
               pers3_m_sing,
               pers3_f_sing,
@@ -207,7 +207,7 @@ protected:
    vector<conjug_t>       conjugations;
 
    static conjug_name_t   names [];
-   static vector<QString> userTenses;
+   static vector<TQString> userTenses;
 };
 
 

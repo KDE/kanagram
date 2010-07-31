@@ -7,18 +7,18 @@
  *   (at your option) any later version.                                   *
  ***************************************************************************/
 
-#include <qpainter.h>
+#include <tqpainter.h>
 
 #include "fontutils.h"
 
-int fontUtils::fontSize(QPainter &p, const QString &s1, int w, int h)
+int fontUtils::fontSize(TQPainter &p, const TQString &s1, int w, int h)
 {
-	QRect aux1;
-	QFont f = p.font();
+	TQRect aux1;
+	TQFont f = p.font();
 	f.setPointSize(28);
 	p.setFont(f);
 	
-	aux1 = p.boundingRect(QRect(), Qt::AlignAuto, s1);
+	aux1 = p.boundingRect(TQRect(), Qt::AlignAuto, s1);
 	
 	return QMIN(w * 28 / aux1.width(), h * 28 / aux1.height());
 }

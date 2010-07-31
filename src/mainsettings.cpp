@@ -19,10 +19,10 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <qdir.h>
-#include <qcheckbox.h>
-#include <qcombobox.h>
-#include <qpushbutton.h>
+#include <tqdir.h>
+#include <tqcheckbox.h>
+#include <tqcombobox.h>
+#include <tqpushbutton.h>
 
 #include <kdebug.h>
 #include <kconfig.h>
@@ -35,22 +35,22 @@
 #include "mainsettings.h"
 #include "kanagramsettings.h"
 
-MainSettings::MainSettings(QWidget *parent) : MainSettingsWidget(parent)
+MainSettings::MainSettings(TQWidget *parent) : MainSettingsWidget(parent)
 {
 	m_parent = (KConfigDialog*)parent;
 
-	connect(parent, SIGNAL(applyClicked()), this, SLOT(slotChangeTranslation()));
-	connect(cboxTranslation, SIGNAL(activated(int)), this, SLOT(slotUpdateParent()));
+	connect(parent, TQT_SIGNAL(applyClicked()), this, TQT_SLOT(slotChangeTranslation()));
+	connect(cboxTranslation, TQT_SIGNAL(activated(int)), this, TQT_SLOT(slotUpdateParent()));
 	
 	setupTranslations();
 
-	QStringList languageNames = m_languageCodeMap.keys();
+	TQStringList languageNames = m_languageCodeMap.keys();
 	languageNames.sort();
 	cboxTranslation->insertStringList(languageNames);
 	
 	//the language code/name
 	KConfig entry(locate("locale", "all_languages"));
-	QString code = KanagramSettings::dataLanguage();
+	TQString code = KanagramSettings::dataLanguage();
 	entry.setGroup(code);
 	if (code == "sr")
 		cboxTranslation->setCurrentText(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")");
@@ -62,7 +62,7 @@ MainSettings::MainSettings(QWidget *parent) : MainSettingsWidget(parent)
 	else
 		cboxTranslation->setCurrentText(entry.readEntry("Name"));
 	
-	QFont f("squeaky chalk sound");
+	TQFont f("squeaky chalk sound");
 	if (KanagramSettings::justGotFont())
 	{
 			getFontsButton->hide();
@@ -70,10 +70,10 @@ MainSettings::MainSettings(QWidget *parent) : MainSettingsWidget(parent)
 	}
 	else
 	{
-		if (!QFontInfo(f).exactMatch())
+		if (!TQFontInfo(f).exactMatch())
 		{
 			kcfg_useStandardFonts->setEnabled(false);
-			connect(getFontsButton, SIGNAL(pressed()), this, SLOT(getAndInstallFont()));
+			connect(getFontsButton, TQT_SIGNAL(pressed()), this, TQT_SLOT(getAndInstallFont()));
 		}
 		else
 		{
@@ -94,20 +94,20 @@ void MainSettings::slotUpdateParent()
 void MainSettings::setupTranslations()
 {
 	m_languageCodeMap.clear();
-	QStringList languages, temp_languages;
+	TQStringList languages, temp_languages;
 	
 	//the program scans in kdereview/data/ to see what languages data is found
-	QStringList mdirs = KGlobal::dirs()->findDirs("appdata", "data/");
+	TQStringList mdirs = KGlobal::dirs()->findDirs("appdata", "data/");
 
 	if (mdirs.isEmpty()) return;
 	
-	for (QStringList::const_iterator it = mdirs.begin(); it != mdirs.end(); ++it )
+	for (TQStringList::const_iterator it = mdirs.begin(); it != mdirs.end(); ++it )
 	{
-		QDir dir(*it);
-		temp_languages = dir.entryList(QDir::Dirs, QDir::Name);
+		TQDir dir(*it);
+		temp_languages = dir.entryList(TQDir::Dirs, TQDir::Name);
 		temp_languages.remove(".");
 		temp_languages.remove("..");
-		for (QStringList::const_iterator it2 = temp_languages.begin(); it2 != temp_languages.end(); ++it2 )
+		for (TQStringList::const_iterator it2 = temp_languages.begin(); it2 != temp_languages.end(); ++it2 )
 		{
 			if (!languages.contains(*it2)) languages.append(*it2);
 		}
@@ -118,8 +118,8 @@ void MainSettings::setupTranslations()
 
 	//the language code/name
 	KConfig entry(locate("locale", "all_languages"));
-	const QStringList::ConstIterator itEnd = languages.end();
-	for (QStringList::ConstIterator it = languages.begin(); it != itEnd; ++it) {
+	const TQStringList::ConstIterator itEnd = languages.end();
+	for (TQStringList::ConstIterator it = languages.begin(); it != itEnd; ++it) {
 		entry.setGroup(*it);
 		if (*it == "sr")
 			m_languageCodeMap.insert(entry.readEntry("Name")+" ("+i18n("Cyrillic")+")", "sr");

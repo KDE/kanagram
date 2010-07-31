@@ -24,7 +24,7 @@
 #include <kmessagebox.h>
 #include <kio/netaccess.h>
 
-#include <qfileinfo.h>
+#include <tqfileinfo.h>
 
 #include <algorithm>
 #include <functional>
@@ -44,7 +44,7 @@ using namespace std;
 //  KEduVocDocument
 //********************************************************
 
-KEduVocDocument::KEduVocDocument(QObject * /*parent*/)
+KEduVocDocument::KEduVocDocument(TQObject * /*parent*/)
 {
   Init();
 }
@@ -55,7 +55,7 @@ KEduVocDocument::~KEduVocDocument()
 }
 
 
-void KEduVocDocument::setVersion (const QString & vers)
+void KEduVocDocument::setVersion (const TQString & vers)
 {
   doc_version = vers;
 }
@@ -99,12 +99,12 @@ bool KEduVocDocument::open(const KURL& url, bool /*append*/)
   if (!url.isEmpty())
     doc_url = url;
 
-  // TODO EPT  connect( this, SIGNAL(progressChanged(KEduVocDocument*,int)), parent, SLOT(slotProgress(KEduVocDocument*,int)) );
+  // TODO EPT  connect( this, TQT_SIGNAL(progressChanged(KEduVocDocument*,int)), parent, TQT_SLOT(slotProgress(KEduVocDocument*,int)) );
 
-  QString tmpfile;
+  TQString tmpfile;
   if (KIO::NetAccess::download( url, tmpfile, 0 ))
   {
-    QFile f(tmpfile);
+    TQFile f(tmpfile);
     if (!f.open(IO_ReadOnly))
     {
       KMessageBox::error(0, i18n("<qt>Cannot open file<br><b>%1</b></qt>").arg(url.path()));
@@ -116,7 +116,7 @@ bool KEduVocDocument::open(const KURL& url, bool /*append*/)
     bool read = false;
     while (!read) {
 
-      QApplication::setOverrideCursor( waitCursor );
+      TQApplication::setOverrideCursor( waitCursor );
       switch (ft) {
         case kvtml:
         {
@@ -127,21 +127,21 @@ bool KEduVocDocument::open(const KURL& url, bool /*append*/)
 
         case vt_lex:
         {
-          QTextStream is (&f);
+          TQTextStream is (&f);
           //TODO read = loadFromLex (is);
         }
         break;
 
         case vt_vcb:
         {
-          QTextStream is (&f);
+          TQTextStream is (&f);
           //TODO read = loadFromVcb (is);
         }
         break;
 
         case csv:
         {
-          QTextStream is(&f);
+          TQTextStream is(&f);
           //TODO read = loadFromCsv(is);
         }
         break;
@@ -153,7 +153,7 @@ bool KEduVocDocument::open(const KURL& url, bool /*append*/)
         }
       }
 
-      QApplication::restoreOverrideCursor();
+      TQApplication::restoreOverrideCursor();
 
       if (!read) {
         if (unknown_attr || unknown_elem ) {
@@ -162,8 +162,8 @@ bool KEduVocDocument::open(const KURL& url, bool /*append*/)
         }
         // TODO new readers provide an explicite error message
         // the two messages should be merged
-        QString format = i18n("Could not load \"%1\"\nDo you want to try again?");
-        QString msg = format.arg(url.path());
+        TQString format = i18n("Could not load \"%1\"\nDo you want to try again?");
+        TQString msg = format.arg(url.path());
         int result = KMessageBox::warningContinueCancel(0, msg,
                                                         kapp->makeStdCaption(i18n("I/O Failure")),
                                                         i18n("&Retry"));
@@ -180,9 +180,9 @@ bool KEduVocDocument::open(const KURL& url, bool /*append*/)
 }
 
 
-bool KEduVocDocument::saveAs(QObject * /*parent*/, const KURL & url, FileType ft, const QString & generator)
+bool KEduVocDocument::saveAs(TQObject * /*parent*/, const KURL & url, FileType ft, const TQString & generator)
 {
-//  connect( this, SIGNAL(progressChanged(KEduVocDocument*,int)), parent, SLOT(slotProgress(KEduVocDocument*,int)) );
+//  connect( this, TQT_SIGNAL(progressChanged(KEduVocDocument*,int)), parent, TQT_SLOT(slotProgress(KEduVocDocument*,int)) );
 
   KURL tmp (url);
 
@@ -207,7 +207,7 @@ bool KEduVocDocument::saveAs(QObject * /*parent*/, const KURL & url, FileType ft
   while (!saved)
   {
 
-    QFile f(tmp.path());
+    TQFile f(tmp.path());
 
     if (!f.open(IO_WriteOnly))
     {
@@ -215,7 +215,7 @@ bool KEduVocDocument::saveAs(QObject * /*parent*/, const KURL & url, FileType ft
       return false;
     }
 
-    QApplication::setOverrideCursor( waitCursor );
+    TQApplication::setOverrideCursor( waitCursor );
     switch (ft) {
       case kvtml: {
         KEduVocKvtmlWriter kvtmlWriter(&f);
@@ -224,19 +224,19 @@ bool KEduVocDocument::saveAs(QObject * /*parent*/, const KURL & url, FileType ft
       break;
 
       case vt_lex: {
-        QTextStream os( &f );                       // serialize using f
+        TQTextStream os( &f );                       // serialize using f
         //TODO saved = saveToLex(os, title);
       }
       break;
 
       case vt_vcb: {
-        QTextStream os( &f );                       // serialize using f
+        TQTextStream os( &f );                       // serialize using f
         //TODO saved = saveToVcb(os, title);
       }
       break;
 
       case csv: {
-        QTextStream os( &f );                       // serialize using f
+        TQTextStream os( &f );                       // serialize using f
         //TODO saved = saveToCsv(os, title);
       }
       break;
@@ -247,13 +247,13 @@ bool KEduVocDocument::saveAs(QObject * /*parent*/, const KURL & url, FileType ft
       break;
     }
     f.close();
-    QApplication::restoreOverrideCursor();
+    TQApplication::restoreOverrideCursor();
 
     if (!saved) {
       // TODO new writers provide an explicite error message
       // the two messages should be merged
-      QString format = i18n("Could not save \"%1\"\nDo you want to try again?");
-      QString msg = format.arg(tmp.path());
+      TQString format = i18n("Could not save \"%1\"\nDo you want to try again?");
+      TQString msg = format.arg(tmp.path());
       int result = KMessageBox::warningContinueCancel(0, msg,
                                                       kapp->makeStdCaption(i18n("I/O Failure")),
                                                       i18n("&Retry"));
@@ -283,9 +283,9 @@ void KEduVocDocument::removeEntry(int index)
 }
 
 
-int KEduVocDocument::findIdent (const QString &lang) const
+int KEduVocDocument::findIdent (const TQString &lang) const
 {
-  vector<QString>::const_iterator first = langs.begin();
+  vector<TQString>::const_iterator first = langs.begin();
   int count = 0;
   while (first != langs.end()) {
     if ( *first == lang)
@@ -297,7 +297,7 @@ int KEduVocDocument::findIdent (const QString &lang) const
 }
 
 
-QString KEduVocDocument::getIdent (int index) const
+TQString KEduVocDocument::getIdent (int index) const
 {
   if (index >= (int)langs.size() || index < 1 )
     return "";
@@ -306,7 +306,7 @@ QString KEduVocDocument::getIdent (int index) const
 }
 
 
-void KEduVocDocument::setIdent (int idx, const QString &id)
+void KEduVocDocument::setIdent (int idx, const TQString &id)
 {
   if (idx < (int)langs.size() && idx >= 1 ) {
     langs[idx] = id;
@@ -314,7 +314,7 @@ void KEduVocDocument::setIdent (int idx, const QString &id)
 }
 
 
-QString KEduVocDocument::getTypeName (int index) const
+TQString KEduVocDocument::getTypeName (int index) const
 {
   if (index >= (int)type_descr.size())
     return "";
@@ -323,7 +323,7 @@ QString KEduVocDocument::getTypeName (int index) const
 }
 
 
-void KEduVocDocument::setTypeName (int idx, QString &id)
+void KEduVocDocument::setTypeName (int idx, TQString &id)
 {
   if (idx >= (int)type_descr.size())
     for (int i = (int)type_descr.size(); i <= idx; i++)
@@ -333,7 +333,7 @@ void KEduVocDocument::setTypeName (int idx, QString &id)
 }
 
 
-QString KEduVocDocument::getTenseName (int index) const
+TQString KEduVocDocument::getTenseName (int index) const
 {
   if (index >= (int)tense_descr.size())
     return "";
@@ -342,7 +342,7 @@ QString KEduVocDocument::getTenseName (int index) const
 }
 
 
-void KEduVocDocument::setTenseName (int idx, QString &id)
+void KEduVocDocument::setTenseName (int idx, TQString &id)
 {
   if (idx >= (int)tense_descr.size())
     for (int i = (int)tense_descr.size(); i <= idx; i++)
@@ -352,7 +352,7 @@ void KEduVocDocument::setTenseName (int idx, QString &id)
 }
 
 
-QString KEduVocDocument::getUsageName (int index) const
+TQString KEduVocDocument::getUsageName (int index) const
 {
   if (index >= (int)usage_descr.size())
     return "";
@@ -361,7 +361,7 @@ QString KEduVocDocument::getUsageName (int index) const
 }
 
 
-void KEduVocDocument::setUsageName (int idx, QString &id)
+void KEduVocDocument::setUsageName (int idx, TQString &id)
 {
   if (idx >= (int)usage_descr.size())
     for (int i = (int)usage_descr.size(); i <= idx; i++)
@@ -490,7 +490,7 @@ void KEduVocDocument::removeIdent (int index)
 }
 
 
-QString KEduVocDocument::getOriginalIdent () const
+TQString KEduVocDocument::getOriginalIdent () const
 {
   if (langs.size() > 0)
     return langs[0];
@@ -499,7 +499,7 @@ QString KEduVocDocument::getOriginalIdent () const
 }
 
 
-void KEduVocDocument::setOriginalIdent (const QString &id)
+void KEduVocDocument::setOriginalIdent (const TQString &id)
 {
   if (langs.size() > 0) {
     langs[0] = id;
@@ -519,9 +519,9 @@ public:
     {
       return
         !dir
-        ? (QString::compare(x.getOriginal().upper(),
+        ? (TQString::compare(x.getOriginal().upper(),
                             y.getOriginal().upper() ) < 0)
-        : (QString::compare(x.getOriginal().upper(),
+        : (TQString::compare(x.getOriginal().upper(),
                             y.getOriginal().upper() ) > 0);
     }
 
@@ -544,16 +544,16 @@ public:
       if (x.getLesson() != y.getLesson() )
         return
           !dir
-          ? (QString::compare(doc.getLessonDescr(x.getLesson()).upper(),
+          ? (TQString::compare(doc.getLessonDescr(x.getLesson()).upper(),
                               doc.getLessonDescr(y.getLesson()).upper() ) < 0)
-          : (QString::compare(doc.getLessonDescr(x.getLesson()).upper(),
+          : (TQString::compare(doc.getLessonDescr(x.getLesson()).upper(),
                               doc.getLessonDescr(y.getLesson()).upper() ) > 0);
       else
         return
           !dir
-          ? (QString::compare(x.getOriginal().upper(),
+          ? (TQString::compare(x.getOriginal().upper(),
                               y.getOriginal().upper() ) < 0)
-          : (QString::compare(x.getOriginal().upper(),
+          : (TQString::compare(x.getOriginal().upper(),
                               y.getOriginal().upper() ) > 0);
     }
 
@@ -582,9 +582,9 @@ public:
       else
         return
           !dir
-          ? (QString::compare(x.getOriginal().upper(),
+          ? (TQString::compare(x.getOriginal().upper(),
                               y.getOriginal().upper() ) < 0)
-          : (QString::compare(x.getOriginal().upper(),
+          : (TQString::compare(x.getOriginal().upper(),
                               y.getOriginal().upper() ) > 0);
     }
 
@@ -606,9 +606,9 @@ public:
     {
       return
         !dir
-        ? (QString::compare(x.getTranslation(index).upper(),
+        ? (TQString::compare(x.getTranslation(index).upper(),
                             y.getTranslation(index).upper() ) < 0)
-        : (QString::compare(x.getTranslation(index).upper(),
+        : (TQString::compare(x.getTranslation(index).upper(),
                             y.getTranslation(index).upper() ) > 0);
     }
 
@@ -686,7 +686,7 @@ void KEduVocDocument::setLeitnerSystemActive( bool yes )
 void KEduVocDocument::createStandardLeitnerSystem()
 {
 	LeitnerSystem* tmpSystem = new LeitnerSystem();
-	QString name = "Standard";
+	TQString name = "Standard";
 	
 	tmpSystem->setSystemName( name );
 	tmpSystem->insertBox( "Box 1" );
@@ -792,7 +792,7 @@ void KEduVocDocument::resetEntry (int index, int lesson)
 }
 
 
-QString KEduVocDocument::getLessonDescr(int idx) const
+TQString KEduVocDocument::getLessonDescr(int idx) const
 {
   if (idx == 0)
     return i18n("<no lesson>");
@@ -830,7 +830,7 @@ void KEduVocDocument::setLessonsInQuery(vector<int> lesson_iq)
 }
 
 
-QString KEduVocDocument::getTitle() const
+TQString KEduVocDocument::getTitle() const
 {
   if (doctitle.isEmpty())
     return doc_url.fileName();
@@ -839,49 +839,49 @@ QString KEduVocDocument::getTitle() const
 }
 
 
-QString KEduVocDocument::getAuthor() const
+TQString KEduVocDocument::getAuthor() const
 {
   return author;
 }
 
 
-QString KEduVocDocument::getLicense() const
+TQString KEduVocDocument::getLicense() const
 {
   return license;
 }
 
 
-QString KEduVocDocument::getDocRemark() const
+TQString KEduVocDocument::getDocRemark() const
 {
   return doc_remark;
 }
 
 
-void KEduVocDocument::setTitle(const QString & title)
+void KEduVocDocument::setTitle(const TQString & title)
 {
   doctitle = title.stripWhiteSpace();
 }
 
 
-void KEduVocDocument::setAuthor(const QString & s)
+void KEduVocDocument::setAuthor(const TQString & s)
 {
   author = s.stripWhiteSpace();
 }
 
 
-void KEduVocDocument::setLicense(const QString & s)
+void KEduVocDocument::setLicense(const TQString & s)
 {
   license = s.stripWhiteSpace();
 }
 
 
-void KEduVocDocument::setDocRemark(const QString & s)
+void KEduVocDocument::setDocRemark(const TQString & s)
 {
   doc_remark = s.stripWhiteSpace();
 }
 
 
-int KEduVocDocument::search(QString substr, int id,
+int KEduVocDocument::search(TQString substr, int id,
                          int first, int last,
                          bool word_start,
                          bool)
@@ -929,12 +929,12 @@ int KEduVocDocument::search(QString substr, int id,
 #define _BITMASK    0x3F
 #define _BITUSED    6
 
-QString KEduVocDocument::compressDate(unsigned long l) const
+TQString KEduVocDocument::compressDate(unsigned long l) const
 {
    if (l == 0)
      return "";
 
-   QString res;
+   TQString res;
    if (l <= KVD_ZERO_TIME)
      l = 1;
    else
@@ -948,7 +948,7 @@ QString KEduVocDocument::compressDate(unsigned long l) const
 }
 
 
-unsigned long KEduVocDocument::decompressDate(QString s) const
+unsigned long KEduVocDocument::decompressDate(TQString s) const
 {
    if (s.isEmpty())
      return 0;
@@ -964,13 +964,13 @@ unsigned long KEduVocDocument::decompressDate(QString s) const
 }
 
 
-KEduVocDocument::FileType KEduVocDocument::detectFT(const QString &filename)
+KEduVocDocument::FileType KEduVocDocument::detectFT(const TQString &filename)
 {
-   QFile f( filename );
+   TQFile f( filename );
    if (!f.open( IO_ReadOnly ))
      return csv;
 
-   QDataStream is( &f );
+   TQDataStream is( &f );
 
    Q_INT8 c1, c2, c3, c4, c5;
    is >> c1
@@ -979,8 +979,8 @@ KEduVocDocument::FileType KEduVocDocument::detectFT(const QString &filename)
       >> c4
       >> c5;  // guess filetype by first x bytes
 
-   QTextStream ts (&f);
-   QString line;
+   TQTextStream ts (&f);
+   TQString line;
    line = ts.readLine();
    line.insert (0, c5);
    line.insert (0, c4);
@@ -1017,9 +1017,9 @@ public:
 
   bool operator< (const expRef& y) const
     {
-      QString s1 = exp->getOriginal();
-      QString s2 = y.exp->getOriginal();
-      int cmp = QString::compare(s1.upper(), s2.upper());
+      TQString s1 = exp->getOriginal();
+      TQString s2 = y.exp->getOriginal();
+      int cmp = TQString::compare(s1.upper(), s2.upper());
       if (cmp != 0)
         return cmp < 0;
 
@@ -1027,7 +1027,7 @@ public:
 
         s1 = exp->getTranslation(i);
         s2 = y.exp->getTranslation(i);
-        cmp = QString::compare(s1.upper(), s2.upper() );
+        cmp = TQString::compare(s1.upper(), s2.upper() );
         if (cmp != 0)
           return cmp < 0;
       }

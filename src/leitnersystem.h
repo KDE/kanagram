@@ -10,9 +10,9 @@
 //
 //
 
-#include <qstring.h>
-#include <qstringlist.h>
-#include <qvaluelist.h>
+#include <tqstring.h>
+#include <tqstringlist.h>
+#include <tqvaluelist.h>
 #include "leitnerbox.h"
 
 #ifndef LEITNERSYSTEM_H
@@ -26,42 +26,42 @@ class LeitnerSystem
 {
 public:
 	LeitnerSystem();
-	LeitnerSystem( QValueList<LeitnerBox>& boxes, QString name );
+	LeitnerSystem( TQValueList<LeitnerBox>& boxes, TQString name );
 
 	~LeitnerSystem();
 
 	int getNumberOfBoxes();				//returns the number of boxes in the system
-	QStringList getBoxNameList();			//returns a list with the boxes names
+	TQStringList getBoxNameList();			//returns a list with the boxes names
 
-	QString& getSystemName();			//returns the systems name
-	void setSystemName( const QString& name );		//sets the systems name
+	TQString& getSystemName();			//returns the systems name
+	void setSystemName( const TQString& name );		//sets the systems name
 
 	LeitnerBox* getBoxWithNumber( int number );	//returns box by number
-	LeitnerBox* getBoxWithName( const QString& name );//returns box by name
+	LeitnerBox* getBoxWithName( const TQString& name );//returns box by name
 	int getNumber( LeitnerBox* box );
-	const QString& getBox( int i );
+	const TQString& getBox( int i );
 	
-	const QString& getNextBox( QString& previousBox );	//returns the next box for the next question
+	const TQString& getNextBox( TQString& previousBox );	//returns the next box for the next question
 	
-	const QString& getCorrectBox( int box );	//returns the correct word box of "int box"
-	const QString& getWrongBox( int box );		//returns the wrong word box of "int box"
+	const TQString& getCorrectBox( int box );	//returns the correct word box of "int box"
+	const TQString& getWrongBox( int box );		//returns the wrong word box of "int box"
 	int getWrongBoxNumber( int box );
 	int getCorrectBoxNumber( int box );
-	void setCorrectBox( const QString& box, const QString& correctWordBox );
-	void setWrongBox( const QString& box, const QString& wrongWordBox );
-	bool setBoxName( int box, const QString& name );
-	bool setBoxName( LeitnerBox* box, const QString& name );
+	void setCorrectBox( const TQString& box, const TQString& correctWordBox );
+	void setWrongBox( const TQString& box, const TQString& wrongWordBox );
+	bool setBoxName( int box, const TQString& name );
+	bool setBoxName( LeitnerBox* box, const TQString& name );
 	
 	//inserts a box with number, name, correct and wrong word box
-	bool insertBox( const QString& name, int correctWordBox, int wrongWordBox );
-	bool insertBox( const QString& name );
+	bool insertBox( const TQString& name, int correctWordBox, int wrongWordBox );
+	bool insertBox( const TQString& name );
 	void deleteBox( int box );
 	void deleteBox( LeitnerBox* box );
 
 private:
-	QString m_systemName;				//the systems name
+	TQString m_systemName;				//the systems name
 
-	QValueList<LeitnerBox> m_boxes;
+	TQValueList<LeitnerBox> m_boxes;
 };
 
 #endif

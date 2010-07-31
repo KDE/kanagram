@@ -7,19 +7,19 @@ class VocabSettings : public VocabSettingsWidget
 {
 Q_OBJECT
 	public:
-		VocabSettings(QWidget *parent);
+		VocabSettings(TQWidget *parent);
 		~VocabSettings();
 		void refreshView();
 
 	private:
-		QStringList m_fileList;
-		QMap<const QListViewItem*, int> m_itemMap;
+		TQStringList m_fileList;
+		TQMap<const TQListViewItem*, int> m_itemMap;
 
 	private slots:
 		void slotCreateNew();
 		void slotEdit();
 		void slotDelete();
-		void slotSelectionChanged(QListViewItem *item);
+		void slotSelectionChanged(TQListViewItem *item);
 };
 
 #endif

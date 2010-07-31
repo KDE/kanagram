@@ -20,7 +20,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.             *
  ***************************************************************************/
 
-#include <qfile.h>
+#include <tqfile.h>
 
 #include <kurl.h>
 #include <kdebug.h>
@@ -34,7 +34,7 @@
 
 #include <stdlib.h>
 
-KanagramGame::KanagramGame(QWidget* parent) : m_index(0)
+KanagramGame::KanagramGame(TQWidget* parent) : m_index(0)
 {
 	m_parent = parent;
 	loadDefaultVocab();
@@ -46,8 +46,8 @@ KanagramGame::~KanagramGame()
 
 void KanagramGame::checkFile()
 {
-	if (!QFile::exists(locate("appdata", m_filename))) {
-	        QString msg = i18n("File %1 cannot be found.\n Please ensure that Kanagram is properly installed.")
+	if (!TQFile::exists(locate("appdata", m_filename))) {
+	        TQString msg = i18n("File %1 cannot be found.\n Please ensure that Kanagram is properly installed.")
 		  .arg(m_filename);
 		KMessageBox::sorry(m_parent, msg, i18n("Error"));
 		exit(0);
@@ -148,12 +148,12 @@ void KanagramGame::nextAnagram()
 	m_hint = doc->getEntry(wordNumber)->getRemark(0);
 }
 
-QString KanagramGame::getDocTitle()
+TQString KanagramGame::getDocTitle()
 {
 	return m_docTitle;
 }
 
-QString KanagramGame::getFilename()
+TQString KanagramGame::getFilename()
 {
 	if(m_fileList.empty())
 		return m_filename;
@@ -161,17 +161,17 @@ QString KanagramGame::getFilename()
 		return m_fileList[m_index];
 }
 
-QString KanagramGame::getAnagram()
+TQString KanagramGame::getAnagram()
 {
 	return m_anagram;
 }
 
-QString KanagramGame::getHint()
+TQString KanagramGame::getHint()
 {
 	return m_hint;
 }
 
-QString KanagramGame::getWord()
+TQString KanagramGame::getWord()
 {
 	return m_originalWord;
 }
@@ -181,10 +181,10 @@ void KanagramGame::restoreWord()
 	m_anagram = m_originalWord;
 }
 
-QString KanagramGame::createAnagram(QString original)
+TQString KanagramGame::createAnagram(TQString original)
 {
-	QStringList objData = QStringList::split(QString(""), original);
-	QString insaneData;
+	TQStringList objData = TQStringList::split(TQString(""), original);
+	TQString insaneData;
 	int count;
 	
 	for(int i=0; count = objData.count(); i++)
@@ -195,8 +195,8 @@ QString KanagramGame::createAnagram(QString original)
 		else
 		   objChunk = m_random.getLong(count);
 
-		QStringList::Iterator it = objData.at(objChunk);
-		QString sd = *it;
+		TQStringList::Iterator it = objData.at(objChunk);
+		TQString sd = *it;
 		objData.remove(it);
 		if (insaneData.isEmpty())
 			insaneData = sd;

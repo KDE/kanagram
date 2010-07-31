@@ -19,8 +19,8 @@
 #ifndef KEDUVOCKVTMLREADER_H
 #define KEDUVOCKVTMLREADER_H
 
-#include <qfile.h>
-#include <qdom.h>
+#include <tqfile.h>
+#include <tqdom.h>
 
 #include "keduvocdocument.h"
 #include "grammarmanager.h"
@@ -71,50 +71,50 @@ class KEduVocDocument;
 class KEduVocKvtmlReader : public QObject
 {
 public:
-	KEduVocKvtmlReader(QFile *file);
+	KEduVocKvtmlReader(TQFile *file);
 	~KEduVocKvtmlReader();
 
 	bool readDoc(KEduVocDocument *doc);
 
-	bool readLesson(QDomElement &domElementParent);
-	bool readArticle(QDomElement &domElementParent);
-	bool readConjug(QDomElement &domElementParent,
+	bool readLesson(TQDomElement &domElementParent);
+	bool readArticle(TQDomElement &domElementParent);
+	bool readConjug(TQDomElement &domElementParent,
 									vector<Conjugation> &curr_conjug,
-                  const QString &entry_tag);
-	bool readOptions(QDomElement &domElementParent);
-	bool readType(QDomElement &domElementParent);
-	bool readTense(QDomElement &domElementParent);
-	bool readUsage(QDomElement &domElementParent);
-	bool readComparison(QDomElement &domElementParent,
+                  const TQString &entry_tag);
+	bool readOptions(TQDomElement &domElementParent);
+	bool readType(TQDomElement &domElementParent);
+	bool readTense(TQDomElement &domElementParent);
+	bool readUsage(TQDomElement &domElementParent);
+	bool readComparison(TQDomElement &domElementParent,
                       Comparison &comp);
-	bool readMultipleChoice(QDomElement &domElementParent,
+	bool readMultipleChoice(TQDomElement &domElementParent,
                           MultipleChoice &mc);
-	bool readExpressionChildAttributes(	QDomElement &domElementExpressionChild,
-														          QString &lang,
+	bool readExpressionChildAttributes(	TQDomElement &domElementExpressionChild,
+														          TQString &lang,
 														          grade_t &grade, grade_t &rev_grade,
 														          int &count, int &rev_count,
 														          time_t &date, time_t &rev_date,
-														          QString &remark,
+														          TQString &remark,
 														          int &bcount, int &rev_bcount,
-														          QString &query_id,
-														          QString &pronunce,
+														          TQString &query_id,
+														          TQString &pronunce,
 														          int &width,
-														          QString &type,
-														          QString &faux_ami_f,
-														          QString &faux_ami_t,
-														          QString &synonym,
-														          QString &example,
-														          QString &antonym,
-														          QString &usage,
-														          QString &paraphrase);
-	bool readExpression(QDomElement &domElementParent);
-	bool readBody(QDomElement &domElementParent);
+														          TQString &type,
+														          TQString &faux_ami_f,
+														          TQString &faux_ami_t,
+														          TQString &synonym,
+														          TQString &example,
+														          TQString &antonym,
+														          TQString &usage,
+														          TQString &paraphrase);
+	bool readExpression(TQDomElement &domElementParent);
+	bool readBody(TQDomElement &domElementParent);
 
-	void domErrorUnknownElement(const QString &elem);
-	void domError(const QString &text );
+	void domErrorUnknownElement(const TQString &elem);
+	void domError(const TQString &text );
 
 private:
-  QFile *m_inputFile;
+  TQFile *m_inputFile;
   KEduVocDocument *m_doc;
 };
 

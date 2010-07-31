@@ -7,7 +7,7 @@ class NewStuff : public NewStuffWidget
 {
 Q_OBJECT
 	public:
-		NewStuff(QWidget *parent);
+		NewStuff(TQWidget *parent);
 		~NewStuff();
 
 	private slots:

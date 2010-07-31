@@ -8,9 +8,9 @@ class NewStuffDialog : public KNewStuff
 	public:
 		NewStuffDialog();
 		~NewStuffDialog();
-		bool install(const QString &fileName);
-		bool createUploadFile(const QString &fileName);
-		QString downloadDestination(KNS::Entry *entry);
+		bool install(const TQString &fileName);
+		bool createUploadFile(const TQString &fileName);
+		TQString downloadDestination(KNS::Entry *entry);
 };
 
 #endif

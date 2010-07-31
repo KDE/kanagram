@@ -30,7 +30,7 @@ void LeitnerBox::setVocabCount( int count )
 	m_vocabCount = count;
 }
 
-const QString& LeitnerBox::getBoxName() const
+const TQString& LeitnerBox::getBoxName() const
 {
 	return m_name;
 }
@@ -45,7 +45,7 @@ LeitnerBox* LeitnerBox::getWrongWordBox()
 	return m_wrongWordBox;
 }
 
-void LeitnerBox::setBoxName( const QString& name )
+void LeitnerBox::setBoxName( const TQString& name )
 {
 	m_name = name;
 }

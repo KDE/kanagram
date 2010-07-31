@@ -19,8 +19,8 @@
 #ifndef KEDUVOCKVTMLWRITER_H
 #define KEDUVOCKVTMLWRITER_H
 
-#include <qfile.h>
-#include <qdom.h>
+#include <tqfile.h>
+#include <tqdom.h>
 
 //#include "keduvocdocument.h"
 #include "grammarmanager.h"
@@ -67,32 +67,32 @@ class KEduVocDocument;
 class KEduVocKvtmlWriter
 {
 public:
-  KEduVocKvtmlWriter(QFile *file);
+  KEduVocKvtmlWriter(TQFile *file);
   ~KEduVocKvtmlWriter();
 
-  bool writeDoc(KEduVocDocument *doc, const QString &generator);
+  bool writeDoc(KEduVocDocument *doc, const TQString &generator);
 
-  bool saveLessonKvtMl (QDomDocument &domDoc, QDomElement &domElementParent);
-  bool saveTypeNameKvtMl (QDomDocument &domDoc, QDomElement &domElementParent);
-  bool saveTenseNameKvtMl (QDomDocument &domDoc, QDomElement &domElementParent);
-  bool saveUsageNameKvtMl (QDomDocument &domDoc, QDomElement &domElementParent);
-  bool saveOptionsKvtMl  (QDomDocument &domDoc, QDomElement &domElementParent);
-  bool saveArticleKvtMl  (QDomDocument &domDoc, QDomElement &domElementParent);
-  bool saveConjugHeader  (QDomDocument &domDoc, QDomElement &domElementParent,
+  bool saveLessonKvtMl (TQDomDocument &domDoc, TQDomElement &domElementParent);
+  bool saveTypeNameKvtMl (TQDomDocument &domDoc, TQDomElement &domElementParent);
+  bool saveTenseNameKvtMl (TQDomDocument &domDoc, TQDomElement &domElementParent);
+  bool saveUsageNameKvtMl (TQDomDocument &domDoc, TQDomElement &domElementParent);
+  bool saveOptionsKvtMl  (TQDomDocument &domDoc, TQDomElement &domElementParent);
+  bool saveArticleKvtMl  (TQDomDocument &domDoc, TQDomElement &domElementParent);
+  bool saveConjugHeader  (TQDomDocument &domDoc, TQDomElement &domElementParent,
                           vector<Conjugation> &curr_conjug);
-  bool saveConjug        (QDomDocument &domDoc, QDomElement &domElementParent,
-                          const Conjugation &curr_conjug, QString type);
-  bool saveConjugEntry   (QDomDocument &domDoc, QDomElement &domElementParent,
+  bool saveConjug        (TQDomDocument &domDoc, TQDomElement &domElementParent,
+                          const Conjugation &curr_conjug, TQString type);
+  bool saveConjugEntry   (TQDomDocument &domDoc, TQDomElement &domElementParent,
                           Conjugation &curr_conjug);
 
-  bool saveComparison    (QDomDocument &domDoc, QDomElement &domElementParent,
+  bool saveComparison    (TQDomDocument &domDoc, TQDomElement &domElementParent,
                           const Comparison &comp);
 
-  bool saveMultipleChoice(QDomDocument &domDoc, QDomElement &domElementParent,
+  bool saveMultipleChoice(TQDomDocument &domDoc, TQDomElement &domElementParent,
                           const MultipleChoice &mc);
 
 private:
-  QFile *m_outputFile;
+  TQFile *m_outputFile;
   KEduVocDocument *m_doc;
 };
 

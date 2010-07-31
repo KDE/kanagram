@@ -12,8 +12,8 @@
 #ifndef LEITNERSYSTEMVIEW_H
 #define LEITNERSYSTEMVIEW_H
 
-#include <qscrollview.h>
-#include <qpixmap.h>
+#include <tqscrollview.h>
+#include <tqpixmap.h>
 
 class LeitnerSystem;
 
@@ -27,7 +27,7 @@ class LeitnerSystemView : public QScrollView
 	Q_OBJECT
 		
 public:
-    LeitnerSystemView(QWidget* parent = 0, const char* name = 0, WFlags f = 0);
+    LeitnerSystemView(TQWidget* parent = 0, const char* name = 0, WFlags f = 0);
 
     ~LeitnerSystemView();
 
@@ -38,17 +38,17 @@ signals:
 	void boxClicked(int box);		//is emited if the user clicks on a box 
 
 protected:
-    virtual void drawContents(QPainter* p, int clipx, int clipy, int clipw, int cliph);
-    virtual void mousePressEvent(QMouseEvent* e);
+    virtual void drawContents(TQPainter* p, int clipx, int clipy, int clipw, int cliph);
+    virtual void mousePressEvent(TQMouseEvent* e);
 
 private:
 	LeitnerSystem* m_leitnerSystem;		//the system which is shown
 
-	void drawSystem(QPainter*);		//paints the boxes
-	void drawConnections(QPainter*);		//paints the arrows between the boxes
+	void drawSystem(TQPainter*);		//paints the boxes
+	void drawConnections(TQPainter*);		//paints the arrows between the boxes
 	void calculateSize();
 
-	//QRect m_viewArea;
+	//TQRect m_viewArea;
 	int m_imageY; 				//high border of the images
 	int m_distPixmap;
 	int m_highlightedBox;			//the box which is currently highlighted

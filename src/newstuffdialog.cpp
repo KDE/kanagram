@@ -17,19 +17,19 @@ NewStuffDialog::~NewStuffDialog()
 {
 }
 
-bool NewStuffDialog::install(const QString &fileName)
+bool NewStuffDialog::install(const TQString &fileName)
 {
   return false;
 }
 
-QString NewStuffDialog::downloadDestination(KNS::Entry *entry)
+TQString NewStuffDialog::downloadDestination(KNS::Entry *entry)
 {
-	QString fileName = entry->payload().path();
+	TQString fileName = entry->payload().path();
 	fileName = fileName.section('/', -1);
 	return KGlobal::dirs()->saveLocation("data", "kanagram/data/" + KanagramSettings::dataLanguage()) + fileName;
 }
 
-bool NewStuffDialog::createUploadFile(const QString &fileName)
+bool NewStuffDialog::createUploadFile(const TQString &fileName)
 {
   return false;
 }

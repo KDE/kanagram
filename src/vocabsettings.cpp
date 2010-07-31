@@ -1,27 +1,27 @@
 #include "vocabsettings.h"
 #include "vocabedit.h"
 
-#include <qpushbutton.h>
+#include <tqpushbutton.h>
 
 #include <kdebug.h>
 #include <kstandarddirs.h>
-#include <qstringlist.h>
-#include <qlistview.h>
-#include <qvaluevector.h>
-#include <qfile.h>
-#include <qfileinfo.h>
+#include <tqstringlist.h>
+#include <tqlistview.h>
+#include <tqvaluevector.h>
+#include <tqfile.h>
+#include <tqfileinfo.h>
 
 #include <kurl.h>
 
 #include "keduvocdocument.h"
 #include "kanagramsettings.h"
 
-VocabSettings::VocabSettings(QWidget *parent) : VocabSettingsWidget(parent)
+VocabSettings::VocabSettings(TQWidget *parent) : VocabSettingsWidget(parent)
 {
-	connect(btnCreateNew, SIGNAL(clicked()), this, SLOT(slotCreateNew()));
-	connect(btnEdit, SIGNAL(clicked()), this, SLOT(slotEdit()));
-	connect(btnDelete, SIGNAL(clicked()), this, SLOT(slotDelete()));
-	connect(lviewVocab, SIGNAL(selectionChanged(QListViewItem *)), this, SLOT(slotSelectionChanged(QListViewItem *)));
+	connect(btnCreateNew, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotCreateNew()));
+	connect(btnEdit, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotEdit()));
+	connect(btnDelete, TQT_SIGNAL(clicked()), this, TQT_SLOT(slotDelete()));
+	connect(lviewVocab, TQT_SIGNAL(selectionChanged(TQListViewItem *)), this, TQT_SLOT(slotSelectionChanged(TQListViewItem *)));
 
 	refreshView();
 }
@@ -39,7 +39,7 @@ void VocabSettings::refreshView()
 	{
 		KEduVocDocument *doc = new KEduVocDocument(this);
 		doc->open(KURL(m_fileList[i]), false);
-		QListViewItem *item = new QListViewItem(lviewVocab, 0);
+		TQListViewItem *item = new TQListViewItem(lviewVocab, 0);
 		item->setText( 0, doc->getTitle() );
 		item->setText( 1, doc->getDocRemark() );
 		m_itemMap[item] = i;
@@ -61,7 +61,7 @@ void VocabSettings::slotDelete()
 	if(lviewVocab->selectedItem())
 	{
 		int index = m_itemMap[lviewVocab->selectedItem()];
-		/*bool itWorked = */QFile::remove(m_fileList[index]);
+		/*bool itWorked = */TQFile::remove(m_fileList[index]);
 	}
 
 	refreshView();
@@ -73,10 +73,10 @@ void VocabSettings::slotCreateNew()
 	vocabEdit->show();
 }
 
-void VocabSettings::slotSelectionChanged(QListViewItem *item)
+void VocabSettings::slotSelectionChanged(TQListViewItem *item)
 {
 	int index = m_itemMap[item];
-	QFileInfo info = QFileInfo(m_fileList[index]);
+	TQFileInfo info = TQFileInfo(m_fileList[index]);
 	if(!info.isWritable())
 	{
 		btnDelete->setEnabled(false);

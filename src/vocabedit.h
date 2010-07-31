@@ -25,7 +25,7 @@
 
 #include "vocabeditwidget.h"
 
-#include <qvaluevector.h>
+#include <tqvaluevector.h>
 
 class KEduVocExpression;
 
@@ -33,8 +33,8 @@ class VocabEdit : public VocabEditWidget
 {
 Q_OBJECT
 	public:
-		VocabEdit(QWidget *parent);
-		VocabEdit(QWidget *parent, QString fileName);
+		VocabEdit(TQWidget *parent);
+		VocabEdit(TQWidget *parent, TQString fileName);
 		~VocabEdit();
 	
 	public slots:
@@ -43,13 +43,13 @@ Q_OBJECT
 		void slotNewWord();
 		void slotRemoveWord();
 		void slotSelectionChanged();
-		void slotWordTextChanged(const QString &changes);
-		void slotHintTextChanged(const QString &changes);
-		void slotTextChanged(const QString &changes);
+		void slotWordTextChanged(const TQString &changes);
+		void slotHintTextChanged(const TQString &changes);
+		void slotTextChanged(const TQString &changes);
 		
 	private:
-		QValueVector<KEduVocExpression> m_vocabList;
-		QString m_fileName;
+		TQValueVector<KEduVocExpression> m_vocabList;
+		TQString m_fileName;
 		bool m_textChanged;
 };
 

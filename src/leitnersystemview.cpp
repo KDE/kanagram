@@ -16,12 +16,12 @@
 
 #include <stdlib.h>
 #include <kiconloader.h>
-#include <qpainter.h>
+#include <tqpainter.h>
 
 #include <kdebug.h>
 
-LeitnerSystemView::LeitnerSystemView(QWidget * parent, const char* name, WFlags f)
- : QScrollView(parent, name, f)
+LeitnerSystemView::LeitnerSystemView(TQWidget * parent, const char* name, WFlags f)
+ : TQScrollView(parent, name, f)
 {
 	m_highlightedBox = -1;
 }
@@ -31,7 +31,7 @@ LeitnerSystemView::~LeitnerSystemView()
 {
 }
 
-void LeitnerSystemView::drawSystem(QPainter* p)
+void LeitnerSystemView::drawSystem(TQPainter* p)
 {
 	kdDebug() << "drawSystem( )" << endl;
 	
@@ -47,7 +47,7 @@ void LeitnerSystemView::drawSystem(QPainter* p)
 		{
 			//p->drawPixmap(12 + i * 64 + i*10, m_imageY, KGlobal::iconLoader()->loadIcon("leitnerbox", KIcon::Panel));
 			p->drawRect(12 + i * 64 + i*10, m_imageY,64,64);
-			p->fillRect(12 + i * 64 + i*10, m_imageY,64,64, QBrush(red));
+			p->fillRect(12 + i * 64 + i*10, m_imageY,64,64, TQBrush(red));
 		}
 		else
 		{	//for each box 74 = 64(pixmap) + 10(distance between two boxes)
@@ -57,14 +57,14 @@ void LeitnerSystemView::drawSystem(QPainter* p)
 	}
 }
 
-void LeitnerSystemView::drawConnections(QPainter* p)
+void LeitnerSystemView::drawConnections(TQPainter* p)
 {
 	//dist = number of boxes that are in between the two boxes
 	//width = width of the rect for the arc
 	int dist, width = 0;
 	int numberOfBoxes = m_leitnerSystem->getNumberOfBoxes();
 	
-	p->setPen( QPen(green, 2) );
+	p->setPen( TQPen(green, 2) );
 
 	//paint the connections for the correct word boxes, above the boxes 
 	for(int i = 0; i < numberOfBoxes; i++)
@@ -89,7 +89,7 @@ void LeitnerSystemView::drawConnections(QPainter* p)
 	}
 	
 	//paint the connections for the wrong word boxes, below the boxes
-	p->setPen(QPen(red, 2));
+	p->setPen(TQPen(red, 2));
 
 	for(int i = 0; i < numberOfBoxes; i++)
 	{
@@ -118,7 +118,7 @@ void LeitnerSystemView::setSystem(LeitnerSystem* leitnersystem)
 	updateContents();
 	//repaint
 	//update();
-	//QPainter* p = new QPainter(this);
+	//TQPainter* p = new TQPainter(this);
 	//drawContents( p, 0, 0, 0, 0 );
 }
 
@@ -128,7 +128,7 @@ void LeitnerSystemView::highlightBox(int box)
 	updateContents();
 }
 
-void LeitnerSystemView::drawContents(QPainter* p, int clipx, int clipy, int clipw, int cliph)
+void LeitnerSystemView::drawContents(TQPainter* p, int clipx, int clipy, int clipw, int cliph)
 {
 	kdDebug() << "drawContents" << endl;
 	p->eraseRect(0,0,width(),height()); 
@@ -145,7 +145,7 @@ void LeitnerSystemView::calculateSize()
 	//boxes = 64*64
 	
 	int numberOfBoxes = m_leitnerSystem->getNumberOfBoxes();
-	QString x;
+	TQString x;
 	int height, dist, tmpMaxC, tmpMaxW;
 	tmpMaxC = 0;
 	tmpMaxW = 0;	
@@ -180,7 +180,7 @@ void LeitnerSystemView::calculateSize()
 	setMinimumSize( numberOfBoxes * 64 + (numberOfBoxes - 1)*10 + 2 * 12, height );
 }
 
-void LeitnerSystemView::mousePressEvent(QMouseEvent* e)
+void LeitnerSystemView::mousePressEvent(TQMouseEvent* e)
 {
 	kdDebug() << "mouseClick" << endl;
 	//if the user has clicked into a box

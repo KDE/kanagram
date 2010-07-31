@@ -12,7 +12,7 @@
 #include "leitnersystem.h"
 #include <kdebug.h>
 
-LeitnerSystem::LeitnerSystem(QValueList<LeitnerBox>& boxes, QString name)
+LeitnerSystem::LeitnerSystem(TQValueList<LeitnerBox>& boxes, TQString name)
 {
 	if( !boxes.empty() )
 		m_boxes = boxes;
@@ -29,10 +29,10 @@ LeitnerSystem::~LeitnerSystem()
 {
 }
 
-QStringList LeitnerSystem::getBoxNameList()
+TQStringList LeitnerSystem::getBoxNameList()
 {
-	QStringList boxNameList;
-	QValueList<LeitnerBox>::iterator it;	
+	TQStringList boxNameList;
+	TQValueList<LeitnerBox>::iterator it;	
 
 
 	for(it = m_boxes.begin(); it != m_boxes.end(); ++it)
@@ -53,9 +53,9 @@ LeitnerBox* LeitnerSystem::getBoxWithNumber( int number )
 	return &m_boxes[ number ];
 }
 
-LeitnerBox* LeitnerSystem::getBoxWithName( const QString& name )
+LeitnerBox* LeitnerSystem::getBoxWithName( const TQString& name )
 {
-	QValueList<LeitnerBox>::iterator it;
+	TQValueList<LeitnerBox>::iterator it;
 
 	for(it = m_boxes.begin(); it != m_boxes.end(); ++it)
 	{
@@ -66,12 +66,12 @@ LeitnerBox* LeitnerSystem::getBoxWithName( const QString& name )
 	return 0;
 }
 
-QString& LeitnerSystem::getSystemName()
+TQString& LeitnerSystem::getSystemName()
 {
 	return m_systemName;
 }
 
-const QString& LeitnerSystem::getNextBox( QString& previousBox )
+const TQString& LeitnerSystem::getNextBox( TQString& previousBox )
 {
 	for( int i = 0; i < m_boxes.count(); i++ )
 	{
@@ -79,15 +79,15 @@ const QString& LeitnerSystem::getNextBox( QString& previousBox )
 			return getBox( i );
 	}
 	
-	return QString::null;
+	return TQString::null;
 }
 
-const QString& LeitnerSystem::getCorrectBox( int box )
+const TQString& LeitnerSystem::getCorrectBox( int box )
 {
 	return m_boxes[ box ].getCorrectWordBox()->getBoxName();
 }
 
-const QString& LeitnerSystem::getWrongBox( int box )
+const TQString& LeitnerSystem::getWrongBox( int box )
 {
 	return m_boxes[ box ].getWrongWordBox()->getBoxName();
 }
@@ -112,7 +112,7 @@ void LeitnerSystem::deleteBox( LeitnerBox* box )
 	m_boxes.remove( *box ); 
 }
 
-bool LeitnerSystem::insertBox( const QString& name, int correctWordBox, int wrongWordBox )
+bool LeitnerSystem::insertBox( const TQString& name, int correctWordBox, int wrongWordBox )
 {
 	if( getBoxNameList().contains( name ) != 0 )
 		return false;
@@ -126,7 +126,7 @@ bool LeitnerSystem::insertBox( const QString& name, int correctWordBox, int wron
 	return true;
 }
 
-void LeitnerSystem::setSystemName( const QString& name )
+void LeitnerSystem::setSystemName( const TQString& name )
 {
 	m_systemName = name;
 }
@@ -138,7 +138,7 @@ int LeitnerSystem::getNumber( LeitnerBox* box )
 	return m_boxes.findIndex( *box );
 }
 
-bool LeitnerSystem::setBoxName( int box, const QString& name )
+bool LeitnerSystem::setBoxName( int box, const TQString& name )
 {
 	if( getBoxWithName( name ) == 0 || getBoxWithName( name ) == getBoxWithNumber( box ) )
 	{
@@ -150,7 +150,7 @@ bool LeitnerSystem::setBoxName( int box, const QString& name )
 		return false;
 }
 
-bool LeitnerSystem::setBoxName( LeitnerBox* box, const QString& name )
+bool LeitnerSystem::setBoxName( LeitnerBox* box, const TQString& name )
 {
 	if( getBoxWithName( name ) == 0 || getBoxWithName( name ) == box )
 	{
@@ -162,7 +162,7 @@ bool LeitnerSystem::setBoxName( LeitnerBox* box, const QString& name )
 		return false;
 }
 
-bool LeitnerSystem::insertBox( const QString& name )
+bool LeitnerSystem::insertBox( const TQString& name )
 {
 	if( getBoxNameList().contains( name ) != 0 )
 		return false;
@@ -175,17 +175,17 @@ bool LeitnerSystem::insertBox( const QString& name )
 	return true;
 }
 
-void LeitnerSystem::setCorrectBox( const QString& box, const QString& correctWordBox )
+void LeitnerSystem::setCorrectBox( const TQString& box, const TQString& correctWordBox )
 {
 	getBoxWithName( box )->setCorrectWordBox( getBoxWithName( correctWordBox ) );
 }
 
-void LeitnerSystem::setWrongBox( const QString& box, const QString& wrongWordBox )
+void LeitnerSystem::setWrongBox( const TQString& box, const TQString& wrongWordBox )
 {
 	getBoxWithName( box )->setWrongWordBox( getBoxWithName( wrongWordBox ) );
 }
 
-const QString& LeitnerSystem::getBox( int i )
+const TQString& LeitnerSystem::getBox( int i )
 {
 	return getBoxWithNumber( i )->getBoxName();
 }

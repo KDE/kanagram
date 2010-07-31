@@ -21,13 +21,13 @@
 #include <klocale.h>
 #include <kmessagebox.h>
 
-#include <qdom.h>
-#include <qtextstream.h>
+#include <tqdom.h>
+#include <tqtextstream.h>
 
 #include "keduvockvtmlreader.h"
 #include "keduvocdocument.h"
 
-KEduVocKvtmlReader::KEduVocKvtmlReader(QFile *file)
+KEduVocKvtmlReader::KEduVocKvtmlReader(TQFile *file)
 {
   // the file must be already open
   m_inputFile = file;
@@ -38,16 +38,16 @@ KEduVocKvtmlReader::~KEduVocKvtmlReader()
 }
 
 
-bool KEduVocKvtmlReader::readLesson(QDomElement &domElementParent)
+bool KEduVocKvtmlReader::readLesson(TQDomElement &domElementParent)
 {
-  QString s;
+  TQString s;
   m_doc->lesson_descr.clear();
 
   //-------------------------------------------------------------------------
   // Attributes
   //-------------------------------------------------------------------------
 
-  QDomAttr domAttrWidth = domElementParent.attributeNode(KV_SIZEHINT);
+  TQDomAttr domAttrWidth = domElementParent.attributeNode(KV_SIZEHINT);
   if (!domAttrWidth.isNull())
     m_doc->setSizeHint(-1, domAttrWidth.value().toInt());
 
@@ -55,7 +55,7 @@ bool KEduVocKvtmlReader::readLesson(QDomElement &domElementParent)
   // Children
   //-------------------------------------------------------------------------
 
-  QDomElement domElementChild = domElementParent.firstChild().toElement();
+  TQDomElement domElementChild = domElementParent.firstChild().toElement();
 
   while (!domElementChild.isNull())
   {
@@ -67,18 +67,18 @@ bool KEduVocKvtmlReader::readLesson(QDomElement &domElementParent)
       int no = 0;
       bool isCurr = false;
 
-      QDomAttr domAttrNo = domElementChild.attributeNode(KV_LESS_NO);
+      TQDomAttr domAttrNo = domElementChild.attributeNode(KV_LESS_NO);
       if (!domAttrNo.isNull())
         no = domAttrNo.value().toInt();
 
-      QDomAttr domAttrCurrent = domElementChild.attributeNode(KV_LESS_CURR);
+      TQDomAttr domAttrCurrent = domElementChild.attributeNode(KV_LESS_CURR);
       if (!domAttrCurrent.isNull())
         isCurr = domAttrCurrent.value().toInt() != 0;
 
       if (isCurr && no != 0)
         m_doc->setCurrentLesson(no);
 
-      QDomAttr domAttrQuery = domElementChild.attributeNode(KV_LESS_QUERY);
+      TQDomAttr domAttrQuery = domElementChild.attributeNode(KV_LESS_QUERY);
       if (!domAttrQuery.isNull())
         m_doc->lessons_in_query.push_back(domAttrQuery.value().toInt() != 0);
       else
@@ -105,7 +105,7 @@ bool KEduVocKvtmlReader::readLesson(QDomElement &domElementParent)
 }
 
 
-bool KEduVocKvtmlReader::readArticle(QDomElement &domElementParent)
+bool KEduVocKvtmlReader::readArticle(TQDomElement &domElementParent)
 /*
  <article>
   <e l="de">        lang determines also lang order in entries !!
@@ -122,10 +122,10 @@ bool KEduVocKvtmlReader::readArticle(QDomElement &domElementParent)
   bool endOfGroup = false;
   bool inEntry = false;
   int count = 0;
-  QString s;
+  TQString s;
   m_doc->articles.clear();
 
-  QDomElement domElementEntry = domElementParent.firstChild().toElement();
+  TQDomElement domElementEntry = domElementParent.firstChild().toElement();
 
   while (!domElementEntry.isNull())
   {
@@ -138,8 +138,8 @@ bool KEduVocKvtmlReader::readArticle(QDomElement &domElementParent)
     //----------
     // Attribute
 
-    QString lang;
-    QDomAttr domAttrLang = domElementEntry.attributeNode(KV_LANG);
+    TQString lang;
+    TQDomAttr domAttrLang = domElementEntry.attributeNode(KV_LANG);
 
     if ((int)m_doc->langs.size() <= count)
     {
@@ -163,14 +163,14 @@ bool KEduVocKvtmlReader::readArticle(QDomElement &domElementParent)
     //---------
     // Children
 
-    QString fem_def = "";
-    QString  mal_def = "";
-    QString  nat_def = "";
-    QString  fem_indef = "";
-    QString  mal_indef = "";
-    QString  nat_indef = "";
+    TQString fem_def = "";
+    TQString  mal_def = "";
+    TQString  nat_def = "";
+    TQString  fem_indef = "";
+    TQString  mal_indef = "";
+    TQString  nat_indef = "";
 
-    QDomElement domElementEntryChild = domElementEntry.firstChild().toElement();
+    TQDomElement domElementEntryChild = domElementEntry.firstChild().toElement();
     while (!domElementEntryChild.isNull())
     {
       if (domElementEntryChild.tagName() == KV_ART_FD)
@@ -230,9 +230,9 @@ bool KEduVocKvtmlReader::readArticle(QDomElement &domElementParent)
 }
 
 
-bool KEduVocKvtmlReader::readConjug(QDomElement &domElementParent,
+bool KEduVocKvtmlReader::readConjug(TQDomElement &domElementParent,
                                     vector<Conjugation> &curr_conjug,
-                                    const QString &entry_tag)
+                                    const TQString &entry_tag)
 /*
  <conjugation>        used in header for definiton of "prefix"
   <e l="de">          lang determines also lang order in entries !!
@@ -265,13 +265,13 @@ bool KEduVocKvtmlReader::readConjug(QDomElement &domElementParent,
  </conjugation>
 */
 {
-  QString s;
+  TQString s;
 
   curr_conjug.clear();
 
   bool    p3_common,
       s3_common;
-  QString pers1_sing,
+  TQString pers1_sing,
       pers2_sing,
       pers3_m_sing,
       pers3_f_sing,
@@ -282,12 +282,12 @@ bool KEduVocKvtmlReader::readConjug(QDomElement &domElementParent,
       pers3_f_plur,
       pers3_n_plur;
 
-  QString lang;
-  QString type;
+  TQString lang;
+  TQString type;
   int count = 0;
   curr_conjug.push_back(Conjugation());
 
-  QDomElement domElementConjugChild = domElementParent.firstChild().toElement();
+  TQDomElement domElementConjugChild = domElementParent.firstChild().toElement();
   while (!domElementConjugChild.isNull())
   {
     if (domElementConjugChild.tagName() == KV_CON_ENTRY)
@@ -297,8 +297,8 @@ bool KEduVocKvtmlReader::readConjug(QDomElement &domElementParent,
       //----------
       // Attribute
 
-      QString lang;
-      QDomAttr domAttrLang = domElementConjugChild.attributeNode(KV_LANG);
+      TQString lang;
+      TQDomAttr domAttrLang = domElementConjugChild.attributeNode(KV_LANG);
 
       if ((int)m_doc->langs.size() <= count)
       {
@@ -324,7 +324,7 @@ bool KEduVocKvtmlReader::readConjug(QDomElement &domElementParent,
       //----------
       // Attribute
 
-      QDomAttr domAttrLang = domElementConjugChild.attributeNode(KV_CON_NAME);
+      TQDomAttr domAttrLang = domElementConjugChild.attributeNode(KV_CON_NAME);
       type = domAttrLang.value();
       if (type.isNull())
         type = "";
@@ -335,7 +335,7 @@ bool KEduVocKvtmlReader::readConjug(QDomElement &domElementParent,
         if( num > (int) m_doc->tense_descr.size() )
         {
           // description missing ?
-          QString s;
+          TQString s;
           for (int i = m_doc->tense_descr.size(); i < num; i++)
           {
             s.setNum (i+1);
@@ -359,7 +359,7 @@ bool KEduVocKvtmlReader::readConjug(QDomElement &domElementParent,
     p3_common = false;
     s3_common = false;
 
-    QDomElement domElementConjugGrandChild = domElementConjugChild.firstChild().toElement();
+    TQDomElement domElementConjugGrandChild = domElementConjugChild.firstChild().toElement();
     while (!domElementConjugGrandChild.isNull())
     {
       if (domElementConjugGrandChild.tagName() == KV_CON_P1S)
@@ -376,7 +376,7 @@ bool KEduVocKvtmlReader::readConjug(QDomElement &domElementParent,
       }
       else if (domElementConjugGrandChild.tagName() == KV_CON_P3SF)
       {
-        QDomAttr domAttrCommon = domElementConjugGrandChild.attributeNode(KV_CONJ_COMMON);
+        TQDomAttr domAttrCommon = domElementConjugGrandChild.attributeNode(KV_CONJ_COMMON);
         if (!domAttrCommon.isNull())
           s3_common = domAttrCommon.value().toInt();  // returns 0 if the conversion fails
 
@@ -410,7 +410,7 @@ bool KEduVocKvtmlReader::readConjug(QDomElement &domElementParent,
       }
       else if (domElementConjugGrandChild.tagName() == KV_CON_P3PF)
       {
-        QDomAttr domAttrCommon = domElementConjugGrandChild.attributeNode(KV_CONJ_COMMON);
+        TQDomAttr domAttrCommon = domElementConjugGrandChild.attributeNode(KV_CONJ_COMMON);
         if (!domAttrCommon.isNull())
           p3_common = domAttrCommon.value().toInt();  // returns 0 if the conversion fails
 
@@ -466,15 +466,15 @@ bool KEduVocKvtmlReader::readConjug(QDomElement &domElementParent,
 }
 
 
-bool KEduVocKvtmlReader::readOptions(QDomElement &domElementParent)
+bool KEduVocKvtmlReader::readOptions(TQDomElement &domElementParent)
 {
-  QDomElement domElementSort = domElementParent.firstChild().toElement();
+  TQDomElement domElementSort = domElementParent.firstChild().toElement();
   while (!domElementSort.isNull())
   {
     if (domElementSort.tagName() == KV_OPT_SORT)
     {
       m_doc->sort_allowed = true;
-      QDomAttr domAttrOn = domElementSort.attributeNode(KV_BOOL_FLAG);
+      TQDomAttr domAttrOn = domElementSort.attributeNode(KV_BOOL_FLAG);
       if (!domAttrOn.isNull())
             {
                 bool ok = true;
@@ -491,12 +491,12 @@ bool KEduVocKvtmlReader::readOptions(QDomElement &domElementParent)
 }
 
 
-bool KEduVocKvtmlReader::readType(QDomElement &domElementParent)
+bool KEduVocKvtmlReader::readType(TQDomElement &domElementParent)
 {
-  QString s;
+  TQString s;
   m_doc->type_descr.clear();
 
-  QDomElement domElementDesc = domElementParent.firstChild().toElement();
+  TQDomElement domElementDesc = domElementParent.firstChild().toElement();
 
   while (!domElementDesc.isNull())
   {
@@ -508,7 +508,7 @@ bool KEduVocKvtmlReader::readType(QDomElement &domElementParent)
       int no = 0;
       bool isCurr = false;
 
-      QDomAttr domAttrNo = domElementDesc.attributeNode(KV_TYPE_NO);
+      TQDomAttr domAttrNo = domElementDesc.attributeNode(KV_TYPE_NO);
       if (!domAttrNo.isNull())
         no = domAttrNo.value().toInt();
 
@@ -534,12 +534,12 @@ bool KEduVocKvtmlReader::readType(QDomElement &domElementParent)
 }
 
 
-bool KEduVocKvtmlReader::readTense(QDomElement &domElementParent)
+bool KEduVocKvtmlReader::readTense(TQDomElement &domElementParent)
 {
-  QString s;
+  TQString s;
   m_doc->tense_descr.clear();
 
-  QDomElement domElementDesc = domElementParent.firstChild().toElement();
+  TQDomElement domElementDesc = domElementParent.firstChild().toElement();
 
   while (!domElementDesc.isNull())
   {
@@ -551,7 +551,7 @@ bool KEduVocKvtmlReader::readTense(QDomElement &domElementParent)
       int no = 0;
       bool isCurr = false;
 
-      QDomAttr domAttrNo = domElementDesc.attributeNode(KV_TENSE_NO);
+      TQDomAttr domAttrNo = domElementDesc.attributeNode(KV_TENSE_NO);
       if (!domAttrNo.isNull())
         no = domAttrNo.value().toInt();
 
@@ -577,12 +577,12 @@ bool KEduVocKvtmlReader::readTense(QDomElement &domElementParent)
 }
 
 
-bool KEduVocKvtmlReader::readUsage(QDomElement &domElementParent)
+bool KEduVocKvtmlReader::readUsage(TQDomElement &domElementParent)
 {
-  QString s;
+  TQString s;
   m_doc->usage_descr.clear();
 
-  QDomElement domElementDesc = domElementParent.firstChild().toElement();
+  TQDomElement domElementDesc = domElementParent.firstChild().toElement();
 
   while (!domElementDesc.isNull())
   {
@@ -594,7 +594,7 @@ bool KEduVocKvtmlReader::readUsage(QDomElement &domElementParent)
       int no = 0;
       bool isCurr = false;
 
-      QDomAttr domAttrNo = domElementDesc.attributeNode(KV_USAGE_NO);
+      TQDomAttr domAttrNo = domElementDesc.attributeNode(KV_USAGE_NO);
       if (!domAttrNo.isNull())
         no = domAttrNo.value().toInt();
 
@@ -620,7 +620,7 @@ bool KEduVocKvtmlReader::readUsage(QDomElement &domElementParent)
 }
 
 
-bool KEduVocKvtmlReader::readComparison(QDomElement &domElementParent,
+bool KEduVocKvtmlReader::readComparison(TQDomElement &domElementParent,
                                         Comparison &comp)
 /*
  <comparison>
@@ -630,10 +630,10 @@ bool KEduVocKvtmlReader::readComparison(QDomElement &domElementParent,
  </comparison>
 */
 {
-  QString s;
+  TQString s;
   comp.clear();
 
-  QDomElement domElementComparisonChild = domElementParent.firstChild().toElement();
+  TQDomElement domElementComparisonChild = domElementParent.firstChild().toElement();
   while (!domElementComparisonChild.isNull())
   {
     if (domElementComparisonChild.tagName() == KV_COMP_L1)
@@ -673,7 +673,7 @@ bool KEduVocKvtmlReader::readComparison(QDomElement &domElementParent,
 }
 
 
-bool KEduVocKvtmlReader::readMultipleChoice(QDomElement &domElementParent,
+bool KEduVocKvtmlReader::readMultipleChoice(TQDomElement &domElementParent,
                                             MultipleChoice &mc)
 /*
  <multiplechoice>
@@ -686,10 +686,10 @@ bool KEduVocKvtmlReader::readMultipleChoice(QDomElement &domElementParent,
 */
 
 {
-  QString s;
+  TQString s;
   mc.clear();
 
-  QDomElement domElementChild = domElementParent.firstChild().toElement();
+  TQDomElement domElementChild = domElementParent.firstChild().toElement();
   while (!domElementChild.isNull())
   {
     if (domElementChild.tagName() == KV_MC_1)
@@ -746,43 +746,43 @@ bool KEduVocKvtmlReader::readMultipleChoice(QDomElement &domElementParent,
 }
 
 
-bool KEduVocKvtmlReader::readExpressionChildAttributes( QDomElement &domElementExpressionChild,
-                                                        QString &lang,
+bool KEduVocKvtmlReader::readExpressionChildAttributes( TQDomElement &domElementExpressionChild,
+                                                        TQString &lang,
                                                         grade_t &grade, grade_t &rev_grade,
                                                         int &count, int &rev_count,
                                                         time_t &date, time_t &rev_date,
-                                                        QString &remark,
+                                                        TQString &remark,
                                                         int &bcount, int &rev_bcount,
-                                                        QString &query_id,
-                                                        QString &pronunce,
+                                                        TQString &query_id,
+                                                        TQString &pronunce,
                                                         int &width,
-                                                        QString &type,
-                                                        QString &faux_ami_f,
-                                                        QString &faux_ami_t,
-                                                        QString &synonym,
-                                                        QString &example,
-                                                        QString &antonym,
-                                                        QString &usage,
-                                                        QString &paraphrase)
+                                                        TQString &type,
+                                                        TQString &faux_ami_f,
+                                                        TQString &faux_ami_t,
+                                                        TQString &synonym,
+                                                        TQString &example,
+                                                        TQString &antonym,
+                                                        TQString &usage,
+                                                        TQString &paraphrase)
 {
   int pos;
 
   lang = "";
-  QDomAttr domAttrLang = domElementExpressionChild.attributeNode(KV_LANG);
+  TQDomAttr domAttrLang = domElementExpressionChild.attributeNode(KV_LANG);
   if (!domAttrLang.isNull())
     lang = domAttrLang.value();
 
   width = -1;
-  QDomAttr domAttrWidth = domElementExpressionChild.attributeNode(KV_SIZEHINT);
+  TQDomAttr domAttrWidth = domElementExpressionChild.attributeNode(KV_SIZEHINT);
   if (!domAttrWidth.isNull())
     width = domAttrWidth.value().toInt();
 
   grade = KV_NORM_GRADE;
   rev_grade = KV_NORM_GRADE;
-  QDomAttr domAttrGrade = domElementExpressionChild.attributeNode(KV_LANG);
+  TQDomAttr domAttrGrade = domElementExpressionChild.attributeNode(KV_LANG);
   if (!domAttrGrade.isNull())
   {
-    QString s = domAttrGrade.value();
+    TQString s = domAttrGrade.value();
     if ((pos = s.find(';')) >= 1)
     {
       grade = s.left(pos).toInt();
@@ -794,10 +794,10 @@ bool KEduVocKvtmlReader::readExpressionChildAttributes( QDomElement &domElementE
 
   count = 0;
   rev_count = 0;
-  QDomAttr domAttrCount = domElementExpressionChild.attributeNode(KV_COUNT);
+  TQDomAttr domAttrCount = domElementExpressionChild.attributeNode(KV_COUNT);
   if (!domAttrCount.isNull())
   {
-    QString s = domAttrCount.value();
+    TQString s = domAttrCount.value();
     if ((pos = s.find(';')) >= 1)
     {
       count = s.left(pos).toInt();
@@ -809,10 +809,10 @@ bool KEduVocKvtmlReader::readExpressionChildAttributes( QDomElement &domElementE
 
   bcount = 0;
   rev_bcount = 0;
-  QDomAttr domAttrBad = domElementExpressionChild.attributeNode(KV_BAD);
+  TQDomAttr domAttrBad = domElementExpressionChild.attributeNode(KV_BAD);
   if (!domAttrBad.isNull())
   {
-    QString s = domAttrBad.value();
+    TQString s = domAttrBad.value();
     if ((pos = s.find(';')) >= 1)
     {
       bcount = s.left(pos).toInt();
@@ -824,10 +824,10 @@ bool KEduVocKvtmlReader::readExpressionChildAttributes( QDomElement &domElementE
 
   date = 0;
   rev_date = 0;
-  QDomAttr domAttrDate = domElementExpressionChild.attributeNode(KV_DATE);
+  TQDomAttr domAttrDate = domElementExpressionChild.attributeNode(KV_DATE);
   if (!domAttrDate.isNull())
   {
-    QString s = domAttrDate.value();
+    TQString s = domAttrDate.value();
     if ((pos = s.find(';')) >= 1)
     {
       date = s.left(pos).toInt();
@@ -837,10 +837,10 @@ bool KEduVocKvtmlReader::readExpressionChildAttributes( QDomElement &domElementE
       date = s.toInt();
   }
 
-  QDomAttr domAttrDate2 = domElementExpressionChild.attributeNode(KV_DATE2);
+  TQDomAttr domAttrDate2 = domElementExpressionChild.attributeNode(KV_DATE2);
   if (!domAttrDate2.isNull())
   {
-    QString s = domAttrDate2.value();
+    TQString s = domAttrDate2.value();
     if ((pos = s.find(';')) >= 1)
     {
       date = m_doc->decompressDate(s.left(pos));
@@ -851,32 +851,32 @@ bool KEduVocKvtmlReader::readExpressionChildAttributes( QDomElement &domElementE
   }
 
   remark = "";
-  QDomAttr domAttrRemark = domElementExpressionChild.attributeNode(KV_REMARK);
+  TQDomAttr domAttrRemark = domElementExpressionChild.attributeNode(KV_REMARK);
   if (!domAttrRemark.isNull())
     remark = domAttrRemark.value();
 
   faux_ami_f = "";
-  QDomAttr domAttrFauxAmiF = domElementExpressionChild.attributeNode(KV_FAUX_AMI_F);
+  TQDomAttr domAttrFauxAmiF = domElementExpressionChild.attributeNode(KV_FAUX_AMI_F);
   if (!domAttrFauxAmiF.isNull())
     faux_ami_f = domAttrFauxAmiF.value();
 
   faux_ami_t = "";
-  QDomAttr domAttrFauxAmiT = domElementExpressionChild.attributeNode(KV_FAUX_AMI_T);
+  TQDomAttr domAttrFauxAmiT = domElementExpressionChild.attributeNode(KV_FAUX_AMI_T);
   if (!domAttrFauxAmiT.isNull())
     faux_ami_t = domAttrFauxAmiT.value();
 
   synonym = "";
-  QDomAttr domAttrSynonym = domElementExpressionChild.attributeNode(KV_SYNONYM);
+  TQDomAttr domAttrSynonym = domElementExpressionChild.attributeNode(KV_SYNONYM);
   if (!domAttrSynonym.isNull())
     synonym = domAttrSynonym.value();
 
   example = "";
-  QDomAttr domAttrExample = domElementExpressionChild.attributeNode(KV_EXAMPLE);
+  TQDomAttr domAttrExample = domElementExpressionChild.attributeNode(KV_EXAMPLE);
   if (!domAttrExample.isNull())
     example = domAttrExample.value();
 
   usage = "";
-  QDomAttr domAttrUsage = domElementExpressionChild.attributeNode(KV_USAGE);
+  TQDomAttr domAttrUsage = domElementExpressionChild.attributeNode(KV_USAGE);
   if (!domAttrUsage.isNull())
   {
     usage = domAttrUsage.value();
@@ -886,7 +886,7 @@ bool KEduVocKvtmlReader::readExpressionChildAttributes( QDomElement &domElementE
       if( num > (int) m_doc->usage_descr.size() )
       {
         // description missing ?
-        QString s;
+        TQString s;
         for (int i = m_doc->usage_descr.size(); i < num; i++)
         {
           s.setNum (i+1);
@@ -898,16 +898,16 @@ bool KEduVocKvtmlReader::readExpressionChildAttributes( QDomElement &domElementE
   }
 
   paraphrase = "";
-  QDomAttr domAttrParaphrase = domElementExpressionChild.attributeNode(KV_PARAPHRASE);
+  TQDomAttr domAttrParaphrase = domElementExpressionChild.attributeNode(KV_PARAPHRASE);
   if (!domAttrParaphrase.isNull())
     paraphrase = domAttrParaphrase.value();
 
   antonym = "";
-  QDomAttr domAttrAntonym = domElementExpressionChild.attributeNode(KV_ANTONYM);
+  TQDomAttr domAttrAntonym = domElementExpressionChild.attributeNode(KV_ANTONYM);
   if (!domAttrAntonym.isNull())
     antonym = domAttrAntonym.value();
 
-  QDomAttr domAttrExprType = domElementExpressionChild.attributeNode(KV_EXPRTYPE);
+  TQDomAttr domAttrExprType = domElementExpressionChild.attributeNode(KV_EXPRTYPE);
   if (!domAttrExprType.isNull())
   {
     type = domAttrExprType.value();
@@ -924,7 +924,7 @@ bool KEduVocKvtmlReader::readExpressionChildAttributes( QDomElement &domElementE
       if( num > (int) m_doc->type_descr.size() )
       {
         // description missing ?
-        QString s;
+        TQString s;
         for (int i = m_doc->type_descr.size(); i < num; i++)
         {
           s.setNum (i+1);
@@ -936,12 +936,12 @@ bool KEduVocKvtmlReader::readExpressionChildAttributes( QDomElement &domElementE
   }
 
   pronunce = "";
-  QDomAttr domAttrPronunce = domElementExpressionChild.attributeNode(KV_PRONUNCE);
+  TQDomAttr domAttrPronunce = domElementExpressionChild.attributeNode(KV_PRONUNCE);
   if (!domAttrPronunce.isNull())
     pronunce = domAttrPronunce.value();
 
   query_id = "";
-  QDomAttr domAttrQuery = domElementExpressionChild.attributeNode(KV_QUERY);
+  TQDomAttr domAttrQuery = domElementExpressionChild.attributeNode(KV_QUERY);
   if (!domAttrQuery.isNull())
     query_id = domAttrQuery.value();
 
@@ -949,7 +949,7 @@ bool KEduVocKvtmlReader::readExpressionChildAttributes( QDomElement &domElementE
 }
 
 
-bool KEduVocKvtmlReader::readExpression(QDomElement &domElementParent)
+bool KEduVocKvtmlReader::readExpression(TQDomElement &domElementParent)
 {
   grade_t       grade,
                 r_grade;
@@ -957,30 +957,30 @@ bool KEduVocKvtmlReader::readExpression(QDomElement &domElementParent)
                 r_qcount;
   int           bcount,
                  r_bcount;
-  QString       remark;
-  QString       pronunce;
+  TQString       remark;
+  TQString       pronunce;
   time_t        qdate,
                 r_qdate;
   bool          inquery;
   bool          active;
-  QString       lang;
-  QString       textstr;
-  QString       exprtype;
+  TQString       lang;
+  TQString       textstr;
+  TQString       exprtype;
   bool          org_found = false;
-  QString       q_org,
+  TQString       q_org,
                 q_trans;
-  QString       query_id;
+  TQString       query_id;
   KEduVocExpression expr;
   int           lesson = 0;
   int           width;
-  QString       type;
-  QString       faux_ami_f;
-  QString       faux_ami_t;
-  QString       synonym;
-  QString       example;
-  QString       antonym;
-  QString       usage;
-  QString       paraphrase;
+  TQString       type;
+  TQString       faux_ami_f;
+  TQString       faux_ami_t;
+  TQString       synonym;
+  TQString       example;
+  TQString       antonym;
+  TQString       usage;
+  TQString       paraphrase;
   vector<Conjugation> conjug;
   Comparison     comparison;
   MultipleChoice mc;
@@ -989,23 +989,23 @@ bool KEduVocKvtmlReader::readExpression(QDomElement &domElementParent)
   // Attributes
   //-------------------------------------------------------------------------
 
-  QDomAttr domAttrMember = domElementParent.attributeNode(KV_LESS_MEMBER);
+  TQDomAttr domAttrMember = domElementParent.attributeNode(KV_LESS_MEMBER);
   if (!domAttrMember.isNull())
     lesson = domAttrMember.value().toInt();
 
-  QDomAttr domAttrSelected = domElementParent.attributeNode(KV_SELECTED);
+  TQDomAttr domAttrSelected = domElementParent.attributeNode(KV_SELECTED);
   if (!domAttrSelected.isNull())
     inquery = domAttrSelected.value().toInt();
   else
     inquery = false;
 
-  QDomAttr domAttrInactive = domElementParent.attributeNode(KV_INACTIVE);
+  TQDomAttr domAttrInactive = domElementParent.attributeNode(KV_INACTIVE);
   if (!domAttrInactive.isNull())
     active = !domAttrInactive.value().toInt();
   else
     active = false;
 
-  QDomAttr domAttrType = domElementParent.attributeNode(KV_EXPRTYPE);
+  TQDomAttr domAttrType = domElementParent.attributeNode(KV_EXPRTYPE);
   if (!domAttrType.isNull())
   {
     exprtype = !domAttrType.value().toInt();
@@ -1022,7 +1022,7 @@ bool KEduVocKvtmlReader::readExpression(QDomElement &domElementParent)
       if( num > (int) m_doc->type_descr.size() )
       {
         // description missing ?
-        QString s;
+        TQString s;
         for (int i = m_doc->type_descr.size(); i < num; i++)
         {
           s.setNum (i+1);
@@ -1036,7 +1036,7 @@ bool KEduVocKvtmlReader::readExpression(QDomElement &domElementParent)
   if (lesson && lesson > (int) m_doc->lesson_descr.size() )
   {
     // description missing ?
-    QString s;
+    TQString s;
     for (int i = m_doc->lesson_descr.size(); i < lesson; i++)
     {
       s.setNum (i+1);
@@ -1051,7 +1051,7 @@ bool KEduVocKvtmlReader::readExpression(QDomElement &domElementParent)
 
   // now want "original" and one or more "translations"
 
-  QDomElement domElementExpressionChild = domElementParent.firstChild().toElement();
+  TQDomElement domElementExpressionChild = domElementParent.firstChild().toElement();
 
   unsigned int count = 0;
   org_found = false;
@@ -1132,7 +1132,7 @@ bool KEduVocKvtmlReader::readExpression(QDomElement &domElementParent)
   bool bComparison = false;
   bool bMultipleChoice = false;
 
-  QDomElement domElementOriginalChild = domElementExpressionChild.firstChild().toElement();
+  TQDomElement domElementOriginalChild = domElementExpressionChild.firstChild().toElement();
   while (!domElementOriginalChild.isNull())
   {
     if (domElementOriginalChild.tagName() == KV_CONJUG_GRP)
@@ -1144,7 +1144,7 @@ bool KEduVocKvtmlReader::readExpression(QDomElement &domElementParent)
       }
       bConjug = true;
       conjug.clear();
-      if (!readConjug(domElementOriginalChild, conjug, (QString) KV_CON_TYPE))
+      if (!readConjug(domElementOriginalChild, conjug, (TQString) KV_CON_TYPE))
         return false;
     }
 
@@ -1310,7 +1310,7 @@ bool KEduVocKvtmlReader::readExpression(QDomElement &domElementParent)
     bool bComparison = false;
     bool bMultipleChoice = false;
 
-    QDomElement domElementOriginalChild = domElementExpressionChild.firstChild().toElement();
+    TQDomElement domElementOriginalChild = domElementExpressionChild.firstChild().toElement();
     while (!domElementOriginalChild.isNull())
     {
       if (domElementOriginalChild.tagName() == KV_CONJUG_GRP)
@@ -1322,7 +1322,7 @@ bool KEduVocKvtmlReader::readExpression(QDomElement &domElementParent)
         }
         bConjug = true;
         conjug.clear();
-        if (!readConjug(domElementOriginalChild, conjug, (QString) KV_CON_TYPE))
+        if (!readConjug(domElementOriginalChild, conjug, (TQString) KV_CON_TYPE))
           return false;
       }
 
@@ -1430,7 +1430,7 @@ bool KEduVocKvtmlReader::readExpression(QDomElement &domElementParent)
 }
 
 
-bool KEduVocKvtmlReader::readBody(QDomElement &domElementParent)
+bool KEduVocKvtmlReader::readBody(TQDomElement &domElementParent)
 {
   bool lessgroup = false;
   bool optgroup = false;
@@ -1448,7 +1448,7 @@ if (lines != 0)
     emit progressChanged(this, 0);
 */
 
-  QDomElement domElementChild = domElementParent.firstChild().toElement();
+  TQDomElement domElementChild = domElementParent.firstChild().toElement();
 
   while (!domElementChild.isNull())
   {
@@ -1566,8 +1566,8 @@ bool KEduVocKvtmlReader::readDoc(KEduVocDocument *doc)
 {
   m_doc = doc;
 
-  QDomDocument domDoc("Kvtml" );
-  QString errorMsg;
+  TQDomDocument domDoc("Kvtml" );
+  TQString errorMsg;
   if( !domDoc.setContent( m_inputFile, &errorMsg ) )
   {
     domError(errorMsg);
@@ -1586,7 +1586,7 @@ bool KEduVocKvtmlReader::readDoc(KEduVocDocument *doc)
   m_doc->doc_remark = "";
 
 
-  QDomElement domElementKvtml = domDoc.documentElement();
+  TQDomElement domElementKvtml = domDoc.documentElement();
   if( domElementKvtml.tagName() != KV_DOCTYPE )
   {
     domError(i18n("Tag <%1> was expected "
@@ -1598,38 +1598,38 @@ bool KEduVocKvtmlReader::readDoc(KEduVocDocument *doc)
   // Attributes
   //-------------------------------------------------------------------------
 
-  QDomAttr domAttrEncoding = domElementKvtml.attributeNode(KV_ENCODING);
+  TQDomAttr domAttrEncoding = domElementKvtml.attributeNode(KV_ENCODING);
   if (!domAttrEncoding.isNull())
   {
     // TODO handle old encodings
     // Qt DOM API autodetects encoding, so is there anything to do ?
   }
 
-  QDomAttr domAttrTitle = domElementKvtml.attributeNode(KV_TITLE);
+  TQDomAttr domAttrTitle = domElementKvtml.attributeNode(KV_TITLE);
   if (!domAttrTitle.isNull())
   {
     m_doc->doctitle = domAttrTitle.value();
   }
 
-  QDomAttr domAttrAuthor = domElementKvtml.attributeNode(KV_AUTHOR);
+  TQDomAttr domAttrAuthor = domElementKvtml.attributeNode(KV_AUTHOR);
   if (!domAttrAuthor.isNull())
   {
     m_doc->author = domAttrAuthor.value();
   }
 
-  QDomAttr domAttrLicence = domElementKvtml.attributeNode(KV_LICENSE);
+  TQDomAttr domAttrLicence = domElementKvtml.attributeNode(KV_LICENSE);
   if (!domAttrLicence.isNull())
   {
     m_doc->license = domAttrLicence.value();
   }
 
-  QDomAttr domAttrRemark = domElementKvtml.attributeNode(KV_DOC_REM);
+  TQDomAttr domAttrRemark = domElementKvtml.attributeNode(KV_DOC_REM);
   if (!domAttrRemark.isNull())
   {
     m_doc->doc_remark = domAttrRemark.value();
   }
 
-  QDomAttr domAttrGenerator = domElementKvtml.attributeNode(KV_GENERATOR);
+  TQDomAttr domAttrGenerator = domElementKvtml.attributeNode(KV_GENERATOR);
   if (!domAttrGenerator.isNull())
   {
     m_doc->generator = domAttrGenerator.value();
@@ -1641,13 +1641,13 @@ bool KEduVocKvtmlReader::readDoc(KEduVocDocument *doc)
     }
   }
 
-  QDomAttr domAttrCols = domElementKvtml.attributeNode(KV_COLS);
+  TQDomAttr domAttrCols = domElementKvtml.attributeNode(KV_COLS);
   if (!domAttrCols.isNull())
   {
     m_doc->cols = domAttrCols.value().toInt();
   }
 
-  QDomAttr domAttrLines = domElementKvtml.attributeNode(KV_LINES);
+  TQDomAttr domAttrLines = domElementKvtml.attributeNode(KV_LINES);
   if (!domAttrLines.isNull())
   {
     m_doc->lines = domAttrLines.value().toInt();
@@ -1665,31 +1665,31 @@ bool KEduVocKvtmlReader::readDoc(KEduVocDocument *doc)
 }
 
 
-void KEduVocKvtmlReader::domErrorUnknownElement(const QString &elem)
+void KEduVocKvtmlReader::domErrorUnknownElement(const TQString &elem)
 {
-  QString ln = i18n("File:\t%1\n").arg(m_doc->URL().path());
+  TQString ln = i18n("File:\t%1\n").arg(m_doc->URL().path());
 
-  QString format = i18n(
+  TQString format = i18n(
       "Your document contains an unknown tag <%1>.  "  // keep trailing space
       "Maybe your version of KVocTrain is too old, "
       "or the document is damaged.\n"
       "Loading is aborted because KVocTrain cannot "
       "read documents with unknown elements.\n"
      );
-  QString msg = format.arg(elem);
-  QApplication::setOverrideCursor( arrowCursor, true );
-  QString s = kapp->makeStdCaption(i18n("Unknown Element"));
+  TQString msg = format.arg(elem);
+  TQApplication::setOverrideCursor( arrowCursor, true );
+  TQString s = kapp->makeStdCaption(i18n("Unknown Element"));
   KMessageBox::sorry(0, ln+msg, s);
-  QApplication::restoreOverrideCursor();
+  TQApplication::restoreOverrideCursor();
 }
 
-void KEduVocKvtmlReader::domError(const QString &text )
+void KEduVocKvtmlReader::domError(const TQString &text )
 {
-  QApplication::setOverrideCursor( arrowCursor, true );
-  QString s = kapp->makeStdCaption(i18n("Error"));
-  QString ln = i18n("File:\t%1\n").arg(m_doc->URL().path());
-  QString msg = text;
+  TQApplication::setOverrideCursor( arrowCursor, true );
+  TQString s = kapp->makeStdCaption(i18n("Error"));
+  TQString ln = i18n("File:\t%1\n").arg(m_doc->URL().path());
+  TQString msg = text;
   KMessageBox::error(0, ln+msg, s);
-  QApplication::restoreOverrideCursor();
+  TQApplication::restoreOverrideCursor();
 }
 

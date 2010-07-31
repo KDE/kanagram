@@ -21,7 +21,7 @@
 #ifndef KANAGRAMGAME_H
 #define KANAGRAMGAME_H
 
-#include <qobject.h>
+#include <tqobject.h>
 
 #include <kstandarddirs.h>
 #include <krandomsequence.h>
@@ -32,7 +32,7 @@ class KanagramGame : public QObject
 {
 Q_OBJECT
 	public:
-		KanagramGame(QWidget *parent);
+		KanagramGame(TQWidget *parent);
 		~KanagramGame();
 		void refreshVocabList();
 		void loadDefaultVocab();
@@ -40,26 +40,26 @@ Q_OBJECT
 		void nextAnagram();
 		void nextVocab();
 		void previousVocab();
-		QString getAnagram();
-		QString getHint();
-		QString getWord();
+		TQString getAnagram();
+		TQString getHint();
+		TQString getWord();
 		void restoreWord();
-		QString getDocTitle();
-		QString getFilename();
+		TQString getDocTitle();
+		TQString getFilename();
 	private:
-		QString createAnagram(QString original);
+		TQString createAnagram(TQString original);
 		void checkFile();
-		QWidget *m_parent;
+		TQWidget *m_parent;
 		KRandomSequence m_random;
-		QString m_anagram;
-		QString m_hint;
-		QString m_originalWord;
+		TQString m_anagram;
+		TQString m_hint;
+		TQString m_originalWord;
 
 		int m_index;
-		QStringList m_fileList;
-		QStringList m_answeredWords;
-		QString m_docTitle;
-		QString m_filename;
+		TQStringList m_fileList;
+		TQStringList m_answeredWords;
+		TQString m_docTitle;
+		TQString m_filename;
 };
 
 #endif

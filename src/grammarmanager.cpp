@@ -42,15 +42,15 @@ Conjugation::names [] =
 };
 
 
-vector<QString> Conjugation::userTenses;
+vector<TQString> Conjugation::userTenses;
 
 
 //================================================================
 
 Comparison::Comparison (
-           const QString &l1,
-           const QString &l2,
-           const QString &l3
+           const TQString &l1,
+           const TQString &l2,
+           const TQString &l3
           )
 {
    setL1 (l1);
@@ -79,9 +79,9 @@ void Comparison::clear()
 
 
 Article::Article
-          (const QString &fem_def, const QString &fem_indef,
-           const QString &mal_def, const QString &mal_indef,
-           const QString &nat_def, const QString &nat_indef
+          (const TQString &fem_def, const TQString &fem_indef,
+           const TQString &mal_def, const TQString &mal_indef,
+           const TQString &nat_def, const TQString &nat_indef
           )
 {
    setFemale  (fem_def, fem_indef);
@@ -91,7 +91,7 @@ Article::Article
 
 
 void Article::setFemale
-  (const QString &def, const QString &indef)
+  (const TQString &def, const TQString &indef)
 {
    fem_def = def;
    fem_indef = indef;
@@ -99,7 +99,7 @@ void Article::setFemale
 
 
 void Article::setMale
-  (const QString &def, const QString &indef)
+  (const TQString &def, const TQString &indef)
 {
    mal_def = def;
    mal_indef = indef;
@@ -107,7 +107,7 @@ void Article::setMale
 
 
 void Article::setNatural
-  (const QString &def, const QString &indef)
+  (const TQString &def, const TQString &indef)
 {
    nat_def = def;
    nat_indef = indef;
@@ -115,7 +115,7 @@ void Article::setNatural
 
 
 void Article::female
-  (QString &def, QString &indef) const
+  (TQString &def, TQString &indef) const
 {
    def = fem_def;
    indef = fem_indef;
@@ -123,7 +123,7 @@ void Article::female
 
 
 void Article::male
-  (QString &def, QString &indef) const
+  (TQString &def, TQString &indef) const
 {
    def = mal_def;
    indef = mal_indef;
@@ -131,7 +131,7 @@ void Article::male
 
 
 void Article::natural
-  (QString &def, QString &indef) const
+  (TQString &def, TQString &indef) const
 {
    def = nat_def;
    indef = nat_indef;
@@ -158,7 +158,7 @@ vector<TenseRelation> Conjugation::getRelation ()
   }
 
   for (int i = 0; i < (int) userTenses.size(); i++) {
-    QString s;
+    TQString s;
     s.setNum(i+1);
     s.insert(0, UL_USER_TENSE);
     vec.push_back(TenseRelation(s, userTenses[i]));
@@ -168,16 +168,16 @@ vector<TenseRelation> Conjugation::getRelation ()
 }
 
 
-void Conjugation::setTenseNames (vector<QString> names)
+void Conjugation::setTenseNames (vector<TQString> names)
 {
   userTenses = names;
 }
 
 
-QString Conjugation::getName (const QString &abbrev)
+TQString Conjugation::getName (const TQString &abbrev)
 {
-   if (abbrev.length() >= 2 && abbrev[0] == QString(UL_USER_TENSE)) {
-     QString s = abbrev;
+   if (abbrev.length() >= 2 && abbrev[0] == TQString(UL_USER_TENSE)) {
+     TQString s = abbrev;
      s.remove(0, 1);
      int i = s.toInt() - 1;
 
@@ -197,7 +197,7 @@ QString Conjugation::getName (const QString &abbrev)
 }
 
 
-QString Conjugation::getName (int idx)
+TQString Conjugation::getName (int idx)
 {
    if (idx < numInternalNames() )
      return i18n(names[idx].name);
@@ -210,11 +210,11 @@ QString Conjugation::getName (int idx)
 }
 
 
-QString Conjugation::getAbbrev (const QString &name)
+TQString Conjugation::getAbbrev (const TQString &name)
 {
    for (int i = 0; i < (int) userTenses.size(); i++)
      if (userTenses[i] == name) {
-       QString s;
+       TQString s;
        s.setNum(i+1);
        s.insert(0, UL_USER_TENSE);
        return s;
@@ -228,13 +228,13 @@ QString Conjugation::getAbbrev (const QString &name)
 }
 
 
-QString Conjugation::getAbbrev (int idx)
+TQString Conjugation::getAbbrev (int idx)
 {
    if (idx < numInternalNames() )
      return names[idx].abbrev;
 
    else if (idx < numTenses() ) {
-     QString s;
+     TQString s;
      s.setNum(idx-numInternalNames()+1);
      s.insert(0, UL_USER_TENSE);
      return s;
@@ -257,7 +257,7 @@ int Conjugation::numTenses()
 }
 
 
-QString Conjugation::getType (int idx)
+TQString Conjugation::getType (int idx)
 {
   if (idx >= (int) conjugations.size() )
     return "";
@@ -266,7 +266,7 @@ QString Conjugation::getType (int idx)
 }
 
 
-void Conjugation::setType (int idx, const QString & type)
+void Conjugation::setType (int idx, const TQString & type)
 {
   if (idx >= (int) conjugations.size() )
     return;
@@ -321,83 +321,83 @@ bool Conjugation::isEmpty (int idx)
    return default;
 
 
-bool Conjugation::pers3SingularCommon(const QString &type) const
+bool Conjugation::pers3SingularCommon(const TQString &type) const
 {
   _GET_CON_(s3common, type, false);
 }
 
 
-bool Conjugation::pers3PluralCommon(const QString &type) const
+bool Conjugation::pers3PluralCommon(const TQString &type) const
 {
   _GET_CON_(p3common, type, false);
 }
 
 
-QString Conjugation::pers1Singular
-  (const QString &type) const
+TQString Conjugation::pers1Singular
+  (const TQString &type) const
 {
   _GET_CON_(pers1_sing, type, "");
 }
 
 
-QString Conjugation::pers2Singular
-  (const QString &type) const
+TQString Conjugation::pers2Singular
+  (const TQString &type) const
 {
   _GET_CON_(pers2_sing, type, "");
 }
 
 
-QString Conjugation::pers3FemaleSingular
-  (const QString &type) const
+TQString Conjugation::pers3FemaleSingular
+  (const TQString &type) const
 {
   _GET_CON_(pers3_f_sing, type, "");
 }
 
 
-QString Conjugation::pers3MaleSingular
-  (const QString &type) const
+TQString Conjugation::pers3MaleSingular
+  (const TQString &type) const
 {
   _GET_CON_(pers3_m_sing, type, "");
 }
 
 
-QString Conjugation::pers3NaturalSingular
-  (const QString &type) const
+TQString Conjugation::pers3NaturalSingular
+  (const TQString &type) const
 {
   _GET_CON_(pers3_n_sing, type, "");
 }
 
 
-QString Conjugation::pers1Plural
-  (const QString &type) const
+TQString Conjugation::pers1Plural
+  (const TQString &type) const
 {
   _GET_CON_(pers1_plur, type, "");
 }
 
 
-QString Conjugation::pers2Plural
-  (const QString &type) const
+TQString Conjugation::pers2Plural
+  (const TQString &type) const
 {
   _GET_CON_(pers2_plur, type, "");
 }
 
 
-QString Conjugation::pers3FemalePlural
-  (const QString &type) const
+TQString Conjugation::pers3FemalePlural
+  (const TQString &type) const
 {
   _GET_CON_(pers3_f_plur, type, "");
 }
 
 
-QString Conjugation::pers3MalePlural
-  (const QString &type) const
+TQString Conjugation::pers3MalePlural
+  (const TQString &type) const
 {
   _GET_CON_(pers3_m_plur, type, "");
 }
 
 
-QString Conjugation::pers3NaturalPlural
-  (const QString &type) const
+TQString Conjugation::pers3NaturalPlural
+  (const TQString &type) const
 {
   _GET_CON_(pers3_n_plur, type, "");
 }
@@ -418,83 +418,83 @@ QString Conjugation::pers3NaturalPlural
    conjugations.push_back(ct);
 
 
-void Conjugation::setPers3PluralCommon(const QString &type, bool f)
+void Conjugation::setPers3PluralCommon(const TQString &type, bool f)
 {
   _SET_CON_(p3common, type, f);
 }
 
 
-void Conjugation::setPers3SingularCommon(const QString &type, bool f)
+void Conjugation::setPers3SingularCommon(const TQString &type, bool f)
 {
   _SET_CON_(s3common, type, f);
 }
 
 
 void Conjugation::setPers1Singular
-  (const QString &type, const QString &str)
+  (const TQString &type, const TQString &str)
 {
   _SET_CON_(pers1_sing, type, str);
 }
 
 
 void Conjugation::setPers2Singular
-  (const QString &type, const QString &str)
+  (const TQString &type, const TQString &str)
 {
   _SET_CON_(pers2_sing, type, str);
 }
 
 
 void Conjugation::setPers3FemaleSingular
-  (const QString &type, const QString &str)
+  (const TQString &type, const TQString &str)
 {
   _SET_CON_(pers3_f_sing, type, str);
 }
 
 
 void Conjugation::setPers3MaleSingular
-  (const QString &type, const QString &str)
+  (const TQString &type, const TQString &str)
 {
   _SET_CON_(pers3_m_sing, type, str);
 }
 
 
 void Conjugation::setPers3NaturalSingular
-  (const QString &type, const QString &str)
+  (const TQString &type, const TQString &str)
 {
   _SET_CON_(pers3_n_sing, type, str);
 }
 
 
 void Conjugation::setPers1Plural
-  (const QString &type, const QString &str)
+  (const TQString &type, const TQString &str)
 {
   _SET_CON_(pers1_plur, type, str);
 }
 
 
 void Conjugation::setPers2Plural
-  (const QString &type, const QString &str)
+  (const TQString &type, const TQString &str)
 {
   _SET_CON_(pers2_plur, type, str);
 }
 
 
 void Conjugation::setPers3FemalePlural
-  (const QString &type, const QString &str)
+  (const TQString &type, const TQString &str)
 {
   _SET_CON_(pers3_f_plur, type, str);
 }
 
 
 void Conjugation::setPers3MalePlural
-  (const QString &type, const QString &str)
+  (const TQString &type, const TQString &str)
 {
   _SET_CON_(pers3_m_plur, type, str);
 }
 
 
 void Conjugation::setPers3NaturalPlural
-  (const QString &type, const QString &str)
+  (const TQString &type, const TQString &str)
 {
   _SET_CON_(pers3_n_plur, type, str);
 }

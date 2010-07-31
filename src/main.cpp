@@ -35,22 +35,22 @@ int main(int argc, char *argv[])
 	about.addCredit("Artemiy Pavlov", I18N_NOOP("Sound effects"), 0, "http://artemiolabs.com");
 	KCmdLineArgs::init(argc, argv, &about);
 	KApplication app;
-	app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
+	app.connect(&app, TQT_SIGNAL(lastWindowClosed()), &app, TQT_SLOT(quit()));
 	
 	KanagramSettings::setJustGotFont(false);
-	QFont f("squeaky chalk sound");
-	if (!QFontInfo(f).exactMatch())
+	TQFont f("squeaky chalk sound");
+	if (!TQFontInfo(f).exactMatch())
 	{
 		KanagramSettings::setUseStandardFonts(true);
 	}
 	if (KanagramSettings::dataLanguage().isEmpty())
 	{
-		QStringList userLanguagesCode = KGlobal::locale()->languageList();
-		QStringList::const_iterator itEnd = userLanguagesCode.end();
-		QStringList::const_iterator it = userLanguagesCode.begin();
+		TQStringList userLanguagesCode = KGlobal::locale()->languageList();
+		TQStringList::const_iterator itEnd = userLanguagesCode.end();
+		TQStringList::const_iterator it = userLanguagesCode.begin();
 		for ( ; it != itEnd; ++it)
 		{
-			QStringList mdirs = KGlobal::dirs()->findDirs("appdata", "data/" + *it);	
+			TQStringList mdirs = KGlobal::dirs()->findDirs("appdata", "data/" + *it);	
 			if (!mdirs.isEmpty()) break;
 		}
 		if (it == itEnd) KanagramSettings::setDataLanguage("en");

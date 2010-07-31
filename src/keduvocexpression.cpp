@@ -34,7 +34,7 @@ void KEduVocExpression::Init()
 }
 
 
-KEduVocExpression::KEduVocExpression (QString &expr, int _lesson)
+KEduVocExpression::KEduVocExpression (TQString &expr, int _lesson)
 {
   Init();
   setOriginal(expr.stripWhiteSpace() );
@@ -48,10 +48,10 @@ KEduVocExpression::KEduVocExpression ()
 }
 
 
-KEduVocExpression::KEduVocExpression (QString &s, QString separator, int _lesson)
+KEduVocExpression::KEduVocExpression (TQString &s, TQString separator, int _lesson)
 {
   Init();
-  QString se;
+  TQString se;
   lesson = _lesson;
 
   if (separator.length() ) {
@@ -90,7 +90,7 @@ int KEduVocExpression::numTranslations() const
 }
 
 
-QString KEduVocExpression::getRemark (int idx) const
+TQString KEduVocExpression::getRemark (int idx) const
 {
   if (idx >= (int)remarks.size() || idx < 0) {
     return "";
@@ -101,7 +101,7 @@ QString KEduVocExpression::getRemark (int idx) const
 }
 
 
-void KEduVocExpression::setRemark (int idx, const QString & expr)
+void KEduVocExpression::setRemark (int idx, const TQString & expr)
 {
   if ( idx < 0) return;
 
@@ -114,7 +114,7 @@ void KEduVocExpression::setRemark (int idx, const QString & expr)
 }
 
 
-void KEduVocExpression::setFauxAmi (int idx, const QString & expr, bool rev_ami)
+void KEduVocExpression::setFauxAmi (int idx, const TQString & expr, bool rev_ami)
 {
   if (idx < 1) return;
 
@@ -138,7 +138,7 @@ void KEduVocExpression::setFauxAmi (int idx, const QString & expr, bool rev_ami)
 }
 
 
-QString KEduVocExpression::getFauxAmi (int idx, bool rev_ami) const
+TQString KEduVocExpression::getFauxAmi (int idx, bool rev_ami) const
 {
   if (rev_ami) {
     if (idx >= (int)rev_fauxAmi.size() || idx < 1 ) {
@@ -156,7 +156,7 @@ QString KEduVocExpression::getFauxAmi (int idx, bool rev_ami) const
 }
 
 
-void KEduVocExpression::setSynonym (int idx, const QString & expr)
+void KEduVocExpression::setSynonym (int idx, const TQString & expr)
 {
   if ( idx < 0) return;
 
@@ -169,7 +169,7 @@ void KEduVocExpression::setSynonym (int idx, const QString & expr)
 }
 
 
-QString KEduVocExpression::getSynonym (int idx) const
+TQString KEduVocExpression::getSynonym (int idx) const
 {
   if (idx >= (int)synonym.size() || idx < 0) {
     return "";
@@ -180,7 +180,7 @@ QString KEduVocExpression::getSynonym (int idx) const
 }
 
 
-void KEduVocExpression::setExample (int idx, const QString & expr)
+void KEduVocExpression::setExample (int idx, const TQString & expr)
 {
   if ( idx < 0) return;
 
@@ -193,7 +193,7 @@ void KEduVocExpression::setExample (int idx, const QString & expr)
 }
 
 
-QString KEduVocExpression::getExample (int idx) const
+TQString KEduVocExpression::getExample (int idx) const
 {
   if (idx >= (int)example.size() || idx < 0) {
     return "";
@@ -204,7 +204,7 @@ QString KEduVocExpression::getExample (int idx) const
 }
 
 
-void KEduVocExpression::setUsageLabel (int idx, const QString & expr)
+void KEduVocExpression::setUsageLabel (int idx, const TQString & expr)
 {
   if ( idx < 0) return;
 
@@ -217,7 +217,7 @@ void KEduVocExpression::setUsageLabel (int idx, const QString & expr)
 }
 
 
-QString KEduVocExpression::getUsageLabel (int idx) const
+TQString KEduVocExpression::getUsageLabel (int idx) const
 {
   if (idx >= (int)usageLabels.size() || idx < 0) {
     return "";
@@ -228,7 +228,7 @@ QString KEduVocExpression::getUsageLabel (int idx) const
 }
 
 
-void KEduVocExpression::setParaphrase (int idx, const QString & expr)
+void KEduVocExpression::setParaphrase (int idx, const TQString & expr)
 {
   if ( idx < 0) return;
 
@@ -241,7 +241,7 @@ void KEduVocExpression::setParaphrase (int idx, const QString & expr)
 }
 
 
-QString KEduVocExpression::getParaphrase (int idx) const
+TQString KEduVocExpression::getParaphrase (int idx) const
 {
   if (idx >= (int)paraphrases.size() || idx < 0) {
     return "";
@@ -252,7 +252,7 @@ QString KEduVocExpression::getParaphrase (int idx) const
 }
 
 
-void KEduVocExpression::setAntonym (int idx, const QString & expr)
+void KEduVocExpression::setAntonym (int idx, const TQString & expr)
 {
   if ( idx < 0) return;
 
@@ -265,7 +265,7 @@ void KEduVocExpression::setAntonym (int idx, const QString & expr)
 }
 
 
-QString KEduVocExpression::getAntonym (int idx) const
+TQString KEduVocExpression::getAntonym (int idx) const
 {
   if (idx >= (int)antonym.size() || idx < 0) {
     return "";
@@ -348,7 +348,7 @@ MultipleChoice KEduVocExpression::getMultipleChoice (int idx) const
 }
 
 
-QString KEduVocExpression::getPronunce (int idx) const
+TQString KEduVocExpression::getPronunce (int idx) const
 {
   if (idx >= (int)pronunces.size() || idx < 0) {
     return "";
@@ -359,7 +359,7 @@ QString KEduVocExpression::getPronunce (int idx) const
 }
 
 
-void KEduVocExpression::setPronunce (int idx, const QString & expr)
+void KEduVocExpression::setPronunce (int idx, const TQString & expr)
 {
   if ( idx < 0) return;
 
@@ -372,7 +372,7 @@ void KEduVocExpression::setPronunce (int idx, const QString & expr)
 }
 
 
-void KEduVocExpression::addTranslation (QString expr,
+void KEduVocExpression::addTranslation (TQString expr,
                                     grade_t grade, grade_t rev_grade)
 {
   if (grade > KV_MAX_GRADE)
@@ -387,7 +387,7 @@ void KEduVocExpression::addTranslation (QString expr,
 }
 
 
-QString KEduVocExpression::getTranslation (int idx) const
+TQString KEduVocExpression::getTranslation (int idx) const
 {
   if (idx > (int)translations.size() || idx < 1)
     return "";
@@ -466,7 +466,7 @@ void KEduVocExpression::removeTranslation (int idx)
 }
 
 
-void KEduVocExpression::setTranslation (int idx, const QString & expr)
+void KEduVocExpression::setTranslation (int idx, const TQString & expr)
 {
   if ( idx <= 0) return;
 
@@ -480,9 +480,9 @@ void KEduVocExpression::setTranslation (int idx, const QString & expr)
 }
 
 
-QString KEduVocExpression::gradeStr (int idx, bool rev_grade) const
+TQString KEduVocExpression::gradeStr (int idx, bool rev_grade) const
 {
-  QString s;
+  TQString s;
   s.setNum(getGrade(idx, rev_grade));
   return s;
 }
@@ -724,7 +724,7 @@ void KEduVocExpression::setQueryDate (int idx, time_t date, bool rev_date)
 bool KEduVocExpression::uniqueType () const
 {
   bool unique = true;
-  QString type0 = getType(0);
+  TQString type0 = getType(0);
   for (int i = 1; i < numTranslations(); i++)
     if (type0 != getType(i) )
       unique = false;
@@ -732,7 +732,7 @@ bool KEduVocExpression::uniqueType () const
 }
 
 
-QString KEduVocExpression::getType (int idx) const
+TQString KEduVocExpression::getType (int idx) const
 {
   if (idx >= (int)exprtypes.size() || idx < 0) {
     return "";
@@ -760,13 +760,13 @@ void KEduVocExpression::incBadCount (int index, bool rev_count)
 }
 
 
-void KEduVocExpression::setOriginal ( const QString & expr)
+void KEduVocExpression::setOriginal ( const TQString & expr)
 {
   origin = expr;
 }
 
 
-QString KEduVocExpression::getOriginal () const
+TQString KEduVocExpression::getOriginal () const
 {
   return origin;
 }
@@ -778,7 +778,7 @@ void KEduVocExpression::setLesson (int l)
 }
 
 
-void KEduVocExpression::setType (int idx, const QString &type)
+void KEduVocExpression::setType (int idx, const TQString &type)
 {
   if ( idx < 0) return;
 

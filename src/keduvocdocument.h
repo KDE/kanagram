@@ -23,7 +23,7 @@
 #include <config.h>
 #endif
 
-#include <qobject.h>
+#include <tqobject.h>
 
 #include <kurl.h>
 
@@ -266,7 +266,7 @@ class KEduVocDocument : public QObject
    *
    * @param obj calling object
    */
-  KEduVocDocument(QObject* obj);
+  KEduVocDocument(TQObject* obj);
 
   /** Destructor for the fileclass of the application */
   ~KEduVocDocument();
@@ -334,25 +334,25 @@ class KEduVocDocument : public QObject
 
   /** returns originals identifier
    */
-  QString getOriginalIdent () const;
+  TQString getOriginalIdent () const;
 
   /** set originals identifier
    */
-  void setOriginalIdent (const QString &id);
+  void setOriginalIdent (const TQString &id);
 
   /** returns identifier of translation x
    *
    * @param index            number of translation 1..x
    * @result                 ident string: de=german, en=englisch, ..
    */
-  QString getIdent (int index) const;
+  TQString getIdent (int index) const;
 
   /** sets identifier of translation
    *
    * @param index            number of translation 1..x
    * @param lang             ident string: de=german, en=englisch, ..
    */
-  void setIdent (int index, const QString &lang);
+  void setIdent (int index, const TQString &lang);
 
   /** removes identifier an the according translation in all entries
    *
@@ -365,67 +365,67 @@ class KEduVocDocument : public QObject
    * @param lang             identifier of language
    * @result                 index of translation, 0=original, -1=none
    */
-  int findIdent (const QString &lang) const;
+  int findIdent (const TQString &lang) const;
 
   /** returns attribute string
    *
    * @param index            number of attribute
    * @result                 string
    */
-  QString getTypeName (int index) const;
+  TQString getTypeName (int index) const;
 
   /** sets attribute string
    *
    * @param index            number of attribute
    * @param str              name of attribute
    */
-  void setTypeName (int index, QString &str);
+  void setTypeName (int index, TQString &str);
 
   /** gets descr of types  */
-  inline vector<QString> getTypeDescr() const { return type_descr; }
+  inline vector<TQString> getTypeDescr() const { return type_descr; }
 
   /** sets descr of types  */
-  inline void setTypeDescr(vector<QString> names) { type_descr = names; }
+  inline void setTypeDescr(vector<TQString> names) { type_descr = names; }
 
   /** returns tense string
    *
    * @param index            number of tense
    * @result                 string
    */
-  QString getTenseName (int index) const;
+  TQString getTenseName (int index) const;
 
   /** sets tense string
    *
    * @param index            number of tense
    * @param str              name of tense
    */
-  void setTenseName (int index, QString &str);
+  void setTenseName (int index, TQString &str);
 
   /** gets descr of tenses  */
-  inline vector<QString> getTenseDescr() const { return tense_descr; }
+  inline vector<TQString> getTenseDescr() const { return tense_descr; }
 
   /** sets descr of tenses  */
-  inline void setTenseDescr(vector<QString> names) { tense_descr = names; }
+  inline void setTenseDescr(vector<TQString> names) { tense_descr = names; }
 
   /** returns usage string
    *
    * @param index            number of usage
    * @result                 string
    */
-  QString getUsageName (int index) const;
+  TQString getUsageName (int index) const;
 
   /** sets usage string
    *
    * @param index            number of usage
    * @param str              name of usage
    */
-  void setUsageName (int index, QString &str);
+  void setUsageName (int index, TQString &str);
 
   /** gets descr of usages  */
-  inline vector<QString> getUsageDescr() const { return usage_descr; }
+  inline vector<TQString> getUsageDescr() const { return usage_descr; }
 
   /** sets descr of usages  */
-  inline void setUsageDescr(vector<QString> names) { usage_descr = names; }
+  inline void setUsageDescr(vector<TQString> names) { usage_descr = names; }
 
   /** open a document file
    *
@@ -439,7 +439,7 @@ class KEduVocDocument : public QObject
    * @param url     if url is empty (or NULL) actual name is preserved
    * @result         true if successful
    */
-  bool saveAs(QObject *parent, const KURL & url, FileType ft, const QString & generator);
+  bool saveAs(TQObject *parent, const KURL & url, FileType ft, const TQString & generator);
 
   /** returns count of entries
    */
@@ -459,7 +459,7 @@ class KEduVocDocument : public QObject
 
   /** append new lang ident
    */
-  inline void appendLang(const QString & id) { langs.push_back(id); }
+  inline void appendLang(const TQString & id) { langs.push_back(id); }
 
   /** returns pointer to expression object x
    *
@@ -479,7 +479,7 @@ class KEduVocDocument : public QObject
    * @param tolerant
    * @result          index of found entry, -1 if none
    */
-  int search(QString substr, int id,
+  int search(TQString substr, int id,
              int first=0, int last=-1, bool word_start = false, bool tolerant=false);
 
   /** returns url of xml file  */
@@ -489,34 +489,34 @@ class KEduVocDocument : public QObject
   inline void setURL(const KURL& url) {doc_url = url;}
 
   /** returns title of xml file  */
-  QString getTitle() const;
+  TQString getTitle() const;
 
   /** returns author of file  */
-  QString getAuthor() const;
+  TQString getAuthor() const;
 
   /** returns license of file  */
-  QString getLicense() const;
+  TQString getLicense() const;
 
   /** returns remark of file  */
-  QString getDocRemark() const;
+  TQString getDocRemark() const;
 
-  inline void getQueryLang(QString &org, QString &trans) const
+  inline void getQueryLang(TQString &org, TQString &trans) const
     { org = queryorg; trans = querytrans; }
 
-  inline void setQueryLang(const QString &org, const QString &trans)
+  inline void setQueryLang(const TQString &org, const TQString &trans)
     { queryorg = org; querytrans = trans; }
 
   /** sets title of xml file  */
-  void setTitle(const QString & title);
+  void setTitle(const TQString & title);
 
   /** sets author of file  */
-  void setAuthor(const QString & author);
+  void setAuthor(const TQString & author);
 
   /** sets license of file  */
-  void setLicense(const QString & license);
+  void setLicense(const TQString & license);
 
   /** sets remark of file  */
-  void setDocRemark(const QString & rem);
+  void setDocRemark(const TQString & rem);
 
   /** gets version of loaded file  */
   void getVersion(int &major, int &minor, int &patch);
@@ -530,7 +530,7 @@ class KEduVocDocument : public QObject
   inline void setCurrentLesson(int lesson) { current_lesson = lesson; }
 
   /** returns descr of lesson  */
-  QString getLessonDescr(int index) const;
+  TQString getLessonDescr(int index) const;
 
   /** returns lessons in current query  */
   vector<int> getLessonsInQuery() const;
@@ -538,12 +538,12 @@ class KEduVocDocument : public QObject
   /** sets lessons in current query  */
   void setLessonsInQuery(vector<int>);
 
-  inline vector<QString> getLessonDescr() const { return lesson_descr; }
+  inline vector<TQString> getLessonDescr() const { return lesson_descr; }
 
   inline int numLessons () const {return (int) lesson_descr.size(); }
 
   /** sets descr of lesson  */
-  inline void setLessonDescr(vector<QString> names) { lesson_descr = names; }
+  inline void setLessonDescr(vector<TQString> names) { lesson_descr = names; }
 
   /** returns pointer to conjugations if available
    *
@@ -572,10 +572,10 @@ class KEduVocDocument : public QObject
   void setArticle(int index, const Article &art);
 
   /** compress date */
-  QString compressDate(unsigned long) const;
+  TQString compressDate(unsigned long) const;
 
   /** decompress date */
-  unsigned long decompressDate(QString) const;
+  unsigned long decompressDate(TQString) const;
 
   /** returns recommended size
    *
@@ -597,16 +597,16 @@ class KEduVocDocument : public QObject
   void setLeitnerSystem( LeitnerSystem* system );
   LeitnerSystem* getLeitnerSystem();
 
-  bool unknownAttribute (int line, const QString &name, const QString &attr);
-  void unknownElement (int line, const QString &elem );
-  void errorKvtMl (int line, const QString &text );
-  void warningKvtMl (int line, const QString &text );
+  bool unknownAttribute (int line, const TQString &name, const TQString &attr);
+  void unknownElement (int line, const TQString &elem );
+  void errorKvtMl (int line, const TQString &text );
+  void warningKvtMl (int line, const TQString &text );
 
-  void errorLex (int line, const QString &text );
+  void errorLex (int line, const TQString &text );
 
-  void errorCsv (int line, const QString &text );
+  void errorCsv (int line, const TQString &text );
 
-  FileType detectFT(const QString &filename);
+  FileType detectFT(const TQString &filename);
 
   friend class QueryManager;
 
@@ -619,30 +619,30 @@ protected:
   void Init();
 
   /** sets version of loaded file  */
-  void setVersion(const QString & ver);
+  void setVersion(const TQString & ver);
 
   /* TODO
-  bool saveToLex     (QTextStream& os, QString &title);
-  bool loadFromLex   (QTextStream& is);
-  bool loadLessonLex (QTextStream& is);
-  bool saveLessonLex (QTextStream& os);
-  bool saveTypeNameLex   (QTextStream& os);
-  bool loadTypeNameLex   (QTextStream& is);
+  bool saveToLex     (TQTextStream& os, TQString &title);
+  bool loadFromLex   (TQTextStream& is);
+  bool loadLessonLex (TQTextStream& is);
+  bool saveLessonLex (TQTextStream& os);
+  bool saveTypeNameLex   (TQTextStream& os);
+  bool loadTypeNameLex   (TQTextStream& is);
 
-  bool saveToCsv     (QTextStream& os, QString &title);
-  bool loadFromCsv   (QTextStream& is);
-  bool loadLessonCsv (QTextStream& is);
-  bool saveLessonCsv (QTextStream& os);
-  bool saveTypeNameCsv   (QTextStream& os);
-  bool loadTypeNameCsv   (QTextStream& is);
+  bool saveToCsv     (TQTextStream& os, TQString &title);
+  bool loadFromCsv   (TQTextStream& is);
+  bool loadLessonCsv (TQTextStream& is);
+  bool saveLessonCsv (TQTextStream& os);
+  bool saveTypeNameCsv   (TQTextStream& os);
+  bool loadTypeNameCsv   (TQTextStream& is);
 
-  bool saveTypeNameVcb (QTextStream &os);
-  bool loadTypeNameVcb (QTextStream &is);
-  bool saveLessonVcb (QTextStream &os);
-  bool loadLessonVcb (QTextStream &is);
-  bool saveToVcb (QTextStream& os, QString &title);
-  bool loadFromVcb (QTextStream& is);
-  void errorVcb (int line, const QString &text );
+  bool saveTypeNameVcb (TQTextStream &os);
+  bool loadTypeNameVcb (TQTextStream &is);
+  bool saveLessonVcb (TQTextStream &os);
+  bool loadLessonVcb (TQTextStream &is);
+  bool saveToVcb (TQTextStream& os, TQString &title);
+  bool loadFromVcb (TQTextStream& is);
+  void errorVcb (int line, const TQString &text );
   */
 
  private:
@@ -655,26 +655,26 @@ protected:
   bool                  sort_allowed;
 
   // save these to document
-  vector<QString>        langs;      //0= origin, 1,.. translations
+  vector<TQString>        langs;      //0= origin, 1,.. translations
   int                    cols,
                          lines;
   int                    current_lesson;
   vector<int>            extraSizehints;
   vector<int>            sizehints;
-  QString                generator;
-  QString                queryorg,
+  TQString                generator;
+  TQString                queryorg,
                          querytrans;
   vector<KEduVocExpression>  vocabulary;
   vector<bool>           lessons_in_query;
-  vector<QString>        lesson_descr;
-  vector<QString>        type_descr;
-  vector<QString>        tense_descr;
-  vector<QString>        usage_descr;
-  QString                doctitle;
-  QString                author;
-  QString                license;
-  QString                doc_remark;
-  QString                doc_version;
+  vector<TQString>        lesson_descr;
+  vector<TQString>        type_descr;
+  vector<TQString>        tense_descr;
+  vector<TQString>        usage_descr;
+  TQString                doctitle;
+  TQString                author;
+  TQString                license;
+  TQString                doc_remark;
+  TQString                doc_version;
 
   vector<Article>        articles;
   vector<Conjugation>    conjugations;

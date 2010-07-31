@@ -31,7 +31,7 @@ class MainSettings : public MainSettingsWidget
 {
 Q_OBJECT
 	public:
-		MainSettings(QWidget *parent);
+		MainSettings(TQWidget *parent);
 		~MainSettings();
 	
 	public slots:
@@ -42,7 +42,7 @@ Q_OBJECT
 		void getAndInstallFont();
 
 	private:
-		QMap<QString, QString> m_languageCodeMap;
+		TQMap<TQString, TQString> m_languageCodeMap;
 		void setupTranslations();
 		
 		KConfigDialog *m_parent;

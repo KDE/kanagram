@@ -23,8 +23,8 @@
 
 #include <config.h>
 
-#include <qwidget.h>
-#include <qlineedit.h>
+#include <tqwidget.h>
+#include <tqlineedit.h>
 
 #include <kxmlguiclient.h>
 
@@ -69,62 +69,62 @@ Q_OBJECT
 		void refreshVocabularies();
 
 	private:
-		void drawText(QPainter &p, const QString &text, const QPoint &center, bool withMargin, int xMargin, int yMargin, QRect *rect, bool highlight, int fontSize = 18);
-		void drawTextNew(QPainter &p, const QString &text, int textAlign, int xMargin, int yMargin, const QRect &rect, bool highlight, int fontSize = 18);
+		void drawText(TQPainter &p, const TQString &text, const TQPoint &center, bool withMargin, int xMargin, int yMargin, TQRect *rect, bool highlight, int fontSize = 18);
+		void drawTextNew(TQPainter &p, const TQString &text, int textAlign, int xMargin, int yMargin, const TQRect &rect, bool highlight, int fontSize = 18);
 
 		void setupRects();
 
-		void play(QString filename);
+		void play(TQString filename);
 
-		void paintEvent(QPaintEvent *);
+		void paintEvent(TQPaintEvent *);
 
-		void mousePressEvent(QMouseEvent *e);
+		void mousePressEvent(TQMouseEvent *e);
 
-		void mouseMoveEvent(QMouseEvent *e);
+		void mouseMoveEvent(TQMouseEvent *e);
 
-		void updateButtonHighlighting(const QPoint &p);
+		void updateButtonHighlighting(const TQPoint &p);
 
 		void randomHintImage();
 
 		void showSettings();
 
-		void drawHelpText(QPainter &p, QString text);
+		void drawHelpText(TQPainter &p, TQString text);
 
-		void drawSwitcherText(QPainter &p, QString text);
-		void drawSwitcher(QPainter &p, const int xMargin, const int yMargin);
+		void drawSwitcherText(TQPainter &p, TQString text);
+		void drawSwitcher(TQPainter &p, const int xMargin, const int yMargin);
 
-		QRect innerRect(const QRect &rect, const int xMargin, const int yMargin);
+		TQRect innerRect(const TQRect &rect, const int xMargin, const int yMargin);
 
 		KanagramGame *m_game;
 
-		QPixmap *m_back, *m_hintOverlay, *m_aboutKDEOverlay, *m_aboutAppOverlay, *m_handbookOverlay, *m_aboutKDEOverlayOver, *m_aboutAppOverlayOver, *m_handbookOverlayOver, *m_card, *m_arrow, *m_arrowOver, *m_next, *m_nextOver, *m_config, *m_configOver, *m_help, *m_helpOver, *m_quit, *m_quitOver, *m_up, *m_upOver, *m_upDisabled;
+		TQPixmap *m_back, *m_hintOverlay, *m_aboutKDEOverlay, *m_aboutAppOverlay, *m_handbookOverlay, *m_aboutKDEOverlayOver, *m_aboutAppOverlayOver, *m_handbookOverlayOver, *m_card, *m_arrow, *m_arrowOver, *m_next, *m_nextOver, *m_config, *m_configOver, *m_help, *m_helpOver, *m_quit, *m_quitOver, *m_up, *m_upOver, *m_upDisabled;
 
 		//Deprecated
-		//QRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect;
+		//TQRect m_newWordRect, m_settingsRect, m_helpRect, m_quitRect;
 		
-		QRect m_nextRect, m_configRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_upRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect, m_arrowRect, m_logoRect, m_hintBoxRect, m_blackboardRect;
+		TQRect m_nextRect, m_configRect, m_helpRect, m_quitRect, m_revealRect, m_hintRect, m_upRect, m_aboutKDERect, m_aboutAppRect, m_handbookRect, m_switcherRect, m_arrowRect, m_logoRect, m_hintBoxRect, m_blackboardRect;
 
 		bool m_overNext, m_overConfig, m_overHelp, m_overQuit, m_overReveal, m_overHint, m_overUp, m_overAboutKDE, m_overAboutApp, m_overHandbook, m_overSwitcher, m_overHintBox;
 
 		bool m_showHint;
 
-		QColor m_fillColor, m_fontColor, m_fontHighlightColor, m_chalkColor, m_chalkHighlightColor;
+		TQColor m_fillColor, m_fontColor, m_fontHighlightColor, m_chalkColor, m_chalkHighlightColor;
 
 		//Values for settings
 		int m_hintHideTime;
 		bool m_useSounds, m_useStandardFonts;
 
-		QFont m_blackboardFont, m_font;
+		TQFont m_blackboardFont, m_font;
 		
 		KHelpMenu *m_helpMenu;
 
-		QLineEdit *m_inputBox;
+		TQLineEdit *m_inputBox;
 		
 		VocabSettings *m_vocabSettings;
 
 		KRandomSequence m_randomImage;
 
-		QTimer *m_hintTimer;
+		TQTimer *m_hintTimer;
 
 		KArtsDispatcher *m_artsDispatcher;
 		KArtsServer *m_artsServer;
