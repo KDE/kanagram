@@ -26,7 +26,7 @@
 #include <kstandarddirs.h>
 #include <krandomsequence.h>
 
-class QWidget;
+class TQWidget;
 
 class KanagramGame : public QObject
 {

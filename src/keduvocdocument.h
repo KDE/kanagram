@@ -240,8 +240,8 @@
 
 #define VCB_SEPARATOR    "__"
 
-class QTextStream;
-class QStringList;
+class TQTextStream;
+class TQStringList;
 class MultipleChoice;
 class LeitnerSystem;
 
