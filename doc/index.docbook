@@ -30,8 +30,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2008-08-22</date>
-<releaseinfo>0.2 (&kde; 4.1.2)</releaseinfo>
+<date>2010-08-26</date>
+<releaseinfo>0.2 (&kde; 4.5)</releaseinfo>
 
 <abstract>
 <para>
@@ -109,7 +109,7 @@ The <interface>Entry Box</interface> allows you to <action>input your attempts</
 </listitem>
 <listitem>
 <para>
-The <interface>Enter</interface> button lets you <action>check if your answer is correct</action>. This function is also provided by the <keycap>Enter</keycap> key.
+The <interface>Enter</interface> button lets you <action>check if your answer is correct</action>. This function is also provided by the &Enter; key.
 </para>
 </listitem>
 <listitem>
@@ -178,7 +178,7 @@ If you cannot guess what the word is, press the <guibutton>Hint</guibutton> butt
 
 <step>
 <para>
-Once you think you know the correct answer, type it into the <interface>Entry Box</interface> below the <interface>blackboard</interface>. Either press the <keycap>Enter</keycap> key, or click on the <interface>Enter</interface> button to the right of the <interface>Entry Box</interface> to check your answer: it will <action>change green on a correct answer</action>, and <action>red on an incorrect attempt</action>:
+Once you think you know the correct answer, type it into the <interface>Entry Box</interface> below the <interface>blackboard</interface>. Either press the &Enter; key, or click on the <interface>Enter</interface> button to the right of the <interface>Entry Box</interface> to check your answer: it will <action>change green on a correct answer</action>, and <action>red on an incorrect attempt</action>:
 </para>
 
 <screenshot>
@@ -277,11 +277,11 @@ linkend="vocab-editor"><guilabel>Vocabulary Editor</guilabel></link> dialog</act
 The <guibutton>Edit</guibutton> button allows you to <action>make changes to vocabularies that you have either created or downloaded off the Internet</action>.
 </para>
 </listitem>
-<listitem>
+<!-- not in 4.5 listitem>
 <para>
 The <guibutton>Delete</guibutton> button allows you to <action>delete vocabularies that you have created or downloaded</action>.
 </para>
-</listitem>
+</listitem-->
 <listitem>
 <para>
 You can select which vocabulary you would like to apply these actions to by using the <interface>list of vocabularies</interface>.
@@ -326,7 +326,7 @@ Try to keep both the name and description fields as short as possible. Effective
 </listitem>
 <listitem>
 <para>
-The <guibutton>Delete Word</guibutton> button lets you <action>remove words from your vocabulary</action>.
+The <guibutton>Remove Word</guibutton> button lets you <action>remove words from your vocabulary</action>.
 </para>
 </listitem>
 <listitem>
@@ -389,7 +389,8 @@ to &kanagram; action, and configure the shortcuts already assigned.</para>
 <title>New Stuff</title>
 
 <para>
-The <guilabel>New Stuff</guilabel> configuration page allows you to obtain new vocabulary files from the Internet:
+The <guibutton>Download new vocabulary</guibutton> button on the <guilabel>Vocabularies</guilabel> 
+configuration page allows you to obtain new vocabulary files from the Internet:
 </para>
 
 <screenshot>
@@ -405,7 +406,7 @@ The <guilabel>New Stuff</guilabel> configuration page allows you to obtain new v
 </screenshot>
 
 <para>
-Click the <guibutton>Download New Vocabularies</guibutton> button to browse the available online content:
+Click the <guibutton>Download new vocabulary</guibutton> button to browse the available online content:
 </para>
 
 <screenshot>
