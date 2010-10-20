@@ -34,7 +34,7 @@ install(TARGETS kanagram  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
 
-install( FILES kanagram.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS kanagram.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kanagram.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES kanagram.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
 
