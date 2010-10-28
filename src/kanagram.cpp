@@ -362,6 +362,7 @@ void Kanagram::paintEvent(QPaintEvent *)
         // do drawText with svg position and size
         QFont f = KGlobalSettings::generalFont();
         f.setWeight(QFont::Bold);
+        p.setFont(f);
         QString hint = m_game->getHint();
         int fontSize = fontUtils::fontSize(p, hint, int(250 * m_xRatio), int(100 * m_yRatio));
         FixFontSize(fontSize);
