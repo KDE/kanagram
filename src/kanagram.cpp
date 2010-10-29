@@ -364,11 +364,11 @@ void Kanagram::paintEvent(QPaintEvent *)
         f.setWeight(QFont::Bold);
         p.setFont(f);
         QString hint = m_game->getHint();
-        int fontSize = fontUtils::fontSize(p, hint, int(250 * m_xRatio), int(100 * m_yRatio));
+        int fontSize = fontUtils::fontSize(p, hint, int(250 * m_xRatio), int(110 * m_yRatio));
         FixFontSize(fontSize);
         f.setPointSize(fontSize);
         p.setFont(f);
-        p.drawText(int(694 * m_xRatio), int(330 * m_yRatio), int(250 * m_xRatio), int(100 * m_yRatio),
+        p.drawText(int(694 * m_xRatio), int(330 * m_yRatio), int(250 * m_xRatio), int(110 * m_yRatio),
                 Qt::TextWordWrap | Qt::AlignCenter, hint);
     }
 
