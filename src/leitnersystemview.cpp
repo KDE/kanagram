@@ -116,7 +116,7 @@ void LeitnerSystemView::setSystem(LeitnerSystem* leitnersystem)
 	//calculate the new sizes
 	calculateSize();
 	updateContents();
-	//repaint
+	//tqrepaint
 	//update();
 	//TQPainter* p = new TQPainter(this);
 	//drawContents( p, 0, 0, 0, 0 );

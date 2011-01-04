@@ -972,7 +972,7 @@ KEduVocDocument::FileType KEduVocDocument::detectFT(const TQString &filename)
 
    TQDataStream is( &f );
 
-   Q_INT8 c1, c2, c3, c4, c5;
+   TQ_INT8 c1, c2, c3, c4, c5;
    is >> c1
       >> c2
       >> c3

@@ -4,7 +4,7 @@
     <property name="name">
         <cstring>NewStuffWidget</cstring>
     </property>
-    <property name="geometry">
+    <property name="tqgeometry">
         <rect>
             <x>0</x>
             <y>0</y>
@@ -41,7 +41,7 @@ the button to get new vocabulary files.</string>
             <property name="sizeType">
                 <enum>Expanding</enum>
             </property>
-            <property name="sizeHint">
+            <property name="tqsizeHint">
                 <size>
                     <width>20</width>
                     <height>20</height>
@@ -58,5 +58,5 @@ the button to get new vocabulary files.</string>
         </widget>
     </grid>
 </widget>
-<layoutdefaults spacing="6" margin="11"/>
+<tqlayoutdefaults spacing="6" margin="11"/>
 </UI>

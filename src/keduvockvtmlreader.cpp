@@ -1670,7 +1670,7 @@ void KEduVocKvtmlReader::domErrorUnknownElement(const TQString &elem)
   TQString ln = i18n("File:\t%1\n").arg(m_doc->URL().path());
 
   TQString format = i18n(
-      "Your document contains an unknown tag <%1>.  "  // keep trailing space
+      "Your document tqcontains an unknown tag <%1>.  "  // keep trailing space
       "Maybe your version of KVocTrain is too old, "
       "or the document is damaged.\n"
       "Loading is aborted because KVocTrain cannot "

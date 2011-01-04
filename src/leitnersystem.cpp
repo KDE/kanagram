@@ -114,7 +114,7 @@ void LeitnerSystem::deleteBox( LeitnerBox* box )
 
 bool LeitnerSystem::insertBox( const TQString& name, int correctWordBox, int wrongWordBox )
 {
-	if( getBoxNameList().contains( name ) != 0 )
+	if( getBoxNameList().tqcontains( name ) != 0 )
 		return false;
 	
 	LeitnerBox tmpBox;
@@ -164,7 +164,7 @@ bool LeitnerSystem::setBoxName( LeitnerBox* box, const TQString& name )
 
 bool LeitnerSystem::insertBox( const TQString& name )
 {
-	if( getBoxNameList().contains( name ) != 0 )
+	if( getBoxNameList().tqcontains( name ) != 0 )
 		return false;
 	
 	LeitnerBox tmpBox;
