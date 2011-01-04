@@ -49,11 +49,8 @@ KanagramGame::KanagramGame() : m_index(0), m_doc(NULL)
 
 KanagramGame::~KanagramGame()
 {
-    if (m_doc != NULL)
-    {
-        delete m_doc;
-        m_doc = NULL;
-    }
+    delete m_doc;
+    m_doc = NULL;
 }
 
 void KanagramGame::checkFile()
@@ -73,11 +70,7 @@ void KanagramGame::loadDefaultVocab()
         nextVocab();
     }
 
-    if ( m_doc != 0 ) 
-    {
-        delete m_doc;
-        m_doc = NULL;
-    }
+    delete m_doc;
     m_doc = new KEduVocDocument(this);
 
     ///@todo open returns KEduVocDocument::ErrorCode
@@ -90,7 +83,6 @@ void KanagramGame::loadDefaultVocab()
 
 bool KanagramGame::refreshVocabList()
 {
-    bool retval = false;
     QString oldFilename = m_filename;
     m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
     if ( m_doc ) {
@@ -143,9 +135,7 @@ void KanagramGame::previousVocab()
 
     m_filename = m_fileList[m_index];
     checkFile();
-    if ( m_doc != 0 ) {
-        delete m_doc;
-    }
+    delete m_doc;
     m_doc = new KEduVocDocument(this);
     ///@todo open returns KEduVocDocument::ErrorCode
     m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
@@ -163,9 +153,7 @@ void KanagramGame::nextVocab()
     {
         m_filename = m_fileList[m_index];
         checkFile();
-        if ( m_doc != 0 ) {
-            delete m_doc;
-        }
+        delete m_doc;
         m_doc = new KEduVocDocument(this);
         ///@todo open returns KEduVocDocument::ErrorCode
         m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
