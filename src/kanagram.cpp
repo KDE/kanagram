@@ -35,6 +35,7 @@
 #include <KComponentData>
 #include <KConfigDialog>
 #include <KConfigSkeleton>
+#include <kfontutils.h>
 #include <KGlobalSettings>
 #include <KHelpMenu>
 #include <KLineEdit>
@@ -51,7 +52,6 @@
 #include "kanagramsettings.h"
 #include "mainsettings.h"
 #include "vocabsettings.h"
-#include "libkdeedu/kdeeduui/kedufontutils.h"
 
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
@@ -79,8 +79,8 @@ double xScaleQuitButton = 77.484 / kWindowWidth;
 double yScaleQuitButton = 77.5 / kWindowHeight;
 
 Kanagram::Kanagram()
-: KMainWindow(), m_game(NULL), m_overNext(false), m_overConfig(false), 
-    m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), 
+: KMainWindow(), m_game(NULL), m_overNext(false), m_overConfig(false),
+    m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false),
     m_overUp(false), m_overAboutKDE(false), m_overAboutApp(false),
     m_overHandbook(false), m_overSwitcher(false), m_overLogo(false),
     m_overHintBox(false), m_showHint(false), m_player(NULL), m_actionCollection(NULL)
@@ -130,10 +130,10 @@ Kanagram::~Kanagram()
 {
     delete m_player;
     m_player = NULL;
-    
+
     delete m_game;
     m_game = NULL;
-    
+
     delete m_renderer;
     m_renderer = NULL;
 }
@@ -203,23 +203,23 @@ void Kanagram::setupActions()
     nextAnagramAction->setShortcut(Qt::CTRL+Qt::Key_N);
     connect(nextAnagramAction, SIGNAL(triggered(bool)), this, SLOT(slotNextAnagram()));
     m_actionCollection->addAction("nextanagram", nextAnagramAction);
-    
+
     // hint action needs to not be help, as that conflicts with helpContents for shortcut key
     KAction *showHintAction = new KAction(i18n("Show Hint"), m_actionCollection);
     showHintAction->setShortcut(Qt::CTRL+Qt::Key_H);
     connect(showHintAction, SIGNAL(triggered(bool)), this, SLOT(slotToggleHint()));
     m_actionCollection->addAction("showhint", showHintAction);
-    
+
     // reveal word action
     KAction *revealWordAction = new KAction(i18n("Reveal Anagram"), m_actionCollection);
     revealWordAction->setShortcut(Qt::CTRL+Qt::Key_R);
     connect(revealWordAction, SIGNAL(triggered(bool)), this, SLOT(slotRevealWord()));
     m_actionCollection->addAction("revealword", revealWordAction);
-    
+
     // vocabulary actions
     KStandardAction::prior(this, SLOT(slotPrevVocabulary()), m_actionCollection);
     KStandardAction::next(this, SLOT(slotNextVocabulary()), m_actionCollection);
-    
+
     // help actions
     KStandardAction::aboutApp(m_helpMenu, SLOT(aboutApplication()), m_actionCollection);
     KStandardAction::aboutKDE(m_helpMenu, SLOT(aboutKDE()), m_actionCollection);
@@ -228,8 +228,8 @@ void Kanagram::setupActions()
     // standard actions
     KStandardAction::preferences(this, SLOT(slotShowSettings()), m_actionCollection);
     KStandardAction::quit(this, SLOT(close()), m_actionCollection);
-    
-    
+
+
     // load any user-defined changes to shortcuts
     m_actionCollection->readSettings();
 
@@ -297,12 +297,12 @@ void Kanagram::paintEvent(QPaintEvent *)
     }
 
     QString anagram = m_game->getAnagram();
-    int afontSize = fontUtils::fontSize(p, anagram, m_blackboardRect.width(), m_blackboardRect.height() / 5);
+    int afontSize = KFontUtils::adaptFontSize(p, anagram, m_blackboardRect.width(), m_blackboardRect.height() / 5);
     FixFontSize(afontSize);
     drawTextNew(p, anagram, Qt::AlignCenter, 10, 10, m_blackboardRect, true, afontSize);
 
     QString reveal = i18n(m_textRevealWord);
-    m_cornerFontSize = fontUtils::fontSize(p, reveal, m_blackboardRect.width() / 3, m_blackboardRect.height() / 5);
+    m_cornerFontSize = KFontUtils::adaptFontSize(p, reveal, m_blackboardRect.width() / 3, m_blackboardRect.height() / 5);
     FixFontSize(m_cornerFontSize);
 
     drawTextNew(p, reveal, Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, m_cornerFontSize);
@@ -326,7 +326,7 @@ void Kanagram::paintEvent(QPaintEvent *)
     //Draw the border of the input box
     QRect borderRect = m_inputBox->geometry();
     p.drawRoundRect(borderRect, 10, 5);
-    int inputBoxFontSize = fontUtils::fontSize(p, "A", borderRect.width(), borderRect.height()) - 1;
+    int inputBoxFontSize = KFontUtils::adaptFontSize(p, "A", borderRect.width(), borderRect.height()) - 1;
     FixFontSize(inputBoxFontSize);
     QFont f = QFont();
     f.setPointSize(inputBoxFontSize);
@@ -364,7 +364,7 @@ void Kanagram::paintEvent(QPaintEvent *)
         f.setWeight(QFont::Bold);
         p.setFont(f);
         QString hint = m_game->getHint();
-        int fontSize = fontUtils::fontSize(p, hint, int(250 * m_xRatio), int(110 * m_yRatio));
+        int fontSize = KFontUtils::adaptFontSize(p, hint, int(250 * m_xRatio), int(110 * m_yRatio));
         FixFontSize(fontSize);
         f.setPointSize(fontSize);
         p.setFont(f);
