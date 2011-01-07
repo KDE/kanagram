@@ -225,7 +225,7 @@ void Kanagram::paintEvent(TQPaintEvent *)
 	p.setPen(TQPen(black, 3));
 
 	//Draw the border of the input box
-	TQRect borderRect = m_inputBox->tqgeometry();
+	TQRect borderRect = m_inputBox->geometry();
 	borderRect.setLeft(borderRect.left() - 2);
 	borderRect.setTop(borderRect.top() - 2);
 	borderRect.setWidth(borderRect.width() + 2 * 1);
@@ -377,7 +377,7 @@ TQRect Kanagram::innerRect(const TQRect &rect, const int xMargin, const int yMar
 void Kanagram::mousePressEvent(TQMouseEvent *e)
 {
 	
-	if (m_nextRect.tqcontains(e->pos()))
+	if (m_nextRect.contains(e->pos()))
 	{
 		hideHint();
 		m_game->nextAnagram();
@@ -386,51 +386,51 @@ void Kanagram::mousePressEvent(TQMouseEvent *e)
 		update();
 	}
 
-	if(m_configRect.tqcontains(e->pos()))
+	if(m_configRect.contains(e->pos()))
 	{
 		showSettings();
 	}
 
-	if(m_quitRect.tqcontains(e->pos()))
+	if(m_quitRect.contains(e->pos()))
 	{
 		kapp->quit();
 	}
 
-	if(m_revealRect.tqcontains(e->pos()))
+	if(m_revealRect.contains(e->pos()))
 	{
 		m_game->restoreWord();
 		update();
 	}
 
-	if(m_logoRect.tqcontains(e->pos()))
+	if(m_logoRect.contains(e->pos()))
 	{
 		m_helpMenu->aboutApplication();
 	}
 
 	if(!m_showHint && m_overHelp)
 	{
-		if(m_handbookRect.tqcontains(e->pos()))
+		if(m_handbookRect.contains(e->pos()))
 		{
 			m_helpMenu->appHelpActivated();
 		}
 
-		if(m_aboutKDERect.tqcontains(e->pos()))
+		if(m_aboutKDERect.contains(e->pos()))
 		{
 			m_helpMenu->aboutKDE();
 		}
 
-		if(m_aboutAppRect.tqcontains(e->pos()))
+		if(m_aboutAppRect.contains(e->pos()))
 		{
 			m_helpMenu->aboutApplication();
 		}
 	}
 
-	if(m_hintBoxRect.tqcontains(e->pos()))
+	if(m_hintBoxRect.contains(e->pos()))
 	{
 		hideHint();
 	}
 
-	if(m_switcherRect.tqcontains(e->pos()) || m_arrowRect.tqcontains(e->pos()))
+	if(m_switcherRect.contains(e->pos()) || m_arrowRect.contains(e->pos()))
 	{
 		if(!(e->button() == RightButton))
 			m_game->nextVocab();
@@ -444,7 +444,7 @@ void Kanagram::mousePressEvent(TQMouseEvent *e)
 		update();
 	}
 
-	if(m_hintRect.tqcontains(e->pos()))
+	if(m_hintRect.contains(e->pos()))
 	{
 		if(m_showHint == true) m_showHint = false;
 		else
@@ -459,7 +459,7 @@ void Kanagram::mousePressEvent(TQMouseEvent *e)
 		update();
 	}
 
-	if(m_upRect.tqcontains(e->pos()) && m_inputBox->text() != "")
+	if(m_upRect.contains(e->pos()) && m_inputBox->text() != "")
 	{
 		if(m_inputBox->text().lower().stripWhiteSpace() == m_game->getWord())
 		{
@@ -492,7 +492,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 	bool haveToUpdate;
 	haveToUpdate = false;
 	
-	if (m_nextRect.tqcontains(p))
+	if (m_nextRect.contains(p))
 	{
 		if (!m_overNext)
 		{
@@ -506,7 +506,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 		haveToUpdate = true;
 	}
 
-	if(m_configRect.tqcontains(p))
+	if(m_configRect.contains(p))
 	{
 		if(!m_overConfig)
 		{
@@ -520,7 +520,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 		haveToUpdate = true;
 	}
 
-	if(m_helpRect.tqcontains(p))
+	if(m_helpRect.contains(p))
 	{
 		if(!m_overHelp)
 		{
@@ -534,7 +534,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 		haveToUpdate = true;
 	}
 
-	if(m_quitRect.tqcontains(p))
+	if(m_quitRect.contains(p))
 	{
 		if(!m_overQuit)
 		{
@@ -548,7 +548,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 		haveToUpdate = true;
 	}
 
-	if(m_hintRect.tqcontains(p))
+	if(m_hintRect.contains(p))
 	{
 		if(!m_overHint)
 		{
@@ -562,7 +562,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 		haveToUpdate = true;
 	}
 
-	if(m_hintBoxRect.tqcontains(p))
+	if(m_hintBoxRect.contains(p))
 	{
 		if(!m_overHintBox)
 		{
@@ -576,7 +576,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 		haveToUpdate = true;
 	}
 	
-	if(m_revealRect.tqcontains(p))
+	if(m_revealRect.contains(p))
 	{
 		if(!m_overReveal)
 		{
@@ -590,7 +590,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 		haveToUpdate = true;
 	}
 
-	if(m_upRect.tqcontains(p))
+	if(m_upRect.contains(p))
 	{
 		if(!m_overUp)
 		{
@@ -604,7 +604,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 		haveToUpdate = true;
 	}
 
-	if(m_switcherRect.tqcontains(p) || m_arrowRect.tqcontains(p))
+	if(m_switcherRect.contains(p) || m_arrowRect.contains(p))
 	{
 		if(!m_overSwitcher)
 		{
@@ -618,7 +618,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 		haveToUpdate = true;
 	}
 
-	if(m_aboutAppRect.tqcontains(p))
+	if(m_aboutAppRect.contains(p))
 	{
 		if(!m_overAboutApp)
 		{
@@ -634,7 +634,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 
 	if(!m_showHint)
 	{
-		if(m_handbookRect.tqcontains(p))
+		if(m_handbookRect.contains(p))
 		{
 			if(!m_overHandbook)
 			{
@@ -648,7 +648,7 @@ void Kanagram::updateButtonHighlighting(const TQPoint &p)
 			haveToUpdate = true;
 		}
 	
-		if(m_aboutKDERect.tqcontains(p))
+		if(m_aboutKDERect.contains(p))
 		{
 			if(!m_overAboutKDE)
 			{

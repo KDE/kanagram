@@ -226,7 +226,7 @@
 #define KV_CON_P3PF    "p3f"         // 3. person plural female
 #define KV_CON_P3PM    "p3m"         // 3. person plural male
 #define KV_CON_P3PN    "p3n"         // 3. person plural natural
-#define KV_CONJ_COMMON "common"      // female tqcontains common for all three
+#define KV_CONJ_COMMON "common"      // female contains common for all three
 
 #define LEX_IDENT_50   "Vocabulary Trainer V5.0"
 
@@ -246,7 +246,7 @@ class MultipleChoice;
 class LeitnerSystem;
 
 /*************************************************************
-  * This class tqcontains the expressions of your vocabulary
+  * This class contains the expressions of your vocabulary
   ************************************************************/
 
 class KEduVocDocument : public QObject

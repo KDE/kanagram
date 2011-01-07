@@ -109,7 +109,7 @@ void MainSettings::setupTranslations()
 		temp_languages.remove("..");
 		for (TQStringList::const_iterator it2 = temp_languages.begin(); it2 != temp_languages.end(); ++it2 )
 		{
-			if (!languages.tqcontains(*it2)) languages.append(*it2);
+			if (!languages.contains(*it2)) languages.append(*it2);
 		}
 	}
 	

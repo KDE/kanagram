@@ -4,7 +4,7 @@
     <property name="name">
         <cstring>MainSettingsWidget</cstring>
     </property>
-    <property name="tqgeometry">
+    <property name="geometry">
         <rect>
             <x>0</x>
             <y>0</y>
@@ -86,7 +86,7 @@
                 </property>
                 <widget class="QLayoutWidget">
                     <property name="name">
-                        <cstring>tqlayout2</cstring>
+                        <cstring>layout2</cstring>
                     </property>
                     <hbox>
                         <property name="name">
@@ -114,7 +114,7 @@
         </widget>
         <widget class="QLayoutWidget">
             <property name="name">
-                <cstring>tqlayout2</cstring>
+                <cstring>layout2</cstring>
             </property>
             <hbox>
                 <property name="name">
@@ -165,7 +165,7 @@
             <property name="sizeType">
                 <enum>Expanding</enum>
             </property>
-            <property name="tqsizeHint">
+            <property name="sizeHint">
                 <size>
                     <width>16</width>
                     <height>16</height>
@@ -178,5 +178,5 @@
     <tabstop>kcfg_hintHideTime</tabstop>
     <tabstop>kcfg_useSounds</tabstop>
 </tabstops>
-<tqlayoutdefaults spacing="6" margin="11"/>
+<layoutdefaults spacing="6" margin="11"/>
 </UI>

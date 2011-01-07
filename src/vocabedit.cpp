@@ -94,7 +94,7 @@ void VocabEdit::slotSave()
 	TQString fileName;
 	if(m_fileName == "")
 	{
-		fileName = KGlobal::dirs()->saveLocation("data", "kanagram/data/" + KanagramSettings::dataLanguage()) + txtVocabName->text().lower().tqreplace(" ", "") + ".kvtml";
+		fileName = KGlobal::dirs()->saveLocation("data", "kanagram/data/" + KanagramSettings::dataLanguage()) + txtVocabName->text().lower().replace(" ", "") + ".kvtml";
 	}
 	else
 	{
@@ -102,7 +102,7 @@ void VocabEdit::slotSave()
 	}
 	doc->saveAs(this, KURL(fileName), KEduVocDocument::automatic, "kanagram");
 
-	VocabSettings *settings = (VocabSettings*)this->tqparentWidget();
+	VocabSettings *settings = (VocabSettings*)this->parentWidget();
 	settings->refreshView();
 
 	if(m_textChanged)

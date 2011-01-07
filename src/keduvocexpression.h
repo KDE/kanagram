@@ -58,7 +58,7 @@ typedef signed char grade_t;
 typedef unsigned short count_t;
 
 /***************************************************************
-  * This class tqcontains one expression as original or in one
+  * This class contains one expression as original or in one
   * translations
   **************************************************************/
 

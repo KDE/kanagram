@@ -4,7 +4,7 @@
     <property name="name">
         <cstring>VocabEditWidget</cstring>
     </property>
-    <property name="tqgeometry">
+    <property name="geometry">
         <rect>
             <x>0</x>
             <y>0</y>
@@ -21,7 +21,7 @@
         </property>
         <widget class="QLayoutWidget" row="0" column="0">
             <property name="name">
-                <cstring>tqlayout7</cstring>
+                <cstring>layout7</cstring>
             </property>
             <grid>
                 <property name="name">
@@ -29,7 +29,7 @@
                 </property>
                 <widget class="QLayoutWidget" row="1" column="0">
                     <property name="name">
-                        <cstring>tqlayout6</cstring>
+                        <cstring>layout6</cstring>
                     </property>
                     <hbox>
                         <property name="name">
@@ -55,7 +55,7 @@
                 </widget>
                 <widget class="QLayoutWidget" row="0" column="0">
                     <property name="name">
-                        <cstring>tqlayout8</cstring>
+                        <cstring>layout8</cstring>
                     </property>
                     <vbox>
                         <property name="name">
@@ -63,7 +63,7 @@
                         </property>
                         <widget class="QLayoutWidget">
                             <property name="name">
-                                <cstring>tqlayout5</cstring>
+                                <cstring>layout5</cstring>
                             </property>
                             <grid>
                                 <property name="name">
@@ -80,7 +80,7 @@
                                         <cstring>txtDescription</cstring>
                                     </property>
                                     <property name="whatsThis" stdset="0">
-                                        <string>The description of the vocabulary. If you're creating a new vocabulary, add a description so that users of your vocabulary will know what kinds of words it tqcontains.</string>
+                                        <string>The description of the vocabulary. If you're creating a new vocabulary, add a description so that users of your vocabulary will know what kinds of words it contains.</string>
                                     </property>
                                 </widget>
                                 <widget class="QLineEdit" row="0" column="1">
@@ -111,7 +111,7 @@
                         </widget>
                         <widget class="QLayoutWidget">
                             <property name="name">
-                                <cstring>tqlayout7</cstring>
+                                <cstring>layout7</cstring>
                             </property>
                             <hbox>
                                 <property name="name">
@@ -119,7 +119,7 @@
                                 </property>
                                 <widget class="QLayoutWidget">
                                     <property name="name">
-                                        <cstring>tqlayout6</cstring>
+                                        <cstring>layout6</cstring>
                                     </property>
                                     <vbox>
                                         <property name="name">
@@ -161,7 +161,7 @@
                         </widget>
                         <widget class="QLayoutWidget">
                             <property name="name">
-                                <cstring>tqlayout4</cstring>
+                                <cstring>layout4</cstring>
                             </property>
                             <grid>
                                 <property name="name">
@@ -224,5 +224,5 @@
     <tabstop>btnClose</tabstop>
     <tabstop>lboxWords</tabstop>
 </tabstops>
-<tqlayoutdefaults spacing="6" margin="11"/>
+<layoutdefaults spacing="6" margin="11"/>
 </UI>
