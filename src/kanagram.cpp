@@ -35,7 +35,7 @@
 #include <KComponentData>
 #include <KConfigDialog>
 #include <KConfigSkeleton>
-#include <kfontutils.h>
+#include <KFontUtils>
 #include <KGlobalSettings>
 #include <KHelpMenu>
 #include <KLineEdit>
