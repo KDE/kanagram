@@ -1,5 +1,6 @@
 project(kanagram)
 
+add_subdirectory( doc )
 add_subdirectory( images ) 
 add_subdirectory( src ) 
 add_subdirectory( icons ) 
