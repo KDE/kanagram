@@ -18,7 +18,7 @@ kde4_add_ui_files(kanagram_SRCS
    vocabeditwidget.ui
    mainsettingswidget.ui )
 
-# there is no kanagram icon in oxgen
+# there is no kanagram icon in oxygen
 #kde4_add_app_icon(kanagram_SRCS "${KDE4_ICON_DIR}/oxygen/*/apps/kanagram.png")
 kde4_add_app_icon(kanagram_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/hi*-app*-kanagram.png")
 
