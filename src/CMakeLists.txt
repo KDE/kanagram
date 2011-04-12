@@ -1,5 +1,6 @@
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdeedu/keduvocdocument/   )
+find_path(LIBKEDUVOCDOCUMENT_INCLUDE_DIR keduvocdocument.h PATH_SUFFIXES libkdeedu)
+include_directories( ${LIBKEDUVOCDOCUMENT_INCLUDE_DIR} )
 
 
 ########### next target ###############
@@ -27,7 +28,7 @@ kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
 kde4_add_executable(kanagram ${kanagram_SRCS})
 add_dependencies(kanagram kvtml_data)
 
-target_link_libraries(kanagram  ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_PHONON_LIBS} ${QT_QTXML_LIBRARY} keduvocdocument kdeeduui )
+target_link_libraries(kanagram  ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_PHONON_LIBS} ${QT_QTXML_LIBRARY} ${KDE4_KDEUI_LIBS} keduvocdocument kdeeduui)
 
 install(TARGETS kanagram  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
