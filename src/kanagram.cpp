@@ -51,7 +51,12 @@
 #include "kanagramsettings.h"
 #include "mainsettings.h"
 #include "vocabsettings.h"
-#include "libkdeedu/kedufontutils.h"
+
+#ifdef USE_UNINSTALLED_LIBKDEEDU
+# include "libkdeedu/kdeeduui/kedufontutils.h"
+#else
+# include <kedufontutils.h>
+#endif
 
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
