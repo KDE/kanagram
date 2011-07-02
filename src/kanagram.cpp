@@ -217,8 +217,15 @@ void Kanagram::setupActions()
     m_actionCollection->addAction("revealword", revealWordAction);
 
     // vocabulary actions
-    KStandardAction::prior(this, SLOT(slotPrevVocabulary()), m_actionCollection);
-    KStandardAction::next(this, SLOT(slotNextVocabulary()), m_actionCollection);
+    KAction *priorVocabularyAction = new KAction(i18n("Previous Vocabulary"), m_actionCollection);
+    priorVocabularyAction->setShortcut(Qt::Key_PageUp);
+    connect(priorVocabularyAction, SIGNAL(triggered(bool)), this, SLOT(slotPrevVocabulary()));
+    m_actionCollection->addAction("priorvocabulary", priorVocabularyAction);
+
+    KAction *nextVocabularyAction = new KAction(i18n("Next Vocabulary"), m_actionCollection);
+    nextVocabularyAction->setShortcut(Qt::Key_PageDown);
+    connect(nextVocabularyAction, SIGNAL(triggered(bool)), this, SLOT(slotNextVocabulary()));
+    m_actionCollection->addAction("nextvocabulary", nextVocabularyAction);
 
     // help actions
     KStandardAction::aboutApp(m_helpMenu, SLOT(aboutApplication()), m_actionCollection);
