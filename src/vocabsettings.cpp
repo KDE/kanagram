@@ -46,7 +46,7 @@ VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
     setupUi(this);
     m_parent = (KConfigDialog*)parent;
 
-    connect(lviewVocab, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(slotSelectionChanged(QTreeWidgetItem *)));
+    connect(lviewVocab, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(slotSelectionChanged(QTreeWidgetItem*)));
 
     btnDownloadNew->setIcon(KIcon("get-hot-new-stuff"));
 

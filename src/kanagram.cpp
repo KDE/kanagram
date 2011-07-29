@@ -111,8 +111,8 @@ Kanagram::Kanagram()
 
     connect(m_inputBox, SIGNAL(returnPressed()), SLOT(checkWord()));
     connect(m_hintTimer, SIGNAL(timeout()), SLOT(hideHint()));
-    connect(m_inputBox, SIGNAL(textChanged(const QString &)), SLOT(update()));
-    connect(m_game, SIGNAL(fileError(const QString &)), SLOT(slotFileError(const QString &)));
+    connect(m_inputBox, SIGNAL(textChanged(QString)), SLOT(update()));
+    connect(m_game, SIGNAL(fileError(QString)), SLOT(slotFileError(QString)));
 
     QFont f = QFont();
     f.setPointSize(17);
