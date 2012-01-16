@@ -20,11 +20,6 @@
 
 #include "mainsettings.h"
 
-#include <qdir.h>
-#include <qcheckbox.h>
-#include <qcombobox.h>
-#include <qpushbutton.h>
-
 #include <kdebug.h>
 #include <kconfig.h>
 #include <klocale.h>

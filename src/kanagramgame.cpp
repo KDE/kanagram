@@ -22,11 +22,9 @@
 
 #include "kanagramgame.h"
 
-#include <QFile>
 #include <QFileInfo>
 
 #include <kurl.h>
-#include <kdebug.h>
 #include <kmessagebox.h>
 #include <kstandarddirs.h>
 #include <klocale.h>

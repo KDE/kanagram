@@ -31,7 +31,6 @@
 #include <kstandarddirs.h>
 #include <kglobal.h>
 #include <kurl.h>
-#include <kdebug.h>
 #include <kmessagebox.h>
 #include <klocale.h>
 
