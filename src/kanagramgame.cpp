@@ -25,7 +25,6 @@
 #include <QFileInfo>
 
 #include <kurl.h>
-#include <kmessagebox.h>
 #include <kstandarddirs.h>
 #include <klocale.h>
 
@@ -74,7 +73,7 @@ void KanagramGame::loadDefaultVocab()
     ///@todo open returns KEduVocDocument::ErrorCode
     int result = m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
     if (result != 0) {
-        KMessageBox::error(0, m_doc->errorDescription(result));
+        kDebug() << m_doc->errorDescription(result);
     }
     nextAnagram();
 }
