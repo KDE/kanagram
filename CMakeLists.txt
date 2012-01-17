@@ -1,5 +1,8 @@
 project(kanagram)
 
+option(BUILD_KANAGRAM_HARMATTAN "Build Kanagram for Harmattan" OFF)
+option(BUILD_KANAGRAM_DESKTOP "Build Kanagram for KDE Desktop" ON)
+
 find_package(KDE4 REQUIRED)
 include(KDE4Defaults)
 include_directories (${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
