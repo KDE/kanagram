@@ -10,7 +10,7 @@ add_subdirectory(engine)
 
 if(BUILD_KANAGRAM_HARMATTAN)
     if(QT_QTDECLARATIVE_FOUND)
-        #add_subdirectory(harmattan)
+        add_subdirectory(harmattan)
     else(QT_QTDECLARATIVE_FOUND)
         message(WARNING "Qt installation lacks Qt Declarative - disabling harmattan based frontend")
     endif(QT_QTDECLARATIVE_FOUND)
