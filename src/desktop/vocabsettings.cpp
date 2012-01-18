@@ -32,6 +32,8 @@
 #include <keduvocdocument.h>
 #include <kanagramsettings.h>
 
+#include <QtCore/QPointer>
+
 VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
 {
     setupUi(this);
@@ -87,11 +89,13 @@ void VocabSettings::on_btnCreateNew_clicked()
 
 void VocabSettings::on_btnDownloadNew_clicked()
 {
-    KNS3::DownloadDialog hotNewStuffdialog( "kanagram.knsrc" );
-    hotNewStuffdialog.exec();
-    if ( hotNewStuffdialog.changedEntries().size() > 0 ){
+    QPointer<KNS3::DownloadDialog> hotNewStuffdialog = new KNS3::DownloadDialog( "kanagram.knsrc" );
+    hotNewStuffdialog->exec();
+    if ( hotNewStuffdialog->changedEntries().size() > 0 ){
         refreshView();
     }
+
+    delete hotNewStuffdialog;
 }
 
 void VocabSettings::slotSelectionChanged(QTreeWidgetItem *item)
