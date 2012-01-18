@@ -22,7 +22,7 @@
 
 #include "kanagramgame.h"
 
-#include <QFileInfo>
+#include <QtCore/QFileInfo>
 
 #include <kurl.h>
 #include <kstandarddirs.h>
@@ -102,12 +102,12 @@ void KanagramGame::useVocab(const QString &vocabname)
     if (vocab > 0)
     {
         m_index = vocab;
-        m_filename = m_fileList[vocab];
+        m_filename = m_fileList.at(vocab);
     }
     else
     {
         m_index = 0;
-        m_filename = m_fileList[0];
+        m_filename = m_fileList.first();
     }
 }
 
@@ -116,7 +116,7 @@ void KanagramGame::updateIndex()
     m_index = 0;
     for (int i = 0; i < m_fileList.size(); i++)
     {
-        if (m_filename == m_fileList[i])
+        if (m_filename == m_fileList.at(i))
         {
             m_index = i;
         }
@@ -130,7 +130,7 @@ void KanagramGame::previousVocab()
         m_index = m_fileList.size() - 1;
     }
 
-    m_filename = m_fileList[m_index];
+    m_filename = m_fileList.at(m_index);
     checkFile();
     delete m_doc;
     m_doc = new KEduVocDocument(this);
@@ -148,7 +148,7 @@ void KanagramGame::nextVocab()
 
     if (!m_fileList.isEmpty())
     {
-        m_filename = m_fileList[m_index];
+        m_filename = m_fileList.at(m_index);
         checkFile();
         delete m_doc;
         m_doc = new KEduVocDocument(this);

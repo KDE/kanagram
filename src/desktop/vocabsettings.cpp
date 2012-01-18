@@ -30,7 +30,7 @@
 #include <knewstuff3/knewstuffbutton.h>
 #include <sharedkvtmlfiles.h>
 #include <keduvocdocument.h>
-#include "kanagramsettings.h"
+#include <kanagramsettings.h>
 
 VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
 {

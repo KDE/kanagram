@@ -43,8 +43,8 @@
 
 #include <sharedkvtmlfiles.h>
 
-#include "kanagramgame.h"
-#include "kanagramsettings.h"
+#include <kanagramgame.h>
+#include <kanagramsettings.h>
 #include "mainsettings.h"
 #include "vocabsettings.h"
 

@@ -29,7 +29,7 @@
 #include <kio/netaccess.h>
 
 #include <sharedkvtmlfiles.h>
-#include "kanagramsettings.h"
+#include <kanagramsettings.h>
 
 MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 {

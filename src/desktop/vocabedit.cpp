@@ -37,7 +37,7 @@
 #include "keduvocdocument.h"
 #include "keduvocexpression.h"
 #include "vocabsettings.h"
-#include "kanagramsettings.h"
+#include <kanagramsettings.h>
 
 
 VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent), m_fileName("")
