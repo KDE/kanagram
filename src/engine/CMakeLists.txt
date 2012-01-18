@@ -4,13 +4,6 @@ set(CMAKE_MODULE_PATH
     ${CMAKE_CURRENT_SOURCE_DIR}/cmake
 )
 
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_BINARY_DIR}
-
-    ${LIBKDEEDU_INCLUDE_DIR}
-)
-
 set(KANAGRAM_ENGINE_INCLUDE_DIRS
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -27,20 +20,32 @@ set(KanagramEngine_HEADERS
     kanagram_engine_export.h
 )
 
-qt4_automoc(${GluonAudio_SRCS})
-
 if(BUILD_KANAGRAM_HARMATTAN)
-    kde4_add_kcfg_files(KanagramEngine_SRCS kanagramharmattansettings.kcfgc)
+    include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/harmattan
+        ${CMAKE_CURRENT_BINARY_DIR}
+        ${CMAKE_CURRENT_BINARY_DIR}/harmattan
+
+        ${LIBKDEEDU_INCLUDE_DIR}
+    )
+
+    kde4_add_kcfg_files(KanagramEngine_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/harmattan/kanagramsettings.kcfgc)
 endif()
 
 if(BUILD_KANAGRAM_DESKTOP)
-    kde4_add_kcfg_files(KanagramEngine_SRCS kanagramsettings.kcfgc)
+    include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/desktop
+        ${CMAKE_CURRENT_BINARY_DIR}
+        ${CMAKE_CURRENT_BINARY_DIR}/desktop
+
+        ${LIBKDEEDU_INCLUDE_DIR}
+    )
+
+    kde4_add_kcfg_files(KanagramEngine_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/desktop/kanagramsettings.kcfgc)
 endif()
 
-set(KanagramEngine_SRCS
-    ${KanagramEngine_SRCS}
-    ${CMAKE_CURRENT_BINARY_DIR}/kanagramsettings.cpp
-)
 
 if(APPLE)
     kde4_add_library(kanagramengine SHARED ${KanagramEngine_SRCS} ${KanagramEngine_HEADERS})
@@ -111,12 +116,23 @@ install(
     COMPONENT kanagramengine
 )
 
-install(
-    FILES
-    kanagram.kcfg
-    DESTINATION 
-    ${KCFG_INSTALL_DIR}
-)
+if(BUILD_KANAGRAM_HARMATTAN)
+    install(
+        FILES
+        harmattan/kanagram.kcfg
+        DESTINATION
+        ${KCFG_INSTALL_DIR}
+    )
+endif()
+
+if(BUILD_KANAGRAM_DESKTOP)
+    install(
+        FILES
+        desktop/kanagram.kcfg
+        DESTINATION
+        ${KCFG_INSTALL_DIR}
+    )
+endif()
 
 install(
     FILES
