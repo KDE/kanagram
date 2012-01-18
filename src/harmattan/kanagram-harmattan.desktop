@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Kanagram
+Name[x-test]=xxKanagramxx
+GenericName=Kanagra, Launcher
+GenericName[x-test]=xxKanagram Launcherxx
+Exec=kanagram-harmattan
+Icon=/usr/share/icons/hicolor/80x80/apps/kanagram.png
+Type=Application
+Categories=Qt;KDE;Game;
+Terminal=false
