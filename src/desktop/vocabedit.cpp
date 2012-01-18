@@ -31,14 +31,13 @@
 #include <kstandarddirs.h>
 #include <kglobal.h>
 #include <kurl.h>
-#include <kdebug.h>
 #include <kmessagebox.h>
 #include <klocale.h>
 
 #include "keduvocdocument.h"
 #include "keduvocexpression.h"
 #include "vocabsettings.h"
-#include "kanagramsettings.h"
+#include <kanagramsettings.h>
 
 
 VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent), m_fileName("")

@@ -27,13 +27,8 @@
 #ifndef KANAGRAM_H
 #define KANAGRAM_H
 
-#include <QMouseEvent>
-#include <QPaintEvent>
-
 #include <KMainWindow>
 #include <KRandomSequence>
-
-using namespace std;
 
 namespace Phonon
 {
@@ -43,6 +38,8 @@ namespace Phonon
 class KanagramGame;
 class VocabSettings;
 
+class QMouseEvent;
+class QPaintEvent;
 class QSvgRenderer;
 
 class KAction;

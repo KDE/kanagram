@@ -31,10 +31,7 @@
 
 #include <KAction>
 #include <KActionCollection>
-#include <KApplication>
-#include <KComponentData>
 #include <KConfigDialog>
-#include <KConfigSkeleton>
 #include <KFontUtils>
 #include <KGlobalSettings>
 #include <KHelpMenu>
@@ -43,13 +40,11 @@
 #include <KShortcutsEditor>
 #include <KStandardAction>
 #include <KStandardDirs>
-#include <KStandardShortcut>
-#include <kdeversion.h>
 
 #include <sharedkvtmlfiles.h>
 
-#include "kanagramgame.h"
-#include "kanagramsettings.h"
+#include <kanagramgame.h>
+#include <kanagramsettings.h>
 #include "mainsettings.h"
 #include "vocabsettings.h"
 

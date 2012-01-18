@@ -22,24 +22,15 @@
 #include "vocabsettings.h"
 #include "vocabedit.h"
 
-#include <qpushbutton.h>
-
-#include <kdebug.h>
 #include <kstandarddirs.h>
 #include <kconfigdialog.h>
-#include <qstringlist.h>
-#include <qlistwidget.h>
-#include <qvector.h>
-#include <qfile.h>
 #include <qfileinfo.h>
-
-#include <kurl.h>
 
 #include <knewstuff3/downloaddialog.h>
 #include <knewstuff3/knewstuffbutton.h>
 #include <sharedkvtmlfiles.h>
 #include <keduvocdocument.h>
-#include "kanagramsettings.h"
+#include <kanagramsettings.h>
 
 VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
 {

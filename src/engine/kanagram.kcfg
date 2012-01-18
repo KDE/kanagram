@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+<kcfgfile name="kanagramrc"/>
+<group name="kanagram">
+<entry name="hintHideTime" type="String">
+	<label>This setting allows you to set how long Kanagram's hint bubble is shown.</label>
+	<default>5 seconds</default>
+</entry>
+<entry name="useSounds" type="Bool">
+	<label>Turns sounds on/off.</label>
+	<default>true</default>
+</entry>
+<entry name="defaultVocab" type="Path">
+	<label>Set the default vocabulary</label>
+	<default></default>
+</entry>
+<entry name="dataLanguage" type="String">
+	<label>Set the default translation</label>
+	<default></default>
+</entry>
+</group>
+</kcfg>

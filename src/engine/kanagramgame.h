@@ -21,8 +21,10 @@
 #ifndef KANAGRAMGAME_H
 #define KANAGRAMGAME_H
 
-#include <qobject.h>
-#include <qstringlist.h>
+#include "kanagram_engine_export.h"
+
+#include <QtCore/QObject>
+#include <QtCore/QStringList>
 
 #include <krandomsequence.h>
 
@@ -32,7 +34,7 @@ class KEduVocDocument;
  * @author Joshua Keel <joshuakeel@gmail.com>
  * @author Jeremy Whiting <jpwhiting@kde.org>
  */
-class KanagramGame : public QObject
+class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 {
     Q_OBJECT
     public:

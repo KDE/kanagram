@@ -1,44 +1,27 @@
+cmake_minimum_required(VERSION 2.8)
 
-include_directories( ${LIBKDEEDU_INCLUDE_DIR} )
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
+)
 
+####### Kanagram Engine ########
+add_subdirectory(engine)
 
-########### next target ###############
+if(BUILD_KANAGRAM_HARMATTAN)
+    if(QT_QTDECLARATIVE_FOUND)
+        #add_subdirectory(harmattan)
+    else(QT_QTDECLARATIVE_FOUND)
+        message(WARNING "Qt installation lacks Qt Declarative - disabling harmattan based frontend")
+    endif(QT_QTDECLARATIVE_FOUND)
+endif()
 
-set(kanagram_SRCS
-   main.cpp
-   kanagram.cpp
-   kanagramgame.cpp
-   mainsettings.cpp
-   vocabsettings.cpp
-   vocabedit.cpp )
-
-
-kde4_add_ui_files(kanagram_SRCS
-   vocabsettingswidget.ui
-   vocabeditwidget.ui
-   mainsettingswidget.ui )
-
-# there is no kanagram icon in oxygen
-#kde4_add_app_icon(kanagram_SRCS "${KDE4_ICON_DIR}/oxygen/*/apps/kanagram.png")
-kde4_add_app_icon(kanagram_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/hi*-app*-kanagram.png")
-
-kde4_add_kcfg_files(kanagram_SRCS kanagramsettings.kcfgc )
-
-kde4_add_executable(kanagram ${kanagram_SRCS})
-add_dependencies(kanagram kvtml_data)
-
-target_link_libraries(kanagram  ${KDE4_KNEWSTUFF3_LIBS} ${KDE4_PHONON_LIBS}
-    ${QT_QTXML_LIBRARY} ${KDE4_KDEUI_LIBS} ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES})
-
-install(TARGETS kanagram  ${INSTALL_TARGETS_DEFAULT_ARGS} )
-
-
-########### install files ###############
-
-install( PROGRAMS kanagram.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
-install( FILES kanagram.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
-install( FILES kanagram.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
-
-kde4_install_icons( ${ICON_INSTALL_DIR}   )
-
-
+if(BUILD_KANAGRAM_DESKTOP)
+    find_package(KDE4)
+    if(KDE4_FOUND)
+        include_directories(${KDE4_INCLUDES})
+        add_subdirectory(desktop)
+    else(KDE4_FOUND)
+        message(STATUS "KDE libraries are not found - not building the KDE Desktop frontend")
+    endif(KDE4_FOUND)
+endif()
