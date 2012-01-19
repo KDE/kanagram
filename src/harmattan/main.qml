@@ -45,8 +45,8 @@ PageStackWindow {
     }
 
     platformStyle: PageStackWindowStyle {
-        landscapeBackground: "backgroundImageLandscape.png";
-        portraitBackground: "backgroundImagePortrait.png";
+        landscapeBackground: "kanagram-chalkboard-landscape.png";
+        portraitBackground: "kanagram-chalkboard-portrait.png";
         backgroundFillMode: Image.Tile;
     }
 }
