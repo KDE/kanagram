@@ -33,9 +33,30 @@ PageStackWindow {
     ToolBarLayout {
         id: commonTools;
         visible: false;
+
+        Image {
+            source: "games-hint.png";
+            width: 32;
+            height: 32;
+            anchors.verticalCenter: parent.verticalCenter;
+        }
+
+        Image {
+            source: "games-solve.png";
+            width: 32;
+            height: 32;
+            anchors.verticalCenter: parent.verticalCenter;
+        }
+
         ToolIcon {
-            iconId: "toolbar-back";
-            onClicked: { pageStack.pop(); }
+            iconId: "toolbar-tab-next";
+            onClicked: { }
+        }
+
+
+        ToolIcon {
+            iconId: "toolbar-settings";
+            onClicked: { }
         }
     }
 

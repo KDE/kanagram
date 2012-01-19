@@ -5,6 +5,8 @@
 
         <file alias="kanagram-chalkboard-landscape.png">../../icons/common/kanagram-chalkboard-landscape.png</file>
         <file alias="kanagram-chalkboard-portrait.png">../../icons/common/kanagram-chalkboard-portrait.png</file>
+        <file alias="games-hint.png">../../icons/common/games-hint.png</file>
+        <file alias="games-solve.png">../../icons/common/games-solve.png</file>
     </qresource>
 </RCC>
 
