@@ -24,10 +24,6 @@ import com.nokia.extras 1.0
 Page {
     id: mainPage;
 
-    property int selectedItem: 0;
-    property string selectedProjectName;
-    property string selectedProjectDescription;
-
     function pushPage(file) {
         var component = Qt.createComponent(file)
         if (component.status == Component.Ready)
@@ -36,4 +32,5 @@ Page {
             console.log("Error loading component:", component.errorString());
     }
 
+    tools: commonTools;
 }
