@@ -17,7 +17,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#include <kanagramgame.h>
+
 #include <QtDeclarative/QDeclarativeView>
+#include <QtDeclarative/QDeclarativeContext>
 #include <QtGui/QApplication>
 
 #include <QtCore/QUrl>
@@ -29,7 +32,12 @@ int main( int argc, char** argv )
     app.setApplicationName( "Kanagram Harmattan Frontend" );
 
     QDeclarativeView view;
-    view.setSource( QUrl( "qrc:/main.qml" ) );
+    QDeclarativeContext *ctxt = view.rootContext();
+    KanagramGame kanagramGame;
+
+    ctxt->setContextProperty("kanagramGame", &kanagramGame);
+
+    view.setSource(QUrl("qrc:/main.qml"));
     view.showFullScreen();
 
     return app.exec();

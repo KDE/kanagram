@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 2.8)
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
+
+    ${KANAGRAM_ENGINE_INCLUDE_DIRS}
 )
 
 set(kanagram-harmattan_SRCS
@@ -32,7 +34,12 @@ set_target_properties(kanagram-harmattan PROPERTIES OUTPUT_NAME KanagramHarmatta
 else()
     add_executable(kanagram-harmattan ${kanagram-harmattan_SRCS} ${KANAGRAM-HARMATTAN_RCC_SRCS})
 endif()
-target_link_libraries(kanagram-harmattan ${QT_QTDECLARATIVE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTCORE_LIBRARY})
+target_link_libraries(kanagram-harmattan
+    ${QT_QTDECLARATIVE_LIBRARY}
+    ${QT_QTGUI_LIBRARY}
+    ${QT_QTCORE_LIBRARY}
+    ${KANAGRAM_ENGINE_LIBRARIES}
+)
 
 if(NOT APPLE)
     install(TARGETS kanagram-harmattan
