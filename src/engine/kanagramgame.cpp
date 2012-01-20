@@ -165,9 +165,11 @@ void KanagramGame::nextAnagram()
     {
         KEduVocTranslation *translation = m_document->lesson()->entries(KEduVocLesson::Recursive).at(randomWordIndex)->translation(0);
 
-        while (m_answeredWords.indexOf(translation->text()) != -1)
+        // Find the next word not used yet
+        while (m_answeredWords.contains(translation->text()))
         {
             randomWordIndex = m_random.getLong(totalWords);
+            translation =  m_document->lesson()->entries(KEduVocLesson::Recursive).at(randomWordIndex)->translation(0);
         }
 
         // lowercase the entry text so german words that start capitalized will be lowercased
