@@ -13,7 +13,7 @@
 	<label>Turns sounds on/off.</label>
 	<default>true</default>
 </entry>
-<entry name="defaultVocab" type="Path">
+<entry name="defaultVocabulary" type="Path">
 	<label>Set the default vocabulary</label>
 	<default></default>
 </entry>

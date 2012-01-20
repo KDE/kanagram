@@ -38,98 +38,98 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 {
     Q_OBJECT
     public:
-        /** default constructor */
+        /** Default constructor */
         explicit KanagramGame();
 
-        /** default destructor */
+        /** Default destructor */
         ~KanagramGame();
 
-        /** get the anagram to show */
-        QString getAnagram();
+        /** Get the anagram to show */
+        QString anagram();
 
-        /** get this anagram's hint */
-        QString getHint();
+        /** Get this anagram's hint */
+        QString hint();
 
-        /** get this anagram's answer */
-        QString getWord();
+        /** Get this anagram's answer */
+        QString word();
 
-        /** get the current vocabulary file's title */
-        QString getDocTitle();
+        /** Get the current vocabulary file's title */
+        QString documentTitle();
 
-        /** get the current vocabulary file's filename */
-        QString getFilename();
+        /** Get the current vocabulary file's filename */
+        QString filename();
 
-        /** get the list of vocabularies */
-        QStringList getVocabsList();
+        /** Get the list of vocabularies */
+        QStringList vocabularyList();
 
     public slots:
 
-        /** set the vocab to use */
-        void useVocab(const QString &vocabname);
+        /** Set the vocabulary to use */
+        void useVocabulary(const QString &vocabularyname);
 
-        /** refresh the list of vocabulary files available
+        /** Refresh the list of vocabulary files available
          * from what we find on disk
          *@returns true if the current vocabulary has changed so the ui can refresh
          */
-        bool refreshVocabList();
+        bool refreshVocabularyList();
 
         /** load the default vocab file */
-        void loadDefaultVocab();
+        void loadDefaultVocabulary();
 
-        /** set the index to the next word */
+        /** Set the index to the next word */
         void nextAnagram();
 
-        /** use the next vocab file in the list */
-        void nextVocab();
+        /** Use the next vocabulary file in the list */
+        void nextVocabulary();
 
-        /** use the previous vocab file in the list */
-        void previousVocab();
+        /** Use the previous vocabulary file in the list */
+        void previousVocabulary();
 
-        /** restore the word, set the anagram to the answer */
+        /** Restore the word, set the anagram to the answer */
         void restoreWord();
 
     signals:
 
-        /** signal the ui that a there's a file error of some kind */
+        /** Signal the ui that a there's a file error of some kind */
         void fileError(const QString &filename);
 
     private:
 
-        /** make the word into an anagram */
+        /** Make the word into an anagram */
         void createAnagram();
 
-        /** check the current file */
+        /** Check the current file */
         void checkFile();
 
-        /** find the current file in the list of files available */
+        /** Find the current file in the list of files available */
         void updateIndex();
 
-        /** random sequence used to scramble the letters */
+        /** Random sequence used to scramble the letters */
         KRandomSequence m_random;
 
-        /** the current scrambled word */
+        /** The current scrambled word */
         QString m_anagram;
 
-        /** the current anagram's hint */
+        /** The current anagram's hint */
         QString m_hint;
 
-        /** the current anagram's answer */
+        /** The current anagram's answer */
         QString m_originalWord;
 
-        /** which index the current filename is in m_fileList */
+        /** Which index the current filename is in m_fileList */
         int m_index;
 
-        /** the list of vocabulary files */
+        /** The list of vocabulary files */
         QStringList m_fileList;
 
-        /** the list of words that have been answered */
+        /** The list of words that have been answered */
         QStringList m_answeredWords;
 
-        /** the current vocabulary's filename */
+        /** The current vocabulary's filename */
         QString m_filename;
 
-        /** the current document */
-        KEduVocDocument* m_doc;
+        /** The current document */
+        KEduVocDocument* m_document;
 };
 
 #endif

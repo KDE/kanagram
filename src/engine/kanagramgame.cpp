@@ -35,19 +35,19 @@
 #include "kanagramsettings.h"
 
 
-KanagramGame::KanagramGame() : m_index(0), m_doc(NULL)
+KanagramGame::KanagramGame() : m_index(0), m_document(NULL)
 {
     // first get the list of vocabularies
-    refreshVocabList();
+    refreshVocabularyList();
 
     // then load the default vocab
-    loadDefaultVocab();
+    loadDefaultVocabulary();
 }
 
 KanagramGame::~KanagramGame()
 {
-    delete m_doc;
-    m_doc = NULL;
+    delete m_document;
+    m_document = NULL;
 }
 
 void KanagramGame::checkFile()
@@ -58,51 +58,51 @@ void KanagramGame::checkFile()
     }
 }
 
-void KanagramGame::loadDefaultVocab()
+void KanagramGame::loadDefaultVocabulary()
 {
-    m_filename = KanagramSettings::defaultVocab();
+    m_filename = KanagramSettings::defaultVocabulary();
     if (m_filename.isEmpty() || !QFileInfo(m_filename).exists())
     {
-        refreshVocabList();
-        nextVocab();
+        refreshVocabularyList();
+        nextVocabulary();
     }
 
-    delete m_doc;
-    m_doc = new KEduVocDocument(this);
+    delete m_document;
+    m_document = new KEduVocDocument(this);
 
     ///@todo open returns KEduVocDocument::ErrorCode
-    int result = m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
+    int result = m_document->open(KUrl(KStandardDirs::locate("data", m_filename)));
     if (result != 0) {
-        kDebug() << m_doc->errorDescription(result);
+        kDebug() << m_document->errorDescription(result);
     }
     nextAnagram();
 }
 
-bool KanagramGame::refreshVocabList()
+bool KanagramGame::refreshVocabularyList()
 {
     QString oldFilename = m_filename;
     m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
-    if ( m_doc ) {
-        useVocab(m_doc->title());
+    if ( m_document ) {
+        useVocabulary(m_document->title());
     }
     return oldFilename != m_filename;
 }
 
 /** get the list of vocabularies */
-QStringList KanagramGame::getVocabsList()
+QStringList KanagramGame::vocabularyList()
 {
     return SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
 }
 
 /** set the vocab to use */
-void KanagramGame::useVocab(const QString &vocabname)
+void KanagramGame::useVocabulary(const QString &vocabularyname)
 {
-    QStringList titles = getVocabsList();
-    int vocab = titles.indexOf(vocabname);
-    if (vocab > 0)
+    QStringList titles = vocabularyList();
+    int vocabulary = titles.indexOf(vocabularyname);
+    if (vocabulary > 0)
     {
-        m_index = vocab;
-        m_filename = m_fileList.at(vocab);
+        m_index = vocabulary;
+        m_filename = m_fileList.at(vocabulary);
     }
     else
     {
@@ -123,7 +123,7 @@ void KanagramGame::updateIndex()
     }
 }
 
-void KanagramGame::previousVocab()
+void KanagramGame::previousVocabulary()
 {
     if (--m_index < 0)
     {
@@ -132,14 +132,14 @@ void KanagramGame::previousVocab()
 
     m_filename = m_fileList.at(m_index);
     checkFile();
-    delete m_doc;
-    m_doc = new KEduVocDocument(this);
+    delete m_document;
+    m_document = new KEduVocDocument(this);
     ///@todo open returns KEduVocDocument::ErrorCode
-    m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
+    m_document->open(KUrl(KStandardDirs::locate("data", m_filename)));
     m_answeredWords.clear();
 }
 
-void KanagramGame::nextVocab()
+void KanagramGame::nextVocabulary()
 {
     if (++m_index >= m_fileList.size())
     {
@@ -150,10 +150,10 @@ void KanagramGame::nextVocab()
     {
         m_filename = m_fileList.at(m_index);
         checkFile();
-        delete m_doc;
-        m_doc = new KEduVocDocument(this);
+        delete m_document;
+        m_document = new KEduVocDocument(this);
         ///@todo open returns KEduVocDocument::ErrorCode
-        m_doc->open(KUrl(KStandardDirs::locate("data", m_filename)));
+        m_document->open(KUrl(KStandardDirs::locate("data", m_filename)));
         m_answeredWords.clear();
     }
 }
@@ -162,7 +162,7 @@ void KanagramGame::nextAnagram()
 {
     checkFile();
 
-    int totalWords = m_doc->lesson()->entryCount(KEduVocLesson::Recursive);
+    int totalWords = m_document->lesson()->entryCount(KEduVocLesson::Recursive);
     int wordNumber = m_random.getLong(totalWords);
 
 
@@ -173,16 +173,16 @@ void KanagramGame::nextAnagram()
 
     if (totalWords > 0)
     {
-        while (m_answeredWords.indexOf(m_doc->lesson()->entries(KEduVocLesson::Recursive).value(wordNumber)->translation(0)->text()) != -1)
+        while (m_answeredWords.indexOf(m_document->lesson()->entries(KEduVocLesson::Recursive).value(wordNumber)->translation(0)->text()) != -1)
         {
             wordNumber = m_random.getLong(totalWords);
         }
 
         // lowercase the entry text so german words that start capitalized will be lowercased
-        m_originalWord = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(wordNumber)->translation(0)->text().toLower();
+        m_originalWord = m_document->lesson()->entries(KEduVocLesson::Recursive).value(wordNumber)->translation(0)->text().toLower();
         m_answeredWords.append(m_originalWord);
         createAnagram();
-        m_hint = m_doc->lesson()->entries(KEduVocLesson::Recursive).value(wordNumber)->translation(0)->comment();
+        m_hint = m_document->lesson()->entries(KEduVocLesson::Recursive).value(wordNumber)->translation(0)->comment();
 
         if (m_hint.isEmpty())
         {
@@ -199,22 +199,22 @@ void KanagramGame::nextAnagram()
     }
 }
 
-QString KanagramGame::getFilename()
+QString KanagramGame::filename()
 {
     return m_fileList.empty() ? m_filename : m_fileList[m_index];
 }
 
-QString KanagramGame::getAnagram()
+QString KanagramGame::anagram()
 {
     return m_anagram;
 }
 
-QString KanagramGame::getHint()
+QString KanagramGame::hint()
 {
     return m_hint;
 }
 
-QString KanagramGame::getWord()
+QString KanagramGame::word()
 {
     return m_originalWord;
 }
@@ -255,11 +255,11 @@ void KanagramGame::createAnagram()
     m_anagram = insaneData;
 }
 
-QString KanagramGame::getDocTitle()
+QString KanagramGame::documentTitle()
 {
-    if (m_doc) 
+    if (m_document)
     {
-        return m_doc->title();
+        return m_document->title();
     }
     return QString();
 }

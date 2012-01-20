@@ -298,7 +298,7 @@ void Kanagram::paintEvent(QPaintEvent *)
         p.resetMatrix();
     }
 
-    QString anagram = m_game->getAnagram();
+    QString anagram = m_game->anagram();
     int afontSize = KFontUtils::adaptFontSize(p, anagram, m_blackboardRect.width(), m_blackboardRect.height() / 5);
     FixFontSize(afontSize);
     drawTextNew(p, anagram, Qt::AlignCenter, 10, 10, m_blackboardRect, true, afontSize);
@@ -365,7 +365,7 @@ void Kanagram::paintEvent(QPaintEvent *)
         QFont f = KGlobalSettings::generalFont();
         f.setWeight(QFont::Bold);
         p.setFont(f);
-        QString hint = m_game->getHint();
+        QString hint = m_game->hint();
         int fontSize = KFontUtils::adaptFontSize(p, hint, int(250 * m_xRatio), int(110 * m_yRatio));
         FixFontSize(fontSize);
         f.setPointSize(fontSize);
@@ -501,7 +501,7 @@ void Kanagram::drawHelpText(QPainter &p, const QString &text)
 void Kanagram::drawSwitcher(QPainter &p, const int xMargin, const int yMargin)
 {
     const int padding = 5;
-    QString text = m_game->getDocTitle();
+    QString text = m_game->documentTitle();
     QFont font = KGlobalSettings::generalFont();
     font.setPointSize(m_cornerFontSize);
     QFontMetrics fm(font);
@@ -579,7 +579,7 @@ void Kanagram::slotNextVocabulary()
         play("chalk.ogg");
     }
 
-    KanagramSettings::setDefaultVocab(m_game->getFilename());
+    KanagramSettings::setDefaultVocab(m_game->filename());
     KanagramSettings::self()->writeConfig();
     update();
 }
@@ -596,7 +596,7 @@ void Kanagram::slotPrevVocabulary()
         play("chalk.ogg");
     }
 
-    KanagramSettings::setDefaultVocab(m_game->getFilename());
+    KanagramSettings::setDefaultVocab(m_game->filename());
     KanagramSettings::self()->writeConfig();
     update();
 }
@@ -784,7 +784,7 @@ void Kanagram::checkWord()
 {
     QPalette palette;
     QString enteredWord = m_inputBox->text().toLower().trimmed();
-    QString word = m_game->getWord().toLower().trimmed();
+    QString word = m_game->word().toLower().trimmed();
     if (!enteredWord.isEmpty())
     {
         if (enteredWord == word || stripAccents(enteredWord) == stripAccents(word))
@@ -900,7 +900,7 @@ void Kanagram::refreshVocabularies()
         }
 
         // save the default vocab now that it's changed
-        KanagramSettings::setDefaultVocab(m_game->getFilename());
+        KanagramSettings::setDefaultVocab(m_game->filename());
         KanagramSettings::self()->writeConfig();
         m_vocabSettings->refreshView();
     }
