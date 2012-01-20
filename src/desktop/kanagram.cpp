@@ -570,7 +570,7 @@ void Kanagram::slotRevealWord()
 /** move on to the next vocabulary */
 void Kanagram::slotNextVocabulary()
 {
-    m_game->nextVocab();
+    m_game->nextVocabulary();
     hideHint();
     m_game->nextAnagram();
 
@@ -579,7 +579,7 @@ void Kanagram::slotNextVocabulary()
         play("chalk.ogg");
     }
 
-    KanagramSettings::setDefaultVocab(m_game->filename());
+    KanagramSettings::setDefaultVocabulary(m_game->filename());
     KanagramSettings::self()->writeConfig();
     update();
 }
@@ -587,7 +587,7 @@ void Kanagram::slotNextVocabulary()
 /** go back to the previous vocabulary */
 void Kanagram::slotPrevVocabulary()
 {
-    m_game->previousVocab();
+    m_game->previousVocabulary();
     hideHint();
     m_game->nextAnagram();
 
@@ -596,7 +596,7 @@ void Kanagram::slotPrevVocabulary()
         play("chalk.ogg");
     }
 
-    KanagramSettings::setDefaultVocab(m_game->filename());
+    KanagramSettings::setDefaultVocabulary(m_game->filename());
     KanagramSettings::self()->writeConfig();
     update();
 }
@@ -887,10 +887,10 @@ void Kanagram::resetInputBox()
 
 void Kanagram::refreshVocabularies()
 {
-    if (m_game->refreshVocabList())
+    if (m_game->refreshVocabularyList())
     {
         // vocab/word are no longer valid, so get new ones and hide the hint
-        m_game->nextVocab();
+        m_game->nextVocabulary();
         m_game->nextAnagram();
         hideHint();
 
@@ -900,7 +900,7 @@ void Kanagram::refreshVocabularies()
         }
 
         // save the default vocab now that it's changed
-        KanagramSettings::setDefaultVocab(m_game->filename());
+        KanagramSettings::setDefaultVocabulary(m_game->filename());
         KanagramSettings::self()->writeConfig();
         m_vocabSettings->refreshView();
     }
