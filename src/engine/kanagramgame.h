@@ -99,7 +99,7 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         void createAnagram();
 
         /** Check the current file */
-        void checkFile();
+        bool checkFile();
 
         /** Random sequence used to scramble the letters */
         KRandomSequence m_random;

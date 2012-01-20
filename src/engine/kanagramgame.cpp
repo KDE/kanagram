@@ -50,11 +50,12 @@ KanagramGame::~KanagramGame()
     m_document = NULL;
 }
 
-void KanagramGame::checkFile()
+bool KanagramGame::checkFile()
 {
     if (!QFile::exists(KStandardDirs::locate("data", m_filename)))
     {
         emit fileError(m_filename);
+        return false;
     }
 }
 
