@@ -217,33 +217,21 @@ void KanagramGame::restoreWord()
 
 void KanagramGame::createAnagram()
 {
-    QStringList objData = m_originalWord.split(QString(""));
-    QString insaneData;
-    do
-    {
-        insaneData = "";
-        int count;
+    QString anagram;
+    QString letters;
+    int randomIndex;
 
-        for (int i = 0; (count = objData.count()); i++)
+    do {
+        letters = m_originalWord;
+        while (!letters.isEmpty())
         {
-            int objChunk;
-            if ((i == 0) && (count > 1))
-            {
-                objChunk = 1 + m_random.getLong(count - 1);
-            }
-            else
-            {
-                objChunk = m_random.getLong(count);
-            }
-
-            QString sd = objData.at(objChunk);
-            objData.removeAt(objChunk);
-            insaneData += sd;
+            randomIndex = m_random.getLong(letters.count());
+            anagram.append(letters.at(randomIndex));
+            letters.remove(randomIndex, 1);
         }
-        // go again if we got the original word
-    } while (insaneData == m_originalWord);
+    } while (anagram == m_originalWord);
 
-    m_anagram = insaneData;
+    m_anagram = anagram;
 }
 
 QString KanagramGame::documentTitle()
