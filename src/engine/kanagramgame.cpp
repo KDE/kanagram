@@ -57,6 +57,8 @@ bool KanagramGame::checkFile()
         emit fileError(m_filename);
         return false;
     }
+
+    return true;
 }
 
 void KanagramGame::loadDefaultVocabulary()
