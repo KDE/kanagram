@@ -154,7 +154,7 @@ void KanagramGame::nextAnagram()
     checkFile();
 
     int totalWords = m_document->lesson()->entryCount(KEduVocLesson::Recursive);
-    int wordNumber = m_random.getLong(totalWords);
+    int randomWordIndex = m_random.getLong(totalWords);
 
 
     if (totalWords == (int)m_answeredWords.size())
@@ -164,16 +164,16 @@ void KanagramGame::nextAnagram()
 
     if (totalWords > 0)
     {
-        while (m_answeredWords.indexOf(m_document->lesson()->entries(KEduVocLesson::Recursive).at(wordNumber)->translation(0)->text()) != -1)
+        while (m_answeredWords.indexOf(m_document->lesson()->entries(KEduVocLesson::Recursive).at(randomWordIndex)->translation(0)->text()) != -1)
         {
-            wordNumber = m_random.getLong(totalWords);
+            randomWordIndex = m_random.getLong(totalWords);
         }
 
         // lowercase the entry text so german words that start capitalized will be lowercased
-        m_originalWord = m_document->lesson()->entries(KEduVocLesson::Recursive).at(wordNumber)->translation(0)->text().toLower();
+        m_originalWord = m_document->lesson()->entries(KEduVocLesson::Recursive).at(randomWordIndex)->translation(0)->text().toLower();
         m_answeredWords.append(m_originalWord);
         createAnagram();
-        m_hint = m_document->lesson()->entries(KEduVocLesson::Recursive).at(wordNumber)->translation(0)->comment();
+        m_hint = m_document->lesson()->entries(KEduVocLesson::Recursive).at(randomWordIndex)->translation(0)->comment();
 
         if (m_hint.isEmpty())
         {
