@@ -111,18 +111,6 @@ void KanagramGame::useVocabulary(const QString &vocabularyname)
     }
 }
 
-void KanagramGame::updateIndex()
-{
-    m_index = 0;
-    for (int i = 0; i < m_fileList.size(); i++)
-    {
-        if (m_filename == m_fileList.at(i))
-        {
-            m_index = i;
-        }
-    }
-}
-
 void KanagramGame::previousVocabulary()
 {
     if (--m_index < 0)

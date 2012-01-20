@@ -101,9 +101,6 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         /** Check the current file */
         void checkFile();
 
-        /** Find the current file in the list of files available */
-        void updateIndex();
-
         /** Random sequence used to scramble the letters */
         KRandomSequence m_random;
 
