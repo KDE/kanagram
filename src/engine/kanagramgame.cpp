@@ -184,7 +184,6 @@ void KanagramGame::nextAnagram()
     {
         // this file has no entries
         m_originalWord = "";
-        createAnagram();
         m_hint = "";
         // TODO: add some error reporting here
     }
