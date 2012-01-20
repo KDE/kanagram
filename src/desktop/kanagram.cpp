@@ -114,8 +114,6 @@ Kanagram::Kanagram()
     m_inputBox->setFont(f);
     m_inputBox->show();
 
-    show();
-
     setAutoSaveSettings();
 
     setMinimumSize(650, 471);
