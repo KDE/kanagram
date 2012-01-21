@@ -49,11 +49,24 @@ Page {
                     Text {
                         //id: anagramLetter + parent.index;
                         text: modelData;
+                        color: "white";
+
+                        font {
+                            pixelSize: 40;
+                            bold: true;
+                            capitalization: Font.AllUppercase;
+                        }
+
+                        anchors {
+                            horizontalCenter: parent.horizontalCenter;
+                            verticalCenter: parent.verticalCenter;
+                        }
                     }
 
                     width: 48;
                     height: 48;
-                    border.width: 1;
+                    border.color: "white";
+                    border.width: 2;
 
                     MouseArea {
                         anchors.fill: parent;
@@ -83,11 +96,24 @@ Page {
                     color: Qt.rgba(0, 0, 0, 0);
                     Text {
                         text: "";
+                        color: "white";
+
+                        font {
+                            pixelSize: 40;
+                            bold: true;
+                            capitalization: Font.AllUppercase;
+                        }
+
+                        anchors {
+                            horizontalCenter: parent.horizontalCenter;
+                            verticalCenter: parent.verticalCenter;
+                        }
                     }
 
                     width: 48;
                     height: 48;
-                    border.width: 1;
+                    border.color: "white";
+                    border.width: 2;
 
                     MouseArea {
                         anchors.fill: parent;
