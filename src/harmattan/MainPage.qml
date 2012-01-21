@@ -33,4 +33,64 @@ Page {
     }
 
     tools: commonTools;
+
+    Column {
+        Row {
+            id: anagramRow;
+            Repeater {
+                id: anagramLetterRepeater
+                model: kanagramGame.letters();
+                Rectangle {
+                    Text {
+                        id: anagramLetter + parent.index;
+                        text: modelData;
+                    }
+
+                    width: 40;
+                    height: 40;
+                    border.width: 1;
+
+                    MouseArea {
+                        anchors.fill: parent;
+                        hoverEnabled: true;
+
+                        drag.target: letterRectangle;
+                        drag.axis: Drag.XandYAxis;
+                        drag.minimumX: 0;
+                        drag.maximumX: mainPage.width - letterRectangle.width;
+                        drag.minimumY: 0;
+
+                        onClicked: {
+                            anagramLetter + parent.index = "";
+                       }
+                    }
+                }
+            }
+        }
+
+        Row {
+            id: originalWordRow;
+            Repeater {
+                id: originalWordLetterRepeater;
+                model: kanagramGame.letters();
+                Rectangle {
+                    Text {
+                        text: "";
+                    }
+
+                    width: 40;
+                    height: 40;
+                    border.width: 1;
+
+                    MouseArea {
+                        anchors.fill: parent;
+                        hoverEnabled: true;
+
+                        onClicked: {
+                       }
+                    }
+                }
+            }
+        }
+    }
 }
