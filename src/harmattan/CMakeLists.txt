@@ -9,6 +9,7 @@ include_directories(
 
 set(kanagram-harmattan_SRCS
     main.cpp
+    kanagramenginehelper.cpp
 )
 
 # generate rules for building source files from the resources
