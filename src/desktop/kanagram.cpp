@@ -935,3 +935,5 @@ void Kanagram::slotFileError(const QString &filename)
 void Kanagram::slotChooseVocabulary()
 {
 }
+
+#include "kanagram.moc"

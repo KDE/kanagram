@@ -31,11 +31,15 @@ QStringList KanagramEngineHelper::createNextAnagram()
     KanagramGame kanagramGame;
     kanagramGame.nextAnagram();
     QStringList letters;
-    
-    foreach (const QChar& letter, kanagramGame.anagram())
+
+    QString anagram = kanagramGame.anagram();
+
+    foreach (const QChar& letter, anagram)
     {
         letters.append(letter);
     }
 
     return letters;
 }
+
+#include "kanagramenginehelper.moc"

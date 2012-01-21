@@ -89,3 +89,5 @@ void MainSettings::slotUpdateLanguage()
     
     emit settingsChanged();
 }
+
+#include "mainsettings.moc"

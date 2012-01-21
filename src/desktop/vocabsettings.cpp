@@ -104,3 +104,5 @@ void VocabSettings::slotSelectionChanged(QTreeWidgetItem *item)
     bool writeable = QFileInfo(m_fileList[index]).isWritable();
     btnEdit->setEnabled(writeable);
 }
+
+#include "vocabsettings.moc"

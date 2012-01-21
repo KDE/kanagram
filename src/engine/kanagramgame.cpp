@@ -244,3 +244,5 @@ QString KanagramGame::documentTitle()
     }
     return QString();
 }
+
+#include "kanagramgame.moc"
