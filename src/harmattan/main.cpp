@@ -17,7 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#include <kanagramgame.h>
+#include "kanagramenginehelper.h"
 
 #include <QtDeclarative/QDeclarativeView>
 #include <QtDeclarative/QDeclarativeContext>
@@ -33,9 +33,9 @@ int main( int argc, char** argv )
 
     QDeclarativeView view;
     QDeclarativeContext *ctxt = view.rootContext();
-    KanagramGame kanagramGame;
+    KanagramEngineHelper kanagramEngineHelper;
 
-    ctxt->setContextProperty("kanagramGame", &kanagramGame);
+    ctxt->setContextProperty("kanagramEngineHelper", &kanagramEngineHelper);
 
     view.setSource(QUrl("qrc:/main.qml"));
     view.showFullScreen();

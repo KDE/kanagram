@@ -39,7 +39,7 @@ Page {
             id: anagramRow;
             Repeater {
                 id: anagramLetterRepeater
-                model: kanagramGame.letters();
+                model: kanagramEngineHelper.createNextAnagram();
                 Rectangle {
                     Text {
                         id: anagramLetter + parent.index;
@@ -72,7 +72,7 @@ Page {
             id: originalWordRow;
             Repeater {
                 id: originalWordLetterRepeater;
-                model: kanagramGame.letters();
+                model: kanagramEngineHelper.createNextAnagram();
                 Rectangle {
                     Text {
                         text: "";
