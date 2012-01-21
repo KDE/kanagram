@@ -41,8 +41,9 @@ Page {
                 id: anagramLetterRepeater
                 model: kanagramEngineHelper.createNextAnagram();
                 Rectangle {
+                    color: "#00000000";
                     Text {
-                        id: anagramLetter + parent.index;
+                        //id: anagramLetter + parent.index;
                         text: modelData;
                     }
 
@@ -54,14 +55,14 @@ Page {
                         anchors.fill: parent;
                         hoverEnabled: true;
 
-                        drag.target: letterRectangle;
+                        //drag.target: letterRectangle;
                         drag.axis: Drag.XandYAxis;
                         drag.minimumX: 0;
-                        drag.maximumX: mainPage.width - letterRectangle.width;
+                        //drag.maximumX: mainPage.width - letterRectangle.width;
                         drag.minimumY: 0;
 
                         onClicked: {
-                            anagramLetter + parent.index = "";
+                            //anagramLetter + parent.index = "";
                        }
                     }
                 }
@@ -74,6 +75,7 @@ Page {
                 id: originalWordLetterRepeater;
                 model: kanagramEngineHelper.createNextAnagram();
                 Rectangle {
+                    color: "#00000000";
                     Text {
                         text: "";
                     }
