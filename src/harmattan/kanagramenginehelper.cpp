@@ -39,5 +39,3 @@ QStringList KanagramEngineHelper::createNextAnagram()
 
     return letters;
 }
-
-#include "kanagramenginehelper.moc"

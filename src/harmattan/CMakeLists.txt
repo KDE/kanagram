@@ -17,8 +17,6 @@ QT4_ADD_RESOURCES(KANAGRAM-HARMATTAN_RCC_SRCS
     kanagram-harmattan.qrc
 )
 
-qt4_automoc(${kanagram-harmattan_SRCS})
-
 if(APPLE)
     add_executable(kanagram-harmattan MACOSX_BUNDLE ${harmattan_SRCS})
     #MACOSX_BUNDLE_INFO_STRING
@@ -33,7 +31,7 @@ if(APPLE)
 set_target_properties(kanagram-harmattan PROPERTIES OUTPUT_NAME KanagramHarmattan)
 
 else()
-    add_executable(kanagram-harmattan ${kanagram-harmattan_SRCS} ${KANAGRAM-HARMATTAN_RCC_SRCS})
+    kde4_add_executable(kanagram-harmattan ${kanagram-harmattan_SRCS} ${KANAGRAM-HARMATTAN_RCC_SRCS})
 endif()
 target_link_libraries(kanagram-harmattan
     ${QT_QTDECLARATIVE_LIBRARY}
