@@ -35,20 +35,24 @@ Page {
     tools: commonTools;
 
     Column {
+        x: mainPage.width / 4;
+        y: mainPage.height / 4;
+        spacing: 20;
         Row {
             id: anagramRow;
+            spacing: 10;
             Repeater {
                 id: anagramLetterRepeater
                 model: kanagramEngineHelper.createNextAnagram();
                 Rectangle {
-                    color: "#00000000";
+                    color: Qt.rgba(0, 0, 0, 0);
                     Text {
                         //id: anagramLetter + parent.index;
                         text: modelData;
                     }
 
-                    width: 40;
-                    height: 40;
+                    width: 48;
+                    height: 48;
                     border.width: 1;
 
                     MouseArea {
@@ -71,17 +75,18 @@ Page {
 
         Row {
             id: originalWordRow;
+            spacing: 10;
             Repeater {
                 id: originalWordLetterRepeater;
                 model: kanagramEngineHelper.createNextAnagram();
                 Rectangle {
-                    color: "#00000000";
+                    color: Qt.rgba(0, 0, 0, 0);
                     Text {
                         text: "";
                     }
 
-                    width: 40;
-                    height: 40;
+                    width: 48;
+                    height: 48;
                     border.width: 1;
 
                     MouseArea {
