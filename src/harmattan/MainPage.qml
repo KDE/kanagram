@@ -23,6 +23,7 @@ import com.nokia.extras 1.0
 
 Page {
     id: mainPage;
+    property variant anagram: kanagramEngineHelper.createNextAnagram();
 
     function pushPage(file) {
         var component = Qt.createComponent(file)
@@ -43,7 +44,7 @@ Page {
             spacing: 10;
             Repeater {
                 id: anagramLetterRepeater
-                model: kanagramEngineHelper.createNextAnagram();
+                model: anagram;
                 Rectangle {
                     color: Qt.rgba(0, 0, 0, 0);
                     Text {
@@ -91,7 +92,7 @@ Page {
             spacing: 10;
             Repeater {
                 id: originalWordLetterRepeater;
-                model: kanagramEngineHelper.createNextAnagram();
+                model: anagram;
                 Rectangle {
                     color: Qt.rgba(0, 0, 0, 0);
                     Text {
