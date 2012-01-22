@@ -53,14 +53,19 @@ Page {
             height: 32;
             anchors.verticalCenter: parent.verticalCenter;
 
-            onClicked: {
-                anagramHint.text: kanagramEngineHelper.anagramHint();
+            MouseArea {
+                anchors.fill: parent;
+                hoverEnabled: true;
 
-                // Set the display time to 5000 ms (default is 3000 ms)
-                anagramHint.timerShowTime = 5000;
+                onClicked: {
+                    anagramHint.text = kanagramEngineHelper.anagramHint();
 
-                // Display the info banner
-                anagramHint.show();
+                    // Set the display time to 5000 ms (default is 3000 ms)
+                    anagramHint.timerShowTime = 5000;
+
+                    // Display the info banner
+                    anagramHint.show();
+                }
             }
         }
 
@@ -69,6 +74,14 @@ Page {
             width: 32;
             height: 32;
             anchors.verticalCenter: parent.verticalCenter;
+
+            MouseArea {
+                anchors.fill: parent;
+                hoverEnabled: true;
+
+                onClicked: {
+                }
+            }
         }
 
         ToolIcon {
