@@ -114,6 +114,10 @@ Page {
         selectedIndex: 1;
 
         model: kanagramGame.vocabularyList();
+
+        onSelectedIndexChanged: {
+            kanagramGame.useVocabulary(selectedIndex);
+        }
     }
 
     Column {
@@ -166,7 +170,7 @@ Page {
 
                         onClicked: {
                             originalWordLetterRepeater.model =
-                                kanagramEngineHelper.appendToCurrentOriginalWord(currentOriginalWordIndex, anagramLetterText.text);
+                                kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterText.text);
                             ++currentOriginalWordIndex;
                             anagramLetterText.text = "";
                        }
