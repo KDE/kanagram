@@ -113,7 +113,7 @@ Page {
         titleText: "Choose an anagram category"
         selectedIndex: 1;
 
-        model: kanagramGame.vocabularyList();
+        model: anagramCategoryModel;
 
         onSelectedIndexChanged: {
             kanagramGame.useVocabulary(selectedIndex);

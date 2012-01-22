@@ -20,9 +20,9 @@
 #ifndef KANAGRAM_ENGINE_HELPER_H
 #define KANAGRAM_ENGINE_HELPER_H
 
-#include <kanagramgame.h>
+#include "selectionmodel.h"
 
-#include <QtCore/QStringList>
+#include <kanagramgame.h>
 
 class KanagramEngineHelper : public QObject
 {
@@ -34,10 +34,12 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE QStringList createNextAnagram();
         Q_INVOKABLE QStringList insertInCurrentOriginalWord(int index, const QString& letter);
         Q_INVOKABLE QStringList anagramOriginalWord() const;
+        Q_INVOKABLE SelectionModel *anagramCategoryModel() const;
 
 	private:
         KanagramGame *m_kanagramGame;
         QStringList m_currentOriginalWord;
+        SelectionModel *m_anagramCategoryModel;
 };
 
 #endif // KANAGRAM_ENGINE_HELPER_H
