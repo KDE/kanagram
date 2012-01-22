@@ -34,6 +34,42 @@ Page {
             console.log("Error loading component:", component.errorString());
     }
 
+    // These tools are available for the main page by assigning the
+    // id to the main page's tools property
+    ToolBarLayout {
+        id: commonTools;
+        visible: false;
+
+        Image {
+            source: "games-hint.png";
+            width: 32;
+            height: 32;
+            anchors.verticalCenter: parent.verticalCenter;
+        }
+
+        Image {
+            source: "games-solve.png";
+            width: 32;
+            height: 32;
+            anchors.verticalCenter: parent.verticalCenter;
+        }
+
+        ToolIcon {
+            iconId: "toolbar-tab-next";
+            onClicked: {
+                anagram = kanagrameEngineHelper.createNextAnagram();
+                anagramLetterRepeater.model = anagram;
+                originalWordLetterRepeater.model = anagram;
+            }
+        }
+
+
+        ToolIcon {
+            iconId: "toolbar-settings";
+            onClicked: { }
+        }
+    }
+
     tools: commonTools;
 
     Column {
@@ -44,7 +80,7 @@ Page {
             id: anagramRow;
             spacing: 10;
             Repeater {
-                id: anagramLetterRepeater
+                id: anagramLetterRepeater;
                 model: anagram;
                 Rectangle {
                     id: anagramLetterRectangle;

@@ -28,8 +28,8 @@ PageStackWindow {
     // the available games on the mobile handset
     initialPage: MainPage { id: mainPage; }
 
-    // These tools are shared by most sub-pages by assigning the
-    // id to a page's tools property
+    // These tools are available for the main page by assigning the
+    // id to the main page's tools property
     ToolBarLayout {
         id: commonTools;
         visible: false;
