@@ -20,6 +20,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import com.nokia.extras 1.0
+import QtMultimediaKit 1.1
 
 Page {
     id: mainPage;
@@ -40,6 +41,11 @@ Page {
         id: anagramHint;
         text: "This is an info banner with icon"
         iconSource: "dialog-information.png"
+    }
+
+    SoundEffect {
+        id: playSound
+        source: "chalk.ogg"
     }
 
     // These tools are available for the main page by assigning the
@@ -90,6 +96,8 @@ Page {
             iconId: "toolbar-tab-next";
 
             onClicked: {
+                playSound.source = "chalk.ogg";
+                playSound.play();
                 isAnagramInit = true;
                 anagram = kanagramEngineHelper.createNextAnagram();
                 anagramLetterRepeater.model = anagram;
