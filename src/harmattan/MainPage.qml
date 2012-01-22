@@ -37,7 +37,7 @@ Page {
     // These tools are available for the main page by assigning the
     // id to the main page's tools property
     ToolBarLayout {
-        id: commonTools;
+        id: mainPageTools;
         visible: false;
 
         Image {
@@ -57,23 +57,27 @@ Page {
         ToolIcon {
             iconId: "toolbar-tab-next";
             onClicked: {
-                anagram = kanagrameEngineHelper.createNextAnagram();
+                anagram = kanagramEngineHelper.createNextAnagram();
                 anagramLetterRepeater.model = anagram;
                 originalWordLetterRepeater.model = anagram;
             }
         }
 
-
         ToolIcon {
             iconId: "toolbar-settings";
-            onClicked: { }
+            onClicked: {
+                pageStack.push("qrc:/MainSettingsPage.qml");
+            }
         }
     }
 
-    tools: commonTools;
+    tools: mainPageTools;
 
     Column {
-        x: mainPage.width / 4;
+        anchors {
+            horizontalCenter: mainPage.horizontalCenter;
+        }
+
         y: mainPage.height / 4;
         spacing: 20;
         Row {

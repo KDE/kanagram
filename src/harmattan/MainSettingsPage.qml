@@ -19,35 +19,18 @@
 
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import com.nokia.extras 1.0
 
-PageStackWindow {
-    id: rootWindow;
-    property int pageMargin: 40;
+Page {
+    id: mainSettingsPage;
 
-    // MainPage is what we see when the app starts, it shows up
-    // the available games on the mobile handset
-    initialPage: MainPage { id: mainPage; }
-
-    // These tools are shared by most sub-pages by assigning the
-    // id to a page's tools property
-    ToolBarLayout {
-        id: commonTools;
-        visible: false;
-        ToolIcon {
-            iconId: "toolbar-back";
-            onClicked: { pageStack.pop(); }
-        }
+    function pushPage(file) {
+        var component = Qt.createComponent(file)
+        if (component.status == Component.Ready)
+            pageStack.push(component);
+        else
+            console.log("Error loading component:", component.errorString());
     }
 
-    Component.onCompleted: {
-        // Use the dark theme.
-        theme.inverted = true;
-    }
-
-    platformStyle: PageStackWindowStyle {
-        background: "kanagram-chalkboard-landscape.png";
-        landscapeBackground: "kanagram-chalkboard-landscape.png";
-        portraitBackground: "kanagram-chalkboard-portrait.png";
-        backgroundFillMode: Image.Tile;
-    }
+    tools: commonTools;
 }
