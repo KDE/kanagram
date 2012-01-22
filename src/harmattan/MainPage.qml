@@ -196,7 +196,7 @@ Page {
                 Rectangle {
                     color: Qt.rgba(0, 0, 0, 0);
                     Text {
-                        text: "";
+                        text: modelData;
                         color: "white";
 
                         font {
