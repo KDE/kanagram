@@ -92,7 +92,7 @@ bool KanagramGame::refreshVocabularyList()
 }
 
 /** get the list of vocabularies */
-QStringList KanagramGame::vocabularyList()
+QStringList KanagramGame::vocabularyList() const
 {
     return SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
 }
@@ -192,22 +192,22 @@ void KanagramGame::nextAnagram()
     }
 }
 
-QString KanagramGame::filename()
+QString KanagramGame::filename() const
 {
     return m_fileList.empty() ? m_filename : m_fileList[m_index];
 }
 
-QString KanagramGame::anagram()
+QString KanagramGame::anagram() const
 {
     return m_anagram;
 }
 
-QString KanagramGame::hint()
+QString KanagramGame::hint() const
 {
     return m_hint;
 }
 
-QString KanagramGame::word()
+QString KanagramGame::word() const
 {
     return m_originalWord;
 }
@@ -236,12 +236,13 @@ void KanagramGame::createAnagram()
     m_anagram = anagram;
 }
 
-QString KanagramGame::documentTitle()
+QString KanagramGame::documentTitle() const
 {
     if (m_document)
     {
         return m_document->title();
     }
+
     return QString();
 }
 

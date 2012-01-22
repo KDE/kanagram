@@ -45,22 +45,22 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         ~KanagramGame();
 
         /** Get the anagram to show */
-        QString anagram();
+        QString anagram() const;
 
         /** Get this anagram's hint */
-        QString hint();
+        QString hint() const;
 
         /** Get this anagram's answer */
-        QString word();
+        QString word() const;
 
         /** Get the current vocabulary file's title */
-        QString documentTitle();
+        QString documentTitle() const;
 
         /** Get the current vocabulary file's filename */
-        QString filename();
+        QString filename() const;
 
         /** Get the list of vocabularies */
-        QStringList vocabularyList();
+        QStringList vocabularyList() const;
 
     public slots:
 
