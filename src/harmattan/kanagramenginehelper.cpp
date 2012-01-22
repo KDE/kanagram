@@ -27,16 +27,16 @@ KanagramEngineHelper::KanagramEngineHelper(QObject* parent)
 QStringList KanagramEngineHelper::createNextAnagram()
 {
     m_kanagramGame.nextAnagram();
-    QStringList letters;
+    QStringList anagramLetters;
 
     QString anagram = m_kanagramGame.anagram();
 
-    foreach (const QChar& letter, anagram)
+    foreach (const QChar& anagramLetter, anagram)
     {
-        letters.append(letter);
+        anagramLetters.append(anagramLetter);
     }
 
-    return letters;
+    return anagramLetters;
 }
 
 QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const QString& letter)
@@ -55,6 +55,20 @@ QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const Q
 QString KanagramEngineHelper::anagramHint() const
 {
     return m_kanagramGame.hint();
+}
+
+QStringList KanagramEngineHelper::anagramOriginalWord() const
+{
+    QStringList originalWordLetters;
+
+    QString originalWord = m_kanagramGame.word();
+
+    foreach (const QChar& originalWordLetter, originalWord)
+    {
+        originalWordLetters.append(originalWordLetter);
+    }
+
+    return originalWordLetters;
 }
 
 #include "kanagramenginehelper.moc"
