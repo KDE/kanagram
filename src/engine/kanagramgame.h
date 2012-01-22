@@ -64,8 +64,11 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 
     public slots:
 
-        /** Set the vocabulary to use */
+        /** Set the vocabulary to use according to the vocabulary name */
         void useVocabulary(const QString &vocabularyname);
+
+        /** Set the vocabulary to use according to the desired index value*/
+        void useVocabulary(int index);
 
         /** Refresh the list of vocabulary files available
          * from what we find on disk

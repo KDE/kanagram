@@ -98,12 +98,15 @@ QStringList KanagramGame::vocabularyList() const
 
 void KanagramGame::useVocabulary(const QString &vocabularyname)
 {
-    QStringList titles = vocabularyList();
-    int vocabulary = titles.indexOf(vocabularyname);
-    if (vocabulary > 0)
+    useVocabulary(vocabularyList().indexOf(vocabularyname));
+}
+
+void KanagramGame::useVocabulary(int index)
+{
+    if (index > 0)
     {
-        m_index = vocabulary;
-        m_filename = m_fileList.at(vocabulary);
+        m_index = index;
+        m_filename = m_fileList.at(index);
     }
     else
     {
