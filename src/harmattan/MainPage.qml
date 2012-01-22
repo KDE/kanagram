@@ -80,6 +80,8 @@ Page {
                 hoverEnabled: true;
 
                 onClicked: {
+                    originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
+                    anagramLetterRepeater.model = "";
                 }
             }
         }
