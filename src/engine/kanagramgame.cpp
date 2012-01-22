@@ -194,7 +194,7 @@ void KanagramGame::nextAnagram()
 
 QString KanagramGame::filename() const
 {
-    return m_fileList.empty() ? m_filename : m_fileList[m_index];
+    return m_fileList.empty() ? m_filename : m_fileList.at(m_index);
 }
 
 QString KanagramGame::anagram() const
