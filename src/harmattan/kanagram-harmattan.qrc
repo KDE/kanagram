@@ -7,6 +7,7 @@
         <file alias="kanagram-chalkboard-portrait.png">../../icons/common/kanagram-chalkboard-portrait.png</file>
         <file alias="games-hint.png">../../icons/common/games-hint.png</file>
         <file alias="games-solve.png">../../icons/common/games-solve.png</file>
+        <file alias="dialog-information.png">../../icons/common/dialog-information.png</file>
     </qresource>
 </RCC>
 

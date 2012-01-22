@@ -34,6 +34,13 @@ Page {
             console.log("Error loading component:", component.errorString());
     }
 
+    // Create an info banner with icon
+    InfoBanner {
+        id: anagramHint;
+        text: "This is an info banner with icon"
+        iconSource: "dialog-information.png"
+    }
+
     // These tools are available for the main page by assigning the
     // id to the main page's tools property
     ToolBarLayout {
@@ -45,6 +52,16 @@ Page {
             width: 32;
             height: 32;
             anchors.verticalCenter: parent.verticalCenter;
+
+            onClicked: {
+                anagramHint.text: kanagramEngineHelper.anagramHint();
+
+                // Set the display time to 5000 ms (default is 3000 ms)
+                anagramHint.timerShowTime = 5000;
+
+                // Display the info banner
+                anagramHint.show();
+            }
         }
 
         Image {
@@ -56,6 +73,7 @@ Page {
 
         ToolIcon {
             iconId: "toolbar-tab-next";
+
             onClicked: {
                 anagram = kanagramEngineHelper.createNextAnagram();
                 anagramLetterRepeater.model = anagram;
@@ -65,6 +83,7 @@ Page {
 
         ToolIcon {
             iconId: "toolbar-settings";
+
             onClicked: {
                 pageStack.push("qrc:/MainSettingsPage.qml");
             }

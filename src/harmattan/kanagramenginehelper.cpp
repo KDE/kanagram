@@ -52,4 +52,9 @@ QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const Q
     return m_currentOriginalWord;
 }
 
+QString KanagramEngineHelper::anagramHint() const
+{
+    return m_kanagramGame.hint();
+}
+
 #include "kanagramenginehelper.moc"
