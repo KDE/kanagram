@@ -55,7 +55,9 @@ QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const Q
         m_currentOriginalWord.clear();
     }
 
-    m_currentOriginalWord.reserve(m_kanagramGame->word().size());
+    int anagramWordSize = m_kanagramGame->word().size();
+    while (m_currentOriginalWord.size() < anagramWordSize)
+        m_currentOriginalWord.append("");
 
     m_currentOriginalWord.replace(index, letter);
     return m_currentOriginalWord;
