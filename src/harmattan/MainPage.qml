@@ -47,7 +47,7 @@ Page {
                 id: anagramLetterRepeater
                 model: anagram;
                 Rectangle {
-                    anagramLetterRectangle
+                    id: anagramLetterRectangle;
                     color: Qt.rgba(0, 0, 0, 0);
                     Text {
                         id: anagramLetterText;
@@ -82,8 +82,9 @@ Page {
                         drag.minimumY: 0;
 
                         onClicked: {
-                            originalWordLetterRepeater.model:
-                                kanagramEngineHelper.appendToCurrentOriginalWord(anagramLetterText.text);
+                            originalWordLetterRepeater.model =
+                                kanagramEngineHelper.appendToCurrentOriginalWord(currentOriginalWordIndex, anagramLetterText.text);
+                            ++currentOriginalWordIndex;
                             anagramLetterText.text = "";
                        }
                     }

@@ -20,6 +20,8 @@
 #ifndef KANAGRAM_ENGINE_HELPER_H
 #define KANAGRAM_ENGINE_HELPER_H
 
+#include <kanagramgame.h>
+
 #include <QtCore/QStringList>
 
 class KanagramEngineHelper : public QObject
@@ -30,9 +32,10 @@ class KanagramEngineHelper : public QObject
 		
 	public slots:
 		QStringList createNextAnagram();
-        QStringList appendToCurrentOriginalWord(const QString& letter);
+        QStringList insertInCurrentOriginalWord(int index, const QString& letter);
 
 	private:
+        KanagramGame m_kanagramGame;
         QStringList m_currentOriginalWord;
 };
 

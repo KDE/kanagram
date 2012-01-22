@@ -19,8 +19,6 @@
 
 #include "kanagramenginehelper.h"
 
-#include <kanagramgame.h>
-
 KanagramEngineHelper::KanagramEngineHelper(QObject* parent)
 	: QObject(parent)
 {
@@ -28,11 +26,10 @@ KanagramEngineHelper::KanagramEngineHelper(QObject* parent)
 
 QStringList KanagramEngineHelper::createNextAnagram()
 {
-    KanagramGame kanagramGame;
-    kanagramGame.nextAnagram();
+    m_kanagramGame.nextAnagram();
     QStringList letters;
 
-    QString anagram = kanagramGame.anagram();
+    QString anagram = m_kanagramGame.anagram();
 
     foreach (const QChar& letter, anagram)
     {
@@ -42,9 +39,16 @@ QStringList KanagramEngineHelper::createNextAnagram()
     return letters;
 }
 
-QStringList KanagramEngineHelper::appendToCurrentOriginalWord(const QString& letter)
+QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const QString& letter)
 {
-    m_currentOriginalWord.append(letter);
+    if (m_kanagramGame.word().size() < m_currentOriginalWord.size())
+    {
+        m_currentOriginalWord.clear();
+    }
+
+    m_currentOriginalWord.reserve(m_kanagramGame.word().size());
+
+    m_currentOriginalWord.replace(index, letter);
     return m_currentOriginalWord;
 }
 
