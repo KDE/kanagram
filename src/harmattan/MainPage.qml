@@ -58,7 +58,7 @@ Page {
                 hoverEnabled: true;
 
                 onClicked: {
-                    anagramHint.text = kanagramEngineHelper.anagramHint();
+                    anagramHint.text = kanagramGame.hint();
 
                     // Set the display time to 5000 ms (default is 3000 ms)
                     anagramHint.timerShowTime = 5000;

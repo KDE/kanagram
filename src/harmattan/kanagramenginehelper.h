@@ -34,7 +34,6 @@ class KanagramEngineHelper : public QObject
 	public slots:
 		QStringList createNextAnagram();
         QStringList insertInCurrentOriginalWord(int index, const QString& letter);
-        QString anagramHint() const;
         QStringList anagramOriginalWord() const;
 
 	private:
