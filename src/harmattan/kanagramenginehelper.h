@@ -30,7 +30,10 @@ class KanagramEngineHelper : public QObject
 		
 	public slots:
 		QStringList createNextAnagram();
-		
+        QStringList appendToCurrentOriginalWord(const QString& letter);
+
+	private:
+        QStringList m_currentOriginalWord;
 };
 
 #endif // KANAGRAM_ENGINE_HELPER_H

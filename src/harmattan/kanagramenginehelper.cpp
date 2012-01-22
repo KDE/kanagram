@@ -42,4 +42,10 @@ QStringList KanagramEngineHelper::createNextAnagram()
     return letters;
 }
 
+QStringList KanagramEngineHelper::appendToCurrentOriginalWord(const QString& letter)
+{
+    m_currentOriginalWord.append(letter);
+    return m_currentOriginalWord;
+}
+
 #include "kanagramenginehelper.moc"

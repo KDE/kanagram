@@ -24,6 +24,7 @@ import com.nokia.extras 1.0
 Page {
     id: mainPage;
     property variant anagram: kanagramEngineHelper.createNextAnagram();
+    property int currentOriginalWordIndex: 0;
 
     function pushPage(file) {
         var component = Qt.createComponent(file)
@@ -46,9 +47,10 @@ Page {
                 id: anagramLetterRepeater
                 model: anagram;
                 Rectangle {
+                    anagramLetterRectangle
                     color: Qt.rgba(0, 0, 0, 0);
                     Text {
-                        //id: anagramLetter + parent.index;
+                        id: anagramLetterText;
                         text: modelData;
                         color: "white";
 
@@ -73,14 +75,16 @@ Page {
                         anchors.fill: parent;
                         hoverEnabled: true;
 
-                        //drag.target: letterRectangle;
+                        drag.target: anagramLetterRectangle;
                         drag.axis: Drag.XandYAxis;
                         drag.minimumX: 0;
-                        //drag.maximumX: mainPage.width - letterRectangle.width;
+                        drag.maximumX: mainPage.width - anagramLetterRectangle.width;
                         drag.minimumY: 0;
 
                         onClicked: {
-                            //anagramLetter + parent.index = "";
+                            originalWordLetterRepeater.model:
+                                kanagramEngineHelper.appendToCurrentOriginalWord(anagramLetterText.text);
+                            anagramLetterText.text = "";
                        }
                     }
                 }
