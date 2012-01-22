@@ -180,7 +180,7 @@ Page {
         }
 
         Button {
-            text: categorySelectionDialog.model.get(categorySelectionDialog.selectedIndex).name;
+            text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
             onClicked: {
                 categorySelectionDialog.open();
             }

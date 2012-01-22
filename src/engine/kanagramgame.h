@@ -48,7 +48,7 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         QString anagram() const;
 
         /** Get this anagram's hint */
-        QString hint() const;
+        Q_INVOKABLE QString hint() const;
 
         /** Get this anagram's answer */
         QString word() const;
@@ -60,7 +60,7 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         QString filename() const;
 
         /** Get the list of vocabularies */
-        QStringList vocabularyList() const;
+        Q_INVOKABLE QStringList vocabularyList() const;
 
     public slots:
 
