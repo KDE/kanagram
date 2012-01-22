@@ -2,9 +2,11 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>MainPage.qml</file>
+        <file>MainSettingsPage.qml</file>
 
+        <file>UIConstants.js</file>
         <file>CommonDialog.qml</file>
-        <file>SelectionDialog.qml</file>
+        <file>MySelectionDialog.qml</file>
 
         <file alias="kanagram-chalkboard-landscape.png">../../icons/common/kanagram-chalkboard-landscape.png</file>
         <file alias="kanagram-chalkboard-portrait.png">../../icons/common/kanagram-chalkboard-portrait.png</file>

@@ -108,7 +108,7 @@ Page {
     tools: mainPageTools;
 
     // Create a selection dialog with the vocabulary titles to choose from.
-    SelectionDialog {
+    MySelectionDialog {
         id: categorySelectionDialog;
         titleText: "Choose an anagram category"
         selectedIndex: 1;
