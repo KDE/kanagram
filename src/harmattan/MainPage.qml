@@ -107,6 +107,15 @@ Page {
 
     tools: mainPageTools;
 
+    // Create a selection dialog with the vocabulary titles to choose from.
+    SelectionDialog {
+        id: categorySelectionDialog;
+        titleText: "Choose an anagram category"
+        selectedIndex: 1;
+
+        model: kanagramGame.vocabularyList();
+    }
+
     Column {
         anchors {
             horizontalCenter: mainPage.horizontalCenter;
@@ -165,6 +174,14 @@ Page {
                 }
             }
         }
+
+        Button {
+            text: categorySelectionDialog.model.get(categorySelectionDialog.selectedIndex).name;
+            onClicked: {
+                categorySelectionDialog.open();
+            }
+        }
+
 
         Row {
             id: originalWordRow;
