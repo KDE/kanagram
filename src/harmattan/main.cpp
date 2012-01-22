@@ -40,6 +40,8 @@ int main( int argc, char** argv )
     KanagramEngineHelper kanagramEngineHelper(kanagramGame);
     ctxt->setContextProperty("kanagramEngineHelper", &kanagramEngineHelper);
 
+    ctxt->setContextProperty("anagramCategoryModel", kanagramEngineHelper.anagramCategoryModel());
+
     view.setSource(QUrl("qrc:/main.qml"));
     view.showFullScreen();
 
