@@ -19,17 +19,23 @@
 
 #include "kanagramenginehelper.h"
 
-KanagramEngineHelper::KanagramEngineHelper(QObject* parent)
-	: QObject(parent)
+KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* parent)
+    : QObject(parent)
+    , m_kanagramGame(kanagramGame)
 {
+}
+
+KanagramEngineHelper::~KanagramEngineHelper()
+{
+    delete m_kanagramGame;
 }
 
 QStringList KanagramEngineHelper::createNextAnagram()
 {
-    m_kanagramGame.nextAnagram();
+    m_kanagramGame->nextAnagram();
     QStringList anagramLetters;
 
-    QString anagram = m_kanagramGame.anagram();
+    QString anagram = m_kanagramGame->anagram();
 
     foreach (const QChar& anagramLetter, anagram)
     {
@@ -41,12 +47,12 @@ QStringList KanagramEngineHelper::createNextAnagram()
 
 QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const QString& letter)
 {
-    if (m_kanagramGame.word().size() < m_currentOriginalWord.size())
+    if (m_kanagramGame->word().size() < m_currentOriginalWord.size())
     {
         m_currentOriginalWord.clear();
     }
 
-    m_currentOriginalWord.reserve(m_kanagramGame.word().size());
+    m_currentOriginalWord.reserve(m_kanagramGame->word().size());
 
     m_currentOriginalWord.replace(index, letter);
     return m_currentOriginalWord;
@@ -54,14 +60,14 @@ QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const Q
 
 QString KanagramEngineHelper::anagramHint() const
 {
-    return m_kanagramGame.hint();
+    return m_kanagramGame->hint();
 }
 
 QStringList KanagramEngineHelper::anagramOriginalWord() const
 {
     QStringList originalWordLetters;
 
-    QString originalWord = m_kanagramGame.word();
+    QString originalWord = m_kanagramGame->word();
 
     foreach (const QChar& originalWordLetter, originalWord)
     {

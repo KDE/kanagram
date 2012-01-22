@@ -73,7 +73,7 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
          */
         bool refreshVocabularyList();
 
-        /** load the default vocab file */
+        /** Load the default vocabulary file */
         void loadDefaultVocabulary();
 
         /** Set the index to the next word */

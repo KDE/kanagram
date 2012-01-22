@@ -37,10 +37,10 @@
 
 KanagramGame::KanagramGame() : m_index(0), m_document(NULL)
 {
-    // first get the list of vocabularies
+    // Get the list of vocabularies
     refreshVocabularyList();
 
-    // then load the default vocab
+    // Load the default vocabulary
     loadDefaultVocabulary();
 }
 
@@ -91,13 +91,11 @@ bool KanagramGame::refreshVocabularyList()
     return oldFilename != m_filename;
 }
 
-/** get the list of vocabularies */
 QStringList KanagramGame::vocabularyList() const
 {
     return SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
 }
 
-/** set the vocab to use */
 void KanagramGame::useVocabulary(const QString &vocabularyname)
 {
     QStringList titles = vocabularyList();

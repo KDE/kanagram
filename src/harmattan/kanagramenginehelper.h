@@ -28,7 +28,8 @@ class KanagramEngineHelper : public QObject
 {
 	Q_OBJECT
 	public:
-		KanagramEngineHelper(QObject* parent = 0);
+        explicit KanagramEngineHelper(KanagramGame *kanagramGame, QObject* parent = 0);
+        ~KanagramEngineHelper();
 		
 	public slots:
 		QStringList createNextAnagram();
@@ -37,7 +38,7 @@ class KanagramEngineHelper : public QObject
         QStringList anagramOriginalWord() const;
 
 	private:
-        KanagramGame m_kanagramGame;
+        KanagramGame *m_kanagramGame;
         QStringList m_currentOriginalWord;
 };
 

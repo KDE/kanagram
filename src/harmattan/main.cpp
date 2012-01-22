@@ -33,8 +33,11 @@ int main( int argc, char** argv )
 
     QDeclarativeView view;
     QDeclarativeContext *ctxt = view.rootContext();
-    KanagramEngineHelper kanagramEngineHelper;
 
+    KanagramGame *kanagramGame = new KanagramGame();
+    ctxt->setContextProperty("kanagramGame", kanagramGame);
+
+    KanagramEngineHelper kanagramEngineHelper(kanagramGame);
     ctxt->setContextProperty("kanagramEngineHelper", &kanagramEngineHelper);
 
     view.setSource(QUrl("qrc:/main.qml"));
