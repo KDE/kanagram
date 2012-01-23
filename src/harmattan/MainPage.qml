@@ -136,6 +136,15 @@ Page {
 
         onSelectedIndexChanged: {
             kanagramGame.useVocabulary(selectedIndex);
+            anagramHint.hide();
+            playSound.source = "chalk.wav";
+            playSound.play();
+            isAnagramInit = true;
+            isRevealed = false;
+            anagram = kanagramEngineHelper.createNextAnagram();
+            anagramLetterRepeater.model = anagram;
+            originalWordLetterRepeater.model = anagram;
+            currentOriginalWordIndex = 0;
         }
     }
 
