@@ -28,6 +28,7 @@ Page {
     property bool isAnagramInit: true;
     property bool isRevealed: false;
     property int currentOriginalWordIndex: 0;
+    property color originalWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
 
     function pushPage(file) {
         var component = Qt.createComponent(file)
@@ -136,13 +137,14 @@ Page {
     }
 
     Timer {
+        id: anagramResultTimer;
         interval: 1000;
         repeat: false;
         running: false;
         triggeredOnStart: false;
 
         onTriggered: {
-            originalWordLetterRectangle.color: Qt.rgba(0, 0, 0, 0);
+            originalWordLetterRectangleColor = Qt.rgba(0, 0, 0, 0);
             isAnagramInit = true;
             isRevealed = false;
             anagram = kanagramEngineHelper.createNextAnagram();
@@ -211,16 +213,17 @@ Page {
 
                                 if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
                                 {
+                                    anagramResultTimer.start();
                                     isRevealed = true;
                                     if (kanagramEngineHelper.compareWords() == true)
                                     {
-                                        originalWordLetterRectangle.color: "green";
+                                        originalWordLetterRectangleColor = "green";
                                         playSound.source = "right.wav";
                                         playSound.play();
                                     }
                                     else
                                     {
-                                        originalWordLetterRectangle.color: "red";
+                                        originalWordLetterRectangleColor = "red";
                                         playSound.source = "wrong.wav";
                                         playSound.play();
                                     }
@@ -248,7 +251,7 @@ Page {
                 model: anagram;
                 Rectangle {
                     id: originalWordLetterRectangle;
-                    color: Qt.rgba(0, 0, 0, 0);
+                    color: originalWordLetterRectangleColor;
                     Text {
                         text: isAnagramInit ? "" : modelData;
                         color: "white";
