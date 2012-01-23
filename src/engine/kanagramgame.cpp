@@ -113,6 +113,13 @@ void KanagramGame::useVocabulary(int index)
         m_index = 0;
         m_filename = m_fileList.first();
     }
+
+    checkFile();
+    delete m_document;
+    m_document = new KEduVocDocument(this);
+    ///@todo open returns KEduVocDocument::ErrorCode
+    m_document->open(KUrl(KStandardDirs::locate("data", m_filename)));
+    m_answeredWords.clear();
 }
 
 void KanagramGame::previousVocabulary()
