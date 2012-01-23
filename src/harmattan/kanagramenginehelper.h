@@ -32,6 +32,7 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE QStringList createNextAnagram();
         Q_INVOKABLE QStringList insertInCurrentOriginalWord(int index, const QString& letter);
         Q_INVOKABLE QStringList anagramOriginalWord() const;
+        Q_INVOKABLE bool compareWords() const;
 
 	private:
         KanagramGame *m_kanagramGame;

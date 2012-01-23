@@ -44,7 +44,7 @@ Page {
         iconSource: "dialog-information.png"
     }
 
-    SoundEffect {
+    Audio {
         id: playSound;
         source: "chalk.wav";
     }
@@ -135,6 +135,23 @@ Page {
         }
     }
 
+    Timer {
+        interval: 1000;
+        repeat: false;
+        running: false;
+        triggeredOnStart: false;
+
+        onTriggered: {
+            originalWordLetterRectangle.color: Qt.rgba(0, 0, 0, 0);
+            isAnagramInit = true;
+            isRevealed = false;
+            anagram = kanagramEngineHelper.createNextAnagram();
+            anagramLetterRepeater.model = anagram;
+            originalWordLetterRepeater.model = anagram;
+            currentOriginalWordIndex = 0;
+        }
+    }
+
     Column {
         anchors {
             horizontalCenter: mainPage.horizontalCenter;
@@ -195,6 +212,18 @@ Page {
                                 if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
                                 {
                                     isRevealed = true;
+                                    if (kanagramEngineHelper.compareWords() == true)
+                                    {
+                                        originalWordLetterRectangle.color: "green";
+                                        playSound.source = "right.wav";
+                                        playSound.play();
+                                    }
+                                    else
+                                    {
+                                        originalWordLetterRectangle.color: "red";
+                                        playSound.source = "wrong.wav";
+                                        playSound.play();
+                                    }
                                 }
                             }
                        }
@@ -218,6 +247,7 @@ Page {
                 id: originalWordLetterRepeater;
                 model: anagram;
                 Rectangle {
+                    id: originalWordLetterRectangle;
                     color: Qt.rgba(0, 0, 0, 0);
                     Text {
                         text: isAnagramInit ? "" : modelData;

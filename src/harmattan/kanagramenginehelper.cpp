@@ -74,4 +74,9 @@ QStringList KanagramEngineHelper::anagramOriginalWord() const
     return originalWordLetters;
 }
 
+bool KanagramEngineHelper::compareWords() const
+{
+    return m_currentOriginalWord.join("") == m_kanagramGame->word();
+}
+
 #include "kanagramenginehelper.moc"
