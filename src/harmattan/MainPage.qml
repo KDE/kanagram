@@ -91,6 +91,7 @@ Page {
                     isAnagramInit = false;
                     isRevealed = true;
                     originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
+                    currentOriginalWordIndex = originalWordLetterRepeater.model.length:
                 }
             }
         }
@@ -106,6 +107,7 @@ Page {
                 anagram = kanagramEngineHelper.createNextAnagram();
                 anagramLetterRepeater.model = anagram;
                 originalWordLetterRepeater.model = anagram;
+                currentOriginalWordIndex = 0:
             }
         }
 
@@ -126,7 +128,7 @@ Page {
         titleText: "Choose an anagram category"
         selectedIndex: 1;
 
-        model: anagramCategoryModel;
+        model: kanagramGame.vocabularyList();
 
         onSelectedIndexChanged: {
             kanagramGame.useVocabulary(selectedIndex);
@@ -189,6 +191,11 @@ Page {
                                     kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterText.text);
                                 ++currentOriginalWordIndex;
                                 anagramLetterText.text = "";
+
+                                if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
+                                {
+                                    isRevealed = true;
+                                }
                             }
                        }
                     }
