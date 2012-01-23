@@ -22,15 +22,12 @@
 KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* parent)
     : QObject(parent)
     , m_kanagramGame(kanagramGame)
-    , m_anagramCategoryModel(new SelectionModel(this))
 {
-    m_anagramCategoryModel->setStringList(m_kanagramGame->vocabularyList());
 }
 
 KanagramEngineHelper::~KanagramEngineHelper()
 {
     delete m_kanagramGame;
-    delete m_anagramCategoryModel;
 }
 
 QStringList KanagramEngineHelper::createNextAnagram()
@@ -75,11 +72,6 @@ QStringList KanagramEngineHelper::anagramOriginalWord() const
     }
 
     return originalWordLetters;
-}
-
-SelectionModel *KanagramEngineHelper::anagramCategoryModel() const
-{
-    return m_anagramCategoryModel;
 }
 
 #include "kanagramenginehelper.moc"
