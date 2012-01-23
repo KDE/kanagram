@@ -25,7 +25,7 @@ import QtMultimediaKit 1.1
 Page {
     id: mainPage;
     property variant anagram: kanagramEngineHelper.createNextAnagram();
-    property isAnagramInit: true;
+    property bool isAnagramInit: true;
     property int currentOriginalWordIndex: 0;
 
     function pushPage(file) {
@@ -43,7 +43,7 @@ Page {
         iconSource: "dialog-information.png"
     }
 
-    SoundEffect {
+    Audio {
         id: playSound
         source: "chalk.ogg"
     }
