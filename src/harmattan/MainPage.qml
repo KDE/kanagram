@@ -26,6 +26,7 @@ Page {
     id: mainPage;
     property variant anagram: kanagramEngineHelper.createNextAnagram();
     property bool isAnagramInit: true;
+    property bool isRevealed: false;
     property int currentOriginalWordIndex: 0;
 
     function pushPage(file) {
@@ -44,8 +45,8 @@ Page {
     }
 
     Audio {
-        id: playSound
-        source: "chalk.ogg"
+        id: playSound;
+        source: "chalk.ogg";
     }
 
     // These tools are available for the main page by assigning the
@@ -87,7 +88,8 @@ Page {
                 hoverEnabled: true;
 
                 onClicked: {
-                    isAnagramInit: false;
+                    isAnagramInit = false;
+                    isRevealed = true;
                     originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
                 }
             }
@@ -100,6 +102,7 @@ Page {
                 playSound.source = "chalk.ogg";
                 playSound.play();
                 isAnagramInit = true;
+                isRevealed = false;
                 anagram = kanagramEngineHelper.createNextAnagram();
                 anagramLetterRepeater.model = anagram;
                 originalWordLetterRepeater.model = anagram;
@@ -179,11 +182,14 @@ Page {
                         drag.minimumY: 0;
 
                         onClicked: {
-                            isAnagramInit = false;
-                            originalWordLetterRepeater.model =
-                                kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterText.text);
-                            ++currentOriginalWordIndex;
-                            anagramLetterText.text = "";
+                            if (isRevealed == false)
+                            {
+                                isAnagramInit = false;
+                                originalWordLetterRepeater.model =
+                                    kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterText.text);
+                                ++currentOriginalWordIndex;
+                                anagramLetterText.text = "";
+                            }
                        }
                     }
                 }
