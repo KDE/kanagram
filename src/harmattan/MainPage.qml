@@ -93,6 +93,7 @@ Page {
                     isRevealed = true;
                     originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
                     currentOriginalWordIndex = originalWordLetterRepeater.model.length;
+                    anagramHint.hide();
                 }
             }
         }
@@ -109,6 +110,7 @@ Page {
                 anagramLetterRepeater.model = anagram;
                 originalWordLetterRepeater.model = anagram;
                 currentOriginalWordIndex = 0;
+                anagramHint.hide();
             }
         }
 
@@ -116,6 +118,7 @@ Page {
             iconId: "toolbar-settings";
 
             onClicked: {
+                anagramHint.hide();
                 pageStack.push("qrc:/MainSettingsPage.qml");
             }
         }
@@ -215,6 +218,7 @@ Page {
                                 {
                                     anagramResultTimer.start();
                                     isRevealed = true;
+                                    anagramHint.hide();
                                     if (kanagramEngineHelper.compareWords() == true)
                                     {
                                         originalWordLetterRectangleColor = "green";
@@ -241,7 +245,6 @@ Page {
                 categorySelectionDialog.open();
             }
         }
-
 
         Row {
             id: originalWordRow;
