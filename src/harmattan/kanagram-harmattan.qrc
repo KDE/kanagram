@@ -4,9 +4,9 @@
         <file>MainPage.qml</file>
         <file>MainSettingsPage.qml</file>
 
-        <file alias="chalk.ogg">../../sounds/chalk.ogg</file>
-        <file alias="right.ogg">../../sounds/right.ogg</file>
-        <file alias="wrong.ogg">../../sounds/wrong.ogg</file>
+        <file alias="chalk.wav">../../sounds/chalk.wav</file>
+        <file alias="right.wav">../../sounds/right.wav</file>
+        <file alias="wrong.wav">../../sounds/wrong.wav</file>
 
         <file>UIConstants.js</file>
         <file>CommonDialog.qml</file>

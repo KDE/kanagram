@@ -44,9 +44,9 @@ Page {
         iconSource: "dialog-information.png"
     }
 
-    Audio {
+    SoundEffect {
         id: playSound;
-        source: "chalk.ogg";
+        source: "chalk.wav";
     }
 
     // These tools are available for the main page by assigning the
@@ -91,7 +91,7 @@ Page {
                     isAnagramInit = false;
                     isRevealed = true;
                     originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
-                    currentOriginalWordIndex = originalWordLetterRepeater.model.length:
+                    currentOriginalWordIndex = originalWordLetterRepeater.model.length;
                 }
             }
         }
@@ -100,14 +100,14 @@ Page {
             iconId: "toolbar-tab-next";
 
             onClicked: {
-                playSound.source = "chalk.ogg";
+                playSound.source = "chalk.wav";
                 playSound.play();
                 isAnagramInit = true;
                 isRevealed = false;
                 anagram = kanagramEngineHelper.createNextAnagram();
                 anagramLetterRepeater.model = anagram;
                 originalWordLetterRepeater.model = anagram;
-                currentOriginalWordIndex = 0:
+                currentOriginalWordIndex = 0;
             }
         }
 

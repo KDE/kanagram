@@ -48,6 +48,10 @@ if(NOT APPLE)
     install(FILES kanagram-harmattan.desktop
             DESTINATION ${SHARE_INSTALL_DIR}/applications
             COMPONENT kanagramharmattan)
+
+    install(FILES kanagram.conf
+            DESTINATION ${SHARE_INSTALL_DIR}/policy/etc/pulse/xpolicy.conf.d
+            COMPONENT kanagramharmattan)
     
     if(NOT KANAGRAM_ICONS_INSTALLED)
         add_subdirectory(../../icons icons)
