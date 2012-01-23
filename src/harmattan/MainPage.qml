@@ -87,6 +87,7 @@ Page {
                 hoverEnabled: true;
 
                 onClicked: {
+                    isAnagramInit: false;
                     originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
                 }
             }
