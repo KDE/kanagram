@@ -159,6 +159,10 @@ Page {
         spacing: 20;
         Row {
             id: anagramRow;
+            anchors {
+                horizontalCenter: parent.horizontalCenter;
+            }
+
             spacing: 10;
             Repeater {
                 id: anagramLetterRepeater;
@@ -234,6 +238,11 @@ Page {
 
         Button {
             text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
+
+            anchors {
+                horizontalCenter: parent.horizontalCenter;
+            }
+
             onClicked: {
                 categorySelectionDialog.open();
             }
@@ -241,6 +250,10 @@ Page {
 
         Row {
             id: originalWordRow;
+            anchors {
+                horizontalCenter: parent.horizontalCenter;
+            }
+
             spacing: 10;
             Repeater {
                 id: originalWordLetterRepeater;
