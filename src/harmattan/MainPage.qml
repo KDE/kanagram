@@ -56,45 +56,29 @@ Page {
         id: mainPageTools;
         visible: false;
 
-        Image {
-            source: "games-hint.png";
-            width: 32;
-            height: 32;
-            anchors.verticalCenter: parent.verticalCenter;
+        ToolIcon {
+            iconSource: "games-hint.png";
 
-            MouseArea {
-                anchors.fill: parent;
-                hoverEnabled: true;
+            onClicked: {
+                anagramHint.text = kanagramGame.hint();
 
-                onClicked: {
-                    anagramHint.text = kanagramGame.hint();
+                // Set the display time to 5000 ms (default is 3000 ms)
+                anagramHint.timerShowTime = 5000;
 
-                    // Set the display time to 5000 ms (default is 3000 ms)
-                    anagramHint.timerShowTime = 5000;
-
-                    // Display the info banner
-                    anagramHint.show();
-                }
+                // Display the info banner
+                anagramHint.show();
             }
         }
 
-        Image {
-            source: "games-solve.png";
-            width: 32;
-            height: 32;
-            anchors.verticalCenter: parent.verticalCenter;
+        ToolIcon {
+            iconSource: "games-solve.png";
 
-            MouseArea {
-                anchors.fill: parent;
-                hoverEnabled: true;
-
-                onClicked: {
-                    isAnagramInit = false;
-                    isRevealed = true;
-                    originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
-                    currentOriginalWordIndex = originalWordLetterRepeater.model.length;
-                    anagramHint.hide();
-                }
+            onClicked: {
+                isAnagramInit = false;
+                isRevealed = true;
+                originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
+                currentOriginalWordIndex = originalWordLetterRepeater.model.length;
+                anagramHint.hide();
             }
         }
 
