@@ -45,7 +45,7 @@ if(NOT APPLE)
             DESTINATION ${BIN_INSTALL_DIR}
             COMPONENT kanagramharmattan)
 
-    install(TARGETS kanagram.sh
+    install(FILES kanagram.sh
             DESTINATION ${BIN_INSTALL_DIR}
             COMPONENT kanagramharmattan)
 
