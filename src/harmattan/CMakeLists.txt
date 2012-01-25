@@ -45,6 +45,10 @@ if(NOT APPLE)
             DESTINATION ${BIN_INSTALL_DIR}
             COMPONENT kanagramharmattan)
 
+    install(TARGETS kanagram.sh
+            DESTINATION ${BIN_INSTALL_DIR}
+            COMPONENT kanagramharmattan)
+
     install(FILES kanagram-harmattan.desktop
             DESTINATION ${SHARE_INSTALL_DIR}/applications
             COMPONENT kanagramharmattan)
