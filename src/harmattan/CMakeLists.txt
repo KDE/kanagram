@@ -33,11 +33,13 @@ set_target_properties(kanagram-harmattan PROPERTIES OUTPUT_NAME KanagramHarmatta
 else()
     kde4_add_executable(kanagram-harmattan ${kanagram-harmattan_SRCS} ${KANAGRAM-HARMATTAN_RCC_SRCS})
 endif()
+
 target_link_libraries(kanagram-harmattan
     ${QT_QTDECLARATIVE_LIBRARY}
     ${QT_QTGUI_LIBRARY}
     ${QT_QTCORE_LIBRARY}
     ${KANAGRAM_ENGINE_LIBRARIES}
+    ${KDE4_KDECORE_LIBS}
 )
 
 if(NOT APPLE)
