@@ -45,7 +45,7 @@ Page {
         iconSource: "dialog-information.png"
     }
 
-    Audio {
+    SoundEffect {
         id: playSound;
         source: "chalk.wav";
     }
