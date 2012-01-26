@@ -9,6 +9,10 @@
 	<label>This setting allows you to set how long Kanagram's hint bubble is shown.</label>
 	<default>5 seconds</default>
 </entry>
+<entry name="resolveTime" type="String">
+    <label>This setting allows you to set how much time is available for resolving the anagram.</label>
+    <default>120 seconds</default>
+</entry>
 <entry name="useSounds" type="Bool">
 	<label>Turns sounds on/off.</label>
 	<default>true</default>
