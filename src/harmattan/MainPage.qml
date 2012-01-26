@@ -205,11 +205,16 @@ Page {
                         onClicked: {
                             if (isRevealed == false)
                             {
-                                isAnagramInit = false;
-                                originalWordLetterRepeater.model =
-                                    kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterText.text);
-                                ++currentOriginalWordIndex;
-                                anagramLetterText.text = "";
+                                if (anagramLetterText.text != "")
+                                {
+                                    isAnagramInit = false;
+
+                                    originalWordLetterRepeater.model =
+                                        kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterText.text);
+
+                                    ++currentOriginalWordIndex;
+                                    anagramLetterText.text = "";
+                                }
 
                                 if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
                                 {
