@@ -153,9 +153,9 @@ Page {
     Column {
         anchors {
             horizontalCenter: mainPage.horizontalCenter;
+            verticalCenter: mainPage.verticalCenter;
         }
 
-        y: mainPage.height / 4;
         spacing: 20;
         Row {
             id: anagramRow;
