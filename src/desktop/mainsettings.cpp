@@ -26,7 +26,6 @@
 #include <kstandarddirs.h>
 #include <kconfigdialog.h>
 #include <kmessagebox.h>
-#include <kio/netaccess.h>
 
 #include <sharedkvtmlfiles.h>
 #include <kanagramsettings.h>
