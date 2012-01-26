@@ -37,7 +37,7 @@ int main( int argc, char** argv )
     QDeclarativeView view;
     QDeclarativeContext *ctxt = view.rootContext();
 
-    KGlobal::dirs()->addResourceDir("appdata", "/opt/kanagram/share/");
+    KGlobal::dirs()->addResourceDir("data", "/opt/kanagram/share/");
 
     KanagramGame *kanagramGame = new KanagramGame();
     ctxt->setContextProperty("kanagramGame", kanagramGame);
