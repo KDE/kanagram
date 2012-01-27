@@ -24,9 +24,9 @@ import com.nokia.extras 1.0
 Page {
     id: mainSettingsPage;
 
-    property string hintAppearanceTime: qsTr("5 seconds");;
+    property string hintAppearanceTime: qsTr("5 seconds");
     property string resolveTime: qsTr("120 seconds");
-    property string selectedLanguage qsTr("English");
+    property string selectedLanguage: qsTr("English");
 
     function pushPage(file) {
         var component = Qt.createComponent(file)
@@ -118,13 +118,15 @@ Page {
                 }
             }
 
-            Label {
-                text: "Use sounds";
-            }
+            Row {
+                Label {
+                    text: "Use sounds";
+                }
 
-            Switch {
-                id: useSoundsSwitch;
-                checked: true;
+                Switch {
+                    id: useSoundsSwitch;
+                    checked: true;
+                }
             }
 
             ListItem {
