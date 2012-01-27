@@ -42,11 +42,11 @@ Page {
         selectedIndex: 2;
 
         model: ListModel {
-            ListElement { name: qsTr("No autohide") }
-            ListElement { name: qsTr("3 seconds") }
-            ListElement { name: qsTr("5 seconds") }
-            ListElement { name: qsTr("7 seconds") }
-            ListElement { name: qsTr("9 seconds") }
+            ListElement { name: "No autohide" }
+            ListElement { name: "3 seconds" }
+            ListElement { name: "5 seconds" }
+            ListElement { name: "7 seconds" }
+            ListElement { name: "9 seconds" }
         }
 
         onSelectedIndexChanged: {
@@ -59,11 +59,11 @@ Page {
         selectedIndex: 3;
 
         model: ListModel {
-            ListElement { name: qsTr("No time limit") }
-            ListElement { name: qsTr("30 seconds") }
-            ListElement { name: qsTr("60 seconds") }
-            ListElement { name: qsTr("120 seconds") }
-            ListElement { name: qsTr("300 seconds") }
+            ListElement { name: "No time limit" }
+            ListElement { name: "30 seconds" }
+            ListElement { name: "60 seconds" }
+            ListElement { name: "120 seconds" }
+            ListElement { name: "300 seconds" }
         }
 
         onSelectedIndexChanged: {
@@ -103,7 +103,7 @@ Page {
             }
 
             ListItem {
-                iconSource: "games-solves.png";
+                iconSource: "games-solve.png";
                 titleText: qsTr("Resolve time");
                 subtitleText: qsTr(resolveTime);
                 drillDownArrow: true;

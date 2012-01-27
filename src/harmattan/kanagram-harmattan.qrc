@@ -11,6 +11,7 @@
         <file>UIConstants.js</file>
         <file>CommonDialog.qml</file>
         <file>MySelectionDialog.qml</file>
+        <file>ListItem.qml</file>
 
         <file alias="kanagram-chalkboard-landscape.png">../../icons/common/kanagram-chalkboard-landscape.png</file>
         <file alias="kanagram-chalkboard-portrait.png">../../icons/common/kanagram-chalkboard-portrait.png</file>
