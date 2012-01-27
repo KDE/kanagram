@@ -24,6 +24,10 @@ import com.nokia.extras 1.0
 Page {
     id: mainSettingsPage;
 
+    property string hintAppearanceTime: qsTr("5 seconds");;
+    property string resolveTime: qsTr("120 seconds");
+    property string selectedLanguage qsTr("English");
+
     function pushPage(file) {
         var component = Qt.createComponent(file)
         if (component.status == Component.Ready)
@@ -33,7 +37,7 @@ Page {
     }
 
     SelectionDialog {
-        id: hintHideTimeSelectionDialog;
+        id: hintAppearanceSelectionDialog;
         titleText: qsTr("Hide hints after");
         selectedIndex: 2;
 
@@ -81,15 +85,37 @@ Page {
         color: "black";
         anchors.fill: parent;
 
-        Grid {
-            columns: 2;
+        Column {
+            ListItem {
+                iconSource: "games-hint.png";
+                titleText: qsTr("Hint appearance");
+                subtitleText: qsTr(hintAppearanceTime);
+                drillDownArrow: true;
+                mousePressed: hintAppearanceMouseArea.pressed;
 
-            Label {
-                text: "Hint appearance";
+                MouseArea {
+                    id: hintAppearanceMouseArea;
+                    anchors.fill: parent;
+                    onClicked: {
+                        hintAppearanceSelectionDialog.open();
+                   }
+                }
             }
 
-            Label {
-                text: "Resolve time";
+            ListItem {
+                iconSource: "games-solves.png";
+                titleText: qsTr("Resolve time");
+                subtitleText: qsTr(resolveTime);
+                drillDownArrow: true;
+                mousePressed: resolveTimeMouseArea.pressed;
+
+                MouseArea {
+                    id: resolveTimeMouseArea;
+                    anchors.fill: parent;
+                    onClicked: {
+                        resolveTimeSelectionDialog.open();
+                   }
+                }
             }
 
             Label {
@@ -101,10 +127,22 @@ Page {
                 checked: true;
             }
 
-        }
+            ListItem {
+                iconSource: "";
+                titleText: qsTr("Language");
+                subtitleText: qsTr(selectedLanguage);
+                drillDownArrow: true;
+                mousePressed: languageSelectionMouseArea.pressed;
 
-        Label {
-            text: "Language";
+                MouseArea {
+                    id: languageSelectionMouseArea;
+                    anchors.fill: parent;
+                    onClicked: {
+                        languageSelectionDialog.open();
+                   }
+                }
+            }
+
         }
 
     }
