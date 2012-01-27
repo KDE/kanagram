@@ -86,6 +86,8 @@ Page {
         anchors.fill: parent;
 
         Column {
+            anchors.fill: parent;
+
             ListItem {
                 iconSource: "games-hint.png";
                 titleText: qsTr("Hint appearance");
@@ -118,13 +120,17 @@ Page {
                 }
             }
 
-            Row {
+            Item {
+                width: parent.width;
+                height: childrenRect.height;
                 Label {
+                    anchors.left: parent.left;
                     text: "Use sounds";
                 }
 
                 Switch {
                     id: useSoundsSwitch;
+                    anchors.right: parent.right;
                     checked: true;
                 }
             }
