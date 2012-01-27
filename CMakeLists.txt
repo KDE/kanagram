@@ -1,7 +1,7 @@
 project(kanagram)
 
-option(BUILD_KANAGRAM_HARMATTAN "Build Kanagram for Harmattan" ON)
-option(BUILD_KANAGRAM_DESKTOP "Build Kanagram for KDE Desktop" OFF)
+option(BUILD_KANAGRAM_HARMATTAN "Build Kanagram for Harmattan" OFF)
+option(BUILD_KANAGRAM_DESKTOP "Build Kanagram for KDE Desktop" ON)
 
 if(NOT MSVC)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-Wall -Wno-switch -O2 -g")
