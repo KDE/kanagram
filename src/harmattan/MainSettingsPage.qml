@@ -32,5 +32,82 @@ Page {
             console.log("Error loading component:", component.errorString());
     }
 
+    Rectangle {
+        color: "black";
+        anchors.fill: parent;
+
+        Grid {
+            anchors.fill: parent;
+            columns: 2;
+
+            Label {
+                text: "Hint appearance";
+            }
+
+            SelectionDialog {
+                id: hintHideTimeSelectionDialog;
+                titleText: qsTr("Hide hints after");
+                selectedIndex: 2;
+
+                model: ListModel {
+                    ListElement { name: qsTr("No autohide") }
+                    ListElement { name: qsTr("3 seconds") }
+                    ListElement { name: qsTr("5 seconds") }
+                    ListElement { name: qsTr("7 seconds") }
+                    ListElement { name: qsTr("9 seconds") }
+                }
+
+                onSelectedIndexChanged: {
+                }
+            }
+
+            Label {
+                text: "Resolve time";
+            }
+
+            SelectionDialog {
+                id: resolveTimeSelectionDialog;
+                titleText: qsTr("Time for resoving the anagram");
+                selectedIndex: 3;
+
+                model: ListModel {
+                    ListElement { name: qsTr("No time limit") }
+                    ListElement { name: qsTr("30 seconds") }
+                    ListElement { name: qsTr("60 seconds") }
+                    ListElement { name: qsTr("120 seconds") }
+                    ListElement { name: qsTr("300 seconds") }
+                }
+
+                onSelectedIndexChanged: {
+                }
+            }
+
+            Label {
+                text: "Use sounds";
+            }
+
+            Switch {
+                id: useSoundsSwitch
+                checked: true
+            }
+
+        }
+
+        Label {
+            text: "Language";
+        }
+
+        SelectionDialog {
+            id: resolveTimeSelectionDialog;
+            titleText: qsTr("Select a language");
+            selectedIndex: 0;
+
+            model: kanagramEngineHelper.languages();
+
+            onSelectedIndexChanged: {
+            }
+        }
+    }
+
     tools: commonTools;
 }
