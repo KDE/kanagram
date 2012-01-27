@@ -128,7 +128,7 @@ Page {
             }
 
             ListItem {
-                iconSource: "";
+                iconSource: "preferences-desktop-locale.png";
                 titleText: qsTr("Language");
                 subtitleText: qsTr(selectedLanguage);
                 drillDownArrow: true;
