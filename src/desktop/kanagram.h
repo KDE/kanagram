@@ -300,6 +300,9 @@ class Kanagram : public KMainWindow
         /** timer used to hide the hint after a delay */
         QTimer *m_hintTimer;
 
+        /** timer used for resolving the anagram */
+        QTimer *m_resolveTimer;
+
         /** audio player to use for playing sounds */
         Phonon::MediaObject *m_player;
 

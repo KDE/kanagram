@@ -101,11 +101,15 @@ Kanagram::Kanagram()
     m_hintTimer = new QTimer(this);
     m_hintTimer->setSingleShot(true);
 
+    m_resolveTimer = new QTimer(this);
+    m_resolveTimer->setSingleShot(true);
+
     m_inputBox = new KLineEdit(this);
     m_inputBox->setFrame(false);
 
     connect(m_inputBox, SIGNAL(returnPressed()), SLOT(checkWord()));
     connect(m_hintTimer, SIGNAL(timeout()), SLOT(hideHint()));
+    connect(m_resolveTimer, SIGNAL(timeout()), SLOT(slotRevealWord()));
     connect(m_inputBox, SIGNAL(textChanged(QString)), SLOT(update()));
     connect(m_game, SIGNAL(fileError(QString)), SLOT(slotFileError(QString)));
 
@@ -117,6 +121,11 @@ Kanagram::Kanagram()
     setAutoSaveSettings();
 
     setMinimumSize(650, 471);
+
+    if (m_resolveTime != 0)
+    {
+        m_hintTimer->start(m_resolveTime * 1000);
+    }
 }
 
 Kanagram::~Kanagram()
@@ -567,6 +576,11 @@ void Kanagram::slotNextAnagram()
     }
     m_inputBox->setPalette(QPalette());
     update();
+
+    if (m_resolveTime != 0)
+    {
+        m_hintTimer->start(m_resolveTime * 1000);
+    }
 }
 
 void Kanagram::slotRevealWord()
