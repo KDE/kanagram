@@ -159,22 +159,18 @@ void Kanagram::loadSettings()
     {
         QStringList userLanguagesCode = KGlobal::locale()->languageList();
 
-        int i = 0;
-        bool foundLanguage = false;
-        while (i < userLanguagesCode.size() && !foundLanguage)
+        QStringList sharedKvtmlFilesLanguages = SharedKvtmlFiles::languages();
+        QString foundLanguage;
+        foreach (const QString &userLanguageCode, userLanguagesCode)
         {
-            if (SharedKvtmlFiles::languages().contains(userLanguagesCode[i]))
+            if (sharedKvtmlFilesLanguages.contains(userLanguageCode))
             {
-                foundLanguage = true;
-            }
-            else
-            {
-                ++i;
+                foundLanguage = userLanguageCode;
+                break;
             }
         }
-        // at this point either foundLanguage == true, or i > userLanguagesCode.size()
 
-        KanagramSettings::setDataLanguage(foundLanguage ? userLanguagesCode[i] : "en");
+        KanagramSettings::setDataLanguage(!foundLanguage.isEmpty() ? foundLanguage : "en");
     }
 
     m_useSounds = KanagramSettings::useSounds();
