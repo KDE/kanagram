@@ -139,10 +139,11 @@ QSize Kanagram::sizeHint() const
 void Kanagram::loadSettings()
 {
     QString hideTime = KanagramSettings::hintHideTime();
-    if (hideTime[0].isDigit())
+
+    if (hideTime.at(0).isDigit())
     {
         // because the choices are 0, 3, 5, 7, 9
-        m_hintHideTime = (hideTime[0].digitValue() * 2) + 1;
+        m_hintHideTime = (hideTime.at(0).digitValue() * 2) + 1;
 
         // reset to 0 if it's 1 to allow for the don't hide option
         if (m_hintHideTime == 1)
@@ -155,6 +156,19 @@ void Kanagram::loadSettings()
         m_hintHideTime = 0;
     }
 
+    QString resolveTime = KanagramSettings::resolveTime();
+
+    int indexFound = resolveTime.size();
+    for (int i = 0; indexFound; ++i)
+    {
+        if (!resolveTime.at(i).isDigit())
+        {
+            indexFound = i;
+            break;
+        }
+    }
+
+    m_resolveTime = resolveTime.left(indexFound).toInt();
     if (KanagramSettings::dataLanguage().isEmpty())
     {
         QStringList userLanguagesCode = KGlobal::locale()->languageList();

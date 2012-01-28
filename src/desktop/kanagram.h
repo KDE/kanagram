@@ -275,6 +275,7 @@ class Kanagram : public KMainWindow
 
         /** Values for settings */
         int m_hintHideTime;
+        int m_resolveTime;
         bool m_useSounds; 
 
         /** help menu for displaying about box */
