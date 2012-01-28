@@ -28,13 +28,17 @@ class KanagramEngineHelper : public QObject
 	public:
         explicit KanagramEngineHelper(KanagramGame *kanagramGame, QObject* parent = 0);
         ~KanagramEngineHelper();
-		
+
         Q_INVOKABLE QStringList createNextAnagram();
         Q_INVOKABLE QStringList insertInCurrentOriginalWord(int index, const QString& letter);
         Q_INVOKABLE QStringList anagramOriginalWord() const;
         Q_INVOKABLE bool compareWords() const;
 
 	private:
+        /** Loads the user settings
+         */
+        void loadSettings();
+
         KanagramGame *m_kanagramGame;
         QStringList m_currentOriginalWord;
 };

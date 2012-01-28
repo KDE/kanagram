@@ -79,4 +79,8 @@ bool KanagramEngineHelper::compareWords() const
     return m_currentOriginalWord.join("") == m_kanagramGame->word();
 }
 
+void KanagramEngineHelper::loadSettings()
+{
+}
+
 #include "kanagramenginehelper.moc"

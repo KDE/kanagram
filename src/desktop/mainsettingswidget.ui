@@ -58,6 +58,42 @@
         </item>
        </widget>
       </item>
+      <item>
+       <widget class="QLabel" name="textLabelResolveTime" >
+        <property name="text" >
+         <string>Time for resolving the anagram:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="kcfg_resolveTime" >
+        <item>
+         <property name="text" >
+          <string>No time limit</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>30 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>60 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>120 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>300 Seconds</string>
+         </property>
+        </item>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

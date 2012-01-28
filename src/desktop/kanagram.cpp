@@ -168,7 +168,7 @@ void Kanagram::loadSettings()
     QString resolveTime = KanagramSettings::resolveTime();
 
     int indexFound = resolveTime.size();
-    for (int i = 0; indexFound; ++i)
+    for (int i = 0; i < indexFound; ++i)
     {
         if (!resolveTime.at(i).isDigit())
         {
@@ -178,6 +178,7 @@ void Kanagram::loadSettings()
     }
 
     m_resolveTime = resolveTime.left(indexFound).toInt();
+
     if (KanagramSettings::dataLanguage().isEmpty())
     {
         QStringList userLanguagesCode = KGlobal::locale()->languageList();

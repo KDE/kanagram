@@ -86,7 +86,12 @@ Page {
         anchors.fill: parent;
 
         Column {
-            anchors.fill: parent;
+            anchors {
+                fill: parent;
+                margins: 5;
+            }
+
+            spacing: 10;
 
             ListItem {
                 iconSource: "games-hint.png";
@@ -125,11 +130,11 @@ Page {
                 height: childrenRect.height;
                 Label {
                     anchors.left: parent.left;
-                    text: "Use sounds";
+                    text: "Sounds";
                 }
 
                 Switch {
-                    id: useSoundsSwitch;
+                    id: soundsSwitch;
                     anchors.right: parent.right;
                     checked: true;
                 }
