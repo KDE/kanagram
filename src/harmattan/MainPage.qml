@@ -30,6 +30,12 @@ Page {
     property int currentOriginalWordIndex: 0;
     property color originalWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
 
+    onStatusChanged: {
+        if (status == PageStatus::Active) {
+            resolveTimer.start();
+        }
+    }
+
     function pushPage(file) {
         var component = Qt.createComponent(file)
         if (component.status == Component.Ready)
@@ -38,9 +44,17 @@ Page {
             console.log("Error loading component:", component.errorString());
     }
 
+    function resolveAnagram() {
+        isAnagramInit = false;
+        isRevealed = true;
+        originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
+        currentOriginalWordIndex = originalWordLetterRepeater.model.length;
+        anagramHintInfoBanner.hide();
+    }
+
     // Create an info banner with icon
     InfoBanner {
-        id: anagramHint;
+        id: anagramHintInfoBanner;
         text: "This is an info banner with icon"
         iconSource: "dialog-information.png"
     }
@@ -60,13 +74,13 @@ Page {
             iconSource: "games-hint.png";
 
             onClicked: {
-                anagramHint.text = kanagramGame.hint();
+                anagramHintInfoBanner.text = kanagramGame.hint();
 
                 // Set the display time to 5000 ms (default is 3000 ms)
-                anagramHint.timerShowTime = 5000;
+                anagramHintInfoBanner.timerShowTime = 5000;
 
                 // Display the info banner
-                anagramHint.show();
+                anagramHintInfoBanner.show();
             }
         }
 
@@ -74,11 +88,7 @@ Page {
             iconSource: "games-solve.png";
 
             onClicked: {
-                isAnagramInit = false;
-                isRevealed = true;
-                originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
-                currentOriginalWordIndex = originalWordLetterRepeater.model.length;
-                anagramHint.hide();
+                resolveAnagram();
             }
         }
 
@@ -86,15 +96,18 @@ Page {
             iconId: "toolbar-tab-next";
 
             onClicked: {
-                playSound.source = "chalk.wav";
-                playSound.play();
+                if (mainSettingsPage.soundsSwitch.checked) {
+                    playSound.source = "chalk.wav";
+                    playSound.play();
+                }
+
                 isAnagramInit = true;
                 isRevealed = false;
                 anagram = kanagramEngineHelper.createNextAnagram();
                 anagramLetterRepeater.model = anagram;
                 originalWordLetterRepeater.model = anagram;
                 currentOriginalWordIndex = 0;
-                anagramHint.hide();
+                anagramHintInfoBanner.hide();
             }
         }
 
@@ -102,7 +115,7 @@ Page {
             iconId: "toolbar-settings";
 
             onClicked: {
-                anagramHint.hide();
+                anagramHintInfoBanner.hide();
                 pageStack.push("qrc:/MainSettingsPage.qml");
             }
         }
@@ -120,9 +133,13 @@ Page {
 
         onSelectedIndexChanged: {
             kanagramGame.useVocabulary(selectedIndex);
-            anagramHint.hide();
-            playSound.source = "chalk.wav";
-            playSound.play();
+            anagramHintInfoBanner.hide();
+
+            if (mainSettingsPage.soundsSwitch.checked) {
+                playSound.source = "chalk.wav";
+                playSound.play();
+            }
+
             isAnagramInit = true;
             isRevealed = false;
             anagram = kanagramEngineHelper.createNextAnagram();
@@ -147,6 +164,18 @@ Page {
             anagramLetterRepeater.model = anagram;
             originalWordLetterRepeater.model = anagram;
             currentOriginalWordIndex = 0;
+        }
+    }
+
+    Timer {
+        id: resolvingTimer;
+        interval: 60000;
+        repeat false;
+        running: false;
+        triggeredOnStart: false;
+
+        onTriggered: {
+             resolveAnagram();
         }
     }
 
@@ -220,18 +249,24 @@ Page {
                                 {
                                     anagramResultTimer.start();
                                     isRevealed = true;
-                                    anagramHint.hide();
+                                    anagramHintInfoBanner.hide();
                                     if (kanagramEngineHelper.compareWords() == true)
                                     {
                                         originalWordLetterRectangleColor = "green";
-                                        playSound.source = "right.wav";
-                                        playSound.play();
+
+                                        if (mainSettingsPage.soundsSwitch.checked) {
+                                            playSound.source = "right.wav";
+                                            playSound.play();
+                                        }
                                     }
                                     else
                                     {
                                         originalWordLetterRectangleColor = "red";
-                                        playSound.source = "wrong.wav";
-                                        playSound.play();
+
+                                        if (mainSettingsPage.soundsSwitch.checked) {
+                                            playSound.source = "wrong.wav";
+                                            playSound.play();
+                                        }
                                     }
                                 }
                             }
