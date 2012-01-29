@@ -19,6 +19,8 @@
 
 #include "kanagramenginehelper.h"
 
+#include <kanagramsettings.h>
+
 KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* parent)
     : QObject(parent)
     , m_kanagramGame(kanagramGame)
@@ -79,8 +81,54 @@ bool KanagramEngineHelper::compareWords() const
     return m_currentOriginalWord.join("") == m_kanagramGame->word();
 }
 
-void KanagramEngineHelper::loadSettings()
+QString KanagramEngineHelper::hintHideTime()
 {
+    return KanagramSettings::hintHideTime();
+}
+
+void KanagramEngineHelper::setHintHideTime(const QString& hintHideTime)
+{
+    KanagramSettings::setHintHideTime(hintHideTime);
+}
+
+QString KanagramEngineHelper::resolveTime()
+{
+    return KanagramSettings::resolveTime();
+}
+
+void KanagramEngineHelper::setResolveTime(const QString& resolveTime)
+{
+    KanagramSettings::setResolveTime(resolveTime);
+}
+
+bool KanagramEngineHelper::useSounds()
+{
+    return KanagramSettings::useSounds();
+}
+
+void KanagramEngineHelper::setUseSounds(bool useSounds)
+{
+    KanagramSettings::setUseSounds(useSounds);
+}
+
+QString KanagramEngineHelper::defaultVocabulary()
+{
+    return KanagramSettings::defaultVocabulary();
+}
+
+void KanagramEngineHelper::setDefaultVocabulary(const QString& defaultVocabulary)
+{
+    KanagramSettings::setDefaultVocabulary(defaultVocabulary);
+}
+
+QString KanagramEngineHelper::dataLanguage()
+{
+    return KanagramSettings::dataLanguage();
+}
+
+void KanagramEngineHelper::setDataLanguage(const QString& dataLanguage)
+{
+    KanagramSettings::setDataLanguage(dataLanguage);
 }
 
 #include "kanagramenginehelper.moc"

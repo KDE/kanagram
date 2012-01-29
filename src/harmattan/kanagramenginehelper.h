@@ -34,13 +34,30 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE QStringList anagramOriginalWord() const;
         Q_INVOKABLE bool compareWords() const;
 
+        // These accessor and mutator methods are not needed once the
+        // kconfig_compiler can generate Q_INVOKABLE methods or/and slots
+
+        Q_INVOKABLE QString hintHideTime();
+        Q_INVOKABLE void setHintHideTime(const QString& hintHideTime);
+
+        Q_INVOKABLE QString resolveTime();
+        Q_INVOKABLE void setResolveTime(const QString& resolveTime);
+
+        Q_INVOKABLE bool useSounds();
+        Q_INVOKABLE void setUseSounds(bool useSounds);
+
+        Q_INVOKABLE QString defaultVocabulary();
+        Q_INVOKABLE void setDefaultVocabulary(const QString& defaultVocabulary);
+
+        Q_INVOKABLE QString dataLanguage();
+        Q_INVOKABLE void setDataLanguage(const QString& dataLanguage);
+
 	private:
-        /** Loads the user settings
-         */
-        void loadSettings();
 
         KanagramGame *m_kanagramGame;
         QStringList m_currentOriginalWord;
+
+        bool m_useSounds;
 };
 
 #endif // KANAGRAM_ENGINE_HELPER_H
