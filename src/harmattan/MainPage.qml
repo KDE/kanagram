@@ -25,10 +25,16 @@ import QtMultimediaKit 1.1
 Page {
     id: mainPage;
     property variant anagram: kanagramEngineHelper.createNextAnagram();
-    property bool isAnagramInit: true;
-    property bool isRevealed: false;
+    property int anagramStatus: anagramStatusEnumeration.init;
     property int currentOriginalWordIndex: 0;
     property color originalWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
+
+    QtObject {  // status enum hackery :)
+      id: anagramStatusEnumeration;
+      property int init: 1;
+      property int active: 2;
+      property int resolved: 3;
+    }
 
     onStatusChanged: {
         if (status == PageStatus::Active) {
@@ -45,8 +51,7 @@ Page {
     }
 
     function resolveAnagram() {
-        isAnagramInit = false;
-        isRevealed = true;
+        anagramStatus = anagramStatusEnumeration.resolved;
         originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
         currentOriginalWordIndex = originalWordLetterRepeater.model.length;
         anagramHintInfoBanner.hide();
@@ -101,8 +106,7 @@ Page {
                     playSound.play();
                 }
 
-                isAnagramInit = true;
-                isRevealed = false;
+                anagramStatus = anagramStatusEnumeration.init;
                 anagram = kanagramEngineHelper.createNextAnagram();
                 anagramLetterRepeater.model = anagram;
                 originalWordLetterRepeater.model = anagram;
@@ -140,8 +144,7 @@ Page {
                 playSound.play();
             }
 
-            isAnagramInit = true;
-            isRevealed = false;
+            anagramStatus = anagramStatusEnumeration.init;
             anagram = kanagramEngineHelper.createNextAnagram();
             anagramLetterRepeater.model = anagram;
             originalWordLetterRepeater.model = anagram;
@@ -158,8 +161,7 @@ Page {
 
         onTriggered: {
             originalWordLetterRectangleColor = Qt.rgba(0, 0, 0, 0);
-            isAnagramInit = true;
-            isRevealed = false;
+            anagramStatus = anagramStatusEnumeration.init;
             anagram = kanagramEngineHelper.createNextAnagram();
             anagramLetterRepeater.model = anagram;
             originalWordLetterRepeater.model = anagram;
@@ -232,11 +234,11 @@ Page {
                         drag.minimumY: 0;
 
                         onClicked: {
-                            if (isRevealed == false)
+                            if (anagramStatus != anagramStatusEnumeration.resolved)
                             {
                                 if (anagramLetterText.text != "")
                                 {
-                                    isAnagramInit = false;
+                                    anagramStatus = anagramStatusEnumeration.active;
 
                                     originalWordLetterRepeater.model =
                                         kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterText.text);
@@ -248,7 +250,7 @@ Page {
                                 if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
                                 {
                                     anagramResultTimer.start();
-                                    isRevealed = true;
+                                    anagramStatus = anagramStatusEnumeration.resolved;
                                     anagramHintInfoBanner.hide();
                                     if (kanagramEngineHelper.compareWords() == true)
                                     {
@@ -302,7 +304,7 @@ Page {
                     id: originalWordLetterRectangle;
                     color: originalWordLetterRectangleColor;
                     Text {
-                        text: isAnagramInit ? "" : modelData;
+                        text: anagramStatus == anagramStatusEnumeration.init ? "" : modelData;
                         color: "white";
 
                         font {
