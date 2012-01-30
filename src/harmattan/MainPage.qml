@@ -188,7 +188,7 @@ Page {
     Column {
         anchors {
             horizontalCenter: mainPage.horizontalCenter;
-            verticalCenter: mainPage.verticalCenter;
+            verticalCenter: mainPage.verticalCenter + 24;
         }
 
         spacing: 20;

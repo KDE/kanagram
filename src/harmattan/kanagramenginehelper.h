@@ -59,6 +59,9 @@ class KanagramEngineHelper : public QObject
         QString dataLanguage();
         void setDataLanguage(const QString& dataLanguage);
 
+    public Q_SLOTS:
+        void saveSettings();
+
     Q_SIGNALS:
         void hintHideTimeChanged();
         void resolveTimeChanged();

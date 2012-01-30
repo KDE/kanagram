@@ -34,7 +34,12 @@ PageStackWindow {
         visible: false;
         ToolIcon {
             iconId: "toolbar-back";
-            onClicked: { pageStack.pop(); }
+            onClicked: {
+                if (pageStack.currentPage == mainSettingsPage) {
+                    kanagramEngineHelper.saveSettings();
+                }
+                pageStack.pop();
+            }
         }
     }
 

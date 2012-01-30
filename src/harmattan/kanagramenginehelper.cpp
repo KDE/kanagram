@@ -136,4 +136,9 @@ void KanagramEngineHelper::setDataLanguage(const QString& dataLanguage)
     emit dataLanguageChanged();
 }
 
+void KanagramEngineHelper::saveSettings()
+{
+    KanagramSettings::writeConfig();
+}
+
 #include "kanagramenginehelper.moc"
