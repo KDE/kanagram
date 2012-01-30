@@ -35,40 +35,6 @@ Page {
     }
 
     SelectionDialog {
-        id: hintAppearanceSelectionDialog;
-        titleText: qsTr("Hide hints after");
-        selectedIndex: 2;
-
-        model: ListModel {
-            ListElement { name: "No autohide" }
-            ListElement { name: "3 seconds" }
-            ListElement { name: "5 seconds" }
-            ListElement { name: "7 seconds" }
-            ListElement { name: "9 seconds" }
-        }
-
-        onSelectedIndexChanged: {
-        }
-    }
-
-    SelectionDialog {
-        id: resolveTimeSelectionDialog;
-        titleText: qsTr("Time for resoving the anagram");
-        selectedIndex: 3;
-
-        model: ListModel {
-            ListElement { name: "No time limit" }
-            ListElement { name: "30 seconds" }
-            ListElement { name: "60 seconds" }
-            ListElement { name: "120 seconds" }
-            ListElement { name: "300 seconds" }
-        }
-
-        onSelectedIndexChanged: {
-        }
-    }
-
-    SelectionDialog {
         id: languageSelectionDialog;
         titleText: qsTr("Select a language");
         selectedIndex: 0;
@@ -93,7 +59,7 @@ Page {
 
             Label {
                 width: parent.width;
-                text: "Kanagram Settings";
+                text: qsTr("Kanagram Settings");
             }
 
             Item {
