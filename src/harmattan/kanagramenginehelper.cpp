@@ -81,24 +81,26 @@ bool KanagramEngineHelper::compareWords() const
     return m_currentOriginalWord.join("") == m_kanagramGame->word();
 }
 
-QString KanagramEngineHelper::hintHideTime()
+int KanagramEngineHelper::hintHideTime()
 {
-    return KanagramSettings::hintHideTime();
+    return KanagramSettings::hintHideTime().toInt();
 }
 
-void KanagramEngineHelper::setHintHideTime(const QString& hintHideTime)
+void KanagramEngineHelper::setHintHideTime(int hintHideTime)
 {
-    KanagramSettings::setHintHideTime(hintHideTime);
+    KanagramSettings::setHintHideTime(QString::number(hintHideTime));
+    emit hintHideTimeChanged();
 }
 
-QString KanagramEngineHelper::resolveTime()
+int KanagramEngineHelper::resolveTime()
 {
-    return KanagramSettings::resolveTime();
+    return KanagramSettings::resolveTime().toInt();
 }
 
-void KanagramEngineHelper::setResolveTime(const QString& resolveTime)
+void KanagramEngineHelper::setResolveTime(int resolveTime)
 {
-    KanagramSettings::setResolveTime(resolveTime);
+    KanagramSettings::setResolveTime(QString::number(resolveTime));
+    emit resolveTimeChanged();
 }
 
 bool KanagramEngineHelper::useSounds()
@@ -109,6 +111,7 @@ bool KanagramEngineHelper::useSounds()
 void KanagramEngineHelper::setUseSounds(bool useSounds)
 {
     KanagramSettings::setUseSounds(useSounds);
+    emit useSoundsToggled();
 }
 
 QString KanagramEngineHelper::defaultVocabulary()
@@ -119,6 +122,7 @@ QString KanagramEngineHelper::defaultVocabulary()
 void KanagramEngineHelper::setDefaultVocabulary(const QString& defaultVocabulary)
 {
     KanagramSettings::setDefaultVocabulary(defaultVocabulary);
+    emit defaultVocabularyChanged();
 }
 
 QString KanagramEngineHelper::dataLanguage()
@@ -129,6 +133,7 @@ QString KanagramEngineHelper::dataLanguage()
 void KanagramEngineHelper::setDataLanguage(const QString& dataLanguage)
 {
     KanagramSettings::setDataLanguage(dataLanguage);
+    emit dataLanguageChanged();
 }
 
 #include "kanagramenginehelper.moc"

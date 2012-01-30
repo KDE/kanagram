@@ -24,7 +24,13 @@
 
 class KanagramEngineHelper : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
+    Q_PROPERTY( int hintHideTime READ hintHideTime WRITE setHintHideTime NOTIFY hintHideTimeChanged )
+    Q_PROPERTY( int resolveTime READ resolveTime WRITE setResolveTime NOTIFY resolveTimeChanged )
+    Q_PROPERTY( bool useSounds READ useSounds WRITE setUseSounds NOTIFY useSoundsToggled )
+    Q_PROPERTY( QString defaultVocabulary READ defaultVocabulary WRITE setDefaultVocabulary NOTIFY defaultVocabularyChanged )
+    Q_PROPERTY( QString dataLanguage READ dataLanguage WRITE setDataLanguage NOTIFY dataLanguageChanged )
+
 	public:
         explicit KanagramEngineHelper(KanagramGame *kanagramGame, QObject* parent = 0);
         ~KanagramEngineHelper();
@@ -35,22 +41,30 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE bool compareWords() const;
 
         // These accessor and mutator methods are not needed once the
-        // kconfig_compiler can generate Q_INVOKABLE methods or/and slots
+        // kconfig_compiler can generate Q_INVOKABLE methods, slots or/and
+        // properties
 
-        Q_INVOKABLE QString hintHideTime();
-        Q_INVOKABLE void setHintHideTime(const QString& hintHideTime);
+        int hintHideTime();
+        void setHintHideTime(int hintHideTime);
 
-        Q_INVOKABLE QString resolveTime();
-        Q_INVOKABLE void setResolveTime(const QString& resolveTime);
+        int resolveTime();
+        void setResolveTime(int resolveTime);
 
-        Q_INVOKABLE bool useSounds();
-        Q_INVOKABLE void setUseSounds(bool useSounds);
+        bool useSounds();
+        void setUseSounds(bool useSounds);
 
-        Q_INVOKABLE QString defaultVocabulary();
-        Q_INVOKABLE void setDefaultVocabulary(const QString& defaultVocabulary);
+        QString defaultVocabulary();
+        void setDefaultVocabulary(const QString& defaultVocabulary);
 
-        Q_INVOKABLE QString dataLanguage();
-        Q_INVOKABLE void setDataLanguage(const QString& dataLanguage);
+        QString dataLanguage();
+        void setDataLanguage(const QString& dataLanguage);
+
+    Q_SIGNALS:
+        void hintHideTimeChanged();
+        void resolveTimeChanged();
+        void useSoundsToggled();
+        void defaultVocabularyChanged();
+        void dataLanguageChanged();
 
 	private:
 
