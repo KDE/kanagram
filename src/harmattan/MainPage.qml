@@ -81,8 +81,7 @@ Page {
             onClicked: {
                 anagramHintInfoBanner.text = kanagramGame.hint();
 
-                // Set the display time to 5000 ms (default is 3000 ms)
-                anagramHintInfoBanner.timerShowTime = 5000;
+                anagramHintInfoBanner.timerShowTime = kanagramEngineHelper.hideHintTime * 1000;
 
                 // Display the info banner
                 anagramHintInfoBanner.show();
@@ -101,7 +100,7 @@ Page {
             iconId: "toolbar-tab-next";
 
             onClicked: {
-                if (mainSettingsPage.soundsSwitch.checked) {
+                if (kanagramEngineHelper.useSounds) {
                     playSound.source = "chalk.wav";
                     playSound.play();
                 }
@@ -139,7 +138,7 @@ Page {
             kanagramGame.useVocabulary(selectedIndex);
             anagramHintInfoBanner.hide();
 
-            if (mainSettingsPage.soundsSwitch.checked) {
+            if (kanagramEngineHelper.useSounds) {
                 playSound.source = "chalk.wav";
                 playSound.play();
             }
@@ -171,7 +170,7 @@ Page {
 
     Timer {
         id: resolvingTimer;
-        interval: 60000;
+        interval: kanagramEngineHelper.resolveTime * 1000;
         repeat false;
         running: false;
         triggeredOnStart: false;
@@ -256,7 +255,7 @@ Page {
                                     {
                                         originalWordLetterRectangleColor = "green";
 
-                                        if (mainSettingsPage.soundsSwitch.checked) {
+                                        if (kanagramEngineHelper.useSounds) {
                                             playSound.source = "right.wav";
                                             playSound.play();
                                         }
@@ -265,7 +264,7 @@ Page {
                                     {
                                         originalWordLetterRectangleColor = "red";
 
-                                        if (mainSettingsPage.soundsSwitch.checked) {
+                                        if (kanagramEngineHelper.useSounds) {
                                             playSound.source = "wrong.wav";
                                             playSound.play();
                                         }

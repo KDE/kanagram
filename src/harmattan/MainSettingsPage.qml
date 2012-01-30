@@ -73,7 +73,7 @@ Page {
         titleText: qsTr("Select a language");
         selectedIndex: 0;
 
-        model: kanagramEngineHelper.languages();
+        model: kanagramEngineHelper.dataLanguage;
 
         onSelectedIndexChanged: {
         }
@@ -129,6 +129,11 @@ Page {
                     maximumValue: 10;
                     anchors.right: parent.right;
                     checked: true;
+                    value: kanagramEngineHelper.hintHideTime;
+
+                    onValueChanged: {
+                        kanagramEngineHelper.hintHideTime = value;
+                    }
                 }
             }
 
@@ -151,21 +156,31 @@ Page {
                     maximumValue: 300;
                     anchors.right: parent.right;
                     checked: true;
+                    value: kanagramEngineHelper.resolveTime;
+
+                    onValueChanged: {
+                        kanagramEngineHelper.resolveTime = value;
+                    }
                 }
             }
 
             Item {
                 width: parent.width;
                 height: childrenRect.height;
+
                 Label {
                     anchors.left: parent.left;
-                    text: "Sounds";
+                    text: qsTr("Sounds");
                 }
 
                 Switch {
                     id: soundsSwitch;
                     anchors.right: parent.right;
-                    checked: true;
+                    checked: kanagramEngineHelper.useSounds;
+
+                    onCheckedChanged: {
+                        kanagramEngineHelper.useSounds = checked;
+                    }
                 }
             }
 
