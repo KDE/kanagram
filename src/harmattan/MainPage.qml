@@ -57,11 +57,20 @@ Page {
         anagramHintInfoBanner.hide();
     }
 
+    function nextAnagram() {
+        anagramHintInfoBanner.hide();
+        anagramStatus = anagramStatusEnumeration.init;
+        anagram = kanagramEngineHelper.createNextAnagram();
+        anagramLetterRepeater.model = anagram;
+        originalWordLetterRepeater.model = anagram;
+        currentOriginalWordIndex = 0;
+    }
+
     // Create an info banner with icon
     InfoBanner {
         id: anagramHintInfoBanner;
-        text: "This is an info banner with icon"
-        iconSource: "dialog-information.png"
+        text: qsTr("This is an info banner with icon");
+        iconSource: "dialog-information.png";
     }
 
     SoundEffect {
@@ -105,12 +114,7 @@ Page {
                     playSound.play();
                 }
 
-                anagramStatus = anagramStatusEnumeration.init;
-                anagram = kanagramEngineHelper.createNextAnagram();
-                anagramLetterRepeater.model = anagram;
-                originalWordLetterRepeater.model = anagram;
-                currentOriginalWordIndex = 0;
-                anagramHintInfoBanner.hide();
+                nextAnagram();
             }
         }
 
@@ -143,11 +147,6 @@ Page {
                 playSound.play();
             }
 
-            anagramStatus = anagramStatusEnumeration.init;
-            anagram = kanagramEngineHelper.createNextAnagram();
-            anagramLetterRepeater.model = anagram;
-            originalWordLetterRepeater.model = anagram;
-            currentOriginalWordIndex = 0;
         }
     }
 
@@ -160,11 +159,7 @@ Page {
 
         onTriggered: {
             originalWordLetterRectangleColor = Qt.rgba(0, 0, 0, 0);
-            anagramStatus = anagramStatusEnumeration.init;
-            anagram = kanagramEngineHelper.createNextAnagram();
-            anagramLetterRepeater.model = anagram;
-            originalWordLetterRepeater.model = anagram;
-            currentOriginalWordIndex = 0;
+            nextAnagram();
         }
     }
 
