@@ -24,8 +24,6 @@ import com.nokia.extras 1.0
 Page {
     id: mainSettingsPage;
 
-    property string hintAppearanceTime: qsTr("5 seconds");
-    property string resolveTime: qsTr("120 seconds");
     property string selectedLanguage: qsTr("English");
 
     function pushPage(file) {
@@ -93,35 +91,66 @@ Page {
 
             spacing: 10;
 
-            ListItem {
-                iconSource: "games-hint.png";
-                titleText: qsTr("Hint appearance");
-                subtitleText: qsTr(hintAppearanceTime);
-                drillDownArrow: true;
-                mousePressed: hintAppearanceMouseArea.pressed;
+            Label {
+                width: parent.width;
+                text: "Kanagram Settings";
+            }
 
-                MouseArea {
-                    id: hintAppearanceMouseArea;
-                    anchors.fill: parent;
-                    onClicked: {
-                        hintAppearanceSelectionDialog.open();
-                   }
+            Item {
+                width: parent.width;
+
+                Path {
+                    startX: parent.x;
+                    startY: parent.y;
+
+                    PathLine {
+                        x: parent.x + parent.width;
+                        y: parent.y:
+                    }
                 }
             }
 
-            ListItem {
-                iconSource: "games-solve.png";
-                titleText: qsTr("Resolve time");
-                subtitleText: qsTr(resolveTime);
-                drillDownArrow: true;
-                mousePressed: resolveTimeMouseArea.pressed;
+            Item {
+                width: parent.width;
+                height: childrenRect.height;
 
-                MouseArea {
-                    id: resolveTimeMouseArea;
-                    anchors.fill: parent;
-                    onClicked: {
-                        resolveTimeSelectionDialog.open();
-                   }
+                Label {
+                    id: hintAppearanceLabel;
+                    anchors.left: parent.left;
+                    text: qsTr("Hint appearance [sec]");
+                }
+
+                Slider {
+                    id: hintAppearanceSlider;
+                    width: parent.width - hintAppearanceLabel.width - 10;
+                    stepSize: 1;
+                    valueIndicatorVisible: true;
+                    minimumValue: 0;
+                    maximumValue: 10;
+                    anchors.right: parent.right;
+                    checked: true;
+                }
+            }
+
+            Item {
+                width: parent.width;
+                height: childrenRect.height;
+
+                Label {
+                    id: resolveTimeLabel;
+                    anchors.left: parent.left;
+                    text: qsTr("Resolve time [sec]");
+                }
+
+                Slider {
+                    id: resolveTimeSlider;
+                    width: parent.width - resolveTimeLabel.width - 10;
+                    stepSize: 15;
+                    valueIndicatorVisible: true;
+                    minimumValue: 15;
+                    maximumValue: 300;
+                    anchors.right: parent.right;
+                    checked: true;
                 }
             }
 
