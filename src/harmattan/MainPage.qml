@@ -37,7 +37,7 @@ Page {
     }
 
     onStatusChanged: {
-        if (status == PageStatus::Active) {
+        if (status == PageStatus.Active) {
             resolveTimer.start();
         }
     }
@@ -164,9 +164,9 @@ Page {
     }
 
     Timer {
-        id: resolvingTimer;
+        id: resolveTimer;
         interval: kanagramEngineHelper.resolveTime * 1000;
-        repeat false;
+        repeat: false;
         running: false;
         triggeredOnStart: false;
 

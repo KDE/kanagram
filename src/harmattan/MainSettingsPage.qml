@@ -71,7 +71,7 @@ Page {
 
                     PathLine {
                         x: parent.x + parent.width;
-                        y: parent.y:
+                        y: parent.y;
                     }
                 }
             }
@@ -94,7 +94,6 @@ Page {
                     minimumValue: 0;
                     maximumValue: 10;
                     anchors.right: parent.right;
-                    checked: true;
                     value: kanagramEngineHelper.hintHideTime;
 
                     onValueChanged: {
@@ -121,7 +120,6 @@ Page {
                     minimumValue: 15;
                     maximumValue: 300;
                     anchors.right: parent.right;
-                    checked: true;
                     value: kanagramEngineHelper.resolveTime;
 
                     onValueChanged: {
