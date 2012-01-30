@@ -76,8 +76,18 @@ Page {
     }
 
     SoundEffect {
-        id: playSound;
+        id: chalkSoundEffect;
         source: "chalk.wav";
+    }
+
+    SoundEffect {
+        id: rightSoundEffect;
+        source: "right.wav";
+    }
+
+    SoundEffect {
+        id: wrongSoundEffect;
+        source: "wrong.wav";
     }
 
     // These tools are available for the main page by assigning the
@@ -112,8 +122,7 @@ Page {
 
             onClicked: {
                 if (kanagramEngineHelper.useSounds) {
-                    playSound.source = "chalk.wav";
-                    playSound.play();
+                    chalkSoundEffect.play();
                 }
 
                 nextAnagram();
@@ -145,8 +154,7 @@ Page {
             anagramHintInfoBanner.hide();
 
             if (kanagramEngineHelper.useSounds) {
-                playSound.source = "chalk.wav";
-                playSound.play();
+                chalkSoundEffect.play();
             }
 
         }
@@ -253,8 +261,7 @@ Page {
                                         originalWordLetterRectangleColor = "green";
 
                                         if (kanagramEngineHelper.useSounds) {
-                                            playSound.source = "right.wav";
-                                            playSound.play();
+                                            rightSoundEffect.play();
                                         }
                                     }
                                     else
@@ -262,8 +269,7 @@ Page {
                                         originalWordLetterRectangleColor = "red";
 
                                         if (kanagramEngineHelper.useSounds) {
-                                            playSound.source = "wrong.wav";
-                                            playSound.play();
+                                            wrongSoundEffect.play();
                                         }
                                     }
                                 }
