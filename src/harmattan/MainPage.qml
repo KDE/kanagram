@@ -24,6 +24,8 @@ import QtMultimediaKit 1.1
 
 Page {
     id: mainPage;
+    orientationLock: PageOrientation.LockLandscape;
+
     property variant anagram: kanagramEngineHelper.createNextAnagram();
     property int anagramStatus: anagramStatusEnumeration.init;
     property int currentOriginalWordIndex: 0;

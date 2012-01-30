@@ -22,7 +22,6 @@ import com.nokia.meego 1.0
 
 PageStackWindow {
     id: rootWindow;
-    property int pageMargin: 40;
 
     // MainPage is what we see when the app starts, it shows up
     // the available games on the mobile handset
