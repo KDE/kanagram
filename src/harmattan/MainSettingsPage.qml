@@ -82,7 +82,7 @@ Page {
                 Label {
                     id: hintAppearanceLabel;
                     anchors.left: parent.left;
-                    text: qsTr("Hint appearance [sec]");
+                    text: qsTr("Hint appearance [second(s)]");
                 }
 
                 Slider {
@@ -108,7 +108,7 @@ Page {
                 Label {
                     id: resolveTimeLabel;
                     anchors.left: parent.left;
-                    text: qsTr("Resolve time [sec]");
+                    text: qsTr("Resolve time [second(s)]");
                 }
 
                 Slider {

@@ -30,6 +30,7 @@ Page {
     property int anagramStatus: anagramStatusEnumeration.init;
     property int currentOriginalWordIndex: 0;
     property color originalWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
+    property int countDownTimerValue: kanagramEngineHelper.resolveTime;
 
     QtObject {  // status enum hackery :)
       id: anagramStatusEnumeration;
@@ -40,7 +41,7 @@ Page {
 
     onStatusChanged: {
         if (status == PageStatus.Active) {
-            resolveTimer.start();
+            secondTimer.start();
         }
     }
 
@@ -113,6 +114,9 @@ Page {
 
             onClicked: {
                 resolveAnagram();
+
+                secondTimer.repeat = false;
+                secondTimer.stop();
             }
         }
 
@@ -125,6 +129,8 @@ Page {
                 }
 
                 nextAnagram();
+                secondTimer.repeat = true;
+                secondTimer.start();
             }
         }
 
@@ -134,6 +140,9 @@ Page {
             onClicked: {
                 anagramHintInfoBanner.hide();
                 pageStack.push(mainSettingsPage);
+
+                secondTimer.repeat = false;
+                secondTimer.stop();
             }
         }
     }
@@ -160,6 +169,23 @@ Page {
     }
 
     Timer {
+        id: secondTimer;
+        interval: 1000;
+        repeat: true;
+        running: false;
+        triggeredOnStart: false;
+
+        onTriggered: {
+             if (--countDownTimerValue == 0) {
+                 countDownTimerValue = kanagramEngineHelper.resolveTime;
+                 resolveAnagram();
+                 repeat = false;
+                 running = false;
+             }
+        }
+    }
+
+    Timer {
         id: anagramResultTimer;
         interval: 1000;
         repeat: false;
@@ -169,18 +195,9 @@ Page {
         onTriggered: {
             originalWordLetterRectangleColor = Qt.rgba(0, 0, 0, 0);
             nextAnagram();
-        }
-    }
 
-    Timer {
-        id: resolveTimer;
-        interval: kanagramEngineHelper.resolveTime * 1000;
-        repeat: false;
-        running: false;
-        triggeredOnStart: false;
-
-        onTriggered: {
-             resolveAnagram();
+            secondTimer.repeat = true;
+            secondTimer.start();
         }
     }
 

@@ -49,12 +49,13 @@ QStringList KanagramEngineHelper::createNextAnagram()
 
 QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const QString& letter)
 {
-    if (m_kanagramGame->word().size() < m_currentOriginalWord.size())
+    int anagramWordSize = m_kanagramGame->word().size();
+
+    if (anagramWordSize != m_currentOriginalWord.size())
     {
         m_currentOriginalWord.clear();
     }
 
-    int anagramWordSize = m_kanagramGame->word().size();
     while (m_currentOriginalWord.size() < anagramWordSize)
         m_currentOriginalWord.append("");
 
