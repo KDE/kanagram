@@ -41,7 +41,7 @@ Page {
 
     onStatusChanged: {
         if (status == PageStatus.Active) {
-            secondTimer.start();
+            secondTimer.restart();
         }
     }
 
@@ -130,7 +130,7 @@ Page {
 
                 nextAnagram();
                 secondTimer.repeat = true;
-                secondTimer.start();
+                secondTimer.restart();
             }
         }
 
@@ -158,13 +158,13 @@ Page {
         model: kanagramGame.vocabularyList();
 
         onSelectedIndexChanged: {
-            kanagramGame.useVocabulary(selectedIndex);
-            anagramHintInfoBanner.hide();
 
             if (kanagramEngineHelper.useSounds) {
                 chalkSoundEffect.play();
             }
 
+            kanagramGame.useVocabulary(selectedIndex);
+            nextAnagram();
         }
     }
 
