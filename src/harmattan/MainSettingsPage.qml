@@ -22,7 +22,6 @@ import com.nokia.meego 1.0
 import com.nokia.extras 1.0
 
 Page {
-    id: mainSettingsPage;
 
     property string selectedLanguage: qsTr("English");
 

@@ -23,7 +23,7 @@ import com.nokia.extras 1.0
 import QtMultimediaKit 1.1
 
 Page {
-    id: mainPage;
+
     orientationLock: PageOrientation.LockLandscape;
 
     property variant anagram: kanagramEngineHelper.createNextAnagram();
@@ -102,7 +102,7 @@ Page {
             onClicked: {
                 anagramHintInfoBanner.text = kanagramGame.hint();
 
-                anagramHintInfoBanner.timerShowTime = kanagramEngineHelper.hideHintTime * 1000;
+                anagramHintInfoBanner.timerShowTime = kanagramEngineHelper.hintHideTime * 1000;
 
                 // Display the info banner
                 anagramHintInfoBanner.show();
@@ -134,7 +134,7 @@ Page {
 
             onClicked: {
                 anagramHintInfoBanner.hide();
-                pageStack.push("qrc:/MainSettingsPage.qml");
+                pageStack.push(mainSettingsPage);
             }
         }
     }
@@ -187,8 +187,8 @@ Page {
 
     Column {
         anchors {
-            horizontalCenter: mainPage.horizontalCenter;
-            verticalCenter: mainPage.verticalCenter + 24;
+            horizontalCenter: parent.horizontalCenter;
+            verticalCenter: parent.verticalCenter;
         }
 
         spacing: 20;
@@ -231,11 +231,11 @@ Page {
                         anchors.fill: parent;
                         hoverEnabled: true;
 
-                        drag.target: anagramLetterRectangle;
-                        drag.axis: Drag.XandYAxis;
-                        drag.minimumX: 0;
-                        drag.maximumX: mainPage.width - anagramLetterRectangle.width;
-                        drag.minimumY: 0;
+                        // drag.target: anagramLetterRectangle;
+                        // drag.axis: Drag.XandYAxis;
+                        // drag.minimumX: 0;
+                        // drag.maximumX: mainPage.width - anagramLetterRectangle.width;
+                        // drag.minimumY: 0;
 
                         onClicked: {
                             if (anagramStatus != anagramStatusEnumeration.resolved)
