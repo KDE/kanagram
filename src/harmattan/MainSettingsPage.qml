@@ -75,9 +75,9 @@ Page {
                 }
             }
 
-            Item {
+            Column {
                 width: parent.width;
-                height: childrenRect.height;
+                spacing: 5;
 
                 Label {
                     id: hintAppearanceLabel;
@@ -87,12 +87,12 @@ Page {
 
                 Slider {
                     id: hintAppearanceSlider;
-                    width: parent.width - hintAppearanceLabel.width - 10;
+                    width: parent.width - 10;
                     stepSize: 1;
                     valueIndicatorVisible: true;
                     minimumValue: 0;
                     maximumValue: 10;
-                    anchors.right: parent.right;
+                    anchors.horizonalCenter: parent.horizontalCenter;
                     value: kanagramEngineHelper.hintHideTime;
 
                     onValueChanged: {
@@ -101,9 +101,9 @@ Page {
                 }
             }
 
-            Item {
+            Column {
                 width: parent.width;
-                height: childrenRect.height;
+                spacing: 5;
 
                 Label {
                     id: resolveTimeLabel;
@@ -113,12 +113,12 @@ Page {
 
                 Slider {
                     id: resolveTimeSlider;
-                    width: parent.width - resolveTimeLabel.width - 10;
+                    width: parent.width - 10;
                     stepSize: 15;
                     valueIndicatorVisible: true;
                     minimumValue: 15;
                     maximumValue: 300;
-                    anchors.right: parent.right;
+                    anchors.horizontalCenter: parent.horizontalCenter;
                     value: kanagramEngineHelper.resolveTime;
 
                     onValueChanged: {

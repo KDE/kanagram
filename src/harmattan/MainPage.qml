@@ -101,7 +101,6 @@ Page {
 
             onClicked: {
                 anagramHintInfoBanner.text = kanagramGame.hint();
-
                 anagramHintInfoBanner.timerShowTime = kanagramEngineHelper.hintHideTime * 1000;
 
                 // Display the info banner
