@@ -6,12 +6,12 @@
 <kcfgfile name="kanagramrc"/>
 <group name="kanagram">
 <entry name="hintHideTime" type="String">
-	<label>This setting allows you to set how long Kanagram's hint bubble is shown.</label>
-	<default>5 seconds</default>
+	<label>This setting allows you to set in seconds how long Kanagram's hint bubble is shown.</label>
+	<default>5</default>
 </entry>
 <entry name="resolveTime" type="String">
-    <label>This setting allows you to set how much time is available for resolving the anagram.</label>
-    <default>120 seconds</default>
+    <label>This setting allows you to set in seconds how much time is available for resolving the anagram.</label>
+    <default>120</default>
 </entry>
 <entry name="useSounds" type="Bool">
 	<label>Turns sounds on/off.</label>
