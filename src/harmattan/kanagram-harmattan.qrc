@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
+
         <file>main.qml</file>
         <file>MainPage.qml</file>
         <file>MainSettingsPage.qml</file>
@@ -19,6 +20,8 @@
         <file alias="games-solve.png">../../icons/common/games-solve.png</file>
         <file alias="preferences-desktop-locale.png">../../icons/common/preferences-desktop-locale.png</file>
         <file alias="dialog-information.png">../../icons/common/dialog-information.png</file>
+        <file alias="separator.png">../../icons/common/separator.png</file>
+
     </qresource>
 </RCC>
 

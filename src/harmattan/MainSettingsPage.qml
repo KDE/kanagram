@@ -61,18 +61,12 @@ Page {
                 text: qsTr("Kanagram Settings");
             }
 
-            Item {
+            Image {
+                id: separator1;
                 width: parent.width;
-
-                Path {
-                    startX: parent.x;
-                    startY: parent.y;
-
-                    PathLine {
-                        x: parent.x + parent.width;
-                        y: parent.y;
-                    }
-                }
+                height: 2;
+                fillMode: Image.TileHorizontally;
+                source: "separator.png";
             }
 
             Column {
@@ -92,13 +86,21 @@ Page {
                     valueIndicatorVisible: true;
                     minimumValue: 0;
                     maximumValue: 10;
-                    anchors.horizonalCenter: parent.horizontalCenter;
+                    anchors.horizontalCenter: parent.horizontalCenter;
                     value: kanagramEngineHelper.hintHideTime;
 
                     onValueChanged: {
                         kanagramEngineHelper.hintHideTime = value;
                     }
                 }
+            }
+
+            Image {
+                id: separator2;
+                width: parent.width;
+                height: 2;
+                fillMode: Image.TileHorizontally;
+                source: "separator.png";
             }
 
             Column {
@@ -125,6 +127,14 @@ Page {
                         kanagramEngineHelper.resolveTime = value;
                     }
                 }
+            }
+
+            Image {
+                id: separator3:;
+                width: parent.width;
+                height: 2;
+                fillMode: Image.TileHorizontally;
+                source: "separator.png";
             }
 
             Item {
