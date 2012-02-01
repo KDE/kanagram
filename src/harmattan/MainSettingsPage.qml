@@ -23,8 +23,6 @@ import com.nokia.extras 1.0
 
 Page {
 
-    property string selectedLanguageName: qsTr("English");
-
     function pushPage(file) {
         var component = Qt.createComponent(file)
         if (component.status == Component.Ready)
@@ -41,7 +39,7 @@ Page {
         model: kanagramEngineHelper.languageNames();
 
         onSelectedIndexChanged: {
-            selectedLanguageName = model[selectedIndex];
+            kanagramEngineHelper.dataLanguage = model[selectedIndex];
         }
     }
 
@@ -109,7 +107,7 @@ Page {
                     Label {
                         id: hintAppearanceLabel;
                         anchors.left: parent.left;
-                        text: qsTr("Hint appearance [second(s)]");
+                        text: qsTr("Hint appearance in seconds");
                     }
 
                     Slider {
@@ -146,7 +144,7 @@ Page {
                     Label {
                         id: resolveTimeLabel;
                         anchors.left: parent.left;
-                        text: qsTr("Resolve time [second(s)]");
+                        text: qsTr("Resolve time in seconds");
                     }
 
                     Slider {
@@ -202,7 +200,7 @@ Page {
                 ListItem {
                     iconSource: "preferences-desktop-locale.png";
                     titleText: qsTr("Language");
-                    subtitleText: qsTr(selectedLanguageName);
+                    subtitleText: kanagramEngineHelper.dataLanguage ?  kanagramEngineHelper.dataLanguage : "English";
                     drillDownArrow: true;
                     mousePressed: languageSelectionMouseArea.pressed;
 

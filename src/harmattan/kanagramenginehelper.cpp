@@ -21,6 +21,11 @@
 
 #include <kanagramsettings.h>
 
+#include <sharedkvtmlfiles.h>
+
+#include <KDE/KStandardDirs>
+#include <KDE/KLocale>
+
 KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* parent)
     : QObject(parent)
     , m_kanagramGame(kanagramGame)
