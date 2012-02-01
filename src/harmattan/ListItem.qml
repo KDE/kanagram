@@ -29,9 +29,10 @@ Rectangle {
     property string titleText;
     property string subtitleText;
 
-    property bool mousePressed: false;
+    property string iconId;
+    property bool iconVisible: false;
 
-    property bool drillDownArrow: false;
+    property bool mousePressed: false;
 
     height: 64;
     width: parent.width;
@@ -90,8 +91,18 @@ Rectangle {
     }
 
     Image {
-        visible: drillDownArrow;
-        source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "");
+        function handleIconId() {
+            var prefix = "icon-m-";
+            // check if id starts with prefix and use it as is
+            // otherwise append prefix and use the inverted version if required
+            if (iconId.indexOf(prefix) !== 0)
+                iconId = prefix.concat(iconId).concat(theme.inverted ?  "-inverse" : "");
+
+            return "image://theme/" + iconId;
+        }
+
+        visible: iconVisible;
+        source: handleIconId();
         anchors {
             right: parent.right;
             verticalCenter: parent.verticalCenter;

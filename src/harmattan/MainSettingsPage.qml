@@ -197,6 +197,14 @@ Page {
                     }
                 }
 
+                Image {
+                    id: separator4;
+                    width: parent.width;
+                    height: 2;
+                    fillMode: Image.TileHorizontally;
+                    source: "separator.png";
+                }
+
                 ListItem {
                     iconSource: "preferences-desktop-locale.png";
                     titleText: qsTr("Language");
