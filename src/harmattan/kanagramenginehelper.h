@@ -75,8 +75,6 @@ class KanagramEngineHelper : public QObject
         KanagramGame *m_kanagramGame;
         QStringList m_currentOriginalWord;
         int m_insertCounter;
-
-        bool m_useSounds;
 };
 
 #endif // KANAGRAM_ENGINE_HELPER_H

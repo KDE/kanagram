@@ -49,18 +49,10 @@ Page {
         onHintHideTimeChanged: {
             hintAppearanceSlider.value = kanagramEngineHelper.hintHideTime;
         }
-    }
-
-    Connections {
-        target: kanagramEngineHelper;
 
         onResolveTimeChanged: {
             resolveTimeSlider.value = kanagramEngineHelper.resolveTime;
         }
-    }
-
-    Connections {
-        target: kanagramEngineHelper;
 
         onUseSoundsChanged: {
             soundsSwitch.checked = kanagramEngineHelper.useSounds;

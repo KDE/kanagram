@@ -30,7 +30,6 @@ KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* 
     : QObject(parent)
     , m_kanagramGame(kanagramGame)
     , m_insertCounter(0)
-    , m_useSounds(false)
 {
 }
 
