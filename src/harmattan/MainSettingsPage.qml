@@ -23,7 +23,7 @@ import com.nokia.extras 1.0
 
 Page {
 
-    property string selectedLanguage: qsTr("English");
+    property string selectedLanguageName: qsTr("English");
 
     function pushPage(file) {
         var component = Qt.createComponent(file)
@@ -33,14 +33,15 @@ Page {
             console.log("Error loading component:", component.errorString());
     }
 
-    SelectionDialog {
+    MySelectionDialog {
         id: languageSelectionDialog;
         titleText: qsTr("Select a language");
         selectedIndex: 0;
 
-        model: kanagramEngineHelper.dataLanguage;
+        model: kanagramEngineHelper.languageNames();
 
         onSelectedIndexChanged: {
+            selectedLanguageName = model[selectedIndex];
         }
     }
 
@@ -201,7 +202,7 @@ Page {
                 ListItem {
                     iconSource: "preferences-desktop-locale.png";
                     titleText: qsTr("Language");
-                    subtitleText: qsTr(selectedLanguage);
+                    subtitleText: qsTr(selectedLanguageName);
                     drillDownArrow: true;
                     mousePressed: languageSelectionMouseArea.pressed;
 
