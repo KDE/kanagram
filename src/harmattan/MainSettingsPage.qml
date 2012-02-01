@@ -45,136 +45,144 @@ Page {
     }
 
     Rectangle {
+        id: settingsPageMainRectangle;
         color: "black";
         anchors.fill: parent;
 
-        Column {
-            anchors {
-                fill: parent;
-                margins: 5;
-            }
-
-            spacing: 10;
-
-            Label {
-                width: parent.width;
-                text: qsTr("Kanagram Settings");
-            }
-
-            Image {
-                id: separator1;
-                width: parent.width;
-                height: 2;
-                fillMode: Image.TileHorizontally;
-                source: "separator.png";
-            }
+        Flickable {
+            width: parent.width;
+            height: parent.height;
+            contentWidth: settingsPageMainColumn.width;
+            contentHeight: settingsPageMainColumn.height;
 
             Column {
-                width: parent.width;
-                spacing: 5;
+                id: settingsPageMainColumn;
+                width: settingsPageMainRectangle.width;
+                anchors {
+                    margins: 5;
+                }
+
+                spacing: 10;
 
                 Label {
-                    id: hintAppearanceLabel;
-                    anchors.left: parent.left;
-                    text: qsTr("Hint appearance [second(s)]");
+                    width: parent.width;
+                    text: qsTr("Kanagram Settings");
                 }
 
-                Slider {
-                    id: hintAppearanceSlider;
-                    width: parent.width - 10;
-                    stepSize: 1;
-                    valueIndicatorVisible: true;
-                    minimumValue: 0;
-                    maximumValue: 10;
-                    anchors.horizontalCenter: parent.horizontalCenter;
-                    value: kanagramEngineHelper.hintHideTime;
+                Image {
+                    id: separator1;
+                    width: parent.width;
+                    height: 2;
+                    fillMode: Image.TileHorizontally;
+                    source: "separator.png";
+                }
 
-                    onValueChanged: {
-                        kanagramEngineHelper.hintHideTime = value;
+                Column {
+                    width: parent.width;
+                    spacing: 5;
+
+                    Label {
+                        id: hintAppearanceLabel;
+                        anchors.left: parent.left;
+                        text: qsTr("Hint appearance [second(s)]");
+                    }
+
+                    Slider {
+                        id: hintAppearanceSlider;
+                        width: parent.width - 10;
+                        stepSize: 1;
+                        valueIndicatorVisible: true;
+                        minimumValue: 0;
+                        maximumValue: 10;
+                        anchors.horizontalCenter: parent.horizontalCenter;
+                        value: kanagramEngineHelper.hintHideTime;
+
+                        onValueChanged: {
+                            kanagramEngineHelper.hintHideTime = value;
+                        }
                     }
                 }
-            }
 
-            Image {
-                id: separator2;
-                width: parent.width;
-                height: 2;
-                fillMode: Image.TileHorizontally;
-                source: "separator.png";
-            }
-
-            Column {
-                width: parent.width;
-                spacing: 5;
-
-                Label {
-                    id: resolveTimeLabel;
-                    anchors.left: parent.left;
-                    text: qsTr("Resolve time [second(s)]");
+                Image {
+                    id: separator2;
+                    width: parent.width;
+                    height: 2;
+                    fillMode: Image.TileHorizontally;
+                    source: "separator.png";
                 }
 
-                Slider {
-                    id: resolveTimeSlider;
-                    width: parent.width - 10;
-                    stepSize: 15;
-                    valueIndicatorVisible: true;
-                    minimumValue: 15;
-                    maximumValue: 300;
-                    anchors.horizontalCenter: parent.horizontalCenter;
-                    value: kanagramEngineHelper.resolveTime;
+                Column {
+                    width: parent.width;
+                    spacing: 5;
 
-                    onValueChanged: {
-                        kanagramEngineHelper.resolveTime = value;
+                    Label {
+                        id: resolveTimeLabel;
+                        anchors.left: parent.left;
+                        text: qsTr("Resolve time [second(s)]");
+                    }
+
+                    Slider {
+                        id: resolveTimeSlider;
+                        width: parent.width - 10;
+                        stepSize: 15;
+                        valueIndicatorVisible: true;
+                        minimumValue: 15;
+                        maximumValue: 300;
+                        anchors.horizontalCenter: parent.horizontalCenter;
+                        value: kanagramEngineHelper.resolveTime;
+
+                        onValueChanged: {
+                            kanagramEngineHelper.resolveTime = value;
+                        }
                     }
                 }
-            }
 
-            Image {
-                id: separator3:;
-                width: parent.width;
-                height: 2;
-                fillMode: Image.TileHorizontally;
-                source: "separator.png";
-            }
-
-            Item {
-                width: parent.width;
-                height: childrenRect.height;
-
-                Label {
-                    anchors.left: parent.left;
-                    text: qsTr("Sounds");
+                Image {
+                    id: separator3;
+                    width: parent.width;
+                    height: 2;
+                    fillMode: Image.TileHorizontally;
+                    source: "separator.png";
                 }
 
-                Switch {
-                    id: soundsSwitch;
-                    anchors.right: parent.right;
-                    checked: kanagramEngineHelper.useSounds;
+                Item {
+                    width: parent.width;
+                    height: childrenRect.height;
 
-                    onCheckedChanged: {
-                        kanagramEngineHelper.useSounds = checked;
+                    Label {
+                        anchors.left: parent.left;
+                        text: qsTr("Sounds");
+                    }
+
+                    Switch {
+                        id: soundsSwitch;
+                        anchors.right: parent.right;
+                        checked: kanagramEngineHelper.useSounds;
+
+                        onCheckedChanged: {
+                            kanagramEngineHelper.useSounds = checked;
+                        }
                     }
                 }
-            }
 
-            ListItem {
-                iconSource: "preferences-desktop-locale.png";
-                titleText: qsTr("Language");
-                subtitleText: qsTr(selectedLanguage);
-                drillDownArrow: true;
-                mousePressed: languageSelectionMouseArea.pressed;
+                ListItem {
+                    iconSource: "preferences-desktop-locale.png";
+                    titleText: qsTr("Language");
+                    subtitleText: qsTr(selectedLanguage);
+                    drillDownArrow: true;
+                    mousePressed: languageSelectionMouseArea.pressed;
 
-                MouseArea {
-                    id: languageSelectionMouseArea;
-                    anchors.fill: parent;
-                    onClicked: {
-                        languageSelectionDialog.open();
-                   }
+                    MouseArea {
+                        id: languageSelectionMouseArea;
+                        anchors.fill: parent;
+                        onClicked: {
+                            languageSelectionDialog.open();
+                       }
+                    }
                 }
-            }
 
+            }
         }
-
     }
 
     tools: commonTools;
