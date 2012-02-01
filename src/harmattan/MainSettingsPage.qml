@@ -90,6 +90,7 @@ Page {
                 Label {
                     width: parent.width;
                     text: qsTr("Kanagram Settings");
+                    font.pixelSize: 32;
                 }
 
                 Image {
@@ -108,6 +109,7 @@ Page {
                         id: hintAppearanceLabel;
                         anchors.left: parent.left;
                         text: qsTr("Hint appearance in seconds");
+                        font.bold: true;
                     }
 
                     Slider {
@@ -145,6 +147,7 @@ Page {
                         id: resolveTimeLabel;
                         anchors.left: parent.left;
                         text: qsTr("Resolve time in seconds");
+                        font.bold: true;
                     }
 
                     Slider {
@@ -181,6 +184,7 @@ Page {
                     Label {
                         anchors.left: parent.left;
                         text: qsTr("Sounds");
+                        font.bold: true;
                     }
 
                     Switch {
@@ -209,7 +213,8 @@ Page {
                     iconSource: "preferences-desktop-locale.png";
                     titleText: qsTr("Language");
                     subtitleText: kanagramEngineHelper.dataLanguage ?  kanagramEngineHelper.dataLanguage : "English";
-                    drillDownArrow: true;
+                    iconId: "common-combobox-arrow-selected";
+                    iconVisible: true;
                     mousePressed: languageSelectionMouseArea.pressed;
 
                     MouseArea {
