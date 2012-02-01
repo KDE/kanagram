@@ -29,6 +29,8 @@
 KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* parent)
     : QObject(parent)
     , m_kanagramGame(kanagramGame)
+    , m_insertCounter(0)
+    , m_useSounds(false)
 {
 }
 
@@ -56,15 +58,18 @@ QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const Q
 {
     int anagramWordSize = m_kanagramGame->word().size();
 
-    if (anagramWordSize != m_currentOriginalWord.size())
+    if (anagramWordSize != m_currentOriginalWord.size()
+            || m_currentOriginalWord.size() == m_insertCounter)
     {
         m_currentOriginalWord.clear();
+        m_insertCounter = 0;
     }
 
     while (m_currentOriginalWord.size() < anagramWordSize)
         m_currentOriginalWord.append("");
 
     m_currentOriginalWord.replace(index, letter);
+    ++m_insertCounter;
     return m_currentOriginalWord;
 }
 
