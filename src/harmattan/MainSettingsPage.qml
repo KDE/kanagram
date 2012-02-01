@@ -44,6 +44,30 @@ Page {
         }
     }
 
+    Connections {
+        target: kanagramEngineHelper;
+
+        onHintHideTimeChanged: {
+            hintAppearanceSlider.value = kanagramEngineHelper.hintHideTime;
+        }
+    }
+
+    Connections {
+        target: kanagramEngineHelper;
+
+        onResolveTimeChanged: {
+            resolveTimeSlider.value = kanagramEngineHelper.resolveTime;
+        }
+    }
+
+    Connections {
+        target: kanagramEngineHelper;
+
+        onUseSoundsChanged: {
+            soundsSwitch.checked = kanagramEngineHelper.useSounds;
+        }
+    }
+
     Rectangle {
         id: settingsPageMainRectangle;
         color: "black";
@@ -95,7 +119,10 @@ Page {
                         minimumValue: 0;
                         maximumValue: 10;
                         anchors.horizontalCenter: parent.horizontalCenter;
-                        value: kanagramEngineHelper.hintHideTime;
+
+                        Component.onCompleted: {
+                            value: kanagramEngineHelper.hintHideTime;
+                        }
 
                         onValueChanged: {
                             kanagramEngineHelper.hintHideTime = value;
@@ -129,7 +156,10 @@ Page {
                         minimumValue: 15;
                         maximumValue: 300;
                         anchors.horizontalCenter: parent.horizontalCenter;
-                        value: kanagramEngineHelper.resolveTime;
+
+                        Component.onCompleted: {
+                            value: kanagramEngineHelper.resolveTime;
+                        }
 
                         onValueChanged: {
                             kanagramEngineHelper.resolveTime = value;
@@ -157,7 +187,10 @@ Page {
                     Switch {
                         id: soundsSwitch;
                         anchors.right: parent.right;
-                        checked: kanagramEngineHelper.useSounds;
+
+                        Component.onCompleted: {
+                            checked: kanagramEngineHelper.useSounds;
+                        }
 
                         onCheckedChanged: {
                             kanagramEngineHelper.useSounds = checked;
