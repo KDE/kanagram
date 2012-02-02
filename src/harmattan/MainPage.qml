@@ -351,12 +351,11 @@ Page {
                         hoverEnabled: true;
 
                         onClicked: {
-                            if (index == currentOriginalWordIndex) {
+                            if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0) {
                                 anagramLetterRepeater.model[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterText.text;
                                 MyArray.sourceDestinationLetterIndexHash.pop();
 
-                                originalWordLetterRepeater.model =
-                                    kanagramEngineHelper.removeInCurrentOriginalWord(currentOriginalWordIndex);
+                                originalWordLetterRepeater.model = kanagramEngineHelper.removeInCurrentOriginalWord(index);
                                 --currentOriginalWordIndex;
                             }
                         }
