@@ -352,7 +352,7 @@ Page {
 
                         onClicked: {
                             if (index == currentOriginalWordIndex) {
-                                anagramLetterRepeater[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterText.text;
+                                anagramLetterRepeater.model[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterText.text;
                                 MyArray.sourceDestinationLetterIndexHash.pop();
 
                                 originalWordLetterRepeater.model =

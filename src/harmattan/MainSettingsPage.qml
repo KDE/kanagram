@@ -200,7 +200,7 @@ Page {
                     iconSource: "preferences-desktop-locale.png";
                     titleText: qsTr("Language");
                     subtitleText: kanagramEngineHelper.dataLanguage ?  kanagramEngineHelper.dataLanguage : "English";
-                    iconId: "common-combobox-arrow-selected";
+                    iconId: "textinput-combobox-arrow";
                     iconVisible: true;
                     mousePressed: languageSelectionMouseArea.pressed;
 
