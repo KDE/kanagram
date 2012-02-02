@@ -114,7 +114,7 @@ Page {
                         anchors.horizontalCenter: parent.horizontalCenter;
 
                         Component.onCompleted: {
-                            value: kanagramEngineHelper.hintHideTime;
+                            value = kanagramEngineHelper.hintHideTime;
                         }
 
                         onValueChanged: {
@@ -152,7 +152,7 @@ Page {
                         anchors.horizontalCenter: parent.horizontalCenter;
 
                         Component.onCompleted: {
-                            value: kanagramEngineHelper.resolveTime;
+                            value = kanagramEngineHelper.resolveTime;
                         }
 
                         onValueChanged: {
@@ -184,7 +184,7 @@ Page {
                         anchors.right: parent.right;
 
                         Component.onCompleted: {
-                            checked: kanagramEngineHelper.useSounds;
+                            checked = kanagramEngineHelper.useSounds;
                         }
 
                         onCheckedChanged: {
