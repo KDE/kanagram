@@ -351,9 +351,13 @@ Page {
                         hoverEnabled: true;
 
                         onClicked: {
-                            if (index = currentOriginalWordIndex) {
-                                onagramLetterRepeater[MyArray.sourceDestinationLetterIndexHash.push[index]] = originalWordLetterText.text;
+                            if (index == currentOriginalWordIndex) {
+                                anagramLetterRepeater[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterText.text;
                                 MyArray.sourceDestinationLetterIndexHash.pop();
+
+                                originalWordLetterRepeater.model =
+                                    kanagramEngineHelper.removeInCurrentOriginalWord(currentOriginalWordIndex);
+                                --currentOriginalWordIndex;
                             }
                         }
                     }

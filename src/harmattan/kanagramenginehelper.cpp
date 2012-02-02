@@ -72,6 +72,13 @@ QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const Q
     return m_currentOriginalWord;
 }
 
+QStringList KanagramEngineHelper::removeInCurrentOriginalWord(int index)
+{
+    m_currentOriginalWord.replace(index, "");
+    --m_insertCounter;
+    return m_currentOriginalWord;
+}
+
 QStringList KanagramEngineHelper::anagramOriginalWord() const
 {
     QStringList originalWordLetters;
