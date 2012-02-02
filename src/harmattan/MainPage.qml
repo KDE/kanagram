@@ -22,6 +22,8 @@ import com.nokia.meego 1.0
 import com.nokia.extras 1.0
 import QtMultimediaKit 1.1
 
+import "array.js" as MyArray
+
 Page {
 
     orientationLock: PageOrientation.LockLandscape;
@@ -31,8 +33,6 @@ Page {
     property int currentOriginalWordIndex: 0;
     property color originalWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
     property int countDownTimerValue: kanagramEngineHelper.resolveTime;
-
-    var sourceDestinationLetterIndexHash = new Array();
 
     QtObject {  // status enum hackery :)
       id: anagramStatusEnumeration;
@@ -267,7 +267,7 @@ Page {
 
                                     ++currentOriginalWordIndex;
                                     anagramLetterText.text = "";
-                                    sourceDestinationLetterIndexHash.push(index);
+                                    MyArray.sourceDestinationLetterIndexHash.push(index);
                                 }
 
                                 if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
@@ -352,8 +352,8 @@ Page {
 
                         onClicked: {
                             if (index = currentOriginalWordIndex) {
-                                onagramLetterRepeater[sourceDestinationLetterIndexHash.push[index]] = originalWordLetterText.text;
-                                sourceDestinationLetterIndexHash.pop();
+                                onagramLetterRepeater[MyArray.sourceDestinationLetterIndexHash.push[index]] = originalWordLetterText.text;
+                                MyArray.sourceDestinationLetterIndexHash.pop();
                             }
                         }
                     }

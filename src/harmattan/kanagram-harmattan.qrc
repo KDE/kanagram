@@ -10,6 +10,7 @@
         <file alias="wrong.wav">../../sounds/wrong.wav</file>
 
         <file>UIConstants.js</file>
+        <file>array.js</file>
         <file>CommonDialog.qml</file>
         <file>MySelectionDialog.qml</file>
         <file>ListItem.qml</file>
