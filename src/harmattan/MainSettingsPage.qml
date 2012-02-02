@@ -59,6 +59,13 @@ Page {
         }
     }
 
+    Component.onCompleted: {
+        hintAppearanceSlider.value = kanagramEngineHelper.hintHideTime;
+        resolveTimeSlider.value = kanagramEngineHelper.resolveTime;
+        soundsSwitch.checked = kanagramEngineHelper.useSounds;
+    }
+
+
     Rectangle {
         id: settingsPageMainRectangle;
         color: "black";
@@ -113,10 +120,6 @@ Page {
                         maximumValue: 10;
                         anchors.horizontalCenter: parent.horizontalCenter;
 
-                        Component.onCompleted: {
-                            value = kanagramEngineHelper.hintHideTime;
-                        }
-
                         onValueChanged: {
                             kanagramEngineHelper.hintHideTime = value;
                         }
@@ -147,13 +150,9 @@ Page {
                         width: parent.width - 10;
                         stepSize: 15;
                         valueIndicatorVisible: true;
-                        minimumValue: 15;
+                        minimumValue: 0;
                         maximumValue: 300;
                         anchors.horizontalCenter: parent.horizontalCenter;
-
-                        Component.onCompleted: {
-                            value = kanagramEngineHelper.resolveTime;
-                        }
 
                         onValueChanged: {
                             kanagramEngineHelper.resolveTime = value;
@@ -182,10 +181,6 @@ Page {
                     Switch {
                         id: soundsSwitch;
                         anchors.right: parent.right;
-
-                        Component.onCompleted: {
-                            checked = kanagramEngineHelper.useSounds;
-                        }
 
                         onCheckedChanged: {
                             kanagramEngineHelper.useSounds = checked;

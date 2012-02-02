@@ -32,6 +32,8 @@ Page {
     property color originalWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
     property int countDownTimerValue: kanagramEngineHelper.resolveTime;
 
+    var sourceDestinationLetterIndexHash = new Array();
+
     QtObject {  // status enum hackery :)
       id: anagramStatusEnumeration;
       property int init: 1;
@@ -265,6 +267,7 @@ Page {
 
                                     ++currentOriginalWordIndex;
                                     anagramLetterText.text = "";
+                                    sourceDestinationLetterIndexHash.push(index);
                                 }
 
                                 if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
@@ -322,6 +325,7 @@ Page {
                     id: originalWordLetterRectangle;
                     color: originalWordLetterRectangleColor;
                     Text {
+                        id: originalWordLetterText;
                         text: anagramStatus == anagramStatusEnumeration.init ? "" : modelData;
                         color: "white";
 
@@ -347,7 +351,11 @@ Page {
                         hoverEnabled: true;
 
                         onClicked: {
-                       }
+                            if (index = currentOriginalWordIndex) {
+                                onagramLetterRepeater[sourceDestinationLetterIndexHash.push[index]] = originalWordLetterText.text;
+                                sourceDestinationLetterIndexHash.pop();
+                            }
+                        }
                     }
                 }
             }
