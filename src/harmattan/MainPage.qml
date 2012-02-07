@@ -213,11 +213,11 @@ Page {
         spacing: 10;
 
         LetterElement {
-            letterText: (countDownTimerValue / 60 / 10).toFixed(0);
+            letterText: Math.floor(countDownTimerValue / 60 / 10);
         }
 
         LetterElement {
-            letterText: (countDownTimerValue / 60 % 10).toFixed(0);
+            letterText: Math.floor(countDownTimerValue / 60 % 10);
         }
 
         LetterElement {
@@ -225,11 +225,11 @@ Page {
         }
 
         LetterElement {
-            letterText: (countDownTimerValue % 60 / 10).toFixed(0);
+            letterText: Math.floor(countDownTimerValue % 60 / 10);
         }
 
         LetterElement {
-            letterText: (countDownTimerValue % 60 % 10).toFixed(0);
+            letterText: Math.floor(countDownTimerValue % 60 % 10);
         }
     }
 
