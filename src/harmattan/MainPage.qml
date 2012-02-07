@@ -56,9 +56,9 @@ Page {
     }
 
     function resolveAnagram() {
-        anagramStatus = anagramStatusEnumeration.resolved;
         originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
         currentOriginalWordIndex = originalWordLetterRepeater.model.length;
+        anagramStatus = anagramStatusEnumeration.resolved;
         anagramHintInfoBanner.hide();
     }
 
@@ -69,6 +69,7 @@ Page {
         anagramLetterRepeater.model = anagram;
         originalWordLetterRepeater.model = anagram;
         currentOriginalWordIndex = 0;
+        countDownTimerValue = kanagramEngineHelper.resolveTime;
     }
 
     // Create an info banner with icon
@@ -179,10 +180,15 @@ Page {
 
         onTriggered: {
              if (--countDownTimerValue == 0) {
-                 countDownTimerValue = kanagramEngineHelper.resolveTime;
+                 stop();
+                 anagramResultTimer.start();
+                 originalWordLetterRectangleColor = "red";
+
                  resolveAnagram();
-                 repeat = false;
-                 running = false;
+
+                 if (kanagramEngineHelper.useSounds) {
+                     wrongSoundEffect.play();
+                 }
              }
         }
     }
@@ -207,11 +213,11 @@ Page {
         spacing: 10;
 
         LetterElement {
-            letterText: (countDownTimerValue / 60 / 10).toFixed(0).toString();
+            letterText: (countDownTimerValue / 60 / 10).toFixed(0);
         }
 
         LetterElement {
-            letterText: (countDownTimerValue / 60 % 10).toFixed(0).toString();
+            letterText: (countDownTimerValue / 60 % 10).toFixed(0);
         }
 
         LetterElement {
@@ -219,11 +225,11 @@ Page {
         }
 
         LetterElement {
-            letterText: (countDownTimerValue % 60 / 10).toFixed(0).toString()
+            letterText: (countDownTimerValue % 60 / 10).toFixed(0);
         }
 
         LetterElement {
-            letterText: (countDownTimerValue % 60 % 10).toFixed(0).toString()
+            letterText: (countDownTimerValue % 60 % 10).toFixed(0);
         }
     }
 
