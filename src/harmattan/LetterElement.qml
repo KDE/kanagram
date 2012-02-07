@@ -20,7 +20,6 @@
 import QtQuick 1.1
 
 Rectangle {
-    property string letterValue: "";
     property string letterText: "";
 
     color: Qt.rgba(0, 0, 0, 0);

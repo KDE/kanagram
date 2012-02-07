@@ -46,6 +46,7 @@ PageStackWindow {
                 if (pageStack.currentPage == mainSettingsPage) {
                     kanagramEngineHelper.saveSettings();
                 }
+
                 pageStack.pop();
             }
         }

@@ -43,6 +43,7 @@ Page {
 
     onStatusChanged: {
         if (status == PageStatus.Active) {
+            secondTimer.repeat = true;
             secondTimer.restart();
         }
     }
@@ -179,7 +180,7 @@ Page {
         triggeredOnStart: false;
 
         onTriggered: {
-             if (--countDownTimerValue == 0) {
+             if (kanagramEngineHelper.resolveTime != 0 && --countDownTimerValue == 0) {
                  stop();
                  anagramResultTimer.start();
                  originalWordLetterRectangleColor = "red";
@@ -210,26 +211,35 @@ Page {
     }
 
     Row {
-        spacing: 10;
+        spacing: 5;
+
+        anchors {
+            right: parent.right;
+        }
 
         LetterElement {
             letterText: Math.floor(countDownTimerValue / 60 / 10);
+            visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
         }
 
         LetterElement {
             letterText: Math.floor(countDownTimerValue / 60 % 10);
+            visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
         }
 
         LetterElement {
             letterText: ":";
+            visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
         }
 
         LetterElement {
             letterText: Math.floor(countDownTimerValue % 60 / 10);
+            visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
         }
 
         LetterElement {
             letterText: Math.floor(countDownTimerValue % 60 % 10);
+            visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
         }
     }
 
