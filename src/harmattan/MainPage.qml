@@ -324,30 +324,10 @@ Page {
             Repeater {
                 id: originalWordLetterRepeater;
                 model: anagram;
-                Rectangle {
-                    id: originalWordLetterRectangle;
+                LetterElement {
+                    id: originalWordLetterId;
                     color: originalWordLetterRectangleColor;
-                    Text {
-                        id: originalWordLetterText;
-                        text: anagramStatus == anagramStatusEnumeration.init ? "" : modelData;
-                        color: "white";
-
-                        font {
-                            pixelSize: 40;
-                            bold: true;
-                            capitalization: Font.AllUppercase;
-                        }
-
-                        anchors {
-                            horizontalCenter: parent.horizontalCenter;
-                            verticalCenter: parent.verticalCenter;
-                        }
-                    }
-
-                    width: 48;
-                    height: 48;
-                    border.color: "white";
-                    border.width: 2;
+                    letterText: anagramStatus == anagramStatusEnumeration.init ? "" : modelData;
 
                     MouseArea {
                         anchors.fill: parent;
@@ -355,7 +335,7 @@ Page {
 
                         onClicked: {
                             if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0) {
-                                anagramLetterRepeater.model[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterText.text;
+                                anagramLetterRepeater.model[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterId.letterText;
                                 MyArray.sourceDestinationLetterIndexHash.pop();
 
                                 originalWordLetterRepeater.model = kanagramEngineHelper.removeInCurrentOriginalWord(index);
