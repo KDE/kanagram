@@ -203,6 +203,56 @@ Page {
         }
     }
 
+    ListModel {
+        id: remainingTimeModel;
+
+        Component.onCompleted: {
+            remainingTimeModel.append({"remainingTimeElementRole": (countDownTimerValue / 60 / 10).toFixed(0).toString()});
+            remainingTimeModel.append({"remainingTimeElementRole": (countDownTimerValue / 60 % 10).toString()});
+            remainingTimeModel.append({"remainingTimeElementRole": ":"});
+            remainingTimeModel.append({"remainingTimeElementRole": (countDownTimerValue % 60 / 10).toFixed(0).toString()});
+            remainingTimeModel.append({"remainingTimeElementRole": (countDownTimerValue / 60 % 10).toString()});
+        }
+    }
+
+    Component {
+        id: remainingTimeDelegate;
+        Rectangle {
+            id: remainingTimeRectangle;
+            color: Qt.rgba(0, 0, 0, 0);
+            Text {
+                id: remainigTimeText;
+                text: remainingTimeElementRole;
+                color: "white";
+
+                font {
+                    pixelSize: 40;
+                    bold: true;
+                    capitalization: Font.AllUppercase;
+                }
+
+                anchors {
+                    horizontalCenter: parent.horizontalCenter;
+                    verticalCenter: parent.verticalCenter;
+                }
+            }
+
+            width: 48;
+            height: 48;
+            border.color: "white";
+            border.width: 2;
+        }
+    }
+
+    Row {
+        spacing: 10;
+        Repeater {
+            id: remainingTimeRepeater;
+            model: remainingTimeModel;
+            delegate: remainingTimeDelegate;
+        }
+    }
+
     Column {
         anchors {
             horizontalCenter: parent.horizontalCenter;
