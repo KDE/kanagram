@@ -203,53 +203,27 @@ Page {
         }
     }
 
-    ListModel {
-        id: remainingTimeModel;
-
-        Component.onCompleted: {
-            remainingTimeModel.append({"remainingTimeElementRole": (countDownTimerValue / 60 / 10).toFixed(0).toString()});
-            remainingTimeModel.append({"remainingTimeElementRole": (countDownTimerValue / 60 % 10).toString()});
-            remainingTimeModel.append({"remainingTimeElementRole": ":"});
-            remainingTimeModel.append({"remainingTimeElementRole": (countDownTimerValue % 60 / 10).toFixed(0).toString()});
-            remainingTimeModel.append({"remainingTimeElementRole": (countDownTimerValue / 60 % 10).toString()});
-        }
-    }
-
-    Component {
-        id: remainingTimeDelegate;
-        Rectangle {
-            id: remainingTimeRectangle;
-            color: Qt.rgba(0, 0, 0, 0);
-            Text {
-                id: remainigTimeText;
-                text: remainingTimeElementRole;
-                color: "white";
-
-                font {
-                    pixelSize: 40;
-                    bold: true;
-                    capitalization: Font.AllUppercase;
-                }
-
-                anchors {
-                    horizontalCenter: parent.horizontalCenter;
-                    verticalCenter: parent.verticalCenter;
-                }
-            }
-
-            width: 48;
-            height: 48;
-            border.color: "white";
-            border.width: 2;
-        }
-    }
-
     Row {
         spacing: 10;
-        Repeater {
-            id: remainingTimeRepeater;
-            model: remainingTimeModel;
-            delegate: remainingTimeDelegate;
+
+        LetterElement {
+            letterText: (countDownTimerValue / 60 / 10).toFixed(0).toString();
+        }
+
+        LetterElement {
+            letterText: (countDownTimerValue / 60 % 10).toFixed(0).toString();
+        }
+
+        LetterElement {
+            letterText: ":";
+        }
+
+        LetterElement {
+            letterText: (countDownTimerValue % 60 / 10).toFixed(0).toString()
+        }
+
+        LetterElement {
+            letterText: (countDownTimerValue % 60 % 10).toFixed(0).toString()
         }
     }
 
@@ -270,53 +244,32 @@ Page {
             Repeater {
                 id: anagramLetterRepeater;
                 model: anagram;
-                Rectangle {
-                    id: anagramLetterRectangle;
-                    color: Qt.rgba(0, 0, 0, 0);
-                    Text {
-                        id: anagramLetterText;
-                        text: modelData;
-                        color: "white";
-
-                        font {
-                            pixelSize: 40;
-                            bold: true;
-                            capitalization: Font.AllUppercase;
-                        }
-
-                        anchors {
-                            horizontalCenter: parent.horizontalCenter;
-                            verticalCenter: parent.verticalCenter;
-                        }
-                    }
-
-                    width: 48;
-                    height: 48;
-                    border.color: "white";
-                    border.width: 2;
+                LetterElement {
+                    id: anagramLetterId;
+                    letterText: modelData;
 
                     MouseArea {
                         anchors.fill: parent;
                         hoverEnabled: true;
 
-                        // drag.target: anagramLetterRectangle;
+                        // drag.target: parent;
                         // drag.axis: Drag.XandYAxis;
                         // drag.minimumX: 0;
-                        // drag.maximumX: mainPage.width - anagramLetterRectangle.width;
+                        // drag.maximumX: mainPage.width - parent.width;
                         // drag.minimumY: 0;
 
                         onClicked: {
                             if (anagramStatus != anagramStatusEnumeration.resolved)
                             {
-                                if (anagramLetterText.text != "")
+                                if (anagramLetterId.letterText != "")
                                 {
                                     anagramStatus = anagramStatusEnumeration.active;
 
                                     originalWordLetterRepeater.model =
-                                        kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterText.text);
+                                        kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterId.letterText);
 
                                     ++currentOriginalWordIndex;
-                                    anagramLetterText.text = "";
+                                    anagramLetterId.letterText = "";
                                     MyArray.sourceDestinationLetterIndexHash.push(index);
                                 }
 
