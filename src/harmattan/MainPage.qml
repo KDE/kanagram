@@ -285,7 +285,11 @@ Page {
                                         kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterId.letterText);
 
                                     ++currentOriginalWordIndex;
-                                    anagramLetterId.letterText = "";
+
+                                    var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
+                                    tmpAnagramLetterRepeaterModel[[index]] = "";
+                                    anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
+
                                     MyArray.sourceDestinationLetterIndexHash.push(index);
                                 }
 
@@ -351,7 +355,11 @@ Page {
 
                         onClicked: {
                             if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0) {
-                                anagramLetterRepeater.model[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterId.letterText;
+
+                                var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
+                                tmpAnagramLetterRepeaterModel[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterId.letterText;
+                                anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
+
                                 MyArray.sourceDestinationLetterIndexHash.pop();
 
                                 originalWordLetterRepeater.model = kanagramEngineHelper.removeInCurrentOriginalWord(index);
