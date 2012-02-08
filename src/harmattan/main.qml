@@ -58,9 +58,13 @@ PageStackWindow {
     }
 
     platformStyle: PageStackWindowStyle {
-        background: "kanagram-chalkboard-landscape.png";
-        landscapeBackground: "kanagram-chalkboard-landscape.png";
-        portraitBackground: "kanagram-chalkboard-portrait.png";
+        // Note: It is needed for being backward compatible with PR1.0 where
+        // "foobar.png" does not work as expected. It was fixed in later
+        // versions though, but the Nokia Ovi Store requires backward
+        // compatibility with PR1.0
+        background: "qrc:/kanagram-chalkboard-landscape.png";
+        landscapeBackground: "qrc:/kanagram-chalkboard-landscape.png";
+        portraitBackground: "qrc:/kanagram-chalkboard-portrait.png";
         backgroundFillMode: Image.Tile;
     }
 }
