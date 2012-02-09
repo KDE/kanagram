@@ -39,7 +39,7 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
     Q_OBJECT
     public:
         /** Default constructor */
-        explicit KanagramGame();
+        KanagramGame();
 
         /** Default destructor */
         ~KanagramGame();
@@ -62,7 +62,7 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         /** Get the list of vocabularies */
         Q_INVOKABLE QStringList vocabularyList() const;
 
-    public slots:
+    public Q_SLOTS:
 
         /** Set the vocabulary to use according to the vocabulary name */
         void useVocabulary(const QString &vocabularyname);
@@ -91,7 +91,7 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         /** Restore the word, set the anagram to the answer */
         void restoreWord();
 
-    signals:
+    Q_SIGNALS:
 
         /** Signal the ui that a there's a file error of some kind */
         void fileError(const QString &filename);
