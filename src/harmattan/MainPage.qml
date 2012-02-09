@@ -103,7 +103,7 @@ Page {
         visible: false;
 
         ToolIcon {
-            iconSource: "games-hint.png";
+            iconSource: "help-hint.png";
 
             onClicked: {
                 anagramHintInfoBanner.text = kanagramGame.hint();
@@ -140,7 +140,7 @@ Page {
         }
 
         ToolIcon {
-            iconId: "toolbar-settings";
+            iconSource: "settings";
 
             onClicked: {
                 anagramHintInfoBanner.hide();
