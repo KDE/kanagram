@@ -21,6 +21,7 @@ import QtQuick 1.1
 
 Rectangle {
     property string letterText: "";
+    property int letterPixelSize: 40;
 
     color: Qt.rgba(0, 0, 0, 0);
     width: 48;
@@ -35,7 +36,7 @@ Rectangle {
         color: "white";
 
         font {
-            pixelSize: 40;
+            pixelSize: letterPixelSize;
             bold: true;
             capitalization: Font.AllUppercase;
         }
