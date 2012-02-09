@@ -126,7 +126,7 @@ Page {
         }
 
         ToolIcon {
-            iconId: "toolbar-tab-next";
+            iconSource: "go-next";
 
             onClicked: {
                 if (kanagramEngineHelper.useSounds) {
