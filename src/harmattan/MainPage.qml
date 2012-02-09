@@ -71,6 +71,7 @@ Page {
         originalWordLetterRepeater.model = anagram;
         currentOriginalWordIndex = 0;
         countDownTimerValue = kanagramEngineHelper.resolveTime;
+        MyArray.sourceDestinationLetterIndexHash = [];
     }
 
     // Create an info banner with icon
