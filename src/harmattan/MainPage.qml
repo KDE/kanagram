@@ -126,7 +126,7 @@ Page {
         }
 
         ToolIcon {
-            iconSource: "go-next";
+            iconSource: "go-next.png";
 
             onClicked: {
                 if (kanagramEngineHelper.useSounds) {
