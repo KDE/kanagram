@@ -140,7 +140,7 @@ Page {
         }
 
         ToolIcon {
-            iconSource: "settings";
+            iconSource: "settings.png";
 
             onClicked: {
                 anagramHintInfoBanner.hide();
