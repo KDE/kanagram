@@ -72,7 +72,6 @@ class KanagramEngineHelper : public QObject
         void dataLanguageChanged();
 
 	private:
-
         KanagramGame *m_kanagramGame;
         QStringList m_currentOriginalWord;
         int m_insertCounter;

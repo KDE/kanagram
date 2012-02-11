@@ -96,6 +96,10 @@ QStringList KanagramEngineHelper::anagramOriginalWord() const
 QStringList KanagramEngineHelper::languageNames() const
 {
     QStringList languageCodes = SharedKvtmlFiles::languages();
+    if (languageCodes.isEmpty()) {
+        QApplication::instance()->quit();
+    }
+
     QStringList languageNames;
 
     // Get the language names from the language codes
