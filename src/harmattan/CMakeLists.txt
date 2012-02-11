@@ -17,22 +17,7 @@ QT4_ADD_RESOURCES(KANAGRAM-HARMATTAN_RCC_SRCS
     kanagram-harmattan.qrc
 )
 
-if(APPLE)
-    add_executable(kanagram-harmattan MACOSX_BUNDLE ${harmattan_SRCS})
-    #MACOSX_BUNDLE_INFO_STRING
-    #MACOSX_BUNDLE_ICON_FILE
-    #MACOSX_BUNDLE_GUI_IDENTIFIER
-    set(MACOSX_BUNDLE_LONG_VERSION_STRING ${KANAGRAM_VERSION_STRING})
-    set(MACOSX_BUNDLE_BUNDLE_NAME GluonPlayer)
-    set(MACOSX_BUNDLE_SHORT_VERSION_STRING ${KANAGRAM_VERSION_STRING})
-    set(MACOSX_BUNDLE_BUNDLE_VERSION ${KANAGRAM_VERSION_STRING})
-    #MACOSX_BUNDLE_COPYRIGHT
-
-set_target_properties(kanagram-harmattan PROPERTIES OUTPUT_NAME KanagramHarmattan)
-
-else()
-    kde4_add_executable(kanagram-harmattan ${kanagram-harmattan_SRCS} ${KANAGRAM-HARMATTAN_RCC_SRCS})
-endif()
+kde4_add_executable(kanagram-harmattan ${kanagram-harmattan_SRCS} ${KANAGRAM-HARMATTAN_RCC_SRCS})
 
 target_link_libraries(kanagram-harmattan
     ${QT_QTDECLARATIVE_LIBRARY}
@@ -42,27 +27,23 @@ target_link_libraries(kanagram-harmattan
     ${KDE4_KDECORE_LIBS}
 )
 
-if(NOT APPLE)
-    install(TARGETS kanagram-harmattan
-            DESTINATION ${BIN_INSTALL_DIR}
-            COMPONENT kanagramharmattan)
+install(TARGETS kanagram-harmattan
+        DESTINATION ${BIN_INSTALL_DIR}
+        COMPONENT kanagramharmattan)
 
-    install(FILES kanagram.sh
-            DESTINATION ${BIN_INSTALL_DIR}
-            COMPONENT kanagramharmattan)
+install(FILES kanagram.sh
+        DESTINATION ${BIN_INSTALL_DIR}
+        COMPONENT kanagramharmattan)
 
-    install(FILES kanagram-harmattan.desktop
-            DESTINATION ${SHARE_INSTALL_DIR}/applications
-            COMPONENT kanagramharmattan)
+install(FILES kanagram-harmattan.desktop
+        DESTINATION ${SHARE_INSTALL_DIR}/applications
+        COMPONENT kanagramharmattan)
 
-    install(FILES kanagram.conf
-            DESTINATION ${SHARE_INSTALL_DIR}/policy/etc/pulse/xpolicy.conf.d
-            COMPONENT kanagramharmattan)
-    
-    if(NOT KANAGRAM_ICONS_INSTALLED)
-        add_subdirectory(../../icons icons)
-        set(KANAGRAM_ICONS_INSTALLED TRUE)
-    endif()
+install(FILES kanagram.conf
+        DESTINATION ${SHARE_INSTALL_DIR}/policy/etc/pulse/xpolicy.conf.d
+        COMPONENT kanagramharmattan)
 
+if(NOT KANAGRAM_ICONS_INSTALLED)
+    add_subdirectory(../../icons icons)
+    set(KANAGRAM_ICONS_INSTALLED TRUE)
 endif()
-

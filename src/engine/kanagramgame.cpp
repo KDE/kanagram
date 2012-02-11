@@ -22,7 +22,7 @@
 
 #include "kanagramgame.h"
 
-#include <QtCore/QFileInfo>
+#include "kanagramsettings.h"
 
 #include <kurl.h>
 #include <kstandarddirs.h>
@@ -32,8 +32,7 @@
 #include <keduvocdocument.h>
 #include <keduvocexpression.h>
 
-#include "kanagramsettings.h"
-
+#include <QtCore/QFileInfo>
 
 KanagramGame::KanagramGame() : m_index(0), m_document(NULL)
 {
