@@ -254,6 +254,56 @@ Page {
         }
 
         spacing: 20;
+
+        Row {
+            id: originalWordRow;
+            anchors {
+                horizontalCenter: parent.horizontalCenter;
+            }
+
+            spacing: 10;
+            Repeater {
+                id: originalWordLetterRepeater;
+                model: anagram;
+                LetterElement {
+                    id: originalWordLetterId;
+                    color: originalWordLetterRectangleColor;
+                    letterText: anagramStatus == anagramStatusEnumeration.init ? "" : modelData;
+
+                    MouseArea {
+                        anchors.fill: parent;
+                        hoverEnabled: true;
+
+                        onClicked: {
+                            if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0) {
+
+                                var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
+                                tmpAnagramLetterRepeaterModel[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterId.letterText;
+                                anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
+
+                                MyArray.sourceDestinationLetterIndexHash.pop();
+
+                                originalWordLetterRepeater.model = kanagramEngineHelper.removeInCurrentOriginalWord(index);
+                                --currentOriginalWordIndex;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        Button {
+            text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
+
+            anchors {
+                horizontalCenter: parent.horizontalCenter;
+            }
+
+            onClicked: {
+                categorySelectionDialog.open();
+            }
+        }
+
         Row {
             id: anagramRow;
             anchors {
@@ -321,55 +371,6 @@ Page {
                                 }
                             }
                        }
-                    }
-                }
-            }
-        }
-
-        Button {
-            text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
-
-            anchors {
-                horizontalCenter: parent.horizontalCenter;
-            }
-
-            onClicked: {
-                categorySelectionDialog.open();
-            }
-        }
-
-        Row {
-            id: originalWordRow;
-            anchors {
-                horizontalCenter: parent.horizontalCenter;
-            }
-
-            spacing: 10;
-            Repeater {
-                id: originalWordLetterRepeater;
-                model: anagram;
-                LetterElement {
-                    id: originalWordLetterId;
-                    color: originalWordLetterRectangleColor;
-                    letterText: anagramStatus == anagramStatusEnumeration.init ? "" : modelData;
-
-                    MouseArea {
-                        anchors.fill: parent;
-                        hoverEnabled: true;
-
-                        onClicked: {
-                            if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0) {
-
-                                var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
-                                tmpAnagramLetterRepeaterModel[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterId.letterText;
-                                anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
-
-                                MyArray.sourceDestinationLetterIndexHash.pop();
-
-                                originalWordLetterRepeater.model = kanagramEngineHelper.removeInCurrentOriginalWord(index);
-                                --currentOriginalWordIndex;
-                            }
-                        }
                     }
                 }
             }
