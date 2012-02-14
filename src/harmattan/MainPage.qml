@@ -48,6 +48,18 @@ Page {
         }
     }
 
+    onActiveChanged: {
+        if (platformWindow.active) {
+            secondTimer.repeat = true;
+            secondTimer.restart();
+        } else {
+            anagramHintInfoBanner.hide();
+
+            secondTimer.repeat = false;
+            secondTimer.stop();
+        }
+    }
+
     function pushPage(file) {
         var component = Qt.createComponent(file)
         if (component.status == Component.Ready)
