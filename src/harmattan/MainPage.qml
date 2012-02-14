@@ -48,15 +48,19 @@ Page {
         }
     }
 
-    onActiveChanged: {
-        if (platformWindow.active) {
-            secondTimer.repeat = true;
-            secondTimer.restart();
-        } else {
-            anagramHintInfoBanner.hide();
+    Connections {
+        target: platformWindow;
 
-            secondTimer.repeat = false;
-            secondTimer.stop();
+        onActiveChanged: {
+            if (platformWindow.active) {
+                secondTimer.repeat = true;
+                secondTimer.restart();
+            } else {
+                anagramHintInfoBanner.hide();
+
+                secondTimer.repeat = false;
+                secondTimer.stop();
+            }
         }
     }
 
