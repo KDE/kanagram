@@ -320,6 +320,14 @@ Page {
             }
         }
 
+        Image {
+            id: chalk-separator;
+            width: parent.width;
+            height: 5;
+            fillMode: Image.PreserveAspectFit;
+            source: "chalk-separator.png";
+        }
+
         Row {
             id: anagramRow;
             anchors {
