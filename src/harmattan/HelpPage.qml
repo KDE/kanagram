@@ -31,5 +31,18 @@ Page {
             console.log("Error loading component:", component.errorString());
     }
 
+    Rectangle {
+        id: helpPageMainRectangle;
+        color: "black";
+        anchors.fill: parent;
+
+        Flickable {
+            width: parent.width;
+            height: parent.height;
+            // contentWidth: settingsPageMainColumn.width;
+            // contentHeight: settingsPageMainColumn.height;
+        }
+    }
+
     tools: commonTools;
 }

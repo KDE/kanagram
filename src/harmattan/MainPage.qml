@@ -23,71 +23,86 @@ import com.nokia.extras 1.0
 
 Page {
 
-    Column {
-        id: mainPageColumn;
-        anchors {
-            fill: parent;
-            margins: 5;
-        }
+    Rectangle {
+        id: mainPageMainRectangle;
+        color: "black";
+        anchors.fill: parent;
 
-        spacing: 20;
-
-        Button {
+        Flickable {
             width: parent.width;
-            anchors {
-                horizontalCenter; parent.horizontalCenter;
-            }
+            height: parent.height;
+            contentWidth: mainPageColumn.width;
+            contentHeight: mainPageColumn.height;
 
-            text: qsTr("Play Game");
-            font.pixelSize: 48;
-
-            MouseArea {
-                anchors.fill: parent;
-                hoverEnabled: true;
-
-                onClicked: {
-                    chalkSoundEffect.play();
-                    pageStack.push(gamePage);
+            Column {
+                id: mainPageColumn;
+                anchors {
+                    fill: parent;
+                    margins: 5;
                 }
-            }
-        }
 
-        Button {
-            width: parent.width;
-            anchors {
-                horizontalCenter; parent.horizontalCenter;
-            }
+                spacing: 20;
 
-            text: qsTr("Settings");
-            font.pixelSize: 48;
-
-            MouseArea {
-                anchors.fill: parent;
-                hoverEnabled: true;
-
-                onClicked: {
-                    chalkSoundEffect.play();
-                    pageStack.push(mainSettingsPage);
+                Image {
+                    id: kdeEduLogo;
+                    width: parent.width;
+                    fillMode: Image.PreserveAspectFit;
+                    source: "kde-edu-logo.png";
                 }
-            }
-        }
 
-        Button {
-            width: parent.width;
-            anchors {
-                horizontalCenter; parent.horizontalCenter;
-            }
+                Button {
+                    width: parent.width;
+                    anchors {
+                        horizontalCenter; parent.horizontalCenter;
+                    }
 
-            text: qsTr("Help");
-            font.pixelSize: 48;
+                    text: qsTr("Play Game");
+                    font.pixelSize: 48;
 
-            MouseArea {
-                anchors.fill: parent;
-                hoverEnabled: true;
+                    platformStyle: ButtonStyle {
+                        fontPixelSize: 48;
+                        fontWeight: Font.Bold;
+                        horizontalAlignment: Text.AlignHCenter;
+                        textColor: "white";
+                        pressedTextColor: "blue";
+                        disabledTextColor: "gray";
+                        checkedTextColor: "blue";
+                    }
 
-                onClicked: {
-                    chalkSoundEffect.play();
-                    pageStack.push(helpPage);
+                    onClicked: {
+                        chalkSoundEffect.play();
+                        pageStack.push(gamePage);
+                    }
+                }
+
+                Button {
+                    width: parent.width;
+                    anchors {
+                        horizontalCenter; parent.horizontalCenter;
+                    }
+
+                    text: qsTr("Settings");
+                    font.pixelSize: 48;
+
+                    onClicked: {
+                        chalkSoundEffect.play();
+                        pageStack.push(mainSettingsPage);
+                    }
+                }
+
+                Button {
+                    width: parent.width;
+                    anchors {
+                        horizontalCenter; parent.horizontalCenter;
+                    }
+
+                    text: qsTr("Help");
+                    font.pixelSize: 48;
+
+                    onClicked: {
+                        chalkSoundEffect.play();
+                        pageStack.push(helpPage);
+                    }
                 }
             }
         }
