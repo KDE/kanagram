@@ -20,7 +20,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import com.nokia.extras 1.0
-import QtMultimediaKit 1.1
 
 import "array.js" as MyArray
 
@@ -31,7 +30,7 @@ Page {
     property variant anagram: kanagramEngineHelper.createNextAnagram();
     property int anagramStatus: anagramStatusEnumeration.init;
     property int currentOriginalWordIndex: 0;
-    property color originalWordLetterButtonBackgroundr: "image://theme/basement/meegotouch-button-inverted-background";
+    property string originalWordLetterButtonBackground: "image://theme/meegotouch-button-inverted-background";
     property int countDownTimerValue: kanagramEngineHelper.resolveTime;
 
     QtObject {  // status enum hackery :)
@@ -213,7 +212,7 @@ Page {
                  stop();
                  anagramResultTimer.start();
                  originalWordLetterButtonBackground =
-                     "image://theme/basement/meegotouch-button-negative-background";
+                     "image://theme/meegotouch-button-negative-background";
 
                  resolveAnagram();
 
@@ -233,7 +232,7 @@ Page {
 
         onTriggered: {
             originalWordLetterButtonBackground =
-                "image://theme/basement/meegotouch-button-inverted-background";
+                "image://theme/meegotouch-button-inverted-background";
             nextAnagram();
 
             secondTimer.repeat = true;
@@ -302,17 +301,16 @@ Page {
                     platformStyle: ButtonStyle {
                         background: originalWordLetterButtonBackground;
                         fontFamily: "Arial";
-                        fontPixelSize: 40;
+                        fontPixelSize: 48;
                         fontCapitalization: Font.AllUppercase;
                         fontWeight: Font.Bold;
                         horizontalAlignment: Text.AlignHCenter;
-                        verticalAlignment: Text.AlignVCenter;
                         textColor: "white";
                         pressedTextColor: "pink";
                         disabledTextColor: "gray";
                         checkedTextColor: "blue";
-                        buttonWidth: 48;
-                        buttonHeight: 48;
+                        buttonWidth: 54;
+                        buttonHeight: 54;
                     }
 
                     onClicked: {
@@ -333,7 +331,7 @@ Page {
         }
 
         Image {
-            id: chalk-separator;
+            id: chalkSeparator;
             width: parent.width;
             height: 5;
             fillMode: Image.PreserveAspectFit;
@@ -391,7 +389,7 @@ Page {
                                     if (kanagramEngineHelper.compareWords() == true)
                                     {
                                         originalWordLetterButtonBackground =
-                                            "image://theme/basement/meegotouch-button-positive-background";
+                                            "image://theme/meegotouch-button-positive-background";
 
                                         if (kanagramEngineHelper.useSounds) {
                                             rightSoundEffect.play();
@@ -399,8 +397,8 @@ Page {
                                     }
                                     else
                                     {
-                                        originalWordLetterRectangleColor =
-                                            "image://theme/basement/meegotouch-button-negative-background";
+                                        originalWordLetterButtonBackground =
+                                            "image://theme/meegotouch-button-negative-background";
 
                                         if (kanagramEngineHelper.useSounds) {
                                             wrongSoundEffect.play();

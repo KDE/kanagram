@@ -25,8 +25,8 @@ Page {
 
     Column {
         id: mainPageColumn;
-        width: settingsPageMainRectangle.width;
         anchors {
+            fill: parent;
             margins: 5;
         }
 
