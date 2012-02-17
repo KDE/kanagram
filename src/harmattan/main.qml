@@ -31,6 +31,14 @@ PageStackWindow {
         id: mainPage;
     }
 
+    HelpPage {
+        id: helpPage;
+    }
+
+    GamePage {
+        id: gamePage;
+    }
+
     MainSettingsPage {
         id: mainSettingsPage;
     }
@@ -66,5 +74,20 @@ PageStackWindow {
         landscapeBackground: "qrc:/kanagram-chalkboard-landscape.png";
         portraitBackground: "qrc:/kanagram-chalkboard-portrait.png";
         backgroundFillMode: Image.Tile;
+    }
+
+    SoundEffect {
+        id: chalkSoundEffect;
+        source: "chalk.wav";
+    }
+
+    SoundEffect {
+        id: rightSoundEffect;
+        source: "right.wav";
+    }
+
+    SoundEffect {
+        id: wrongSoundEffect;
+        source: "wrong.wav";
     }
 }

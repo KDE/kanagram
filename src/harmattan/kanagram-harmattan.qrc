@@ -3,6 +3,8 @@
 
         <file>main.qml</file>
         <file>MainPage.qml</file>
+        <file>HelpPage.qml</file>
+        <file>GamePage.qml</file>
         <file>MainSettingsPage.qml</file>
 
         <file alias="chalk.wav">../../sounds/chalk.wav</file>

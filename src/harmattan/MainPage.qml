@@ -20,374 +20,74 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import com.nokia.extras 1.0
-import QtMultimediaKit 1.1
-
-import "array.js" as MyArray
 
 Page {
 
-    orientationLock: PageOrientation.LockLandscape;
-
-    property variant anagram: kanagramEngineHelper.createNextAnagram();
-    property int anagramStatus: anagramStatusEnumeration.init;
-    property int currentOriginalWordIndex: 0;
-    property color originalWordLetterRectangleColor: Qt.rgba(0, 0, 0, 0);
-    property int countDownTimerValue: kanagramEngineHelper.resolveTime;
-
-    QtObject {  // status enum hackery :)
-      id: anagramStatusEnumeration;
-      property int init: 1;
-      property int active: 2;
-      property int resolved: 3;
-    }
-
-    onStatusChanged: {
-        if (status == PageStatus.Active) {
-            secondTimer.repeat = true;
-            secondTimer.restart();
-        }
-    }
-
-    Connections {
-        target: platformWindow;
-
-        onActiveChanged: {
-            if (platformWindow.active) {
-                secondTimer.repeat = true;
-                secondTimer.restart();
-            } else {
-                anagramHintInfoBanner.hide();
-
-                secondTimer.repeat = false;
-                secondTimer.stop();
-            }
-        }
-    }
-
-    function pushPage(file) {
-        var component = Qt.createComponent(file)
-        if (component.status == Component.Ready)
-            pageStack.push(component);
-        else
-            console.log("Error loading component:", component.errorString());
-    }
-
-    function resolveAnagram() {
-        originalWordLetterRepeater.model = kanagramEngineHelper.anagramOriginalWord();
-        currentOriginalWordIndex = originalWordLetterRepeater.model.length;
-        anagramStatus = anagramStatusEnumeration.resolved;
-        anagramHintInfoBanner.hide();
-    }
-
-    function nextAnagram() {
-        anagramHintInfoBanner.hide();
-        anagramStatus = anagramStatusEnumeration.init;
-        anagram = kanagramEngineHelper.createNextAnagram();
-        anagramLetterRepeater.model = anagram;
-        originalWordLetterRepeater.model = anagram;
-        currentOriginalWordIndex = 0;
-        countDownTimerValue = kanagramEngineHelper.resolveTime;
-        MyArray.sourceDestinationLetterIndexHash = [];
-    }
-
-    // Create an info banner with icon
-    InfoBanner {
-        id: anagramHintInfoBanner;
-        text: qsTr("This is an info banner with icon");
-        iconSource: "dialog-information.png";
-    }
-
-    SoundEffect {
-        id: chalkSoundEffect;
-        source: "chalk.wav";
-    }
-
-    SoundEffect {
-        id: rightSoundEffect;
-        source: "right.wav";
-    }
-
-    SoundEffect {
-        id: wrongSoundEffect;
-        source: "wrong.wav";
-    }
-
-    // These tools are available for the main page by assigning the
-    // id to the main page's tools property
-    ToolBarLayout {
-        id: mainPageTools;
-        visible: false;
-
-        ToolIcon {
-            iconSource: "help-hint.png";
-
-            onClicked: {
-                anagramHintInfoBanner.text = kanagramGame.hint();
-                anagramHintInfoBanner.timerShowTime = kanagramEngineHelper.hintHideTime * 1000;
-
-                // Display the info banner
-                anagramHintInfoBanner.show();
-            }
-        }
-
-        ToolIcon {
-            iconSource: "games-solve.png";
-
-            onClicked: {
-                resolveAnagram();
-
-                secondTimer.repeat = false;
-                secondTimer.stop();
-            }
-        }
-
-        ToolIcon {
-            iconSource: "go-next.png";
-
-            onClicked: {
-                if (kanagramEngineHelper.useSounds) {
-                    chalkSoundEffect.play();
-                }
-
-                nextAnagram();
-                secondTimer.repeat = true;
-                secondTimer.restart();
-            }
-        }
-
-        ToolIcon {
-            iconSource: "settings.png";
-
-            onClicked: {
-                anagramHintInfoBanner.hide();
-                pageStack.push(mainSettingsPage);
-
-                secondTimer.repeat = false;
-                secondTimer.stop();
-            }
-        }
-    }
-
-    tools: mainPageTools;
-
-    // Create a selection dialog with the vocabulary titles to choose from.
-    MySelectionDialog {
-        id: categorySelectionDialog;
-        titleText: "Choose an anagram category"
-        selectedIndex: 1;
-
-        model: kanagramGame.vocabularyList();
-
-        onSelectedIndexChanged: {
-
-            if (kanagramEngineHelper.useSounds) {
-                chalkSoundEffect.play();
-            }
-
-            kanagramGame.useVocabulary(selectedIndex);
-            nextAnagram();
-        }
-    }
-
-    Timer {
-        id: secondTimer;
-        interval: 1000;
-        repeat: true;
-        running: false;
-        triggeredOnStart: false;
-
-        onTriggered: {
-             if (kanagramEngineHelper.resolveTime != 0 && --countDownTimerValue == 0) {
-                 stop();
-                 anagramResultTimer.start();
-                 originalWordLetterRectangleColor = "red";
-
-                 resolveAnagram();
-
-                 if (kanagramEngineHelper.useSounds) {
-                     wrongSoundEffect.play();
-                 }
-             }
-        }
-    }
-
-    Timer {
-        id: anagramResultTimer;
-        interval: 1000;
-        repeat: false;
-        running: false;
-        triggeredOnStart: false;
-
-        onTriggered: {
-            originalWordLetterRectangleColor = Qt.rgba(0, 0, 0, 0);
-            nextAnagram();
-
-            secondTimer.repeat = true;
-            secondTimer.start();
-        }
-    }
-
-    Row {
-        spacing: 5;
-
-        anchors {
-            right: parent.right;
-            top: parent.top;
-            topMargin: 5;
-            rightMargin: 5;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue / 60 / 10);
-            visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue / 60 % 10);
-            visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: ":";
-            visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue % 60 / 10);
-            visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
-        }
-
-        LetterElement {
-            letterText: Math.floor(countDownTimerValue % 60 % 10);
-            visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
-        }
-    }
-
     Column {
+        id: mainPageColumn;
+        width: settingsPageMainRectangle.width;
         anchors {
-            horizontalCenter: parent.horizontalCenter;
-            verticalCenter: parent.verticalCenter;
+            margins: 5;
         }
 
         spacing: 20;
 
-        Row {
-            id: originalWordRow;
+        Button {
+            width: parent.width;
             anchors {
-                horizontalCenter: parent.horizontalCenter;
+                horizontalCenter; parent.horizontalCenter;
             }
 
-            spacing: 10;
-            Repeater {
-                id: originalWordLetterRepeater;
-                model: anagram;
-                LetterElement {
-                    id: originalWordLetterId;
-                    color: originalWordLetterRectangleColor;
-                    letterText: anagramStatus == anagramStatusEnumeration.init ? "" : modelData;
+            text: qsTr("Play Game");
+            font.pixelSize: 48;
 
-                    MouseArea {
-                        anchors.fill: parent;
-                        hoverEnabled: true;
+            MouseArea {
+                anchors.fill: parent;
+                hoverEnabled: true;
 
-                        onClicked: {
-                            if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0) {
-
-                                var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
-                                tmpAnagramLetterRepeaterModel[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterId.letterText;
-                                anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
-
-                                MyArray.sourceDestinationLetterIndexHash.pop();
-
-                                originalWordLetterRepeater.model = kanagramEngineHelper.removeInCurrentOriginalWord(index);
-                                --currentOriginalWordIndex;
-                            }
-                        }
-                    }
+                onClicked: {
+                    chalkSoundEffect.play();
+                    pageStack.push(gamePage);
                 }
             }
         }
 
         Button {
-            text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
-
+            width: parent.width;
             anchors {
-                horizontalCenter: parent.horizontalCenter;
+                horizontalCenter; parent.horizontalCenter;
             }
 
-            onClicked: {
-                categorySelectionDialog.open();
+            text: qsTr("Settings");
+            font.pixelSize: 48;
+
+            MouseArea {
+                anchors.fill: parent;
+                hoverEnabled: true;
+
+                onClicked: {
+                    chalkSoundEffect.play();
+                    pageStack.push(mainSettingsPage);
+                }
             }
         }
 
-        Row {
-            id: anagramRow;
+        Button {
+            width: parent.width;
             anchors {
-                horizontalCenter: parent.horizontalCenter;
+                horizontalCenter; parent.horizontalCenter;
             }
 
-            spacing: 10;
-            Repeater {
-                id: anagramLetterRepeater;
-                model: anagram;
-                LetterElement {
-                    id: anagramLetterId;
-                    letterText: modelData;
+            text: qsTr("Help");
+            font.pixelSize: 48;
 
-                    MouseArea {
-                        anchors.fill: parent;
-                        hoverEnabled: true;
+            MouseArea {
+                anchors.fill: parent;
+                hoverEnabled: true;
 
-                        // drag.target: parent;
-                        // drag.axis: Drag.XandYAxis;
-                        // drag.minimumX: 0;
-                        // drag.maximumX: mainPage.width - parent.width;
-                        // drag.minimumY: 0;
-
-                        onClicked: {
-                            if (anagramStatus != anagramStatusEnumeration.resolved)
-                            {
-                                if (anagramLetterId.letterText != "")
-                                {
-                                    anagramStatus = anagramStatusEnumeration.active;
-
-                                    originalWordLetterRepeater.model =
-                                        kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterId.letterText);
-
-                                    ++currentOriginalWordIndex;
-
-                                    var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
-                                    tmpAnagramLetterRepeaterModel[[index]] = "";
-                                    anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
-
-                                    MyArray.sourceDestinationLetterIndexHash.push(index);
-                                }
-
-                                if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
-                                {
-                                    anagramResultTimer.start();
-                                    anagramStatus = anagramStatusEnumeration.resolved;
-                                    anagramHintInfoBanner.hide();
-                                    if (kanagramEngineHelper.compareWords() == true)
-                                    {
-                                        originalWordLetterRectangleColor = "green";
-
-                                        if (kanagramEngineHelper.useSounds) {
-                                            rightSoundEffect.play();
-                                        }
-                                    }
-                                    else
-                                    {
-                                        originalWordLetterRectangleColor = "red";
-
-                                        if (kanagramEngineHelper.useSounds) {
-                                            wrongSoundEffect.play();
-                                        }
-                                    }
-                                }
-                            }
-                       }
-                    }
+                onClicked: {
+                    chalkSoundEffect.play();
+                    pageStack.push(helpPage);
                 }
             }
         }
