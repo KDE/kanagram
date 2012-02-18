@@ -29,6 +29,8 @@ Page {
             centerIn: parent;
         }
 
+        width: 400;
+
         spacing: 20;
 
         Button {
@@ -37,12 +39,15 @@ Page {
             text: qsTr("Play Game");
             font.pixelSize: 48;
 
+            width: parent.width;
+
             onClicked: {
                 if (kanagramEngineHelper.useSounds) {
                     chalkSoundEffect.play();
                 }
 
                 pageStack.push(gamePage);
+                text = qsTr("Resume Game");
             }
         }
 
@@ -51,6 +56,8 @@ Page {
 
             text: qsTr("Settings");
             font.pixelSize: 48;
+
+            width: parent.width;
 
             onClicked: {
                 if (kanagramEngineHelper.useSounds) {
@@ -70,6 +77,8 @@ Page {
 
             text: qsTr("Help");
             font.pixelSize: 48;
+
+            width: parent.width;
 
             onClicked: {
                 if (kanagramEngineHelper.useSounds) {
