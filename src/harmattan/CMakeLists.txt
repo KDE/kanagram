@@ -25,6 +25,7 @@ target_link_libraries(kanagram-harmattan
     ${QT_QTCORE_LIBRARY}
     ${KANAGRAM_ENGINE_LIBRARIES}
     ${KDE4_KDECORE_LIBS}
+    kdeclarative
 )
 
 install(TARGETS kanagram-harmattan
