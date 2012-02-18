@@ -22,10 +22,8 @@ import com.nokia.meego 1.0
 import com.nokia.extras 1.0
 
 Page {
-
-    Rectangle {
-        id: mainPageMainRectangle;
-        color: "black";
+    Column {
+        id: mainPageColumn;
 
         anchors {
             fill: parent;
@@ -33,84 +31,75 @@ Page {
             verticalCenter: parent.verticalCenter;
         }
 
-        Column {
-            id: mainPageColumn;
+        spacing: 20;
+
+        Button {
+            id: playResumeGameButton;
 
             anchors {
-                fill: parent;
                 horizontalCenter: parent.horizontalCenter;
-                verticalCenter: parent.verticalCenter;
             }
 
-            spacing: 20;
+            text: qsTr("Play Game");
+            font.pixelSize: 48;
 
-            Image {
-                id: kdeEduLogo;
-
-                anchors {
-                    horizontalCenter: parent.horizontalCenter;
+            onClicked: {
+                if (kanagramEngineHelper.useSounds) {
+                    chalkSoundEffect.play();
                 }
 
-                fillMode: Image.PreserveAspectFit;
-                source: "kde-edu-logo.png";
-            }
-
-            Button {
-                id: playResumeGameButton;
-
-                anchors {
-                    horizontalCenter: parent.horizontalCenter;
-                }
-
-                text: qsTr("Play Game");
-                font.pixelSize: 48;
-
-                onClicked: {
-                    if (kanagramEngineHelper.useSounds) {
-                        chalkSoundEffect.play();
-                    }
-
-                    pageStack.push(gamePage);
-                }
-            }
-
-            Button {
-                id: settingsButton;
-
-                anchors {
-                    horizontalCenter: parent.horizontalCenter;
-                }
-
-                text: qsTr("Settings");
-                font.pixelSize: 48;
-
-                onClicked: {
-                    if (kanagramEngineHelper.useSounds) {
-                        chalkSoundEffect.play();
-                    }
-
-                    pageStack.push(mainSettingsPage);
-                }
-            }
-
-            Button {
-                id: helpButton;
-
-                anchors {
-                    horizontalCenter: parent.horizontalCenter;
-                }
-
-                text: qsTr("Help");
-                font.pixelSize: 48;
-
-                onClicked: {
-                    if (kanagramEngineHelper.useSounds) {
-                        chalkSoundEffect.play();
-                    }
-
-                    pageStack.push(helpPage);
-                }
+                pageStack.push(gamePage);
             }
         }
+
+        Button {
+            id: settingsButton;
+
+            anchors {
+                horizontalCenter: parent.horizontalCenter;
+            }
+
+            text: qsTr("Settings");
+            font.pixelSize: 48;
+
+            onClicked: {
+                if (kanagramEngineHelper.useSounds) {
+                    chalkSoundEffect.play();
+                }
+
+                pageStack.push(mainSettingsPage);
+            }
+        }
+
+        Button {
+            id: helpButton;
+
+            anchors {
+                horizontalCenter: parent.horizontalCenter;
+            }
+
+            text: qsTr("Help");
+            font.pixelSize: 48;
+
+            onClicked: {
+                if (kanagramEngineHelper.useSounds) {
+                    chalkSoundEffect.play();
+                }
+
+                pageStack.push(helpPage);
+            }
+        }
+
+        Image {
+            id: kdeEduLogo;
+
+            anchors {
+                right: parent.right;
+            }
+
+            fillMode: Image.PreserveAspectFit;
+            source: "kde-edu-logo.png";
+        }
+
     }
 }
