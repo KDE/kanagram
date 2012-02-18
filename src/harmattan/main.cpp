@@ -21,6 +21,7 @@
 
 #include <KDE/KGlobal>
 #include <KDE/KStandardDirs>
+#include <kdeclarative.h>
 
 #include <QtDeclarative/QDeclarativeView>
 #include <QtDeclarative/QDeclarativeContext>
@@ -44,6 +45,12 @@ int main( int argc, char** argv )
 
     KanagramEngineHelper kanagramEngineHelper(kanagramGame);
     ctxt->setContextProperty("kanagramEngineHelper", &kanagramEngineHelper);
+
+    KDeclarative kdeclarative;
+    kdeclarative.setDeclarativeEngine(view.engine());
+    kdeclarative.initialize();
+    //binds things like kconfig and icons
+    kdeclarative.setupBindings();
 
     view.setSource(QUrl("qrc:/main.qml"));
     view.showFullScreen();

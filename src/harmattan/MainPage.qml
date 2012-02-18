@@ -36,7 +36,7 @@ Page {
         Button {
             id: playResumeGameButton;
 
-            text: qsTr("Play Game");
+            text: i18n("Play Game");
             font.pixelSize: 48;
 
             width: parent.width;
@@ -47,14 +47,14 @@ Page {
                 }
 
                 pageStack.push(gamePage);
-                text = qsTr("Resume Game");
+                text = i18n("Resume Game");
             }
         }
 
         Button {
             id: settingsButton;
 
-            text: qsTr("Settings");
+            text: i18n("Settings");
             font.pixelSize: 48;
 
             width: parent.width;
@@ -75,7 +75,7 @@ Page {
                 horizontalCenter: parent.horizontalCenter;
             }
 
-            text: qsTr("Help");
+            text: i18n("Help");
             font.pixelSize: 48;
 
             width: parent.width;

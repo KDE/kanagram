@@ -35,7 +35,7 @@ Page {
 
     MySelectionDialog {
         id: languageSelectionDialog;
-        titleText: qsTr("Select a language");
+        titleText: i18n("Select a language");
         selectedIndex: 0;
 
         model: kanagramEngineHelper.languageNames();
@@ -90,7 +90,7 @@ Page {
 
                 Label {
                     width: parent.width;
-                    text: qsTr("Kanagram Settings");
+                    text: i18n("Kanagram Settings");
                     font.pixelSize: 32;
                 }
 
@@ -109,7 +109,7 @@ Page {
                     Label {
                         id: hintAppearanceLabel;
                         anchors.left: parent.left;
-                        text: qsTr("Hint appearance in seconds");
+                        text: i18n("Hint appearance in seconds");
                         font.bold: true;
                     }
 
@@ -143,7 +143,7 @@ Page {
                     Label {
                         id: resolveTimeLabel;
                         anchors.left: parent.left;
-                        text: qsTr("Resolve time in seconds");
+                        text: i18n("Resolve time in seconds");
                         font.bold: true;
                     }
 
@@ -176,7 +176,7 @@ Page {
 
                     Label {
                         anchors.left: parent.left;
-                        text: qsTr("Sounds");
+                        text: i18n("Sounds");
                         font.bold: true;
                     }
 
@@ -200,7 +200,7 @@ Page {
 
                 ListItem {
                     iconSource: "preferences-desktop-locale.png";
-                    titleText: qsTr("Language");
+                    titleText: i18n("Language");
                     subtitleText: kanagramEngineHelper.dataLanguage ?  kanagramEngineHelper.dataLanguage : "English";
                     iconId: "textinput-combobox-arrow";
                     iconVisible: true;

@@ -93,7 +93,7 @@ Page {
     // Create an info banner with icon
     InfoBanner {
         id: anagramHintInfoBanner;
-        text: qsTr("This is an info banner with icon");
+        text: i18n("This is an info banner with icon");
         iconSource: "dialog-information.png";
     }
 
