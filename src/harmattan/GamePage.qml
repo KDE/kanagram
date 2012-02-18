@@ -96,21 +96,6 @@ Page {
         iconSource: "dialog-information.png";
     }
 
-    SoundEffect {
-        id: chalkSoundEffect;
-        source: "chalk.wav";
-    }
-
-    SoundEffect {
-        id: rightSoundEffect;
-        source: "right.wav";
-    }
-
-    SoundEffect {
-        id: wrongSoundEffect;
-        source: "wrong.wav";
-    }
-
     // These tools are available for the main page by assigning the
     // id to the main page's tools property
     ToolBarLayout {
@@ -301,7 +286,7 @@ Page {
                     platformStyle: ButtonStyle {
                         background: originalWordLetterButtonBackground;
                         fontFamily: "Arial";
-                        fontPixelSize: 48;
+                        fontPixelSize: 40;
                         fontCapitalization: Font.AllUppercase;
                         fontWeight: Font.Bold;
                         horizontalAlignment: Text.AlignHCenter;
@@ -309,8 +294,8 @@ Page {
                         pressedTextColor: "pink";
                         disabledTextColor: "gray";
                         checkedTextColor: "blue";
-                        buttonWidth: 54;
-                        buttonHeight: 54;
+                        buttonWidth: 48;
+                        buttonHeight: 48;
                     }
 
                     onClicked: {
@@ -348,66 +333,70 @@ Page {
             Repeater {
                 id: anagramLetterRepeater;
                 model: anagram;
-                LetterElement {
+                Button {
                     id: anagramLetterId;
-                    letterText: modelData;
+                    text: modelData;
 
-                    MouseArea {
-                        anchors.fill: parent;
-                        hoverEnabled: true;
+                    platformStyle: ButtonStyle {
+                        background: "image://theme/meegotouch-button-inverted-background";
+                        fontFamily: "Arial";
+                        fontPixelSize: 40;
+                        fontCapitalization: Font.AllUppercase;
+                        fontWeight: Font.Bold;
+                        horizontalAlignment: Text.AlignHCenter;
+                        textColor: "white";
+                        pressedTextColor: "pink";
+                        disabledTextColor: "gray";
+                        checkedTextColor: "blue";
+                        buttonWidth: 48;
+                        buttonHeight: 48;
+                    }
 
-                        // drag.target: parent;
-                        // drag.axis: Drag.XandYAxis;
-                        // drag.minimumX: 0;
-                        // drag.maximumX: mainPage.width - parent.width;
-                        // drag.minimumY: 0;
-
-                        onClicked: {
-                            if (anagramStatus != anagramStatusEnumeration.resolved)
+                    onClicked: {
+                        if (anagramStatus != anagramStatusEnumeration.resolved)
+                        {
+                            if (anagramLetterId.text != "")
                             {
-                                if (anagramLetterId.letterText != "")
+                                anagramStatus = anagramStatusEnumeration.active;
+
+                                originalWordLetterRepeater.model =
+                                    kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterId.text);
+
+                                ++currentOriginalWordIndex;
+
+                                var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
+                                tmpAnagramLetterRepeaterModel[[index]] = "";
+                                anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
+
+                                MyArray.sourceDestinationLetterIndexHash.push(index);
+                            }
+
+                            if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
+                            {
+                                anagramResultTimer.start();
+                                anagramStatus = anagramStatusEnumeration.resolved;
+                                anagramHintInfoBanner.hide();
+                                if (kanagramEngineHelper.compareWords() == true)
                                 {
-                                    anagramStatus = anagramStatusEnumeration.active;
+                                    originalWordLetterButtonBackground =
+                                        "image://theme/meegotouch-button-positive-background";
 
-                                    originalWordLetterRepeater.model =
-                                        kanagramEngineHelper.insertInCurrentOriginalWord(currentOriginalWordIndex, anagramLetterId.letterText);
-
-                                    ++currentOriginalWordIndex;
-
-                                    var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
-                                    tmpAnagramLetterRepeaterModel[[index]] = "";
-                                    anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
-
-                                    MyArray.sourceDestinationLetterIndexHash.push(index);
-                                }
-
-                                if (currentOriginalWordIndex == originalWordLetterRepeater.model.length)
-                                {
-                                    anagramResultTimer.start();
-                                    anagramStatus = anagramStatusEnumeration.resolved;
-                                    anagramHintInfoBanner.hide();
-                                    if (kanagramEngineHelper.compareWords() == true)
-                                    {
-                                        originalWordLetterButtonBackground =
-                                            "image://theme/meegotouch-button-positive-background";
-
-                                        if (kanagramEngineHelper.useSounds) {
-                                            rightSoundEffect.play();
-                                        }
+                                    if (kanagramEngineHelper.useSounds) {
+                                        rightSoundEffect.play();
                                     }
-                                    else
-                                    {
-                                        originalWordLetterButtonBackground =
-                                            "image://theme/meegotouch-button-negative-background";
+                                }
+                                else
+                                {
+                                    originalWordLetterButtonBackground =
+                                        "image://theme/meegotouch-button-negative-background";
 
-                                        if (kanagramEngineHelper.useSounds) {
-                                            wrongSoundEffect.play();
-                                        }
+                                    if (kanagramEngineHelper.useSounds) {
+                                        wrongSoundEffect.play();
                                     }
                                 }
                             }
-                       }
-                    }
+                        }
+                   }
                 }
             }
         }
