@@ -23,12 +23,16 @@ Rectangle {
     property string letterText: "";
     property int letterPixelSize: 40;
 
+    anchors {
+        verticalCenter: parent.verticalCenter;
+    }
+
     color: Qt.rgba(0, 0, 0, 0);
-    width: 48;
-    height: 48;
+    width: 40;
+    height: 40;
     //border.color: "white";
     //border.width: 2;
-    radius: 6;
+    //radius: 6;
 
     Text {
         id: letterId;

@@ -226,13 +226,13 @@ Page {
     }
 
     Row {
-        spacing: 5;
+        spacing: 0;
 
         anchors {
             right: parent.right;
             top: parent.top;
-            topMargin: 5;
-            rightMargin: 5;
+            topMargin: 20;
+            rightMargin: 20;
         }
 
         LetterElement {
@@ -259,6 +259,18 @@ Page {
             letterText: Math.floor(countDownTimerValue % 60 % 10);
             visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
         }
+
+        Image {
+            source: "media-playback-pause.png";
+
+            MouseArea {
+                anchors.fill: parent;
+
+                onClicked: {
+                    pageStack.pop();
+                }
+            }
+        }
     }
 
     Column {
@@ -267,7 +279,7 @@ Page {
             verticalCenter: parent.verticalCenter;
         }
 
-        spacing: 40;
+        spacing: 30;
 
         Row {
             id: originalWordRow;
