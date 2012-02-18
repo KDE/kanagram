@@ -327,7 +327,10 @@ Page {
 
                     onClicked: {
                         if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0) {
-                            anagramLetterPressSoundEffect.play();
+                            if (kanagramEngineHelper.useSounds) {
+                                anagramLetterPressSoundEffect.play();
+                            }
+
                             var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
                             tmpAnagramLetterRepeaterModel[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterId.text;
                             anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
@@ -384,7 +387,10 @@ Page {
                         {
                             if (anagramLetterId.text != "")
                             {
-                                anagramLetterPressSoundEffect.play();
+                                if (kanagramEngineHelper.useSounds) {
+                                    anagramLetterPressSoundEffect.play();
+                                }
+
                                 anagramStatus = anagramStatusEnumeration.active;
 
                                 originalWordLetterRepeater.model =
