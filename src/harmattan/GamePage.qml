@@ -361,7 +361,7 @@ Page {
                 model: anagram;
                 Button {
                     id: anagramLetterId;
-                    text: modelData;
+                    text: anagramStatus == anagramStatusEnumeration.resolved ? "" : modelData;
 
                     platformStyle: ButtonStyle {
                         background: "image://theme/meegotouch-button-inverted-background";
