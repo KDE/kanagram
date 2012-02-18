@@ -314,7 +314,7 @@ Page {
                         if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0) {
                             anagramLetterPressSoundEffect.play();
                             var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
-                            tmpAnagramLetterRepeaterModel[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterId.letterText;
+                            tmpAnagramLetterRepeaterModel[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterId.text;
                             anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
 
                             MyArray.sourceDestinationLetterIndexHash.pop();
