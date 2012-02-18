@@ -41,7 +41,7 @@ Page {
     }
 
     onStatusChanged: {
-        if (status == PageStatus.Active) {
+        if (status == PageStatus.Active && anagramStatus != anagramStatusEnumeration.resolved) {
             secondTimer.repeat = true;
             secondTimer.restart();
         }
@@ -51,7 +51,8 @@ Page {
         target: platformWindow;
 
         onActiveChanged: {
-            if (platformWindow.active && status == PageStatus.Active) {
+            if (platformWindow.active && status == PageStatus.Active
+                    && anagramStatus != anagramStatusEnumeration.resolved) {
                 secondTimer.repeat = true;
                 secondTimer.restart();
             } else {
