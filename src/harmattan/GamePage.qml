@@ -312,7 +312,7 @@ Page {
 
                     onClicked: {
                         if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0) {
-
+                            anagramLetterPressSoundEffect.play();
                             var tmpAnagramLetterRepeaterModel = anagramLetterRepeater.model;
                             tmpAnagramLetterRepeaterModel[MyArray.sourceDestinationLetterIndexHash[index]] = originalWordLetterId.letterText;
                             anagramLetterRepeater.model = tmpAnagramLetterRepeaterModel;
@@ -369,6 +369,7 @@ Page {
                         {
                             if (anagramLetterId.text != "")
                             {
+                                anagramLetterPressSoundEffect.play();
                                 anagramStatus = anagramStatusEnumeration.active;
 
                                 originalWordLetterRepeater.model =

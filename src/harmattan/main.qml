@@ -91,4 +91,9 @@ PageStackWindow {
         id: wrongSoundEffect;
         source: "wrong.wav";
     }
+
+    SoundEffect {
+        id: anagramLetterPressSoundEffect;
+        source: "anagram-letter-press.wav";
+    }
 }

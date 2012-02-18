@@ -10,6 +10,7 @@
         <file alias="chalk.wav">../../sounds/chalk.wav</file>
         <file alias="right.wav">../../sounds/right.wav</file>
         <file alias="wrong.wav">../../sounds/wrong.wav</file>
+        <file alias="anagram-letter-press.wav">../../sounds/anagram-letter-press.wav</file>
 
         <file>UIConstants.js</file>
         <file>array.js</file>
