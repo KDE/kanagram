@@ -267,6 +267,10 @@ Page {
                 anchors.fill: parent;
 
                 onClicked: {
+                    if (kanagramEngineHelper.useSounds) {
+                        chalkSoundEffect.play();
+                    }
+
                     pageStack.pop();
                 }
             }
