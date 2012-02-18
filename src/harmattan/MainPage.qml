@@ -26,83 +26,89 @@ Page {
     Rectangle {
         id: mainPageMainRectangle;
         color: "black";
-        anchors.fill: parent;
 
-        Flickable {
-            width: parent.width;
-            height: parent.height;
-            contentWidth: mainPageColumn.width;
-            contentHeight: mainPageColumn.height;
+        anchors {
+            fill: parent;
+            horizontalCenter: parent.horizontalCenter;
+            verticalCenter: parent.verticalCenter;
+        }
 
-            Column {
-                id: mainPageColumn;
+        Column {
+            id: mainPageColumn;
+
+            anchors {
+                fill: parent;
+                horizontalCenter: parent.horizontalCenter;
+                verticalCenter: parent.verticalCenter;
+            }
+
+            spacing: 20;
+
+            Image {
+                id: kdeEduLogo;
+
                 anchors {
-                    fill: parent;
-                    margins: 5;
+                    horizontalCenter: parent.horizontalCenter;
                 }
 
-                spacing: 20;
+                fillMode: Image.PreserveAspectFit;
+                source: "kde-edu-logo.png";
+            }
 
-                Image {
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter;
-                    }
+            Button {
+                id: playResumeGameButton;
 
-                    id: kdeEduLogo;
-                    fillMode: Image.PreserveAspectFit;
-                    source: "kde-edu-logo.png";
+                anchors {
+                    horizontalCenter: parent.horizontalCenter;
                 }
 
-                Button {
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter;
-                    }
+                text: qsTr("Play Game");
+                font.pixelSize: 48;
 
-                    text: qsTr("Play Game");
-                    font.pixelSize: 48;
-
-                    platformStyle: ButtonStyle {
-                        fontPixelSize: 48;
-                        fontWeight: Font.Bold;
-                        horizontalAlignment: Text.AlignHCenter;
-                        textColor: "white";
-                        pressedTextColor: "blue";
-                        disabledTextColor: "gray";
-                        checkedTextColor: "blue";
-                    }
-
-                    onClicked: {
+                onClicked: {
+                    if (kanagramEngineHelper.useSounds) {
                         chalkSoundEffect.play();
-                        pageStack.push(gamePage);
                     }
+
+                    pageStack.push(gamePage);
+                }
+            }
+
+            Button {
+                id: settingsButton;
+
+                anchors {
+                    horizontalCenter: parent.horizontalCenter;
                 }
 
-                Button {
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter;
-                    }
+                text: qsTr("Settings");
+                font.pixelSize: 48;
 
-                    text: qsTr("Settings");
-                    font.pixelSize: 48;
-
-                    onClicked: {
+                onClicked: {
+                    if (kanagramEngineHelper.useSounds) {
                         chalkSoundEffect.play();
-                        pageStack.push(mainSettingsPage);
                     }
+
+                    pageStack.push(mainSettingsPage);
+                }
+            }
+
+            Button {
+                id: helpButton;
+
+                anchors {
+                    horizontalCenter: parent.horizontalCenter;
                 }
 
-                Button {
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter;
-                    }
+                text: qsTr("Help");
+                font.pixelSize: 48;
 
-                    text: qsTr("Help");
-                    font.pixelSize: 48;
-
-                    onClicked: {
+                onClicked: {
+                    if (kanagramEngineHelper.useSounds) {
                         chalkSoundEffect.play();
-                        pageStack.push(helpPage);
                     }
+
+                    pageStack.push(helpPage);
                 }
             }
         }

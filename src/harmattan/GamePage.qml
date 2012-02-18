@@ -267,7 +267,7 @@ Page {
             verticalCenter: parent.verticalCenter;
         }
 
-        spacing: 20;
+        spacing: 40;
 
         Row {
             id: originalWordRow;
@@ -275,7 +275,7 @@ Page {
                 horizontalCenter: parent.horizontalCenter;
             }
 
-            spacing: 10;
+            spacing: 8;
             Repeater {
                 id: originalWordLetterRepeater;
                 model: anagram;
@@ -329,7 +329,7 @@ Page {
                 horizontalCenter: parent.horizontalCenter;
             }
 
-            spacing: 10;
+            spacing: 8;
             Repeater {
                 id: anagramLetterRepeater;
                 model: anagram;
