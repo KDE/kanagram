@@ -89,17 +89,19 @@ Page {
                 pageStack.push(helpPage);
             }
         }
+    }
 
-        Image {
-            id: kdeEduLogo;
+    Image {
+        id: kdeEduLogo;
 
-            anchors {
-                right: parent.right;
-            }
-
-            fillMode: Image.PreserveAspectFit;
-            source: "kde-edu-logo.png";
+        anchors {
+            right: parent.right;
+            bottom: parent.bottom;
+            rightMargin: 10;
+            bottomMargin: 40;
         }
 
+        fillMode: Image.PreserveAspectFit;
+        source: "kde-edu-logo.png";
     }
 }
