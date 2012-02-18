@@ -44,16 +44,18 @@ Page {
                 spacing: 20;
 
                 Image {
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter;
+                    }
+
                     id: kdeEduLogo;
-                    width: parent.width;
                     fillMode: Image.PreserveAspectFit;
                     source: "kde-edu-logo.png";
                 }
 
                 Button {
-                    width: parent.width;
                     anchors {
-                        horizontalCenter; parent.horizontalCenter;
+                        horizontalCenter: parent.horizontalCenter;
                     }
 
                     text: qsTr("Play Game");
@@ -76,9 +78,8 @@ Page {
                 }
 
                 Button {
-                    width: parent.width;
                     anchors {
-                        horizontalCenter; parent.horizontalCenter;
+                        horizontalCenter: parent.horizontalCenter;
                     }
 
                     text: qsTr("Settings");
@@ -91,9 +92,8 @@ Page {
                 }
 
                 Button {
-                    width: parent.width;
                     anchors {
-                        horizontalCenter; parent.horizontalCenter;
+                        horizontalCenter: parent.horizontalCenter;
                     }
 
                     text: qsTr("Help");
