@@ -26,19 +26,13 @@ Page {
         id: mainPageColumn;
 
         anchors {
-            fill: parent;
-            horizontalCenter: parent.horizontalCenter;
-            verticalCenter: parent.verticalCenter;
+            centerIn: parent;
         }
 
         spacing: 20;
 
         Button {
             id: playResumeGameButton;
-
-            anchors {
-                horizontalCenter: parent.horizontalCenter;
-            }
 
             text: qsTr("Play Game");
             font.pixelSize: 48;
@@ -54,10 +48,6 @@ Page {
 
         Button {
             id: settingsButton;
-
-            anchors {
-                horizontalCenter: parent.horizontalCenter;
-            }
 
             text: qsTr("Settings");
             font.pixelSize: 48;
@@ -98,7 +88,7 @@ Page {
             right: parent.right;
             bottom: parent.bottom;
             rightMargin: 10;
-            bottomMargin: 40;
+            bottomMargin: 30;
         }
 
         fillMode: Image.PreserveAspectFit;
