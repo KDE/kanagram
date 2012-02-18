@@ -51,7 +51,7 @@ Page {
         target: platformWindow;
 
         onActiveChanged: {
-            if (platformWindow.active) {
+            if (platformWindow.active && status == PageStatus.Active) {
                 secondTimer.repeat = true;
                 secondTimer.restart();
             } else {
@@ -155,6 +155,10 @@ Page {
             iconSource: "settings.png";
 
             onClicked: {
+                if (kanagramEngineHelper.useSounds) {
+                    chalkSoundEffect.play();
+                }
+
                 anagramHintInfoBanner.hide();
                 pageStack.push(mainSettingsPage);
 
@@ -271,7 +275,13 @@ Page {
                         chalkSoundEffect.play();
                     }
 
+                    anagramHintInfoBanner.hide();
+
                     pageStack.pop();
+
+                    secondTimer.repeat = false;
+                    secondTimer.stop();
+
                 }
             }
         }
