@@ -130,7 +130,7 @@ Page {
             text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
 
             anchors {
-                horizontalCenter: parent.horizontalCenter;
+                centerIn: parent;
             }
 
             onClicked: {
@@ -290,8 +290,7 @@ Page {
 
     Column {
         anchors {
-            horizontalCenter: parent.horizontalCenter;
-            verticalCenter: parent.verticalCenter;
+            centerIn: parent;
         }
 
         spacing: 30;
