@@ -112,9 +112,15 @@ Page {
                     spacing: 5;
 
                     Row {
+                        width: parent.width;
                         Label {
                             id: hintAppearanceLabel;
-                            anchors.left: parent.left;
+
+                            anchors {
+                                left: parent.left;
+                                verticalCenter: parent.verticalCenter;
+                            }
+
                             text: i18n("Hint appearance in seconds");
                             font.bold: true;
                         }
@@ -123,7 +129,7 @@ Page {
                             iconSource: "icon-l-user-guide-main-view.png";
 
                             anchors {
-                                right: parent.right;;
+                                right: parent.right;
                             }
 
                             onClicked: {
@@ -160,9 +166,15 @@ Page {
                     spacing: 5;
 
                     Row {
+                        width: parent.width;
                         Label {
                             id: resolveTimeLabel;
-                            anchors.left: parent.left;
+
+                            anchors {
+                                left: parent.left;
+                                verticalCenter: parent.verticalCenter;
+                            }
+
                             text: i18n("Resolve time in seconds");
                             font.bold: true;
                         }
@@ -171,7 +183,7 @@ Page {
                             iconSource: "icon-l-user-guide-main-view.png";
 
                             anchors {
-                                right: parent.right;;
+                                right: parent.right;
                             }
 
                             onClicked: {
@@ -208,7 +220,11 @@ Page {
                     height: childrenRect.height;
 
                     Label {
-                        anchors.left: parent.left;
+                        anchors {
+                            left: parent.left;
+                            verticalCenter: parent.verticalCenter;
+                        }
+
                         text: i18n("Sounds");
                         font.bold: true;
                     }
@@ -227,7 +243,10 @@ Page {
 
                     Switch {
                         id: soundsSwitch;
-                        anchors.right: parent.right;
+                        anchors {
+                            right: parent.right;
+                            verticalCenter: parent.verticalCenter;
+                        }
 
                         onCheckedChanged: {
                             kanagramEngineHelper.useSounds = checked;
