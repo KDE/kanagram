@@ -236,8 +236,8 @@ Page {
         anchors {
             right: parent.right;
             top: parent.top;
-            topMargin: 20;
-            rightMargin: 20;
+            topMargin: 25;
+            rightMargin: 25;
         }
 
         LetterElement {

@@ -74,7 +74,7 @@ PageStackWindow {
         background: "qrc:/kanagram-chalkboard-landscape.png";
         landscapeBackground: "qrc:/kanagram-chalkboard-landscape.png";
         portraitBackground: "qrc:/kanagram-chalkboard-portrait.png";
-        backgroundFillMode: Image.PreserveAspectFit;
+        backgroundFillMode: Image.Stretch;
     }
 
     SoundEffect {
