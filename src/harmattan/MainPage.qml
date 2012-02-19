@@ -22,6 +22,14 @@ import com.nokia.meego 1.0
 import com.nokia.extras 1.0
 
 Page {
+
+    QueryDialog {
+        id: helpDialog;
+        icon: "hi80-app-kanagram-harmattan.png";
+        message: "Kanagram 0.1.1.<br><br>(C) 2012 Laszlo Papp<br>lpapp@kde.org"
+        acceptButtonText: "OK";
+    }
+
     Column {
         id: mainPageColumn;
 
@@ -85,7 +93,7 @@ Page {
                     chalkSoundEffect.play();
                 }
 
-                pageStack.push(helpPage);
+                helpDialog.open();
             }
         }
     }
