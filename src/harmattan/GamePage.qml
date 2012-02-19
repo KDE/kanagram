@@ -266,7 +266,7 @@ Page {
         }
 
         Image {
-            source: "media-playback-pause.png";
+            source: "timer-pause.png";
 
             MouseArea {
                 anchors.fill: parent;

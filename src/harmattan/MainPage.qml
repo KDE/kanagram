@@ -104,8 +104,7 @@ Page {
         anchors {
             right: parent.right;
             bottom: parent.bottom;
-            rightMargin: 10;
-            bottomMargin: 30;
+            rightMargin: 5;
         }
 
         fillMode: Image.PreserveAspectFit;

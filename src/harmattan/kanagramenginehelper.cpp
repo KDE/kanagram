@@ -44,8 +44,7 @@ QStringList KanagramEngineHelper::createNextAnagram()
 {
     m_kanagramGame->nextAnagram();
     QStringList anagramLetters;
-
-    QString anagram = m_kanagramGame->anagram();
+    QString anagram;
 
     int i = 0;
 
@@ -54,10 +53,10 @@ QStringList KanagramEngineHelper::createNextAnagram()
     // either, if there are no shorter words available, just quit the
     // application. It is an acceptable behavior for avoiding the messy layout
     // in such cases (long words, that is).
+    //
     do {
-        if (anagram.size() > 12) {
-            anagram = m_kanagramGame->anagram();
-        } else {
+        anagram = m_kanagramGame->anagram();
+        if (anagram.size() < 13) {
             foreach (const QChar& anagramLetter, anagram)
             {
                 anagramLetters.append(anagramLetter);

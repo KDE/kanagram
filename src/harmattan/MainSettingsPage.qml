@@ -25,6 +25,11 @@ Page {
 
     property int settingsPageMargins;
 
+    QueryDialog {
+        id: userGuideDialog;
+        message: "Kanagram 0.1.1.<br><br>(C) 2012 Laszlo Papp<br>lpapp@kde.org"
+    }   
+
     function pushPage(file) {
         var component = Qt.createComponent(file)
         if (component.status == Component.Ready)
@@ -179,6 +184,14 @@ Page {
                         text: i18n("Sounds");
                         font.bold: true;
                     }
+
+                    ToolIcon {
+                        iconId: "help-hint.png";
+
+                        onClicked: {
+                            userGuideDialog.open();
+                        }   
+                    }   
 
                     Switch {
                         id: soundsSwitch;
