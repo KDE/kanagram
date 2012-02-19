@@ -320,8 +320,8 @@ Page {
                         pressedTextColor: "pink";
                         disabledTextColor: "gray";
                         checkedTextColor: "blue";
-                        buttonWidth: 48;
-                        buttonHeight: 48;
+                        buttonWidth: 45;
+                        buttonHeight: 75;
                     }
 
                     onClicked: {

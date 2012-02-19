@@ -26,7 +26,7 @@ Page {
     QueryDialog {
         id: helpDialog;
         icon: "hi80-app-kanagram-harmattan.png";
-        message: "Kanagram 0.1.1.<br><br>(C) 2012 Laszlo Papp<br>lpapp@kde.org"
+        message: "Kanagram (Version 0.2.0)<br><br>(C) 2012 Laszlo Papp<br>lpapp@kde.org"
         acceptButtonText: "OK";
     }
 
