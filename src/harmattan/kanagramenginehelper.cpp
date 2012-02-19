@@ -26,6 +26,8 @@
 #include <KDE/KStandardDirs>
 #include <KDE/KLocale>
 
+#include <QtGui/QApplication>
+
 KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* parent)
     : QObject(parent)
     , m_kanagramGame(kanagramGame)
@@ -45,12 +47,28 @@ QStringList KanagramEngineHelper::createNextAnagram()
 
     QString anagram = m_kanagramGame->anagram();
 
-    foreach (const QChar& anagramLetter, anagram)
-    {
-        anagramLetters.append(anagramLetter);
-    }
+    int i = 0;
 
-    return anagramLetters;
+    // Try to get a not too long word, still visible and looks ok on the
+    // chalkboard on the Harmattan device. Do not get stuck in such a loop
+    // either, if there are no shorter words available, just quit the
+    // application. It is an acceptable behavior for avoiding the messy layout
+    // in such cases (long words, that is).
+    do {
+        if (anagram.size() > 12) {
+            anagram = m_kanagramGame->anagram();
+        } else {
+            foreach (const QChar& anagramLetter, anagram)
+            {
+                anagramLetters.append(anagramLetter);
+            }
+
+            return anagramLetters;
+        }
+    } while (++i < 200);
+
+    QApplication::instance()->quit();
+    return QStringList();
 }
 
 QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const QString& letter)
