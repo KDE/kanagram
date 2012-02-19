@@ -236,8 +236,7 @@ Page {
         anchors {
             right: parent.right;
             top: parent.top;
-            topMargin: 25;
-            rightMargin: 25;
+            topMargin: 15;
         }
 
         LetterElement {
@@ -265,25 +264,21 @@ Page {
             visible: kanagramEngineHelper.resolveTime == 0 ? false : true;
         }
 
-        Image {
-            source: "timer-pause.png";
+        ToolIcon {
+            iconSource: "timer-pause.png";
 
-            MouseArea {
-                anchors.fill: parent;
-
-                onClicked: {
-                    if (kanagramEngineHelper.useSounds) {
-                        chalkSoundEffect.play();
-                    }
-
-                    anagramHintInfoBanner.hide();
-
-                    pageStack.pop();
-
-                    secondTimer.repeat = false;
-                    secondTimer.stop();
-
+            onClicked: {
+                if (kanagramEngineHelper.useSounds) {
+                    chalkSoundEffect.play();
                 }
+
+                anagramHintInfoBanner.hide();
+
+                pageStack.pop();
+
+                secondTimer.repeat = false;
+                secondTimer.stop();
+
             }
         }
     }

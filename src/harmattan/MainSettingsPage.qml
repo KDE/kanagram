@@ -113,6 +113,7 @@ Page {
 
                     Row {
                         width: parent.width;
+
                         Label {
                             id: hintAppearanceLabel;
 
@@ -167,6 +168,7 @@ Page {
 
                     Row {
                         width: parent.width;
+
                         Label {
                             id: resolveTimeLabel;
 
@@ -215,9 +217,8 @@ Page {
                     source: "separator.png";
                 }
 
-                Item {
+                Row {
                     width: parent.width;
-                    height: childrenRect.height;
 
                     Label {
                         anchors {
