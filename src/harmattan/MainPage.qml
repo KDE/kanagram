@@ -24,7 +24,7 @@ import com.nokia.extras 1.0
 Page {
 
     QueryDialog {
-        id: helpDialog;
+        id: aboutDialog;
         icon: "hi80-app-kanagram-harmattan.png";
         message: "Kanagram (Version 0.2.0)<br><br>(C) 2012 Laszlo Papp<br>lpapp@kde.org"
         acceptButtonText: "OK";
@@ -83,7 +83,7 @@ Page {
                 horizontalCenter: parent.horizontalCenter;
             }
 
-            text: i18n("Help");
+            text: i18n("About");
             font.pixelSize: 48;
 
             width: parent.width;
@@ -93,7 +93,7 @@ Page {
                     chalkSoundEffect.play();
                 }
 
-                helpDialog.open();
+                aboutDialog.open();
             }
         }
     }

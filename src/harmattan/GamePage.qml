@@ -321,7 +321,7 @@ Page {
                         disabledTextColor: "gray";
                         checkedTextColor: "blue";
                         buttonWidth: 45;
-                        buttonHeight: 75;
+                        buttonHeight: 60;
                     }
 
                     onClicked: {
@@ -377,8 +377,8 @@ Page {
                         pressedTextColor: "pink";
                         disabledTextColor: "gray";
                         checkedTextColor: "blue";
-                        buttonWidth: 48;
-                        buttonHeight: 48;
+                        buttonWidth: 45;
+                        buttonHeight: 60;
                     }
 
                     onClicked: {
