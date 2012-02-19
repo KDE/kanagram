@@ -35,6 +35,7 @@ Page {
 
         anchors {
             centerIn: parent;
+            verticalCenterOffset: -5;
         }
 
         width: 400;

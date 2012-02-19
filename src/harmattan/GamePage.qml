@@ -291,6 +291,7 @@ Page {
     Column {
         anchors {
             centerIn: parent;
+            verticalCenterOffset: 20;
         }
 
         spacing: 30;
