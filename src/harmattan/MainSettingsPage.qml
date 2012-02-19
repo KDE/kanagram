@@ -28,7 +28,7 @@ Page {
     QueryDialog {
         id: userGuideDialog;
         message: "Kanagram 0.1.1.<br><br>(C) 2012 Laszlo Papp<br>lpapp@kde.org"
-    }   
+    }
 
     function pushPage(file) {
         var component = Qt.createComponent(file)
@@ -111,11 +111,25 @@ Page {
                     width: parent.width;
                     spacing: 5;
 
-                    Label {
-                        id: hintAppearanceLabel;
-                        anchors.left: parent.left;
-                        text: i18n("Hint appearance in seconds");
-                        font.bold: true;
+                    Row {
+                        Label {
+                            id: hintAppearanceLabel;
+                            anchors.left: parent.left;
+                            text: i18n("Hint appearance in seconds");
+                            font.bold: true;
+                        }
+
+                        ToolIcon {
+                            iconSource: "icon-l-user-guide-main-view.png";
+
+                            anchors {
+                                right: parent.right;;
+                            }
+
+                            onClicked: {
+                                userGuideDialog.open();
+                            }
+                        }
                     }
 
                     Slider {
@@ -145,11 +159,25 @@ Page {
                     width: parent.width;
                     spacing: 5;
 
-                    Label {
-                        id: resolveTimeLabel;
-                        anchors.left: parent.left;
-                        text: i18n("Resolve time in seconds");
-                        font.bold: true;
+                    Row {
+                        Label {
+                            id: resolveTimeLabel;
+                            anchors.left: parent.left;
+                            text: i18n("Resolve time in seconds");
+                            font.bold: true;
+                        }
+
+                        ToolIcon {
+                            iconSource: "icon-l-user-guide-main-view.png";
+
+                            anchors {
+                                right: parent.right;;
+                            }
+
+                            onClicked: {
+                                userGuideDialog.open();
+                            }
+                        }
                     }
 
                     Slider {
@@ -186,12 +214,16 @@ Page {
                     }
 
                     ToolIcon {
-                        iconId: "help-hint.png";
+                        iconSource: "icon-l-user-guide-main-view.png";
+
+                        anchors {
+                            right: soundsSwitch.left;
+                        }
 
                         onClicked: {
                             userGuideDialog.open();
-                        }   
-                    }   
+                        }
+                    }
 
                     Switch {
                         id: soundsSwitch;
