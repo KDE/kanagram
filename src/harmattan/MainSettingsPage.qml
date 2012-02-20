@@ -26,8 +26,18 @@ Page {
     property int settingsPageMargins: 15;
 
     QueryDialog {
-        id: userGuideDialog;
-        message: "Kanagram 0.1.1.<br><br>(C) 2012 Laszlo Papp<br>lpapp@kde.org"
+        id: anagramResolveTimeUserGuideDialog;
+        message: "Maximum allowed time for resolving the anagram"
+    }
+
+    QueryDialog {
+        id: hintShowDurationUserGuideDialog;
+        message: "The duration for showing the hint for the actual anagram"
+    }
+
+    QueryDialog {
+        id: soundsUserGuideDialog;
+        message: "Turn all the sounds on or off inside the game"
     }
 
     function pushPage(file) {
@@ -136,7 +146,7 @@ Page {
                             }
 
                             onClicked: {
-                                userGuideDialog.open();
+                                hintShowDurationUserGuideDialog.open();
                             }
                         }
                     }
@@ -193,7 +203,7 @@ Page {
                             }
 
                             onClicked: {
-                                userGuideDialog.open();
+                                anagramResolveTimeUserGuideDialog.open();
                             }
                         }
                     }
@@ -244,7 +254,7 @@ Page {
                         }
 
                         onClicked: {
-                            userGuideDialog.open();
+                            soundsUserGuideDialog.open();
                         }
                     }
 
