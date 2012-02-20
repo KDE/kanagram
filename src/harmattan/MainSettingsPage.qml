@@ -128,7 +128,7 @@ Page {
                         }
 
                         ToolIcon {
-                            iconSource: "icon-l-user-guide-main-view.png";
+                            iconSource: "image://theme/icon-l-user-guide-main-view"
 
                             anchors {
                                 right: parent.right;
@@ -185,7 +185,7 @@ Page {
                         }
 
                         ToolIcon {
-                            iconSource: "icon-l-user-guide-main-view.png";
+                            iconSource: "image://theme/icon-l-user-guide-main-view"
 
                             anchors {
                                 right: parent.right;
@@ -236,7 +236,7 @@ Page {
                     }
 
                     ToolIcon {
-                        iconSource: "icon-l-user-guide-main-view.png";
+                        iconSource: "image://theme/icon-l-user-guide-main-view"
 
                         anchors {
                             right: soundsSwitch.left;
