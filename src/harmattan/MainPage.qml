@@ -51,10 +51,6 @@ Page {
             width: parent.width;
 
             onClicked: {
-                if (kanagramEngineHelper.useSounds) {
-                    chalkSoundEffect.play();
-                }
-
                 pageStack.push(gamePage);
                 text = i18n("Resume Game");
             }
@@ -69,10 +65,6 @@ Page {
             width: parent.width;
 
             onClicked: {
-                if (kanagramEngineHelper.useSounds) {
-                    chalkSoundEffect.play();
-                }
-
                 pageStack.push(mainSettingsPage);
             }
         }
@@ -90,10 +82,6 @@ Page {
             width: parent.width;
 
             onClicked: {
-                if (kanagramEngineHelper.useSounds) {
-                    chalkSoundEffect.play();
-                }
-
                 aboutDialog.open();
             }
         }

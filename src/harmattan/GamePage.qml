@@ -160,10 +160,6 @@ Page {
             iconSource: "settings.png";
 
             onClicked: {
-                if (kanagramEngineHelper.useSounds) {
-                    chalkSoundEffect.play();
-                }
-
                 anagramHintInfoBanner.hide();
                 pageStack.push(mainSettingsPage);
 
@@ -272,10 +268,6 @@ Page {
             iconSource: "timer-pause.png";
 
             onClicked: {
-                if (kanagramEngineHelper.useSounds) {
-                    chalkSoundEffect.play();
-                }
-
                 anagramHintInfoBanner.hide();
 
                 pageStack.pop();
