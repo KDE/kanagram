@@ -111,7 +111,8 @@ Page {
                     width: parent.width;
                     spacing: 5;
 
-                    Row {
+                    Item {
+                        height: childrenRect.height;
                         width: parent.width;
 
                         Label {
@@ -131,6 +132,7 @@ Page {
 
                             anchors {
                                 right: parent.right;
+                                verticalCenter: parent.verticalCenter;
                             }
 
                             onClicked: {
@@ -166,7 +168,8 @@ Page {
                     width: parent.width;
                     spacing: 5;
 
-                    Row {
+                    Item {
+                        height: childrenRect.height;
                         width: parent.width;
 
                         Label {
@@ -186,6 +189,7 @@ Page {
 
                             anchors {
                                 right: parent.right;
+                                verticalCenter: parent.verticalCenter;
                             }
 
                             onClicked: {
@@ -217,7 +221,8 @@ Page {
                     source: "separator.png";
                 }
 
-                Row {
+                Item {
+                    height: childrenRect.height;
                     width: parent.width;
 
                     Label {
@@ -235,6 +240,7 @@ Page {
 
                         anchors {
                             right: soundsSwitch.left;
+                            verticalCenter: parent.verticalCenter;
                         }
 
                         onClicked: {
