@@ -317,7 +317,8 @@ Page {
                     }
 
                     onClicked: {
-                        if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0) {
+                        if (index + 1 == currentOriginalWordIndex && currentOriginalWordIndex != 0
+                                && anagramStatus != anagramStatusEnumeration.resolved) {
                             if (kanagramEngineHelper.useSounds) {
                                 anagramLetterPressSoundEffect.play();
                             }
