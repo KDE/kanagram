@@ -23,7 +23,7 @@ import com.nokia.extras 1.0
 
 Page {
 
-    property int settingsPageMargins;
+    property int settingsPageMargins: 15;
 
     QueryDialog {
         id: userGuideDialog;
@@ -122,7 +122,7 @@ Page {
                                 verticalCenter: parent.verticalCenter;
                             }
 
-                            text: i18n("Hint appearance in seconds");
+                            text: i18n("Hint show duration in seconds");
                             font.bold: true;
                         }
 
@@ -177,7 +177,7 @@ Page {
                                 verticalCenter: parent.verticalCenter;
                             }
 
-                            text: i18n("Resolve time in seconds");
+                            text: i18n("Anagram resolve time in seconds");
                             font.bold: true;
                         }
 

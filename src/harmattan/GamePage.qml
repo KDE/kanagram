@@ -119,6 +119,10 @@ Page {
             iconSource: "games-solve.png";
 
             onClicked: {
+                if (kanagramEngineHelper.useSounds) {
+                    chalkSoundEffect.play();
+                }
+
                 resolveAnagram();
 
                 secondTimer.repeat = false;
@@ -286,7 +290,7 @@ Page {
     Column {
         anchors {
             centerIn: parent;
-            verticalCenterOffset: 20;
+            verticalCenterOffset: 15;
         }
 
         spacing: 30;
