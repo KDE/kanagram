@@ -21,6 +21,7 @@
 
 #include <KDE/KGlobal>
 #include <KDE/KStandardDirs>
+#include <KDE/KComponentData>
 #include <kdeclarative.h>
 
 #include <QtDeclarative/QDeclarativeView>
