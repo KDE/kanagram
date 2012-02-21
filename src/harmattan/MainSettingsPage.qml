@@ -27,17 +27,17 @@ Page {
 
     QueryDialog {
         id: anagramResolveTimeUserGuideDialog;
-        message: "Maximum allowed time for resolving the anagram"
+        message: i18n("<b>Anagram resolve time</b>: Maximum allowed time for resolving the anagram");
     }
 
     QueryDialog {
         id: hintShowDurationUserGuideDialog;
-        message: "The duration for showing the hint for the actual anagram"
+        message: i18n("<b>Hint show diration:</b> The duration for showing the hint for the actual anagram");
     }
 
     QueryDialog {
         id: soundsUserGuideDialog;
-        message: "Turn all the sounds on or off inside the game"
+        message: i18n("<b>Sounds:</b> Turn all the sounds on or off inside the game");
     }
 
     function pushPage(file) {
