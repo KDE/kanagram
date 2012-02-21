@@ -46,6 +46,8 @@ int main( int argc, char** argv )
     KanagramEngineHelper kanagramEngineHelper(kanagramGame);
     ctxt->setContextProperty("kanagramEngineHelper", &kanagramEngineHelper);
 
+    KComponentData data("kanagram-harmattan");
+
     KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(view.engine());
     kdeclarative.initialize();
