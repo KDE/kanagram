@@ -54,32 +54,14 @@ set(KanagramEngine_HEADERS
     kanagram_engine_export.h
 )
 
-if(BUILD_KANAGRAM_HARMATTAN)
-    include_directories(
-        ${CMAKE_CURRENT_SOURCE_DIR}
-        ${CMAKE_CURRENT_SOURCE_DIR}/harmattan
-        ${CMAKE_CURRENT_BINARY_DIR}
-        ${CMAKE_CURRENT_BINARY_DIR}/harmattan
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
 
-        ${LIBKDEEDU_INCLUDE_DIR}
-    )
+    ${LIBKDEEDU_INCLUDE_DIR}
+)
 
-    kde4_add_kcfg_files(KanagramEngine_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/harmattan/kanagramsettings.kcfgc)
-endif()
-
-if(BUILD_KANAGRAM_DESKTOP)
-    include_directories(
-        ${CMAKE_CURRENT_SOURCE_DIR}
-        ${CMAKE_CURRENT_SOURCE_DIR}/desktop
-        ${CMAKE_CURRENT_BINARY_DIR}
-        ${CMAKE_CURRENT_BINARY_DIR}/desktop
-
-        ${LIBKDEEDU_INCLUDE_DIR}
-    )
-
-    kde4_add_kcfg_files(KanagramEngine_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/desktop/kanagramsettings.kcfgc)
-endif()
-
+kde4_add_kcfg_files(KanagramEngine_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kanagramsettings.kcfgc)
 
 if(APPLE)
     kde4_add_library(kanagramengine SHARED ${KanagramEngine_SRCS} ${KanagramEngine_HEADERS})
@@ -87,23 +69,12 @@ else()
     kde4_add_library(kanagramengine SHARED ${KanagramEngine_SRCS})
 endif()
 
-if(BUILD_KANAGRAM_HARMATTAN)
-    target_link_libraries(
-        kanagramengine
-        #${QT_QTXML_LIBRARY}
-        ${KDE4_KDECORE_LIBS}
-        ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES}
-    )
-endif()
-
-if(BUILD_KANAGRAM_DESKTOP)
-    target_link_libraries(
-        kanagramengine
-        #${QT_QTXML_LIBRARY}
-        ${KDE4_KDEUI_LIBS}
-        ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES}
-    )
-endif()
+target_link_libraries(
+    kanagramengine
+    #${QT_QTXML_LIBRARY}
+    ${KDE4_KDECORE_LIBS}
+    ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES}
+)
 
 set(KANAGRAM_ENGINE_LIBRARIES
     kanagramengine
@@ -150,23 +121,12 @@ install(
     COMPONENT kanagramengine
 )
 
-if(BUILD_KANAGRAM_HARMATTAN)
-    install(
-        FILES
-        harmattan/kanagram.kcfg
-        DESTINATION
-        ${KCFG_INSTALL_DIR}
-    )
-endif()
-
-if(BUILD_KANAGRAM_DESKTOP)
-    install(
-        FILES
-        desktop/kanagram.kcfg
-        DESTINATION
-        ${KCFG_INSTALL_DIR}
-    )
-endif()
+install(
+    FILES
+    kanagram.kcfg
+    DESTINATION
+    ${KCFG_INSTALL_DIR}
+)
 
 install(
     FILES

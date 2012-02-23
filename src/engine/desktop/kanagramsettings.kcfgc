@@ -1,6 +1,0 @@
-File=kanagram.kcfg
-ClassName=KanagramSettings
-Mutators=true
-Singleton=true
-IncludeFiles=\"kanagram_engine_export.h\"
-Visibility=KANAGRAM_ENGINE_EXPORT
