@@ -130,7 +130,7 @@ Page {
             }
         }
 
-        Button {
+        ToolButton {
             text: categorySelectionDialog.model[categorySelectionDialog.selectedIndex];
 
             anchors {
