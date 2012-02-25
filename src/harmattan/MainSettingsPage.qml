@@ -32,7 +32,7 @@ Page {
 
     QueryDialog {
         id: hintShowDurationUserGuideDialog;
-        message: i18n("<b>Hint show duration:</b> The duration for showing the hint for the actual anagram");
+        message: i18n("<b>Hint show duration:</b> The duration for showing the hint for the current anagram");
     }
 
     QueryDialog {
