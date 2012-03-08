@@ -1,0 +1,19 @@
+[Desktop Entry]
+Name=Kanagram Active
+Name[x-test]=xxKanagram Activexx
+Comment=Kanagram Active for tablets
+Comment[x-test]=xxKanagram Active for tabletsxx
+Encoding=UTF-8
+Type=Service
+Icon=kanagram-active
+X-KDE-ParentApp=
+X-KDE-PluginInfo-Author=Laszlo Papp
+X-KDE-PluginInfo-Email=lpapp@kde.org
+X-KDE-PluginInfo-Name=org.kde.kanagram
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=http://edu.kde.org/applications/all/kanagram/
+X-KDE-PluginInfo-Category=Games
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=LGPLv2
+X-KDE-PluginInfo-EnabledByDefault=true
+X-Plasma-MainScript=ui/main.qml

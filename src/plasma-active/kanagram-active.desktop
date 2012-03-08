@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Kanagram Active
+Name[x-test]=xxKanagram Activexx
+GenericName=Kanagram Active
+GenericName[x-test]=xxKanagram Activexx
+Comment=Kanagram Active for tablets
+Comment[x-test]=xxKanagram Active for tabletsxx
+Exec=kanagram-active -graphicssystem raster %u
+Terminal=false
+Icon=kanagram-active.png
+Type=Application
+Categories=Qt;KDE;Games;

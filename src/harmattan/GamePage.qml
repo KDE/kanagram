@@ -34,10 +34,10 @@ Page {
     property int countDownTimerValue: kanagramEngineHelper.resolveTime;
 
     QtObject {  // status enum hackery :)
-      id: anagramStatusEnumeration;
-      property int init: 1;
-      property int active: 2;
-      property int resolved: 3;
+        id: anagramStatusEnumeration;
+        property int init: 1;
+        property int active: 2;
+        property int resolved: 3;
     }
 
     onStatusChanged: {
