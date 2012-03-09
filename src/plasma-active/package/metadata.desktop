@@ -1,8 +1,6 @@
 [Desktop Entry]
 Name=Kanagram Active
-Name[x-test]=xxKanagram Activexx
 Comment=Kanagram Active for tablets
-Comment[x-test]=xxKanagram Active for tabletsxx
 Encoding=UTF-8
 Type=Service
 Icon=kanagram-active
