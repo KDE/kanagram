@@ -1,6 +1,18 @@
 [Desktop Entry]
 Name=Kanagram Active
+Name[es]=Kanagram Active
+Name[nl]=Kanagram-actief
+Name[pt]=Kanagram Active
+Name[pt_BR]=Kanagram Active
+Name[uk]=Портативна Kanagram
+Name[x-test]=xxKanagram Activexx
 Comment=Kanagram Active for tablets
+Comment[es]=Kanagram Active para tablets
+Comment[nl]=Kanagram-actief voor tablets
+Comment[pt]=Kanagram Active para tabletes
+Comment[pt_BR]=Kanagram Active para tablets
+Comment[uk]=Портативна Kanagram для планшетів
+Comment[x-test]=xxKanagram Active for tabletsxx
 Encoding=UTF-8
 Type=Service
 Icon=kanagram-active
