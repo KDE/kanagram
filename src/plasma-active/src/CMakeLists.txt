@@ -16,6 +16,7 @@ kde4_add_executable(kanagram-active ${kanagram-active_SRCS})
 target_link_libraries(kanagram-active
     ${QT_QTDECLARATIVE_LIBRARY}
     ${QT_QTSCRIPT_LIBRARY}
+    ${QT_QTOPENGL_LIBRARY}
     ${KDE4_KDEUI_LIBS}
     ${KDE4_KIO_LIBS}
     ${KDE4_PLASMA_LIBS}
