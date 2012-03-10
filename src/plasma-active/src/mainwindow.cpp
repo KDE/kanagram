@@ -1,5 +1,5 @@
 /******************************************************************************
- * This file is part of the Gluon Development Platform
+ * This file is part of the Kanagram project
  * Copyright 2011 Sebastian Kügler <sebas@kde.org>
  * Copyright 2011 Marco Martin <mart@kde.org>
  * Copyright 2012 Laszlo Papp <lpapp@kde.org>
@@ -21,27 +21,16 @@
 
 #include "mainwindow.h"
 
-#include <lib/gamemetadata.h>
-#include <lib/gamemanager.h>
-#include <lib/models/commentsmodel.h>
-#include <lib/serviceprovider.h>
-
 #include "kdeclarativeview.h"
 
 #include <QtDeclarative/QtDeclarative>
 
 MainWindow::MainWindow()
 {
-    declarativeView()->setPackageName("org.kde.gluon.player");
+    declarativeView()->setPackageName("org.kde.kanagram");
 
-    declarativeView()->rootContext()->setContextProperty( "installedGamesModel",
-                                                          GluonPlayer::GameManager::instance()->installedGamesModel() );
-    declarativeView()->rootContext()->setContextProperty( "downloadableGamesModel",
-                                                          GluonPlayer::GameManager::instance()->downloadableGamesModel() );
-    declarativeView()->rootContext()->setContextProperty( "serviceProvider",
-                                                          GluonPlayer::ServiceProvider::instance() );
-    qmlRegisterType<GluonPlayer::GameMetadata>( "org.kde.gluon", 1, 0, "GameMetadata" );
-    qmlRegisterType<GluonPlayer::CommentsModel>( "org.kde.gluon", 1, 0, "CommentsModel" );
+    declarativeView()->rootContext()->setContextProperty( "kanagramEngine",
+                                                          0 );
 }
 
 #include "mainwindow.moc"

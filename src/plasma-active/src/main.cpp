@@ -1,5 +1,5 @@
 /******************************************************************************
- * This file is part of the Gluon Development Platform
+ * This file is part of the Kanagram project
  * Copyright 2011 Sebastian Kügler <sebas@kde.org>
  * Copyright 2011 Marco Martin <mart@kde.org>
  * Copyright 2012 Laszlo Papp <lpapp@kde.org>

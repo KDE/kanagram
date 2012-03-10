@@ -11,7 +11,7 @@ set(kanagram-active_SRCS
     mainwindow.cpp
 )
 
-kde4_add_executable(kanagram-active ${gluonplayer-active_SRCS})
+kde4_add_executable(kanagram-active ${kanagram-active_SRCS})
 
 target_link_libraries(kanagram-active
     ${QT_QTDECLARATIVE_LIBRARY}
