@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Kanagram Active
+Name[cs]=Kanagram Active
 Name[es]=Kanagram Active
 Name[hu]=Kanagram Active
 Name[nl]=Kanagram-actief
@@ -10,6 +11,7 @@ Name[sv]=Kanagram Active
 Name[uk]=Портативна Kanagram
 Name[x-test]=xxKanagram Activexx
 GenericName=Kanagram Active
+GenericName[cs]=Kanagram Active
 GenericName[es]=Kanagram Active
 GenericName[hu]=Kanagram Active
 GenericName[nl]=Kanagram-actief
@@ -20,6 +22,7 @@ GenericName[sv]=Kanagram Active
 GenericName[uk]=Портативна Kanagram
 GenericName[x-test]=xxKanagram Activexx
 Comment=Kanagram Active for tablets
+Comment[cs]=Kanagram Active pro tablety
 Comment[es]=Kanagram Active para tablets
 Comment[hu]=Kanagram Active tabletekhez
 Comment[nl]=Kanagram-actief voor tablets
