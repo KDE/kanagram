@@ -159,17 +159,6 @@ void KanagramEngineHelper::setDefaultVocabulary(const QString& defaultVocabulary
     emit defaultVocabularyChanged();
 }
 
-QString KanagramEngineHelper::dataLanguage()
-{
-    return KGlobal::locale::languageCodeToName(KanagramSettings::dataLanguage());
-}
-
-void KanagramEngineHelper::setDataLanguage(const QString& dataLanguage)
-{
-    KanagramSettings::setDataLanguage(dataLanguage);
-    emit dataLanguageChanged();
-}
-
 void KanagramEngineHelper::saveSettings()
 {
     KanagramSettings::self()->writeConfig();

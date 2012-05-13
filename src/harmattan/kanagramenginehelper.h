@@ -29,7 +29,6 @@ class KanagramEngineHelper : public QObject
     Q_PROPERTY( int resolveTime READ resolveTime WRITE setResolveTime NOTIFY resolveTimeChanged )
     Q_PROPERTY( bool useSounds READ useSounds WRITE setUseSounds NOTIFY useSoundsToggled )
     Q_PROPERTY( QString defaultVocabulary READ defaultVocabulary WRITE setDefaultVocabulary NOTIFY defaultVocabularyChanged )
-    Q_PROPERTY( QString dataLanguage READ dataLanguage WRITE setDataLanguage NOTIFY dataLanguageChanged )
 
 	public:
         explicit KanagramEngineHelper(KanagramGame *kanagramGame, QObject* parent = 0);
@@ -57,9 +56,6 @@ class KanagramEngineHelper : public QObject
         QString defaultVocabulary();
         void setDefaultVocabulary(const QString& defaultVocabulary);
 
-        QString dataLanguage();
-        void setDataLanguage(const QString& dataLanguage);
-
     public Q_SLOTS:
         void saveSettings();
 
@@ -68,7 +64,6 @@ class KanagramEngineHelper : public QObject
         void resolveTimeChanged();
         void useSoundsToggled();
         void defaultVocabularyChanged();
-        void dataLanguageChanged();
 
 	private:
         KanagramGame *m_kanagramGame;
