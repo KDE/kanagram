@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
  *             (C) 2007 by Jeremy Whiting <jpwhiting@kde.org>              *
+ *             (C) 2012 by Laszlo Papp <lpapp@kde.org>                     *
  *                                                                         *
  *   Portions of this code taken from KMessedWords by Reuben Sutton        *
  *                                                                         *
