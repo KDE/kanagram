@@ -26,6 +26,7 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QStringList>
+#include <QtCore/QHash>
 
 #include <krandomsequence.h>
 
@@ -62,6 +63,9 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 
         /** Get the list of vocabularies */
         Q_INVOKABLE QStringList vocabularyList() const;
+
+        /** Return the language names found available in the system */
+        QStringList languageNames();
 
     public Q_SLOTS:
 
@@ -131,6 +135,9 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 
         /** The current document */
         KEduVocDocument* m_document;
+
+        /** The hash of the language code and name */
+        QHash<QString, QString> m_languageCodeNameHash;
 };
 
 #endif
