@@ -53,7 +53,7 @@ Page {
         titleText: i18n("Select a language");
         selectedIndex: 0;
 
-        model: kanagramEngineHelper.languageNames();
+        model: kanagramGame.languageNames();
 
         onSelectedIndexChanged: {
             kanagramEngineHelper.dataLanguage = model[selectedIndex];
@@ -282,7 +282,7 @@ Page {
                 ListItem {
                     iconSource: "preferences-desktop-locale.png";
                     titleText: i18n("Language");
-                    subtitleText: kanagramEngineHelper.dataLanguage ?  kanagramEngineHelper.dataLanguage : "English";
+                    subtitleText: kanagramEngineHelper.dataLanguage ? kanagramEngineHelper.dataLanguage : "English";
                     iconId: "textinput-combobox-arrow";
                     iconVisible: true;
                     mousePressed: languageSelectionMouseArea.pressed;

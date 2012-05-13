@@ -110,35 +110,6 @@ QStringList KanagramEngineHelper::anagramOriginalWord() const
     return originalWordLetters;
 }
 
-QStringList KanagramEngineHelper::languageNames() const
-{
-    QStringList languageCodes = SharedKvtmlFiles::languages();
-    if (languageCodes.isEmpty()) {
-        QApplication::instance()->quit();
-    }
-
-    QStringList languageNames;
-
-    // Get the language names from the language codes
-
-    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
-
-    foreach (const QString& languageCode, languageCodes)
-    {
-        KConfigGroup group = entry.group(languageCode);
-
-        QString languageName = group.readEntry("Name");
-        if (languageName.isEmpty())
-        {
-            languageName = i18nc("@item:inlistbox no language for that locale", "None");
-        }
-
-        languageNames.append(languageName);
-    }
-
-    return languageNames;
-}
-
 bool KanagramEngineHelper::compareWords() const
 {
     return m_currentOriginalWord.join("") == m_kanagramGame->word();
@@ -190,7 +161,7 @@ void KanagramEngineHelper::setDefaultVocabulary(const QString& defaultVocabulary
 
 QString KanagramEngineHelper::dataLanguage()
 {
-    return KanagramSettings::dataLanguage();
+    return KGlobal::locale::languageCodeToName(KanagramSettings::dataLanguage());
 }
 
 void KanagramEngineHelper::setDataLanguage(const QString& dataLanguage)

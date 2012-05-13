@@ -65,7 +65,7 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         Q_INVOKABLE QStringList vocabularyList() const;
 
         /** Return the language names found available in the system */
-        QStringList languageNames();
+        Q_INVOKABLE QStringList languageNames();
 
     public Q_SLOTS:
 
