@@ -162,6 +162,7 @@ void KanagramEngineHelper::setDefaultVocabulary(const QString& defaultVocabulary
 void KanagramEngineHelper::saveSettings()
 {
     KanagramSettings::self()->writeConfig();
+    m_kanagramGame->refreshVocabularyList();
 }
 
 #include "kanagramenginehelper.moc"
