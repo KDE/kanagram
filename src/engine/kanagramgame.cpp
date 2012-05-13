@@ -25,13 +25,13 @@
 
 #include "kanagramsettings.h"
 
-#include <kurl.h>
-#include <kstandarddirs.h>
-#include <klocale.h>
-
 #include <sharedkvtmlfiles.h>
 #include <keduvocdocument.h>
 #include <keduvocexpression.h>
+
+#include <KDE/KUrl>
+#include <KDE/KStandardDirs>
+#include <KDE/KLocale>
 
 #include <QtCore/QFileInfo>
 
@@ -282,6 +282,17 @@ QStringList KanagramGame::languageNames()
     }
 
     return languageNames;
+}
+
+QString KanagramGame::dataLanguage() const
+{
+    return KGlobal::locale()->languageCodeToName(KanagramSettings::dataLanguage());
+}
+
+void KanagramGame::setDataLanguage(const QString& dataLanguage)
+{
+    KanagramSettings::setDataLanguage(m_languageCodeNameHash.key(dataLanguage));
+    emit dataLanguageChanged();
 }
 
 #include "kanagramgame.moc"

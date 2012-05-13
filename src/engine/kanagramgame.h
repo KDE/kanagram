@@ -39,6 +39,8 @@ class KEduVocDocument;
 class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString dataLanguage READ dataLanguage WRITE setDataLanguage NOTIFY dataLanguageChanged)
+
     public:
         /** Default constructor */
         KanagramGame();
@@ -66,6 +68,12 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 
         /** Return the language names found available in the system */
         Q_INVOKABLE QStringList languageNames();
+
+        /** Get the data language for the kvtml and other strings */
+        Q_INVOKABLE QString dataLanguage() const;
+
+        /** Set the data language for the kvtml and other strings */
+        Q_INVOKABLE void setDataLanguage(const QString& dataLanguage);
 
     public Q_SLOTS:
 
@@ -100,6 +108,9 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 
         /** Signal the ui that a there's a file error of some kind */
         void fileError(const QString &filename);
+
+        /** Signal the ui that the data language has changed */
+        void dataLanguageChanged();
 
     private:
 
