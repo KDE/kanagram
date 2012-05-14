@@ -80,6 +80,8 @@ Page {
     }
 
     function nextAnagram() {
+        categorySelectionDialog.model = kanagramGame.vocabularyList();
+
         anagramHintInfoBanner.hide();
         anagramStatus = anagramStatusEnumeration.init;
         anagram = kanagramEngineHelper.createNextAnagram();
@@ -150,7 +152,6 @@ Page {
                     chalkSoundEffect.play();
                 }
 
-                categorySelectionDialog.model = kanagramGame.vocabularyList();
                 nextAnagram();
                 secondTimer.repeat = true;
                 secondTimer.restart();
