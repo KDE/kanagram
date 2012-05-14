@@ -150,6 +150,7 @@ Page {
                     chalkSoundEffect.play();
                 }
 
+                categorySelectionDialog.model = kanagramGame.vocabularyList();
                 nextAnagram();
                 secondTimer.repeat = true;
                 secondTimer.restart();
