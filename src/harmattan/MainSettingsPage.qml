@@ -51,7 +51,7 @@ Page {
     MySelectionDialog {
         id: languageSelectionDialog;
         titleText: i18n("Select a language");
-        selectedIndex: 0;
+        selectedIndex: kanagramGame.dataLanguageSelectedIndex();
 
         model: kanagramGame.languageNames();
 

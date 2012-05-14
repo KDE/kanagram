@@ -75,6 +75,9 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         /** Set the data language for the kvtml and other strings */
         Q_INVOKABLE void setDataLanguage(const QString& dataLanguage);
 
+        /** Get the selected index of the data language in the language list */
+        Q_INVOKABLE int dataLanguageSelectedIndex() const;
+
     public Q_SLOTS:
 
         /** Set the vocabulary to use according to the vocabulary name */

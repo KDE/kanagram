@@ -281,6 +281,7 @@ QStringList KanagramGame::languageNames()
         m_languageCodeNameHash.insert(languageCode, languageName);
     }
 
+    qSort(languageNames);
     return languageNames;
 }
 
@@ -293,6 +294,14 @@ void KanagramGame::setDataLanguage(const QString& dataLanguage)
 {
     KanagramSettings::setDataLanguage(m_languageCodeNameHash.key(dataLanguage));
     emit dataLanguageChanged();
+}
+
+int KanagramGame::dataLanguageSelectedIndex() const
+{
+    QStringList languageNames = m_languageCodeNameHash.values();
+    qSort(languageNames);
+
+    return languageNames.indexOf(KanagramSettings::dataLanguage());
 }
 
 #include "kanagramgame.moc"
