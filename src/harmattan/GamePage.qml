@@ -32,6 +32,7 @@ Page {
     property int currentOriginalWordIndex: 0;
     property string originalWordLetterButtonBackground: "image://theme/meegotouch-button-inverted-background";
     property int countDownTimerValue: kanagramEngineHelper.resolveTime;
+    property bool initialized: false;
 
     QtObject {  // status enum hackery :)
         id: anagramStatusEnumeration;
@@ -198,7 +199,7 @@ Page {
         onSelectedIndexChanged: {
 
             if (kanagramEngineHelper.useSounds) {
-                chalkSoundEffect.play();
+                initialized == true ? chalkSoundEffect.play() : initialized = true;
             }
 
             kanagramGame.setCurrentCategory(selectedIndex);
