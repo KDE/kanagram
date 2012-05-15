@@ -78,6 +78,10 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         /** Get the selected index of the data language in the language list */
         Q_INVOKABLE int dataLanguageSelectedIndex() const;
 
+        /** Get the index of the current category in the list */
+        Q_INVOKABLE int currentCategory() const;
+
+
     public Q_SLOTS:
 
         /** Set the vocabulary to use according to the vocabulary name */
@@ -106,6 +110,9 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 
         /** Restore the word, set the anagram to the answer */
         void restoreWord();
+
+        /** Set the index of the current category in the list as the current active one */
+        void setCurrentCategory(int index);
 
     Q_SIGNALS:
 

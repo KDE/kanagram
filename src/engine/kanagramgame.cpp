@@ -304,4 +304,14 @@ int KanagramGame::dataLanguageSelectedIndex() const
     return languageNames.indexOf(KanagramSettings::dataLanguage());
 }
 
+int KanagramGame::currentCategory() const
+{
+    return KanagramSettings::currentCategory();
+}
+
+void KanagramGame::setCurrentCategory(int index)
+{
+    KanagramSettings::setCurrentCategory(index);
+}
+
 #include "kanagramgame.moc"

@@ -5,6 +5,10 @@
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
 <kcfgfile name="kanagramrc"/>
 <group name="kanagram">
+<entry name="currentCategory" type="Int">
+    <label>This settings stores the currently selected Category</label>
+    <default>0</default>
+</entry>
 <entry name="hintHideTime" type="String">
 	<label>This setting allows you to set in seconds how long Kanagram's hint bubble is shown.</label>
 	<default>5</default>
