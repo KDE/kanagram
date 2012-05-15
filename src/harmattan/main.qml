@@ -24,6 +24,8 @@ import QtMultimediaKit 1.1
 PageStackWindow {
     id: rootWindow;
 
+    property bool languageSelectionChanged: false;
+
     // MainPage is what we see when the app starts, it shows up
     // the available games on the mobile handset
     initialPage: mainPage;

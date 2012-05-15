@@ -57,6 +57,7 @@ Page {
 
         onSelectedIndexChanged: {
             kanagramGame.dataLanguage = model[selectedIndex];
+            rootWindow.languageSelectionChanged = true;
         }
     }
 
