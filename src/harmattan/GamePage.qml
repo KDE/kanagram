@@ -43,6 +43,11 @@ Page {
     onStatusChanged: {
         if (status == PageStatus.Active && anagramStatus != anagramStatusEnumeration.resolved) {
             if (rootWindow.languageSelectionChanged == true) {
+
+                if (kanagramEngineHelper.useSounds) {
+                    chalkSoundEffect.play();
+                }
+
                 categorySelectionDialog.model = kanagramGame.vocabularyList();
                 kanagramGame.useVocabulary(categorySelectionDialog.selectedIndex);
                 nextAnagram();
