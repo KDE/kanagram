@@ -42,6 +42,7 @@ Page {
 
     onStatusChanged: {
         if (status == PageStatus.Active && anagramStatus != anagramStatusEnumeration.resolved) {
+            nextAnagram();
             secondTimer.repeat = true;
             secondTimer.restart();
         }
@@ -197,6 +198,7 @@ Page {
 
             kanagramGame.setCurrentCategory(selectedIndex);
             kanagramEngineHelper.saveSettings();
+            kanagramGame.useVocabulary(selectedIndex);
             nextAnagram();
         }
     }
