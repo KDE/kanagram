@@ -64,6 +64,11 @@ Page {
         }
     }
 
+    Component.onCompleted: {
+        categorySelectionDialog.selectedIndex = kanagramGame.currentCategory();
+    }
+
+
     function pushPage(file) {
         var component = Qt.createComponent(file)
         if (component.status == Component.Ready)
@@ -181,7 +186,6 @@ Page {
     MySelectionDialog {
         id: categorySelectionDialog;
         titleText: "Choose an anagram category"
-        selectedIndex: 1;
 
         model: kanagramGame.vocabularyList();
 
@@ -191,7 +195,8 @@ Page {
                 chalkSoundEffect.play();
             }
 
-            kanagramGame.useVocabulary(selectedIndex);
+            kanagramGame.setCurrentCategory(selectedIndex);
+            kanagramEngineHelper.saveSettings();
             nextAnagram();
         }
     }
