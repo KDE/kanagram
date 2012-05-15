@@ -80,7 +80,11 @@ Page {
     }
 
     function nextAnagram() {
+        // FIXME: This vocabulary setting should not happen in each next anagram
+        // getting process, but it is not too performance critical either, so
+        // this is enough to be addressed later
         categorySelectionDialog.model = kanagramGame.vocabularyList();
+        kanagramGame.useVocabulary(categorySelectionDialog.selectedIndex);
 
         anagramHintInfoBanner.hide();
         anagramStatus = anagramStatusEnumeration.init;
