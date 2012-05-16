@@ -48,6 +48,9 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         /** Default destructor */
         ~KanagramGame();
 
+        /** Get the sanitized data language used */
+        QString sanitizedDataLanguage() const;
+
         /** Get the anagram to show */
         QString anagram() const;
 

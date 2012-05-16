@@ -61,6 +61,23 @@ bool KanagramGame::checkFile()
     return true;
 }
 
+QString KanagramGame::sanitizedDataLanguage() const
+{
+    QString dataLanguage = KanagramSettings::dataLanguage();
+
+    if (dataLanguage.isEmpty()) {
+        QStringList languageCodes = SharedKvtmlFiles::languages();
+        if (languageCodes.contains(KGlobal::locale()->language())) {
+            dataLanguage = KGlobal::locale()->language();
+        } else {
+            dataLanguage = "en_US";
+        }
+    }
+
+    return dataLanguage;
+
+}
+
 void KanagramGame::loadDefaultVocabulary()
 {
     m_filename = KanagramSettings::defaultVocabulary();
@@ -84,7 +101,7 @@ void KanagramGame::loadDefaultVocabulary()
 bool KanagramGame::refreshVocabularyList()
 {
     QString oldFilename = m_filename;
-    m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
+    m_fileList = SharedKvtmlFiles::fileNames(sanitizedDataLanguage());
     if ( m_document ) {
         useVocabulary(m_document->title());
     }
@@ -93,7 +110,7 @@ bool KanagramGame::refreshVocabularyList()
 
 QStringList KanagramGame::vocabularyList() const
 {
-    return SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
+    return SharedKvtmlFiles::titles(sanitizedDataLanguage());
 }
 
 void KanagramGame::useVocabulary(const QString &vocabularyname)
@@ -287,16 +304,7 @@ QStringList KanagramGame::languageNames()
 
 QString KanagramGame::dataLanguage() const
 {
-    QString dataLanguage = KanagramSettings::dataLanguage();
-
-    if (dataLanguage.isEmpty()) {
-        QStringList languageCodes = SharedKvtmlFiles::languages();
-        if (languageCodes.contains(KGlobal::locale()->language())) {
-            dataLanguage = KGlobal::locale()->language();
-        }
-    }
-
-    return KGlobal::locale()->languageCodeToName(dataLanguage);
+    return KGlobal::locale()->languageCodeToName(sanitizedDataLanguage());
 }
 
 void KanagramGame::setDataLanguage(const QString& dataLanguage)
