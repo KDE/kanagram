@@ -289,8 +289,11 @@ QString KanagramGame::dataLanguage() const
 {
     QString dataLanguage = KanagramSettings::dataLanguage();
 
-    if (dataLanguage.isEmpty() && m_languageCodeNameHash.contains(KGlobal::locale()->language())) {
-       dataLanguage = KGlobal::locale()->language();
+    if (dataLanguage.isEmpty()) {
+        QStringList languageCodes = SharedKvtmlFiles::languages();
+        if (languageCodes.contains(KGlobal::locale()->language())) {
+            dataLanguage = KGlobal::locale()->language();
+        }
     }
 
     return KGlobal::locale()->languageCodeToName(dataLanguage);
