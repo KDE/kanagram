@@ -56,7 +56,7 @@ Page {
                 // language.
 
                 if (categorySelectionDialog.selectedIndex >= categorySelectionDialog.model.length) {
-                    categorySelectionDialog.selectedIndex = 1;
+                    categorySelectionDialog.selectedIndex = 0;
                 }
 
                 kanagramGame.setCurrentCategory(categorySelectionDialog.selectedIndex);
