@@ -50,6 +50,18 @@ Page {
                 }
 
                 categorySelectionDialog.model = kanagramGame.vocabularyList();
+
+                // Sanitize the selected index, if the translation is not
+                // available for the previously selected index in a different
+                // language.
+
+                if (categorySelectionDialog.selectedIndex >= categorySelectionDialog.model.length) {
+                    categorySelectionDialog.selectedIndex = 1;
+                }
+
+                kanagramGame.setCurrentCategory(categorySelectionDialog.selectedIndex);
+                kanagramEngineHelper.saveSettings();
+
                 kanagramGame.useVocabulary(categorySelectionDialog.selectedIndex);
                 nextAnagram();
                 rootWindow.languageSelectionChanged = false;
