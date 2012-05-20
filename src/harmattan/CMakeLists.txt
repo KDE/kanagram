@@ -48,3 +48,5 @@ if(NOT KANAGRAM_ICONS_INSTALLED)
     add_subdirectory(../../icons icons)
     set(KANAGRAM_ICONS_INSTALLED TRUE)
 endif()
+
+install(FILES kanagram-chalkboard-landscape.png kanagram-chalkboard-portrait-rotated.png DESTINATION ${DATA_INSTALL_DIR})

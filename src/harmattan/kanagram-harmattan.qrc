@@ -19,8 +19,8 @@
         <file>ListItem.qml</file>
         <file>LetterElement.qml</file>
 
-        <file alias="kanagram-chalkboard-landscape.png">../../icons/common/kanagram-chalkboard-landscape.png</file>
-        <file alias="kanagram-chalkboard-portrait.png">../../icons/common/kanagram-chalkboard-portrait.png</file>
+        <file alias="kanagram-chalkboard-landscape.png">./kanagram-chalkboard-landscape.png</file>
+        <file alias="kanagram-chalkboard-portrait.png">./kanagram-chalkboard-portrait.png</file>
         <file alias="help-hint.png">../../icons/common/help-hint.png</file>
         <file alias="games-solve.png">../../icons/common/games-solve.png</file>
         <file alias="preferences-desktop-locale.png">../../icons/common/preferences-desktop-locale.png</file>
