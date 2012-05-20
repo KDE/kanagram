@@ -70,7 +70,7 @@ QString KanagramGame::sanitizedDataLanguage() const
         if (languageCodes.contains(KGlobal::locale()->language())) {
             dataLanguage = KGlobal::locale()->language();
         } else {
-            dataLanguage = "en_US";
+            dataLanguage = "en";
         }
     }
 
