@@ -328,7 +328,11 @@ int KanagramGame::currentCategory() const
 
 void KanagramGame::setCurrentCategory(int index)
 {
-    KanagramSettings::setCurrentCategory(index);
+    if (index > 0 && index < m_fileList.count()) {
+        KanagramSettings::setCurrentCategory(index);
+    } else {
+        KanagramSettings::setCurrentCategory(0);
+    }
 }
 
 #include "kanagramgame.moc"
