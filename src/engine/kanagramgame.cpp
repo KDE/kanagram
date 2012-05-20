@@ -120,7 +120,7 @@ void KanagramGame::useVocabulary(const QString &vocabularyname)
 
 void KanagramGame::useVocabulary(int index)
 {
-    if (index > 0)
+    if (index > 0 && index < m_fileList.count())
     {
         m_index = index;
         m_filename = m_fileList.at(index);
