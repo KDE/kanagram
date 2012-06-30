@@ -1,141 +1,104 @@
-/*****************************************************************************
+/******************************************************************************
  * This file is part of the Kanagram project
  * Copyright (C) 2012 Laszlo Papp <lpapp@kde.org>
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
+ * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-import QtQuick 1.0
-import org.kde.plasma.components 0.1 as PlasmaComponents
+import QtQuick 1.1
+import QtMultimediaKit 1.1
 
-Image {
-    id: rootItem
-    source: "image://appbackgrounds/standard"
-    fillMode: Image.Tile
+import org.kde.plasma.components 0.1
 
-    property alias currentGameId: gameDetailsTabGroup.gameId
+Rectangle {
+    id: rootRectangle;
 
-    Row {
-        anchors.fill: parent
-        anchors.margins: 20
-        spacing: 10
+    property bool languageSelectionChanged: false;
 
-        Column {
-            height: parent.height
-            width: parent.width*0.4
-            spacing: 20
+    // MainPage is what we see when the app starts, it shows up
+    // the available games on the mobile handset
+    initialPage: mainPage;
 
-            PlasmaComponents.Button {
-                id: gamesListStatusChanger
+    MainPage {
+        id: mainPage;
+    }
 
-                height: 32
-                width: gamesListView.width
+    HelpPage {
+        id: helpPage;
+    }
 
-                onClicked: rootItem.toggleState()
-            }
+    GamePage {
+        id: gamePage;
+    }
 
-            ListView {
-                id: gamesListView
+    MainSettingsPage {
+        id: mainSettingsPage;
+    }
 
-                height: parent.height - gamesListStatusChanger.height
-                width: parent.width
+    // These tools are shared by most sub-pages by assigning the
+    // id to a page's tools property
 
-                clip: true
-                spacing: 10
-
-                delegate: GameItem { }
-            }
-        }
-
-        Column {
-            height: parent.height
-            width: parent.width*0.6
-
-            PlasmaComponents.TabBar {
-                id: gameDetailsTabBar
-                height: 64
-                width: parent.width
-
-                PlasmaComponents.TabButton {
-                    tab: gameDetailsItem
-                    text: "Details"
-                }
-                PlasmaComponents.TabButton {
-                    tab: gameCommentsView
-                    text: "Comments"
-                }
-                PlasmaComponents.TabButton {
-                    tab: userDetailsItem
-                    text: "User"
-                }
-            }
-
-            PlasmaComponents.TabGroup {
-                id: gameDetailsTabGroup
-                property string gameId
-
-                height: parent.height - gameDetailsTabBar.height
-                width: parent.width
-
-                GameDetails {
-                    id: gameDetailsItem
-                    gameId: gameDetailsTabGroup.gameId
-                    height: parent.height
-                    width: parent.width
+    ToolBarLayout {
+        id: commonTools;
+        visible: false;
+        ToolIcon {
+            iconId: "toolbar-back";
+            onClicked: {
+                if (pageStack.currentPage == mainSettingsPage) {
+                    kanagramEngineHelper.saveSettings();
                 }
 
-                CommentsView {
-                    id: gameCommentsView
-                    gameId: gameDetailsTabGroup.gameId
-                    height: parent.height
-                    width: parent.width
-                }
-
-                UserDetails {
-                    id: userDetailsItem
-                    height: parent.height
-                    width: parent.width
-                }
+                pageStack.pop();
             }
         }
     }
 
     Component.onCompleted: {
-        state = "showInstalledGames"
+        // Use the dark theme.
+        theme.inverted = true;
     }
 
-    function toggleState()
-    {
-        if (rootItem.state == "showInstalledGames")
-            rootItem.state = "showDownloadableGames";
-        else
-            rootItem.state = "showInstalledGames"
+    /* platformStyle: PageStackWindowStyle {
+        // Note: It is needed for being backward compatible with PR1.0 where
+        // "foobar.png" does not work as expected. It was fixed in later
+        // versions though, but the Nokia Ovi Store requires backward
+        // compatibility with PR1.0
+
+        background: "qrc:/kanagram-chalkboard-landscape.png";
+        landscapeBackground: "qrc:/kanagram-chalkboard-landscape.png";
+        portraitBackground: "qrc:/kanagram-chalkboard-portrait.png";
+        backgroundFillMode: Image.Stretch;
+    } */
+
+    SoundEffect {
+        id: chalkSoundEffect;
+        source: "chalk.wav";
     }
 
-    states: [
-        State {
-            name: "showInstalledGames"
+    SoundEffect {
+        id: rightSoundEffect;
+        source: "right.wav";
+    }
 
-            PropertyChanges { target: gamesListView; model: installedGamesModel }
-            PropertyChanges { target: gamesListStatusChanger; text: "Showing Installed Games" }
-        },
-        State {
-            name: "showDownloadableGames"
+    SoundEffect {
+        id: wrongSoundEffect;
+        source: "wrong.wav";
+    }
 
-            PropertyChanges { target: gamesListView; model: downloadableGamesModel }
-            PropertyChanges { target: gamesListStatusChanger; text: "Showing Downloadable Games" }
-        }
-    ]
+    SoundEffect {
+        id: anagramLetterPressSoundEffect;
+        source: "anagram-letter-press.wav";
+    }
 }
