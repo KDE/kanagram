@@ -123,7 +123,6 @@ Page {
     // Create an info banner with icon
     InfoBanner {
         id: anagramHintInfoBanner;
-        text: i18n("This is an info banner with icon");
         iconSource: "dialog-information.png";
     }
 
