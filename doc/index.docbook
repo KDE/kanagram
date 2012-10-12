@@ -7,9 +7,9 @@
  <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
 
-<book lang="&language;">
+<book id="kanagram" lang="&language;">
 
-<bookinfo>
+<book id="kanagram"info>
 <title>The &kanagram; Handbook</title>
 
 <authorgroup>
