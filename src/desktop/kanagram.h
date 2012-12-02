@@ -321,6 +321,7 @@ class Kanagram : public KMainWindow
         double m_xRatio;
         double m_yRatio;
 
+        bool m_wordRevealed;
         KActionCollection * m_actionCollection;
 };
 

@@ -78,7 +78,8 @@ Kanagram::Kanagram()
     m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false),
     m_overUp(false), m_overAboutKDE(false), m_overAboutApp(false),
     m_overHandbook(false), m_overSwitcher(false), m_overLogo(false),
-    m_overHintBox(false), m_showHint(false), m_player(NULL), m_actionCollection(NULL)
+    m_overHintBox(false), m_showHint(false), m_player(NULL), m_wordRevealed(false),
+    m_actionCollection(NULL)
 {
     setAttribute(Qt::WA_StaticContents);
     m_renderer = new QSvgRenderer(KStandardDirs::locate("appdata", "images/kanagram.svg"));
@@ -324,8 +325,10 @@ void Kanagram::paintEvent(QPaintEvent *)
     QString reveal = i18n(m_textRevealWord);
     m_cornerFontSize = KFontUtils::adaptFontSize(p, reveal, m_blackboardRect.width() / 3, m_blackboardRect.height() / 5);
     FixFontSize(m_cornerFontSize);
-
-    drawTextNew(p, reveal, Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, m_cornerFontSize);
+    if(!m_wordRevealed)
+    {
+        drawTextNew(p, reveal, Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, m_cornerFontSize);
+    }
     drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 6, 0, m_blackboardRect, m_overHint, m_cornerFontSize);
 
     // update these rects because we have access to the painter and thus the fontsize here
@@ -569,6 +572,7 @@ QRect Kanagram::innerRect(const QRect &rect, const int xMargin, const int yMargi
 /** move on to the next word */
 void Kanagram::slotNextAnagram()
 {
+    m_wordRevealed = false;
     hideHint();
     m_game->nextAnagram();
     if (m_useSounds)
@@ -586,6 +590,7 @@ void Kanagram::slotNextAnagram()
 
 void Kanagram::slotRevealWord()
 {
+    m_wordRevealed = true;
     m_game->restoreWord();
     update();
 }
