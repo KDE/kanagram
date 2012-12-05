@@ -1,5 +1,7 @@
 [KNewStuff3]
-ProvidersUrl=http://data.kstuff.org/cgi-bin/hotstuff-provider?site=kanagram-dxs
+ProvidersUrl=http://download.kde.org/ocs/providers.xml
+Categories=Kanagram
+UploadCategories=Kanagram
 TargetDir=kvtml
-Uncompress=true
-#CachePolicy=resident
+Uncompress=never
+AcceptHtmlDownloads=true
