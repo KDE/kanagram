@@ -769,7 +769,7 @@ void Kanagram::mouseMoveEvent(QMouseEvent *e)
     }
 
     if (m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit
-            || m_overConfig || m_overReveal || m_overHint || (m_overUp && !m_inputBox->text().isEmpty())
+            || m_overConfig || (m_overReveal && !m_wordRevealed) || m_overHint || (m_overUp && !m_inputBox->text().isEmpty())
             || m_overAboutApp || m_overHintBox || m_overLogo)
     {
         this->setCursor(Qt::PointingHandCursor);
@@ -821,6 +821,7 @@ void Kanagram::checkWord()
             palette.setColor(m_inputBox->backgroundRole(), QColor(0, 255, 0));
             QTimer::singleShot(1000, this, SLOT(resetInputBox()));
             m_inputBox->clear();
+            m_wordRevealed = false;
             hideHint();
             m_game->nextAnagram();
         }
