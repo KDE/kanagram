@@ -23,7 +23,7 @@ kde4_add_ui_files(kanagramdesktop_SRCS
 
 # there is no kanagram icon in oxygen
 #kde4_add_app_icon(kanagramdesktop_SRCS "${KDE4_ICON_DIR}/oxygen/*/apps/kanagram.png")
-kde4_add_app_icon(kanagramdesktop_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/hi*-app*-kanagram.png")
+kde4_add_app_icon(kanagramdesktop_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../../icons/hi*-app*-kanagram.png")
 
 kde4_add_executable(kanagram ${kanagramdesktop_SRCS})
 add_dependencies(kanagram kvtml_data)
