@@ -5,6 +5,7 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${LIBKDEEDU_INCLUDE_DIR}
     ${KANAGRAM_ENGINE_INCLUDE_DIRS}
+    ${KDE4_INCLUDES}
 )
 
 set(kanagramdesktop_SRCS

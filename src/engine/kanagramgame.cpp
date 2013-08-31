@@ -23,8 +23,10 @@
 
 #include "kanagramgame.h"
 
+
 #include "kanagramsettings.h"
 
+#include <KDE/KUrl>
 #include <sharedkvtmlfiles.h>
 #include <keduvocdocument.h>
 #include <keduvocexpression.h>
@@ -34,6 +36,7 @@
 #include <KDE/KLocale>
 
 #include <QtCore/QFileInfo>
+
 
 KanagramGame::KanagramGame() : m_index(0), m_document(NULL)
 {
@@ -199,6 +202,8 @@ void KanagramGame::nextAnagram()
 
         // lowercase the entry text so german words that start capitalized will be lowercased
         m_originalWord = translation->text().toLower();
+        m_picHintUrl = translation->imageUrl();
+
         m_answeredWords.append(m_originalWord);
         createAnagram();
         m_hint = translation->comment();
@@ -213,6 +218,7 @@ void KanagramGame::nextAnagram()
         // this file has no entries
         m_originalWord = "";
         m_hint = "";
+        m_picHintUrl = "";
         // TODO: add some error reporting here
     }
 }
@@ -334,5 +340,12 @@ void KanagramGame::setCurrentCategory(int index)
         KanagramSettings::setCurrentCategory(0);
     }
 }
+
+////function to return the picture url
+KUrl KanagramGame::picHint()
+{
+    return m_picHintUrl;
+}
+
 
 #include "kanagramgame.moc"

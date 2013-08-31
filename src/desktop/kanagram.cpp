@@ -50,6 +50,7 @@
 
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
+static const char* m_textPicHint = I18N_NOOP("picture hint");
 static const char* m_nextText = I18N_NOOP("Next Anagram");
 
 double kWindowWidth = 1000.0;
@@ -75,10 +76,10 @@ double yScaleQuitButton = 77.5 / kWindowHeight;
 
 Kanagram::Kanagram()
 : KMainWindow(), m_game(NULL), m_overNext(false), m_overConfig(false),
-    m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false),
+    m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false),m_overPicHint(false),
     m_overUp(false), m_overAboutKDE(false), m_overAboutApp(false),
     m_overHandbook(false), m_overSwitcher(false), m_overLogo(false),
-    m_overHintBox(false), m_showHint(false), m_player(NULL), m_wordRevealed(false),
+    m_overHintBox(false), m_showHint(false), m_showPicHint(false), m_player(NULL), m_wordRevealed(false),
     m_actionCollection(NULL)
 {
     setAttribute(Qt::WA_StaticContents);
@@ -91,6 +92,10 @@ Kanagram::Kanagram()
     loadSettings();
 
     m_game = new KanagramGame();
+    if (!m_game->picHint().isEmpty())
+    {
+        m_pictureHint.load(m_game->picHint().pathOrUrl());
+    }
 
     setMouseTracking(true);
     m_chalkColor = QColor(155, 155, 155);
@@ -329,7 +334,13 @@ void Kanagram::paintEvent(QPaintEvent *)
     {
         drawTextNew(p, reveal, Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, m_cornerFontSize);
     }
+    
     drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 6, 0, m_blackboardRect, m_overHint, m_cornerFontSize);
+    
+    if(!m_game->picHint().isEmpty())
+    {
+        drawTextNew(p, i18n(m_textPicHint), Qt::AlignTop | Qt::AlignLeft, 6, 8, m_blackboardRect, m_overPicHint, m_cornerFontSize);//////////for picture hint
+    }
 
     // update these rects because we have access to the painter and thus the fontsize here
     QFont font = KGlobalSettings::generalFont();
@@ -338,6 +349,7 @@ void Kanagram::paintEvent(QPaintEvent *)
     QFontMetrics fm(font);
     QRect r = innerRect(m_blackboardRect, 6, 0);
     m_hintRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
+    m_picHintRect = fm.boundingRect(r, Qt::AlignTop|Qt::AlignLeft, i18n(m_textPicHint));
     m_hintBoxRect = QRect(int(684.813 * m_xRatio), int(319.896 * m_yRatio), int(xEyesScale * width()), int(yEyesScale * height()));
     r = innerRect(m_blackboardRect, 6, 0);
     m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, reveal);
@@ -395,7 +407,12 @@ void Kanagram::paintEvent(QPaintEvent *)
                 Qt::TextWordWrap | Qt::AlignCenter, hint);
     }
 
-    if (m_overHelp && !m_showHint)
+    if (m_showPicHint)
+    {
+        p.drawImage(m_picHintRect.topLeft(),m_pictureHint);
+    }
+
+    if (m_overHelp && !m_showHint && !m_showPicHint)
     {
         if (m_overAboutApp)
         {
@@ -574,7 +591,13 @@ void Kanagram::slotNextAnagram()
 {
     m_wordRevealed = false;
     hideHint();
+    hidePicHint();
     m_game->nextAnagram();
+    if (!m_game->picHint().isEmpty())
+    {
+        m_pictureHint.load(m_game->picHint().pathOrUrl());
+    }
+
     if (m_useSounds)
     {
         play("chalk.ogg");
@@ -647,8 +670,33 @@ void Kanagram::slotToggleHint()
     update();
 }
 
+void Kanagram::slotTogglePicHint()
+{
+   if (m_showPicHint)
+    {
+        m_showPicHint = false;
+    }
+    else
+    {
+        if (m_hintHideTime)
+        {
+            m_hintTimer->start(m_hintHideTime * 1000);
+        }
+        m_showPicHint = true;
+       // randomHintImage();
+    }
+    update();
+  
+  
+}
+
 void Kanagram::mousePressEvent(QMouseEvent *e)
 {
+    if (m_showPicHint)
+    {
+        hidePicHint();
+    }
+
     if (m_nextRect.contains(e->pos()))
     {
         slotNextAnagram();
@@ -674,7 +722,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
         m_helpMenu->aboutApplication();
     }
 
-    if (!m_showHint && m_overHelp)
+    if (!m_showHint && m_overHelp && !m_showPicHint)
     {
         if (m_handbookRect.contains(e->pos()))
         {
@@ -713,6 +761,11 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
     {
         slotToggleHint();
     }
+    
+    if (m_picHintRect.contains(e->pos()))
+    {
+        slotTogglePicHint();
+    }
 
     if (m_upRect.contains(e->pos()) && !m_inputBox->text().isEmpty())
     {
@@ -746,6 +799,10 @@ void Kanagram::mouseMoveEvent(QMouseEvent *e)
     CheckRect(m_helpRect, p, m_overHelp, haveToUpdate);
     CheckRect(m_quitRect, p, m_overQuit, haveToUpdate);
     CheckRect(m_hintRect, p, m_overHint, haveToUpdate);
+    if (!m_game->picHint().isEmpty())
+    {
+        CheckRect(m_picHintRect, p, m_overPicHint, haveToUpdate);
+    }
     CheckRect(m_hintBoxRect, p, m_overHintBox, haveToUpdate);
     CheckRect(m_revealRect, p, m_overReveal, haveToUpdate);
     CheckRect(m_upRect, p, m_overUp, haveToUpdate);
@@ -762,14 +819,14 @@ void Kanagram::mouseMoveEvent(QMouseEvent *e)
         haveToUpdate = true;
     }
 
-    if (!m_showHint)
+    if (!m_showHint ||!m_showPicHint)
     {
         CheckRect(m_handbookRect, p, m_overHandbook, haveToUpdate);
         CheckRect(m_aboutKDERect, p, m_overAboutKDE, haveToUpdate);
     }
 
     if (m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit
-            || m_overConfig || (m_overReveal && !m_wordRevealed) || m_overHint || (m_overUp && !m_inputBox->text().isEmpty())
+            || m_overConfig || (m_overReveal && !m_wordRevealed) || m_overHint  || m_overPicHint || (m_overUp && !m_inputBox->text().isEmpty())
             || m_overAboutApp || m_overHintBox || m_overLogo)
     {
         this->setCursor(Qt::PointingHandCursor);
@@ -902,11 +959,20 @@ void Kanagram::slotEnableApplyButton()
 
 void Kanagram::hideHint()
 {
-    if (m_showHint == true)
+    if (m_showHint == true )
     {
         m_showHint = false;
     }
     update();
+}
+
+void Kanagram::hidePicHint()
+{
+  if (m_showPicHint == true || !m_game->picHint().isEmpty())
+  {
+      m_showPicHint = false;
+  }
+  update();
 }
 
 void Kanagram::resetInputBox()
