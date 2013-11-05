@@ -30,6 +30,7 @@
 #include <KMainWindow>
 #include <KRandomSequence>
 #include <qimage.h>
+#include <sonnet/speller.h>
 
 namespace Phonon
 {
@@ -220,12 +221,21 @@ class Kanagram : public KMainWindow
          * @returns string without accents */
         QString stripAccents(const QString & original);
 
+        /** check if two words are an anagram or not
+         * @param enteredWord the word to check
+         * @param word the word to check against
+         * @returns true if enteredWord only contains letters from word
+         **/
+        bool isAnagram(QString& enteredword,QString& word);
+
         /**
          * KanagramGame object to get words,
          * scrambled words,
          * and vocabulary names from
          */
         KanagramGame *m_game;
+
+        Sonnet:: Speller* m_speller;
 
         /** name of the hint overlay svg element
          * set in randomHintImage

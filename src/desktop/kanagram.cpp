@@ -75,7 +75,7 @@ double xScaleQuitButton = 77.484 / kWindowWidth;
 double yScaleQuitButton = 77.5 / kWindowHeight;
 
 Kanagram::Kanagram()
-: KMainWindow(), m_game(NULL), m_overNext(false), m_overConfig(false),
+: KMainWindow(), m_game(NULL), m_speller(NULL), m_overNext(false), m_overConfig(false),
     m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false),m_overPicHint(false),
     m_overUp(false), m_overAboutKDE(false), m_overAboutApp(false),
     m_overHandbook(false), m_overSwitcher(false), m_overLogo(false),
@@ -86,6 +86,7 @@ Kanagram::Kanagram()
     m_renderer = new QSvgRenderer(KStandardDirs::locate("appdata", "images/kanagram.svg"));
 
     m_helpMenu = new KHelpMenu(this, KGlobal::mainComponent().aboutData());
+    m_speller = new Sonnet::Speller();
 
     setupActions();
 
@@ -96,6 +97,7 @@ Kanagram::Kanagram()
     {
         m_pictureHint.load(m_game->picHint().pathOrUrl());
     }
+    m_speller->setLanguage(m_game->sanitizedDataLanguage());
 
     setMouseTracking(true);
     m_chalkColor = QColor(155, 155, 155);
@@ -144,6 +146,8 @@ Kanagram::~Kanagram()
 
     delete m_renderer;
     m_renderer = NULL;
+    delete m_speller;
+    m_speller = NULL;
 }
 
 QSize Kanagram::sizeHint() const
@@ -622,6 +626,7 @@ void Kanagram::slotRevealWord()
 void Kanagram::slotNextVocabulary()
 {
     m_game->nextVocabulary();
+    m_speller->setLanguage(m_game->sanitizedDataLanguage());
     hideHint();
     m_game->nextAnagram();
 
@@ -639,6 +644,7 @@ void Kanagram::slotNextVocabulary()
 void Kanagram::slotPrevVocabulary()
 {
     m_game->previousVocabulary();
+    m_speller->setLanguage(m_game->sanitizedDataLanguage());
     hideHint();
     m_game->nextAnagram();
 
@@ -870,9 +876,11 @@ void Kanagram::checkWord()
     QPalette palette;
     QString enteredWord = m_inputBox->text().toLower().trimmed();
     QString word = m_game->word().toLower().trimmed();
+
     if (!enteredWord.isEmpty())
     {
-        if (enteredWord == word || stripAccents(enteredWord) == stripAccents(word))
+        if (enteredWord == word || stripAccents(enteredWord) == stripAccents(word) || 
+           (m_speller->isCorrect(enteredWord) && isAnagram(enteredWord, word)))
         {
             if (m_useSounds) play("right.ogg");
             palette.setColor(m_inputBox->backgroundRole(), QColor(0, 255, 0));
@@ -1031,6 +1039,32 @@ void Kanagram::slotFileError(const QString &filename)
 /** show the popup menu of vocabularies, and allow choosing of one */
 void Kanagram::slotChooseVocabulary()
 {
+}
+
+bool Kanagram::isAnagram(QString& enteredword, QString& word)
+{
+    QString test = word;
+    if (enteredword.length() <= word.length())
+    {
+        for (int i=0; i < enteredword.length(); i++)
+        {
+            int found = test.indexOf(enteredword[i]);
+
+            if (found != -1)
+            {
+                test.remove(found, 1);
+            }
+            else
+                break;
+        }
+
+        if (test.isEmpty())
+            return true;
+        else
+            return false;
+    }
+    else
+        return false;
 }
 
 #include "kanagram.moc"
