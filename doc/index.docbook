@@ -30,8 +30,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2010-08-26</date>
-<releaseinfo>0.2 (&kde; 4.5)</releaseinfo>
+<date>2013-11-28</date>
+<releaseinfo>0.2 (&kde; 4.12)</releaseinfo>
 
 <abstract>
 <para>
@@ -124,7 +124,7 @@ This is the <guiicon>Configure</guiicon> button, which <action>opens the <guilab
 </listitem>
 <listitem>
 <para>
-The <guiicon>Help</guiicon> button is special, in that it <action>reveals 3 sub-buttons</action>. These buttons are shown when the <guiicon>Help</guiicon> button is hovered over, and provide access to the <guilabel>&kanagram; handbook</guilabel> (this document), the <guilabel>About &kanagram;</guilabel> and the <guilabel>About &kde;</guilabel> dialogs:
+The <guiicon>Help</guiicon> button is special, in that it <action>reveals 3 sub-buttons</action>. These buttons are shown when the <guiicon>Help</guiicon> button is hovered over, and provide access to the <guilabel>&kanagram; Handbook</guilabel> (this document), the <guilabel>About &kanagram;</guilabel> and the <guilabel>About &kde;</guilabel> dialogs:
 
 <screenshot>
 <screeninfo>The 3 different states of the <guiicon>Help</guiicon> button</screeninfo>
@@ -229,7 +229,13 @@ The <guilabel>Configure</guilabel> dialog is opened by clicking on the <guiicon>
 
 <listitem>
 <para>
-The <guilabel>Auto-hide hints after:</guilabel> drop down box allows you to specify how hints are presented to you. Here, you can set the hint box to disappear after a certain amount of seconds (&eg; 5 seconds), or you can leave it as default (<quote>Do not auto-hide hints</quote>).
+The <guilabel>Auto-hide hints after:</guilabel> drop down box allows you to specify how hints are presented to you. Here, you can set the hint box to disappear after a certain amount of seconds (&eg; 5 seconds), or you can leave it as default (<quote>Do Not Auto-Hide Hints</quote>).
+</para>
+</listitem>
+
+<listitem>
+<para>
+Use the <guilabel>Time for resolving the anagramm:</guilabel> drop down box to specify the time you have to resolve each puzzle. By default  there is <quote>No time limit</quote>.
 </para>
 </listitem>
 
@@ -290,7 +296,7 @@ You can select which vocabulary you would like to apply these actions to by usin
 </itemizedlist>
 
 <sect2 id="vocab-editor">
-<title><guilabel>Vocabulary Editor</guilabel></title>
+<title>Vocabulary Editor</title>
 
 <para>
 The Vocabulary Editor allows you to create your own vocabularies, which &kanagram; can then test you with:
@@ -424,7 +430,10 @@ Click the <guibutton>Download new vocabulary</guibutton> button to browse the av
 <para>
 To install a vocabulary from the Internet, click on the vocabulary item in the list, then press the <guibutton>Install</guibutton> button to install to your system. The downloaded vocabulary will then be available to play immediately.
 </para>
-
+<para>If you have already downloaded a vocabulary this button will change to <guibutton>Uninstall</guibutton> which allows you to remove a vocabulary.
+</para>
+<para>To get more information about a vocabulary like the author, a description about the content and the changelog press the <guibutton>Details</guibutton> button.
+</para>
 </sect1>
 </chapter>
 
