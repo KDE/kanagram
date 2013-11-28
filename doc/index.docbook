@@ -235,7 +235,7 @@ The <guilabel>Auto-hide hints after:</guilabel> drop down box allows you to spec
 
 <listitem>
 <para>
-Use the <guilabel>Time for resolving the anagramm:</guilabel> drop down box to specify the time you have to resolve each puzzle. By default  there is <quote>No time limit</quote>.
+Use the <guilabel>Time for resolving the anagram:</guilabel> drop down box to specify the time you have to resolve each puzzle. By default  there is <quote>No time limit</quote>.
 </para>
 </listitem>
 
