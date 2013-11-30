@@ -37,6 +37,7 @@
 
 #include <QtCore/QFileInfo>
 
+static const KCatalogLoader engineCatalogLoader("kanagram-engine");
 
 KanagramGame::KanagramGame() : m_index(0), m_document(NULL)
 {
