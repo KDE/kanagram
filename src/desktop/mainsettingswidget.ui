@@ -74,22 +74,22 @@
         </item>
         <item>
          <property name="text" >
+          <string>15 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
           <string>30 Seconds</string>
          </property>
         </item>
         <item>
          <property name="text" >
+          <string>45 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
           <string>60 Seconds</string>
-         </property>
-        </item>
-        <item>
-         <property name="text" >
-          <string>120 Seconds</string>
-         </property>
-        </item>
-        <item>
-         <property name="text" >
-          <string>300 Seconds</string>
          </property>
         </item>
        </widget>
