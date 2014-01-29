@@ -130,7 +130,7 @@ Kanagram::Kanagram()
 
     if (m_resolveTime != 0)
     {
-        m_hintTimer->start(m_resolveTime * 1000);
+        m_resolveTimer->start(m_resolveTime * 1000);
     }
 }
 
@@ -173,17 +173,15 @@ void Kanagram::loadSettings()
 
     QString resolveTime = KanagramSettings::resolveTime();
 
-    int indexFound = resolveTime.size();
-    for (int i = 0; i < indexFound; ++i)
+    if (resolveTime.at(0).isDigit())
     {
-        if (!resolveTime.at(i).isDigit())
-        {
-            indexFound = i;
-            break;
-        }
+        // because the choices are 0, 15, 30, 45, 60 seconds
+        m_resolveTime = (resolveTime.at(0).digitValue()) * 15;
     }
-
-    m_resolveTime = resolveTime.left(indexFound).toInt();
+    else
+    {
+        m_resolveTime = 0;
+    }
 
     if (KanagramSettings::dataLanguage().isEmpty())
     {
@@ -607,7 +605,7 @@ void Kanagram::slotNextAnagram()
 
     if (m_resolveTime != 0)
     {
-        m_hintTimer->start(m_resolveTime * 1000);
+        m_resolveTimer->start(m_resolveTime * 1000);
     }
 }
 
@@ -944,7 +942,7 @@ void Kanagram::slotShowSettings()
 
 void Kanagram::slotSaveSettings()
 {
-  m_shortcutsEditor->save();
+    m_shortcutsEditor->save();
 }
 
 void Kanagram::slotSettingsCancelled()
