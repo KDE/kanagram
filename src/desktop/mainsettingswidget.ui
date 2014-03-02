@@ -16,6 +16,7 @@
    <string>This setting allows you to set the length of time Kanagram's hint bubble is shown.</string>
   </property>
   <layout class="QVBoxLayout" >
+    
    <item>
     <widget class="QGroupBox" name="groupBox1" >
      <property name="title" >
@@ -97,6 +98,7 @@
      </layout>
     </widget>
    </item>
+   
    <item>
     <widget class="QGroupBox" name="groupBox3" >
      <property name="title" >
@@ -123,6 +125,51 @@
      </layout>
     </widget>
    </item>
+   
+     <item>
+    <widget class="QGroupBox" name="groupBox4" >
+     <property name="title" >
+      <string>Scoring Options</string>
+     </property>
+     <layout class="QHBoxLayout" >
+      <item>
+       <widget class="QLabel" name="textLabelScoreTime" >
+        <property name="text" >
+         <string>Set timer for scoring purpose : </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="kcfg_scoreTime" >
+        <item>
+         <property name="text" >
+          <string>15 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>30 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>45 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>60 Seconds</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      
+      
+     </layout>
+    </widget>
+   </item>
+   
+   
    <item>
     <widget class="QCheckBox" name="kcfg_useSounds" >
      <property name="whatsThis" >

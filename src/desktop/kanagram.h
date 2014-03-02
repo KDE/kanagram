@@ -82,6 +82,9 @@ class Kanagram : public KMainWindow
         /** hide the picture hint*/
         void hidePicHint();
 
+        /** decrement time left */
+        void decrementTimeLeft();
+
         /** reset the input box in preparation for the next word entry */
         void resetInputBox();
 
@@ -256,6 +259,7 @@ class Kanagram : public KMainWindow
         QRect m_quitRect;
         QRect m_revealRect;
         QRect m_hintRect;
+        QRect m_timerRect;
         QRect m_picHintRect;
         QRect m_upRect;
         QRect m_aboutKDERect;
@@ -275,6 +279,7 @@ class Kanagram : public KMainWindow
         bool m_overReveal; 
         bool m_overHint;
         bool m_overPicHint;
+        bool m_overTimer; 
         bool m_overUp; 
         bool m_overAboutKDE; 
         bool m_overAboutApp; 
@@ -297,6 +302,9 @@ class Kanagram : public KMainWindow
         /** Values for settings */
         int m_hintHideTime;
         int m_resolveTime;
+	int m_scoreTime;
+	int m_timeLeft;
+	int m_score;
         bool m_useSounds; 
 
         /** help menu for displaying about box */
@@ -317,6 +325,12 @@ class Kanagram : public KMainWindow
          * each time a hint is displayed
          */
         KRandomSequence m_randomImage;
+
+	/** timer used to calculate correctness of a user*/
+	QTimer *m_scoreTimer;
+
+	/** timer used to show the time left*/
+	QTimer *m_tempTimer;
 
         /** timer used to hide the hint after a delay */
         QTimer *m_hintTimer;

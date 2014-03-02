@@ -48,10 +48,12 @@
 #include "mainsettings.h"
 #include "vocabsettings.h"
 
+
 static const char* m_textRevealWord = I18N_NOOP("reveal word");
 static const char* m_textHint = I18N_NOOP("hint");
 static const char* m_textPicHint = I18N_NOOP("picture hint");
 static const char* m_nextText = I18N_NOOP("Next Anagram");
+static const char* m_textStartTimer = I18N_NOOP("start timer");
 
 double kWindowWidth = 1000.0;
 double kWindowHeight = 725.0;
@@ -59,7 +61,7 @@ double kWindowHeight = 725.0;
 double xEyesScale = 270.437 / kWindowWidth;
 double yEyesScale = 195.176 / kWindowHeight;
 
-double xScale57Buttons = 57.5 / kWindowWidth;
+double xScale57Buttons = 57.5 / kWindowWidth; 
 double yScale57Buttons = 57.5 / kWindowHeight;
 
 double xScale55Buttons = 55.0 / kWindowWidth;
@@ -76,10 +78,10 @@ double yScaleQuitButton = 77.5 / kWindowHeight;
 
 Kanagram::Kanagram()
 : KMainWindow(), m_game(NULL), m_speller(NULL), m_overNext(false), m_overConfig(false),
-    m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false),m_overPicHint(false),
+    m_overHelp(false), m_overQuit(false), m_overReveal(false), m_overHint(false), m_overPicHint(false), m_overTimer(false),
     m_overUp(false), m_overAboutKDE(false), m_overAboutApp(false),
     m_overHandbook(false), m_overSwitcher(false), m_overLogo(false),
-    m_overHintBox(false), m_showHint(false), m_showPicHint(false), m_player(NULL), m_wordRevealed(false),
+    m_overHintBox(false), m_showHint(false), m_showPicHint(false),m_player(NULL), m_wordRevealed(false),
     m_actionCollection(NULL)
 {
     setAttribute(Qt::WA_StaticContents);
@@ -105,7 +107,12 @@ Kanagram::Kanagram()
     m_fillColor = QColor(45, 45, 45);
     m_fontColor = QColor(55, 55, 55);
     m_fontHighlightColor = QColor(99, 99, 99);
+    
+    m_score=0;
 
+    m_scoreTimer = new QTimer(this);
+    m_scoreTimer->setInterval(1000);
+    
     m_hintTimer = new QTimer(this);
     m_hintTimer->setSingleShot(true);
 
@@ -118,6 +125,7 @@ Kanagram::Kanagram()
     connect(m_inputBox, SIGNAL(returnPressed()), SLOT(checkWord()));
     connect(m_hintTimer, SIGNAL(timeout()), SLOT(hideHint()));
     connect(m_resolveTimer, SIGNAL(timeout()), SLOT(slotRevealWord()));
+    connect(m_scoreTimer,SIGNAL(timeout()),SLOT(decrementTimeLeft()));
     connect(m_inputBox, SIGNAL(textChanged(QString)), SLOT(update()));
     connect(m_game, SIGNAL(fileError(QString)), SLOT(slotFileError(QString)));
 
@@ -187,10 +195,25 @@ void Kanagram::loadSettings()
         m_resolveTime = 0;
     }
 
+    QString scoreTime = KanagramSettings::scoreTime();
+
+    int indexFound_scoreTime = scoreTime.size();
+    for (int k = 0; k < indexFound_scoreTime; ++k)
+    {
+        if (!resolveTime.at(k).isDigit())
+        {
+            indexFound_scoreTime = k;
+            break;
+        }
+    }
+
+    m_scoreTime = scoreTime.left(indexFound_scoreTime).toInt();
+    m_timeLeft = (m_scoreTime + 1)*15;
+    m_scoreTime = m_timeLeft ;
+    
     if (KanagramSettings::dataLanguage().isEmpty())
     {
         QStringList userLanguagesCode = KGlobal::locale()->languageList();
-
         QStringList sharedKvtmlFilesLanguages = SharedKvtmlFiles::languages();
         QString foundLanguage;
         foreach (const QString &userLanguageCode, userLanguagesCode)
@@ -276,7 +299,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 
     m_xRatio = width() / kWindowWidth;
     m_yRatio = height() / kWindowHeight;
-
+    
     if (m_overLogo)
     {
         p.translate(int(112.188 * m_xRatio), int(32.375 * m_yRatio));
@@ -323,7 +346,6 @@ void Kanagram::paintEvent(QPaintEvent *)
         m_renderer->render(&p, "quit_hover");
         p.resetMatrix();
     }
-
     QString anagram = m_game->anagram();
     int afontSize = KFontUtils::adaptFontSize(p, anagram, m_blackboardRect.width(), m_blackboardRect.height() / 5);
     FixFontSize(afontSize);
@@ -343,7 +365,21 @@ void Kanagram::paintEvent(QPaintEvent *)
     {
         drawTextNew(p, i18n(m_textPicHint), Qt::AlignTop | Qt::AlignLeft, 6, 8, m_blackboardRect, m_overPicHint, m_cornerFontSize);//////////for picture hint
     }
-
+    
+    
+    QString scoreText = QString::number(m_score);
+    drawTextNew(p, scoreText, Qt::AlignBottom | Qt::AlignCenter, 6, 0, m_blackboardRect, m_overTimer, m_cornerFontSize);
+    
+    if(!m_scoreTimer->isActive())
+    {
+        drawTextNew(p, i18n(m_textStartTimer), Qt::AlignTop | Qt::AlignLeft, 6, 8, m_blackboardRect, m_overTimer, m_cornerFontSize);
+    }
+    else
+    {
+      QString m_textTimeLeft=QString::number(m_timeLeft);
+      drawTextNew(p, m_textTimeLeft, Qt::AlignTop | Qt::AlignLeft, 6, 8, m_blackboardRect, m_overTimer, m_cornerFontSize);
+    }
+       
     // update these rects because we have access to the painter and thus the fontsize here
     QFont font = KGlobalSettings::generalFont();
     font.setPointSize(m_cornerFontSize);
@@ -352,6 +388,7 @@ void Kanagram::paintEvent(QPaintEvent *)
     QRect r = innerRect(m_blackboardRect, 6, 0);
     m_hintRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignLeft, i18n(m_textHint));
     m_picHintRect = fm.boundingRect(r, Qt::AlignTop|Qt::AlignLeft, i18n(m_textPicHint));
+    m_timerRect = fm.boundingRect(r, Qt::AlignTop|Qt::AlignLeft, i18n(m_textStartTimer));
     m_hintBoxRect = QRect(int(684.813 * m_xRatio), int(319.896 * m_yRatio), int(xEyesScale * width()), int(yEyesScale * height()));
     r = innerRect(m_blackboardRect, 6, 0);
     m_revealRect = fm.boundingRect(r, Qt::AlignBottom|Qt::AlignRight, reveal);
@@ -379,6 +416,7 @@ void Kanagram::paintEvent(QPaintEvent *)
     {
         upArrow = "up_hover";
     }
+
     else if (m_inputBox->text().isEmpty())
     {
         upArrow = "up_disabled";
@@ -422,7 +460,7 @@ void Kanagram::paintEvent(QPaintEvent *)
             p.scale(xScale57Buttons, yScale57Buttons);
             m_renderer->render(&p, "appicon_hover");
             p.resetMatrix();
-            drawHelpText(p, i18n("About Kanagram"));
+            drawHelpText(p, i18n("About Kanagram"));  
         }
         else
         {
@@ -645,12 +683,11 @@ void Kanagram::slotPrevVocabulary()
     m_speller->setLanguage(m_game->sanitizedDataLanguage());
     hideHint();
     m_game->nextAnagram();
-
+    
     if (m_useSounds)
     {
         play("chalk.ogg");
     }
-
     KanagramSettings::setDefaultVocabulary(m_game->filename());
     KanagramSettings::self()->writeConfig();
     update();
@@ -689,9 +726,21 @@ void Kanagram::slotTogglePicHint()
         m_showPicHint = true;
        // randomHintImage();
     }
-    update();
-  
-  
+    update();  
+}
+
+void Kanagram::decrementTimeLeft()
+{
+    if (m_timeLeft == 0)
+    {
+        m_scoreTimer->stop();
+        update();
+    }
+    else
+    {
+        m_timeLeft--;
+        update();
+    } 
 }
 
 void Kanagram::mousePressEvent(QMouseEvent *e)
@@ -765,6 +814,13 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
     {
         slotToggleHint();
     }
+
+    if (m_timerRect.contains(e->pos()))
+    {
+        m_scoreTimer->start();
+        m_score = 0;
+        update();
+    }
     
     if (m_picHintRect.contains(e->pos()))
     {
@@ -803,11 +859,13 @@ void Kanagram::mouseMoveEvent(QMouseEvent *e)
     CheckRect(m_helpRect, p, m_overHelp, haveToUpdate);
     CheckRect(m_quitRect, p, m_overQuit, haveToUpdate);
     CheckRect(m_hintRect, p, m_overHint, haveToUpdate);
+    CheckRect(m_timerRect, p, m_overTimer, haveToUpdate);
     if (!m_game->picHint().isEmpty())
     {
         CheckRect(m_picHintRect, p, m_overPicHint, haveToUpdate);
     }
     CheckRect(m_hintBoxRect, p, m_overHintBox, haveToUpdate);
+    CheckRect(m_timerRect, p, m_overTimer, haveToUpdate);//me
     CheckRect(m_revealRect, p, m_overReveal, haveToUpdate);
     CheckRect(m_upRect, p, m_overUp, haveToUpdate);
     CheckRect(m_aboutAppRect, p, m_overAboutApp, haveToUpdate);
@@ -830,7 +888,7 @@ void Kanagram::mouseMoveEvent(QMouseEvent *e)
     }
 
     if (m_overAboutKDE || m_overHandbook || m_overSwitcher || m_overNext || m_overQuit
-            || m_overConfig || (m_overReveal && !m_wordRevealed) || m_overHint  || m_overPicHint || (m_overUp && !m_inputBox->text().isEmpty())
+            || m_overConfig || (m_overReveal && !m_wordRevealed) || m_overHint  || m_overTimer || m_overPicHint || (m_overUp && !m_inputBox->text().isEmpty())
             || m_overAboutApp || m_overHintBox || m_overLogo)
     {
         this->setCursor(Qt::PointingHandCursor);
@@ -851,9 +909,8 @@ void Kanagram::drawTextNew(QPainter &p, const QString &text, int textAlign, int 
     QRect r = innerRect(rect, xMargin, yMargin);
     QFont font = KGlobalSettings::generalFont();
     font.setPointSize(fontSize);
-    font.setBold(true);
+    font.setBold(false);
     p.setFont(font);
-
     const bool withMargin = false;
     if (withMargin)
     {
@@ -883,6 +940,10 @@ void Kanagram::checkWord()
             if (m_useSounds) play("right.ogg");
             palette.setColor(m_inputBox->backgroundRole(), QColor(0, 255, 0));
             QTimer::singleShot(1000, this, SLOT(resetInputBox()));
+            if (m_scoreTimer->isActive())
+            {
+                ++m_score;
+            }
             m_inputBox->clear();
             m_wordRevealed = false;
             hideHint();
