@@ -135,7 +135,7 @@
       <item>
        <widget class="QLabel" name="textLabelScoreTime" >
         <property name="text" >
-         <string>Set timer for scoring purpose : </string>
+         <string>Set timer for scoring purpose:</string>
         </property>
        </widget>
       </item>
