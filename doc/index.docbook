@@ -30,8 +30,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2013-11-28</date>
-<releaseinfo>0.2 (&kde; 4.12)</releaseinfo>
+<date>2014-03-03</date>
+<releaseinfo>0.2 (&kde; 4.14)</releaseinfo>
 
 <abstract>
 <para>
@@ -242,6 +242,12 @@ Use the <guilabel>Time for resolving the anagram:</guilabel> drop down box to sp
 <listitem>
 <para>
 The <guilabel>Play Using:</guilabel> drop down box allows you to play &kanagram; using vocabularies of a different language. For this feature to work, you must have vocabularies of a separate language installed.
+</para>
+</listitem>
+
+<listitem>
+<para>
+The <guilabel>Set timer for scoring purpose:</guilabel> drop down box allows you to set in seconds the time interval of the score timer.
 </para>
 </listitem>
 
