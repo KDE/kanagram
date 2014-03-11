@@ -200,7 +200,7 @@ void Kanagram::loadSettings()
     int indexFound_scoreTime = scoreTime.size();
     for (int k = 0; k < indexFound_scoreTime; ++k)
     {
-        if (!resolveTime.at(k).isDigit())
+        if (!scoreTime.at(k).isDigit())
         {
             indexFound_scoreTime = k;
             break;
