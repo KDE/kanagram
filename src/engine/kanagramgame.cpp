@@ -202,7 +202,15 @@ void KanagramGame::nextAnagram()
         }
 
         // lowercase the entry text so german words that start capitalized will be lowercased
-        m_originalWord = translation->text().toLower();
+        m_uppercaseOnly=KanagramSettings::uppercaseOnly();
+        if(m_uppercaseOnly)
+        {
+           m_originalWord = translation->text().toUpper();
+        }
+        else
+        {
+           m_originalWord = translation->text().toLower();
+        }
         m_picHintUrl = translation->imageUrl();
 
         m_answeredWords.append(m_originalWord);

@@ -1012,6 +1012,7 @@ void Kanagram::slotShowSettings()
 void Kanagram::slotSaveSettings()
 {
     m_shortcutsEditor->save();
+    // TODO: Update the current puzzle based on the new settings
 }
 
 void Kanagram::slotSettingsCancelled()

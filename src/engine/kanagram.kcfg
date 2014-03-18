@@ -22,10 +22,13 @@
     <label>This setting allows you to set in seconds the time interval of the score timer.</label>
     <default>2</default>
 </entry>
-
 <entry name="useSounds" type="Bool">
         <label>Turns sounds on/off.</label>
         <default>true</default>
+</entry>
+<entry name="uppercaseOnly" type="Bool">
+        <label>Use uppercase.</label>
+        <default>false</default>
 </entry>
 <entry name="defaultVocabulary" type="Path">
         <label>Set the default vocabulary</label>
