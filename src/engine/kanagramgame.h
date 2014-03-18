@@ -156,6 +156,9 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
         /** Which index the current filename is in m_fileList */
         int m_index;
 
+        /** Uppercase Only option in the setting */
+        bool m_uppercaseOnly;
+
         /** The list of vocabulary files */
         QStringList m_fileList;
 

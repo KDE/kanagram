@@ -134,6 +134,16 @@
     </widget>
    </item>
    <item>
+    <widget class="QCheckBox" name="kcfg_uppercaseOnly" >
+     <property name="whatsThis" >
+      <string>Use Uppercase.</string>
+     </property>
+     <property name="text" >
+      <string>Use only uppercase letters</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <spacer>
      <property name="orientation" >
       <enum>Qt::Vertical</enum>
