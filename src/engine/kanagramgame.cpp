@@ -212,6 +212,7 @@ void KanagramGame::nextAnagram()
            m_originalWord = translation->text().toLower();
         }
         m_picHintUrl = translation->imageUrl();
+        m_audioUrl = translation->soundUrl();
 
         m_answeredWords.append(m_originalWord);
         createAnagram();
@@ -228,6 +229,7 @@ void KanagramGame::nextAnagram()
         m_originalWord = "";
         m_hint = "";
         m_picHintUrl = "";
+        m_audioUrl = "";
         // TODO: add some error reporting here
     }
 }
@@ -356,5 +358,10 @@ KUrl KanagramGame::picHint()
     return m_picHintUrl;
 }
 
+///function to return the audio url
+KUrl KanagramGame::audioFile()
+{
+    return m_audioUrl;
+}
 
 #include "kanagramgame.moc"

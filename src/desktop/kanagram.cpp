@@ -61,7 +61,7 @@ double kWindowHeight = 725.0;
 double xEyesScale = 270.437 / kWindowWidth;
 double yEyesScale = 195.176 / kWindowHeight;
 
-double xScale57Buttons = 57.5 / kWindowWidth; 
+double xScale57Buttons = 57.5 / kWindowWidth;
 double yScale57Buttons = 57.5 / kWindowHeight;
 
 double xScale55Buttons = 55.0 / kWindowWidth;
@@ -107,12 +107,12 @@ Kanagram::Kanagram()
     m_fillColor = QColor(45, 45, 45);
     m_fontColor = QColor(55, 55, 55);
     m_fontHighlightColor = QColor(99, 99, 99);
-    
+
     m_score=0;
 
     m_scoreTimer = new QTimer(this);
     m_scoreTimer->setInterval(1000);
-    
+
     m_hintTimer = new QTimer(this);
     m_hintTimer->setSingleShot(true);
 
@@ -210,7 +210,7 @@ void Kanagram::loadSettings()
     m_scoreTime = scoreTime.left(indexFound_scoreTime).toInt();
     m_timeLeft = (m_scoreTime + 1)*15;
     m_scoreTime = m_timeLeft ;
-    
+
     if (KanagramSettings::dataLanguage().isEmpty())
     {
         QStringList userLanguagesCode = KGlobal::locale()->languageList();
@@ -229,6 +229,7 @@ void Kanagram::loadSettings()
     }
 
     m_useSounds = KanagramSettings::useSounds();
+    m_enablePronunciation = KanagramSettings::enablePronunciation();
     m_arrowName = "basicarrow";
 }
 
@@ -299,7 +300,7 @@ void Kanagram::paintEvent(QPaintEvent *)
 
     m_xRatio = width() / kWindowWidth;
     m_yRatio = height() / kWindowHeight;
-    
+
     if (m_overLogo)
     {
         p.translate(int(112.188 * m_xRatio), int(32.375 * m_yRatio));
@@ -358,18 +359,18 @@ void Kanagram::paintEvent(QPaintEvent *)
     {
         drawTextNew(p, reveal, Qt::AlignBottom | Qt::AlignRight, 6, 0, m_blackboardRect, m_overReveal, m_cornerFontSize);
     }
-    
+
     drawTextNew(p, i18n(m_textHint), Qt::AlignBottom | Qt::AlignLeft, 6, 0, m_blackboardRect, m_overHint, m_cornerFontSize);
-    
+
     if(!m_game->picHint().isEmpty())
     {
         drawTextNew(p, i18n(m_textPicHint), Qt::AlignTop | Qt::AlignLeft, 6, 8, m_blackboardRect, m_overPicHint, m_cornerFontSize);//////////for picture hint
     }
-    
-    
+
+
     QString scoreText = QString::number(m_score);
     drawTextNew(p, scoreText, Qt::AlignBottom | Qt::AlignCenter, 6, 0, m_blackboardRect, m_overTimer, m_cornerFontSize);
-    
+
     if(!m_scoreTimer->isActive())
     {
         drawTextNew(p, i18n(m_textStartTimer), Qt::AlignTop | Qt::AlignLeft, 6, 8, m_blackboardRect, m_overTimer, m_cornerFontSize);
@@ -379,7 +380,7 @@ void Kanagram::paintEvent(QPaintEvent *)
       QString m_textTimeLeft=QString::number(m_timeLeft);
       drawTextNew(p, m_textTimeLeft, Qt::AlignTop | Qt::AlignLeft, 6, 8, m_blackboardRect, m_overTimer, m_cornerFontSize);
     }
-       
+
     // update these rects because we have access to the painter and thus the fontsize here
     QFont font = KGlobalSettings::generalFont();
     font.setPointSize(m_cornerFontSize);
@@ -460,7 +461,7 @@ void Kanagram::paintEvent(QPaintEvent *)
             p.scale(xScale57Buttons, yScale57Buttons);
             m_renderer->render(&p, "appicon_hover");
             p.resetMatrix();
-            drawHelpText(p, i18n("About Kanagram"));  
+            drawHelpText(p, i18n("About Kanagram"));
         }
         else
         {
@@ -654,6 +655,9 @@ void Kanagram::slotNextAnagram()
 void Kanagram::slotRevealWord()
 {
     m_wordRevealed = true;
+    if (m_enablePronunciation && !m_game->audioFile().isEmpty())
+        play(m_game->audioFile().pathOrUrl());
+
     m_game->restoreWord();
     update();
 }
@@ -683,7 +687,7 @@ void Kanagram::slotPrevVocabulary()
     m_speller->setLanguage(m_game->sanitizedDataLanguage());
     hideHint();
     m_game->nextAnagram();
-    
+
     if (m_useSounds)
     {
         play("chalk.ogg");
@@ -726,7 +730,7 @@ void Kanagram::slotTogglePicHint()
         m_showPicHint = true;
        // randomHintImage();
     }
-    update();  
+    update();
 }
 
 void Kanagram::decrementTimeLeft()
@@ -740,7 +744,7 @@ void Kanagram::decrementTimeLeft()
     {
         m_timeLeft--;
         update();
-    } 
+    }
 }
 
 void Kanagram::mousePressEvent(QMouseEvent *e)
@@ -821,7 +825,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
         m_score = 0;
         update();
     }
-    
+
     if (m_picHintRect.contains(e->pos()))
     {
         slotTogglePicHint();
@@ -934,10 +938,24 @@ void Kanagram::checkWord()
 
     if (!enteredWord.isEmpty())
     {
-        if (enteredWord == word || stripAccents(enteredWord) == stripAccents(word) || 
+        if (enteredWord == word || stripAccents(enteredWord) == stripAccents(word) ||
            (m_speller->isCorrect(enteredWord) && isAnagram(enteredWord, word)))
         {
-            if (m_useSounds) play("right.ogg");
+            if (m_enablePronunciation)
+            {
+                // User wants words spoken, but if there's no audio file, play right.ogg
+                if (m_game->audioFile().isEmpty() && m_useSounds)
+                    play("right.ogg");
+                else
+                    // otherwise play the sound associated with the word.
+                    play(m_game->audioFile().pathOrUrl());
+            }
+            else if (m_useSounds)
+            {
+                // Otherwise just play right.ogg
+                play("right.ogg");
+            }
+
             palette.setColor(m_inputBox->backgroundRole(), QColor(0, 255, 0));
             QTimer::singleShot(1000, this, SLOT(resetInputBox()));
             if (m_scoreTimer->isActive())
@@ -1074,18 +1092,18 @@ void Kanagram::play(const QString &filename)
     if (!filename.isEmpty())
     {
         QString soundFile = KStandardDirs::locate("appdata", "sounds/" + filename);
-        if (!soundFile.isEmpty())
+        if (soundFile.isEmpty())
+            soundFile = filename;
+
+        if (!m_player)
         {
-            if (!m_player)
-            {
-                m_player = Phonon::createPlayer(Phonon::GameCategory, soundFile);
-            }
-            else
-            {
-                m_player->setCurrentSource(soundFile);
-            }
-            m_player->play();
+            m_player = Phonon::createPlayer(Phonon::GameCategory, soundFile);
         }
+        else
+        {
+            m_player->setCurrentSource(soundFile);
+        }
+        m_player->play();
     }
 }
 

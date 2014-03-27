@@ -176,10 +176,20 @@
    <item>
     <widget class="QCheckBox" name="kcfg_uppercaseOnly" >
      <property name="whatsThis" >
-      <string>Use Uppercase.</string>
+      <string>Use only uppercase letters.</string>
      </property>
      <property name="text" >
-      <string>Use only uppercase letters</string>
+      <string>Only uppercase letters</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="kcfg_enablePronunciation" >
+     <property name="whatsThis" >
+      <string>Turn pronunciations on or off.</string>
+     </property>
+     <property name="text" >
+      <string>Say correct words</string>
      </property>
     </widget>
    </item>
@@ -204,6 +214,7 @@
   <tabstops>
   <tabstop>kcfg_hintHideTime</tabstop>
   <tabstop>kcfg_useSounds</tabstop>
+  <tabstop>kcfg_enablePronunciation</tabstop>
  </tabstops>
  <resources/>
  <connections/>

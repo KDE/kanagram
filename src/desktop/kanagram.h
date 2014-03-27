@@ -22,7 +22,7 @@
  * \brief header file for kanagram class
  * @author Joshua Keel <joshuakeel@gmail.com>
  * @author Jeremy Whiting <jpwhiting@kde.org>
- * \par Maintainer: Jeremy Whiting 
+ * \par Maintainer: Jeremy Whiting
  */
 #ifndef KANAGRAM_H
 #define KANAGRAM_H
@@ -51,8 +51,8 @@ class KHelpMenu;
 class KLineEdit;
 class KShortcutsEditor;
 
-/** 
- * @brief main interface widget  
+/**
+ * @brief main interface widget
  *
  * Draws the window, and reacts to mouse events */
 class Kanagram : public KMainWindow
@@ -135,7 +135,7 @@ class Kanagram : public KMainWindow
 
     private:
 
-        /** load user settings 
+        /** load user settings
          *  loads language choice,
          *  sound settings,
          *  and auto-hide hint time
@@ -153,11 +153,11 @@ class Kanagram : public KMainWindow
          * @param yMargin the margin in the y direction
          * @param rect the bounding rectangle to draw the text inside of
          * @param highlight whether or not to use the highlight color
-         *   if true m_chalkHighlightColor is used, 
+         *   if true m_chalkHighlightColor is used,
          *   otherwise m_chalkColor is used
          * @param fontSize the fontsize to use
          */
-        void drawTextNew(QPainter &p, const QString &text, int textAlign, int xMargin, 
+        void drawTextNew(QPainter &p, const QString &text, int textAlign, int xMargin,
                 int yMargin, const QRect &rect, bool highlight, int fontSize = 18);
 
         /** play a sound file
@@ -218,7 +218,7 @@ class Kanagram : public KMainWindow
 
         /** check the font size and set it to a sane minimum if it's an error size <= 0 */
         void FixFontSize(int &fontSize);
-        
+
         /** strip accents from given string
          * @param original string to strip accents from
          * @returns string without accents */
@@ -254,7 +254,7 @@ class Kanagram : public KMainWindow
 
         /** rectangles to use for detecting hover with the mouse position */
         QRect m_nextRect;
-        QRect m_configRect; 
+        QRect m_configRect;
         QRect m_helpRect;
         QRect m_quitRect;
         QRect m_revealRect;
@@ -263,29 +263,29 @@ class Kanagram : public KMainWindow
         QRect m_picHintRect;
         QRect m_upRect;
         QRect m_aboutKDERect;
-        QRect m_aboutAppRect; 
-        QRect m_handbookRect; 
-        QRect m_switcherRect; 
-        QRect m_arrowRect; 
-        QRect m_logoRect; 
-        QRect m_hintBoxRect; 
+        QRect m_aboutAppRect;
+        QRect m_handbookRect;
+        QRect m_switcherRect;
+        QRect m_arrowRect;
+        QRect m_logoRect;
+        QRect m_hintBoxRect;
         QRect m_blackboardRect;
 
         /** states to use for drawing hover elements, or regular elements */
         bool m_overNext;
-        bool m_overConfig; 
-        bool m_overHelp; 
-        bool m_overQuit; 
-        bool m_overReveal; 
+        bool m_overConfig;
+        bool m_overHelp;
+        bool m_overQuit;
+        bool m_overReveal;
         bool m_overHint;
         bool m_overPicHint;
-        bool m_overTimer; 
-        bool m_overUp; 
-        bool m_overAboutKDE; 
-        bool m_overAboutApp; 
-        bool m_overHandbook; 
-        bool m_overSwitcher; 
-        bool m_overLogo; 
+        bool m_overTimer;
+        bool m_overUp;
+        bool m_overAboutKDE;
+        bool m_overAboutApp;
+        bool m_overHandbook;
+        bool m_overSwitcher;
+        bool m_overLogo;
         bool m_overHintBox;
 
         bool m_showHint;
@@ -293,19 +293,20 @@ class Kanagram : public KMainWindow
         QImage m_pictureHint;
 
         /** colors for use in drawing text and lines */
-        QColor m_fillColor; 
-        QColor m_fontColor; 
-        QColor m_fontHighlightColor; 
-        QColor m_chalkColor; 
+        QColor m_fillColor;
+        QColor m_fontColor;
+        QColor m_fontHighlightColor;
+        QColor m_chalkColor;
         QColor m_chalkHighlightColor;
 
         /** Values for settings */
         int m_hintHideTime;
         int m_resolveTime;
-	int m_scoreTime;
-	int m_timeLeft;
-	int m_score;
-        bool m_useSounds; 
+    int m_scoreTime;
+    int m_timeLeft;
+    int m_score;
+        bool m_useSounds;
+        bool m_enablePronunciation;
 
         /** help menu for displaying about box */
         KHelpMenu *m_helpMenu;
@@ -320,17 +321,14 @@ class Kanagram : public KMainWindow
         VocabSettings *m_vocabSettings;
         KShortcutsEditor *m_shortcutsEditor;
 
-        /** random number generator 
+        /** random number generator
          * used to choose random eyes elements
          * each time a hint is displayed
          */
         KRandomSequence m_randomImage;
 
-	/** timer used to calculate correctness of a user*/
-	QTimer *m_scoreTimer;
-
-	/** timer used to show the time left*/
-	QTimer *m_tempTimer;
+        /** timer used to calculate correctness of a user*/
+        QTimer *m_scoreTimer;
 
         /** timer used to hide the hint after a delay */
         QTimer *m_hintTimer;

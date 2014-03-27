@@ -64,7 +64,10 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 
         /** Get this anagram's picture hint URL */
         KUrl picHint();
-
+        
+        /** Get this anagram's audio URL */
+        KUrl audioFile();
+        
         /** Get the current vocabulary file's title */
         QString documentTitle() const;
 
@@ -149,7 +152,10 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 
         /** The current anagram's picture if any */
         KUrl m_picHintUrl;
-
+        
+        /** The current anagram's audio if any */
+        KUrl m_audioUrl;
+        
         /** The current anagram's answer */
         QString m_originalWord;
 

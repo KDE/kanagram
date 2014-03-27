@@ -30,6 +30,10 @@
         <label>Use uppercase.</label>
         <default>false</default>
 </entry>
+<entry name="enablePronunciation" type="Bool">
+        <label>Turns pronunciations on/off.</label>
+        <default>true</default>
+</entry>
 <entry name="defaultVocabulary" type="Path">
         <label>Set the default vocabulary</label>
         <default></default>
