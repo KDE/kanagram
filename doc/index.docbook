@@ -30,7 +30,7 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2014-03-03</date>
+<date>2014-04-04</date>
 <releaseinfo>0.2 (&kde; 4.14)</releaseinfo>
 
 <abstract>
@@ -254,6 +254,18 @@ The <guilabel>Set timer for scoring purpose:</guilabel> drop down box allows you
 <listitem>
 <para>
 The <guilabel>Use sounds</guilabel> check box allows you to either allow or suppress the &kanagram; sound effects.
+</para>
+</listitem>
+
+<listitem>
+<para>
+The <guilabel>Only uppercase letters</guilabel> check box allows you to switch &kanagram; to the uppercase only mode for words on the blackboard.
+</para>
+</listitem>
+
+<listitem>
+<para>
+The <guilabel>Say correct words</guilabel> check box allows you to turn of or on pronunciations. The audio files of the pronunciations should be included into the vocabulary being played for this option to work.
 </para>
 </listitem>
 </itemizedlist>
