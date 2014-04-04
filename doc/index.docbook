@@ -265,7 +265,7 @@ The <guilabel>Only uppercase letters</guilabel> check box allows you to switch &
 
 <listitem>
 <para>
-The <guilabel>Say correct words</guilabel> check box allows you to turn of or on pronunciations. The audio files of the pronunciations should be included into the vocabulary being played for this option to work.
+The <guilabel>Say correct words</guilabel> check box allows you to turn off or on pronunciations. The audio files of the pronunciations should be included into the vocabulary being played for this option to work.
 </para>
 </listitem>
 </itemizedlist>
