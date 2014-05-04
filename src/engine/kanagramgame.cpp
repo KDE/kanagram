@@ -259,21 +259,26 @@ void KanagramGame::restoreWord()
 
 void KanagramGame::createAnagram()
 {
-    QString anagram;
-    QString letters;
-    int randomIndex;
+    if (m_originalWord.count(m_originalWord.at(0)) < m_originalWord.size()) {
+        QString anagram;
+        QString letters;
+        int randomIndex;
 
-    do {
-        letters = m_originalWord;
-        while (!letters.isEmpty())
-        {
-            randomIndex = m_random.getLong(letters.count());
-            anagram.append(letters.at(randomIndex));
-            letters.remove(randomIndex, 1);
-        }
-    } while (anagram == m_originalWord);
+        do {
+            anagram.clear();
+            letters = m_originalWord;
+            while (!letters.isEmpty())
+            {
+                randomIndex = m_random.getLong(letters.count());
+                anagram.append(letters.at(randomIndex));
+                letters.remove(randomIndex, 1);
+            }
+        } while (anagram == m_originalWord);
 
-    m_anagram = anagram;
+        m_anagram = anagram;
+    } else {
+        m_anagram = m_originalWord;
+    }
 }
 
 QString KanagramGame::documentTitle() const
