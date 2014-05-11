@@ -22,6 +22,22 @@
     <label>This setting allows you to set in seconds the time interval of the score timer.</label>
     <default>2</default>
 </entry>
+<entry name="correctAnswerScore" type="String">
+    <label>This setting allows you to set the score associated with a correct answer.</label>
+    <default>0</default>
+</entry>
+<entry name="incorrectAnswerScore" type="String">
+    <label>This setting allows you to set the score associated with an incorrect answer.</label>
+    <default>0</default>
+</entry>
+<entry name="revealAnswerScore" type="String">
+    <label>This setting allows you to set the score associated with reveal answer.</label>
+    <default>0</default>
+</entry>
+<entry name="skippedWordScore" type="String">
+    <label>This setting allows you to set the score associated with a skipped word.</label>
+    <default>0</default>    
+</entry>
 <entry name="useSounds" type="Bool">
         <label>Turns sounds on/off.</label>
         <default>true</default>

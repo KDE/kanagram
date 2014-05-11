@@ -85,6 +85,9 @@ class Kanagram : public KMainWindow
         /** decrement time left */
         void decrementTimeLeft();
 
+        /** find the numeric value of a setting using index number */
+        int getNumericSetting(QString);
+
         /** reset the input box in preparation for the next word entry */
         void resetInputBox();
 
@@ -302,9 +305,13 @@ class Kanagram : public KMainWindow
         /** Values for settings */
         int m_hintHideTime;
         int m_resolveTime;
-    int m_scoreTime;
-    int m_timeLeft;
-    int m_score;
+        int m_scoreTime;
+        int m_timeLeft;
+        int m_totalScore;
+        int m_correctAnswerScore;
+        int m_incorrectAnswerScore;
+        int m_revealAnswerScore;
+        int m_skippedWordScore;
         bool m_useSounds;
         bool m_enablePronunciation;
 

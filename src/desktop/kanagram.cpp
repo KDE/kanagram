@@ -108,7 +108,7 @@ Kanagram::Kanagram()
     m_fontColor = QColor(55, 55, 55);
     m_fontHighlightColor = QColor(99, 99, 99);
 
-    m_score=0;
+    m_totalScore=0;
 
     m_scoreTimer = new QTimer(this);
     m_scoreTimer->setInterval(1000);
@@ -187,6 +187,7 @@ void Kanagram::loadSettings()
 
     if (resolveTime.at(0).isDigit())
     {
+
         // because the choices are 0, 15, 30, 45, 60 seconds
         m_resolveTime = (resolveTime.at(0).digitValue()) * 15;
     }
@@ -197,19 +198,29 @@ void Kanagram::loadSettings()
 
     QString scoreTime = KanagramSettings::scoreTime();
 
-    int indexFound_scoreTime = scoreTime.size();
-    for (int k = 0; k < indexFound_scoreTime; ++k)
-    {
-        if (!scoreTime.at(k).isDigit())
-        {
-            indexFound_scoreTime = k;
-            break;
-        }
-    }
-
-    m_scoreTime = scoreTime.left(indexFound_scoreTime).toInt();
+    m_scoreTime = getNumericSetting(scoreTime);
     m_timeLeft = (m_scoreTime + 1)*15;
     m_scoreTime = m_timeLeft ;
+    
+    QString correctAnswerScore = KanagramSettings::correctAnswerScore();
+ 
+    m_correctAnswerScore = getNumericSetting(correctAnswerScore);
+    m_correctAnswerScore = (m_correctAnswerScore + 1)*5;
+     
+    QString incorrectAnswerScore = KanagramSettings::incorrectAnswerScore();
+    
+    m_incorrectAnswerScore = getNumericSetting(incorrectAnswerScore);
+    m_incorrectAnswerScore = (m_incorrectAnswerScore + 1)*(-1);
+ 
+    QString revealAnswerScore = KanagramSettings::revealAnswerScore();
+  
+    m_revealAnswerScore = getNumericSetting(revealAnswerScore);
+    m_revealAnswerScore = (m_revealAnswerScore + 1)*(-2);
+
+    QString skippedWordScore = KanagramSettings::skippedWordScore();
+ 
+    m_skippedWordScore = getNumericSetting(skippedWordScore);
+    m_skippedWordScore = (m_skippedWordScore + 1)*(-2);
 
     if (KanagramSettings::dataLanguage().isEmpty())
     {
@@ -368,7 +379,7 @@ void Kanagram::paintEvent(QPaintEvent *)
     }
 
 
-    QString scoreText = QString::number(m_score);
+    QString scoreText = QString::number(m_totalScore);
     drawTextNew(p, scoreText, Qt::AlignBottom | Qt::AlignCenter, 6, 0, m_blackboardRect, m_overTimer, m_cornerFontSize);
 
     if(!m_scoreTimer->isActive())
@@ -643,6 +654,10 @@ void Kanagram::slotNextAnagram()
     {
         play("chalk.ogg");
     }
+    if (m_scoreTimer->isActive())
+     {
+         m_totalScore += m_skippedWordScore;
+     }
     m_inputBox->setPalette(QPalette());
     update();
 
@@ -657,7 +672,10 @@ void Kanagram::slotRevealWord()
     m_wordRevealed = true;
     if (m_enablePronunciation && !m_game->audioFile().isEmpty())
         play(m_game->audioFile().pathOrUrl());
-
+    if (m_scoreTimer->isActive())
+     {
+        m_totalScore += m_revealAnswerScore;
+     }
     m_game->restoreWord();
     update();
 }
@@ -674,7 +692,10 @@ void Kanagram::slotNextVocabulary()
     {
         play("chalk.ogg");
     }
-
+    if (m_scoreTimer->isActive())
+     {
+         m_totalScore += m_skippedWordScore;
+     }
     KanagramSettings::setDefaultVocabulary(m_game->filename());
     KanagramSettings::self()->writeConfig();
     update();
@@ -691,6 +712,10 @@ void Kanagram::slotPrevVocabulary()
     if (m_useSounds)
     {
         play("chalk.ogg");
+    }
+    if (m_scoreTimer->isActive())
+    {
+         m_totalScore += m_skippedWordScore;
     }
     KanagramSettings::setDefaultVocabulary(m_game->filename());
     KanagramSettings::self()->writeConfig();
@@ -745,6 +770,20 @@ void Kanagram::decrementTimeLeft()
         m_timeLeft--;
         update();
     }
+}
+
+int Kanagram::getNumericSetting(QString settingString)
+{
+    int indexFound_setting = settingString.size();
+    for (int k = 0; k < indexFound_setting; ++k)
+    {
+        if (!settingString.at(k).isDigit())
+        {
+            indexFound_setting = k;
+            break;
+        }
+    }
+    return settingString.left(indexFound_setting).toInt();
 }
 
 void Kanagram::mousePressEvent(QMouseEvent *e)
@@ -822,7 +861,7 @@ void Kanagram::mousePressEvent(QMouseEvent *e)
     if (m_timerRect.contains(e->pos()))
     {
         m_scoreTimer->start();
-        m_score = 0;
+        m_totalScore = 0;
         update();
     }
 
@@ -960,7 +999,7 @@ void Kanagram::checkWord()
             QTimer::singleShot(1000, this, SLOT(resetInputBox()));
             if (m_scoreTimer->isActive())
             {
-                ++m_score;
+                m_totalScore += m_correctAnswerScore;
             }
             m_inputBox->clear();
             m_wordRevealed = false;
@@ -972,6 +1011,10 @@ void Kanagram::checkWord()
             if (m_useSounds) play("wrong.ogg");
             palette.setColor(m_inputBox->backgroundRole(), QColor(255, 0, 0));
             QTimer::singleShot(1000, this, SLOT(resetInputBox()));
+            if (m_scoreTimer->isActive())
+            {
+                m_totalScore += m_incorrectAnswerScore;
+            }
             m_inputBox->clear();
         }
         m_inputBox->setPalette(palette);
