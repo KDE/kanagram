@@ -31,6 +31,7 @@
 #include <KRandomSequence>
 #include <qimage.h>
 #include <sonnet/speller.h>
+#include "kspeechinterface.h"
 
 namespace Phonon
 {
@@ -87,6 +88,14 @@ class Kanagram : public KMainWindow
 
         /** find the numeric value of a setting using index number */
         int getNumericSetting(QString);
+
+        /** setup kde text-to-speech daemon */
+        void setupJovie();
+
+        /** speak the word
+         *@param text the word that is to be converted from text to speech
+         */
+        void say(QString text);
 
         /** reset the input box in preparation for the next word entry */
         void resetInputBox();
@@ -363,6 +372,9 @@ class Kanagram : public KMainWindow
 
         bool m_wordRevealed;
         KActionCollection * m_actionCollection;
+
+        /** object to enable text to speech conversion */
+        org::kde::KSpeech *m_kspeech;
 };
 
 #endif

@@ -40,6 +40,9 @@
 #include <KShortcutsEditor>
 #include <KStandardAction>
 #include <KStandardDirs>
+#include <kspeech.h>
+#include <ktoolinvocation.h>
+#include "kspeechinterface.h"
 
 #include <sharedkvtmlfiles.h>
 
@@ -82,7 +85,7 @@ Kanagram::Kanagram()
     m_overUp(false), m_overAboutKDE(false), m_overAboutApp(false),
     m_overHandbook(false), m_overSwitcher(false), m_overLogo(false),
     m_overHintBox(false), m_showHint(false), m_showPicHint(false),m_player(NULL), m_wordRevealed(false),
-    m_actionCollection(NULL)
+    m_actionCollection(NULL),m_kspeech(0)
 {
     setAttribute(Qt::WA_StaticContents);
     m_renderer = new QSvgRenderer(KStandardDirs::locate("appdata", "images/kanagram.svg"));
@@ -93,6 +96,8 @@ Kanagram::Kanagram()
     setupActions();
 
     loadSettings();
+
+    setupJovie();
 
     m_game = new KanagramGame();
     if (!m_game->picHint().isEmpty())
@@ -670,8 +675,17 @@ void Kanagram::slotNextAnagram()
 void Kanagram::slotRevealWord()
 {
     m_wordRevealed = true;
-    if (m_enablePronunciation && !m_game->audioFile().isEmpty())
-        play(m_game->audioFile().pathOrUrl());
+    if (m_enablePronunciation)
+    {
+        if(!m_game->audioFile().isEmpty())
+        {
+            play(m_game->audioFile().pathOrUrl());
+        }
+        else
+        {
+            say(m_game->word());
+        }
+    }
     if (m_scoreTimer->isActive())
      {
         m_totalScore += m_revealAnswerScore;
@@ -983,8 +997,8 @@ void Kanagram::checkWord()
             if (m_enablePronunciation)
             {
                 // User wants words spoken, but if there's no audio file, play right.ogg
-                if (m_game->audioFile().isEmpty() && m_useSounds)
-                    play("right.ogg");
+                if (m_game->audioFile().isEmpty())
+                    say(m_game->word());
                 else
                     // otherwise play the sound associated with the word.
                     play(m_game->audioFile().pathOrUrl());
@@ -1127,6 +1141,46 @@ void Kanagram::refreshVocabularies()
         KanagramSettings::setDefaultVocabulary(m_game->filename());
         KanagramSettings::self()->writeConfig();
         m_vocabSettings->refreshView();
+    }
+}
+
+void Kanagram::setupJovie()
+{
+    // If KTTSD not running, start it.
+    QDBusReply<bool> reply = QDBusConnection::sessionBus().interface()->isServiceRegistered( "org.kde.kttsd" );
+    bool kttsdactive = false;
+    if ( reply.isValid() )
+        kttsdactive = reply.value();
+    if ( !kttsdactive )
+    {
+        QString error;
+        if ( KToolInvocation::startServiceByDesktopName( "kttsd", QStringList(), &error ) )
+        {
+            QMessageBox::warning(this, i18n("Speech System Failure"), i18n( "Starting Jovie Text-to-Speech service Failed: %1", error ) );
+        }
+        else
+        {
+            kttsdactive = true;
+        }
+    }
+    if ( kttsdactive )
+    {
+        // creating the connection to the kspeech interface
+        m_kspeech = new org::kde::KSpeech( "org.kde.kttsd", "/KSpeech", QDBusConnection::sessionBus() );
+        m_kspeech->setParent(this);
+        m_kspeech->setApplicationName( "Kanagram" );
+    }
+}
+
+void Kanagram::say(QString text)
+{
+    if ( text.isEmpty() )
+        return;
+
+    this->setupJovie();
+    if ( this->m_kspeech )
+    {
+        QDBusReply< int > reply = this->m_kspeech->say(text, KSpeech::soPlainText );
     }
 }
 
