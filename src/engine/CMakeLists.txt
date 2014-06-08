@@ -47,11 +47,13 @@ set(KANAGRAM_ENGINE_INCLUDE_DIRS
 
 set(KanagramEngine_SRCS
     kanagramgame.cpp
+    kanagramenginehelper.cpp
 )
 
 set(KanagramEngine_HEADERS
     kanagramgame.h
     kanagram_engine_export.h
+    kanagramenginehelper.h
 )
 
 include_directories(
