@@ -1,7 +1,5 @@
 project(kanagram)
 
-option(BUILD_KANAGRAM_QML "Build Kanagram QML" ON)
-
 if(NOT MSVC)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-Wall -Wno-switch -O2 -g")
     set(CMAKE_CXX_FLAGS_RELEASE "-Wall -Wno-switch -O2")
