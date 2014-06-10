@@ -30,7 +30,7 @@ Rectangle {
         anchors{verticalCenter: categoryBar.verticalCenter;horizontalCenter: categoryBar.horizontalCenter }
         color:"white"
         text: "Category"
-        font.pixelSize: 35
+        font.pixelSize: parent.width/19.5
     }
 
     Text{
@@ -38,7 +38,7 @@ Rectangle {
         text:"manraga"
         anchors{verticalCenter: parent.verticalCenter;horizontalCenter: parent.horizontalCenter}
         color:"white"
-        font.pixelSize: 55
+        font.pixelSize: parent.width/12.5
     }
 
     Rectangle {
@@ -99,7 +99,7 @@ Rectangle {
         color:"white"
         text: "Start Timer"
         opacity: 0
-        font.pixelSize: 17
+        font.pixelSize: parent.width/40
     }
 
     Image{
@@ -173,7 +173,7 @@ Rectangle {
         color:"white"
         text: "Hint"
         opacity: 0
-        font.pixelSize: 17
+        font.pixelSize: parent.width/40
     }
 
     Image{
@@ -226,6 +226,6 @@ Rectangle {
         color:"white"
         text: "Reveal Word"
         opacity: 0
-        font.pixelSize: 17
+        font.pixelSize: parent.width/40
     }
 }

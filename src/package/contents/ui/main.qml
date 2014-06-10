@@ -12,7 +12,7 @@ Rectangle {
 
         Image {
             id: background
-            anchors.fill: parent
+            anchors.fill : parent
             source: "../ui/images/background.jpg"
             smooth:true
             fillMode: Image.PreserveAspectCrop
@@ -29,6 +29,8 @@ Rectangle {
 
     Image {
             id: header
+            width:toolBarTop.width/3.5
+            height:toolBarTop.height/1.5
             anchors{verticalCenter: toolBarTop.verticalCenter;horizontalCenter: toolBarTop.horizontalCenter }
             source: "../ui/images/header.png"
             smooth:true
@@ -73,7 +75,7 @@ Rectangle {
         color:"white"
         text:"Quit"
         opacity:0
-        font.pixelSize: 15
+        font.pixelSize: parent.width/91
     }
 
         Rectangle{
@@ -94,8 +96,7 @@ Rectangle {
 
             states: State {
                    name: "onEntered"
-                   AnchorChanges{target:nextAnagramIcon;anchors.horizontalCenter: undefined;anchors.right:nextAnagramButton.right}
-                   PropertyChanges {
+                    PropertyChanges {
                        target: nextAnagramButton
                        width:blackboard.width/3
                    }
@@ -103,10 +104,15 @@ Rectangle {
                        target: nextAnagramText
                        opacity:1
                    }
+                   AnchorChanges{target:nextAnagramIcon;
+                       anchors.horizontalCenter: undefined;
+                       anchors.right:nextAnagramButton.right}
                }
                State{
                    name:"onClicked"
-                   AnchorChanges{target:nextAnagramIcon;anchors.horizontalCenter: undefined;anchors.right:nextAnagramButton.right}
+                   AnchorChanges{target:nextAnagramIcon;
+                       anchors.horizontalCenter: undefined;
+                       anchors.right:nextAnagramButton.right}
                    PropertyChanges {
                        target: nextAnagramButton
                        width:blackboard.width/3
@@ -133,13 +139,13 @@ Rectangle {
             color:"white"
             text: "Next Anagram"
             opacity: 0
-            font.pixelSize: 20
+            font.pixelSize: parent.width/68.5
         }
 
         Image{
                 id: nextAnagramIcon
                 smooth:true
-                height:nextAnagramButton.height/2
+                height:nextAnagramButton.height/2; width:nextAnagramText.width/4
                 anchors{verticalCenter: nextAnagramButton.verticalCenter;horizontalCenter: nextAnagramButton.horizontalCenter}
                 source: "../ui/icons/arrow-light.svgz"
                 fillMode: Image.PreserveAspectFit
@@ -162,7 +168,6 @@ Rectangle {
 
         states: State {
                name: "onEntered"
-               AnchorChanges{target:configureIcon;anchors.horizontalCenter: undefined;anchors.right:configureButton.right}
                PropertyChanges {
                    target: configureButton
                    width:blackboard.width/3
@@ -171,6 +176,9 @@ Rectangle {
                    target: configureText
                    opacity:1
                }
+               AnchorChanges{target:configureIcon;
+                   anchors.horizontalCenter: undefined;
+                   anchors.right:configureButton.right}
            }
         State{
             name:"onExited"
@@ -186,15 +194,15 @@ Rectangle {
         id:configureText
         anchors{verticalCenter: configureButton.verticalCenter;horizontalCenter:configureButton.horizontalCenter}
         color:"white"
-        text: "Configure"
+        text:"Configure"
         opacity:0
-        font.pixelSize: 20
+        font.pixelSize: parent.width/68.5
     }
 
     Image{
             id: configureIcon
             smooth:true
-            height:configureButton.height/2
+            height:configureButton.height/2;width:configureText.width/3
             anchors{verticalCenter: configureButton.verticalCenter;horizontalCenter: configureButton.horizontalCenter}
             source: "../ui/icons/spanner-light.svgz"
             fillMode: Image.PreserveAspectFit
@@ -217,7 +225,6 @@ Rectangle {
 
         states: State {
                name: "onEntered"
-               AnchorChanges{target:helpIcon;anchors.horizontalCenter: undefined;anchors.right:helpButton.right}
                PropertyChanges {
                    target: helpButton
                    width:blackboard.width/3
@@ -226,6 +233,7 @@ Rectangle {
                    target: helpText
                    opacity:1
                }
+               AnchorChanges{target:helpIcon;anchors.horizontalCenter: undefined;anchors.right:helpButton.right}
            }
         State{
             name:"onExited"
@@ -243,13 +251,13 @@ Rectangle {
         color:"white"
         text: "About"
         opacity: 0
-        font.pixelSize: 20
+        font.pixelSize: parent.width/68.5
     }
 
     Image{
         id: helpIcon
         smooth:true
-        height:helpButton.height/2
+        height:helpButton.height/2;width:helpText.width/2
         anchors{verticalCenter: helpButton.verticalCenter;horizontalCenter:helpButton.horizontalCenter}
         source: "../ui/icons/question-light.svgz"
         fillMode: Image.PreserveAspectFit
@@ -257,7 +265,7 @@ Rectangle {
 
     Blackboard{
         id:blackboard
-        border{width:20;color:"#613529"}
+        border{width:parent.width/68.5;color:"#613529"}
         width:parent.width/2; height: parent.height/1.5
         anchors {horizontalCenter:parent.horizontalCenter; top:toolBarTop.bottom}
     }
@@ -274,7 +282,7 @@ Rectangle {
     TextInput{
          id: input
          color: "white"; selectionColor: "white";selectedTextColor: "black"   //DEB204,0B7BB8
-         font.pixelSize: 25; font.bold: true
+         font.pixelSize: parent.width/65; font.bold: true
          width: inputField.width
          anchors.centerIn: inputField
          focus: true
