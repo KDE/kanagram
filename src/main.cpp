@@ -41,9 +41,9 @@ int main(int argc, char **argv)
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
-    MainWindow mainWindow;
-    mainWindow.setMinimumSize(800,600);
-    mainWindow.show();
+    MainWindow * mainWindow = new MainWindow();
+    mainWindow->setMinimumSize(800,600);
+    mainWindow->show();
 
     args->clear();
     return app.exec();

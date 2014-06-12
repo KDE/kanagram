@@ -112,9 +112,7 @@ Rectangle {
 
         MouseArea {
             anchors.fill: parent
-            acceptedButtons: Qt.LeftButton | Qt.RightButton
             hoverEnabled: true
-            onClicked: console.log("Button clicked!")
             onEntered:hintButton.state="onEntered"
             onExited:hintButton.state="onExited"
 
@@ -136,14 +134,6 @@ Rectangle {
             name:"onExited"
         }
 
-        State{
-            name:"clicked"
-            PropertyChanges {
-                target: hintSection
-                opacity:0.35
-            }
-        }
-
         transitions: Transition {
                 PropertyAnimation { properties: "x,y,opacity"; easing.type: Easing.Linear; easing.amplitude: 5.0; easing.period: 1 }
             }
@@ -155,7 +145,7 @@ Rectangle {
         opacity:0
         radius: 4
         color: "black"
-        anchors{verticalCenter: parent.verticalCenter;right: parent.left}
+        anchors{verticalCenter: blackboard.verticalCenter;right: blackboard.left}
     }
 
     Rectangle {
