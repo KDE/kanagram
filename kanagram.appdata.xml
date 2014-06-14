@@ -1,12 +1,18 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
   <id>kanagram.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Kanagram</name>
+  <name xml:lang="uk">Kanagram</name>
+  <name xml:lang="x-test">xxKanagramxx</name>
   <summary>Letter Order Game</summary>
+  <summary xml:lang="uk">Гра з впорядкування літер</summary>
+  <summary xml:lang="x-test">xxLetter Order Gamexx</summary>
   <description>
     <p>Kanagram is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the word. It features several included word lists, a hints-and-cheats help system, a word list editor, and allows for updating and distributing wordlists via KNewStuff. The interface is scalable and appropriate for children.</p>
+    <p xml:lang="uk">KAnagram — це гра, що заснована на розгадуванні анаграм: загадку буде розгадано, якщо розташувати переплутані літери слова у правильному порядку. Обмежень на час розв’язання немає, так само як і на кількість спроб вгадати слово. До пакунка KAnagram вже включено декілька словників підготованих для гри, але набагато більше таких словників ви можете знайти у інтернеті. У програмі передбачено систему підказок, редактор списків слів. Інтерфейс програми є масштабованим та адаптованим для дітей.</p>
+    <p xml:lang="x-test">xxKanagram is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the word. It features several included word lists, a hints-and-cheats help system, a word list editor, and allows for updating and distributing wordlists via KNewStuff. The interface is scalable and appropriate for children.xx</p>
   </description>
   <url type="homepage">http://edu.kde.org/kanagram/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kanagram</url>
