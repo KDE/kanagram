@@ -56,12 +56,19 @@ Rectangle {
         anchors{verticalCenter: optionsBar.verticalCenter;left:optionsBar.left}
         source: "../ui/icons/timer.png"
         fillMode: Image.PreserveAspectFit
+        property int countDownTimerValue:0;
 
         MouseArea {
             anchors.fill: parent
             hoverEnabled: true
             onEntered:timerButton.state="onEntered"
-            onExited:timerButton.state="onExited";
+            onExited:timerButton.state="onExited"
+            onClicked:{
+                timerButton.countDownTimerValue=15;
+                scoreTimer.repeat=true;
+                scoreTimer.start();
+                timerText.text="Stop Timer"
+            }
         }
 
         states: State {
@@ -82,6 +89,35 @@ Rectangle {
         transitions: Transition {
                 PropertyAnimation { properties: "x,y,opacity"; easing.type: Easing.Linear; easing.amplitude: 5.0; easing.period: 1 }
             }
+    }
+
+    Timer {
+        id: scoreTimer;
+        interval: 1000;
+        repeat: true;
+        running: false;
+        triggeredOnStart: false;
+
+        onTriggered: {
+             if (--timerButton.countDownTimerValue == 0) {
+                 stop();
+                 timerSection.opacity=0;
+                 timeRemaining.opacity=0;
+                 timerText.text="Start Timer";
+             }
+             else{
+                 timerSection.opacity=0.35;
+                 if(timerButton.countDownTimerValue>9)
+                 {
+                     timeRemaining.text='00:'+timerButton.countDownTimerValue;
+                 }
+                 else
+                 {
+                     timeRemaining.text='00:0'+timerButton.countDownTimerValue;
+                 }
+                 timeRemaining.opacity=1;
+             }
+        }
     }
 
     Rectangle {
@@ -109,13 +145,18 @@ Rectangle {
         anchors{verticalCenter: optionsBar.verticalCenter;horizontalCenter:optionsBar.horizontalCenter}
         source: "../ui/icons/hint.png"
         fillMode: Image.PreserveAspectFit
+        property int countDownTimerValue:0;
 
         MouseArea {
             anchors.fill: parent
             hoverEnabled: true
             onEntered:hintButton.state="onEntered"
             onExited:hintButton.state="onExited"
-
+            onClicked:{
+                hintButton.countDownTimerValue=15;
+                hintTimer.repeat=true;
+                hintTimer.start();
+            }
         }
 
         states: State {
@@ -139,13 +180,58 @@ Rectangle {
             }
     }
 
+    Rectangle{
+        id: timerSection
+        width:blackboard.width/9;height:blackboard.height/7
+        anchors{top:blackboard.top;topMargin:blackboard.height/7;right: blackboard.left;rightMargin:blackboard.width/68.5}
+        color:"black"
+        opacity:0
+    }
+
+    Text{
+        id:timeRemaining
+        anchors{verticalCenter: timerSection.verticalCenter;horizontalCenter:timerSection.horizontalCenter}
+        opacity:0
+        text: " "
+        color:"white"
+        font.pixelSize: parent.width/32
+    }
+
     Rectangle {
         id: hintSection
         width: parent.width/3; height: parent.height/3
         opacity:0
-        radius: 4
         color: "black"
-        anchors{verticalCenter: blackboard.verticalCenter;right: blackboard.left}
+        anchors{verticalCenter: blackboard.verticalCenter;right: blackboard.left;rightMargin:blackboard.width/68.5}
+    }
+
+    Text{
+        id:anagramHint
+        anchors{verticalCenter: hintSection.verticalCenter;horizontalCenter:hintSection.horizontalCenter}
+        color:"white"
+        text: "Anagram Hint";
+        opacity:0
+        font.pixelSize: hintSection.width/10
+    }
+
+    Timer {
+        id: hintTimer;
+        interval: 1000;
+        repeat: true;
+        running: false;
+        triggeredOnStart: false;
+
+        onTriggered: {
+             if (--hintButton.countDownTimerValue == 0) {
+                 stop();
+                 hintSection.opacity=0;
+                 anagramHint.opacity=0;
+             }
+             else{
+                 hintSection.opacity=0.35;
+                 anagramHint.opacity=1;
+             }
+        }
     }
 
     Rectangle {

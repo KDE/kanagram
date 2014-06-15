@@ -218,7 +218,7 @@ Rectangle {
 
         property bool flag:true
 
-        function buttonClicked()
+        function toggleMoreOptions()
         {
             if(flag)
             {
@@ -245,7 +245,7 @@ Rectangle {
             hoverEnabled: true
             onEntered:helpButton.state="onEntered"
             onExited:helpButton.state="onExited";
-            onClicked:helpButton.buttonClicked();
+            onClicked:helpButton.toggleMoreOptions();
         }
 
         states: State {
@@ -460,5 +460,4 @@ Rectangle {
          anchors.centerIn: inputField
          focus: true
      }
-
 }

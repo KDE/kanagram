@@ -22,6 +22,8 @@
 #include "mainwindow.h"
 
 #include "kdeclarativeview.h"
+#include "kanagramgame.h"
+#include "kanagramenginehelper.h"
 
 #include <QtDeclarative/QtDeclarative>
 
@@ -29,8 +31,13 @@ MainWindow::MainWindow()
 {
     declarativeView()->setPackageName("org.kde.kanagram");
 
-    declarativeView()->rootContext()->setContextProperty( "kanagramEngine",
-                                                          0 );
+    m_game = new KanagramGame();
+    m_engineHelper = new KanagramEngineHelper(m_game,this);
+
+    declarativeView()->rootContext()->setContextProperty("kanagramEngine",m_game);
+
+    declarativeView()->rootContext()->setContextProperty("kanagramEngineHelper",m_engineHelper);
+
 }
 
 #include "mainwindow.moc"

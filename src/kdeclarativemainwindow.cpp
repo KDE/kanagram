@@ -44,6 +44,7 @@ public:
 
     KDeclarativeMainWindow *q;
     KDeclarativeView *view;
+
     KCmdLineArgs *args;
     QStringList arguments;
     QString caption;
@@ -55,8 +56,6 @@ void KDeclarativeMainWindowPrivate::statusChanged(QDeclarativeView::Status statu
         view->rootContext()->setContextProperty("application", q);
     }
 }
-
-
 
 KDeclarativeMainWindow::KDeclarativeMainWindow()
     : KMainWindow(),

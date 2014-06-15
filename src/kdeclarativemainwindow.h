@@ -62,7 +62,7 @@ public:
      */
     KDeclarativeView *declarativeView() const;
 
-    //propertyies & methods for QML
+    //properties & methods for QML
     QStringList startupArguments() const;
 
     QString caption() const;

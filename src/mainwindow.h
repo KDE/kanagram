@@ -25,11 +25,17 @@
 
 #include "kdeclarativemainwindow.h"
 
+class KanagramGame;
+class KanagramEngineHelper;
+
 class MainWindow : public KDeclarativeMainWindow
 {
     Q_OBJECT
 public:
     MainWindow();
+private:
+    KanagramGame *m_game;
+    KanagramEngineHelper *m_engineHelper;
 };
 
 #endif // MAINWINDOW_H
