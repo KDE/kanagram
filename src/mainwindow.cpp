@@ -34,7 +34,7 @@ MainWindow::MainWindow()
     m_game = new KanagramGame();
     m_engineHelper = new KanagramEngineHelper(m_game,this);
 
-    declarativeView()->rootContext()->setContextProperty("kanagramEngine",m_game);
+    declarativeView()->rootContext()->setContextProperty("kanagramGame",m_game);
 
     declarativeView()->rootContext()->setContextProperty("kanagramEngineHelper",m_engineHelper);
 

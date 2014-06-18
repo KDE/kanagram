@@ -34,7 +34,7 @@ class KanagramEngineHelper : public QObject
         explicit KanagramEngineHelper(KanagramGame *kanagramGame, QObject* parent = 0);
         ~KanagramEngineHelper();
 
-        Q_INVOKABLE QStringList createNextAnagram();
+        Q_INVOKABLE QString createNextAnagram();
         Q_INVOKABLE QStringList insertInCurrentOriginalWord(int index, const QString& letter);
         Q_INVOKABLE QStringList removeInCurrentOriginalWord(int index);
         Q_INVOKABLE QStringList anagramOriginalWord() const;

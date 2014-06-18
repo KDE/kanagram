@@ -91,7 +91,9 @@ Rectangle {
                 hoverEnabled: true
                 onEntered:nextAnagramButton.state="onEntered"
                 onExited:nextAnagramButton.state="onExited";
-                onClicked:nextAnagramButton.state="onClicked";
+                onClicked:{
+                    blackboard.anagramText=kanagramEngineHelper.createNextAnagram();
+                }
             }
 
             states: State {
@@ -107,21 +109,6 @@ Rectangle {
                    AnchorChanges{target:nextAnagramIcon;
                        anchors.horizontalCenter: undefined;
                        anchors.right:nextAnagramButton.right}
-               }
-               State{
-                   name:"onClicked"
-                   AnchorChanges{target:nextAnagramIcon;
-                       anchors.horizontalCenter: undefined;
-                       anchors.right:nextAnagramButton.right}
-                   PropertyChanges {
-                       target: nextAnagramButton
-                       width:blackboard.width/3
-                   }
-                   PropertyChanges{
-                       target:nextAnagramText
-                       opacity: 1
-                       text:kanagramEngineHelper.createNextAnagram();
-                   }
                }
             State{
                 name:"onExited"

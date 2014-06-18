@@ -40,34 +40,12 @@ KanagramEngineHelper::~KanagramEngineHelper()
     delete m_kanagramGame;
 }
 
-QStringList KanagramEngineHelper::createNextAnagram()
+QString KanagramEngineHelper::createNextAnagram()
 {
     m_kanagramGame->nextAnagram();
-    QStringList anagramLetters;
     QString anagram;
-
-    int i = 0;
-
-    // Try to get a not too long word, still visible and looks ok on the
-    // chalkboard on the Harmattan device. Do not get stuck in such a loop
-    // either, if there are no shorter words available, just quit the
-    // application. It is an acceptable behavior for avoiding the messy layout
-    // in such cases (long words, that is).
-    //
-    do {
-        anagram = m_kanagramGame->anagram();
-        if (anagram.size() < 13) {
-            foreach (const QChar& anagramLetter, anagram)
-            {
-                anagramLetters.append(anagramLetter);
-            }
-
-            return anagramLetters;
-        }
-    } while (++i < 200);
-
-    QApplication::instance()->quit();
-    return QStringList();
+    anagram = m_kanagramGame->anagram();
+    return anagram;
 }
 
 QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const QString& letter)

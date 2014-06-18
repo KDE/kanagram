@@ -4,6 +4,7 @@ Rectangle {
 
     id:blackboard
     radius:4
+    property alias anagramText:anagram.text;
 
     Item {
         width: parent.width
@@ -35,7 +36,7 @@ Rectangle {
 
     Text{
         id:anagram
-        text:"manraga"
+        text:kanagramEngineHelper.createNextAnagram();
         anchors{verticalCenter: parent.verticalCenter;horizontalCenter: parent.horizontalCenter}
         color:"white"
         font.pixelSize: parent.width/12.5
@@ -153,7 +154,7 @@ Rectangle {
             onEntered:hintButton.state="onEntered"
             onExited:hintButton.state="onExited"
             onClicked:{
-                hintButton.countDownTimerValue=15;
+                hintButton.countDownTimerValue=5;
                 hintTimer.repeat=true;
                 hintTimer.start();
             }
@@ -209,7 +210,7 @@ Rectangle {
         id:anagramHint
         anchors{verticalCenter: hintSection.verticalCenter;horizontalCenter:hintSection.horizontalCenter}
         color:"white"
-        text: "Anagram Hint";
+        text: kanagramGame.hint();
         opacity:0
         font.pixelSize: hintSection.width/10
     }
