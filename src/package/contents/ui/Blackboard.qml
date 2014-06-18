@@ -266,6 +266,7 @@ Rectangle {
             hoverEnabled: true
             onEntered:revealButton.state="onEntered"
             onExited:revealButton.state="onExited";
+            onClicked:anagram.text=kanagramEngineHelper.anagramOriginalWord();
         }
 
         states: State {

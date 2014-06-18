@@ -74,18 +74,18 @@ QStringList KanagramEngineHelper::removeInCurrentOriginalWord(int index)
     return m_currentOriginalWord;
 }
 
-QStringList KanagramEngineHelper::anagramOriginalWord() const
+QString KanagramEngineHelper::anagramOriginalWord() const
 {
-    QStringList originalWordLetters;
+    //QStringList originalWordLetters;
 
     QString originalWord = m_kanagramGame->word();
 
-    foreach (const QChar& originalWordLetter, originalWord)
+    /*foreach (const QChar& originalWordLetter, originalWord)
     {
         originalWordLetters.append(originalWordLetter);
-    }
+    }*/
 
-    return originalWordLetters;
+    return originalWord;
 }
 
 bool KanagramEngineHelper::compareWords() const

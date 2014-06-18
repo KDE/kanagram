@@ -37,7 +37,7 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE QString createNextAnagram();
         Q_INVOKABLE QStringList insertInCurrentOriginalWord(int index, const QString& letter);
         Q_INVOKABLE QStringList removeInCurrentOriginalWord(int index);
-        Q_INVOKABLE QStringList anagramOriginalWord() const;
+        Q_INVOKABLE QString anagramOriginalWord() const;
         Q_INVOKABLE bool compareWords() const;
 
         // These accessor and mutator methods are not needed once the
