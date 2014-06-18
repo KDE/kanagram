@@ -93,6 +93,8 @@ Rectangle {
                 onExited:nextAnagramButton.state="onExited";
                 onClicked:{
                     blackboard.anagramText=kanagramEngineHelper.createNextAnagram();
+                    blackboard.hint=kanagramEngineHelper.showHint();
+                    blackboard.showHintTimeInterval=1;
                 }
             }
 

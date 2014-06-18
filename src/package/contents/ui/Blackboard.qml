@@ -5,6 +5,8 @@ Rectangle {
     id:blackboard
     radius:4
     property alias anagramText:anagram.text;
+    property alias hint:anagramHint.text;
+    property alias showHintTimeInterval:hintButton.countDownTimerValue;
 
     Item {
         width: parent.width
@@ -30,7 +32,7 @@ Rectangle {
         id:categoryName
         anchors{verticalCenter: categoryBar.verticalCenter;horizontalCenter: categoryBar.horizontalCenter }
         color:"white"
-        text: "Category"
+        text: kanagramEngineHelper.categoryName();
         font.pixelSize: parent.width/19.5
     }
 
@@ -210,7 +212,7 @@ Rectangle {
         id:anagramHint
         anchors{verticalCenter: hintSection.verticalCenter;horizontalCenter:hintSection.horizontalCenter}
         color:"white"
-        text: kanagramGame.hint();
+        text: kanagramEngineHelper.showHint();
         opacity:0
         font.pixelSize: hintSection.width/10
     }
@@ -224,9 +226,9 @@ Rectangle {
 
         onTriggered: {
              if (--hintButton.countDownTimerValue == 0) {
-                 stop();
                  hintSection.opacity=0;
                  anagramHint.opacity=0;
+                 stop();
              }
              else{
                  hintSection.opacity=0.35;

@@ -76,16 +76,20 @@ QStringList KanagramEngineHelper::removeInCurrentOriginalWord(int index)
 
 QString KanagramEngineHelper::anagramOriginalWord() const
 {
-    //QStringList originalWordLetters;
-
     QString originalWord = m_kanagramGame->word();
-
-    /*foreach (const QChar& originalWordLetter, originalWord)
-    {
-        originalWordLetters.append(originalWordLetter);
-    }*/
-
     return originalWord;
+}
+
+QString KanagramEngineHelper::showHint() const
+{
+    QString hint = m_kanagramGame->hint();
+    return hint;
+}
+
+QString KanagramEngineHelper::categoryName() const
+{
+    QString categoryTitle = m_kanagramGame->documentTitle();
+    return categoryTitle;
 }
 
 bool KanagramEngineHelper::compareWords() const
