@@ -31,13 +31,18 @@
 KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* parent)
     : QObject(parent)
     , m_kanagramGame(kanagramGame)
+    ,m_speller(NULL)
     , m_insertCounter(0)
 {
+    m_speller = new Sonnet::Speller();
+    m_speller->setLanguage(m_kanagramGame->sanitizedDataLanguage());
 }
 
 KanagramEngineHelper::~KanagramEngineHelper()
 {
     delete m_kanagramGame;
+    delete m_speller;
+    m_speller=NULL;
 }
 
 QString KanagramEngineHelper::createNextAnagram()
@@ -90,6 +95,62 @@ QString KanagramEngineHelper::categoryName() const
 {
     QString categoryTitle = m_kanagramGame->documentTitle();
     return categoryTitle;
+}
+
+bool KanagramEngineHelper::checkWord(QString& answer)
+{
+    QString enteredWord = answer.toLower().trimmed();
+    QString word = m_kanagramGame->word().toLower().trimmed();
+    if (!enteredWord.isEmpty())
+    {
+        if (enteredWord == word || stripAccents(enteredWord) == stripAccents(word) ||
+           (m_speller->isCorrect(enteredWord) && isAnagram(enteredWord, word)))
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+    else
+        return false;
+}
+
+bool KanagramEngineHelper::isAnagram(QString& enteredword, QString& word)
+{
+    QString test = word;
+    if (enteredword.length() <= word.length())
+    {
+        for (int i=0; i < enteredword.length(); i++)
+        {
+            int found = test.indexOf(enteredword[i]);
+
+            if (found != -1)
+            {
+                test.remove(found, 1);
+            }
+            else
+                break;
+        }
+
+        if (test.isEmpty())
+            return true;
+        else
+            return false;
+    }
+    else
+        return false;
+}
+
+QString KanagramEngineHelper::stripAccents(QString& original)
+{
+    QString noAccents;
+    QString decomposed = original.normalized(QString::NormalizationForm_D);
+    for (int i = 0; i < decomposed.length(); ++i) {
+        if ( decomposed[i].category() != QChar::Mark_NonSpacing ) {
+            noAccents.append(decomposed[i]);
+        }
+    }
+    return noAccents;
 }
 
 bool KanagramEngineHelper::compareWords() const

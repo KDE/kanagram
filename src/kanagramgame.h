@@ -152,10 +152,10 @@ class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
 
         /** The current anagram's picture if any */
         KUrl m_picHintUrl;
-        
+
         /** The current anagram's audio if any */
         KUrl m_audioUrl;
-        
+
         /** The current anagram's answer */
         QString m_originalWord;
 

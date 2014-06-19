@@ -21,6 +21,7 @@
 #define KANAGRAM_ENGINE_HELPER_H
 
 #include <kanagramgame.h>
+#include <sonnet/speller.h>
 
 class KanagramEngineHelper : public QObject
 {
@@ -40,6 +41,9 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE QString anagramOriginalWord() const;
         Q_INVOKABLE QString showHint() const;
         Q_INVOKABLE QString categoryName() const;
+        Q_INVOKABLE bool checkWord(QString& answer);
+        Q_INVOKABLE bool isAnagram(QString& enteredword, QString& word);
+        Q_INVOKABLE QString stripAccents(QString& original);
         Q_INVOKABLE bool compareWords() const;
 
         // These accessor and mutator methods are not needed once the
@@ -69,6 +73,7 @@ class KanagramEngineHelper : public QObject
 
 	private:
         KanagramGame *m_kanagramGame;
+        Sonnet::Speller *m_speller;
         QStringList m_currentOriginalWord;
         int m_insertCounter;
 };

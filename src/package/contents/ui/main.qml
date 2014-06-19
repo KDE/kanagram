@@ -443,10 +443,18 @@ Rectangle {
 
     TextInput{
          id: input
-         color: "white"; selectionColor: "white";selectedTextColor: "black"   //DEB204,0B7BB8
-         font.pixelSize: parent.width/65; font.bold: true
+         color: "white"; selectionColor: "white";selectedTextColor: "black"
+         font.pixelSize: parent.width/60; font.bold: true
          width: inputField.width
          anchors.centerIn: inputField
          focus: true
+         /*onAccepted:{
+             if(kanagramEngineHelper.checkWord(text))
+             {
+             }
+             else
+             {
+             }
+        }*/
      }
 }
