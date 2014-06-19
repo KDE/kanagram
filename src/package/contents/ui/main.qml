@@ -451,11 +451,13 @@ Rectangle {
          anchors.centerIn: inputField
          focus: true
          property int countDownTimerValue:0
+         property bool flagCorrectAnswer:true;
          onAccepted:{
              if(kanagramEngineHelper.checkWord(text))
              {
                  input.color="green";
                  input.countDownTimerValue=1;
+                 input.flagCorrectAnswer=true;
                  showAnswerTimer.repeat=true;
                  showAnswerTimer.start();
              }
@@ -463,6 +465,7 @@ Rectangle {
              {
                  input.color="red";
                  input.countDownTimerValue=1;
+                 input.flagCorrectAnswer=false;
                  showAnswerTimer.repeat=true;
                  showAnswerTimer.start();
              }
@@ -479,9 +482,11 @@ Rectangle {
         onTriggered: {
              if (--input.countDownTimerValue == 0) {
                  input.color="white";
-                 blackboard.anagramText=kanagramEngineHelper.createNextAnagram();
-                 blackboard.hint=kanagramEngineHelper.showHint();
-                 blackboard.showHintTimeInterval=1;
+                 if(input.flagCorrectAnswer){
+                     blackboard.anagramText=kanagramEngineHelper.createNextAnagram();
+                     blackboard.hint=kanagramEngineHelper.showHint();
+                     blackboard.showHintTimeInterval=1;
+                 }
                  input.text="";
                  stop();
              }
