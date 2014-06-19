@@ -41,6 +41,8 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE QString anagramOriginalWord() const;
         Q_INVOKABLE QString showHint() const;
         Q_INVOKABLE QString categoryName() const;
+        Q_INVOKABLE QString nextVocabulary();
+        Q_INVOKABLE QString previousVocabulary();
         Q_INVOKABLE bool checkWord(QString& answer);
         Q_INVOKABLE bool isAnagram(QString& enteredword, QString& word);
         Q_INVOKABLE QString stripAccents(QString& original);

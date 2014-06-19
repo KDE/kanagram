@@ -97,6 +97,19 @@ QString KanagramEngineHelper::categoryName() const
     return categoryTitle;
 }
 
+QString KanagramEngineHelper::nextVocabulary()
+{
+    m_kanagramGame->nextVocabulary();
+    return m_kanagramGame->documentTitle();
+}
+
+QString KanagramEngineHelper::previousVocabulary()
+{
+    m_kanagramGame->previousVocabulary();
+    return m_kanagramGame->documentTitle();
+}
+
+
 bool KanagramEngineHelper::checkWord(QString& answer)
 {
     QString enteredWord = answer.toLower().trimmed();

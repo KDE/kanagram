@@ -36,6 +36,82 @@ Rectangle {
         font.pixelSize: parent.width/19.5
     }
 
+    Image{
+        id:nextVocabularyButton
+        smooth:true
+        opacity:0.5
+        height:categoryBar.height/2
+        anchors{verticalCenter: categoryBar.verticalCenter;left:categoryName.right;leftMargin:parent.width/20}
+        source: "../ui/icons/right-arrow.png"
+        fillMode: Image.PreserveAspectFit
+
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            onEntered:nextVocabularyButton.state="onEntered"
+            onExited:nextVocabularyButton.state="onExited"
+            onClicked:{
+                categoryName.text=kanagramEngineHelper.nextVocabulary();
+                anagram.text=kanagramEngineHelper.createNextAnagram();
+                anagramHint.text=kanagramEngineHelper.showHint();
+                hintButton.countDownTimerValue=1;
+            }
+        }
+
+        states: State {
+               name: "onEntered"
+               PropertyChanges {
+                   target: nextVocabularyButton
+                   opacity:1
+               }
+           }
+        State{
+            name:"onExited"
+        }
+
+        transitions: Transition {
+                PropertyAnimation { properties: "x,y,opacity"; easing.type: Easing.Linear; easing.amplitude: 5.0; easing.period: 1 }
+            }
+        }
+
+    Image{
+        id:previousVocabularyButton
+        smooth:true
+        opacity:0.5
+        height:categoryBar.height/2
+        anchors{verticalCenter: categoryBar.verticalCenter;right:categoryName.left;rightMargin:parent.width/20}
+        source: "../ui/icons/left-arrow.png"
+        fillMode: Image.PreserveAspectFit
+
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            onEntered:previousVocabularyButton.state="onEntered"
+            onExited:previousVocabularyButton.state="onExited"
+            onClicked:{
+                categoryName.text=kanagramEngineHelper.previousVocabulary();
+                anagram.text=kanagramEngineHelper.createNextAnagram();
+                anagramHint.text=kanagramEngineHelper.showHint();
+                hintButton.countDownTimerValue=1;
+            }
+        }
+
+        states: State {
+               name: "onEntered"
+               PropertyChanges {
+                   target: previousVocabularyButton
+                   opacity:1
+               }
+           }
+        State{
+            name:"onExited"
+        }
+
+        transitions: Transition {
+                PropertyAnimation { properties: "x,y,opacity"; easing.type: Easing.Linear;easing.amplitude: 5.0;easing.period: 1 }
+            }
+        }
+
     Text{
         id:anagram
         text:kanagramEngineHelper.createNextAnagram();
