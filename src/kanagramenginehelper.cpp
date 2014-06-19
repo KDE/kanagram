@@ -110,7 +110,7 @@ QString KanagramEngineHelper::previousVocabulary()
 }
 
 
-bool KanagramEngineHelper::checkWord(QString& answer)
+bool KanagramEngineHelper::checkWord(QString answer)
 {
     QString enteredWord = answer.toLower().trimmed();
     QString word = m_kanagramGame->word().toLower().trimmed();

@@ -437,6 +437,8 @@ Rectangle {
         width:blackboard.width;height:parent.height/10
         anchors{horizontalCenter: blackboard.horizontalCenter;bottom:parent.bottom;bottomMargin:parent.height/35}
         radius:8
+        border.color:"white"
+        border.width:0
         color:"black"
         opacity:0.35
     }
@@ -448,13 +450,41 @@ Rectangle {
          width: inputField.width
          anchors.centerIn: inputField
          focus: true
-         /*onAccepted:{
+         property int countDownTimerValue:0
+         onAccepted:{
              if(kanagramEngineHelper.checkWord(text))
              {
+                 input.color="green";
+                 input.countDownTimerValue=1;
+                 showAnswerTimer.repeat=true;
+                 showAnswerTimer.start();
              }
              else
              {
+                 input.color="red";
+                 input.countDownTimerValue=1;
+                 showAnswerTimer.repeat=true;
+                 showAnswerTimer.start();
              }
-        }*/
+        }
      }
+
+     Timer {
+        id: showAnswerTimer;
+        interval: 1000;
+        repeat: true;
+        running: false;
+        triggeredOnStart: false;
+
+        onTriggered: {
+             if (--input.countDownTimerValue == 0) {
+                 input.color="white";
+                 blackboard.anagramText=kanagramEngineHelper.createNextAnagram();
+                 blackboard.hint=kanagramEngineHelper.showHint();
+                 blackboard.showHintTimeInterval=1;
+                 input.text="";
+                 stop();
+             }
+        }
+    }
 }
