@@ -338,13 +338,19 @@ Rectangle {
         anchors{verticalCenter: optionsBar.verticalCenter;right:optionsBar.right}
         source: "../ui/icons/reveal.png"
         fillMode: Image.PreserveAspectFit
+        property int countDownTimerValue:0
 
         MouseArea {
             anchors.fill: parent
             hoverEnabled: true
             onEntered:revealButton.state="onEntered"
             onExited:revealButton.state="onExited";
-            onClicked:anagram.text=kanagramEngineHelper.anagramOriginalWord();
+            onClicked:{
+                anagram.text=kanagramEngineHelper.anagramOriginalWord();
+                revealButton.countDownTimerValue=2;
+                showAnswerTimer.repeat=true;
+                showAnswerTimer.start();
+            }
         }
 
         states: State {
@@ -365,6 +371,23 @@ Rectangle {
         transitions: Transition {
                 PropertyAnimation { properties: "x,y,opacity"; easing.type: Easing.Linear; easing.amplitude: 5.0; easing.period: 1 }
             }
+    }
+
+    Timer {
+        id: showAnswerTimer;
+        interval: 1000;
+        repeat: true;
+        running: false;
+        triggeredOnStart: false;
+
+        onTriggered: {
+             if (--revealButton.countDownTimerValue == 0) {
+                 blackboard.anagramText=kanagramEngineHelper.createNextAnagram();
+                 blackboard.hint=kanagramEngineHelper.showHint();
+                 blackboard.showHintTimeInterval=1;
+                 stop();
+             }
+        }
     }
 
     Rectangle {
