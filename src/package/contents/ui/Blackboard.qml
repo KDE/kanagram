@@ -136,6 +136,7 @@ Rectangle {
         source: "../ui/icons/timer.png"
         fillMode: Image.PreserveAspectFit
         property int countDownTimerValue:0;
+        property bool flagToggleTimer:false;
 
         MouseArea {
             anchors.fill: parent
@@ -143,10 +144,19 @@ Rectangle {
             onEntered:timerButton.state="onEntered"
             onExited:timerButton.state="onExited"
             onClicked:{
-                timerButton.countDownTimerValue=15;
-                scoreTimer.repeat=true;
-                scoreTimer.start();
-                timerText.text="Stop Timer"
+                if(!timerButton.flagToggleTimer)
+                {
+                    timerButton.countDownTimerValue=15;
+                    scoreTimer.repeat=true;
+                    scoreTimer.start();
+                    timerText.text="Stop Timer"
+                    timerButton.flagToggleTimer=true;
+                }
+                else
+                {
+                    timerButton.countDownTimerValue = 1;
+                    timerButton.flagToggleTimer=false;
+                }
             }
         }
 

@@ -49,7 +49,7 @@ Rectangle {
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered:powerButton.state="onEntered"
-                onExited:powerButton.state="onExited";
+                onExited:powerButton.state="onExited"
             }
 
             states: State {
