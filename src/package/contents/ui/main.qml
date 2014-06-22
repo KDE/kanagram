@@ -446,7 +446,7 @@ Rectangle {
     TextInput{
          id: input
          color: "white"; selectionColor: "white";selectedTextColor: "black"
-         font.pixelSize: parent.width/60; font.bold: true
+         font.pixelSize: parent.width/40; font.bold: true
          width: inputField.width
          anchors.centerIn: inputField
          focus: true
