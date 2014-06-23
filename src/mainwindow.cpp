@@ -38,6 +38,8 @@ MainWindow::MainWindow()
 
     declarativeView()->rootContext()->setContextProperty("kanagramEngineHelper",m_engineHelper);
 
+    connect(declarativeView()->engine(), SIGNAL(quit()), qApp, SLOT(quit()));
+
 }
 
 #include "mainwindow.moc"

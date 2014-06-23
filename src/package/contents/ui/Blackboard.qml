@@ -298,6 +298,8 @@ Rectangle {
         id:anagramHint
         anchors{verticalCenter: hintSection.verticalCenter;horizontalCenter:hintSection.horizontalCenter}
         color:"white"
+        width:hintSection.width
+        wrapMode: Text.WordWrap
         text: kanagramEngineHelper.showHint();
         opacity:0
         font.pixelSize: hintSection.width/10

@@ -88,13 +88,6 @@ QString KanagramEngineHelper::anagramOriginalWord() const
 QString KanagramEngineHelper::showHint() const
 {
     QString hint = m_kanagramGame->hint();
-    int hintSize= hint.size(),index=0,lowerLimit=10;
-    while(lowerLimit<hintSize)
-    {
-        index=hint.indexOf(" ",lowerLimit);
-        hint.insert(index,"\n");
-        lowerLimit=index+10;
-    }
     return hint;
 }
 
