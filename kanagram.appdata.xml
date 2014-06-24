@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Kanagram</name>
+  <name xml:lang="cs">Kanagram</name>
   <name xml:lang="fi">Kanagram</name>
   <name xml:lang="hu">Kanagram</name>
   <name xml:lang="nds">Kanagram</name>
@@ -16,6 +17,7 @@
   <name xml:lang="uk">Kanagram</name>
   <name xml:lang="x-test">xxKanagramxx</name>
   <summary>Letter Order Game</summary>
+  <summary xml:lang="cs">Hra uspořádání písmen</summary>
   <summary xml:lang="fi">Kirjainten järjestyspeli</summary>
   <summary xml:lang="hu">Betűsorrend játék</summary>
   <summary xml:lang="nds">Bookstaven ornen</summary>
