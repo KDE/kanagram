@@ -46,6 +46,7 @@ KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* 
     ,m_speller(NULL)
     ,m_player(NULL)
     , m_insertCounter(0)
+    ,m_totalScore(0)
 {
     m_actionCollection = new KActionCollection(this);
     m_speller = new Sonnet::Speller();
@@ -386,6 +387,49 @@ void KanagramEngineHelper::slotShowSettings()
         m_configDialog->resize(600, 500);
         m_configDialog->show();
     }
+}
+
+void KanagramEngineHelper::resetTotalScore()
+{
+    m_totalScore=0;
+}
+
+int KanagramEngineHelper::totalScore(int points)
+{
+    m_totalScore+=points;
+    return m_totalScore;
+}
+
+int KanagramEngineHelper::correctAnswerScore()
+{
+    QString correctAnswerScore = KanagramSettings::correctAnswerScore();
+
+    m_correctAnswerScore = getNumericSetting(correctAnswerScore);
+    return ((m_correctAnswerScore + 1)*5);
+}
+
+int KanagramEngineHelper::incorrectAnswerScore()
+{
+    QString incorrectAnswerScore = KanagramSettings::incorrectAnswerScore();
+
+    m_incorrectAnswerScore = getNumericSetting(incorrectAnswerScore);
+    return ((m_incorrectAnswerScore + 1)*(-1));
+}
+
+int KanagramEngineHelper::revealAnswerScore()
+{
+    QString revealAnswerScore = KanagramSettings::revealAnswerScore();
+
+    m_revealAnswerScore = getNumericSetting(revealAnswerScore);
+    return ((m_revealAnswerScore + 1)*(-2));
+}
+
+int KanagramEngineHelper::skippedWordScore()
+{
+    QString skippedWordScore = KanagramSettings::skippedWordScore();
+ 
+    m_skippedWordScore = getNumericSetting(skippedWordScore);
+    return ((m_skippedWordScore + 1)*(-2));
 }
 
 void KanagramEngineHelper::slotSaveSettings()

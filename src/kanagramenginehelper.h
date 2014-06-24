@@ -68,6 +68,12 @@ class KanagramEngineHelper : public QObject
         void play(const QString &filename);
         QString stripAccents(QString& original);
         Q_INVOKABLE bool compareWords() const;
+        Q_INVOKABLE void resetTotalScore();
+        Q_INVOKABLE int totalScore(int points);
+        Q_INVOKABLE int correctAnswerScore();
+        Q_INVOKABLE int incorrectAnswerScore();
+        Q_INVOKABLE int skippedWordScore();
+        Q_INVOKABLE int revealAnswerScore();
 
         /** invoke the settings dialog */
         Q_INVOKABLE void slotShowSettings();
@@ -121,7 +127,7 @@ class KanagramEngineHelper : public QObject
         int m_hintHideTime;
         int m_resolveTime;
         int m_scoreTime;
-        int m_totalScore;
+        Q_INVOKABLE int m_totalScore;
         int m_correctAnswerScore;
         int m_incorrectAnswerScore;
         int m_revealAnswerScore;

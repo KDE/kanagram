@@ -7,6 +7,8 @@ Rectangle {
     property alias anagramText:anagram.text;
     property alias hint:anagramHint.text;
     property alias showHintTimeInterval:hintButton.countDownTimerValue;
+    property alias activeTimer:scoreTimer.running;
+    property alias totalScore:score.text;
 
     Item {
         width: parent.width
@@ -51,6 +53,10 @@ Rectangle {
             onEntered:nextVocabularyButton.state="onEntered"
             onExited:nextVocabularyButton.state="onExited"
             onClicked:{
+                if(blackboard.activeTimer)
+                {
+                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.skippedWordScore());
+                }
                 categoryName.text=kanagramEngineHelper.nextVocabulary();
                 anagram.text=kanagramEngineHelper.createNextAnagram();
                 anagramHint.text=kanagramEngineHelper.showHint();
@@ -89,6 +95,10 @@ Rectangle {
             onEntered:previousVocabularyButton.state="onEntered"
             onExited:previousVocabularyButton.state="onExited"
             onClicked:{
+                if(blackboard.activeTimer)
+                {
+                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.skippedWordScore());
+                }
                 categoryName.text=kanagramEngineHelper.previousVocabulary();
                 anagram.text=kanagramEngineHelper.createNextAnagram();
                 anagramHint.text=kanagramEngineHelper.showHint();
@@ -149,6 +159,10 @@ Rectangle {
                     timerButton.countDownTimerValue=kanagramEngineHelper.scoreTime();
                     scoreTimer.repeat=true;
                     scoreTimer.start();
+                    kanagramEngineHelper.resetTotalScore();
+                    score.text="Score : "+kanagramEngineHelper.totalScore(0);
+                    scoreSection.opacity=0.35;
+                    score.opacity=1;
                     timerText.text="Stop Timer"
                     timerButton.flagToggleTimer=true;
                 }
@@ -192,9 +206,11 @@ Rectangle {
                  stop();
                  timerSection.opacity=0;
                  timeRemaining.opacity=0;
+                 scoreTimer.running=false;
                  timerText.text="Start Timer";
              }
              else{
+                 scoreTimer.running=true;
                  timerSection.opacity=0.35;
                  if(timerButton.countDownTimerValue>9)
                  {
@@ -343,6 +359,23 @@ Rectangle {
         font.pixelSize: parent.width/40
     }
 
+    Rectangle{
+        id: scoreSection
+        width:blackboard.width/5;height:blackboard.height/7
+        anchors{bottom:blackboard.bottom;bottomMargin:blackboard.height/7;right: blackboard.left;rightMargin:blackboard.width/68.5}
+        color:"black"
+        opacity:0
+    }
+
+    Text{
+        id:score
+        anchors{verticalCenter: scoreSection.verticalCenter;horizontalCenter:scoreSection.horizontalCenter}
+        color:"white"
+        text: "Score : "+kanagramEngineHelper.m_totalScore;
+        opacity:0
+        font.pixelSize: parent.width/40
+    }
+
     Image{
         id: revealButton
         smooth:true
@@ -359,6 +392,10 @@ Rectangle {
             onExited:revealButton.state="onExited";
             onClicked:{
                 anagram.text=kanagramEngineHelper.anagramOriginalWord();
+                if(blackboard.activeTimer)
+                {
+                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.revealAnswerScore());
+                }
                 revealButton.countDownTimerValue=2;
                 showAnswerTimer.repeat=true;
                 showAnswerTimer.start();

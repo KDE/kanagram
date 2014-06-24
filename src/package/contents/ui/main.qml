@@ -93,6 +93,10 @@ Rectangle {
                 onEntered:nextAnagramButton.state="onEntered"
                 onExited:nextAnagramButton.state="onExited";
                 onClicked:{
+                    if(blackboard.activeTimer)
+                    {
+                        blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.skippedWordScore());
+                    }
                     blackboard.anagramText=kanagramEngineHelper.createNextAnagram();
                     blackboard.hint=kanagramEngineHelper.showHint();
                     blackboard.showHintTimeInterval=1;
@@ -460,6 +464,10 @@ Rectangle {
                  input.color="green";
                  input.countDownTimerValue=1;
                  input.flagCorrectAnswer=true;
+                 if(blackboard.activeTimer)
+                 {
+                     blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.correctAnswerScore());
+                 }
                  showAnswerTimer.repeat=true;
                  showAnswerTimer.start();
              }
@@ -468,6 +476,10 @@ Rectangle {
                  input.color="red";
                  input.countDownTimerValue=1;
                  input.flagCorrectAnswer=false;
+                 if(blackboard.activeTimer)
+                 {
+                     blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.incorrectAnswerScore());
+                 }
                  showAnswerTimer.repeat=true;
                  showAnswerTimer.start();
              }
