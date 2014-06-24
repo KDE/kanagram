@@ -26,6 +26,9 @@ set(kanagram-active_SRCS
     kdeclarativeview.cpp
     main.cpp
     mainwindow.cpp
+    mainsettings.cpp
+    vocabsettings.cpp
+    vocabedit.cpp
 )
 
 include_directories(
@@ -36,6 +39,12 @@ include_directories(
     ${LIBKDEEDU_INCLUDE_DIR}
 )
 
+kde4_add_ui_files(kanagram-active_SRCS
+    vocabsettingswidget.ui
+    vocabeditwidget.ui
+    mainsettingswidget.ui
+)
+
 kde4_add_kcfg_files(kanagram-active_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kanagramsettings.kcfgc)
 kde4_add_executable(kanagram-active ${kanagram-active_SRCS})
 
@@ -43,12 +52,14 @@ target_link_libraries(kanagram-active
     ${QT_QTDECLARATIVE_LIBRARY}
     ${QT_QTSCRIPT_LIBRARY}
     ${QT_QTOPENGL_LIBRARY}
+    ${KDE4_PHONON_LIBS}
     ${KDE4_KDEUI_LIBS}
     ${KDE4_KIO_LIBS}
     ${KDE4_PLASMA_LIBS}
     ${KDE4_KDECORE_LIBS}
     ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES}
     ${KANAGRAM_ENGINE_LIBRARIES}
+    ${KDE4_KNEWSTUFF3_LIBS}
     kdeclarative
 )
 

@@ -1,0 +1,353 @@
+<ui version="4.0" >
+ <class>MainSettingsWidget</class>
+ <widget class="QWidget" name="MainSettingsWidget" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>209</width>
+    <height>227</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string comment="@title:group main settings page name" >General</string>
+  </property>
+  <property name="whatsThis" >
+   <string>This setting allows you to set the length of time Kanagram's hint bubble is shown.</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <widget class="QGroupBox" name="groupBox1" >
+     <property name="title" >
+      <string>Hints</string>
+     </property>
+     <layout class="QVBoxLayout" >
+      <item>
+       <widget class="QLabel" name="textLabel1_2" >
+        <property name="text" >
+         <string>Auto-hide hints after:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="kcfg_hintHideTime" >
+        <item>
+         <property name="text" >
+          <string>Do Not Auto-Hide Hints</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>3 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>5 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>7 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>9 Seconds</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="textLabelResolveTime" >
+        <property name="text" >
+         <string>Time for resolving the anagram:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="kcfg_resolveTime" >
+        <item>
+         <property name="text" >
+          <string>No time limit</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>15 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>30 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>45 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>60 Seconds</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox3" >
+     <property name="title" >
+      <string>Vocabulary Options</string>
+     </property>
+     <layout class="QVBoxLayout" >
+      <item>
+       <layout class="QHBoxLayout" >
+        <item>
+         <widget class="QLabel" name="textLabel1" >
+          <property name="text" >
+           <string>Play using:</string>
+          </property>
+          <property name="buddy" >
+           <cstring>languageComboBox</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="languageComboBox" />
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>  
+   <item>
+    <widget class="QGroupBox" name="groupBox4" >
+     <property name="title" >
+      <string>Scoring Options</string>
+     </property>
+     <layout class="QVBoxLayout" >  
+      <item>
+       <widget class="QLabel" name="textLabelScoreTime" >
+        <property name="text" >
+         <string>Set timer for scoring purpose:</string>
+        </property>
+       </widget>
+      </item> 
+      <item>
+       <widget class="QComboBox" name="kcfg_scoreTime" >
+        <item>
+         <property name="text" >
+          <string>15 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>30 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>45 Seconds</string>
+         </property>
+        </item>
+        <item>
+         <property name="text" >
+          <string>60 Seconds</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="scoringOptions">
+        <property name="text">
+         <string>Advanced Settings</string>
+        </property>
+       </widget>        
+      </item> 
+      <item>
+       <widget class="QLabel" name="textCorrectAnswer" >
+        <property name="text" >
+         <string>Assign score for correct answer : </string>
+        </property>
+       </widget>
+      </item>     
+     <item>
+      <widget class="QComboBox" name="kcfg_correctAnswerScore" >
+       <item>
+        <property name="text" >
+         <string>+5 points</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>+10 points</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>+15 points</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>+20 points</string>
+        </property>
+       </item>
+      </widget>
+     </item>     
+     <item>
+      <widget class="QLabel" name="textIncorrectAnswer" >
+       <property name="text" >
+        <string>Assign score for incorrect answer : </string>
+       </property>
+      </widget>
+     </item>     
+     <item>
+      <widget class="QComboBox" name="kcfg_incorrectAnswerScore" >
+       <item>
+        <property name="text" >
+         <string>-1 point</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>-2 points</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>-3 points</string>         
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>-4 points</string>
+        </property>
+       </item>
+      </widget>
+     </item>     
+     <item>
+      <widget class="QLabel" name="textRevealAnswer" >
+       <property name="text" >
+        <string>Assign score for reveal answer : </string>
+       </property>
+      </widget>
+     </item>     
+     <item>
+      <widget class="QComboBox" name="kcfg_revealAnswerScore" >
+       <item>
+        <property name="text" >
+         <string>-2 points</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>-4 points</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>-6 points</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>-8 points</string>
+        </property>
+       </item>
+      </widget>
+     </item>     
+     <item>
+      <widget class="QLabel" name="textSkippedWord" >
+       <property name="text" >
+        <string>Assign score for skipped word : </string>
+       </property>
+      </widget>
+     </item>     
+     <item>
+      <widget class="QComboBox" name="kcfg_skippedWordScore" >
+       <item>
+        <property name="text" >
+         <string>-2 points</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>-4 points</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>-6 points</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>-8 points</string>
+        </property>
+       </item>
+      </widget>
+     </item>      
+    </layout>
+   </widget>
+  </item>
+  <item>
+   <widget class="QCheckBox" name="kcfg_useSounds" >
+    <property name="whatsThis" >
+     <string>Turns sounds on/off.</string>
+    </property>
+    <property name="text" >
+     <string>Use sou&amp;nds</string>
+    </property>
+   </widget>
+  </item>
+  <item>
+   <widget class="QCheckBox" name="kcfg_uppercaseOnly" >
+    <property name="whatsThis" >
+     <string>Use only uppercase letters.</string>
+    </property>
+    <property name="text" >
+     <string>Only uppercase letters</string>
+    </property>
+   </widget>
+  </item>
+  <item>
+   <widget class="QCheckBox" name="kcfg_enablePronunciation" >
+    <property name="whatsThis" >
+     <string>Turn pronunciations on or off.</string>
+    </property>
+    <property name="text" >
+     <string>Say correct words</string>
+    </property>
+   </widget>
+  </item>
+  <item>
+   <spacer>
+    <property name="orientation" >
+     <enum>Qt::Vertical</enum>
+    </property>
+    <property name="sizeType" >
+     <enum>QSizePolicy::Expanding</enum>
+    </property>
+    <property name="sizeHint" >
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+   </spacer>
+  </item>
+ </layout>
+</widget>
+<tabstops>
+ <tabstop>kcfg_hintHideTime</tabstop>
+ <tabstop>kcfg_useSounds</tabstop>
+ <tabstop>kcfg_uppercaseOnly</tabstop>
+ <tabstop>kcfg_enablePronunciation</tabstop>
+</tabstops>
+<resources/>
+<connections/>
+</ui>

@@ -23,6 +23,19 @@
 #include <kanagramgame.h>
 #include <sonnet/speller.h>
 
+#include <KConfigDialog>
+#include <KAction>
+#include <KActionCollection>
+#include <KShortcutsEditor>
+#include <kanagramsettings.h>
+#include "mainsettings.h"
+#include "vocabsettings.h"
+
+namespace Phonon
+{
+    class MediaObject;
+}
+
 class KanagramEngineHelper : public QObject
 {
     Q_OBJECT
@@ -45,8 +58,19 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE QString previousVocabulary();
         Q_INVOKABLE bool checkWord(QString answer);
         bool isAnagram(QString& enteredword, QString& word);
+        int getNumericSetting(QString settingString);
+        void loadSettings();
+        void refreshVocabularies();
+        Q_INVOKABLE void reloadSettings();
+        Q_INVOKABLE void slotSaveSettings();
+        Q_INVOKABLE void slotSettingsCancelled();
+        Q_INVOKABLE void slotEnableApplyButton();
+        void play(const QString &filename);
         QString stripAccents(QString& original);
         Q_INVOKABLE bool compareWords() const;
+
+        /** invoke the settings dialog */
+        Q_INVOKABLE void slotShowSettings();
 
         // These accessor and mutator methods are not needed once the
         // kconfig_compiler can generate Q_INVOKABLE methods, slots or/and
@@ -76,8 +100,33 @@ class KanagramEngineHelper : public QObject
 	private:
         KanagramGame *m_kanagramGame;
         Sonnet::Speller *m_speller;
+        KActionCollection * m_actionCollection;
+
+        /** audio player to use for playing sounds */
+        Phonon::MediaObject *m_player;
+
+        /** settings dialog */
+        KConfigDialog *m_configDialog;
+
+        /** settings page pointers */
+        VocabSettings *m_vocabSettings;
+        KShortcutsEditor *m_shortcutsEditor;
+
         QStringList m_currentOriginalWord;
         int m_insertCounter;
+
+        /** Values for settings */
+        int m_hintHideTime;
+        int m_resolveTime;
+        int m_scoreTime;
+        int m_timeLeft;
+        int m_totalScore;
+        int m_correctAnswerScore;
+        int m_incorrectAnswerScore;
+        int m_revealAnswerScore;
+        int m_skippedWordScore;
+        bool m_useSounds;
+        bool m_enablePronunciation;
 };
 
 #endif // KANAGRAM_ENGINE_HELPER_H

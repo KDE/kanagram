@@ -154,6 +154,7 @@ Rectangle {
             hoverEnabled: true
             onEntered:configureButton.state="onEntered"
             onExited:configureButton.state="onExited";
+            onClicked:{kanagramEngineHelper.slotShowSettings();}
         }
 
         states: State {
