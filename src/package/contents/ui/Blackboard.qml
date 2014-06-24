@@ -146,7 +146,7 @@ Rectangle {
             onClicked:{
                 if(!timerButton.flagToggleTimer)
                 {
-                    timerButton.countDownTimerValue=15;
+                    timerButton.countDownTimerValue=kanagramEngineHelper.scoreTime();
                     scoreTimer.repeat=true;
                     scoreTimer.start();
                     timerText.text="Stop Timer"

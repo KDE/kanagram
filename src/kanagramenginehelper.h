@@ -82,6 +82,8 @@ class KanagramEngineHelper : public QObject
         int resolveTime();
         void setResolveTime(int resolveTime);
 
+        Q_INVOKABLE int scoreTime();
+
         bool useSounds();
         void setUseSounds(bool useSounds);
 
@@ -119,7 +121,6 @@ class KanagramEngineHelper : public QObject
         int m_hintHideTime;
         int m_resolveTime;
         int m_scoreTime;
-        int m_timeLeft;
         int m_totalScore;
         int m_correctAnswerScore;
         int m_incorrectAnswerScore;

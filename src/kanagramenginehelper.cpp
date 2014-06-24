@@ -251,8 +251,7 @@ void KanagramEngineHelper::loadSettings()
     QString scoreTime = KanagramSettings::scoreTime();
 
     m_scoreTime = getNumericSetting(scoreTime);
-    m_timeLeft = (m_scoreTime + 1)*15;
-    m_scoreTime = m_timeLeft ;
+    m_scoreTime = (m_scoreTime + 1)*15;
 
     QString correctAnswerScore = KanagramSettings::correctAnswerScore();
 
@@ -425,6 +424,14 @@ void KanagramEngineHelper::setResolveTime(int resolveTime)
 {
     KanagramSettings::setResolveTime(QString::number(resolveTime));
     emit resolveTimeChanged();
+}
+
+int KanagramEngineHelper::scoreTime()
+{
+    QString scoreTime = KanagramSettings::scoreTime();
+
+    m_scoreTime = getNumericSetting(scoreTime);
+    return ((m_scoreTime + 1)*15);
 }
 
 bool KanagramEngineHelper::useSounds()
