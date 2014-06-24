@@ -23,11 +23,13 @@
 #include <kanagramgame.h>
 #include <sonnet/speller.h>
 
-#include <KConfigDialog>
-#include <KAction>
-#include <KActionCollection>
-#include <KShortcutsEditor>
-#include <kanagramsettings.h>
+class KAction;
+class KActionCollection;
+class KConfigDialog;
+class KHelpMenu;
+class KShortcutsEditor;
+class VocabSettings;
+
 #include "mainsettings.h"
 #include "vocabsettings.h"
 
@@ -74,6 +76,9 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE int incorrectAnswerScore();
         Q_INVOKABLE int skippedWordScore();
         Q_INVOKABLE int revealAnswerScore();
+        Q_INVOKABLE void aboutKanagram();
+        Q_INVOKABLE void aboutKDE();
+        Q_INVOKABLE void kanagramHandbook();
 
         /** invoke the settings dialog */
         Q_INVOKABLE void slotShowSettings();
@@ -115,6 +120,9 @@ class KanagramEngineHelper : public QObject
 
         /** settings dialog */
         KConfigDialog *m_configDialog;
+
+        /** help menu for displaying about box */
+        KHelpMenu *m_helpMenu;
 
         /** settings page pointers */
         VocabSettings *m_vocabSettings;

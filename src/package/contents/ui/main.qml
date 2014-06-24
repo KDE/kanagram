@@ -328,6 +328,7 @@ Rectangle {
             hoverEnabled: true
             onEntered:aboutKdeIcon.state="onEntered"
             onExited:aboutKdeIcon.state="onExited"
+            onClicked:kanagramEngineHelper.aboutKDE();
             preventStealing:true
         }
 
@@ -367,6 +368,7 @@ Rectangle {
             hoverEnabled: true
             onEntered:aboutKanagramIcon.state="onEntered"
             onExited:aboutKanagramIcon.state="onExited"
+            onClicked:kanagramEngineHelper.aboutKanagram();
             preventStealing:true
         }
 
@@ -406,6 +408,7 @@ Rectangle {
             hoverEnabled: true
             onEntered:kanagramHandbookIcon.state="onEntered"
             onExited:kanagramHandbookIcon.state="onExited"
+            onClicked:kanagramEngineHelper.kanagramHandbook();
             preventStealing:true
         }
 

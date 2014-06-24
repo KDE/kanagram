@@ -31,6 +31,7 @@
 #include <KConfigDialog>
 #include <KAction>
 #include <KActionCollection>
+#include <KHelpMenu>
 #include <KShortcutsEditor>
 
 #include <kanagramsettings.h>
@@ -51,6 +52,7 @@ KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* 
     m_actionCollection = new KActionCollection(this);
     m_speller = new Sonnet::Speller();
     m_speller->setLanguage(m_kanagramGame->sanitizedDataLanguage());
+    m_helpMenu = new KHelpMenu(NULL, KGlobal::mainComponent().aboutData());
 
     loadSettings();
 }
@@ -430,6 +432,22 @@ int KanagramEngineHelper::skippedWordScore()
  
     m_skippedWordScore = getNumericSetting(skippedWordScore);
     return ((m_skippedWordScore + 1)*(-2));
+}
+
+void KanagramEngineHelper::aboutKanagram()
+{
+    m_helpMenu->aboutApplication();
+}
+
+void KanagramEngineHelper::aboutKDE()
+{
+    m_helpMenu->aboutKDE();
+
+}
+
+void KanagramEngineHelper::kanagramHandbook()
+{
+    m_helpMenu->appHelpActivated();
 }
 
 void KanagramEngineHelper::slotSaveSettings()
