@@ -12,14 +12,7 @@ elseif ("${QT_QTCORE_LIBRARY}" MATCHES lib32)
    set(_Init_LIB_SUFFIX 32)
 endif ("${QT_QTCORE_LIBRARY}" MATCHES lib64)
 
-set(KANAGRAM_ENGINE_INCLUDE_DIRS
-    ${CMAKE_CURRENT_BINARY_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${LIBKDEEDU_INCLUDE_DIR}
-    CACHE INTERNAL "Includes required for Kanagram Engine"
-)
-
-set(kanagram-active_SRCS
+set(kanagram_SRCS
     kanagramgame.cpp
     kanagramenginehelper.cpp
     kdeclarativemainwindow.cpp
@@ -39,17 +32,17 @@ include_directories(
     ${LIBKDEEDU_INCLUDE_DIR}
 )
 
-kde4_add_ui_files(kanagram-active_SRCS
+kde4_add_ui_files(kanagram_SRCS
     vocabsettingswidget.ui
     vocabeditwidget.ui
     mainsettingswidget.ui
 )
 
-kde4_add_kcfg_files(kanagram-active_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kanagramsettings.kcfgc)
-qt4_add_dbus_interfaces(kanagram-active_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml )
-kde4_add_executable(kanagram-active ${kanagram-active_SRCS})
+kde4_add_kcfg_files(kanagram_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kanagramsettings.kcfgc)
+qt4_add_dbus_interfaces(kanagram_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml )
+kde4_add_executable(kanagram ${kanagram_SRCS})
 
-target_link_libraries(kanagram-active
+target_link_libraries(kanagram
     ${QT_QTDECLARATIVE_LIBRARY}
     ${QT_QTSCRIPT_LIBRARY}
     ${QT_QTOPENGL_LIBRARY}
@@ -59,7 +52,7 @@ target_link_libraries(kanagram-active
     ${KDE4_PLASMA_LIBS}
     ${KDE4_KDECORE_LIBS}
     ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES}
-    ${KANAGRAM_ENGINE_LIBRARIES}
+    ${KANAGRAM_LIBRARIES}
     ${KDE4_KNEWSTUFF3_LIBS}
     kdeclarative
 )
@@ -83,13 +76,13 @@ install(
     DESTINATION ${DATA_INSTALL_DIR}/plasma/packages/org.kde.kanagram)
 
 install(
-    FILES kanagram-active.desktop
+    FILES kanagram.desktop
     DESTINATION ${XDG_APPS_INSTALL_DIR}
 )
 
 install(
     TARGETS
-    kanagram-active
+    kanagram
     ${INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
