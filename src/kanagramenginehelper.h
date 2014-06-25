@@ -42,7 +42,7 @@ namespace Phonon
 class KanagramEngineHelper : public QObject
 {
     Q_OBJECT
-	public:
+    public:
         explicit KanagramEngineHelper(KanagramGame *kanagramGame, QObject* parent = 0);
         ~KanagramEngineHelper();
 
@@ -67,7 +67,8 @@ class KanagramEngineHelper : public QObject
         QString stripAccents(QString& original);
         Q_INVOKABLE bool compareWords() const;
         Q_INVOKABLE void resetTotalScore();
-        Q_INVOKABLE int totalScore(int points);
+        Q_INVOKABLE void increaseScore(int points);
+        Q_INVOKABLE int totalScore();
         Q_INVOKABLE int correctAnswerScore();
         Q_INVOKABLE int incorrectAnswerScore();
         Q_INVOKABLE int skippedWordScore();
@@ -114,7 +115,7 @@ class KanagramEngineHelper : public QObject
         void useSoundsToggled();
         void defaultVocabularyChanged();
 
-	private:
+    private:
         KanagramGame *m_kanagramGame;
         Sonnet::Speller *m_speller;
         KActionCollection * m_actionCollection;
@@ -142,7 +143,7 @@ class KanagramEngineHelper : public QObject
         int m_hintHideTime;
         int m_resolveTime;
         int m_scoreTime;
-        Q_INVOKABLE int m_totalScore;
+        int m_totalScore;
         int m_correctAnswerScore;
         int m_incorrectAnswerScore;
         int m_revealAnswerScore;

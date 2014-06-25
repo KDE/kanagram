@@ -74,7 +74,8 @@ Rectangle {
             onClicked:{
                 if(blackboard.activeTimer)
                 {
-                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.skippedWordScore());
+                    kanagramEngineHelper.increaseScore(kanagramEngineHelper.skippedWordScore());
+                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore();
                 }
                 categoryName.text=kanagramEngineHelper.nextVocabulary();
                 anagram.text=kanagramEngineHelper.createNextAnagram();
@@ -117,7 +118,8 @@ Rectangle {
             onClicked:{
                 if(blackboard.activeTimer)
                 {
-                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.skippedWordScore());
+                    kanagramEngineHelper.increaseScore(kanagramEngineHelper.skippedWordScore());
+                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore();
                 }
                 categoryName.text=kanagramEngineHelper.previousVocabulary();
                 anagram.text=kanagramEngineHelper.createNextAnagram();
@@ -392,7 +394,7 @@ Rectangle {
         id:score
         anchors{verticalCenter: scoreSection.verticalCenter;horizontalCenter:scoreSection.horizontalCenter}
         color:"white"
-        text: "Score : "+kanagramEngineHelper.m_totalScore;
+        text: "Score : "+kanagramEngineHelper.totalScore();
         opacity:0
         font.pixelSize: parent.width/40
     }
@@ -415,7 +417,8 @@ Rectangle {
                 anagram.text=kanagramEngineHelper.anagramOriginalWord();
                 if(blackboard.activeTimer)
                 {
-                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.revealAnswerScore());
+                    kanagramEngineHelper.increaseScore(kanagramEngineHelper.revealAnswerScore());
+                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore();
                 }
                 revealButton.countDownTimerValue=2;
                 showAnswerTimer.repeat=true;

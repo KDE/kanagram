@@ -29,17 +29,21 @@
 
 MainWindow::MainWindow()
 {
-    declarativeView()->setPackageName("org.kde.kanagram");
-
     m_game = new KanagramGame();
     m_engineHelper = new KanagramEngineHelper(m_game,this);
 
     declarativeView()->rootContext()->setContextProperty("kanagramGame",m_game);
-
     declarativeView()->rootContext()->setContextProperty("kanagramEngineHelper",m_engineHelper);
+    declarativeView()->setPackageName("org.kde.kanagram");
 
     connect(declarativeView()->engine(), SIGNAL(quit()), qApp, SLOT(quit()));
 
+}
+
+MainWindow::~MainWindow()
+{
+    delete m_engineHelper;
+    delete m_game;
 }
 
 #include "mainwindow.moc"

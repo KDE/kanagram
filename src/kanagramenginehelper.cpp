@@ -110,7 +110,7 @@ QStringList KanagramEngineHelper::removeInCurrentOriginalWord(int index)
     return m_currentOriginalWord;
 }
 
-QString KanagramEngineHelper::anagramOriginalWord() 
+QString KanagramEngineHelper::anagramOriginalWord()
 {
     QString originalWord = m_kanagramGame->word();
     if (KanagramSettings::enablePronunciation())
@@ -233,7 +233,7 @@ int KanagramEngineHelper::getNumericSetting(QString settingString)
     return settingString.left(indexFound_setting).toInt();
 }
 
-void KanagramEngineHelper::loadSettings() 
+void KanagramEngineHelper::loadSettings()
 {
     QString hideTime = KanagramSettings::hintHideTime();
 
@@ -280,14 +280,14 @@ void KanagramEngineHelper::loadSettings()
 
     m_incorrectAnswerScore = getNumericSetting(incorrectAnswerScore);
     m_incorrectAnswerScore = (m_incorrectAnswerScore + 1)*(-1);
- 
+
     QString revealAnswerScore = KanagramSettings::revealAnswerScore();
 
     m_revealAnswerScore = getNumericSetting(revealAnswerScore);
     m_revealAnswerScore = (m_revealAnswerScore + 1)*(-2);
 
     QString skippedWordScore = KanagramSettings::skippedWordScore();
- 
+
     m_skippedWordScore = getNumericSetting(skippedWordScore);
     m_skippedWordScore = (m_skippedWordScore + 1)*(-2);
 
@@ -411,9 +411,13 @@ void KanagramEngineHelper::resetTotalScore()
     m_totalScore=0;
 }
 
-int KanagramEngineHelper::totalScore(int points)
+void KanagramEngineHelper::increaseScore(int points)
 {
     m_totalScore+=points;
+}
+
+int KanagramEngineHelper::totalScore()
+{
     return m_totalScore;
 }
 
@@ -444,7 +448,7 @@ int KanagramEngineHelper::revealAnswerScore()
 int KanagramEngineHelper::skippedWordScore()
 {
     QString skippedWordScore = KanagramSettings::skippedWordScore();
- 
+
     m_skippedWordScore = getNumericSetting(skippedWordScore);
     return ((m_skippedWordScore + 1)*(-2));
 }

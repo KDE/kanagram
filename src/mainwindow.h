@@ -33,6 +33,7 @@ class MainWindow : public KDeclarativeMainWindow
     Q_OBJECT
 public:
     MainWindow();
+    ~MainWindow();
 private:
     KanagramGame *m_game;
     KanagramEngineHelper *m_engineHelper;
