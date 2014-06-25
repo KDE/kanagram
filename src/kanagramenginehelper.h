@@ -42,11 +42,6 @@ namespace Phonon
 class KanagramEngineHelper : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY( int hintHideTime READ hintHideTime WRITE setHintHideTime NOTIFY hintHideTimeChanged )
-    Q_PROPERTY( int resolveTime READ resolveTime WRITE setResolveTime NOTIFY resolveTimeChanged )
-    Q_PROPERTY( bool useSounds READ useSounds WRITE setUseSounds NOTIFY useSoundsToggled )
-    Q_PROPERTY( QString defaultVocabulary READ defaultVocabulary WRITE setDefaultVocabulary NOTIFY defaultVocabularyChanged )
-
 	public:
         explicit KanagramEngineHelper(KanagramGame *kanagramGame, QObject* parent = 0);
         ~KanagramEngineHelper();

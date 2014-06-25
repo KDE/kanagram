@@ -60,7 +60,8 @@ Rectangle {
                 categoryName.text=kanagramEngineHelper.nextVocabulary();
                 anagram.text=kanagramEngineHelper.createNextAnagram();
                 anagramHint.text=kanagramEngineHelper.showHint();
-                hintButton.countDownTimerValue=1;
+                if(kanagramEngineHelper.hintHideTime())
+                    hintButton.countDownTimerValue=1;
             }
         }
 
@@ -102,7 +103,8 @@ Rectangle {
                 categoryName.text=kanagramEngineHelper.previousVocabulary();
                 anagram.text=kanagramEngineHelper.createNextAnagram();
                 anagramHint.text=kanagramEngineHelper.showHint();
-                hintButton.countDownTimerValue=1;
+                if(kanagramEngineHelper.hintHideTime())
+                    hintButton.countDownTimerValue=1;
             }
         }
 
@@ -433,7 +435,8 @@ Rectangle {
              if (--revealButton.countDownTimerValue == 0) {
                  blackboard.anagramText=kanagramEngineHelper.createNextAnagram();
                  blackboard.hint=kanagramEngineHelper.showHint();
-                 blackboard.showHintTimeInterval=1;
+                 if(kanagramEngineHelper.hintHideTime())
+                    blackboard.showHintTimeInterval=1;
                  stop();
              }
         }

@@ -525,7 +525,10 @@ int KanagramEngineHelper::hintHideTime()
     QString hideTime = KanagramSettings::hintHideTime();
 
     m_hintHideTime = getNumericSetting(hideTime);
-    return ((m_hintHideTime*2)+1);
+    if(m_hintHideTime)
+        return ((m_hintHideTime*2)+1);
+    else
+        return 0;
 }
 
 void KanagramEngineHelper::setHintHideTime(int hintHideTime)

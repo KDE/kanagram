@@ -99,7 +99,8 @@ Rectangle {
                     }
                     blackboard.anagramText=kanagramEngineHelper.createNextAnagram();
                     blackboard.hint=kanagramEngineHelper.showHint();
-                    blackboard.showHintTimeInterval=1;
+                    if(kanagramEngineHelper.hintHideTime())
+                        blackboard.showHintTimeInterval=1;
                 }
             }
 
@@ -502,7 +503,8 @@ Rectangle {
                  if(input.flagCorrectAnswer){
                      blackboard.anagramText=kanagramEngineHelper.createNextAnagram();
                      blackboard.hint=kanagramEngineHelper.showHint();
-                     blackboard.showHintTimeInterval=1;
+                     if(kanagramEngineHelper.hintHideTime())
+                        blackboard.showHintTimeInterval=1;
                  }
                  input.text="";
                  stop();
