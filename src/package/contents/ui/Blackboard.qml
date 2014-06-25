@@ -258,7 +258,7 @@ Rectangle {
             onEntered:hintButton.state="onEntered"
             onExited:hintButton.state="onExited"
             onClicked:{
-                hintButton.countDownTimerValue=5;
+                hintButton.countDownTimerValue = kanagramEngineHelper.hintHideTime();
                 hintTimer.repeat=true;
                 hintTimer.start();
             }

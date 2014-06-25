@@ -483,7 +483,7 @@ void KanagramEngineHelper::setupJovie()
             kttsdactive = true;
         }
     }
-    if ( kttsdactive )
+    if ( kttsdactive && m_kspeech==0)
     {
         // creating the connection to the kspeech interface
         m_kspeech = new org::kde::KSpeech( "org.kde.kttsd", "/KSpeech", QDBusConnection::sessionBus() );
@@ -522,7 +522,10 @@ void KanagramEngineHelper::slotEnableApplyButton()
 
 int KanagramEngineHelper::hintHideTime()
 {
-    return KanagramSettings::hintHideTime().toInt();
+    QString hideTime = KanagramSettings::hintHideTime();
+
+    m_hintHideTime = getNumericSetting(hideTime);
+    return ((m_hintHideTime*2)+1);
 }
 
 void KanagramEngineHelper::setHintHideTime(int hintHideTime)

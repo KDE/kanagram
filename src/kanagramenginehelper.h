@@ -96,7 +96,7 @@ class KanagramEngineHelper : public QObject
         // kconfig_compiler can generate Q_INVOKABLE methods, slots or/and
         // properties
 
-        int hintHideTime();
+        Q_INVOKABLE int hintHideTime();
         void setHintHideTime(int hintHideTime);
 
         int resolveTime();
