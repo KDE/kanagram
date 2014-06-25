@@ -29,9 +29,22 @@
 
 int main(int argc, char **argv)
 {
-    KAboutData about("kanagram-active", 0, ki18n("Kanagram Active"), "0.1.0", ki18n("Kanagram Active for Tablets"),
-                     KAboutData::License_GPL, ki18n("Copyright 2012 Laszlo Papp"), KLocalizedString(), 0, "lpapp@kde.org");
-    about.addAuthor( ki18n("Laszlo Papp"), KLocalizedString(), "lpapp@kde.org" );
+    KAboutData about("kanagram", 0, ki18n("Kanagram"), "0.2", ki18n("An anagram game"),
+                     KAboutData::License_GPL, ki18n("© 2005 Joshua Keel\n© 2005 Danny Allen\n© 2007 Jeremy Whiting\n© 2014 Debjit Mondal"));
+    about.addAuthor(ki18n("Joshua Keel"), ki18n("Coding"), "joshuakeel@gmail.com");
+    about.addAuthor(ki18n("Danny Allen"), ki18n("Design, Graphics and many Vocabularies"), "danny@dannyallen.co.uk");
+    about.addAuthor(ki18n("Jeremy Whiting"), ki18n("Maintainer"), "jpwhiting@kde.org");
+    about.addAuthor(ki18n("Debjit Mondal"), ki18n("Coding & Design"), "debjitmondal05@gmail.com");
+    about.addCredit(ki18n("Laszlo Papp"), ki18n("Modularization and porting to Mobile"), "lpapp@kde.org");
+    about.addCredit(ki18n("Artemiy Pavlov"), ki18n("Sound effects"), 0, "http://artemiolabs.com");
+    about.addCredit(ki18n("Pino Toscano"), ki18n("Italian Data Files"), "pino@kde.org");
+    about.addCredit(ki18n("Kris Thomsen"), ki18n("Danish Data Files"), "kris@scoutzone.dk");
+    about.addCredit(ki18n("Patrick Spendrin"), ki18n("German Data Files"), "patrick_spendrin@gmx.de");
+    about.addCredit(ki18n("Eric Krüse"), ki18n("British English Data Files"), "bildvontux@yahoo.de");
+    about.addCredit(ki18n("Hanna Scott"), ki18n("Swedish Data Files"), "hanna.et.scott@gmail.com");
+    about.addCredit(ki18n("Jure Repinc"), ki18n("Slovenian Data Files"), "jlp@holodeck1.com");
+    about.addCredit(ki18n("Yuri Chornoivan"), ki18n("Ukranian Data Files"), "");
+    about.addCredit(ki18n("Kristóf Kiszel"), ki18n("Hungarian Data Files"), "ulysses@kubuntu.org");
     KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;
