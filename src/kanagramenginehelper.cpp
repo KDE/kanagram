@@ -32,7 +32,11 @@
 #include <KAction>
 #include <KActionCollection>
 #include <KHelpMenu>
+#include <KMessageBox>
 #include <KShortcutsEditor>
+#include <kspeech.h>
+#include <ktoolinvocation.h>
+#include "kspeechinterface.h"
 
 #include <kanagramsettings.h>
 #include "mainsettings.h"
@@ -46,6 +50,7 @@ KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* 
     , m_kanagramGame(kanagramGame)
     ,m_speller(NULL)
     ,m_player(NULL)
+    ,m_kspeech(0)
     , m_insertCounter(0)
     ,m_totalScore(0)
 {
@@ -55,6 +60,7 @@ KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* 
     m_helpMenu = new KHelpMenu(NULL, KGlobal::mainComponent().aboutData());
 
     loadSettings();
+    setupJovie();
 }
 
 KanagramEngineHelper::~KanagramEngineHelper()
@@ -104,9 +110,18 @@ QStringList KanagramEngineHelper::removeInCurrentOriginalWord(int index)
     return m_currentOriginalWord;
 }
 
-QString KanagramEngineHelper::anagramOriginalWord() const
+QString KanagramEngineHelper::anagramOriginalWord() 
 {
     QString originalWord = m_kanagramGame->word();
+    if (KanagramSettings::enablePronunciation())
+    {
+        // User wants words spoken, but if there's no audio file, play right.ogg
+        if (m_kanagramGame->audioFile().isEmpty())
+            say(m_kanagramGame->word());
+        else
+            // otherwise play the sound associated with the word.
+            play(m_kanagramGame->audioFile().pathOrUrl());
+    }
     return originalWord;
 }
 
@@ -152,14 +167,14 @@ bool KanagramEngineHelper::checkWord(QString answer)
         if (enteredWord == word || stripAccents(enteredWord) == stripAccents(word) ||
            (m_speller->isCorrect(enteredWord) && isAnagram(enteredWord, word)))
         {
-            if (m_enablePronunciation)
+            if (KanagramSettings::enablePronunciation())
             {
-                /*// User wants words spoken, but if there's no audio file, play right.ogg
+                // User wants words spoken, but if there's no audio file, play right.ogg
                 if (m_kanagramGame->audioFile().isEmpty())
                     say(m_kanagramGame->word());
                 else
                     // otherwise play the sound associated with the word.
-                    play(m_kanagramGame->audioFile().pathOrUrl());*/
+                    play(m_kanagramGame->audioFile().pathOrUrl());
             }
             else if (m_useSounds)
             {
@@ -442,12 +457,51 @@ void KanagramEngineHelper::aboutKanagram()
 void KanagramEngineHelper::aboutKDE()
 {
     m_helpMenu->aboutKDE();
-
 }
 
 void KanagramEngineHelper::kanagramHandbook()
 {
     m_helpMenu->appHelpActivated();
+}
+
+void KanagramEngineHelper::setupJovie()
+{
+    // If KTTSD not running, start it.
+    QDBusReply<bool> reply = QDBusConnection::sessionBus().interface()->isServiceRegistered( "org.kde.kttsd" );
+    bool kttsdactive = false;
+    if ( reply.isValid() )
+        kttsdactive = reply.value();
+    if ( !kttsdactive )
+    {
+        QString error;
+        if ( KToolInvocation::startServiceByDesktopName( "kttsd", QStringList(), &error ) )
+        {
+            QMessageBox::warning(NULL, i18n("Speech System Failure"), i18n( "Starting Jovie Text-to-Speech service Failed: %1", error ) );
+        }
+        else
+        {
+            kttsdactive = true;
+        }
+    }
+    if ( kttsdactive )
+    {
+        // creating the connection to the kspeech interface
+        m_kspeech = new org::kde::KSpeech( "org.kde.kttsd", "/KSpeech", QDBusConnection::sessionBus() );
+        m_kspeech->setParent(this);
+        m_kspeech->setApplicationName( "Kanagram" );
+    }
+}
+
+void KanagramEngineHelper::say(QString text)
+{
+    if ( text.isEmpty() )
+        return;
+
+    this->setupJovie();
+    if ( this->m_kspeech )
+    {
+        QDBusReply< int > reply = this->m_kspeech->say(text, KSpeech::soPlainText );
+    }
 }
 
 void KanagramEngineHelper::slotSaveSettings()

@@ -32,6 +32,7 @@ class VocabSettings;
 
 #include "mainsettings.h"
 #include "vocabsettings.h"
+#include "kspeechinterface.h"
 
 namespace Phonon
 {
@@ -53,7 +54,7 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE QString createNextAnagram();
         Q_INVOKABLE QStringList insertInCurrentOriginalWord(int index, const QString& letter);
         Q_INVOKABLE QStringList removeInCurrentOriginalWord(int index);
-        Q_INVOKABLE QString anagramOriginalWord() const;
+        Q_INVOKABLE QString anagramOriginalWord();
         Q_INVOKABLE QString showHint() const;
         Q_INVOKABLE QString categoryName() const;
         Q_INVOKABLE QString nextVocabulary();
@@ -79,6 +80,14 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE void aboutKanagram();
         Q_INVOKABLE void aboutKDE();
         Q_INVOKABLE void kanagramHandbook();
+
+        /** setup kde text-to-speech daemon */
+        void setupJovie();
+
+        /** speak the word
+         *@param text the word that is to be converted from text to speech
+         */
+        void say(QString text);
 
         /** invoke the settings dialog */
         Q_INVOKABLE void slotShowSettings();
@@ -123,6 +132,9 @@ class KanagramEngineHelper : public QObject
 
         /** help menu for displaying about box */
         KHelpMenu *m_helpMenu;
+
+        /** object to enable text to speech conversion */
+        org::kde::KSpeech *m_kspeech;
 
         /** settings page pointers */
         VocabSettings *m_vocabSettings;

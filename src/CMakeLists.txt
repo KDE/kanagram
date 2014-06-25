@@ -46,6 +46,7 @@ kde4_add_ui_files(kanagram-active_SRCS
 )
 
 kde4_add_kcfg_files(kanagram-active_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kanagramsettings.kcfgc)
+qt4_add_dbus_interfaces(kanagram-active_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml )
 kde4_add_executable(kanagram-active ${kanagram-active_SRCS})
 
 target_link_libraries(kanagram-active
