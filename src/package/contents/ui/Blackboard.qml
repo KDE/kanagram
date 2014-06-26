@@ -261,7 +261,7 @@ Rectangle {
         id:timerText
         anchors{verticalCenter: timerBar.verticalCenter;horizontalCenter:timerBar.horizontalCenter}
         color:"white"
-        text: "Start Timer"
+        text: i18n("Start Timer")
         opacity: 0
         font.pixelSize: parent.width/40
     }
@@ -320,7 +320,7 @@ Rectangle {
         id:timeRemaining
         anchors{verticalCenter: timerSection.verticalCenter;horizontalCenter:timerSection.horizontalCenter}
         opacity:0
-        text: " "
+        text: i18n(" ")
         color:"white"
         font.pixelSize: parent.width/32
     }
@@ -377,7 +377,7 @@ Rectangle {
         id:hintText
         anchors{verticalCenter: hintBar.verticalCenter;horizontalCenter:hintBar.horizontalCenter}
         color:"white"
-        text: "Hint"
+        text: i18n("Hint")
         opacity: 0
         font.pixelSize: parent.width/40
     }
@@ -394,7 +394,7 @@ Rectangle {
         id:score
         anchors{verticalCenter: scoreSection.verticalCenter;horizontalCenter:scoreSection.horizontalCenter}
         color:"white"
-        text: "Score : "+kanagramEngineHelper.totalScore();
+        text: i18n("Score : ")+kanagramEngineHelper.totalScore();
         opacity:0
         font.pixelSize: parent.width/40
     }
@@ -477,7 +477,7 @@ Rectangle {
         id:revealText
         anchors{verticalCenter: revealBar.verticalCenter;horizontalCenter:revealBar.horizontalCenter}
         color:"white"
-        text: "Reveal Word"
+        text: i18n("Reveal Word")
         opacity: 0
         font.pixelSize: parent.width/40
     }

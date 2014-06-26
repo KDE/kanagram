@@ -93,7 +93,7 @@ Rectangle {
         id:quitText
         anchors{top:powerButton.bottom;horizontalCenter:powerButton.horizontalCenter}
         color:"white"
-        text:"Quit"
+        text:i18n("Quit")
         opacity:0
         font.pixelSize: parent.width/91
     }
@@ -151,7 +151,7 @@ Rectangle {
             id:nextAnagramText
             anchors{verticalCenter: nextAnagramButton.verticalCenter;horizontalCenter:nextAnagramButton.horizontalCenter}
             color:"white"
-            text: "Next Anagram"
+            text: i18n("Next Anagram")
             opacity: 0
             font.pixelSize: parent.width/68.5
         }
@@ -209,7 +209,7 @@ Rectangle {
         id:configureText
         anchors{verticalCenter: configureButton.verticalCenter;horizontalCenter:configureButton.horizontalCenter}
         color:"white"
-        text:"Configure"
+        text:i18n("Configure")
         opacity:0
         font.pixelSize: parent.width/68.5
     }
@@ -271,7 +271,7 @@ Rectangle {
                }
                PropertyChanges{
                    target:helpText
-                   text:"About"
+                   text:i18n("About")
                    opacity:1
                }
                AnchorChanges{target:helpIcon;
@@ -310,7 +310,7 @@ Rectangle {
         id:moreOptioinsText
         anchors{verticalCenter: moreOptionsTextBar.verticalCenter;horizontalCenter:moreOptionsTextBar.horizontalCenter}
         color:"white"
-        text: "  "
+        text: i18n("  ")
         opacity: 0
         font.pixelSize: parent.width/91
     }
@@ -319,7 +319,7 @@ Rectangle {
         id:helpText
         anchors{verticalCenter: helpButton.verticalCenter;horizontalCenter:helpButton.horizontalCenter}
         color:"white"
-        text: "About"
+        text: i18n("About")
         opacity: 0
         font.pixelSize: parent.width/68.5
     }
@@ -360,7 +360,7 @@ Rectangle {
                }
                PropertyChanges {
                    target: moreOptioinsText
-                   text:"About KDE"
+                   text:i18n("About KDE")
                    opacity:1
                } 
         }
@@ -400,7 +400,7 @@ Rectangle {
                }
                PropertyChanges {
                    target: moreOptioinsText
-                   text:"About Kanagram"
+                   text:i18n("About Kanagram")
                    opacity:1
                } 
         }
@@ -440,7 +440,7 @@ Rectangle {
                }
                PropertyChanges {
                    target: moreOptioinsText
-                   text:"Kanagram Handbook"
+                   text:i18n("Kanagram Handbook")
                    opacity:1
                } 
         }
