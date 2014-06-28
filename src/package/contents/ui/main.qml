@@ -114,7 +114,8 @@ Rectangle {
                 onClicked:{
                     if(blackboard.activeTimer)
                     {
-                        blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.skippedWordScore());
+                        kanagramEngineHelper.increaseScore(kanagramEngineHelper.skippedWordScore());
+                        blackboard.totalScore=i18n("Score : ")+kanagramEngineHelper.totalScore();
                     }
                     blackboard.anagramText=kanagramEngineHelper.createNextAnagram();
                     blackboard.hint=kanagramEngineHelper.showHint();
@@ -499,7 +500,8 @@ Rectangle {
                  input.flagCorrectAnswer=true;
                  if(blackboard.activeTimer)
                  {
-                     blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.correctAnswerScore());
+                     kanagramEngineHelper.increaseScore(kanagramEngineHelper.correctAnswerScore());
+                     blackboard.totalScore=i18n("Score : ")+kanagramEngineHelper.totalScore();
                  }
                  showAnswerTimer.repeat=true;
                  showAnswerTimer.start();
@@ -511,7 +513,8 @@ Rectangle {
                  input.flagCorrectAnswer=false;
                  if(blackboard.activeTimer)
                  {
-                     blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore(kanagramEngineHelper.incorrectAnswerScore());
+                     kanagramEngineHelper.increaseScore(kanagramEngineHelper.incorrectAnswerScore());
+                     blackboard.totalScore=i18n("Score : ")+kanagramEngineHelper.totalScore();
                  }
                  showAnswerTimer.repeat=true;
                  showAnswerTimer.start();
