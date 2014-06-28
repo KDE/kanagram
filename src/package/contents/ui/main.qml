@@ -135,7 +135,11 @@ Rectangle {
                    }
                    AnchorChanges{target:nextAnagramIcon;
                        anchors.horizontalCenter: undefined;
-                       anchors.right:nextAnagramButton.right}
+                       anchors.right:nextAnagramButton.right
+                   }
+                   PropertyChanges{target:nextAnagramIcon
+                       anchors.rightMargin:blackboard.width/100
+                   }
                }
             State{
                 name:"onExited"
@@ -194,6 +198,9 @@ Rectangle {
                AnchorChanges{target:configureIcon;
                    anchors.horizontalCenter: undefined;
                    anchors.right:configureButton.right}
+               PropertyChanges{target:configureIcon
+                       anchors.rightMargin:blackboard.width/100
+                   }
            }
         State{
             name:"onExited"
@@ -277,6 +284,9 @@ Rectangle {
                AnchorChanges{target:helpIcon;
                    anchors.horizontalCenter: undefined;
                    anchors.right:helpButton.right}
+               PropertyChanges{target:helpIcon
+                       anchors.rightMargin:blackboard.width/100
+                   }
         }
         State{
             name:"onExited"
