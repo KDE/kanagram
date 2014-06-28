@@ -75,7 +75,7 @@ Rectangle {
                 if(blackboard.activeTimer)
                 {
                     kanagramEngineHelper.increaseScore(kanagramEngineHelper.skippedWordScore());
-                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore();
+                    blackboard.totalScore=i18n("Score : ")+kanagramEngineHelper.totalScore();
                 }
                 categoryName.text=kanagramEngineHelper.nextVocabulary();
                 anagram.text=kanagramEngineHelper.createNextAnagram();
@@ -119,7 +119,7 @@ Rectangle {
                 if(blackboard.activeTimer)
                 {
                     kanagramEngineHelper.increaseScore(kanagramEngineHelper.skippedWordScore());
-                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore();
+                    blackboard.totalScore=i18n("Score : ")+kanagramEngineHelper.totalScore();
                 }
                 categoryName.text=kanagramEngineHelper.previousVocabulary();
                 anagram.text=kanagramEngineHelper.createNextAnagram();
@@ -183,10 +183,10 @@ Rectangle {
                     scoreTimer.repeat=true;
                     scoreTimer.start();
                     kanagramEngineHelper.resetTotalScore();
-                    score.text="Score : "+kanagramEngineHelper.totalScore(0);
+                    score.text=i18n("Score : ")+kanagramEngineHelper.totalScore(0);
                     scoreSection.opacity=0.35;
                     score.opacity=1;
-                    timerText.text="Stop Timer"
+                    timerText.text=i18n("Stop Timer")
                     timerButton.flagToggleTimer=true;
                 }
                 else
@@ -230,7 +230,7 @@ Rectangle {
                  timerSection.opacity=0;
                  timeRemaining.opacity=0;
                  scoreTimer.running=false;
-                 timerText.text="Start Timer";
+                 timerText.text=i18n("Start Timer");
              }
              else{
                  scoreTimer.running=true;
@@ -418,7 +418,7 @@ Rectangle {
                 if(blackboard.activeTimer)
                 {
                     kanagramEngineHelper.increaseScore(kanagramEngineHelper.revealAnswerScore());
-                    blackboard.totalScore="Score : "+kanagramEngineHelper.totalScore();
+                    blackboard.totalScore=i18n("Score : ")+kanagramEngineHelper.totalScore();
                 }
                 revealButton.countDownTimerValue=2;
                 showAnswerTimer.repeat=true;
