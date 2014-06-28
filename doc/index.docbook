@@ -30,7 +30,7 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2014-04-04</date>
+<date>2014-06-28</date>
 <releaseinfo>0.2 (&kde; 4.14)</releaseinfo>
 
 <abstract>
@@ -94,6 +94,11 @@ In the center of the <interface>blackboard</interface> is the anagram puzzle to 
 </listitem>
 <listitem>
 <para>
+This is the <guiicon>Start/Stop Timer</guiicon> button, and allows you to <action>start or stop scoring timer</action>.
+</para>
+</listitem>
+<listitem>
+<para>
 When the <guibutton>Hint</guibutton> button is clicked, a short sentence will appear, <action>describing the current word puzzle</action>.
 </para>
 </listitem>
@@ -110,11 +115,6 @@ The <interface>Entry Box</interface> allows you to <action>input your attempts</
 <listitem>
 <para>
 The <interface>Enter</interface> button lets you <action>check if your answer is correct</action>. This function is also provided by the &Enter; key.
-</para>
-</listitem>
-<listitem>
-<para>
-This is the <guiicon>Next Word</guiicon> button, and allows you to <action>advance to the next anagram puzzle</action>.
 </para>
 </listitem>
 <listitem>
@@ -253,6 +253,12 @@ The <guilabel>Set timer for scoring purpose:</guilabel> drop down box allows you
 
 <listitem>
 <para>
+The <guilabel>Advanced Settings</guilabel> checkbox can be used to reveal or hide options to configure scoring of answers.
+</para>
+</listitem>
+
+<listitem>
+<para>
 The <guilabel>Use sounds</guilabel> check box allows you to either allow or suppress the &kanagram; sound effects.
 </para>
 </listitem>
@@ -265,7 +271,7 @@ The <guilabel>Only uppercase letters</guilabel> check box allows you to switch &
 
 <listitem>
 <para>
-The <guilabel>Say correct words</guilabel> check box allows you to turn off or on pronunciations. The audio files of the pronunciations should be included into the vocabulary being played for this option to work.
+The <guilabel>Say correct words</guilabel> check box allows you to turn off or on pronunciations. The audio files of the pronunciations should be included into the vocabulary being played or you should install and configure &jovie; for this option to work.
 </para>
 </listitem>
 </itemizedlist>
