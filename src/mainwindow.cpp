@@ -3,6 +3,7 @@
  * Copyright 2011 Sebastian Kügler <sebas@kde.org>
  * Copyright 2011 Marco Martin <mart@kde.org>
  * Copyright 2012 Laszlo Papp <lpapp@kde.org>
+ * Copyright 2014 Jeremy Whiting <jpwhiting@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,26 +22,48 @@
 
 #include "mainwindow.h"
 
-#include "kdeclarativeview.h"
 #include "kanagramgame.h"
 #include "kanagramenginehelper.h"
 
-#include <QtDeclarative/QtDeclarative>
+#include <QQmlContext>
+#include <QQmlEngine>
+
+#include <KDeclarative/KDeclarative>
+#include <KSharedConfig>
 
 MainWindow::MainWindow()
 {
     m_game = new KanagramGame();
     m_engineHelper = new KanagramEngineHelper(m_game,this);
 
-    declarativeView()->rootContext()->setContextProperty("kanagramGame",m_game);
-    declarativeView()->rootContext()->setContextProperty("kanagramEngineHelper",m_engineHelper);
-    declarativeView()->setPackageName("org.kde.kanagram");
+    setResizeMode(QQuickView::SizeRootObjectToView);
+
+    rootContext()->setContextProperty("kanagramGame", m_game);
+    rootContext()->setContextProperty("kanagramEngineHelper", m_engineHelper);
+    rootContext()->setContextProperty("application", qApp);
+
+    KDeclarative::KDeclarative kdeclarative;
+    kdeclarative.setDeclarativeEngine(engine());
+    kdeclarative.initialize();
+    kdeclarative.setupBindings();
+
+    //    restoreWindowSize(config("Window"));
+
+    QString location = QStandardPaths::locate(QStandardPaths::DataLocation, "ui/main.qml");
+    setSource(QUrl::fromLocalFile(location));
 }
 
 MainWindow::~MainWindow()
 {
+//    KConfigGroup group = config("Window");
+//    saveWindowSize(group);
+
     delete m_engineHelper;
     delete m_game;
 }
 
-#include "mainwindow.moc"
+KConfigGroup MainWindow::config(const QString &group)
+{
+    return KConfigGroup(KSharedConfig::openConfig(qApp->applicationName() + "rc"), group);
+}
+

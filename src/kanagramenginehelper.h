@@ -27,7 +27,11 @@ class KConfigDialog;
 class KHelpMenu;
 class VocabSettings;
 
+#include "mainsettings.h"
+#include "vocabsettings.h"
+#ifdef BUIlD_WITH_SPEECH
 #include "kspeechinterface.h"
+#endif
 
 namespace Phonon
 {
@@ -72,6 +76,7 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE void aboutKDE();
         Q_INVOKABLE void kanagramHandbook();
 
+#ifdef BUILD_WITH_SPEECH
         /** setup kde text-to-speech daemon */
         void setupJovie();
 
@@ -79,6 +84,7 @@ class KanagramEngineHelper : public QObject
          *@param text the word that is to be converted from text to speech
          */
         void say(QString text);
+#endif
 
         /** invoke the settings dialog */
         Q_INVOKABLE void slotShowSettings();
@@ -123,8 +129,10 @@ class KanagramEngineHelper : public QObject
         /** help menu for displaying about box */
         KHelpMenu *m_helpMenu;
 
+#ifdef BUIlD_WITH_SPEECH
         /** object to enable text to speech conversion */
         org::kde::KSpeech *m_kspeech;
+#endif
 
         /** settings page pointers */
         VocabSettings *m_vocabSettings;

@@ -23,7 +23,7 @@
 
 #include <sharedkvtmlfiles.h>
 
-#include <Phonon/MediaObject>
+#include <phonon/MediaObject>
 
 #include <KDE/KStandardDirs>
 #include <KDE/KLocale>
@@ -34,32 +34,36 @@
 #include <KHelpMenu>
 #include <KMessageBox>
 #include <KShortcutsEditor>
-#include <kspeech.h>
-#include <ktoolinvocation.h>
-#include "kspeechinterface.h"
+// #include <kspeech.h>
+// #include <ktoolinvocation.h>
+// #include "kspeechinterface.h"
 
 #include <kanagramsettings.h>
 #include "mainsettings.h"
 #include "vocabsettings.h"
 
 
-#include <QtGui/QApplication>
+#include <QApplication>
 
 KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* parent)
     : QObject(parent)
     , m_kanagramGame(kanagramGame)
     ,m_speller(NULL)
     ,m_player(NULL)
+#ifdef BUIlD_WITH_SPEECH
     ,m_kspeech(0)
+#endif
     , m_insertCounter(0)
     ,m_totalScore(0)
 {
     m_speller = new Sonnet::Speller();
     m_speller->setLanguage(m_kanagramGame->sanitizedDataLanguage());
-    m_helpMenu = new KHelpMenu(NULL, KGlobal::mainComponent().aboutData());
+    m_helpMenu = new KHelpMenu(NULL);
 
     loadSettings();
+#ifdef BUIlD_WITH_SPEECH
     setupJovie();
+#endif
 }
 
 KanagramEngineHelper::~KanagramEngineHelper()
@@ -79,6 +83,7 @@ QString KanagramEngineHelper::createNextAnagram()
         {
             play("chalk.ogg");
         }
+    qDebug() << "Next anagram is " << anagram;
     return anagram;
 }
 
@@ -114,11 +119,12 @@ QString KanagramEngineHelper::anagramOriginalWord()
     if (KanagramSettings::enablePronunciation())
     {
         // User wants words spoken, but if there's no audio file, play right.ogg
-        if (m_kanagramGame->audioFile().isEmpty())
-            say(m_kanagramGame->word());
-        else
-            // otherwise play the sound associated with the word.
+        if (!m_kanagramGame->audioFile().isEmpty())
             play(m_kanagramGame->audioFile().pathOrUrl());
+#ifdef BUIlD_WITH_SPEECH
+        else
+            say(m_kanagramGame->word());
+#endif
     }
     return originalWord;
 }
@@ -168,11 +174,12 @@ bool KanagramEngineHelper::checkWord(QString answer)
             if (KanagramSettings::enablePronunciation())
             {
                 // User wants words spoken, but if there's no audio file, play right.ogg
-                if (m_kanagramGame->audioFile().isEmpty())
-                    say(m_kanagramGame->word());
-                else
-                    // otherwise play the sound associated with the word.
+                if (!m_kanagramGame->audioFile().isEmpty())
                     play(m_kanagramGame->audioFile().pathOrUrl());
+#ifdef BUIlD_WITH_SPEECH
+                else
+                    say(m_kanagramGame->word());
+#endif
             }
             else if (m_useSounds)
             {
@@ -291,7 +298,7 @@ void KanagramEngineHelper::loadSettings()
 
     if (KanagramSettings::dataLanguage().isEmpty())
     {
-        QStringList userLanguagesCode = KGlobal::locale()->languageList();
+        QStringList userLanguagesCode = QLocale::system().uiLanguages();
         QStringList sharedKvtmlFilesLanguages = SharedKvtmlFiles::languages();
         QString foundLanguage;
         foreach (const QString &userLanguageCode, userLanguagesCode)
@@ -395,7 +402,7 @@ void KanagramEngineHelper::slotShowSettings()
         connect(m_configDialog, SIGNAL(accepted()), this, SLOT(slotSaveSettings()));
         connect(m_configDialog, SIGNAL(rejected()), this, SLOT(slotSettingsCancelled()));
 
-        m_configDialog->setHelp("kanagram/index.html");
+        // m_configDialog->setHelp("kanagram/index.html");
         m_configDialog->resize(600, 500);
         m_configDialog->show();
     }
@@ -463,6 +470,7 @@ void KanagramEngineHelper::kanagramHandbook()
     m_helpMenu->appHelpActivated();
 }
 
+#ifdef BUIlD_WITH_SPEECH
 void KanagramEngineHelper::setupJovie()
 {
     // If KTTSD not running, start it.
@@ -502,6 +510,7 @@ void KanagramEngineHelper::say(QString text)
         QDBusReply< int > reply = this->m_kspeech->say(text, KSpeech::soPlainText );
     }
 }
+#endif
 
 void KanagramEngineHelper::slotSaveSettings()
 {
@@ -514,7 +523,7 @@ void KanagramEngineHelper::slotSettingsCancelled()
 
 void KanagramEngineHelper::slotEnableApplyButton()
 {
-    m_configDialog->enableButtonApply(true);
+    m_configDialog->button(QDialogButtonBox::Apply)->setEnabled(true);
 }
 
 int KanagramEngineHelper::hintHideTime()
@@ -580,5 +589,3 @@ void KanagramEngineHelper::saveSettings()
     KanagramSettings::self()->writeConfig();
     m_kanagramGame->refreshVocabularyList();
 }
-
-#include "kanagramenginehelper.moc"

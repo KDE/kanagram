@@ -1,22 +1,6 @@
-cmake_minimum_required(VERSION 2.8)
-
-set(CMAKE_MODULE_PATH
-    ${CMAKE_CURRENT_SOURCE_DIR}/cmake
-)
-
-find_package(Qt4 4.7 REQUIRED)
-
-if ("${QT_QTCORE_LIBRARY}" MATCHES lib64)
-   set(_Init_LIB_SUFFIX 64)
-elseif ("${QT_QTCORE_LIBRARY}" MATCHES lib32)
-   set(_Init_LIB_SUFFIX 32)
-endif ("${QT_QTCORE_LIBRARY}" MATCHES lib64)
-
 set(kanagram_SRCS
     kanagramgame.cpp
     kanagramenginehelper.cpp
-    kdeclarativemainwindow.cpp
-    kdeclarativeview.cpp
     main.cpp
     mainwindow.cpp
     mainsettings.cpp
@@ -27,7 +11,6 @@ set(kanagram_SRCS
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${KDE4_INCLUDES}
     ${QT_INCLUDES}
     ${LIBKDEEDU_INCLUDE_DIR}
 )
@@ -39,22 +22,20 @@ kde4_add_ui_files(kanagram_SRCS
 )
 
 kde4_add_kcfg_files(kanagram_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kanagramsettings.kcfgc)
-qt4_add_dbus_interfaces(kanagram_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml )
-kde4_add_executable(kanagram ${kanagram_SRCS})
+# qt5_add_dbus_interfaces(kanagram_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml )
+add_executable(kanagram ${kanagram_SRCS})
 
 target_link_libraries(kanagram
-    ${QT_QTDECLARATIVE_LIBRARY}
-    ${QT_QTSCRIPT_LIBRARY}
-    ${QT_QTOPENGL_LIBRARY}
-    ${KDE4_PHONON_LIBS}
-    ${KDE4_KDEUI_LIBS}
-    ${KDE4_KIO_LIBS}
-    ${KDE4_PLASMA_LIBS}
-    ${KDE4_KDECORE_LIBS}
-    ${LIBKDEEDU_KEDUVOCDOCUMENT_LIBRARIES}
-    ${KANAGRAM_LIBRARIES}
-    ${KDE4_KNEWSTUFF3_LIBS}
-    kdeclarative
+    Qt5::Qml
+    Qt5::Quick
+    Qt5::Core
+    KF5::I18n
+    KF5::NewStuff
+    KF5::SonnetCore
+    KF5::KDELibs4Support
+    KF5::Declarative
+    LibKdeEduImport__KEduVocDocument
+    Phonon::phonon4qt5
 )
 
 install(
@@ -72,8 +53,8 @@ install(
 )
 
 install(
-    DIRECTORY package/
-    DESTINATION ${DATA_INSTALL_DIR}/plasma/packages/org.kde.kanagram)
+    DIRECTORY ui/
+    DESTINATION ${DATA_INSTALL_DIR}/kanagram/ui)
 
 install(
     FILES kanagram.desktop

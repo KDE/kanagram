@@ -95,7 +95,8 @@ void VocabEdit::slotSave()
 	}
 
 	QString fileName = txtVocabName->text().toLower().remove(' ') + ".kvtml";
-	doc->saveAs(KUrl::fromPath(KGlobal::dirs()->saveLocation("data", "kvtml/" + KanagramSettings::dataLanguage()) + fileName), KEduVocDocument::Automatic, "kanagram");
+    QUrl url = QUrl::fromLocalFile(KGlobal::dirs()->saveLocation("data", "kvtml/" + KanagramSettings::dataLanguage()) + fileName);
+	doc->saveAs(url, KEduVocDocument::Automatic);
 
 	VocabSettings *settings = (VocabSettings*)this->parentWidget();
 	settings->refreshView();
@@ -180,5 +181,3 @@ void VocabEdit::slotRemoveWord()
 
         m_textChanged = true;
 }
-
-#include "vocabedit.moc"

@@ -23,18 +23,21 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "kdeclarativemainwindow.h"
+#include <QQuickView>
+#include <KConfigGroup>
 
 class KanagramGame;
 class KanagramEngineHelper;
 
-class MainWindow : public KDeclarativeMainWindow
+class MainWindow : public QQuickView
 {
     Q_OBJECT
 public:
     MainWindow();
     ~MainWindow();
 private:
+    KConfigGroup config(const QString &group);
+
     KanagramGame *m_game;
     KanagramEngineHelper *m_engineHelper;
 };

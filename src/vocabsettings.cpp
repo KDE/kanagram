@@ -26,12 +26,13 @@
 #include <kconfigdialog.h>
 #include <qfileinfo.h>
 
-#include <knewstuff3/downloaddialog.h>
-#include <knewstuff3/knewstuffbutton.h>
+#include <kns3/downloaddialog.h>
+#include <kns3/button.h>
 #include <sharedkvtmlfiles.h>
 #include <keduvocdocument.h>
 #include <kanagramsettings.h>
 
+#include <QIcon>
 #include <QtCore/QPointer>
 
 VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
@@ -41,7 +42,7 @@ VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
 
     connect(lviewVocab, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(slotSelectionChanged(QTreeWidgetItem*)));
 
-    btnDownloadNew->setIcon(KIcon("get-hot-new-stuff"));
+    btnDownloadNew->setIcon(QIcon::fromTheme("get-hot-new-stuff"));
 
     refreshView();
 }
@@ -66,7 +67,7 @@ void VocabSettings::refreshView()
         item->setText( 1, m_commentList[i] );
         m_itemMap[item] = i;
     }
-    m_parent->enableButtonApply(true);
+    m_parent->button(QDialogButtonBox::Apply)->setEnabled(true);
 }
 
 void VocabSettings::on_btnEdit_clicked()
@@ -104,5 +105,3 @@ void VocabSettings::slotSelectionChanged(QTreeWidgetItem *item)
     bool writeable = QFileInfo(m_fileList[index]).isWritable();
     btnEdit->setEnabled(writeable);
 }
-
-#include "vocabsettings.moc"

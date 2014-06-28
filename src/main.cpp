@@ -3,6 +3,7 @@
  * Copyright 2011 Sebastian Kügler <sebas@kde.org>
  * Copyright 2011 Marco Martin <mart@kde.org>
  * Copyright 2012 Laszlo Papp <lpapp@kde.org>
+ * Copyright 2014 Jeremy Whiting <jpwhiting@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,18 +20,17 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#include <QApplication>
 
-
-#include <KDE/KApplication>
-#include <KDE/KAboutData>
-#include <KDE/KCmdLineArgs>
+#include <K4AboutData>
+#include <KLocalizedString>
 
 #include "mainwindow.h"
 
 int main(int argc, char **argv)
 {
-    KAboutData about("kanagram", 0, ki18n("Kanagram"), "0.2", ki18n("An anagram game"),
-                     KAboutData::License_GPL, ki18n("© 2005 Joshua Keel\n© 2005 Danny Allen\n© 2007 Jeremy Whiting\n© 2014 Debjit Mondal"));
+    K4AboutData about("kanagram", "kanagram", ki18n("Kanagram"), "0.2", ki18n("An anagram game"),
+                     K4AboutData::License_GPL, ki18n("© 2005 Joshua Keel\n© 2005 Danny Allen\n© 2007 Jeremy Whiting\n© 2014 Debjit Mondal"));
     about.addAuthor(ki18n("Joshua Keel"), ki18n("Coding"), "joshuakeel@gmail.com");
     about.addAuthor(ki18n("Danny Allen"), ki18n("Design, Graphics and many Vocabularies"), "danny@dannyallen.co.uk");
     about.addAuthor(ki18n("Jeremy Whiting"), ki18n("Maintainer"), "jpwhiting@kde.org");
@@ -45,21 +45,13 @@ int main(int argc, char **argv)
     about.addCredit(ki18n("Jure Repinc"), ki18n("Slovenian Data Files"), "jlp@holodeck1.com");
     about.addCredit(ki18n("Yuri Chornoivan"), ki18n("Ukranian Data Files"), "");
     about.addCredit(ki18n("Kristóf Kiszel"), ki18n("Hungarian Data Files"), "ulysses@kubuntu.org");
-    KCmdLineArgs::init(argc, argv, &about);
 
-    KCmdLineOptions options;
-#ifndef QT_NO_OPENGL
-    options.add("opengl", ki18n("use a QGLWidget for the viewport"));
-#endif
-    KCmdLineArgs::addCmdLineOptions(options);
-    KApplication app;
-
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    QApplication app(argc, argv);
 
     MainWindow * mainWindow = new MainWindow();
-    mainWindow->setMinimumSize(800,600);
+    QSize size(800, 600);
+    mainWindow->setMinimumSize(size);
     mainWindow->show();
 
-    args->clear();
     return app.exec();
 }

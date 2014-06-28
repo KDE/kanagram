@@ -27,6 +27,8 @@
 #include <kconfigdialog.h>
 #include <kmessagebox.h>
 
+#include <QPushButton>
+
 #include <sharedkvtmlfiles.h>
 #include <kanagramsettings.h>
 
@@ -55,7 +57,7 @@ MainSettings::~MainSettings()
 
 void MainSettings::slotSetDirty()
 {
-    m_parent->enableButtonApply(true);
+    m_parent->button(QDialogButtonBox::Apply)->setEnabled(true);
 }
 
 void MainSettings::slotToggleAdvancedSettings()
@@ -76,10 +78,10 @@ void MainSettings::populateLanguageBox()
 
     //the language code/name
     KConfig entry(KStandardDirs::locate("locale", "all_languages"));
-    for (int i = 0; i < languages.count(); ++i) 
+    for (int i = 0; i < languages.count(); ++i)
     {
         KConfigGroup group = entry.group(languages[i]);
-        
+
         // get the language name
         QString languageName = group.readEntry("Name");
         if (languageName.isEmpty())
@@ -97,8 +99,6 @@ void MainSettings::slotUpdateLanguage()
     kDebug() << "Writing new default language: " << language;
     KanagramSettings::setDataLanguage(language);
     KanagramSettings::self()->writeConfig();
-    
+
     emit settingsChanged();
 }
-
-#include "mainsettings.moc"

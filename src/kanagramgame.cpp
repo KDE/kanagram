@@ -33,11 +33,10 @@
 
 #include <KDE/KUrl>
 #include <KDE/KStandardDirs>
-#include <KDE/KLocale>
+#include <KLocalizedString>
 
+#include <QLocale>
 #include <QtCore/QFileInfo>
-
-static const KCatalogLoader engineCatalogLoader("kanagram-engine");
 
 KanagramGame::KanagramGame() : m_index(0), m_document(NULL)
 {
@@ -71,8 +70,8 @@ QString KanagramGame::sanitizedDataLanguage() const
 
     if (dataLanguage.isEmpty()) {
         QStringList languageCodes = SharedKvtmlFiles::languages();
-        if (languageCodes.contains(KGlobal::locale()->language())) {
-            dataLanguage = KGlobal::locale()->language();
+        if (languageCodes.contains(QLocale::system().uiLanguages().at(0))) {
+            dataLanguage = QLocale::system().uiLanguages().at(0);
         } else {
             dataLanguage = "en";
         }
@@ -105,7 +104,7 @@ void KanagramGame::loadDefaultVocabulary()
             ///@todo open returns KEduVocDocument::ErrorCode
             int result = m_document->open(KUrl(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
             if (result != 0) {
-                kDebug() << m_document->errorDescription(result);
+                qDebug() << m_document->errorDescription(result);
             }
         }
     }
@@ -318,7 +317,7 @@ QStringList KanagramGame::languageNames()
 
 QString KanagramGame::dataLanguage() const
 {
-    return KGlobal::locale()->languageCodeToName(sanitizedDataLanguage());
+    return QLocale::languageToString(QLocale(sanitizedDataLanguage()).language());
 }
 
 void KanagramGame::setDataLanguage(const QString& dataLanguage)
@@ -360,5 +359,3 @@ KUrl KanagramGame::audioFile()
 {
     return m_audioUrl;
 }
-
-#include "kanagramgame.moc"

@@ -17,7 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-import QtQuick 1.1
+import QtQuick 2.3
 
 Rectangle {
 
@@ -69,7 +69,7 @@ Rectangle {
                 hoverEnabled: true
                 onEntered:powerButton.state="onEntered"
                 onExited:powerButton.state="onExited"
-                onClicked:application.close()
+                onClicked: application.quit()
             }
 
             states: State {
