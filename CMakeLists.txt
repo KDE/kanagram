@@ -14,7 +14,6 @@ find_package(LibKdeEdu REQUIRED)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
 add_subdirectory( doc )
-add_subdirectory( images ) 
 add_subdirectory( src ) 
 add_subdirectory( icons ) 
 add_subdirectory( sounds ) 
