@@ -128,7 +128,7 @@ Rectangle {
                    name: "onEntered"
                     PropertyChanges {
                        target: nextAnagramButton
-                       width:blackboard.width/3
+                       width:blackboard.width/2.5
                    }
                    PropertyChanges {
                        target: nextAnagramText
@@ -139,7 +139,7 @@ Rectangle {
                        anchors.right:nextAnagramButton.right
                    }
                    PropertyChanges{target:nextAnagramIcon
-                       anchors.rightMargin:blackboard.width/100
+                       anchors.rightMargin:blackboard.width/50
                    }
                }
             State{
@@ -190,7 +190,7 @@ Rectangle {
                name: "onEntered"
                PropertyChanges {
                    target: configureButton
-                   width:blackboard.width/3
+                   width:blackboard.width/2.5
                }
                PropertyChanges {
                    target: configureText
@@ -200,7 +200,7 @@ Rectangle {
                    anchors.horizontalCenter: undefined;
                    anchors.right:configureButton.right}
                PropertyChanges{target:configureIcon
-                       anchors.rightMargin:blackboard.width/100
+                       anchors.rightMargin:blackboard.width/50
                    }
            }
         State{
@@ -246,7 +246,7 @@ Rectangle {
             if(flag)
             {
                 moreOptionsButton.opacity=0.5;
-                moreOptionsButton.width=blackboard.width/3;
+                moreOptionsButton.width=blackboard.width/2.5;
                 kanagramHandbookIcon.visible=true;
                 aboutKdeIcon.visible=true;
                 aboutKanagramIcon.visible=true;
@@ -256,6 +256,7 @@ Rectangle {
             {
                 moreOptionsButton.opacity=0;
                 moreOptionsTextBar.opacity=0;
+                moreOptionsText.opacity=0;
                 kanagramHandbookIcon.visible=false;
                 aboutKdeIcon.visible=false;
                 aboutKanagramIcon.visible=false;
@@ -275,7 +276,7 @@ Rectangle {
                name: "onEntered"
                PropertyChanges {
                    target: helpButton
-                   width:blackboard.width/3
+                   width:blackboard.width/2.5
                }
                PropertyChanges{
                    target:helpText
@@ -286,7 +287,7 @@ Rectangle {
                    anchors.horizontalCenter: undefined;
                    anchors.right:helpButton.right}
                PropertyChanges{target:helpIcon
-                       anchors.rightMargin:blackboard.width/100
+                       anchors.rightMargin:blackboard.width/50
                    }
         }
         State{
@@ -318,7 +319,7 @@ Rectangle {
     }
 
     Text{
-        id:moreOptioinsText
+        id:moreOptionsText
         anchors{verticalCenter: moreOptionsTextBar.verticalCenter;horizontalCenter:moreOptionsTextBar.horizontalCenter}
         color:"white"
         text: i18n("  ")
@@ -370,7 +371,7 @@ Rectangle {
                    opacity:0.5
                }
                PropertyChanges {
-                   target: moreOptioinsText
+                   target: moreOptionsText
                    text:i18n("About KDE")
                    opacity:1
                } 
@@ -410,7 +411,7 @@ Rectangle {
                    opacity:0.5
                }
                PropertyChanges {
-                   target: moreOptioinsText
+                   target: moreOptionsText
                    text:i18n("About Kanagram")
                    opacity:1
                } 
@@ -450,7 +451,7 @@ Rectangle {
                    opacity:0.5
                }
                PropertyChanges {
-                   target: moreOptioinsText
+                   target: moreOptionsText
                    text:i18n("Kanagram Handbook")
                    opacity:1
                } 
