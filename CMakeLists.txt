@@ -20,14 +20,16 @@ include(KDECMakeSettings)
 include(KDECompilerSettings)
 
 find_package(KF5 CONFIG REQUIRED
-    CoreAddons Config
-    I18n WidgetsAddons
-    WindowSystem Crash Sonnet
-    Archive ItemModels Auth GuiAddons ConfigWidgets
-    ItemViews Notifications
-    IconThemes Completion TextWidgets Declarative
-    XmlGui KIO UnitConversion Sonnet NewStuff
-    NotifyConfig KDELibs4Support
+    I18n
+    Crash
+    Sonnet
+    ConfigWidgets
+    Declarative
+    XmlGui
+    KIO
+    Sonnet
+    NewStuff
+    KDELibs4Support
 )
 include_directories (${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE4_INCLUDES})
 

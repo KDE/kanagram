@@ -46,6 +46,10 @@ int main(int argc, char **argv)
     about.addCredit(ki18n("Yuri Chornoivan"), ki18n("Ukranian Data Files"), "");
     about.addCredit(ki18n("Kristóf Kiszel"), ki18n("Hungarian Data Files"), "ulysses@kubuntu.org");
 
+    QApplication::setApplicationName("kanagram");
+    QApplication::setApplicationVersion("0.2");
+    QApplication::setOrganizationDomain("kde.org");
+    QApplication::setApplicationDisplayName(i18n("kanagram"));
     QApplication app(argc, argv);
 
     MainWindow * mainWindow = new MainWindow();

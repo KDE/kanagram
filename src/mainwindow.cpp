@@ -44,10 +44,13 @@ MainWindow::MainWindow()
 
     KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(engine());
-    kdeclarative.initialize();
     kdeclarative.setupBindings();
 
-    //    restoreWindowSize(config("Window"));
+    KConfigGroup windowConfig = config("Window");
+    if (windowConfig.hasKey("geometry")) {
+        setGeometry(windowConfig.readEntry<QRect>("geometry", QRect()));
+        setWindowState(Qt::WindowState(windowConfig.readEntry("windowState").toInt()));
+    }
 
     QString location = QStandardPaths::locate(QStandardPaths::DataLocation, "ui/main.qml");
     setSource(QUrl::fromLocalFile(location));
@@ -55,11 +58,20 @@ MainWindow::MainWindow()
 
 MainWindow::~MainWindow()
 {
-//    KConfigGroup group = config("Window");
-//    saveWindowSize(group);
-
     delete m_engineHelper;
     delete m_game;
+}
+
+bool MainWindow::event(QEvent *e)
+{
+    int type = e->type();
+    if (type == QEvent::Close) {
+        KConfigGroup windowConfig = config("Window");
+        windowConfig.writeEntry("geometry", geometry());
+        windowConfig.writeEntry("windowState", int(windowState()));
+    }
+
+    return QQuickView::event(e);
 }
 
 KConfigGroup MainWindow::config(const QString &group)
