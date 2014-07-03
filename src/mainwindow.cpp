@@ -41,6 +41,7 @@ MainWindow::MainWindow()
     rootContext()->setContextProperty("kanagramGame", m_game);
     rootContext()->setContextProperty("kanagramEngineHelper", m_engineHelper);
     rootContext()->setContextProperty("application", qApp);
+    rootContext()->setContextProperty("mainwindow", this);
 
     KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(engine());

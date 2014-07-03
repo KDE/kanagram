@@ -69,7 +69,7 @@ Rectangle {
                 hoverEnabled: true
                 onEntered:powerButton.state="onEntered"
                 onExited:powerButton.state="onExited"
-                onClicked: application.quit()
+                onClicked: mainwindow.close()
             }
 
             states: State {
