@@ -466,13 +466,6 @@ Rectangle {
             }
     }
 
-    Blackboard{
-        id:blackboard
-        border{width:parent.width/68.5;color:"#613529"}
-        width:parent.width/2; height: parent.height/1.5
-        anchors {horizontalCenter:parent.horizontalCenter; top:toolBarTop.bottom}
-    }
-
     Rectangle{
         id: inputField
         width:blackboard.width;height:parent.height/10
@@ -543,5 +536,12 @@ Rectangle {
                  stop();
              }
         }
+    }
+
+    Blackboard{
+        id:blackboard
+        border{width:parent.width/68.5;color:"#613529"}
+        width:parent.width/2; height: parent.height/1.5
+        anchors {horizontalCenter:parent.horizontalCenter; top:toolBarTop.bottom}
     }
 }

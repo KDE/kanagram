@@ -18,6 +18,7 @@
  */
 
 import QtQuick 1.1
+import QtWebKit 1.0
 
 Rectangle {
 
@@ -366,6 +367,11 @@ Rectangle {
             hoverEnabled: true
             onEntered:wikiButton.state="onEntered"
             onExited:wikiButton.state="onExited";
+            onClicked:{
+                wikiPage.url="http://en.wikipedia.org/wiki/"+kanagramEngineHelper.anagramOriginalWord();
+                wikiPage.opacity=1;
+                wikiBackground.opacity=0.75;
+            }
         }
 
         states: State {
@@ -535,4 +541,35 @@ Rectangle {
         opacity: 0
         font.pixelSize: parent.width/40
     }
+
+    Rectangle{
+        id: wikiBackground
+        anchors{verticalCenter: parent.verticalCenter;horizontalCenter:parent.horizontalCenter}
+        width:2*parent.width;height:1.5*parent.height
+        color:"black"
+        opacity:0
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked:{
+                wikiBackground.opacity=0;
+                wikiPage.opacity=0;
+            }
+        }
+
+        transitions: Transition {
+                PropertyAnimation { properties: "x,y,opacity"; easing.type: Easing.Linear; easing.amplitude: 5.0; easing.period: 1 }
+            }
+    }
+
+        WebView {
+            id:wikiPage
+            url: "";
+            preferredWidth: parent.width
+            preferredHeight: parent.height
+            anchors{verticalCenter: parent.verticalCenter;horizontalCenter:parent.horizontalCenter}
+            smooth: true
+            scale:.75
+            opacity:0
+            }
 }
