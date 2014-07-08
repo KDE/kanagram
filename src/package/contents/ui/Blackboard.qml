@@ -333,6 +333,14 @@ Rectangle {
         anchors{verticalCenter: blackboard.verticalCenter;right: blackboard.left;rightMargin:blackboard.width/68.5}
     }
 
+    Rectangle {
+        id: wikiSection
+        width: parent.width/9; height: parent.height/7
+        opacity:0
+        color: "black"
+        anchors{verticalCenter: hintSection.verticalCenter;right: hintSection.left}
+    }
+
     Text{
         id:anagramHint
         anchors{verticalCenter: hintSection.verticalCenter;horizontalCenter:hintSection.horizontalCenter}
@@ -344,6 +352,47 @@ Rectangle {
         font.pixelSize: hintSection.width/10
     }
 
+    Image{
+        id: wikiButton
+        smooth:true
+        height:wikiSection.height/2
+        anchors{verticalCenter: wikiSection.verticalCenter;horizontalCenter:wikiSection.horizontalCenter}
+        source: "../ui/icons/wikipedia.png"
+        opacity:0
+        fillMode: Image.PreserveAspectFit
+
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            onEntered:wikiButton.state="onEntered"
+            onExited:wikiButton.state="onExited";
+        }
+
+        states: State {
+               name: "onEntered"
+               PropertyChanges {
+                   target: wikiText
+                   opacity:1
+               }
+           }
+        State{
+            name:"onExited"
+        }
+
+        transitions: Transition {
+                PropertyAnimation { properties: "x,y,opacity"; easing.type: Easing.Linear; easing.amplitude: 5.0; easing.period: 1 }
+            }
+    }
+
+    Text{
+        id:wikiText
+        anchors{bottom:hintSection.bottom;horizontalCenter:hintSection.horizontalCenter}
+        color:"white"
+        text: i18n("Show Wiki Content")
+        opacity: 0
+        font.pixelSize: parent.width/55
+     }
+
     Timer {
         id: hintTimer;
         interval: 1000;
@@ -354,11 +403,16 @@ Rectangle {
         onTriggered: {
              if (--hintButton.countDownTimerValue == 0) {
                  hintSection.opacity=0;
+                 wikiSection.opacity=0;
                  anagramHint.opacity=0;
+                 wikiText.opacity=0;
+                 wikiButton.opacity=0;
                  stop();
              }
              else{
                  hintSection.opacity=0.35;
+                 wikiSection.opacity=0.35;
+                 wikiButton.opacity=1;
                  anagramHint.opacity=1;
              }
         }
