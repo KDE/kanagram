@@ -368,8 +368,9 @@ Rectangle {
             onEntered:wikiButton.state="onEntered"
             onExited:wikiButton.state="onExited";
             onClicked:{
-                wikiPage.url="http://en.wikipedia.org/wiki/"+kanagramEngineHelper.anagramOriginalWord();
-                wikiPage.opacity=1;
+                flickable.wikiPageUrl="http://en.wikipedia.org/wiki/"+kanagramEngineHelper.anagramOriginalWord();
+                flickable.wikiPageOpacity=1;
+                flickable.opacity=1;
                 wikiBackground.opacity=0.75;
             }
         }
@@ -553,7 +554,8 @@ Rectangle {
             anchors.fill: parent
             onClicked:{
                 wikiBackground.opacity=0;
-                wikiPage.opacity=0;
+                flickable.wikiPageOpacity=0;
+                flickable.opacity=0;
             }
         }
 
@@ -562,14 +564,27 @@ Rectangle {
             }
     }
 
+    Flickable {
+        id: flickable
+        width: parent.width
+        height:  parent.height
+        contentWidth: parent.width
+        contentHeight: parent.height
+        interactive: true
+        clip: true
+        opacity:0
+        property alias wikiPageOpacity:wikiPage.opacity
+        property alias wikiPageUrl:wikiPage.url
+
         WebView {
             id:wikiPage
             url: "";
-            preferredWidth: parent.width
-            preferredHeight: parent.height
-            anchors{verticalCenter: parent.verticalCenter;horizontalCenter:parent.horizontalCenter}
+            preferredWidth: flickable.width
+            preferredHeight: flickable.height
             smooth: true
-            scale:.75
+            scale:1
             opacity:0
             }
+
+    }
 }
