@@ -374,10 +374,12 @@ Rectangle {
             onExited:wikiButton.state="onExited";
             onClicked:{
                 wikiButton.wikiLinkActivated=true;
-                flickable.wikiPageUrl="http://en.wikipedia.org/wiki/"+kanagramEngineHelper.anagramOriginalWord();
+                anagram.text=kanagramEngineHelper.anagramOriginalWord();
+                flickable.wikiPageUrl="http://en.wikipedia.org/wiki/"+anagram.text;
                 flickable.opacity=1;
                 flickable.wikiPageOpacity=1;
                 closeButton.opacity=1;
+                wikiPageActionBar.opacity=1;
             }
         }
 
@@ -573,27 +575,31 @@ Rectangle {
             }
     }
 
-    Image{
+    Rectangle{
+        id:wikiPageActionBar
+        width: flickable.width; height: flickable.height/25
+        opacity: 0
+        color: "white"
+        anchors{top:flickable.top;horizontalCenter:flickable.horizontalCenter}
+    }
+
+    Image {
             id: closeButton
             smooth:true
-            height:flickable.height/18
-            anchors{top:flickable.top;topMargin:flickable.width/24;right:flickable.right;rightMargin:flickable.width/24}
+            height:flickable.height/30
+            anchors{verticalCenter:wikiPageActionBar.verticalCenter;right:wikiPageActionBar.right}
             source: "../ui/icons/close.png"
             fillMode: Image.PreserveAspectFit
             opacity: 0
 
             MouseArea {
                 anchors.fill: parent
-                hoverEnabled: true
-                onEntered:closeButton.state="onEntered"
-                onExited:closeButton.state="onExited"
                 onClicked:{
                     wikiButton.wikiLinkActivated=false;
                     flickable.wikiPageOpacity=0;
                     flickable.opacity=0;
                     closeButton.opacity=0;
-                     closeText.opacity=0;
-                    anagram.text=kanagramEngineHelper.anagramOriginalWord();
+                    wikiPageActionBar.opacity=0;
                     if(blackboard.activeTimer){
                         kanagramEngineHelper.increaseScore(kanagramEngineHelper.revealAnswerScore());
                         blackboard.totalScore=i18n("Score : ")+kanagramEngineHelper.totalScore();
@@ -603,29 +609,5 @@ Rectangle {
                     showAnswerTimer.start();
                     }
                 }
-
-            states: State {
-                   name: "onEntered"
-                   PropertyChanges {
-                       target: closeText
-                       opacity:1
-                   }
-               }
-            State{
-                name:"onExited"
-            }
-
-            transitions: Transition {
-                    PropertyAnimation { properties: "x,y,opacity"; easing.type: Easing.Linear; easing.amplitude: 5.0; easing.period: 1 }
-                }
-    }
-
-    Text{
-        id:closeText
-        anchors{top:closeButton.bottom;horizontalCenter:closeButton.horizontalCenter}
-        color:"black"
-        text:i18n("Close")
-        opacity:0
-        font.pixelSize: flickable.width/91
     }
 }
