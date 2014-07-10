@@ -35,9 +35,6 @@ MainWindow::MainWindow()
     declarativeView()->rootContext()->setContextProperty("kanagramGame",m_game);
     declarativeView()->rootContext()->setContextProperty("kanagramEngineHelper",m_engineHelper);
     declarativeView()->setPackageName("org.kde.kanagram");
-
-    connect(declarativeView()->engine(), SIGNAL(quit()), qApp, SLOT(quit()));
-
 }
 
 MainWindow::~MainWindow()

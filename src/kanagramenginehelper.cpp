@@ -65,7 +65,6 @@ KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* 
 
 KanagramEngineHelper::~KanagramEngineHelper()
 {
-    delete m_kanagramGame;
     delete m_speller;
     m_speller=NULL;
     delete m_player;

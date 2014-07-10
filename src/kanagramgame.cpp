@@ -90,14 +90,24 @@ void KanagramGame::loadDefaultVocabulary()
         refreshVocabularyList();
         nextVocabulary();
     }
+    else
+    {
+        int index = m_fileList.indexOf(m_filename);
+        if (index > -1)
+        {
+            useVocabulary(index);
+        }
+        else
+        {
+            delete m_document;
+            m_document = new KEduVocDocument(this);
 
-    delete m_document;
-    m_document = new KEduVocDocument(this);
-
-    ///@todo open returns KEduVocDocument::ErrorCode
-    int result = m_document->open(KUrl(KStandardDirs::locate("data", m_filename)));
-    if (result != 0) {
-        kDebug() << m_document->errorDescription(result);
+            ///@todo open returns KEduVocDocument::ErrorCode
+            int result = m_document->open(KUrl(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
+            if (result != 0) {
+                kDebug() << m_document->errorDescription(result);
+            }
+        }
     }
     nextAnagram();
 }
@@ -139,43 +149,25 @@ void KanagramGame::useVocabulary(int index)
     delete m_document;
     m_document = new KEduVocDocument(this);
     ///@todo open returns KEduVocDocument::ErrorCode
-    m_document->open(KUrl(KStandardDirs::locate("data", m_filename)));
+    m_document->open(KUrl(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
     m_answeredWords.clear();
 }
 
 void KanagramGame::previousVocabulary()
 {
-    if (--m_index < 0)
+    if (m_index == 0)
     {
-        m_index = m_fileList.size() - 1;
+        useVocabulary(m_fileList.size() - 1);
     }
-
-    m_filename = m_fileList.at(m_index);
-    checkFile();
-    delete m_document;
-    m_document = new KEduVocDocument(this);
-    ///@todo open returns KEduVocDocument::ErrorCode
-    m_document->open(KUrl(KStandardDirs::locate("data", m_filename)));
-    m_answeredWords.clear();
+    else
+    {
+        useVocabulary(m_index - 1);
+    }
 }
 
 void KanagramGame::nextVocabulary()
 {
-    if (++m_index >= m_fileList.size())
-    {
-        m_index = 0;
-    }
-
-    if (!m_fileList.isEmpty())
-    {
-        m_filename = m_fileList.at(m_index);
-        checkFile();
-        delete m_document;
-        m_document = new KEduVocDocument(this);
-        ///@todo open returns KEduVocDocument::ErrorCode
-        m_document->open(KUrl(KStandardDirs::locate("data", m_filename)));
-        m_answeredWords.clear();
-    }
+    useVocabulary(m_index + 1);
 }
 
 void KanagramGame::nextAnagram()

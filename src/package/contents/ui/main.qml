@@ -69,7 +69,7 @@ Rectangle {
                 hoverEnabled: true
                 onEntered:powerButton.state="onEntered"
                 onExited:powerButton.state="onExited"
-                onClicked:Qt.quit()
+                onClicked:application.close()
             }
 
             states: State {
@@ -374,7 +374,7 @@ Rectangle {
                    target: moreOptionsText
                    text:i18n("About KDE")
                    opacity:1
-               } 
+               }
         }
         State{
             name:"onExited"
@@ -414,7 +414,7 @@ Rectangle {
                    target: moreOptionsText
                    text:i18n("About Kanagram")
                    opacity:1
-               } 
+               }
         }
         State{
             name:"onExited"
@@ -454,7 +454,7 @@ Rectangle {
                    target: moreOptionsText
                    text:i18n("Kanagram Handbook")
                    opacity:1
-               } 
+               }
         }
         State{
             name:"onExited"
