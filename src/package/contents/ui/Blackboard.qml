@@ -226,7 +226,9 @@ Rectangle {
         triggeredOnStart: false;
 
         onTriggered: {
-             if (--timerButton.countDownTimerValue == 0) {
+            if(!wikiButton.wikiLinkActivated)
+            {
+                if (--timerButton.countDownTimerValue == 0) {
                  stop();
                  timerSection.opacity=0;
                  timeRemaining.opacity=0;
@@ -246,6 +248,8 @@ Rectangle {
                  }
                  timeRemaining.opacity=1;
              }
+            }
+
         }
     }
 
@@ -361,6 +365,7 @@ Rectangle {
         source: "../ui/icons/wikipedia.png"
         opacity:0
         fillMode: Image.PreserveAspectFit
+        property bool wikiLinkActivated:false;
 
         MouseArea {
             anchors.fill: parent
@@ -368,10 +373,11 @@ Rectangle {
             onEntered:wikiButton.state="onEntered"
             onExited:wikiButton.state="onExited";
             onClicked:{
+                wikiButton.wikiLinkActivated=true;
                 flickable.wikiPageUrl="http://en.wikipedia.org/wiki/"+kanagramEngineHelper.anagramOriginalWord();
-                flickable.wikiPageOpacity=1;
                 flickable.opacity=1;
-                wikiBackground.opacity=0.75;
+                flickable.wikiPageOpacity=1;
+                closeButton.opacity=1;
             }
         }
 
@@ -543,33 +549,13 @@ Rectangle {
         font.pixelSize: parent.width/40
     }
 
-    Rectangle{
-        id: wikiBackground
-        anchors{verticalCenter: parent.verticalCenter;horizontalCenter:parent.horizontalCenter}
-        width:2*parent.width;height:1.5*parent.height
-        color:"black"
-        opacity:0
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked:{
-                wikiBackground.opacity=0;
-                flickable.wikiPageOpacity=0;
-                flickable.opacity=0;
-            }
-        }
-
-        transitions: Transition {
-                PropertyAnimation { properties: "x,y,opacity"; easing.type: Easing.Linear; easing.amplitude: 5.0; easing.period: 1 }
-            }
-    }
-
     Flickable {
         id: flickable
-        width: parent.width
-        height:  parent.height
-        contentWidth: parent.width
-        contentHeight: parent.height
+        width: parent.width*2
+        height:  parent.height*1.5
+        anchors{verticalCenter: parent.verticalCenter;horizontalCenter:parent.horizontalCenter}
+        contentWidth: wikiPage.width
+        contentHeight: wikiPage.height
         interactive: true
         clip: true
         opacity:0
@@ -585,6 +571,61 @@ Rectangle {
             scale:1
             opacity:0
             }
+    }
 
+    Image{
+            id: closeButton
+            smooth:true
+            height:flickable.height/18
+            anchors{top:flickable.top;topMargin:flickable.width/24;right:flickable.right;rightMargin:flickable.width/24}
+            source: "../ui/icons/close.png"
+            fillMode: Image.PreserveAspectFit
+            opacity: 0
+
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered:closeButton.state="onEntered"
+                onExited:closeButton.state="onExited"
+                onClicked:{
+                    wikiButton.wikiLinkActivated=false;
+                    flickable.wikiPageOpacity=0;
+                    flickable.opacity=0;
+                    closeButton.opacity=0;
+                     closeText.opacity=0;
+                    anagram.text=kanagramEngineHelper.anagramOriginalWord();
+                    if(blackboard.activeTimer){
+                        kanagramEngineHelper.increaseScore(kanagramEngineHelper.revealAnswerScore());
+                        blackboard.totalScore=i18n("Score : ")+kanagramEngineHelper.totalScore();
+                        }
+                    revealButton.countDownTimerValue=2;
+                    showAnswerTimer.repeat=true;
+                    showAnswerTimer.start();
+                    }
+                }
+
+            states: State {
+                   name: "onEntered"
+                   PropertyChanges {
+                       target: closeText
+                       opacity:1
+                   }
+               }
+            State{
+                name:"onExited"
+            }
+
+            transitions: Transition {
+                    PropertyAnimation { properties: "x,y,opacity"; easing.type: Easing.Linear; easing.amplitude: 5.0; easing.period: 1 }
+                }
+    }
+
+    Text{
+        id:closeText
+        anchors{top:closeButton.bottom;horizontalCenter:closeButton.horizontalCenter}
+        color:"black"
+        text:i18n("Close")
+        opacity:0
+        font.pixelSize: flickable.width/91
     }
 }
