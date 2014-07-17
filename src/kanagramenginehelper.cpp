@@ -161,10 +161,11 @@ bool KanagramEngineHelper::checkWord(QString answer)
 {
     QString enteredWord = answer.toLower().trimmed();
     QString word = m_kanagramGame->word().toLower().trimmed();
+    bool spellcheck = m_speller->isValid() && m_speller->isCorrect(enteredWord);
     if (!enteredWord.isEmpty())
     {
         if (enteredWord == word || stripAccents(enteredWord) == stripAccents(word) ||
-           (m_speller->isCorrect(enteredWord) && isAnagram(enteredWord, word)))
+           (spellcheck && isAnagram(enteredWord, word)))
         {
             if (KanagramSettings::enablePronunciation())
             {
