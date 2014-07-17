@@ -23,15 +23,10 @@
 #include <kanagramgame.h>
 #include <sonnet/speller.h>
 
-class KAction;
-class KActionCollection;
 class KConfigDialog;
 class KHelpMenu;
-class KShortcutsEditor;
 class VocabSettings;
 
-#include "mainsettings.h"
-#include "vocabsettings.h"
 #include "kspeechinterface.h"
 
 namespace Phonon
@@ -118,7 +113,6 @@ class KanagramEngineHelper : public QObject
     private:
         KanagramGame *m_kanagramGame;
         Sonnet::Speller *m_speller;
-        KActionCollection * m_actionCollection;
 
         /** audio player to use for playing sounds */
         Phonon::MediaObject *m_player;
@@ -134,7 +128,6 @@ class KanagramEngineHelper : public QObject
 
         /** settings page pointers */
         VocabSettings *m_vocabSettings;
-        KShortcutsEditor *m_shortcutsEditor;
 
         QStringList m_currentOriginalWord;
         int m_insertCounter;
