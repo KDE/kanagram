@@ -54,7 +54,6 @@ KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* 
     , m_insertCounter(0)
     ,m_totalScore(0)
 {
-    m_actionCollection = new KActionCollection(this);
     m_speller = new Sonnet::Speller();
     m_speller->setLanguage(m_kanagramGame->sanitizedDataLanguage());
     m_helpMenu = new KHelpMenu(NULL, KGlobal::mainComponent().aboutData());
@@ -393,11 +392,8 @@ void KanagramEngineHelper::slotShowSettings()
         m_configDialog->addPage(m_vocabSettings, i18n("Vocabularies"), "document-properties" );
 
         // now make and add the shortcuts page
-        m_shortcutsEditor = new KShortcutsEditor(m_actionCollection, m_configDialog);
-        m_configDialog->addPage(m_shortcutsEditor, i18n("Shortcuts"), "preferences-desktop-keyboard");
         connect(m_configDialog, SIGNAL(accepted()), this, SLOT(slotSaveSettings()));
         connect(m_configDialog, SIGNAL(rejected()), this, SLOT(slotSettingsCancelled()));
-        connect(m_shortcutsEditor, SIGNAL(keyChange()), this, SLOT(slotEnableApplyButton()));
 
         m_configDialog->setHelp("kanagram/index.html");
         m_configDialog->resize(600, 500);
@@ -509,13 +505,11 @@ void KanagramEngineHelper::say(QString text)
 
 void KanagramEngineHelper::slotSaveSettings()
 {
-    m_shortcutsEditor->save();
     // TODO: Update the current puzzle based on the new settings
 }
 
 void KanagramEngineHelper::slotSettingsCancelled()
 {
-    m_shortcutsEditor->undoChanges();
 }
 
 void KanagramEngineHelper::slotEnableApplyButton()
