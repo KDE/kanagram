@@ -35,7 +35,7 @@ include_directories (${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${K
 
 find_package(Phonon4Qt5 4.6.60 NO_MODULE)
 
-find_package(LibKdeEdu REQUIRED)
+find_package(LibKEduVocDocument REQUIRED)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
 add_subdirectory( doc )

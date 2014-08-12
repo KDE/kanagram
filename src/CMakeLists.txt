@@ -12,7 +12,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
     ${QT_INCLUDES}
-    ${LIBKDEEDU_INCLUDE_DIR}
+    ${LIBKEDUVOCDOCUMENT_INCLUDE_DIR}
 )
 
 kde4_add_ui_files(kanagram_SRCS
@@ -34,7 +34,7 @@ target_link_libraries(kanagram
     KF5::SonnetCore
     KF5::KDELibs4Support
     KF5::Declarative
-    LibKdeEduImport__KEduVocDocument
+    LibKEduVocDocumentImport__KEduVocDocument
     Phonon::phonon4qt5
 )
 
