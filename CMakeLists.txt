@@ -19,10 +19,11 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
 
-find_package(KF5 CONFIG REQUIRED
+find_package(KF5 REQUIRED COMPONENTS
     I18n
     Crash
     Sonnet
+    Config
     ConfigWidgets
     Declarative
     XmlGui
