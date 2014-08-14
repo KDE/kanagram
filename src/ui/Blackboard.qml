@@ -18,7 +18,7 @@
  */
 
 import QtQuick 2.3
-import QtWebKit 1.0
+import QtWebKit 3.0
 
 Rectangle {
 
@@ -375,11 +375,11 @@ Rectangle {
             onClicked:{
                 wikiButton.wikiLinkActivated=true;
                 anagram.text=kanagramEngineHelper.anagramOriginalWord();
-                flickable.wikiPageUrl="http://en.wikipedia.org/wiki/"+anagram.text;
-                flickable.opacity=1;
-                flickable.wikiPageOpacity=1;
+//                flickable.wikiPageUrl="http://en.wikipedia.org/wiki/"+anagram.text;
+//                flickable.opacity=1;
+//                flickable.wikiPageOpacity=1;
                 closeButton.opacity=1;
-                wikiPageActionBar.opacity=1;
+//                wikiPageActionBar.opacity=1;
             }
         }
 
@@ -551,63 +551,63 @@ Rectangle {
         font.pixelSize: parent.width/40
     }
 
-    Flickable {
-        id: flickable
-        width: parent.width*2
-        height:  parent.height*1.5
-        anchors{verticalCenter: parent.verticalCenter;horizontalCenter:parent.horizontalCenter}
-        contentWidth: wikiPage.width
-        contentHeight: wikiPage.height
-        interactive: true
-        clip: true
-        opacity:0
-        property alias wikiPageOpacity:wikiPage.opacity
-        property alias wikiPageUrl:wikiPage.url
+//    Flickable {
+//        id: flickable
+//        width: parent.width*2
+//        height:  parent.height*1.5
+//        anchors{verticalCenter: parent.verticalCenter;horizontalCenter:parent.horizontalCenter}
+//        contentWidth: wikiPage.width
+//        contentHeight: wikiPage.height
+//        interactive: true
+//        clip: true
+//        opacity:0
+//        property alias wikiPageOpacity:wikiPage.opacity
+//        property alias wikiPageUrl:wikiPage.url
 
-        WebView {
-            id:wikiPage
-            url: "";
-            preferredWidth: flickable.width
-            preferredHeight: flickable.height
-            smooth: true
-            scale:1
-            opacity:0
-            }
-    }
+//        WebView {
+//            id:wikiPage
+//            url: "";
+            //preferredWidth: flickable.width
+            //preferredHeight: flickable.height
+//            smooth: true
+//            scale:1
+//            opacity:0
+//            }
+//    }
 
-    Rectangle{
-        id:wikiPageActionBar
-        width: flickable.width; height: flickable.height/25
-        opacity: 0
-        color: "white"
-        anchors{top:flickable.top;horizontalCenter:flickable.horizontalCenter}
-    }
+//     Rectangle{
+//         id:wikiPageActionBar
+//         width: flickable.width; height: flickable.height/25
+//         opacity: 0
+//         color: "white"
+//         anchors{top:flickable.top;horizontalCenter:flickable.horizontalCenter}
+//     }
 
-    Image {
-            id: closeButton
-            smooth:true
-            height:flickable.height/30
-            anchors{verticalCenter:wikiPageActionBar.verticalCenter;right:wikiPageActionBar.right}
-            source: "../ui/icons/close.png"
-            fillMode: Image.PreserveAspectFit
-            opacity: 0
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked:{
-                    wikiButton.wikiLinkActivated=false;
-                    flickable.wikiPageOpacity=0;
-                    flickable.opacity=0;
-                    closeButton.opacity=0;
-                    wikiPageActionBar.opacity=0;
-                    if(blackboard.activeTimer){
-                        kanagramEngineHelper.increaseScore(kanagramEngineHelper.revealAnswerScore());
-                        blackboard.totalScore=i18n("Score : ")+kanagramEngineHelper.totalScore();
-                        }
-                    revealButton.countDownTimerValue=2;
-                    showAnswerTimer.repeat=true;
-                    showAnswerTimer.start();
-                    }
-                }
-    }
+//    Image {
+//            id: closeButton
+//            smooth:true
+//            height:flickable.height/30
+//            anchors{verticalCenter:wikiPageActionBar.verticalCenter;right:wikiPageActionBar.right}
+//            source: "../ui/icons/close.png"
+//            fillMode: Image.PreserveAspectFit
+//            opacity: 0
+//
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked:{
+//                    wikiButton.wikiLinkActivated=false;
+//                    flickable.wikiPageOpacity=0;
+//                    flickable.opacity=0;
+//                    closeButton.opacity=0;
+//                    wikiPageActionBar.opacity=0;
+//                    if(blackboard.activeTimer){
+//                        kanagramEngineHelper.increaseScore(kanagramEngineHelper.revealAnswerScore());
+//                        blackboard.totalScore=i18n("Score : ")+kanagramEngineHelper.totalScore();
+//                        }
+//                    revealButton.countDownTimerValue=2;
+//                    showAnswerTimer.repeat=true;
+//                    showAnswerTimer.start();
+//                    }
+//                }
+//    }
 }
