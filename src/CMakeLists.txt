@@ -13,6 +13,7 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${QT_INCLUDES}
     ${LIBKEDUVOCDOCUMENT_INCLUDE_DIR}
+    ${PHONON_INCLUDES}
 )
 
 kde4_add_ui_files(kanagram_SRCS
