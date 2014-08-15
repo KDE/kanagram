@@ -57,7 +57,7 @@ bool KanagramGame::checkFile()
     {
         emit fileError(m_filename);
         return false;
-    } *             (C) 2014 by Jeremy Whiting <jpwhiting
+    }
 
 
     return true;
@@ -73,7 +73,7 @@ QString KanagramGame::sanitizedDataLanguage() const
             dataLanguage = QLocale::system().uiLanguages().at(0);
         } else {
             dataLanguage = "en";
-        } *             (C) 2014 by Jeremy Whiting <jpwhiting
+        }
 
     }
 

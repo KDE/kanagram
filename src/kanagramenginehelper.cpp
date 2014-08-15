@@ -20,8 +20,6 @@
 
 #include "kanagramenginehelper.h"
 
-#include <kanagramsettings.h>
-
 #include <sharedkvtmlfiles.h>
 
 #include <phonon/MediaObject>
@@ -35,11 +33,13 @@
 #include <KHelpMenu>
 #include <KMessageBox>
 #include <KShortcutsEditor>
-// #include <kspeech.h>
-// #include <ktoolinvocation.h>
-// #include "kspeechinterface.h"
+#ifdef BUIlD_WITH_SPEECH
+#include <kspeech.h>
+#include <ktoolinvocation.h>
+#include "kspeechinterface.h"
+#endif
 
-#include <kanagramsettings.h>
+#include "kanagramsettings.h"
 #include "mainsettings.h"
 #include "vocabsettings.h"
 
