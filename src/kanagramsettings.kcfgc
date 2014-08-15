@@ -3,5 +3,3 @@ ClassName=KanagramSettings
 Mutators=true
 Singleton=true
 Inherits=KCoreConfigSkeleton
-IncludeFiles=\"kanagram_engine_export.h\"
-Visibility=KANAGRAM_ENGINE_EXPORT

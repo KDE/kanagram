@@ -22,8 +22,6 @@
 #ifndef KANAGRAMGAME_H
 #define KANAGRAMGAME_H
 
-#include "kanagram_engine_export.h"
-
 #include <QtCore/QObject>
 #include <QtCore/QStringList>
 #include <QtCore/QHash>
@@ -38,7 +36,7 @@ class KEduVocDocument;
  * @author Joshua Keel <joshuakeel@gmail.com>
  * @author Jeremy Whiting <jpwhiting@kde.org>
  */
-class KANAGRAM_ENGINE_EXPORT KanagramGame : public QObject
+class KanagramGame : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString dataLanguage READ dataLanguage WRITE setDataLanguage NOTIFY dataLanguageChanged)

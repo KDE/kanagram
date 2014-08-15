@@ -26,7 +26,6 @@ find_package(KF5 REQUIRED COMPONENTS
     Config
     ConfigWidgets
     Declarative
-    XmlGui
     KIO
     Sonnet
     NewStuff
