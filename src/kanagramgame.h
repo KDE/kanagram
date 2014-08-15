@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
- *             (C) 2007 by Jeremy Whiting <jpwhiting@kde.org>              *
+ *             (C) 2007-2014 by Jeremy Whiting <jpwhiting@kde.org>         *
  *             (C) 2012 by Laszlo Papp <lpapp@kde.org>                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -25,7 +25,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QStringList>
 #include <QtCore/QHash>
-#include <KDE/KUrl>
+#include <QtCore/QUrl>
 
 #include <krandomsequence.h>
 
@@ -61,10 +61,10 @@ class KanagramGame : public QObject
         QString word() const;
 
         /** Get this anagram's picture hint URL */
-        KUrl picHint();
+        QUrl picHint();
 
         /** Get this anagram's audio URL */
-        KUrl audioFile();
+        QUrl audioFile();
 
         /** Get the current vocabulary file's title */
         QString documentTitle() const;
@@ -149,10 +149,10 @@ class KanagramGame : public QObject
         QString m_hint;
 
         /** The current anagram's picture if any */
-        KUrl m_picHintUrl;
+        QUrl m_picHintUrl;
 
         /** The current anagram's audio if any */
-        KUrl m_audioUrl;
+        QUrl m_audioUrl;
 
         /** The current anagram's answer */
         QString m_originalWord;

@@ -1,6 +1,7 @@
 /******************************************************************************
  * This file is part of the Kanagram project
  * Copyright (c) 2012 Laszlo Papp <lpapp@kde.org>
+ * Copyright (c) 2014 Jeremy Whiting <jpwhiting@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -120,7 +121,7 @@ QString KanagramEngineHelper::anagramOriginalWord()
     {
         // User wants words spoken, but if there's no audio file, play right.ogg
         if (!m_kanagramGame->audioFile().isEmpty())
-            play(m_kanagramGame->audioFile().pathOrUrl());
+            play(m_kanagramGame->audioFile().toLocalFile());
 #ifdef BUIlD_WITH_SPEECH
         else
             say(m_kanagramGame->word());
@@ -175,7 +176,7 @@ bool KanagramEngineHelper::checkWord(QString answer)
             {
                 // User wants words spoken, but if there's no audio file, play right.ogg
                 if (!m_kanagramGame->audioFile().isEmpty())
-                    play(m_kanagramGame->audioFile().pathOrUrl());
+                    play(m_kanagramGame->audioFile().toLocalFile());
 #ifdef BUIlD_WITH_SPEECH
                 else
                     say(m_kanagramGame->word());

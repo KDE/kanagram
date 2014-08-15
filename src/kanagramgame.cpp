@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
- *             (C) 2007 by Jeremy Whiting <jpwhiting@kde.org>              *
+ *             (C) 2007-2014 by Jeremy Whiting <jpwhiting@kde.org>         *
  *             (C) 2012 by Laszlo Papp <lpapp@kde.org>                     *
  *                                                                         *
  *   Portions of this code taken from KMessedWords by Reuben Sutton        *
@@ -26,12 +26,10 @@
 
 #include "kanagramsettings.h"
 
-#include <KDE/KUrl>
 #include <sharedkvtmlfiles.h>
 #include <keduvocdocument.h>
 #include <keduvocexpression.h>
 
-#include <KDE/KUrl>
 #include <KDE/KStandardDirs>
 #include <KLocalizedString>
 
@@ -59,7 +57,8 @@ bool KanagramGame::checkFile()
     {
         emit fileError(m_filename);
         return false;
-    }
+    } *             (C) 2014 by Jeremy Whiting <jpwhiting
+
 
     return true;
 }
@@ -74,7 +73,8 @@ QString KanagramGame::sanitizedDataLanguage() const
             dataLanguage = QLocale::system().uiLanguages().at(0);
         } else {
             dataLanguage = "en";
-        }
+        } *             (C) 2014 by Jeremy Whiting <jpwhiting
+
     }
 
     return dataLanguage;
@@ -102,7 +102,7 @@ void KanagramGame::loadDefaultVocabulary()
             m_document = new KEduVocDocument(this);
 
             ///@todo open returns KEduVocDocument::ErrorCode
-            int result = m_document->open(KUrl(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
+            int result = m_document->open(QUrl::fromLocalFile(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
             if (result != 0) {
                 qDebug() << m_document->errorDescription(result);
             }
@@ -148,7 +148,7 @@ void KanagramGame::useVocabulary(int index)
     delete m_document;
     m_document = new KEduVocDocument(this);
     ///@todo open returns KEduVocDocument::ErrorCode
-    m_document->open(KUrl(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
+    m_document->open(QUrl::fromLocalFile(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
     m_answeredWords.clear();
 }
 
@@ -349,13 +349,13 @@ void KanagramGame::setCurrentCategory(int index)
 }
 
 ////function to return the picture url
-KUrl KanagramGame::picHint()
+QUrl KanagramGame::picHint()
 {
     return m_picHintUrl;
 }
 
 ///function to return the audio url
-KUrl KanagramGame::audioFile()
+QUrl KanagramGame::audioFile()
 {
     return m_audioUrl;
 }
