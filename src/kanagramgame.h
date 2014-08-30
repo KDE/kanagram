@@ -29,7 +29,6 @@
 
 #include <krandomsequence.h>
 
-
 class KEduVocDocument;
 
 /** @brief game api
@@ -39,6 +38,19 @@ class KEduVocDocument;
 class KanagramGame : public QObject
 {
     Q_OBJECT
+    // Get the current anagram, word, hint, picture, and audio
+    Q_PROPERTY(QString anagram READ anagram)
+    Q_PROPERTY(QString word READ word)
+    Q_PROPERTY(QString hint READ hint)
+    Q_PROPERTY(QUrl picHint READ picHint)
+    Q_PROPERTY(QUrl audio READ audioFile)
+
+    // Get the current title
+    Q_PROPERTY(QString title READ documentTitle)
+
+    // Get list of vocabularies (document titles), language names, and current language)
+    Q_PROPERTY(QStringList vocabularies READ vocabularyList)
+    Q_PROPERTY(QStringList languages READ languageNames)
     Q_PROPERTY(QString dataLanguage READ dataLanguage WRITE setDataLanguage NOTIFY dataLanguageChanged)
 
     public:
@@ -48,14 +60,11 @@ class KanagramGame : public QObject
         /** Default destructor */
         ~KanagramGame();
 
-        /** Get the sanitized data language used */
-        QString sanitizedDataLanguage() const;
-
         /** Get the anagram to show */
         QString anagram() const;
 
         /** Get this anagram's hint */
-        Q_INVOKABLE QString hint() const;
+        QString hint() const;
 
         /** Get this anagram's answer */
         QString word() const;
@@ -73,23 +82,16 @@ class KanagramGame : public QObject
         QString filename() const;
 
         /** Get the list of vocabularies */
-        Q_INVOKABLE QStringList vocabularyList() const;
+        QStringList vocabularyList() const;
 
         /** Return the language names found available in the system */
-        Q_INVOKABLE QStringList languageNames();
+        QStringList languageNames();
 
-        /** Get the data language for the kvtml and other strings */
-        Q_INVOKABLE QString dataLanguage() const;
+        /** Get the current data language */
+        QString dataLanguage() const;
 
-        /** Set the data language for the kvtml and other strings */
-        Q_INVOKABLE void setDataLanguage(const QString& dataLanguage);
-
-        /** Get the selected index of the data language in the language list */
-        Q_INVOKABLE int dataLanguageSelectedIndex() const;
-
-        /** Get the index of the current category in the list */
-        Q_INVOKABLE int currentCategory() const;
-
+        /** Get the sanitized data language used */
+        QString sanitizedDataLanguage() const;
 
     public Q_SLOTS:
 
@@ -98,6 +100,9 @@ class KanagramGame : public QObject
 
         /** Set the vocabulary to use according to the desired index value*/
         void useVocabulary(int index);
+
+        /** Set the data language */
+        void setDataLanguage(const QString& dataLanguage);
 
         /** Refresh the list of vocabulary files available
          * from what we find on disk
@@ -116,12 +121,6 @@ class KanagramGame : public QObject
 
         /** Use the previous vocabulary file in the list */
         void previousVocabulary();
-
-        /** Restore the word, set the anagram to the answer */
-        void restoreWord();
-
-        /** Set the index of the current category in the list as the current active one */
-        void setCurrentCategory(int index);
 
     Q_SIGNALS:
 
@@ -157,14 +156,11 @@ class KanagramGame : public QObject
         /** The current anagram's answer */
         QString m_originalWord;
 
-        /** Which index the current filename is in m_fileList */
-        int m_index;
-
-        /** Uppercase Only option in the setting */
-        bool m_uppercaseOnly;
-
         /** The list of vocabulary files */
         QStringList m_fileList;
+
+        /** Which index the current filename is in m_fileList */
+        int m_fileIndex;
 
         /** The list of words that have been answered */
         QStringList m_answeredWords;

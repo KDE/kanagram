@@ -23,7 +23,6 @@
 
 #include "kanagramgame.h"
 
-
 #include "kanagramsettings.h"
 
 #include <sharedkvtmlfiles.h>
@@ -36,7 +35,7 @@
 #include <QLocale>
 #include <QtCore/QFileInfo>
 
-KanagramGame::KanagramGame() : m_index(0), m_document(NULL)
+KanagramGame::KanagramGame() : m_fileIndex(0), m_document(NULL)
 {
     // Get the list of vocabularies
     refreshVocabularyList();
@@ -58,7 +57,6 @@ bool KanagramGame::checkFile()
         emit fileError(m_filename);
         return false;
     }
-
 
     return true;
 }
@@ -133,16 +131,18 @@ void KanagramGame::useVocabulary(const QString &vocabularyname)
 
 void KanagramGame::useVocabulary(int index)
 {
-    if (index > 0 && index < m_fileList.count())
+    if (index < 0)
     {
-        m_index = index;
-        m_filename = m_fileList.at(index);
+        // Use the last
+        index = m_fileList.size() - 1;
     }
-    else
+    else if (index >= m_fileList.size())
     {
-        m_index = 0;
-        m_filename = m_fileList.first();
+        index = 0;
     }
+
+    m_fileIndex = index;
+    m_filename = m_fileList.at(index);
 
     checkFile();
     delete m_document;
@@ -150,23 +150,18 @@ void KanagramGame::useVocabulary(int index)
     ///@todo open returns KEduVocDocument::ErrorCode
     m_document->open(QUrl::fromLocalFile(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
     m_answeredWords.clear();
+    // Save the setting
+    KanagramSettings::setCurrentCategory(index);
 }
 
 void KanagramGame::previousVocabulary()
 {
-    if (m_index == 0)
-    {
-        useVocabulary(m_fileList.size() - 1);
-    }
-    else
-    {
-        useVocabulary(m_index - 1);
-    }
+    useVocabulary(m_fileIndex - 1);
 }
 
 void KanagramGame::nextVocabulary()
 {
-    useVocabulary(m_index + 1);
+    useVocabulary(m_fileIndex + 1);
 }
 
 void KanagramGame::nextAnagram()
@@ -192,9 +187,9 @@ void KanagramGame::nextAnagram()
             translation =  m_document->lesson()->entries(KEduVocLesson::Recursive).at(randomWordIndex)->translation(0);
         }
 
-        // lowercase the entry text so german words that start capitalized will be lowercased
-        m_uppercaseOnly=KanagramSettings::uppercaseOnly();
-        if(m_uppercaseOnly)
+        // Make case consistent so german words that start capitalized will not
+        // be so easy to guess
+        if (KanagramSettings::uppercaseOnly())
         {
            m_originalWord = translation->text().toUpper();
         }
@@ -227,7 +222,7 @@ void KanagramGame::nextAnagram()
 
 QString KanagramGame::filename() const
 {
-    return m_fileList.empty() ? m_filename : m_fileList.at(m_index);
+    return m_fileList.isEmpty() ? m_filename : m_fileList.at(m_fileIndex);
 }
 
 QString KanagramGame::anagram() const
@@ -243,11 +238,6 @@ QString KanagramGame::hint() const
 QString KanagramGame::word() const
 {
     return m_originalWord;
-}
-
-void KanagramGame::restoreWord()
-{
-    m_anagram = m_originalWord;
 }
 
 void KanagramGame::createAnagram()
@@ -294,7 +284,6 @@ QStringList KanagramGame::languageNames()
     QStringList languageNames;
 
     // Get the language names from the language codes
-
     KConfig entry(KStandardDirs::locate("locale", "all_languages"));
 
     foreach (const QString& languageCode, languageCodes)
@@ -326,35 +315,11 @@ void KanagramGame::setDataLanguage(const QString& dataLanguage)
     emit dataLanguageChanged();
 }
 
-int KanagramGame::dataLanguageSelectedIndex() const
-{
-    QStringList languageNames = m_languageCodeNameHash.values();
-    qSort(languageNames);
-
-    return languageNames.indexOf(KanagramSettings::dataLanguage());
-}
-
-int KanagramGame::currentCategory() const
-{
-    return KanagramSettings::currentCategory();
-}
-
-void KanagramGame::setCurrentCategory(int index)
-{
-    if (index > 0 && index < m_fileList.count()) {
-        KanagramSettings::setCurrentCategory(index);
-    } else {
-        KanagramSettings::setCurrentCategory(0);
-    }
-}
-
-////function to return the picture url
 QUrl KanagramGame::picHint()
 {
     return m_picHintUrl;
 }
 
-///function to return the audio url
 QUrl KanagramGame::audioFile()
 {
     return m_audioUrl;

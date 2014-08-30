@@ -398,7 +398,7 @@ Rectangle {
             anchors {
                 top: helpButton.bottom
                 topMargin: blackboard.height / 50
-                left: blackboard.right
+                left: parent.left
             }
             radius: 8
             color: "black"
