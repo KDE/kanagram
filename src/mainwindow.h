@@ -3,6 +3,7 @@
  * Copyright 2011 Sebastian Kügler <sebas@kde.org>
  * Copyright 2011 Marco Martin <mart@kde.org>
  * Copyright 2012 Laszlo Papp <lpapp@kde.org>
+ * Copyright 2014 Jeremy Whiting <jpwhiting@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public

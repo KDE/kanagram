@@ -9,7 +9,7 @@ if(NOT MSVC)
 endif(NOT MSVC)
 
 include(FeatureSummary)
-find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick OpenGL)
+find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick OpenGL WebKit)
 find_package(Qt5 OPTIONAL_COMPONENTS PrintSupport)
 
 find_package(ECM 0.0.9 NO_MODULE REQUIRED)
@@ -27,7 +27,6 @@ find_package(KF5 REQUIRED COMPONENTS
     ConfigWidgets
     Declarative
     KIO
-    Sonnet
     NewStuff
     KDELibs4Support
 )

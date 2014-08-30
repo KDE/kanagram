@@ -543,5 +543,15 @@ Rectangle {
         border{width:parent.width/68.5;color:"#613529"}
         width:parent.width/2; height: parent.height/1.5
         anchors {horizontalCenter:parent.horizontalCenter; top:toolBarTop.bottom}
+        onShowWiki: { wikiPage.url = wikiPage.url="http://en.wikipedia.org/wiki/"+kanagramEngineHelper.anagramOriginalWord();
+                      wikiPage.visible = true;
+                    }
+
+    }
+
+    WikiPage {
+        id: wikiPage
+        visible: false;
+        onClosed: { blackboard.wikiClosed(); }
     }
 }
