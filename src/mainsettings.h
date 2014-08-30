@@ -1,7 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Joshua Keel                                     *
- *   joshuakeel@gmail.com                                                  *
- *                                                                         *
+ *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -36,34 +34,34 @@ Q_OBJECT
 	public:
 		/** default constructor */
 		explicit MainSettings(QWidget *parent);
-		
+
 		/** default destructor */
 		~MainSettings();
-	
+
 	public slots:
-		
+
 		/** save the language setting that has been chosen */
 		void slotUpdateLanguage();
-		
+
 		/** enable the apply button on the config dialog because something has been changed */
 		void slotSetDirty();
-                
+
                 /** toggle advanced settings */
                 void slotToggleAdvancedSettings();
-        
+
     signals:
 
         /** signifies slotUpdateLanguage has completed, so language setting has been saved */
         void settingsChanged();
-	
+
 	private:
-	
+
 		/** get languages from data folders
 		  * populate the language combobox with the names
 		  * also puts the folder name in the userData of the combobox for quick retrieval
 		  */
 		void populateLanguageBox();
-		
+
 		/** cache pointer to config dialog so we can enable the apply button in slotSetDirty */
 		KConfigDialog *m_parent;
 };
