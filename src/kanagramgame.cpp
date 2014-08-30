@@ -35,6 +35,8 @@
 #include <QLocale>
 #include <QtCore/QFileInfo>
 
+#include <QtDebug>
+
 KanagramGame::KanagramGame() : m_fileIndex(0), m_document(NULL)
 {
     // Get the list of vocabularies
@@ -46,6 +48,10 @@ KanagramGame::KanagramGame() : m_fileIndex(0), m_document(NULL)
 
 KanagramGame::~KanagramGame()
 {
+    qDebug() << "Saving settings";
+    // Save any settings that may have changed
+    KanagramSettings::self()->save();
+
     delete m_document;
     m_document = NULL;
 }
@@ -81,29 +87,20 @@ QString KanagramGame::sanitizedDataLanguage() const
 
 void KanagramGame::loadDefaultVocabulary()
 {
-    m_filename = KanagramSettings::defaultVocabulary();
-    if (m_filename.isEmpty() || !QFileInfo(m_filename).exists())
+    int index = KanagramSettings::currentVocabulary();
+    if (index > -1)
     {
-        refreshVocabularyList();
-        nextVocabulary();
+        useVocabulary(index);
     }
     else
     {
-        int index = m_fileList.indexOf(m_filename);
-        if (index > -1)
-        {
-            useVocabulary(index);
-        }
-        else
-        {
-            delete m_document;
-            m_document = new KEduVocDocument(this);
+        delete m_document;
+        m_document = new KEduVocDocument(this);
 
-            ///@todo open returns KEduVocDocument::ErrorCode
-            int result = m_document->open(QUrl::fromLocalFile(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
-            if (result != 0) {
-                qDebug() << m_document->errorDescription(result);
-            }
+        ///@todo open returns KEduVocDocument::ErrorCode
+        int result = m_document->open(QUrl::fromLocalFile(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
+        if (result != 0) {
+            qDebug() << m_document->errorDescription(result);
         }
     }
     nextAnagram();
@@ -152,6 +149,7 @@ void KanagramGame::useVocabulary(int index)
     m_answeredWords.clear();
     // Save the setting
     KanagramSettings::setCurrentVocabulary(index);
+    KanagramSettings::self()->save();
 }
 
 void KanagramGame::previousVocabulary()
@@ -312,6 +310,7 @@ QString KanagramGame::dataLanguage() const
 void KanagramGame::setDataLanguage(const QString& dataLanguage)
 {
     KanagramSettings::setDataLanguage(m_languageCodeNameHash.key(dataLanguage));
+    KanagramSettings::self()->save();
     emit dataLanguageChanged();
 }
 

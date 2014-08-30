@@ -106,9 +106,6 @@ class KanagramEngineHelper : public QObject
         bool useSounds();
         void setUseSounds(bool useSounds);
 
-        QString defaultVocabulary();
-        void setDefaultVocabulary(const QString& defaultVocabulary);
-
     public Q_SLOTS:
         void saveSettings();
 

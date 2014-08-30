@@ -333,9 +333,6 @@ void KanagramEngineHelper::refreshVocabularies()
             play("chalk.ogg");
         }
 
-        // save the default vocab now that it's changed
-        KanagramSettings::setDefaultVocabulary(m_kanagramGame->filename());
-        KanagramSettings::self()->writeConfig();
         m_vocabSettings->refreshView();
     }
 }
@@ -573,17 +570,6 @@ void KanagramEngineHelper::setUseSounds(bool useSounds)
 {
     KanagramSettings::setUseSounds(useSounds);
     emit useSoundsToggled();
-}
-
-QString KanagramEngineHelper::defaultVocabulary()
-{
-    return KanagramSettings::defaultVocabulary();
-}
-
-void KanagramEngineHelper::setDefaultVocabulary(const QString& defaultVocabulary)
-{
-    KanagramSettings::setDefaultVocabulary(defaultVocabulary);
-    emit defaultVocabularyChanged();
 }
 
 void KanagramEngineHelper::saveSettings()

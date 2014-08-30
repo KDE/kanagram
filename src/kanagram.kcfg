@@ -7,7 +7,7 @@
 <group name="kanagram">
 <entry name="currentVocabulary" type="Int">
     <label>This setting stores the currently selected Vocabulary.</label>
-    <default>0</default>
+    <default>-1</default>
 </entry>
 <entry name="hintHideTime" type="String">
         <label>This setting allows you to set in seconds how long Kanagram's hint bubble is shown.</label>
@@ -49,10 +49,6 @@
 <entry name="enablePronunciation" type="Bool">
         <label>Turns pronunciations on/off.</label>
         <default>true</default>
-</entry>
-<entry name="defaultVocabulary" type="Path">
-        <label>Set the default vocabulary</label>
-        <default></default>
 </entry>
 <entry name="dataLanguage" type="String">
         <label>Set the default translation</label>
