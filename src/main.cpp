@@ -59,10 +59,10 @@ int main(int argc, char **argv)
 
     KAboutData::setApplicationData(about);
 
-    MainWindow * mainWindow = new MainWindow();
+    MainWindow mainWindow;
     QSize size(800, 600);
-    mainWindow->setMinimumSize(size);
-    mainWindow->show();
+    mainWindow.setMinimumSize(size);
+    mainWindow.show();
 
     return app.exec();
 }

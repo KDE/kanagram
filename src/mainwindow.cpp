@@ -68,20 +68,12 @@ MainWindow::MainWindow()
 
 MainWindow::~MainWindow()
 {
+    KConfigGroup windowConfig = config("Window");
+    windowConfig.writeEntry("geometry", geometry());
+    windowConfig.writeEntry("windowState", int(windowState()));
+
     delete m_engineHelper;
     delete m_game;
-}
-
-bool MainWindow::event(QEvent *e)
-{
-    int type = e->type();
-    if (type == QEvent::Close) {
-        KConfigGroup windowConfig = config("Window");
-        windowConfig.writeEntry("geometry", geometry());
-        windowConfig.writeEntry("windowState", int(windowState()));
-    }
-
-    return QQuickView::event(e);
 }
 
 KConfigGroup MainWindow::config(const QString &group)

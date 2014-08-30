@@ -24,9 +24,6 @@ Rectangle {
 
     id: screen
 
-    width: 1366
-    height: 768
-
     Image {
         id: background
         anchors.fill: parent
@@ -78,7 +75,7 @@ Rectangle {
                 hoverEnabled: true
                 onEntered: powerButton.state = "onEntered"
                 onExited: powerButton.state = "onExited"
-                onClicked: mainwindow.close()
+                onClicked: application.quit()
             }
 
             states: State {

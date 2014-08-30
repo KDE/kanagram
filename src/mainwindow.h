@@ -37,8 +37,6 @@ class MainWindow : public QQuickView
 public:
     MainWindow();
     ~MainWindow();
-protected:
-    bool event(QEvent *e);
 private:
     KConfigGroup config(const QString &group);
 

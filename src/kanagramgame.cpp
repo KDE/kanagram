@@ -35,8 +35,6 @@
 #include <QLocale>
 #include <QtCore/QFileInfo>
 
-#include <QtDebug>
-
 KanagramGame::KanagramGame() : m_fileIndex(0), m_document(NULL)
 {
     // Get the list of vocabularies
@@ -48,7 +46,6 @@ KanagramGame::KanagramGame() : m_fileIndex(0), m_document(NULL)
 
 KanagramGame::~KanagramGame()
 {
-    qDebug() << "Saving settings";
     // Save any settings that may have changed
     KanagramSettings::self()->save();
 
