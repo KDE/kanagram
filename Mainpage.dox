@@ -10,5 +10,6 @@ Kanagram brings fun anagram puzzles to KDE.
 Kanagram is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are 
 put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the 
 word. Included with Kanagram are several vocabularies ready to play, with many more available from the Internet. 
+A scoring system has been added recently that can be customized from the settings.
 
 */
