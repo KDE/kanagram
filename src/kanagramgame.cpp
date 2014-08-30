@@ -151,7 +151,7 @@ void KanagramGame::useVocabulary(int index)
     m_document->open(QUrl::fromLocalFile(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
     m_answeredWords.clear();
     // Save the setting
-    KanagramSettings::setCurrentCategory(index);
+    KanagramSettings::setCurrentVocabulary(index);
 }
 
 void KanagramGame::previousVocabulary()
