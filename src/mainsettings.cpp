@@ -20,17 +20,16 @@
 
 #include "mainsettings.h"
 
-#include <kconfig.h>
+#include <KConfig>
+#include <KConfigDialog>
 #include <KLocalizedString>
-
-#include <kconfigdialog.h>
-#include <kmessagebox.h>
+#include <KMessageBox>
 
 #include <QPushButton>
+#include <QStandardPaths>
 
 #include <sharedkvtmlfiles.h>
-#include <kanagramsettings.h>
-#include <QStandardPaths>
+#include "kanagramsettings.h"
 
 MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 {
