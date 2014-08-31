@@ -55,10 +55,8 @@ KanagramGame::~KanagramGame()
 
 bool KanagramGame::checkFile()
 {
-    qDebug() << "Checking file exists: " << m_filename;
     if (!QFile::exists(m_filename) && !QFile::exists(QStandardPaths::locate(QStandardPaths::GenericDataLocation, m_filename)))
     {
-        qDebug() << "File with that name in GenericDataLocation doesn't exist";
         emit fileError(m_filename);
         return false;
     }
