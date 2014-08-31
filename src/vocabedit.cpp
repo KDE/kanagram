@@ -26,16 +26,15 @@
 #include <qstring.h>
 #include <qvector.h>
 
-#include <kstandarddirs.h>
-#include <kglobal.h>
-#include <kurl.h>
+
 #include <kmessagebox.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "keduvocdocument.h"
 #include "keduvocexpression.h"
 #include "vocabsettings.h"
 #include <kanagramsettings.h>
+#include <QStandardPaths>
 
 
 VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent), m_fileName("")
@@ -46,7 +45,7 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent
 	{
 		m_fileName = fileName;
 		KEduVocDocument	*doc = new KEduVocDocument(this);
-		doc->open(KUrl::fromPath(m_fileName));
+		doc->open(QUrl::fromLocalFile(m_fileName));
 		for(int i = 0; i < doc->lesson()->entryCount(KEduVocLesson::Recursive); i++)
 		{
 			KEduVocExpression expr = *doc->lesson()->entries(KEduVocLesson::Recursive).value(i);
@@ -93,7 +92,7 @@ void VocabEdit::slotSave()
 	}
 
 	QString fileName = txtVocabName->text().toLower().remove(' ') + ".kvtml";
-    QUrl url = QUrl::fromLocalFile(KGlobal::dirs()->saveLocation("data", "kvtml/" + KanagramSettings::dataLanguage()) + fileName);
+    QUrl url = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "kvtml/" + KanagramSettings::dataLanguage());
 	doc->saveAs(url, KEduVocDocument::Automatic);
 
 	VocabSettings *settings = (VocabSettings*)this->parentWidget();

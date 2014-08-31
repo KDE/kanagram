@@ -18,6 +18,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_D
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
+include(ECMInstallIcons)
 
 find_package(KF5 REQUIRED COMPONENTS
     I18n
@@ -26,11 +27,12 @@ find_package(KF5 REQUIRED COMPONENTS
     Config
     ConfigWidgets
     Declarative
+    DocTools
     KIO
     NewStuff
-    KDELibs4Support
+#    KDELibs4Support
 )
-include_directories (${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE4_INCLUDES})
+include_directories (${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} )
 
 find_package(Phonon4Qt5 4.6.60 NO_MODULE)
 

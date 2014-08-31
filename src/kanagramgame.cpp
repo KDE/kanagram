@@ -29,11 +29,11 @@
 #include <keduvocdocument.h>
 #include <keduvocexpression.h>
 
-#include <KDE/KStandardDirs>
 #include <KLocalizedString>
 
 #include <QLocale>
 #include <QtCore/QFileInfo>
+#include <QStandardPaths>
 
 KanagramGame::KanagramGame() : m_fileIndex(0), m_document(NULL)
 {
@@ -55,8 +55,10 @@ KanagramGame::~KanagramGame()
 
 bool KanagramGame::checkFile()
 {
-    if (!QFile::exists(KStandardDirs::locate("data", m_filename)))
+    qDebug() << "Checking file exists: " << m_filename;
+    if (!QFile::exists(m_filename) && !QFile::exists(QStandardPaths::locate(QStandardPaths::GenericDataLocation, m_filename)))
     {
+        qDebug() << "File with that name in GenericDataLocation doesn't exist";
         emit fileError(m_filename);
         return false;
     }
@@ -94,8 +96,9 @@ void KanagramGame::loadDefaultVocabulary()
         delete m_document;
         m_document = new KEduVocDocument(this);
 
+        qDebug() << "Opening document from " << m_filename;
         ///@todo open returns KEduVocDocument::ErrorCode
-        int result = m_document->open(QUrl::fromLocalFile(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
+        int result = m_document->open(QUrl::fromLocalFile(m_filename), KEduVocDocument::FileIgnoreLock);
         if (result != 0) {
             qDebug() << m_document->errorDescription(result);
         }
@@ -142,7 +145,7 @@ void KanagramGame::useVocabulary(int index)
     delete m_document;
     m_document = new KEduVocDocument(this);
     ///@todo open returns KEduVocDocument::ErrorCode
-    m_document->open(QUrl::fromLocalFile(KStandardDirs::locate("data", m_filename)), KEduVocDocument::FileIgnoreLock);
+    m_document->open(QUrl::fromLocalFile(m_filename), KEduVocDocument::FileIgnoreLock);
     m_answeredWords.clear();
     // Save the setting
     KanagramSettings::setCurrentVocabulary(index);
@@ -279,7 +282,7 @@ QStringList KanagramGame::languageNames()
     QStringList languageNames;
 
     // Get the language names from the language codes
-    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
+    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
 
     foreach (const QString& languageCode, languageCodes)
     {

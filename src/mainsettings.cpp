@@ -20,10 +20,9 @@
 
 #include "mainsettings.h"
 
-#include <kdebug.h>
 #include <kconfig.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
+#include <KLocalizedString>
+
 #include <kconfigdialog.h>
 #include <kmessagebox.h>
 
@@ -31,6 +30,7 @@
 
 #include <sharedkvtmlfiles.h>
 #include <kanagramsettings.h>
+#include <QStandardPaths>
 
 MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 {
@@ -44,7 +44,7 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
     populateLanguageBox();
 
     //the language code/name
-    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
+    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
     QString code = KanagramSettings::dataLanguage();
     KConfigGroup group = entry.group(code);
     // select the current language
@@ -77,7 +77,7 @@ void MainSettings::populateLanguageBox()
     QStringList languages = SharedKvtmlFiles::languages();
 
     //the language code/name
-    KConfig entry(KStandardDirs::locate("locale", "all_languages"));
+    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
     for (int i = 0; i < languages.count(); ++i)
     {
         KConfigGroup group = entry.group(languages[i]);
@@ -96,7 +96,7 @@ void MainSettings::slotUpdateLanguage()
 {
     int index = languageComboBox->currentIndex();
     QString language = languageComboBox->itemData(index).toString();
-    kDebug() << "Writing new default language: " << language;
+    qDebug() << "Writing new default language: " << language;
     KanagramSettings::setDataLanguage(language);
     KanagramSettings::self()->writeConfig();
 

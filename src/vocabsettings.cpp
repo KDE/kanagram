@@ -21,7 +21,7 @@
 #include "vocabsettings.h"
 #include "vocabedit.h"
 
-#include <kstandarddirs.h>
+
 #include <kconfigdialog.h>
 #include <qfileinfo.h>
 

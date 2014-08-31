@@ -25,13 +25,10 @@
 
 #include <phonon/MediaObject>
 
-#include <KDE/KStandardDirs>
-#include <KDE/KLocale>
-#include <KGlobalSettings>
 #include <KConfigDialog>
-#include <KAction>
 #include <KActionCollection>
 #include <KHelpMenu>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KShortcutsEditor>
 #ifdef BUIlD_WITH_SPEECH
@@ -44,8 +41,9 @@
 #include "mainsettings.h"
 #include "vocabsettings.h"
 
-
+#include <QAction>
 #include <QApplication>
+#include <QStandardPaths>
 
 KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* parent)
     : QObject(parent)
@@ -347,7 +345,7 @@ void KanagramEngineHelper::play(const QString& filename)
 {
     if (!filename.isEmpty())
     {
-        QString soundFile = KStandardDirs::locate("appdata", "sounds/" + filename);
+        QString soundFile = QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/" + filename);
         if (soundFile.isEmpty())
             soundFile = filename;
 

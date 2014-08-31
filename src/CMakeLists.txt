@@ -16,13 +16,13 @@ include_directories(
     ${PHONON_INCLUDES}
 )
 
-kde4_add_ui_files(kanagram_SRCS
+qt5_wrap_ui(kanagram_SRCS
     vocabsettingswidget.ui
     vocabeditwidget.ui
     mainsettingswidget.ui
 )
 
-kde4_add_kcfg_files(kanagram_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kanagramsettings.kcfgc)
+kconfig_add_kcfg_files(kanagram_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kanagramsettings.kcfgc)
 # qt5_add_dbus_interfaces(kanagram_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml )
 add_executable(kanagram ${kanagram_SRCS})
 
@@ -33,7 +33,6 @@ target_link_libraries(kanagram
     KF5::I18n
     KF5::NewStuff
     KF5::SonnetCore
-    KF5::KDELibs4Support
     KF5::Declarative
     LibKEduVocDocumentImport__KEduVocDocument
     Phonon::phonon4qt5
