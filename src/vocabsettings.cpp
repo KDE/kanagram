@@ -19,20 +19,18 @@
  ***************************************************************************/
 
 #include "vocabsettings.h"
-#include "vocabedit.h"
 
+#include <KConfigDialog>
+#include <KNS3/DownloadDialog>
 
-#include <kconfigdialog.h>
-#include <qfileinfo.h>
-
-#include <kns3/downloaddialog.h>
-#include <kns3/button.h>
 #include <sharedkvtmlfiles.h>
-#include <keduvocdocument.h>
-#include <kanagramsettings.h>
 
 #include <QIcon>
+#include <QFileInfo>
 #include <QtCore/QPointer>
+
+#include "kanagramsettings.h"
+#include "vocabedit.h"
 
 VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
 {
@@ -55,11 +53,12 @@ void VocabSettings::refreshView()
     lviewVocab->clear();
 
     SharedKvtmlFiles::sortDownloadedFiles();
-    m_fileList = SharedKvtmlFiles::fileNames(KanagramSettings::dataLanguage());
-    m_titleList = SharedKvtmlFiles::titles(KanagramSettings::dataLanguage());
-    m_commentList = SharedKvtmlFiles::comments(KanagramSettings::dataLanguage());
+    QString language = KanagramSettings::dataLanguage();
+    m_fileList = SharedKvtmlFiles::fileNames(language);
+    m_titleList = SharedKvtmlFiles::titles(language);
+    m_commentList = SharedKvtmlFiles::comments(language);
 
-    for(int i = 0; i < m_fileList.size(); i++)
+    for (int i = 0; i < m_fileList.size(); i++)
     {
         QTreeWidgetItem *item = new QTreeWidgetItem(lviewVocab, 0);
         item->setText( 0, m_titleList[i] );
@@ -71,7 +70,7 @@ void VocabSettings::refreshView()
 
 void VocabSettings::on_btnEdit_clicked()
 {
-    if(lviewVocab->currentItem())
+    if (lviewVocab->currentItem())
     {
         int index = m_itemMap[lviewVocab->currentItem()];
         VocabEdit *vocabEdit = new VocabEdit(this, m_fileList[index]);
@@ -89,18 +88,18 @@ void VocabSettings::on_btnCreateNew_clicked()
 
 void VocabSettings::on_btnDownloadNew_clicked()
 {
-    QPointer<KNS3::DownloadDialog> hotNewStuffdialog = new KNS3::DownloadDialog( "kanagram.knsrc" );
-    hotNewStuffdialog->exec();
-    if ( hotNewStuffdialog->changedEntries().size() > 0 ){
+    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog( "kanagram.knsrc" );
+    dialog->exec();
+    if ( dialog->changedEntries().size() > 0 ){
         refreshView();
     }
 
-    delete hotNewStuffdialog;
+    delete dialog;
 }
 
 void VocabSettings::slotSelectionChanged(QTreeWidgetItem *item)
 {
-    int index = m_itemMap[item];
+    int index = m_itemMap.value(item);
     bool writeable = QFileInfo(m_fileList[index]).isWritable();
     btnEdit->setEnabled(writeable);
 }

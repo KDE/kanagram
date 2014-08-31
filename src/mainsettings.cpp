@@ -37,8 +37,7 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
     m_parent = (KConfigDialog*)parent;
 
     slotToggleAdvancedSettings();
-    connect(parent, SIGNAL(applyClicked()), this, SLOT(slotUpdateLanguage()));
-    connect(parent, SIGNAL(okClicked()), this, SLOT(slotUpdateLanguage()));
+    connect(parent, SIGNAL(settingsChanged(QString)), this, SLOT(slotUpdateLanguage()));
     connect(languageComboBox, SIGNAL(activated(int)), this, SLOT(slotSetDirty()));
     connect(scoringPointCheckbox,SIGNAL(toggled(bool)),this,SLOT(slotToggleAdvancedSettings()));
     populateLanguageBox();
