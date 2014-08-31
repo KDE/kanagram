@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
+ *   Copyright (C) 2014 by Jeremy Whiting <jpwhiting@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -31,39 +32,39 @@ class KConfigDialog;
 class MainSettings : public QWidget, Ui::MainSettingsWidget
 {
 Q_OBJECT
-	public:
-		/** default constructor */
-		explicit MainSettings(QWidget *parent);
+public:
+    /** default constructor */
+    explicit MainSettings(QWidget *parent);
 
-		/** default destructor */
-		~MainSettings();
+    /** default destructor */
+    ~MainSettings();
 
-	public slots:
+public slots:
 
-		/** save the language setting that has been chosen */
-		void slotUpdateLanguage();
+    /** save the language setting that has been chosen */
+    void slotUpdateLanguage();
 
-		/** enable the apply button on the config dialog because something has been changed */
-		void slotSetDirty();
+    /** enable the apply button on the config dialog because something has been changed */
+    void slotSetDirty();
 
-                /** toggle advanced settings */
-                void slotToggleAdvancedSettings();
+    /** toggle advanced settings */
+    void slotToggleAdvancedSettings();
 
-    signals:
+signals:
 
-        /** signifies slotUpdateLanguage has completed, so language setting has been saved */
-        void settingsChanged();
+    /** signifies slotUpdateLanguage has completed, so language setting has been saved */
+    void settingsChanged();
 
-	private:
+private:
 
-		/** get languages from data folders
-		  * populate the language combobox with the names
-		  * also puts the folder name in the userData of the combobox for quick retrieval
-		  */
-		void populateLanguageBox();
+    /** get languages from data folders
+      * populate the language combobox with the names
+      * also puts the folder name in the userData of the combobox for quick retrieval
+      */
+    void populateLanguageBox();
 
-		/** cache pointer to config dialog so we can enable the apply button in slotSetDirty */
-		KConfigDialog *m_parent;
+    /** cache pointer to config dialog so we can enable the apply button in slotSetDirty */
+    KConfigDialog *m_parent;
 };
 
 #endif

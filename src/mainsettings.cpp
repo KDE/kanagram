@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
- *             (C) 2007 by Jeremy Whiting <jpwhiting@kde.org>              *
+ *             (C) 2007-2014 by Jeremy Whiting <jpwhiting@kde.org>         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -36,17 +36,19 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 {
     setupUi( this );
     m_parent = (KConfigDialog*)parent;
+
     slotToggleAdvancedSettings();
     connect(parent, SIGNAL(applyClicked()), this, SLOT(slotUpdateLanguage()));
     connect(parent, SIGNAL(okClicked()), this, SLOT(slotUpdateLanguage()));
     connect(languageComboBox, SIGNAL(activated(int)), this, SLOT(slotSetDirty()));
-    connect(scoringOptions,SIGNAL(toggled(bool)),this,SLOT(slotToggleAdvancedSettings()));
+    connect(scoringPointCheckbox,SIGNAL(toggled(bool)),this,SLOT(slotToggleAdvancedSettings()));
     populateLanguageBox();
 
     //the language code/name
     KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
     QString code = KanagramSettings::dataLanguage();
     KConfigGroup group = entry.group(code);
+
     // select the current language
     languageComboBox->setCurrentIndex(languageComboBox->findText(group.readEntry("Name")));
 }
@@ -62,14 +64,15 @@ void MainSettings::slotSetDirty()
 
 void MainSettings::slotToggleAdvancedSettings()
 {
-    textCorrectAnswer->setVisible(scoringOptions->isChecked());
-    kcfg_correctAnswerScore->setVisible(scoringOptions->isChecked());
-    textIncorrectAnswer->setVisible(scoringOptions->isChecked());
-    kcfg_incorrectAnswerScore->setVisible(scoringOptions->isChecked());
-    textRevealAnswer->setVisible(scoringOptions->isChecked());
-    kcfg_revealAnswerScore->setVisible(scoringOptions->isChecked());
-    textSkippedWord->setVisible(scoringOptions->isChecked());
-    kcfg_skippedWordScore->setVisible(scoringOptions->isChecked());
+    bool enable = scoringPointCheckbox->isChecked();
+    textCorrectAnswer->setVisible(enable);
+    kcfg_correctAnswerScore->setVisible(enable);
+    textIncorrectAnswer->setVisible(enable);
+    kcfg_incorrectAnswerScore->setVisible(enable);
+    textRevealAnswer->setVisible(enable);
+    kcfg_revealAnswerScore->setVisible(enable);
+    textSkippedWord->setVisible(enable);
+    kcfg_skippedWordScore->setVisible(enable);
 }
 
 void MainSettings::populateLanguageBox()
@@ -98,7 +101,7 @@ void MainSettings::slotUpdateLanguage()
     QString language = languageComboBox->itemData(index).toString();
     qDebug() << "Writing new default language: " << language;
     KanagramSettings::setDataLanguage(language);
-    KanagramSettings::self()->writeConfig();
+    KanagramSettings::self()->save();
 
     emit settingsChanged();
 }
