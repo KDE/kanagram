@@ -31,7 +31,7 @@ class VocabSettings;
 
 #include "mainsettings.h"
 #include "vocabsettings.h"
-#ifdef BUIlD_WITH_SPEECH
+#ifdef BUILD_WITH_SPEECH
 #include "kspeechinterface.h"
 #endif
 

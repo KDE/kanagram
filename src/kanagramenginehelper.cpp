@@ -50,7 +50,7 @@ KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* 
     , m_kanagramGame(kanagramGame)
     ,m_speller(NULL)
     ,m_player(NULL)
-#ifdef BUIlD_WITH_SPEECH
+#ifdef BUILD_WITH_SPEECH
     ,m_kspeech(0)
 #endif
     , m_insertCounter(0)
@@ -60,7 +60,7 @@ KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* 
     m_speller->setLanguage(m_kanagramGame->sanitizedDataLanguage());
 
     loadSettings();
-#ifdef BUIlD_WITH_SPEECH
+#ifdef BUILD_WITH_SPEECH
     setupJovie();
 #endif
 }
@@ -120,7 +120,7 @@ QString KanagramEngineHelper::anagramOriginalWord()
         // User wants words spoken, but if there's no audio file, play right.ogg
         if (!m_kanagramGame->audioFile().isEmpty())
             play(m_kanagramGame->audioFile().toLocalFile());
-#ifdef BUIlD_WITH_SPEECH
+#ifdef BUILD_WITH_SPEECH
         else
             say(m_kanagramGame->word());
 #endif
@@ -175,7 +175,7 @@ bool KanagramEngineHelper::checkWord(QString answer)
                 // User wants words spoken, but if there's no audio file, play right.ogg
                 if (!m_kanagramGame->audioFile().isEmpty())
                     play(m_kanagramGame->audioFile().toLocalFile());
-#ifdef BUIlD_WITH_SPEECH
+#ifdef BUILD_WITH_SPEECH
                 else
                     say(m_kanagramGame->word());
 #endif
@@ -422,7 +422,7 @@ int KanagramEngineHelper::skippedWordScore()
     return ((m_skippedWordScore + 1)*(-2));
 }
 
-#ifdef BUIlD_WITH_SPEECH
+#ifdef BUILD_WITH_SPEECH
 void KanagramEngineHelper::setupJovie()
 {
     // If KTTSD not running, start it.
