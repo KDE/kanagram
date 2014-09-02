@@ -136,15 +136,13 @@ Rectangle {
                 onEntered: nextAnagramButton.state = "onEntered"
                 onExited: nextAnagramButton.state = "onExited"
                 onClicked: {
+                    kanagramGame.nextAnagram();
                     if (blackboard.activeTimer) {
                         kanagramEngineHelper.increaseScore(
                                     kanagramEngineHelper.skippedWordScore())
                         blackboard.totalScore = i18n(
                                     "Score : ") + kanagramEngineHelper.totalScore()
                     }
-                    blackboard.anagramText = kanagramEngineHelper.createNextAnagram(
-                                )
-                    blackboard.hint = kanagramEngineHelper.showHint()
                     if (kanagramEngineHelper.hintHideTime())
                         blackboard.showHintTimeInterval = 1
                 }
@@ -673,8 +671,7 @@ Rectangle {
             if (--input.countDownTimerValue == 0) {
                 input.color = "white"
                 if (input.flagCorrectAnswer) {
-                    blackboard.anagramText = kanagramEngineHelper.createNextAnagram()
-                    blackboard.hint = kanagramEngineHelper.showHint()
+                    kanagramGame.nextAnagram();
                     if (kanagramEngineHelper.hintHideTime())
                         blackboard.showHintTimeInterval = 1
                 }

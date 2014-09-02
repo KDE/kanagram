@@ -31,6 +31,10 @@
 
 class KEduVocDocument;
 
+namespace Phonon {
+    class MediaObject;
+}
+
 /** @brief game api
  * @author Joshua Keel <joshuakeel@gmail.com>
  * @author Jeremy Whiting <jpwhiting@kde.org>
@@ -39,14 +43,14 @@ class KanagramGame : public QObject
 {
     Q_OBJECT
     // Get the current anagram, word, hint, picture, and audio
-    Q_PROPERTY(QString anagram READ anagram)
-    Q_PROPERTY(QString word READ word)
-    Q_PROPERTY(QString hint READ hint)
-    Q_PROPERTY(QUrl picHint READ picHint)
-    Q_PROPERTY(QUrl audio READ audioFile)
+    Q_PROPERTY(QString anagram READ anagram NOTIFY wordChanged)
+    Q_PROPERTY(QString word READ word NOTIFY wordChanged)
+    Q_PROPERTY(QString hint READ hint NOTIFY wordChanged)
+    Q_PROPERTY(QUrl picHint READ picHint NOTIFY wordChanged)
+    Q_PROPERTY(QUrl audio READ audioFile NOTIFY wordChanged)
 
     // Get the current title
-    Q_PROPERTY(QString title READ documentTitle)
+    Q_PROPERTY(QString title READ documentTitle NOTIFY titleChanged)
 
     // Get list of vocabularies (document titles), language names, and current language)
     Q_PROPERTY(QStringList vocabularies READ vocabularyList)
@@ -130,6 +134,11 @@ class KanagramGame : public QObject
         /** Signal the ui that the data language has changed */
         void dataLanguageChanged();
 
+        /** Signal the ui that the current document title has changed */
+        void titleChanged();
+
+        /** Signal the ui that the anagram, word, hint, picHint, and audioUrl changed */
+        void wordChanged();
     private:
 
         /** Make the word into an anagram */
@@ -137,6 +146,9 @@ class KanagramGame : public QObject
 
         /** Check the current file */
         bool checkFile();
+
+        /** Play a media file via Phonon */
+        void play(const QString &filename);
 
         /** Random sequence used to scramble the letters */
         KRandomSequence m_random;
@@ -173,6 +185,10 @@ class KanagramGame : public QObject
 
         /** The hash of the language code and name */
         QHash<QString, QString> m_languageCodeNameHash;
+
+        /** audio player to use for playing sounds */
+        Phonon::MediaObject *m_player;
+
 };
 
 #endif

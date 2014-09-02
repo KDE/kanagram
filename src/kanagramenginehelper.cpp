@@ -73,19 +73,6 @@ KanagramEngineHelper::~KanagramEngineHelper()
     m_player=NULL;
 }
 
-QString KanagramEngineHelper::createNextAnagram()
-{
-    m_kanagramGame->nextAnagram();
-    QString anagram;
-    anagram = m_kanagramGame->anagram();
-    if (m_useSounds)
-        {
-            play("chalk.ogg");
-        }
-    qDebug() << "Next anagram is " << anagram;
-    return anagram;
-}
-
 QStringList KanagramEngineHelper::insertInCurrentOriginalWord(int index, const QString& letter)
 {
     int anagramWordSize = m_kanagramGame->word().size();
@@ -127,39 +114,6 @@ QString KanagramEngineHelper::anagramOriginalWord()
     }
     return originalWord;
 }
-
-QString KanagramEngineHelper::showHint() const
-{
-    QString hint = m_kanagramGame->hint();
-    return hint;
-}
-
-QString KanagramEngineHelper::categoryName() const
-{
-    QString categoryTitle = m_kanagramGame->documentTitle();
-    return categoryTitle;
-}
-
-QString KanagramEngineHelper::nextVocabulary()
-{
-    m_kanagramGame->nextVocabulary();
-    if (m_useSounds)
-        {
-            play("chalk.ogg");
-        }
-    return m_kanagramGame->documentTitle();
-}
-
-QString KanagramEngineHelper::previousVocabulary()
-{
-    m_kanagramGame->previousVocabulary();
-    if (m_useSounds)
-        {
-            play("chalk.ogg");
-        }
-    return m_kanagramGame->documentTitle();
-}
-
 
 bool KanagramEngineHelper::checkWord(QString answer)
 {

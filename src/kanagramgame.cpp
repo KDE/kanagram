@@ -30,12 +30,13 @@
 #include <keduvocexpression.h>
 
 #include <KLocalizedString>
+#include <phonon/MediaObject>
 
 #include <QLocale>
 #include <QtCore/QFileInfo>
 #include <QStandardPaths>
 
-KanagramGame::KanagramGame() : m_fileIndex(0), m_document(NULL)
+KanagramGame::KanagramGame() : m_fileIndex(0), m_document(NULL), m_player(NULL)
 {
     // Get the list of vocabularies
     refreshVocabularyList();
@@ -51,6 +52,8 @@ KanagramGame::~KanagramGame()
 
     delete m_document;
     m_document = NULL;
+    delete m_player;
+    m_player = NULL;
 }
 
 bool KanagramGame::checkFile()
@@ -126,6 +129,7 @@ void KanagramGame::useVocabulary(const QString &vocabularyname)
 
 void KanagramGame::useVocabulary(int index)
 {
+    int previous = m_fileIndex;
     if (index < 0)
     {
         // Use the last
@@ -139,15 +143,18 @@ void KanagramGame::useVocabulary(int index)
     m_fileIndex = index;
     m_filename = m_fileList.at(index);
 
-    checkFile();
-    delete m_document;
-    m_document = new KEduVocDocument(this);
-    ///@todo open returns KEduVocDocument::ErrorCode
-    m_document->open(QUrl::fromLocalFile(m_filename), KEduVocDocument::FileIgnoreLock);
-    m_answeredWords.clear();
-    // Save the setting
-    KanagramSettings::setCurrentVocabulary(index);
-    KanagramSettings::self()->save();
+    if (m_fileIndex != previous) {
+        checkFile();
+        delete m_document;
+        m_document = new KEduVocDocument(this);
+        ///@todo open returns KEduVocDocument::ErrorCode
+        m_document->open(QUrl::fromLocalFile(m_filename), KEduVocDocument::FileIgnoreLock);
+        m_answeredWords.clear();
+        // Save the setting
+        KanagramSettings::setCurrentVocabulary(index);
+        KanagramSettings::self()->save();
+        emit titleChanged();
+    }
 }
 
 void KanagramGame::previousVocabulary()
@@ -214,6 +221,7 @@ void KanagramGame::nextAnagram()
         m_audioUrl = "";
         // TODO: add some error reporting here
     }
+    emit wordChanged();
 }
 
 QString KanagramGame::filename() const
@@ -257,6 +265,11 @@ void KanagramGame::createAnagram()
         m_anagram = anagram;
     } else {
         m_anagram = m_originalWord;
+    }
+
+    if (KanagramSettings::useSounds())
+    {
+        play("chalk.ogg");
     }
 }
 
@@ -321,3 +334,24 @@ QUrl KanagramGame::audioFile()
 {
     return m_audioUrl;
 }
+
+void KanagramGame::play(const QString& filename)
+{
+    if (!filename.isEmpty())
+    {
+        QString soundFile = QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/" + filename);
+        if (soundFile.isEmpty())
+            soundFile = filename;
+
+        if (!m_player)
+        {
+            m_player = Phonon::createPlayer(Phonon::GameCategory, QUrl::fromLocalFile(soundFile));
+        }
+        else
+        {
+            m_player->setCurrentSource(QUrl::fromLocalFile(soundFile));
+        }
+        m_player->play();
+    }
+}
+

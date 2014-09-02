@@ -25,7 +25,6 @@ Rectangle {
     id: blackboard
     radius: 4
     property alias anagramText: anagram.text
-    property alias hint: anagramHint.text
     property alias showHintTimeInterval: hintButton.countDownTimerValue
     property alias activeTimer: scoreTimer.running
     property alias totalScore: score.text
@@ -72,7 +71,7 @@ Rectangle {
             horizontalCenter: categoryBar.horizontalCenter
         }
         color: "white"
-        text: kanagramEngineHelper.categoryName()
+        text: kanagramGame.title
         font.pixelSize: parent.width / 19.5
     }
 
@@ -95,15 +94,14 @@ Rectangle {
             onEntered: nextVocabularyButton.state = "onEntered"
             onExited: nextVocabularyButton.state = "onExited"
             onClicked: {
+                kanagramGame.nextVocabulary();
+                kanagramGame.nextAnagram();
                 if (blackboard.activeTimer) {
                     kanagramEngineHelper.increaseScore(
                                 kanagramEngineHelper.skippedWordScore())
                     blackboard.totalScore = i18n(
                                 "Score : ") + kanagramEngineHelper.totalScore()
                 }
-                categoryName.text = kanagramEngineHelper.nextVocabulary()
-                anagram.text = kanagramEngineHelper.createNextAnagram()
-                anagramHint.text = kanagramEngineHelper.showHint()
                 if (kanagramEngineHelper.hintHideTime())
                     hintButton.countDownTimerValue = 1
             }
@@ -149,15 +147,14 @@ Rectangle {
             onEntered: previousVocabularyButton.state = "onEntered"
             onExited: previousVocabularyButton.state = "onExited"
             onClicked: {
+                kanagramGame.previousVocabulary();
+                kanagramGame.nextAnagram();
                 if (blackboard.activeTimer) {
                     kanagramEngineHelper.increaseScore(
                                 kanagramEngineHelper.skippedWordScore())
                     blackboard.totalScore = i18n(
                                 "Score : ") + kanagramEngineHelper.totalScore()
                 }
-                categoryName.text = kanagramEngineHelper.previousVocabulary()
-                anagram.text = kanagramEngineHelper.createNextAnagram()
-                anagramHint.text = kanagramEngineHelper.showHint()
                 if (kanagramEngineHelper.hintHideTime())
                     hintButton.countDownTimerValue = 1
             }
@@ -186,7 +183,7 @@ Rectangle {
 
     Text {
         id: anagram
-        text: kanagramEngineHelper.createNextAnagram()
+        text: kanagramGame.anagram
         anchors {
             verticalCenter: parent.verticalCenter
             horizontalCenter: parent.horizontalCenter
@@ -432,7 +429,7 @@ Rectangle {
         color: "white"
         width: hintSection.width
         wrapMode: Text.WordWrap
-        text: kanagramEngineHelper.showHint()
+        text: kanagramGame.hint
         opacity: 0
         font.pixelSize: hintSection.width / 10
     }
@@ -636,9 +633,7 @@ Rectangle {
 
         onTriggered: {
             if (--revealButton.countDownTimerValue == 0) {
-                blackboard.anagramText = kanagramEngineHelper.createNextAnagram(
-                            )
-                blackboard.hint = kanagramEngineHelper.showHint()
+                blackboard.anagramText = kanagramEngineHelper.createNextAnagram()
                 if (kanagramEngineHelper.hintHideTime())
                     blackboard.showHintTimeInterval = 1
                 stop()

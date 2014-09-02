@@ -47,14 +47,9 @@ class KanagramEngineHelper : public QObject
         explicit KanagramEngineHelper(KanagramGame *kanagramGame, QObject* parent = 0);
         ~KanagramEngineHelper();
 
-        Q_INVOKABLE QString createNextAnagram();
         Q_INVOKABLE QStringList insertInCurrentOriginalWord(int index, const QString& letter);
         Q_INVOKABLE QStringList removeInCurrentOriginalWord(int index);
         Q_INVOKABLE QString anagramOriginalWord();
-        Q_INVOKABLE QString showHint() const;
-        Q_INVOKABLE QString categoryName() const;
-        Q_INVOKABLE QString nextVocabulary();
-        Q_INVOKABLE QString previousVocabulary();
         Q_INVOKABLE bool checkWord(QString answer);
         bool isAnagram(QString& enteredword, QString& word);
         int getNumericSetting(QString settingString);
@@ -103,7 +98,6 @@ class KanagramEngineHelper : public QObject
         void hintHideTimeChanged();
         void resolveTimeChanged();
         void useSoundsToggled();
-        void defaultVocabularyChanged();
 
     private:
         KanagramGame *m_kanagramGame;
