@@ -138,12 +138,9 @@ Rectangle {
                 onClicked: {
                     kanagramGame.nextAnagram();
                     if (blackboard.activeTimer) {
-                        kanagramEngineHelper.increaseScore(
-                                    kanagramEngineHelper.skippedWordScore())
-                        blackboard.totalScore = i18n(
-                                    "Score : ") + kanagramEngineHelper.totalScore()
+                        kanagramGame.answerSkipped();
                     }
-                    if (kanagramEngineHelper.hintHideTime())
+                    if (kanagramGame.hintHideTime())
                         blackboard.showHintTimeInterval = 1
                 }
             }
@@ -632,15 +629,12 @@ Rectangle {
         property int countDownTimerValue: 0
         property bool flagCorrectAnswer: true
         onAccepted: {
-            if (kanagramEngineHelper.checkWord(text)) {
+            if (kanagramGame.checkWord(text)) {
                 input.color = "green"
                 input.countDownTimerValue = 1
                 input.flagCorrectAnswer = true
                 if (blackboard.activeTimer) {
-                    kanagramEngineHelper.increaseScore(
-                                kanagramEngineHelper.correctAnswerScore())
-                    blackboard.totalScore = i18n(
-                                "Score : ") + kanagramEngineHelper.totalScore()
+                    kanagramGame.answerCorrect();
                 }
                 showAnswerTimer.repeat = true
                 showAnswerTimer.start()
@@ -649,10 +643,7 @@ Rectangle {
                 input.countDownTimerValue = 1
                 input.flagCorrectAnswer = false
                 if (blackboard.activeTimer) {
-                    kanagramEngineHelper.increaseScore(
-                                kanagramEngineHelper.incorrectAnswerScore())
-                    blackboard.totalScore = i18n(
-                                "Score : ") + kanagramEngineHelper.totalScore()
+                    kanagramGame.answerIncorrect();
                 }
                 showAnswerTimer.repeat = true
                 showAnswerTimer.start()
@@ -672,7 +663,7 @@ Rectangle {
                 input.color = "white"
                 if (input.flagCorrectAnswer) {
                     kanagramGame.nextAnagram();
-                    if (kanagramEngineHelper.hintHideTime())
+                    if (kanagramGame.hintHideTime())
                         blackboard.showHintTimeInterval = 1
                 }
                 input.text = ""
@@ -695,7 +686,7 @@ Rectangle {
         }
         onShowWiki: {
             wikiPage.url = wikiPage.url = "http://en.wikipedia.org/wiki/"
-                    + kanagramEngineHelper.anagramOriginalWord()
+                    + kanagramGame.word
             wikiPage.visible = true
         }
     }

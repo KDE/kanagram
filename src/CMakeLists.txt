@@ -1,6 +1,5 @@
 set(kanagram_SRCS
     kanagramgame.cpp
-    kanagramenginehelper.cpp
     main.cpp
     mainwindow.cpp
     mainsettings.cpp

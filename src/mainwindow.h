@@ -28,7 +28,6 @@
 #include <KConfigGroup>
 
 class KanagramGame;
-class KanagramEngineHelper;
 class KConfigDialog;
 class KHelpMenu;
 class QEvent;
@@ -53,7 +52,6 @@ private:
     KConfigGroup config(const QString &group);
 
     KanagramGame *m_game;
-    KanagramEngineHelper *m_engineHelper;
 
     /** settings dialog */
     KConfigDialog *m_configDialog;

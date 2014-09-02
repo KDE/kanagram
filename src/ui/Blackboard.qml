@@ -24,19 +24,15 @@ Rectangle {
 
     id: blackboard
     radius: 4
-    property alias anagramText: anagram.text
     property alias showHintTimeInterval: hintButton.countDownTimerValue
     property alias activeTimer: scoreTimer.running
-    property alias totalScore: score.text
 
     signal showWiki
 
     function wikiClosed() {
         wikiButton.wikiLinkActivated = false
         if (activeTimer) {
-            kanagramEngineHelper.increaseScore(
-                        kanagramEngineHelper.revealAnswerScore())
-            totalScore = i18n("Score : ") + kanagramEngineHelper.totalScore()
+            kanagramGame.answerRevealed();
         }
         revealButton.countDownTimerValue = 2
         showAnswerTimer.repeat = true
@@ -97,12 +93,9 @@ Rectangle {
                 kanagramGame.nextVocabulary();
                 kanagramGame.nextAnagram();
                 if (blackboard.activeTimer) {
-                    kanagramEngineHelper.increaseScore(
-                                kanagramEngineHelper.skippedWordScore())
-                    blackboard.totalScore = i18n(
-                                "Score : ") + kanagramEngineHelper.totalScore()
+                    kanagramGame.answerSkipped();
                 }
-                if (kanagramEngineHelper.hintHideTime())
+                if (kanagramGame.hintHideTime())
                     hintButton.countDownTimerValue = 1
             }
         }
@@ -150,12 +143,9 @@ Rectangle {
                 kanagramGame.previousVocabulary();
                 kanagramGame.nextAnagram();
                 if (blackboard.activeTimer) {
-                    kanagramEngineHelper.increaseScore(
-                                kanagramEngineHelper.skippedWordScore())
-                    blackboard.totalScore = i18n(
-                                "Score : ") + kanagramEngineHelper.totalScore()
+                    kanagramGame.answerSkipped();
                 }
-                if (kanagramEngineHelper.hintHideTime())
+                if (kanagramGame.hintHideTime())
                     hintButton.countDownTimerValue = 1
             }
         }
@@ -221,12 +211,10 @@ Rectangle {
             onExited: timerButton.state = "onExited"
             onClicked: {
                 if (!timerButton.flagToggleTimer) {
-                    timerButton.countDownTimerValue = kanagramEngineHelper.scoreTime()
+                    timerButton.countDownTimerValue = kanagramGame.scoreTime()
                     scoreTimer.repeat = true
                     scoreTimer.start()
-                    kanagramEngineHelper.resetTotalScore()
-                    score.text = i18n(
-                                "Score : ") + kanagramEngineHelper.totalScore(0)
+                    kanagramGame.resetTotalScore()
                     scoreSection.opacity = 0.35
                     score.opacity = 1
                     timerText.text = i18n("Stop Timer")
@@ -335,7 +323,7 @@ Rectangle {
             onEntered: hintButton.state = "onEntered"
             onExited: hintButton.state = "onExited"
             onClicked: {
-                hintButton.countDownTimerValue = kanagramEngineHelper.hintHideTime()
+                hintButton.countDownTimerValue = kanagramGame.hintHideTime()
                 hintTimer.repeat = true
                 hintTimer.start()
             }
@@ -563,7 +551,7 @@ Rectangle {
             horizontalCenter: scoreSection.horizontalCenter
         }
         color: "white"
-        text: i18n("Score : ") + kanagramEngineHelper.totalScore()
+        text: i18n("Score : ") + kanagramGame.score
         opacity: 0
         font.pixelSize: parent.width / 40
     }
@@ -586,12 +574,9 @@ Rectangle {
             onEntered: revealButton.state = "onEntered"
             onExited: revealButton.state = "onExited"
             onClicked: {
-                anagram.text = kanagramEngineHelper.anagramOriginalWord()
+                anagram.text = kanagramGame.word
                 if (blackboard.activeTimer) {
-                    kanagramEngineHelper.increaseScore(
-                                kanagramEngineHelper.revealAnswerScore())
-                    blackboard.totalScore = i18n(
-                                "Score : ") + kanagramEngineHelper.totalScore()
+                    kanagramGame.answerRevealed();
                 }
                 revealButton.countDownTimerValue = 2
                 showAnswerTimer.repeat = true
@@ -633,8 +618,9 @@ Rectangle {
 
         onTriggered: {
             if (--revealButton.countDownTimerValue == 0) {
-                blackboard.anagramText = kanagramEngineHelper.createNextAnagram()
-                if (kanagramEngineHelper.hintHideTime())
+                anagram.text = kanagramGame.anagram
+                kanagramGame.nextAnagram();
+                if (kanagramGame.hintHideTime())
                     blackboard.showHintTimeInterval = 1
                 stop()
             }

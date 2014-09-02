@@ -29,12 +29,19 @@
 
 #include <krandomsequence.h>
 
+#ifdef BUILD_WITH_SPEECH
+#include "kspeechinterface.h"
+#endif
+
 class KEduVocDocument;
 
 namespace Phonon {
     class MediaObject;
 }
 
+namespace Sonnet {
+    class Speller;
+}
 /** @brief game api
  * @author Joshua Keel <joshuakeel@gmail.com>
  * @author Jeremy Whiting <jpwhiting@kde.org>
@@ -56,6 +63,8 @@ class KanagramGame : public QObject
     Q_PROPERTY(QStringList vocabularies READ vocabularyList)
     Q_PROPERTY(QStringList languages READ languageNames)
     Q_PROPERTY(QString dataLanguage READ dataLanguage WRITE setDataLanguage NOTIFY dataLanguageChanged)
+
+    Q_PROPERTY(int score READ totalScore NOTIFY scoreChanged)
 
     public:
         /** Default constructor */
@@ -97,6 +106,22 @@ class KanagramGame : public QObject
         /** Get the sanitized data language used */
         QString sanitizedDataLanguage() const;
 
+        // These accessor and mutator methods are not needed once the
+        // kconfig_compiler can generate Q_INVOKABLE methods, slots or/and
+        // properties
+
+        Q_INVOKABLE int hintHideTime();
+
+        Q_INVOKABLE int resolveTime();
+
+        Q_INVOKABLE int scoreTime();
+
+        /** Get the current score */
+        int totalScore();
+
+        /** Check word answer against the current word */
+        Q_INVOKABLE bool checkWord(QString answer);
+
     public Q_SLOTS:
 
         /** Set the vocabulary to use according to the vocabulary name */
@@ -126,6 +151,23 @@ class KanagramGame : public QObject
         /** Use the previous vocabulary file in the list */
         void previousVocabulary();
 
+        /** The word was revealed (or correctly entered), so play the audio, say it, or play right.ogg */
+        void wordRevealed();
+
+        /** Reset the current score */
+        void resetTotalScore();
+
+        /** Adjust the current score by points */
+        void adjustScore(int points);
+
+        void reloadSettings();
+
+        /** Slots to adjust score accordingly */
+        void answerCorrect();
+        void answerIncorrect();
+        void answerSkipped();
+        void answerRevealed();
+
     Q_SIGNALS:
 
         /** Signal the ui that a there's a file error of some kind */
@@ -139,6 +181,9 @@ class KanagramGame : public QObject
 
         /** Signal the ui that the anagram, word, hint, picHint, and audioUrl changed */
         void wordChanged();
+
+        /** Signal the ui that the score has changed */
+        void scoreChanged();
     private:
 
         /** Make the word into an anagram */
@@ -149,6 +194,28 @@ class KanagramGame : public QObject
 
         /** Play a media file via Phonon */
         void play(const QString &filename);
+
+#ifdef BUILD_WITH_SPEECH
+        /** setup kde text-to-speech daemon */
+        void setupJovie();
+
+        /** speak the word
+         *@param text the word that is to be converted from text to speech
+         */
+        void say(QString text);
+#endif
+
+        /** Get the value of a numeric setting from it's string */
+        int getNumericSetting(QString settingString);
+
+        /** Check if enteredword is an anagram of word */
+        bool isAnagram(QString& enteredword, QString& word);
+
+        /** Remove accent characters from a word */
+        QString stripAccents(QString& original);
+
+        /** Load score settings into local variables */
+        void loadSettings();
 
         /** Random sequence used to scramble the letters */
         KRandomSequence m_random;
@@ -189,6 +256,22 @@ class KanagramGame : public QObject
         /** audio player to use for playing sounds */
         Phonon::MediaObject *m_player;
 
+#ifdef BUILD_WITH_SPEECH
+        /** object to enable text to speech conversion */
+        org::kde::KSpeech *m_kspeech;
+#endif
+
+        /** current total score */
+        int m_totalScore;
+
+        /** Speller object to check correct spelling */
+        Sonnet::Speller *m_speller;
+
+        /** Values for settings */
+        int m_correctAnswerScore;
+        int m_incorrectAnswerScore;
+        int m_revealAnswerScore;
+        int m_skippedWordScore;
 };
 
 #endif

@@ -24,8 +24,8 @@
 #include "mainwindow.h"
 
 #include "kanagramgame.h"
-#include "kanagramenginehelper.h"
 #include "kanagramsettings.h"
+#include "mainsettings.h"
 #include "vocabsettings.h"
 
 #include <QQmlContext>
@@ -42,14 +42,12 @@
 MainWindow::MainWindow()
 {
     m_game = new KanagramGame();
-    m_engineHelper = new KanagramEngineHelper(m_game,this);
     m_helpMenu = new KHelpMenu(NULL);
 
     setResizeMode(QQuickView::SizeRootObjectToView);
 
     qDebug() << "Created game and engine helper";
     rootContext()->setContextProperty("kanagramGame", m_game);
-    rootContext()->setContextProperty("kanagramEngineHelper", m_engineHelper);
     rootContext()->setContextProperty("application", qApp);
     rootContext()->setContextProperty("mainwindow", this);
 
@@ -78,7 +76,6 @@ MainWindow::~MainWindow()
     windowConfig.writeEntry("geometry", geometry());
     windowConfig.writeEntry("windowState", int(windowState()));
 
-    delete m_engineHelper;
     delete m_game;
 }
 
@@ -108,11 +105,11 @@ void MainWindow::showSettings()
     {
         m_configDialog = new KConfigDialog( NULL, "settings", KanagramSettings::self() );
         //m_configDialog->setAttribute(Qt::WA_DeleteOnClose);
-        connect(m_configDialog, SIGNAL(settingsChanged(QString)), m_engineHelper, SLOT(reloadSettings()));
+        connect(m_configDialog, SIGNAL(settingsChanged(QString)), m_game, SLOT(reloadSettings()));
 
         // add the main settings page
         MainSettings * mainSettingsPage = new MainSettings( m_configDialog );
-        connect (mainSettingsPage, SIGNAL(settingsChanged()), m_engineHelper, SLOT(reloadSettings()));
+        connect (mainSettingsPage, SIGNAL(settingsChanged()), m_game, SLOT(reloadSettings()));
         m_configDialog->addPage(mainSettingsPage , i18nc("@title:group main settings page name", "General" ), "preferences-other" );
 
         // create and add the vocabsettings page
