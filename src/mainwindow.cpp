@@ -25,11 +25,16 @@
 
 #include "kanagramgame.h"
 #include "kanagramenginehelper.h"
+#include "kanagramsettings.h"
+#include "vocabsettings.h"
 
 #include <QQmlContext>
 #include <QQmlEngine>
 
+#include <KConfigDialog>
 #include <KDeclarative/KDeclarative>
+#include <KHelpMenu>
+#include <KLocalizedString>
 #include <KSharedConfig>
 
 #include <QDebug>
@@ -38,6 +43,7 @@ MainWindow::MainWindow()
 {
     m_game = new KanagramGame();
     m_engineHelper = new KanagramEngineHelper(m_game,this);
+    m_helpMenu = new KHelpMenu(NULL);
 
     setResizeMode(QQuickView::SizeRootObjectToView);
 
@@ -80,4 +86,46 @@ KConfigGroup MainWindow::config(const QString &group)
 {
     return KConfigGroup(KSharedConfig::openConfig(qApp->applicationName() + "rc"), group);
 }
+
+void MainWindow::showAboutKanagram()
+{
+    m_helpMenu->aboutApplication();
+}
+
+void MainWindow::showAboutKDE()
+{
+    m_helpMenu->aboutKDE();
+}
+
+void MainWindow::showHandbook()
+{
+    m_helpMenu->appHelpActivated();
+}
+
+void MainWindow::showSettings()
+{
+    if (!KConfigDialog::showDialog("settings"))
+    {
+        m_configDialog = new KConfigDialog( NULL, "settings", KanagramSettings::self() );
+        //m_configDialog->setAttribute(Qt::WA_DeleteOnClose);
+        connect(m_configDialog, SIGNAL(settingsChanged(QString)), m_engineHelper, SLOT(reloadSettings()));
+
+        // add the main settings page
+        MainSettings * mainSettingsPage = new MainSettings( m_configDialog );
+        connect (mainSettingsPage, SIGNAL(settingsChanged()), m_engineHelper, SLOT(reloadSettings()));
+        m_configDialog->addPage(mainSettingsPage , i18nc("@title:group main settings page name", "General" ), "preferences-other" );
+
+        // create and add the vocabsettings page
+        m_vocabSettings = new VocabSettings( m_configDialog );
+        m_configDialog->addPage(m_vocabSettings, i18n("Vocabularies"), "document-properties" );
+
+        // now make and add the shortcuts page
+        connect(m_configDialog, SIGNAL(accepted()), m_game, SLOT(refreshVocabularyList()));
+
+        // m_configDialog->setHelp("kanagram/index.html");
+        m_configDialog->resize(600, 500);
+        m_configDialog->show();
+    }
+}
+
 

@@ -238,7 +238,7 @@ Rectangle {
                 onEntered: configureButton.state = "onEntered"
                 onExited: configureButton.state = "onExited"
                 onClicked: {
-                    kanagramEngineHelper.slotShowSettings()
+                    mainwindow.showSettings()
                 }
             }
 
@@ -470,7 +470,7 @@ Rectangle {
                 hoverEnabled: true
                 onEntered: aboutKdeIcon.state = "onEntered"
                 onExited: aboutKdeIcon.state = "onExited"
-                onClicked: kanagramEngineHelper.aboutKDE()
+                onClicked: mainwindow.showAboutKDE()
                 preventStealing: true
             }
 
@@ -520,7 +520,7 @@ Rectangle {
                 hoverEnabled: true
                 onEntered: aboutKanagramIcon.state = "onEntered"
                 onExited: aboutKanagramIcon.state = "onExited"
-                onClicked: kanagramEngineHelper.aboutKanagram()
+                onClicked: mainwindow.showAboutKanagram()
                 preventStealing: true
             }
 
@@ -571,7 +571,7 @@ Rectangle {
                 hoverEnabled: true
                 onEntered: kanagramHandbookIcon.state = "onEntered"
                 onExited: kanagramHandbookIcon.state = "onExited"
-                onClicked: kanagramEngineHelper.kanagramHandbook()
+                onClicked: mainwindow.showHandbook()
                 preventStealing: true
             }
 

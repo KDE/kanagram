@@ -60,10 +60,6 @@ class KanagramEngineHelper : public QObject
         int getNumericSetting(QString settingString);
         void loadSettings();
         void refreshVocabularies();
-        Q_INVOKABLE void reloadSettings();
-        Q_INVOKABLE void slotSaveSettings();
-        Q_INVOKABLE void slotSettingsCancelled();
-        Q_INVOKABLE void slotEnableApplyButton();
         void play(const QString &filename);
         QString stripAccents(QString& original);
         Q_INVOKABLE bool compareWords() const;
@@ -74,9 +70,6 @@ class KanagramEngineHelper : public QObject
         Q_INVOKABLE int incorrectAnswerScore();
         Q_INVOKABLE int skippedWordScore();
         Q_INVOKABLE int revealAnswerScore();
-        Q_INVOKABLE void aboutKanagram();
-        Q_INVOKABLE void aboutKDE();
-        Q_INVOKABLE void kanagramHandbook();
 
 #ifdef BUILD_WITH_SPEECH
         /** setup kde text-to-speech daemon */
@@ -87,9 +80,6 @@ class KanagramEngineHelper : public QObject
          */
         void say(QString text);
 #endif
-
-        /** invoke the settings dialog */
-        Q_INVOKABLE void slotShowSettings();
 
         // These accessor and mutator methods are not needed once the
         // kconfig_compiler can generate Q_INVOKABLE methods, slots or/and
@@ -107,7 +97,7 @@ class KanagramEngineHelper : public QObject
         void setUseSounds(bool useSounds);
 
     public Q_SLOTS:
-        void saveSettings();
+        void reloadSettings();
 
     Q_SIGNALS:
         void hintHideTimeChanged();
@@ -122,19 +112,10 @@ class KanagramEngineHelper : public QObject
         /** audio player to use for playing sounds */
         Phonon::MediaObject *m_player;
 
-        /** settings dialog */
-        KConfigDialog *m_configDialog;
-
-        /** help menu for displaying about box */
-        KHelpMenu *m_helpMenu;
-
-#ifdef BUIlD_WITH_SPEECH
+#ifdef BUILD_WITH_SPEECH
         /** object to enable text to speech conversion */
         org::kde::KSpeech *m_kspeech;
 #endif
-
-        /** settings page pointers */
-        VocabSettings *m_vocabSettings;
 
         QStringList m_currentOriginalWord;
         int m_insertCounter;

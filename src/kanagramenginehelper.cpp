@@ -31,7 +31,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KShortcutsEditor>
-#ifdef BUIlD_WITH_SPEECH
+#ifdef BUILD_WITH_SPEECH
 #include <kspeech.h>
 #include <ktoolinvocation.h>
 #include "kspeechinterface.h"
@@ -58,7 +58,6 @@ KanagramEngineHelper::KanagramEngineHelper(KanagramGame* kanagramGame, QObject* 
 {
     m_speller = new Sonnet::Speller();
     m_speller->setLanguage(m_kanagramGame->sanitizedDataLanguage());
-    m_helpMenu = new KHelpMenu(NULL);
 
     loadSettings();
 #ifdef BUIlD_WITH_SPEECH
@@ -330,8 +329,6 @@ void KanagramEngineHelper::refreshVocabularies()
         {
             play("chalk.ogg");
         }
-
-        m_vocabSettings->refreshView();
     }
 }
 
@@ -376,33 +373,6 @@ QString KanagramEngineHelper::stripAccents(QString& original)
 bool KanagramEngineHelper::compareWords() const
 {
     return m_currentOriginalWord.join("") == m_kanagramGame->word();
-}
-
-void KanagramEngineHelper::slotShowSettings()
-{
-    if (!KConfigDialog::showDialog("settings"))
-    {
-        m_configDialog = new KConfigDialog( NULL, "settings", KanagramSettings::self() );
-        //m_configDialog->setAttribute(Qt::WA_DeleteOnClose);
-        connect(m_configDialog, SIGNAL(settingsChanged(QString)), this, SLOT(reloadSettings()));
-
-        // add the main settings page
-        MainSettings * mainSettingsPage = new MainSettings( m_configDialog );
-        connect (mainSettingsPage, SIGNAL(settingsChanged()), this, SLOT(reloadSettings()));
-        m_configDialog->addPage(mainSettingsPage , i18nc("@title:group main settings page name", "General" ), "preferences-other" );
-
-        // create and add the vocabsettings page
-        m_vocabSettings = new VocabSettings( m_configDialog );
-        m_configDialog->addPage(m_vocabSettings, i18n("Vocabularies"), "document-properties" );
-
-        // now make and add the shortcuts page
-        connect(m_configDialog, SIGNAL(accepted()), this, SLOT(slotSaveSettings()));
-        connect(m_configDialog, SIGNAL(rejected()), this, SLOT(slotSettingsCancelled()));
-
-        // m_configDialog->setHelp("kanagram/index.html");
-        m_configDialog->resize(600, 500);
-        m_configDialog->show();
-    }
 }
 
 void KanagramEngineHelper::resetTotalScore()
@@ -452,21 +422,6 @@ int KanagramEngineHelper::skippedWordScore()
     return ((m_skippedWordScore + 1)*(-2));
 }
 
-void KanagramEngineHelper::aboutKanagram()
-{
-    m_helpMenu->aboutApplication();
-}
-
-void KanagramEngineHelper::aboutKDE()
-{
-    m_helpMenu->aboutKDE();
-}
-
-void KanagramEngineHelper::kanagramHandbook()
-{
-    m_helpMenu->appHelpActivated();
-}
-
 #ifdef BUIlD_WITH_SPEECH
 void KanagramEngineHelper::setupJovie()
 {
@@ -508,20 +463,6 @@ void KanagramEngineHelper::say(QString text)
     }
 }
 #endif
-
-void KanagramEngineHelper::slotSaveSettings()
-{
-    // TODO: Update the current puzzle based on the new settings
-}
-
-void KanagramEngineHelper::slotSettingsCancelled()
-{
-}
-
-void KanagramEngineHelper::slotEnableApplyButton()
-{
-    m_configDialog->button(QDialogButtonBox::Apply)->setEnabled(true);
-}
 
 int KanagramEngineHelper::hintHideTime()
 {
@@ -568,10 +509,4 @@ void KanagramEngineHelper::setUseSounds(bool useSounds)
 {
     KanagramSettings::setUseSounds(useSounds);
     emit useSoundsToggled();
-}
-
-void KanagramEngineHelper::saveSettings()
-{
-    KanagramSettings::self()->writeConfig();
-    m_kanagramGame->refreshVocabularyList();
 }

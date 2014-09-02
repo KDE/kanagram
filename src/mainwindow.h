@@ -29,7 +29,10 @@
 
 class KanagramGame;
 class KanagramEngineHelper;
+class KConfigDialog;
+class KHelpMenu;
 class QEvent;
+class VocabSettings;
 
 class MainWindow : public QQuickView
 {
@@ -37,11 +40,29 @@ class MainWindow : public QQuickView
 public:
     MainWindow();
     ~MainWindow();
+
+public slots:
+    void showAboutKanagram();
+    void showAboutKDE();
+    void showHandbook();
+
+    /** invoke the settings dialog */
+    void showSettings();
+
 private:
     KConfigGroup config(const QString &group);
 
     KanagramGame *m_game;
     KanagramEngineHelper *m_engineHelper;
+
+    /** settings dialog */
+    KConfigDialog *m_configDialog;
+
+    /** settings page pointers */
+    VocabSettings *m_vocabSettings;
+
+    /** help menu for displaying about box */
+    KHelpMenu *m_helpMenu;
 };
 
 #endif // MAINWINDOW_H
