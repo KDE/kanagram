@@ -160,6 +160,9 @@ class KanagramGame : public QObject
         /** Adjust the current score by points */
         void adjustScore(int points);
 
+        /** Set the anagram to the original word for a time */
+        void revealWord();
+
         void reloadSettings();
 
         /** Slots to adjust score accordingly */

@@ -494,6 +494,12 @@ int KanagramGame::totalScore()
     return m_totalScore;
 }
 
+void KanagramGame::revealWord()
+{
+    m_anagram = m_originalWord;
+    emit wordChanged();
+}
+
 bool KanagramGame::checkWord(QString answer)
 {
     QString enteredWord = answer.toLower().trimmed();

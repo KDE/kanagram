@@ -575,7 +575,7 @@ Rectangle {
             onEntered: revealButton.state = "onEntered"
             onExited: revealButton.state = "onExited"
             onClicked: {
-                anagram.text = kanagramGame.word
+                kanagramGame.revealWord();
                 if (blackboard.activeTimer) {
                     kanagramGame.answerRevealed();
                 }
@@ -619,7 +619,6 @@ Rectangle {
 
         onTriggered: {
             if (--revealButton.countDownTimerValue == 0) {
-                anagram.text = kanagramGame.anagram
                 kanagramGame.nextAnagram();
                 if (kanagramGame.hintHideTime())
                     blackboard.showHintTimeInterval = 1
