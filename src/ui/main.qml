@@ -302,6 +302,8 @@ Rectangle {
 
     Item {
         id: help
+        width: blackboard.width / 9
+        height: blackboard.height / 7
         anchors {
             bottom: blackboard.bottom
             bottomMargin: blackboard.height / 7
@@ -353,7 +355,6 @@ Rectangle {
                 }
                 PropertyChanges {
                     target: helpText
-                    text: i18n("About")
                     opacity: 1
                 }
                 AnchorChanges {
@@ -431,7 +432,7 @@ Rectangle {
             color: "white"
             text: i18n("About")
             opacity: 0
-            font.pixelSize: parent.width / 68.5
+            font.pixelSize: screen.width / 68.5
         }
 
         Image {

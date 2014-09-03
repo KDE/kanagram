@@ -1,6 +1,7 @@
 /***************************************************************************
  *   This file is part of the Kanagram project                             *
  *   Copyright 2014 Debjit Mondal <debjitmondal05@gmail.com>               *
+ *   Copyright 2014 Jeremy Whiting <jpwhiting>kde.org>                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -78,8 +79,8 @@ Rectangle {
         height: categoryBar.height / 2
         anchors {
             verticalCenter: categoryBar.verticalCenter
-            left: categoryName.right
-            leftMargin: parent.width / 20
+            right: categoryBar.right
+            rightMargin: parent.width / 20
         }
         source: "icons/right-arrow.png"
         fillMode: Image.PreserveAspectFit
@@ -128,8 +129,8 @@ Rectangle {
         height: categoryBar.height / 2
         anchors {
             verticalCenter: categoryBar.verticalCenter
-            right: categoryName.left
-            rightMargin: parent.width / 20
+            left: categoryBar.left
+            leftMargin: parent.width / 20
         }
         source: "icons/left-arrow.png"
         fillMode: Image.PreserveAspectFit
