@@ -19,7 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
- import QtQuick 2.0
+import QtQuick 2.0
+import QtQuick.Controls 1.2
 
 Rectangle {
 
@@ -29,6 +30,7 @@ Rectangle {
     property alias activeTimer: scoreTimer.running
 
     signal showWiki
+    signal nextAnagram
 
     function wikiClosed() {
         wikiButton.wikiLinkActivated = false
@@ -72,104 +74,46 @@ Rectangle {
         font.pixelSize: parent.width / 19.5
     }
 
-    Image {
+    Action {
+        id: nextVocabularyAction
+        shortcut: "PgDown"
+        onTriggered: {
+            kanagramGame.nextVocabulary();
+            nextAnagram();
+        }
+        iconSource: "icons/right-arrow.png"
+        tooltip: i18n("Next Vocabulary")
+    }
+
+    ToolButton {
         id: nextVocabularyButton
-        smooth: true
-        opacity: 0.5
-        height: categoryBar.height / 2
         anchors {
             verticalCenter: categoryBar.verticalCenter
             right: categoryBar.right
             rightMargin: parent.width / 20
         }
-        source: "icons/right-arrow.png"
-        fillMode: Image.PreserveAspectFit
-
-        MouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            onEntered: nextVocabularyButton.state = "onEntered"
-            onExited: nextVocabularyButton.state = "onExited"
-            onClicked: {
-                kanagramGame.nextVocabulary();
-                kanagramGame.nextAnagram();
-                if (blackboard.activeTimer) {
-                    kanagramGame.answerSkipped();
-                }
-                if (kanagramGame.hintHideTime())
-                    hintButton.countDownTimerValue = 1
-            }
-        }
-
-        states: State {
-            name: "onEntered"
-            PropertyChanges {
-                target: nextVocabularyButton
-                opacity: 1
-            }
-        }
-        State {
-            name: "onExited"
-        }
-
-        transitions: Transition {
-            PropertyAnimation {
-                properties: "x,y,opacity"
-                easing.type: Easing.Linear
-                easing.amplitude: 5.0
-                easing.period: 1
-            }
-        }
+        action: nextVocabularyAction
     }
 
-    Image {
+    Action {
+        id: previousVocabularyAction
+        shortcut: "PgUp"
+        onTriggered: {
+            kanagramGame.previousVocabulary();
+            nextAnagram();
+        }
+        iconSource: "icons/left-arrow.png"
+        tooltip: i18n("Previous Vocabulary")
+    }
+
+    ToolButton {
         id: previousVocabularyButton
-        smooth: true
-        opacity: 0.5
-        height: categoryBar.height / 2
         anchors {
             verticalCenter: categoryBar.verticalCenter
             left: categoryBar.left
             leftMargin: parent.width / 20
         }
-        source: "icons/left-arrow.png"
-        fillMode: Image.PreserveAspectFit
-
-        MouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            onEntered: previousVocabularyButton.state = "onEntered"
-            onExited: previousVocabularyButton.state = "onExited"
-            onClicked: {
-                kanagramGame.previousVocabulary();
-                kanagramGame.nextAnagram();
-                if (blackboard.activeTimer) {
-                    kanagramGame.answerSkipped();
-                }
-                if (kanagramGame.hintHideTime())
-                    hintButton.countDownTimerValue = 1
-            }
-        }
-
-        states: State {
-            name: "onEntered"
-            PropertyChanges {
-                target: previousVocabularyButton
-                opacity: 1
-            }
-        }
-        State {
-            name: "onExited"
-        }
-
-        transitions: Transition {
-            PropertyAnimation {
-                properties: "x,y,opacity"
-                easing.type: Easing.Linear
-                easing.amplitude: 5.0
-                easing.period: 1
-            }
-        }
+        action: previousVocabularyAction
     }
 
     Text {
@@ -192,168 +136,89 @@ Rectangle {
         anchors.bottom: parent.bottom
     }
 
-    Image {
-        id: timerButton
-        smooth: true
+    Action {
+        id: scoreAction
+        shortcut: "Ctrl+S"
+        onTriggered: {
+            if (!scoreButton.flagToggleTimer) {
+                scoreButton.countDownTimerValue = kanagramGame.scoreTime();
+                scoreTimer.repeat = true;
+                scoreTimer.start();
+                kanagramGame.resetTotalScore();
+                scoreSection.opacity = 0.35;
+                score.opacity = 1;
+            } else {
+                scoreButton.countDownTimerValue = 1
+            }
+            scoreButton.flagToggleTimer = !scoreButton.flagToggleTimer;
+        }
+        iconSource: "icons/timer.png"
+        tooltip: i18n("Start Timer");
+    }
+
+    ToolButton {
+        id: scoreButton
         height: optionsBar.height
+        width: optionsBar.height
         anchors {
             verticalCenter: optionsBar.verticalCenter
             left: optionsBar.left
         }
-        source: "icons/timer.png"
-        fillMode: Image.PreserveAspectFit
         property int countDownTimerValue: 0
         property bool flagToggleTimer: false
-
-        MouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            onEntered: timerButton.state = "onEntered"
-            onExited: timerButton.state = "onExited"
-            onClicked: {
-                if (!timerButton.flagToggleTimer) {
-                    timerButton.countDownTimerValue = kanagramGame.scoreTime()
-                    scoreTimer.repeat = true
-                    scoreTimer.start()
-                    kanagramGame.resetTotalScore()
-                    scoreSection.opacity = 0.35
-                    score.opacity = 1
-                    timerText.text = i18n("Stop Timer")
-                    timerButton.flagToggleTimer = true
-                } else {
-                    timerButton.countDownTimerValue = 1
-                    timerButton.flagToggleTimer = false
-                }
-            }
-        }
-
-        states: State {
-            name: "onEntered"
-            PropertyChanges {
-                target: timerText
-                opacity: 1
-            }
-            PropertyChanges {
-                target: timerBar
-                opacity: 0.25
-            }
-        }
-        State {
-            name: "onExited"
-        }
-
-        transitions: Transition {
-            PropertyAnimation {
-                properties: "x,y,opacity"
-                easing.type: Easing.Linear
-                easing.amplitude: 5.0
-                easing.period: 1
-            }
-        }
+        action: scoreAction
     }
 
-    Timer {
-        id: scoreTimer
-        interval: 1000
-        repeat: true
-        running: false
-        triggeredOnStart: false
-
+    Action {
+        id: hintAction
+        shortcut: "Ctrl+H"
+        iconSource: "icons/hint.png"
         onTriggered: {
-            if (!wikiButton.wikiLinkActivated) {
-                if (--timerButton.countDownTimerValue == 0) {
-                    stop()
-                    timerSection.opacity = 0
-                    timeRemaining.opacity = 0
-                    scoreTimer.running = false
-                    timerText.text = i18n("Start Timer")
-                } else {
-                    scoreTimer.running = true
-                    timerSection.opacity = 0.35
-                    if (timerButton.countDownTimerValue > 9) {
-                        timeRemaining.text = '00:' + timerButton.countDownTimerValue
-                    } else {
-                        timeRemaining.text = '00:0' + timerButton.countDownTimerValue
-                    }
-                    timeRemaining.opacity = 1
-                }
-            }
+            hintButton.countDownTimerValue = kanagramGame.hintHideTime()
+            hintTimer.repeat = true
+            hintTimer.start()
         }
+        tooltip: i18n("Show Hint")
     }
 
-    Rectangle {
-        id: timerBar
-        width: parent.width / 6
-        height: parent.height / 15
-        opacity: 0
-        radius: 4
-        color: "black"
-        anchors {
-            bottom: optionsBar.top
-            horizontalCenter: timerButton.horizontalCenter
-        }
-    }
-
-    Text {
-        id: timerText
-        anchors {
-            verticalCenter: timerBar.verticalCenter
-            horizontalCenter: timerBar.horizontalCenter
-        }
-        color: "white"
-        text: i18n("Start Timer")
-        opacity: 0
-        font.pixelSize: parent.width / 40
-    }
-
-    Image {
+    ToolButton {
         id: hintButton
-        smooth: true
+        action: hintAction
+        width: optionsBar.height
         height: optionsBar.height
+        property int countDownTimerValue: 0
         anchors {
             verticalCenter: optionsBar.verticalCenter
             horizontalCenter: optionsBar.horizontalCenter
         }
-        source: "icons/hint.png"
-        fillMode: Image.PreserveAspectFit
+    }
+
+    Action {
+        id: revealAction
+        shortcut: "Ctrl+R"
+        onTriggered: {
+            kanagramGame.revealWord();
+            if (blackboard.activeTimer) {
+                kanagramGame.answerRevealed();
+            }
+            revealButton.countDownTimerValue = 2
+            showAnswerTimer.repeat = true
+            showAnswerTimer.start()
+        }
+        iconSource: "icons/reveal.png"
+        tooltip: i18n("Reveal Word")
+    }
+
+    ToolButton {
+        id: revealButton
+        action: revealAction
+        width: optionsBar.height
+        height: optionsBar.height
+        anchors {
+            verticalCenter: optionsBar.verticalCenter
+            right: optionsBar.right
+        }
         property int countDownTimerValue: 0
-
-        MouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            onEntered: hintButton.state = "onEntered"
-            onExited: hintButton.state = "onExited"
-            onClicked: {
-                hintButton.countDownTimerValue = kanagramGame.hintHideTime()
-                hintTimer.repeat = true
-                hintTimer.start()
-            }
-        }
-
-        states: State {
-            name: "onEntered"
-            PropertyChanges {
-                target: hintText
-                opacity: 1
-            }
-            PropertyChanges {
-                target: hintBar
-                opacity: 0.25
-            }
-        }
-
-        State {
-            name: "onExited"
-        }
-
-        transitions: Transition {
-            PropertyAnimation {
-                properties: "x,y,opacity"
-                easing.type: Easing.Linear
-                easing.amplitude: 5.0
-                easing.period: 1
-            }
-        }
     }
 
     Rectangle {
@@ -391,7 +256,8 @@ Rectangle {
         anchors {
             verticalCenter: blackboard.verticalCenter
             right: blackboard.left
-            rightMargin: blackboard.width / 68.5
+            rightMargin: blackboard.width / 70
+            leftMargin: blackboard.width / 70
         }
     }
 
@@ -482,55 +348,6 @@ Rectangle {
         font.pixelSize: parent.width / 55
     }
 
-    Timer {
-        id: hintTimer
-        interval: 1000
-        repeat: true
-        running: false
-        triggeredOnStart: false
-
-        onTriggered: {
-            if (--hintButton.countDownTimerValue == 0) {
-                hintSection.opacity = 0
-                wikiSection.opacity = 0
-                anagramHint.opacity = 0
-                wikiText.opacity = 0
-                wikiButton.opacity = 0
-                stop()
-            } else {
-                hintSection.opacity = 0.35
-                wikiSection.opacity = 0.35
-                wikiButton.opacity = 1
-                anagramHint.opacity = 1
-            }
-        }
-    }
-
-    Rectangle {
-        id: hintBar
-        width: parent.width / 6
-        height: parent.height / 15
-        opacity: 0
-        radius: 4
-        color: "black"
-        anchors {
-            bottom: optionsBar.top
-            horizontalCenter: hintButton.horizontalCenter
-        }
-    }
-
-    Text {
-        id: hintText
-        anchors {
-            verticalCenter: hintBar.verticalCenter
-            horizontalCenter: hintBar.horizontalCenter
-        }
-        color: "white"
-        text: i18n("Hint")
-        opacity: 0
-        font.pixelSize: parent.width / 40
-    }
-
     Rectangle {
         id: scoreSection
         width: blackboard.width / 5
@@ -557,55 +374,54 @@ Rectangle {
         font.pixelSize: parent.width / 40
     }
 
-    Image {
-        id: revealButton
-        smooth: true
-        height: optionsBar.height
-        anchors {
-            verticalCenter: optionsBar.verticalCenter
-            right: optionsBar.right
-        }
-        source: "icons/reveal.png"
-        fillMode: Image.PreserveAspectFit
-        property int countDownTimerValue: 0
+    Timer {
+        id: hintTimer
+        interval: 1000
+        repeat: true
+        running: false
+        triggeredOnStart: false
 
-        MouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            onEntered: revealButton.state = "onEntered"
-            onExited: revealButton.state = "onExited"
-            onClicked: {
-                kanagramGame.revealWord();
-                if (blackboard.activeTimer) {
-                    kanagramGame.answerRevealed();
+        onTriggered: {
+            if (--hintButton.countDownTimerValue == 0) {
+                hintSection.opacity = 0
+                wikiSection.opacity = 0
+                anagramHint.opacity = 0
+                wikiText.opacity = 0
+                wikiButton.opacity = 0
+                stop()
+            } else {
+                hintSection.opacity = 0.35
+                wikiSection.opacity = 0.35
+                wikiButton.opacity = 1
+                anagramHint.opacity = 1
+            }
+        }
+    }
+
+    Timer {
+        id: scoreTimer
+        interval: 1000
+        repeat: true
+        running: false
+        triggeredOnStart: false
+
+        onTriggered: {
+            if (!wikiButton.wikiLinkActivated) {
+                if (--scoreButton.countDownTimerValue == 0) {
+                    stop()
+                    timerSection.opacity = 0
+                    timeRemaining.opacity = 0
+                    scoreTimer.running = false
+                } else {
+                    scoreTimer.running = true
+                    timerSection.opacity = 0.35
+                    if (scoreButton.countDownTimerValue > 9) {
+                        timeRemaining.text = '00:' + scoreButton.countDownTimerValue
+                    } else {
+                        timeRemaining.text = '00:0' + scoreButton.countDownTimerValue
+                    }
+                    timeRemaining.opacity = 1
                 }
-                revealButton.countDownTimerValue = 2
-                showAnswerTimer.repeat = true
-                showAnswerTimer.start()
-            }
-        }
-
-        states: State {
-            name: "onEntered"
-            PropertyChanges {
-                target: revealText
-                opacity: 1
-            }
-            PropertyChanges {
-                target: revealBar
-                opacity: 0.25
-            }
-        }
-        State {
-            name: "onExited"
-        }
-
-        transitions: Transition {
-            PropertyAnimation {
-                properties: "x,y,opacity"
-                easing.type: Easing.Linear
-                easing.amplitude: 5.0
-                easing.period: 1
             }
         }
     }
@@ -625,30 +441,5 @@ Rectangle {
                 stop()
             }
         }
-    }
-
-    Rectangle {
-        id: revealBar
-        width: parent.width / 6
-        height: parent.height / 15
-        opacity: 0
-        radius: 4
-        color: "black"
-        anchors {
-            bottom: optionsBar.top
-            horizontalCenter: revealButton.horizontalCenter
-        }
-    }
-
-    Text {
-        id: revealText
-        anchors {
-            verticalCenter: revealBar.verticalCenter
-            horizontalCenter: revealBar.horizontalCenter
-        }
-        color: "white"
-        text: i18n("Reveal Word")
-        opacity: 0
-        font.pixelSize: parent.width / 40
     }
 }

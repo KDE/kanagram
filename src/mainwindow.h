@@ -48,6 +48,9 @@ public slots:
     /** invoke the settings dialog */
     void showSettings();
 
+private slots:
+    void categoryChanged();
+
 private:
     KConfigGroup config(const QString &group);
 

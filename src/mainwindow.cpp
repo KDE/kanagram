@@ -40,10 +40,10 @@
 #include <QDebug>
 
 MainWindow::MainWindow()
+    : m_game(new KanagramGame())
+     ,m_helpMenu(new KHelpMenu(NULL))
+     ,m_actionCollection(NULL)
 {
-    m_game = new KanagramGame();
-    m_helpMenu = new KHelpMenu(NULL);
-
     setResizeMode(QQuickView::SizeRootObjectToView);
 
     qDebug() << "Created game and engine helper";
@@ -68,6 +68,9 @@ MainWindow::MainWindow()
     QString location = QStandardPaths::locate(QStandardPaths::DataLocation, "ui/main.qml");
     setSource(QUrl::fromLocalFile(location));
     qDebug() << "Set qml file location";
+
+    connect(m_game, SIGNAL(titleChanged()), SLOT(categoryChanged()));
+    categoryChanged();
 }
 
 MainWindow::~MainWindow()
@@ -125,4 +128,8 @@ void MainWindow::showSettings()
     }
 }
 
+void MainWindow::categoryChanged()
+{
+    setTitle(m_game->documentTitle());
+}
 

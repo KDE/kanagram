@@ -19,10 +19,20 @@
  ***************************************************************************/
 
 import QtQuick 2.3
+import QtQuick.Controls 1.2
 
 Rectangle {
 
     id: screen
+
+    function nextAnagram() {
+        kanagramGame.nextAnagram()
+        if (blackboard.activeTimer) {
+            kanagramGame.answerSkipped();
+        }
+        if (kanagramGame.hintHideTime())
+            blackboard.showHintTimeInternal = 1
+    }
 
     Image {
         id: background
@@ -122,6 +132,12 @@ Rectangle {
             topMargin: blackboard.height / 7
         }
 
+        Action {
+            id: nextAnagramAction
+            onTriggered: screen.nextAnagram();
+            shortcut: "Ctrl+N"
+        }
+
         Rectangle {
             id: nextAnagramButton
             width: blackboard.width / 9
@@ -135,14 +151,7 @@ Rectangle {
                 hoverEnabled: true
                 onEntered: nextAnagramButton.state = "onEntered"
                 onExited: nextAnagramButton.state = "onExited"
-                onClicked: {
-                    kanagramGame.nextAnagram();
-                    if (blackboard.activeTimer) {
-                        kanagramGame.answerSkipped();
-                    }
-                    if (kanagramGame.hintHideTime())
-                        blackboard.showHintTimeInterval = 1
-                }
+                onClicked: screen.nextAnagram();
             }
 
             states: State {
@@ -689,6 +698,9 @@ Rectangle {
             wikiPage.url = wikiPage.url = "http://en.wikipedia.org/wiki/"
                     + kanagramGame.word
             wikiPage.visible = true
+        }
+        onNextAnagram: {
+            screen.nextAnagram();
         }
     }
 
