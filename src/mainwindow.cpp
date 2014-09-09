@@ -42,7 +42,6 @@
 MainWindow::MainWindow()
     : m_game(new KanagramGame())
      ,m_helpMenu(new KHelpMenu(NULL))
-     ,m_actionCollection(NULL)
 {
     setResizeMode(QQuickView::SizeRootObjectToView);
 
