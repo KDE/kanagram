@@ -22,11 +22,14 @@
  ***************************************************************************/
 
 #include <QApplication>
+#include <QLoggingCategory>
 
 #include <KAboutData>
 #include <KLocalizedString>
 
 #include "mainwindow.h"
+
+Q_LOGGING_CATEGORY(KANAGRAM, "org.kde.kanagram")
 
 int main(int argc, char **argv)
 {

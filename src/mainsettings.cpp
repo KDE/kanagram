@@ -30,6 +30,7 @@
 
 #include <sharedkvtmlfiles.h>
 #include "kanagramsettings.h"
+#include "kanagramgame.h"
 
 MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 {
@@ -97,7 +98,7 @@ void MainSettings::slotUpdateLanguage()
 {
     int index = languageComboBox->currentIndex();
     QString language = languageComboBox->itemData(index).toString();
-    qDebug() << "Writing new default language: " << language;
+    qCDebug(KANAGRAM) << "Writing new default language: " << language;
     KanagramSettings::setDataLanguage(language);
     KanagramSettings::self()->save();
 

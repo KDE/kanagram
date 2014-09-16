@@ -30,6 +30,7 @@
 
 #include "kanagramsettings.h"
 #include "vocabsettings.h"
+#include "kanagramgame.h"
 
 VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent), m_fileName("")
 {
@@ -94,7 +95,7 @@ void VocabEdit::slotSave()
     QUrl url =
         QUrl::fromLocalFile(path +
                             QLatin1Char('/') + fileName);
-    qDebug() << "Saving file as " << url;
+    qCDebug(KANAGRAM) << "Saving file as " << url;
     doc->saveAs(url, KEduVocDocument::Automatic);
 
     VocabSettings *settings = (VocabSettings*)this->parentWidget();

@@ -38,7 +38,7 @@
 #include <sonnet/speller.h>
 
 #include <QLocale>
-#include <QtCore/QFileInfo>
+#include <QFileInfo>
 #include <QStandardPaths>
 
 KanagramGame::KanagramGame()
@@ -120,11 +120,11 @@ void KanagramGame::loadDefaultVocabulary()
         delete m_document;
         m_document = new KEduVocDocument(this);
 
-        qDebug() << "Opening document from " << m_filename;
+        qCDebug(KANAGRAM) << "Opening document from " << m_filename;
         ///@todo open returns KEduVocDocument::ErrorCode
         int result = m_document->open(QUrl::fromLocalFile(m_filename), KEduVocDocument::FileIgnoreLock);
         if (result != 0) {
-            qDebug() << m_document->errorDescription(result);
+            qCDebug(KANAGRAM) << m_document->errorDescription(result);
         }
     }
     nextAnagram();

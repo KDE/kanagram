@@ -22,16 +22,18 @@
 #ifndef KANAGRAMGAME_H
 #define KANAGRAMGAME_H
 
-#include <QtCore/QObject>
-#include <QtCore/QStringList>
-#include <QtCore/QHash>
-#include <QtCore/QUrl>
+#include <QHash>
+#include <QLoggingCategory>
+#include <QStringList>
+#include <QUrl>
 
 #include <krandomsequence.h>
 
 #ifdef BUILD_WITH_SPEECH
 #include "kspeechinterface.h"
 #endif
+
+Q_DECLARE_LOGGING_CATEGORY(KANAGRAM)
 
 class KEduVocDocument;
 

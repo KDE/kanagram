@@ -45,18 +45,18 @@ MainWindow::MainWindow()
 {
     setResizeMode(QQuickView::SizeRootObjectToView);
 
-    qDebug() << "Created game and engine helper";
+    qCDebug(KANAGRAM) << "Created game and engine helper";
     rootContext()->setContextProperty("kanagramGame", m_game);
     rootContext()->setContextProperty("application", qApp);
     rootContext()->setContextProperty("mainwindow", this);
 
-    qDebug() << "Set all context properties";
+    qCDebug(KANAGRAM) << "Set all context properties";
 
     KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(engine());
     kdeclarative.setupBindings();
 
-    qDebug() << "Setup declarative engine";
+    qCDebug(KANAGRAM) << "Setup declarative engine";
 
     KConfigGroup windowConfig = config("Window");
     if (windowConfig.hasKey("geometry")) {
@@ -66,7 +66,7 @@ MainWindow::MainWindow()
 
     QString location = QStandardPaths::locate(QStandardPaths::DataLocation, "ui/main.qml");
     setSource(QUrl::fromLocalFile(location));
-    qDebug() << "Set qml file location";
+    qCDebug(KANAGRAM) << "Set qml file location";
 
     connect(m_game, SIGNAL(titleChanged()), SLOT(categoryChanged()));
     categoryChanged();
