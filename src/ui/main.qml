@@ -31,7 +31,7 @@ Rectangle {
             kanagramGame.answerSkipped();
         }
         if (kanagramGame.hintHideTime())
-            blackboard.showHintTimeInternal = 1
+            blackboard.showHintTimeInterval = 1
     }
 
     Image {

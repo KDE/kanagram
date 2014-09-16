@@ -81,11 +81,12 @@ Rectangle {
             kanagramGame.nextVocabulary();
             nextAnagram();
         }
-        iconSource: "icons/right-arrow.png"
         tooltip: i18n("Next Vocabulary")
     }
 
     ToolButton {
+        height: categoryBar.height
+        width: categoryBar.height
         id: nextVocabularyButton
         anchors {
             verticalCenter: categoryBar.verticalCenter
@@ -93,6 +94,12 @@ Rectangle {
             rightMargin: parent.width / 20
         }
         action: nextVocabularyAction
+        Image {
+            source: "icons/right-arrow.png"
+            anchors.fill: parent
+            anchors.margins: 4
+            fillMode: Image.PreserveAspectFit
+        }
     }
 
     Action {
@@ -102,18 +109,25 @@ Rectangle {
             kanagramGame.previousVocabulary();
             nextAnagram();
         }
-        iconSource: "icons/left-arrow.png"
         tooltip: i18n("Previous Vocabulary")
     }
 
     ToolButton {
         id: previousVocabularyButton
+        height: categoryBar.height
+        width: categoryBar.height
         anchors {
             verticalCenter: categoryBar.verticalCenter
             left: categoryBar.left
             leftMargin: parent.width / 20
         }
         action: previousVocabularyAction
+        Image {
+            source: "icons/left-arrow.png"
+            anchors.fill: parent
+            anchors.margins: 4
+            fillMode: Image.PreserveAspectFit
+        }
     }
 
     Text {
@@ -152,7 +166,6 @@ Rectangle {
             }
             scoreButton.flagToggleTimer = !scoreButton.flagToggleTimer;
         }
-        iconSource: "icons/timer.png"
         tooltip: i18n("Start Timer");
     }
 
@@ -167,12 +180,17 @@ Rectangle {
         property int countDownTimerValue: 0
         property bool flagToggleTimer: false
         action: scoreAction
+        Image {
+            source: "icons/timer.png"
+            anchors.fill: parent
+            anchors.margins: 4
+            fillMode: Image.PreserveAspectFit
+        }
     }
 
     Action {
         id: hintAction
         shortcut: "Ctrl+H"
-        iconSource: "icons/hint.png"
         onTriggered: {
             hintButton.countDownTimerValue = kanagramGame.hintHideTime()
             hintTimer.repeat = true
@@ -191,6 +209,12 @@ Rectangle {
             verticalCenter: optionsBar.verticalCenter
             horizontalCenter: optionsBar.horizontalCenter
         }
+        Image {
+            source: "icons/hint.png"
+            anchors.fill: parent
+            anchors.margins: 4
+            fillMode: Image.PreserveAspectFit
+        }
     }
 
     Action {
@@ -205,7 +229,6 @@ Rectangle {
             showAnswerTimer.repeat = true
             showAnswerTimer.start()
         }
-        iconSource: "icons/reveal.png"
         tooltip: i18n("Reveal Word")
     }
 
@@ -219,6 +242,12 @@ Rectangle {
             right: optionsBar.right
         }
         property int countDownTimerValue: 0
+        Image {
+            source: "icons/reveal.png"
+            anchors.fill: parent
+            anchors.margins: 4
+            fillMode: Image.PreserveAspectFit
+        }
     }
 
     Rectangle {
