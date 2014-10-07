@@ -1,3 +1,4 @@
 REVIEWBOARD_URL = "https://git.reviewboard.kde.org"
 REPOSITORY = "kanagram"
 BRANCH = "master"
+TARGET_GROUPS = "kdeedu"
