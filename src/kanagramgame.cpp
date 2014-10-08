@@ -111,22 +111,9 @@ QString KanagramGame::sanitizedDataLanguage() const
 void KanagramGame::loadDefaultVocabulary()
 {
     int index = KanagramSettings::currentVocabulary();
-    if (index > -1)
-    {
-        useVocabulary(index);
-    }
-    else
-    {
-        delete m_document;
-        m_document = new KEduVocDocument(this);
-
-        qCDebug(KANAGRAM) << "Opening document from " << m_filename;
-        ///@todo open returns KEduVocDocument::ErrorCode
-        int result = m_document->open(QUrl::fromLocalFile(m_filename), KEduVocDocument::FileIgnoreLock);
-        if (result != 0) {
-            qCDebug(KANAGRAM) << m_document->errorDescription(result);
-        }
-    }
+    if (index == -1)
+        index = 0;
+    useVocabulary(index);
     nextAnagram();
 }
 
