@@ -40,12 +40,30 @@ Q_OBJECT
         /** default destructor */
         virtual ~VocabSettings();
 
-    public slots:
+    signals:
 
-        /** reload the list of vocabularies from what's on disk */
+        /** signifies the widget has been changed */
+        void widgetModified();
+
+    private slots:
+
+        /** create a new vocabulary
+         *  called when the btnCreateNew is clicked
+         */
+        void on_btnCreateNew_clicked();
+        void on_btnDownloadNew_clicked();
+        void on_btnEdit_clicked();
+        void slotSelectionChanged(QTreeWidgetItem *item);
+
+        /** reload the list of vocabularies from what's on disk
+         * and emit widgetModified
+         */
         void refreshView();
 
     private:
+
+        /** load the list of vocabularies from what's on disk */
+        void loadView();
 
         /** list of vocabulary files */
         QStringList m_fileList;
@@ -57,19 +75,6 @@ Q_OBJECT
         QStringList m_commentList;
 
         QMap<const QTreeWidgetItem*, int> m_itemMap;
-
-        /** cache pointer to config dialog so we can enable the apply button in slotSetDirty */
-        KConfigDialog *m_parent;
-
-    private slots:
-
-        /** create a new vocabulary
-          * called when the btnCreateNew is clicked
-          */
-        void on_btnCreateNew_clicked();
-        void on_btnDownloadNew_clicked();
-        void on_btnEdit_clicked();
-        void slotSelectionChanged(QTreeWidgetItem *item);
 };
 
 #endif

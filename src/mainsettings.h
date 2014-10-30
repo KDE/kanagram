@@ -24,8 +24,6 @@
 
 #include "ui_mainsettingswidget.h"
 
-class KConfigDialog;
-
 /** user preferences page of the config dialog
   * allows choosing a hint hide time,
   * the language, and the sound settings*/
@@ -39,21 +37,20 @@ public:
     /** default destructor */
     ~MainSettings();
 
+    /** save the language setting that has been chosen
+     * @returns whether the language has changed
+     */
+    bool saveLanguage();
+
 public slots:
-
-    /** save the language setting that has been chosen */
-    void slotUpdateLanguage();
-
-    /** enable the apply button on the config dialog because something has been changed */
-    void slotSetDirty();
 
     /** toggle advanced settings */
     void slotToggleAdvancedSettings();
 
 signals:
 
-    /** signifies slotUpdateLanguage has completed, so language setting has been saved */
-    void settingsChanged();
+    /** signifies the language widget has been changed */
+    void widgetModified();
 
 private:
 
@@ -62,9 +59,6 @@ private:
       * also puts the folder name in the userData of the combobox for quick retrieval
       */
     void populateLanguageBox();
-
-    /** cache pointer to config dialog so we can enable the apply button in slotSetDirty */
-    KConfigDialog *m_parent;
 };
 
 #endif

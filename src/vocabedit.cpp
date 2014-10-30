@@ -98,8 +98,6 @@ void VocabEdit::slotSave()
     qCDebug(KANAGRAM) << "Saving file as " << url;
     doc->saveAs(url, KEduVocDocument::Automatic);
 
-    VocabSettings *settings = (VocabSettings*)this->parentWidget();
-    settings->refreshView();
     m_textChanged = false;
 }
 

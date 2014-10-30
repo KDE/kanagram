@@ -32,10 +32,10 @@
 #include "kanagramsettings.h"
 #include "vocabedit.h"
 
-VocabSettings::VocabSettings(QWidget *parent) : QWidget(parent), m_parent(NULL)
+VocabSettings::VocabSettings(QWidget *parent)
+    : QWidget(parent)
 {
     setupUi(this);
-    m_parent = (KConfigDialog*)parent;
 
     connect(lviewVocab, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(slotSelectionChanged(QTreeWidgetItem*)));
 
@@ -48,7 +48,7 @@ VocabSettings::~VocabSettings()
 {
 }
 
-void VocabSettings::refreshView()
+void VocabSettings::loadView()
 {
     lviewVocab->clear();
 
@@ -65,7 +65,12 @@ void VocabSettings::refreshView()
         item->setText( 1, m_commentList[i] );
         m_itemMap[item] = i;
     }
-    m_parent->button(QDialogButtonBox::Apply)->setEnabled(true);
+}
+
+void VocabSettings::refreshView()
+{
+    loadView();
+    emit widgetModified();
 }
 
 void VocabSettings::on_btnEdit_clicked()

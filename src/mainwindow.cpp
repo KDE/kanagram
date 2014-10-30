@@ -25,13 +25,11 @@
 
 #include "kanagramgame.h"
 #include "kanagramsettings.h"
-#include "mainsettings.h"
-#include "vocabsettings.h"
+#include "kanagramconfigdialog.h"
 
 #include <QQmlContext>
 #include <QQmlEngine>
 
-#include <KConfigDialog>
 #include <KDeclarative/KDeclarative>
 #include <KHelpMenu>
 #include <KLocalizedString>
@@ -105,20 +103,9 @@ void MainWindow::showSettings()
 {
     if (!KConfigDialog::showDialog("settings"))
     {
-        m_configDialog = new KConfigDialog( NULL, "settings", KanagramSettings::self() );
-        //m_configDialog->setAttribute(Qt::WA_DeleteOnClose);
+        m_configDialog = new KanagramConfigDialog( NULL, "settings", KanagramSettings::self() );
         connect(m_configDialog, SIGNAL(settingsChanged(QString)), m_game, SLOT(reloadSettings()));
 
-        // add the main settings page
-        MainSettings * mainSettingsPage = new MainSettings( m_configDialog );
-        connect (mainSettingsPage, SIGNAL(settingsChanged()), m_game, SLOT(reloadSettings()));
-        m_configDialog->addPage(mainSettingsPage , i18nc("@title:group main settings page name", "General" ), "preferences-other" );
-
-        // create and add the vocabsettings page
-        m_vocabSettings = new VocabSettings( m_configDialog );
-        m_configDialog->addPage(m_vocabSettings, i18n("Vocabularies"), "document-properties" );
-
-        // now make and add the shortcuts page
         connect(m_configDialog, SIGNAL(accepted()), m_game, SLOT(refreshVocabularyList()));
 
         // m_configDialog->setHelp("kanagram/index.html");

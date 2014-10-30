@@ -27,38 +27,34 @@
 
 #include <QPushButton>
 #include <QStandardPaths>
+#include <QLoggingCategory>
 
 #include <sharedkvtmlfiles.h>
 #include "kanagramsettings.h"
 #include "kanagramgame.h"
 
+Q_DECLARE_LOGGING_CATEGORY(KANAGRAM)
+
 MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 {
     setupUi( this );
-    m_parent = (KConfigDialog*)parent;
 
     slotToggleAdvancedSettings();
-    connect(parent, SIGNAL(settingsChanged(QString)), this, SLOT(slotUpdateLanguage()));
-    connect(languageComboBox, SIGNAL(activated(int)), this, SLOT(slotSetDirty()));
-    connect(scoringPointCheckbox,SIGNAL(toggled(bool)),this,SLOT(slotToggleAdvancedSettings()));
     populateLanguageBox();
+    connect(scoringPointCheckbox,SIGNAL(toggled(bool)),this,SLOT(slotToggleAdvancedSettings()));
 
     //the language code/name
-    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
-    QString code = KanagramSettings::dataLanguage();
-    KConfigGroup group = entry.group(code);
+    QLocale languageLocale(KanagramSettings::dataLanguage());
 
     // select the current language
-    languageComboBox->setCurrentIndex(languageComboBox->findText(group.readEntry("Name")));
+    languageComboBox->setCurrentIndex(languageComboBox->findText(languageLocale.nativeLanguageName()));
+
+    // Connect after we set the current language from settings.
+    connect(languageComboBox, SIGNAL(currentIndexChanged(int)), this, SIGNAL(widgetModified()));
 }
 
 MainSettings::~MainSettings()
 {
-}
-
-void MainSettings::slotSetDirty()
-{
-    m_parent->button(QDialogButtonBox::Apply)->setEnabled(true);
 }
 
 void MainSettings::slotToggleAdvancedSettings()
@@ -79,14 +75,13 @@ void MainSettings::populateLanguageBox()
     QStringList languages = SharedKvtmlFiles::languages();
 
     //the language code/name
-    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
     for (int i = 0; i < languages.count(); ++i)
     {
-        KConfigGroup group = entry.group(languages[i]);
+        QLocale languageLocale(languages[i]);
 
         // get the language name
-        QString languageName = group.readEntry("Name");
-        if (languageName.isEmpty())
+        QString languageName = languageLocale.nativeLanguageName();
+        if (languageName.isEmpty() || languageName == "C")
         {
             languageName = i18nc("@item:inlistbox no language for that locale", "None");
         }
@@ -94,13 +89,15 @@ void MainSettings::populateLanguageBox()
     }
 }
 
-void MainSettings::slotUpdateLanguage()
+bool MainSettings::saveLanguage()
 {
     int index = languageComboBox->currentIndex();
     QString language = languageComboBox->itemData(index).toString();
     qCDebug(KANAGRAM) << "Writing new default language: " << language;
-    KanagramSettings::setDataLanguage(language);
-    KanagramSettings::self()->save();
-
-    emit settingsChanged();
+    if (KanagramSettings::dataLanguage() != language) {
+        KanagramSettings::setDataLanguage(language);
+        KanagramSettings::self()->save();
+        return true;
+    }
+    return false;
 }
