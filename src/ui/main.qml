@@ -704,11 +704,11 @@ Rectangle {
         }
     }
 
-    WikiPage {
-        id: wikiPage
-        visible: false
-        onClosed: {
-            blackboard.wikiClosed()
-        }
-    }
+//    WikiPage {
+//        id: wikiPage
+//        visible: false
+//        onClosed: {
+//            blackboard.wikiClosed()
+//        }
+//    }
 }
