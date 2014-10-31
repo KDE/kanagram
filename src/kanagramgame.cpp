@@ -140,7 +140,7 @@ void KanagramGame::useVocabulary(const QString &vocabularyname)
 void KanagramGame::useVocabulary(int index)
 {
     int previous = m_fileIndex;
-    if (index < 0)
+    if (index < 0 && m_fileList.size() > 0)
     {
         // Use the last
         index = m_fileList.size() - 1;
@@ -151,10 +151,9 @@ void KanagramGame::useVocabulary(int index)
     }
 
     m_fileIndex = index;
-    m_filename = m_fileList.at(index);
+    m_filename = m_fileList.size() > index  && index >= 0 ? m_fileList.at(index) : QString();
 
-    if (m_fileIndex != previous) {
-        checkFile();
+    if (m_fileIndex != previous && checkFile()) {
         delete m_document;
         m_document = new KEduVocDocument(this);
         ///@todo open returns KEduVocDocument::ErrorCode
@@ -179,59 +178,60 @@ void KanagramGame::nextVocabulary()
 
 void KanagramGame::nextAnagram()
 {
-    checkFile();
-
-    int totalWords = m_document->lesson()->entryCount(KEduVocLesson::Recursive);
-    int randomWordIndex = m_random.getLong(totalWords);
-
-    if (totalWords == (int)m_answeredWords.size())
+    if (checkFile())
     {
-        m_answeredWords.clear();
-    }
+        int totalWords = m_document->lesson()->entryCount(KEduVocLesson::Recursive);
+        int randomWordIndex = m_random.getLong(totalWords);
 
-    if (totalWords > 0)
-    {
-        KEduVocTranslation *translation = m_document->lesson()->entries(KEduVocLesson::Recursive).at(randomWordIndex)->translation(0);
-
-        // Find the next word not used yet
-        while (m_answeredWords.contains(translation->text()))
+        if (totalWords == (int)m_answeredWords.size())
         {
-            randomWordIndex = m_random.getLong(totalWords);
-            translation =  m_document->lesson()->entries(KEduVocLesson::Recursive).at(randomWordIndex)->translation(0);
+            m_answeredWords.clear();
         }
 
-        // Make case consistent so german words that start capitalized will not
-        // be so easy to guess
-        if (KanagramSettings::uppercaseOnly())
+        if (totalWords > 0)
         {
-           m_originalWord = translation->text().toUpper();
+            KEduVocTranslation *translation = m_document->lesson()->entries(KEduVocLesson::Recursive).at(randomWordIndex)->translation(0);
+
+            // Find the next word not used yet
+            while (m_answeredWords.contains(translation->text()))
+            {
+                randomWordIndex = m_random.getLong(totalWords);
+                translation =  m_document->lesson()->entries(KEduVocLesson::Recursive).at(randomWordIndex)->translation(0);
+            }
+
+            // Make case consistent so german words that start capitalized will not
+            // be so easy to guess
+            if (KanagramSettings::uppercaseOnly())
+            {
+               m_originalWord = translation->text().toUpper();
+            }
+            else
+            {
+               m_originalWord = translation->text().toLower();
+            }
+            m_picHintUrl = translation->imageUrl();
+            m_audioUrl = translation->soundUrl();
+
+            m_answeredWords.append(m_originalWord);
+            createAnagram();
+            m_hint = translation->comment();
+
+            if (m_hint.isEmpty())
+            {
+                m_hint = i18n("No hint");
+            }
         }
         else
         {
-           m_originalWord = translation->text().toLower();
+            // this file has no entries
+            m_originalWord = "";
+            m_hint = "";
+            m_picHintUrl = "";
+            m_audioUrl = "";
+            // TODO: add some error reporting here
         }
-        m_picHintUrl = translation->imageUrl();
-        m_audioUrl = translation->soundUrl();
-
-        m_answeredWords.append(m_originalWord);
-        createAnagram();
-        m_hint = translation->comment();
-
-        if (m_hint.isEmpty())
-        {
-            m_hint = i18n("No hint");
-        }
+        emit wordChanged();
     }
-    else
-    {
-        // this file has no entries
-        m_originalWord = "";
-        m_hint = "";
-        m_picHintUrl = "";
-        m_audioUrl = "";
-        // TODO: add some error reporting here
-    }
-    emit wordChanged();
 }
 
 QString KanagramGame::filename() const
