@@ -12,7 +12,7 @@ include(FeatureSummary)
 find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick OpenGL)
 find_package(Qt5 OPTIONAL_COMPONENTS PrintSupport)
 
-find_package(ECM 0.0.9 NO_MODULE REQUIRED)
+find_package(ECM 1.3.0 NO_MODULE REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 include(KDEInstallDirs)
