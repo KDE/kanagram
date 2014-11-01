@@ -16,7 +16,7 @@ include_directories(
     ${PHONON_INCLUDES}
 )
 
-qt5_wrap_ui(kanagram_SRCS
+ki18n_wrap_ui(kanagram_SRCS
     vocabsettingswidget.ui
     vocabeditwidget.ui
     mainsettingswidget.ui
