@@ -93,9 +93,9 @@ bool KanagramGame::checkFile()
 QString KanagramGame::sanitizedDataLanguage() const
 {
     QString dataLanguage = KanagramSettings::dataLanguage();
+    QStringList languageCodes = SharedKvtmlFiles::languages();
 
-    if (dataLanguage.isEmpty()) {
-        QStringList languageCodes = SharedKvtmlFiles::languages();
+    if (dataLanguage.isEmpty() || !languageCodes.contains(dataLanguage)) {
         if (languageCodes.contains(QLocale::system().uiLanguages().at(0))) {
             dataLanguage = QLocale::system().uiLanguages().at(0);
         } else {
