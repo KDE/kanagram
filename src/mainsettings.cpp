@@ -41,7 +41,7 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 
     slotToggleAdvancedSettings();
     populateLanguageBox();
-    connect(scoringPointCheckbox,SIGNAL(toggled(bool)),this,SLOT(slotToggleAdvancedSettings()));
+    connect(scoringPointCheckbox, &QCheckBox::toggled, this, &MainSettings::slotToggleAdvancedSettings);
 
     //the language code/name
     QLocale languageLocale(KanagramSettings::dataLanguage());
@@ -50,7 +50,7 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
     languageComboBox->setCurrentIndex(languageComboBox->findText(languageLocale.nativeLanguageName()));
 
     // Connect after we set the current language from settings.
-    connect(languageComboBox, SIGNAL(currentIndexChanged(int)), this, SIGNAL(widgetModified()));
+    connect(languageComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MainSettings::widgetModified);
 }
 
 MainSettings::~MainSettings()

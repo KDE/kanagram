@@ -37,7 +37,7 @@ VocabSettings::VocabSettings(QWidget *parent)
 {
     setupUi(this);
 
-    connect(lviewVocab, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(slotSelectionChanged(QTreeWidgetItem*)));
+    connect(lviewVocab, &QTreeWidget::currentItemChanged, this, &VocabSettings::slotSelectionChanged);
 
     btnDownloadNew->setIcon(QIcon::fromTheme("get-hot-new-stuff"));
 
@@ -79,7 +79,7 @@ void VocabSettings::on_btnEdit_clicked()
     {
         int index = m_itemMap[lviewVocab->currentItem()];
         VocabEdit *vocabEdit = new VocabEdit(this, m_fileList[index]);
-        connect(vocabEdit, SIGNAL(finished(int)), this, SLOT(refreshView()));
+        connect(vocabEdit, &VocabEdit::finished, this, &VocabSettings::refreshView);
         vocabEdit->show();
     }
 }
@@ -87,7 +87,7 @@ void VocabSettings::on_btnEdit_clicked()
 void VocabSettings::on_btnCreateNew_clicked()
 {
     VocabEdit *vocabEdit = new VocabEdit(this, "");
-    connect(vocabEdit, SIGNAL(finished(int)), this, SLOT(refreshView()));
+    connect(vocabEdit, &VocabEdit::finished, this, &VocabSettings::refreshView);
     vocabEdit->show();
 }
 

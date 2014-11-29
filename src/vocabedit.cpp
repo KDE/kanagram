@@ -52,20 +52,20 @@ VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent
         delete doc;
     }
 
-    connect(btnSave, SIGNAL(clicked()), this, SLOT(slotSave()));
-    connect(btnNewWord, SIGNAL(clicked()), this, SLOT(slotNewWord()));
-    connect(btnRemoveWord, SIGNAL(clicked()), this, SLOT(slotRemoveWord()));
-    connect(btnClose, SIGNAL(clicked()), this, SLOT(slotClose()));
+    connect(btnSave, &QPushButton::clicked, this, &VocabEdit::slotSave);
+    connect(btnNewWord, &QPushButton::clicked, this, &VocabEdit::slotNewWord);
+    connect(btnRemoveWord, &QPushButton::clicked, this, &VocabEdit::slotRemoveWord);
+    connect(btnClose, &QPushButton::clicked, this, &VocabEdit::slotClose);
 
-    connect(txtWord, SIGNAL(textChanged(QString)), this, SLOT(slotWordTextChanged(QString)));
-    connect(txtHint, SIGNAL(textChanged(QString)), this, SLOT(slotHintTextChanged(QString)));
+    connect(txtWord, &QLineEdit::textChanged, this, &VocabEdit::slotWordTextChanged);
+    connect(txtHint, &QLineEdit::textChanged, this, &VocabEdit::slotHintTextChanged);
 
     //Connect the name and description boxes to a general textChanged slot, so that we can keep track of
     //whether they've been changed or not
-    connect(txtVocabName, SIGNAL(textChanged(QString)), this, SLOT(slotTextChanged(QString)));
-    connect(txtDescription, SIGNAL(textChanged(QString)), this, SLOT(slotTextChanged(QString)));
+    connect(txtVocabName, &QLineEdit::textChanged, this, &VocabEdit::slotTextChanged);
+    connect(txtDescription, &QLineEdit::textChanged, this, &VocabEdit::slotTextChanged);
 
-    connect(lboxWords, SIGNAL(itemSelectionChanged()), this, SLOT(slotSelectionChanged()));
+    connect(lboxWords, &QListWidget::itemSelectionChanged, this, &VocabEdit::slotSelectionChanged);
 
     //Has anything in the dialog changed?
     m_textChanged = false;
@@ -134,15 +134,15 @@ void VocabEdit::slotNewWord()
 void VocabEdit::slotSelectionChanged()
 {
     //A little hack to make things work right
-    disconnect(txtWord, SIGNAL(textChanged(QString)), this, SLOT(slotWordTextChanged(QString)));
-    disconnect(txtHint, SIGNAL(textChanged(QString)), this, SLOT(slotHintTextChanged(QString)));
+    disconnect(txtWord, &QLineEdit::textChanged, this, &VocabEdit::slotWordTextChanged);
+    disconnect(txtHint, &QLineEdit::textChanged, this, &VocabEdit::slotHintTextChanged);
     if (lboxWords->currentRow() >= 0)
     {
         txtWord->setText(m_vocabList[lboxWords->currentRow()].translation(0)->text());
         txtHint->setText(m_vocabList[lboxWords->currentRow()].translation(0)->comment());
     }
-    connect(txtWord, SIGNAL(textChanged(QString)), this, SLOT(slotWordTextChanged(QString)));
-    connect(txtHint, SIGNAL(textChanged(QString)), this, SLOT(slotHintTextChanged(QString)));
+    connect(txtWord, &QLineEdit::textChanged, this, &VocabEdit::slotWordTextChanged);
+    connect(txtHint, &QLineEdit::textChanged, this, &VocabEdit::slotHintTextChanged);
 }
 
 void VocabEdit::slotWordTextChanged(const QString &changes)

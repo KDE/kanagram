@@ -35,12 +35,12 @@ KanagramConfigDialog::KanagramConfigDialog(QWidget *parent, const QString &name,
     // add the main settings page
     m_mainSettingsPage = new MainSettings( this );
     addPage(m_mainSettingsPage , i18nc("@title:group main settings page name", "General" ), "preferences-other" );
-    connect(m_mainSettingsPage, SIGNAL(widgetModified()), this, SLOT(settingsModified()));
+    connect(m_mainSettingsPage, &MainSettings::widgetModified, this, &KanagramConfigDialog::settingsModified);
 
     // create and add the vocabsettings page
     m_vocabSettingsPage = new VocabSettings( this );
     addPage(m_vocabSettingsPage, i18n("Vocabularies"), "document-properties" );
-    connect(m_vocabSettingsPage, SIGNAL(widgetModified()), this, SLOT(settingsModified()));
+    connect(m_vocabSettingsPage, &VocabSettings::widgetModified, this, &KanagramConfigDialog::settingsModified);
 
     m_hasChanged = false;
 }

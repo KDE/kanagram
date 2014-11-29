@@ -66,7 +66,7 @@ MainWindow::MainWindow()
     setSource(QUrl::fromLocalFile(location));
     qCDebug(KANAGRAM) << "Set qml file location";
 
-    connect(m_game, SIGNAL(titleChanged()), SLOT(categoryChanged()));
+    connect(m_game, &KanagramGame::titleChanged, this, &MainWindow::categoryChanged);
     categoryChanged();
 }
 
@@ -104,9 +104,9 @@ void MainWindow::showSettings()
     if (!KConfigDialog::showDialog("settings"))
     {
         m_configDialog = new KanagramConfigDialog( NULL, "settings", KanagramSettings::self() );
-        connect(m_configDialog, SIGNAL(settingsChanged(QString)), m_game, SLOT(reloadSettings()));
+        connect(m_configDialog, &KConfigDialog::settingsChanged, m_game, &KanagramGame::reloadSettings);
 
-        connect(m_configDialog, SIGNAL(accepted()), m_game, SLOT(refreshVocabularyList()));
+        connect(m_configDialog, &KConfigDialog::accepted, m_game, &KanagramGame::refreshVocabularyList);
 
         // m_configDialog->setHelp("kanagram/index.html");
         m_configDialog->resize(600, 500);
