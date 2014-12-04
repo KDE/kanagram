@@ -33,6 +33,7 @@ target_link_libraries(kanagram
     KF5::NewStuff
     KF5::SonnetCore
     KF5::Declarative
+    KF5::Crash
     LibKEduVocDocumentImport__KEduVocDocument
     Phonon::phonon4qt5
 )
