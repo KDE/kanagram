@@ -36,6 +36,7 @@ int main(int argc, char **argv)
     QApplication::setApplicationName("kanagram");
     QApplication::setApplicationVersion("0.2");
     QApplication::setOrganizationDomain("kde.org");
+    KLocalizedString::setApplicationDomain("kanagram");
     QApplication::setApplicationDisplayName(i18n("kanagram"));
     QApplication app(argc, argv);
 
