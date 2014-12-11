@@ -113,6 +113,16 @@ void KanagramGame::loadDefaultVocabulary()
     nextAnagram();
 }
 
+void KanagramGame::setSinglePlayerMode(bool mode)
+{
+    return KanagramSettings::setSinglePlayerMode(mode);
+}
+
+bool KanagramGame::singlePlayerMode()
+{
+  return KanagramSettings::singlePlayerMode();
+}
+
 bool KanagramGame::refreshVocabularyList()
 {
     QString oldFilename = m_filename;

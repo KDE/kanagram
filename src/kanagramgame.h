@@ -116,6 +116,8 @@ class KanagramGame : public QObject
 
         Q_INVOKABLE int scoreTime();
 
+	Q_INVOKABLE bool singlePlayerMode();
+
         /** Get the current score */
         int totalScore();
 
@@ -125,6 +127,9 @@ class KanagramGame : public QObject
         bool useSounds();
 
     public Q_SLOTS:
+
+	/** Checks if in single-player mode*/
+        void setSinglePlayerMode(bool);
 
         /** Set the vocabulary to use according to the vocabulary name */
         void useVocabulary(const QString &vocabularyname);

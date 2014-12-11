@@ -72,6 +72,54 @@ Rectangle {
         }
 
         Image {
+            id: playericon
+            width: 60
+            height: 60
+            anchors.left:parent.left
+            anchors.leftMargin:20
+            anchors.verticalCenter: parent.verticalCenter
+            source: kanagramGame.singlePlayerMode() ? "icons/1player.png" : "icons/2player.png"
+            smooth: true
+            fillMode: Image.PreserveAspectCrop
+            function togglePlayerMode() {
+	    if (kanagramGame.singlePlayerMode()){
+		source= "icons/2player.png"
+		kanagramGame.setSinglePlayerMode(false)
+	    }
+	    else{
+		source= "icons/1player.png"
+		kanagramGame.setSinglePlayerMode(true)
+	        }
+	    }
+
+	    MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: playericon.state = "onEntered"
+                onExited: playericon.state = "onExited"
+                onClicked: playericon.togglePlayerMode()
+            }
+            states: State {
+                name: "onEntered"
+                PropertyChanges {
+                    target: playerModeText
+                    opacity: 1
+                }
+            }
+            State {
+                name: "onExited"
+            }
+            transitions: Transition {
+                PropertyAnimation {
+                    properties: "x,y,opacity"
+                    easing.type: Easing.Linear
+                    easing.amplitude: 5.0
+                    easing.period: 1
+                }
+            }
+	}
+
+        Image {
             id: powerButton
             smooth: true
             height: parent.height / 3
@@ -122,6 +170,19 @@ Rectangle {
             }
             color: "white"
             text: i18n("Quit")
+            opacity: 0
+            font.pixelSize: parent.width / 91
+        }
+
+        Text {
+            id: playerModeText
+            anchors {
+                top: playericon.bottom
+                topMargin: 2
+                horizontalCenter: playericon.horizontalCenter
+            }
+            color: "white"
+            text: i18n("Change mode")
             opacity: 0
             font.pixelSize: parent.width / 91
         }
