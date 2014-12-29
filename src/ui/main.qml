@@ -280,7 +280,40 @@ Rectangle {
             fillMode: Image.PreserveAspectFit
         }
     } // End of nextAnagram
-
+    
+    Item {
+	id: playerBox
+	anchors {
+	    left: parent.left
+	    leftMargin: 20
+	    verticalCenter: blackboard.verticalCenter
+	}
+	visible: !kanagramGame.singlePlayer
+	
+	Rectangle {
+            id: playerButton
+            width: blackboard.width / 3
+            height: blackboard.height / 7
+            anchors {
+                left: parent.left
+                verticalCenter: parent.verticalCenter
+            }
+            radius: 8
+            color: "black"
+            opacity: 0.5
+	}
+	
+	Text { 
+	id: currentPlayerText
+	anchors {
+                verticalCenter: playerButton.verticalCenter
+                horizontalCenter: playerButton.horizontalCenter
+            }
+	color : "white"
+	text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")
+	}
+    }
+    
     Item {
         id: configure
         anchors {
@@ -739,12 +772,18 @@ Rectangle {
         onTriggered: {
             if (--input.countDownTimerValue == 0) {
                 input.color = "white"
+		if(!(kanagramGame.singlePlayerMode())) {
+		    if((kanagramGame.getPlayerNumber())==1)
+			kanagramGame.setPlayerNumber(2);
+		    else
+			kanagramGame.setPlayerNumber(1);
+		}
                 if (input.flagCorrectAnswer) {
                     kanagramGame.nextAnagram();
                     if (kanagramGame.hintHideTime())
                         blackboard.showHintTimeInterval = 1
                 }
-                input.text = ""
+		input.text = ""
                 stop()
             }
         }
@@ -786,7 +825,6 @@ Rectangle {
             screen.nextAnagram();
         }
     }
-
 //    WikiPage {
 //        id: wikiPage
 //        visible: false

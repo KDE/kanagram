@@ -47,6 +47,7 @@ KanagramGame::KanagramGame()
       ,m_kspeech(NULL)
 #endif
       ,m_totalScore(0)
+      ,m_currentPlayerNumber(1)
       ,m_speller(NULL)
 {
     loadSettings();
@@ -116,11 +117,23 @@ void KanagramGame::loadDefaultVocabulary()
 void KanagramGame::setSinglePlayerMode(bool mode)
 {
     return KanagramSettings::setSinglePlayerMode(mode);
+    emit singlePlayerModeChanged();
 }
 
 bool KanagramGame::singlePlayerMode()
 {
   return KanagramSettings::singlePlayerMode();
+}
+
+int KanagramGame::getPlayerNumber()
+{
+    return m_currentPlayerNumber;
+}
+
+void KanagramGame::setPlayerNumber(int pnumber)
+{
+    m_currentPlayerNumber=pnumber;
+    emit currentPlayerChanged();
 }
 
 bool KanagramGame::refreshVocabularyList()
