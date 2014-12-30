@@ -47,6 +47,7 @@ KanagramGame::KanagramGame()
       ,m_kspeech(NULL)
 #endif
       ,m_totalScore(0)
+      ,m_totalScore2(0)
       ,m_currentPlayerNumber(1)
       ,m_speller(NULL)
 {
@@ -459,18 +460,25 @@ int KanagramGame::getNumericSetting(QString settingString)
 void KanagramGame::resetTotalScore()
 {
     m_totalScore = 0;
+    m_totalScore2 = 0;
     emit scoreChanged();
 }
 
 void KanagramGame::adjustScore(int points)
 {
-    m_totalScore += points;
+    if ((getPlayerNumber())==1)
+        m_totalScore += points;
+    else
+        m_totalScore2 += points;
     emit scoreChanged();
 }
 
 int KanagramGame::totalScore()
 {
-    return m_totalScore;
+    if ((getPlayerNumber())==1)
+        return m_totalScore;
+    else
+        return m_totalScore2;
 }
 
 void KanagramGame::revealWord()
@@ -600,24 +608,36 @@ void KanagramGame::loadSettings()
 
 void KanagramGame::answerCorrect()
 {
-    m_totalScore += m_correctAnswerScore;
+    if ((getPlayerNumber())==1)
+        m_totalScore += m_correctAnswerScore;
+    else
+        m_totalScore2 += m_correctAnswerScore;
     emit scoreChanged();
 }
 
 void KanagramGame::answerIncorrect()
 {
-    m_totalScore += m_incorrectAnswerScore;
+    if ((getPlayerNumber())==1)
+        m_totalScore += m_incorrectAnswerScore;
+    else
+        m_totalScore2 += m_incorrectAnswerScore;
     emit scoreChanged();
 }
 
 void KanagramGame::answerRevealed()
 {
-    m_totalScore += m_revealAnswerScore;
+    if((getPlayerNumber())==1)
+        m_totalScore += m_revealAnswerScore;
+    else
+        m_totalScore2 += m_revealAnswerScore;
     emit scoreChanged();
 }
 
 void KanagramGame::answerSkipped()
 {
-    m_totalScore += m_skippedWordScore;
+    if((getPlayerNumber())==1)
+        m_totalScore += m_skippedWordScore;
+    else
+        m_totalScore2 += m_skippedWordScore;
     emit scoreChanged();
 }

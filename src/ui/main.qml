@@ -772,12 +772,6 @@ Rectangle {
         onTriggered: {
             if (--input.countDownTimerValue == 0) {
                 input.color = "white"
-		if(!(kanagramGame.singlePlayerMode())) {
-		    if((kanagramGame.getPlayerNumber())==1)
-			kanagramGame.setPlayerNumber(2);
-		    else
-			kanagramGame.setPlayerNumber(1);
-		}
                 if (input.flagCorrectAnswer) {
                     kanagramGame.nextAnagram();
                     if (kanagramGame.hintHideTime())
