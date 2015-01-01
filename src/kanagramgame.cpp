@@ -34,7 +34,6 @@
 #endif
 
 #include <KLocalizedString>
-#include <phonon/MediaObject>
 #include <sonnet/speller.h>
 
 #include <QLocale>
@@ -44,7 +43,6 @@
 KanagramGame::KanagramGame()
     : m_fileIndex(-1)
       ,m_document(NULL)
-      ,m_player(NULL)
 #ifdef BUILD_WITH_SPEECH
       ,m_kspeech(NULL)
 #endif
@@ -73,8 +71,6 @@ KanagramGame::~KanagramGame()
 
     delete m_document;
     m_document = NULL;
-    delete m_player;
-    m_player = NULL;
     delete m_speller;
     m_speller = NULL;
 }
@@ -276,11 +272,11 @@ void KanagramGame::createAnagram()
     } else {
         m_anagram = m_originalWord;
     }
+}
 
-    if (KanagramSettings::useSounds())
-    {
-        play("chalk.ogg");
-    }
+bool KanagramGame::useSounds()
+{
+    return KanagramSettings::useSounds();
 }
 
 QString KanagramGame::documentTitle() const
@@ -347,42 +343,15 @@ QUrl KanagramGame::audioFile()
     return m_audioUrl;
 }
 
-void KanagramGame::play(const QString& filename)
-{
-    if (!filename.isEmpty())
-    {
-        QString soundFile = QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/" + filename);
-        if (soundFile.isEmpty())
-            soundFile = filename;
-
-        if (!m_player)
-        {
-            m_player = Phonon::createPlayer(Phonon::GameCategory, QUrl::fromLocalFile(soundFile));
-        }
-        else
-        {
-            m_player->setCurrentSource(QUrl::fromLocalFile(soundFile));
-        }
-        m_player->play();
-    }
-}
-
+#ifdef BUILD_WITH_SPEECH
 void KanagramGame::wordRevealed()
 {
     if (KanagramSettings::enablePronunciation())
     {
-        // User wants words spoken, but if there's no audio file, play right.ogg
-        if (!m_audioUrl.isEmpty())
-            play(m_audioUrl.toLocalFile());
-#ifdef BUILD_WITH_SPEECH
-        else
-            say(m_originalWord);
-#else
-        else
-            play("right.ogg");
-#endif
+        say(m_originalWord);
     }
 }
+#endif
 
 #ifdef BUILD_WITH_SPEECH
 void KanagramGame::setupJovie()
@@ -499,27 +468,23 @@ bool KanagramGame::checkWord(QString answer)
                (isAnagram(enteredWord, m_originalWord) ||
                 isAnagram(enteredWord, strippedOriginal))))
         {
+#ifdef BUILD_WITH_SPEECH
             if (KanagramSettings::enablePronunciation())
             {
-                // User wants words spoken, but if there's no audio file, play right.ogg
-                if (!m_audioUrl.isEmpty())
-                    play(m_audioUrl.toLocalFile());
+                // User wants words spoken
             }
-            else if (KanagramSettings::useSounds())
-            {
-                // Otherwise just play right.ogg
-                play("right.ogg");
-            }
+#endif
             return true;
         }
         else
         {
-            if (KanagramSettings::useSounds()) play("wrong.ogg");
             return false;
         }
     }
     else
+    {
         return false;
+    }
 }
 
 bool KanagramGame::isAnagram(QString& enteredword, QString& word)

@@ -20,6 +20,7 @@
 
 import QtQuick 2.3
 import QtQuick.Controls 1.2
+import QtMultimedia 5.0
 
 Rectangle {
 
@@ -32,6 +33,8 @@ Rectangle {
         }
         if (kanagramGame.hintHideTime())
             blackboard.showHintTimeInterval = 1
+        if (kanagramGame.useSounds)
+            chalkSound.play();
     }
 
     Image {
@@ -643,6 +646,8 @@ Rectangle {
                 input.color = "green"
                 input.countDownTimerValue = 1
                 input.flagCorrectAnswer = true
+                if (kanagramGame.useSounds)
+                    rightSound.play();
                 if (blackboard.activeTimer) {
                     kanagramGame.answerCorrect();
                 }
@@ -652,6 +657,8 @@ Rectangle {
                 input.color = "red"
                 input.countDownTimerValue = 1
                 input.flagCorrectAnswer = false
+                if (kanagramGame.useSounds)
+                    wrongSound.play();
                 if (blackboard.activeTimer) {
                     kanagramGame.answerIncorrect();
                 }
@@ -680,6 +687,21 @@ Rectangle {
                 stop()
             }
         }
+    }
+
+    MediaPlayer {
+        id: chalkSound
+        source: "sounds/chalk.ogg"
+    }
+
+    MediaPlayer {
+        id: rightSound
+        source: "sounds/right.ogg"
+    }
+
+    MediaPlayer {
+        id: wrongSound
+        source: "sounds/wrong.ogg"
     }
 
     Blackboard {

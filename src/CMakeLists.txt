@@ -13,7 +13,6 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${QT_INCLUDES}
     ${LIBKEDUVOCDOCUMENT_INCLUDE_DIR}
-    ${PHONON_INCLUDES}
 )
 
 ki18n_wrap_ui(kanagram_SRCS
@@ -35,7 +34,6 @@ target_link_libraries(kanagram
     KF5::Declarative
     KF5::Crash
     LibKEduVocDocumentImport__KEduVocDocument
-    Phonon::phonon4qt5
 )
 
 install(

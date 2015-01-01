@@ -37,10 +37,6 @@ Q_DECLARE_LOGGING_CATEGORY(KANAGRAM)
 
 class KEduVocDocument;
 
-namespace Phonon {
-    class MediaObject;
-}
-
 namespace Sonnet {
     class Speller;
 }
@@ -67,6 +63,8 @@ class KanagramGame : public QObject
     Q_PROPERTY(QString dataLanguage READ dataLanguage WRITE setDataLanguage NOTIFY dataLanguageChanged)
 
     Q_PROPERTY(int score READ totalScore NOTIFY scoreChanged)
+
+    Q_PROPERTY(bool useSounds READ useSounds NOTIFY useSoundsChanged)
 
     public:
         /** Default constructor */
@@ -124,6 +122,8 @@ class KanagramGame : public QObject
         /** Check word answer against the current word */
         Q_INVOKABLE bool checkWord(QString answer);
 
+        bool useSounds();
+
     public Q_SLOTS:
 
         /** Set the vocabulary to use according to the vocabulary name */
@@ -153,8 +153,10 @@ class KanagramGame : public QObject
         /** Use the previous vocabulary file in the list */
         void previousVocabulary();
 
+#ifdef BUILD_WITH_SPEECH
         /** The word was revealed (or correctly entered), so play the audio, say it, or play right.ogg */
         void wordRevealed();
+#endif
 
         /** Reset the current score */
         void resetTotalScore();
@@ -189,6 +191,9 @@ class KanagramGame : public QObject
 
         /** Signal the ui that the score has changed */
         void scoreChanged();
+
+        /** Signal the ui that sound enabled has changed */
+        void useSoundsChanged();
     private:
 
         /** Make the word into an anagram */
@@ -196,9 +201,6 @@ class KanagramGame : public QObject
 
         /** Check the current file */
         bool checkFile();
-
-        /** Play a media file via Phonon */
-        void play(const QString &filename);
 
 #ifdef BUILD_WITH_SPEECH
         /** setup kde text-to-speech daemon */
@@ -257,9 +259,6 @@ class KanagramGame : public QObject
 
         /** The hash of the language code and name */
         QHash<QString, QString> m_languageCodeNameHash;
-
-        /** audio player to use for playing sounds */
-        Phonon::MediaObject *m_player;
 
 #ifdef BUILD_WITH_SPEECH
         /** object to enable text to speech conversion */
