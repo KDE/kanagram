@@ -61,9 +61,9 @@ class KanagramGame : public QObject
     Q_PROPERTY(QStringList vocabularies READ vocabularyList)
     Q_PROPERTY(QStringList languages READ languageNames)
     Q_PROPERTY(QString dataLanguage READ dataLanguage WRITE setDataLanguage NOTIFY dataLanguageChanged)
-    
+
     Q_PROPERTY(int currentPlayer READ getPlayerNumber WRITE setPlayerNumber NOTIFY currentPlayerChanged)
-    
+
     Q_PROPERTY(int score READ totalScore NOTIFY scoreChanged)
 
     Q_PROPERTY(bool useSounds READ useSounds NOTIFY useSoundsChanged)
@@ -135,10 +135,10 @@ class KanagramGame : public QObject
 
 	/** Get */
         int getPlayerNumber();
-	
+
 	/** Set */
         void setPlayerNumber(int);
-        
+
 	/** Set the vocabulary to use according to the vocabulary name */
         void useVocabulary(const QString &vocabularyname);
 
@@ -201,7 +201,7 @@ class KanagramGame : public QObject
 
 	/** Signal the ui that the mode has changed*/
 	void singlePlayerModeChanged();
-	
+
         /** Signal the ui that the current document title has changed */
         void titleChanged();
 
@@ -289,10 +289,10 @@ class KanagramGame : public QObject
 
 	/** current total score of player 2*/
 	int m_totalScore2;
-	
+
 	/** current player number in 2-player mode*/
 	int m_currentPlayerNumber;
-	
+
         /** Speller object to check correct spelling */
         Sonnet::Speller *m_speller;
 

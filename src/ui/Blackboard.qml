@@ -435,7 +435,7 @@ Rectangle {
         triggeredOnStart: false
 
         onTriggered: {
-          
+
             if (!wikiButton.wikiLinkActivated) {
                 if (--scoreButton.countDownTimerValue == 0) {
                     stop()
@@ -446,10 +446,10 @@ Rectangle {
                         if((kanagramGame.getPlayerNumber())==1)
                             kanagramGame.setPlayerNumber(2);
                         else {
-                            kanagramGame.setPlayerNumber(1);                            
+                            kanagramGame.setPlayerNumber(1);
                         }
                 }
-                    
+
                 } else {
                     scoreTimer.running = true
                     timerSection.opacity = 0.35
@@ -481,4 +481,3 @@ Rectangle {
         }
     }
 }
-           

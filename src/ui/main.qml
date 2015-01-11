@@ -110,7 +110,7 @@ Rectangle {
                 PropertyChanges {
                     target: playericon
                     source: kanagramGame.singlePlayerMode() ? "icons/2player.png" : "icons/1player.png"
-                }             
+                }
             }
             State {
                 name: "onExited"
@@ -286,7 +286,7 @@ Rectangle {
             fillMode: Image.PreserveAspectFit
         }
     } // End of nextAnagram
-    
+
     Item {
 	id: playerBox
 	anchors {
@@ -308,19 +308,19 @@ Rectangle {
             color: "black"
             opacity: 0
 	}
-	
+
 	Text {
 	id: currentPlayerText
 	anchors{
             verticalCenter: playerButton.verticalCenter
             horizontalCenter: playerButton.horizontalCenter
         }
-        
+
 	color : "white"
         opacity: 0
 	text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")
 	}
-	
+
 	function toggleVisible()
         {
             if (kanagramGame.singlePlayerMode())
@@ -336,7 +336,7 @@ Rectangle {
             return true;
         }
     }
-    
+
     Item {
         id: configure
         anchors {
