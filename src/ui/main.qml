@@ -290,9 +290,10 @@ Rectangle {
     Item {
 	id: playerBox
 	anchors {
-	    left: parent.left
-	    leftMargin: 20
-	    verticalCenter: blackboard.verticalCenter
+	    top: blackboard.top
+            right: blackboard.left
+            rightMargin: 165
+            topMargin: blackboard.height / 7
 	}
 	visible: playerBox.toggleVisible()
 
@@ -300,9 +301,8 @@ Rectangle {
             id: playerButton
             width: blackboard.width / 3
             height: blackboard.height / 7
-            anchors {
-                left: parent.left
-                verticalCenter: parent.verticalCenter
+            MouseArea {
+                anchors.fill: parent
             }
             radius: 8
             color: "black"
