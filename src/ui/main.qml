@@ -292,7 +292,7 @@ Rectangle {
 	anchors {
 	    top: blackboard.top
             right: blackboard.left
-            rightMargin: 165
+            rightMargin: 185
             topMargin: blackboard.height / 7
 	}
 	visible: playerBox.toggleVisible()

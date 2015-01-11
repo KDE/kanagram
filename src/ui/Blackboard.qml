@@ -398,7 +398,7 @@ Rectangle {
             horizontalCenter: scoreSection.horizontalCenter
         }
         color: "white"
-        text: i18n("Score : ") + kanagramGame.score
+        text: kanagramGame.currentPlayer == 1 ? i18n("Score : ") + kanagramGame.score : i18n("Score : ") + kanagramGame.score2
         opacity: 0
         font.pixelSize: parent.width / 40
     }
@@ -492,7 +492,7 @@ Rectangle {
             horizontalCenter: score2Button.horizontalCenter
         }
         color: "white"
-        text: i18n(" Player 1 : ") + kanagramGame.score + i18n("\n Player 2 : ") + kanagramGame.score
+        text: i18n(" Player 1 : ") + kanagramGame.score + i18n("\n Player 2 : ") + kanagramGame.score2
         opacity: 0
         }
 

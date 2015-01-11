@@ -459,9 +459,12 @@ int KanagramGame::getNumericSetting(QString settingString)
 
 void KanagramGame::resetTotalScore()
 {
-    m_totalScore = 0;
-    m_totalScore2 = 0;
-    emit scoreChanged();
+    if (m_currentPlayerNumber == 1)
+    {
+        m_totalScore = 0;
+        m_totalScore2 = 0;
+        emit scoreChanged();
+    }
 }
 
 void KanagramGame::adjustScore(int points)
@@ -475,10 +478,12 @@ void KanagramGame::adjustScore(int points)
 
 int KanagramGame::totalScore()
 {
-    if (m_currentPlayerNumber == 1)
-        return m_totalScore;
-    else
-        return m_totalScore2;
+    return m_totalScore;
+}       
+
+int KanagramGame::totalScore2()
+{
+    return m_totalScore2;
 }
 
 void KanagramGame::revealWord()

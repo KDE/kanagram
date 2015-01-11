@@ -65,6 +65,7 @@ class KanagramGame : public QObject
     Q_PROPERTY(int currentPlayer READ getPlayerNumber WRITE setPlayerNumber NOTIFY currentPlayerChanged)
 
     Q_PROPERTY(int score READ totalScore NOTIFY scoreChanged)
+    Q_PROPERTY(int score2 READ totalScore2 NOTIFY scoreChanged)
 
     Q_PROPERTY(bool useSounds READ useSounds NOTIFY useSoundsChanged)
 
@@ -122,6 +123,9 @@ class KanagramGame : public QObject
 
         /** Get the current score */
         int totalScore();
+        
+        /** Get the current score of player 2*/
+        int totalScore2();
 
         /** Check word answer against the current word */
         Q_INVOKABLE bool checkWord(QString answer);
