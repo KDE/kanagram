@@ -445,8 +445,9 @@ Rectangle {
                     if(!(kanagramGame.singlePlayerMode())) {
                         if((kanagramGame.getPlayerNumber())==1)
                             kanagramGame.setPlayerNumber(2);
-                        else
-                            kanagramGame.setPlayerNumber(1);
+                        else {
+                            kanagramGame.setPlayerNumber(1);                            
+                        }
                 }
                     
                 } else {

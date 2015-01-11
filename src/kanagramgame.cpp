@@ -115,9 +115,9 @@ void KanagramGame::loadDefaultVocabulary()
     nextAnagram();
 }
 
-void KanagramGame::setSinglePlayerMode(bool mode)
+void KanagramGame::setSinglePlayerMode(bool singlePlayer)
 {
-    return KanagramSettings::setSinglePlayerMode(mode);
+    return KanagramSettings::setSinglePlayerMode(singlePlayer);
     emit singlePlayerModeChanged();
 }
 
@@ -133,7 +133,7 @@ int KanagramGame::getPlayerNumber()
 
 void KanagramGame::setPlayerNumber(int pnumber)
 {
-    m_currentPlayerNumber=pnumber;
+    m_currentPlayerNumber = pnumber;
     emit currentPlayerChanged();
 }
 
@@ -466,7 +466,7 @@ void KanagramGame::resetTotalScore()
 
 void KanagramGame::adjustScore(int points)
 {
-    if ((getPlayerNumber())==1)
+    if (m_currentPlayerNumber == 1)
         m_totalScore += points;
     else
         m_totalScore2 += points;
@@ -475,7 +475,7 @@ void KanagramGame::adjustScore(int points)
 
 int KanagramGame::totalScore()
 {
-    if ((getPlayerNumber())==1)
+    if (m_currentPlayerNumber == 1)
         return m_totalScore;
     else
         return m_totalScore2;
@@ -608,7 +608,7 @@ void KanagramGame::loadSettings()
 
 void KanagramGame::answerCorrect()
 {
-    if ((getPlayerNumber())==1)
+    if (m_currentPlayerNumber == 1)
         m_totalScore += m_correctAnswerScore;
     else
         m_totalScore2 += m_correctAnswerScore;
@@ -617,7 +617,7 @@ void KanagramGame::answerCorrect()
 
 void KanagramGame::answerIncorrect()
 {
-    if ((getPlayerNumber())==1)
+    if (m_currentPlayerNumber == 1)
         m_totalScore += m_incorrectAnswerScore;
     else
         m_totalScore2 += m_incorrectAnswerScore;
@@ -626,7 +626,7 @@ void KanagramGame::answerIncorrect()
 
 void KanagramGame::answerRevealed()
 {
-    if((getPlayerNumber())==1)
+    if (m_currentPlayerNumber == 1)
         m_totalScore += m_revealAnswerScore;
     else
         m_totalScore2 += m_revealAnswerScore;
@@ -635,7 +635,7 @@ void KanagramGame::answerRevealed()
 
 void KanagramGame::answerSkipped()
 {
-    if((getPlayerNumber())==1)
+    if (m_currentPlayerNumber == 1)
         m_totalScore += m_skippedWordScore;
     else
         m_totalScore2 += m_skippedWordScore;

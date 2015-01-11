@@ -85,10 +85,12 @@ Rectangle {
 	    if (kanagramGame.singlePlayerMode()){
 		source= "icons/2player.png"
 		kanagramGame.setSinglePlayerMode(false)
+                playerBox.toggleVisible()
 	    }
 	    else{
 		source= "icons/1player.png"
 		kanagramGame.setSinglePlayerMode(true)
+                playerBox.toggleVisible()
 	        }
 	    }
 
@@ -105,6 +107,10 @@ Rectangle {
                     target: playerModeText
                     opacity: 1
                 }
+                PropertyChanges {
+                    target: playericon
+                    source: kanagramGame.singlePlayerMode() ? "icons/2player.png" : "icons/1player.png"
+                }             
             }
             State {
                 name: "onExited"
@@ -288,8 +294,8 @@ Rectangle {
 	    leftMargin: 20
 	    verticalCenter: blackboard.verticalCenter
 	}
-	visible: !kanagramGame.singlePlayer
-	
+	visible: playerBox.toggleVisible()
+
 	Rectangle {
             id: playerButton
             width: blackboard.width / 3
@@ -300,18 +306,35 @@ Rectangle {
             }
             radius: 8
             color: "black"
-            opacity: 0.5
+            opacity: 0
 	}
 	
-	Text { 
+	Text {
 	id: currentPlayerText
-	anchors {
-                verticalCenter: playerButton.verticalCenter
-                horizontalCenter: playerButton.horizontalCenter
-            }
+	anchors{
+            verticalCenter: playerButton.verticalCenter
+            horizontalCenter: playerButton.horizontalCenter
+        }
+        
 	color : "white"
+        opacity: 0
 	text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")
 	}
+	
+	function toggleVisible()
+        {
+            if (kanagramGame.singlePlayerMode())
+            {
+                playerButton.opacity= 0
+                currentPlayerText.opacity= 0
+            }
+            else
+            {
+                playerButton.opacity= 0.5
+                currentPlayerText.opacity= 1
+            }
+            return true;
+        }
     }
     
     Item {
