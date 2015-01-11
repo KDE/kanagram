@@ -495,7 +495,7 @@ Rectangle {
         text: i18n(" Player 1 : ") + kanagramGame.score + i18n("\n Player 2 : ") + kanagramGame.score
         opacity: 0
         }
-        
+
         ToolButton {
         id: closeButton
         action: closeAction
@@ -506,15 +506,15 @@ Rectangle {
             right: score2Button.right
         }
         opacity: 0
-        
+
         Image {
             source: "icons/close.png"
             anchors.fill: parent
             anchors.margins: 4
-            fillMode: Image.PreserveAspectFit            
-        }           
+            fillMode: Image.PreserveAspectFit
         }
-        
+        }
+
         Action {
         id: closeAction
         onTriggered: {
@@ -522,18 +522,18 @@ Rectangle {
         }
         tooltip: i18n("Close")
     }
-    
-    function score2Visible() 
+
+    function score2Visible()
         {
-            if (!kanagramGame.singlePlayerMode()) 
+            if (!kanagramGame.singlePlayerMode())
             {
                 score2BoxText.opacity = 1
                 score2Button.opacity = 1
                 closeButton.opacity = 1
             }
         }
-    function score2Hidden() 
-        {            
+    function score2Hidden()
+        {
                 score2BoxText.opacity = 0
                 score2Button.opacity = 0
                 closeButton.opacity = 0
