@@ -479,7 +479,7 @@ void KanagramGame::adjustScore(int points)
 int KanagramGame::totalScore()
 {
     return m_totalScore;
-}       
+}
 
 int KanagramGame::totalScore2()
 {

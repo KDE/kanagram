@@ -123,7 +123,7 @@ class KanagramGame : public QObject
 
         /** Get the current score */
         int totalScore();
-        
+
         /** Get the current score of player 2*/
         int totalScore2();
 
