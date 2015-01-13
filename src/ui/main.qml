@@ -284,11 +284,11 @@ Rectangle {
             top: blackboard.top
             right: blackboard.left
             rightMargin: 185
-            topMargin: blackboard.height / 7          
+            topMargin: blackboard.height / 7
         }
-        
+
         visible: kanagramGame.singlePlayer ? false : true
-	
+
         Rectangle {
             id: playerButton
             width: blackboard.width / 3
@@ -307,7 +307,7 @@ Rectangle {
 
             }
             color : "white"
-            text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")          
+            text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")
         }
     }
 
