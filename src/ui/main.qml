@@ -78,23 +78,14 @@ Rectangle {
             anchors.left:parent.left
             anchors.leftMargin:20
             anchors.verticalCenter: parent.verticalCenter
-            source: kanagramGame.singlePlayerMode() ? "icons/1player.png" : "icons/2player.png"
+            source: kanagramGame.singlePlayer ? "icons/1player.png" : "icons/2player.png"
             smooth: true
             fillMode: Image.PreserveAspectCrop
             function togglePlayerMode() {
-	    if (kanagramGame.singlePlayerMode()){
-		source= "icons/2player.png"
-		kanagramGame.setSinglePlayerMode(false)
-                playerBox.toggleVisible()
-	    }
-	    else{
-		source= "icons/1player.png"
-		kanagramGame.setSinglePlayerMode(true)
-                playerBox.toggleVisible()
-	        }
-	    }
+	    kanagramGame.singlePlayer = !kanagramGame.singlePlayer;
+            }
 
-	    MouseArea {
+            MouseArea {
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: playericon.state = "onEntered"
@@ -109,7 +100,7 @@ Rectangle {
                 }
                 PropertyChanges {
                     target: playericon
-                    source: kanagramGame.singlePlayerMode() ? "icons/2player.png" : "icons/1player.png"
+                    source: kanagramGame.singlePlayer ? "icons/2player.png" : "icons/1player.png"
                 }
             }
             State {
@@ -289,15 +280,16 @@ Rectangle {
 
     Item {
 	id: playerBox
-	anchors {
-	    top: blackboard.top
+        anchors {
+            top: blackboard.top
             right: blackboard.left
             rightMargin: 185
-            topMargin: blackboard.height / 7
-	}
-	visible: playerBox.toggleVisible()
-
-	Rectangle {
+            topMargin: blackboard.height / 7          
+        }
+        
+        visible: kanagramGame.singlePlayer ? false : true
+	
+        Rectangle {
             id: playerButton
             width: blackboard.width / 3
             height: blackboard.height / 7
@@ -306,34 +298,16 @@ Rectangle {
             }
             radius: 8
             color: "black"
-            opacity: 0
-	}
+            Text {
+            id: currentPlayerText
+            anchors{
+                verticalCenter: playerButton.verticalCenter
+                horizontalCenter: playerButton.horizontalCenter
+             }
 
-	Text {
-	id: currentPlayerText
-	anchors{
-            verticalCenter: playerButton.verticalCenter
-            horizontalCenter: playerButton.horizontalCenter
-        }
-
-	color : "white"
-        opacity: 0
-	text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")
-	}
-
-	function toggleVisible()
-        {
-            if (kanagramGame.singlePlayerMode())
-            {
-                playerButton.opacity= 0
-                currentPlayerText.opacity= 0
             }
-            else
-            {
-                playerButton.opacity= 0.5
-                currentPlayerText.opacity= 1
-            }
-            return true;
+            color : "white"
+            text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")          
         }
     }
 
@@ -842,6 +816,7 @@ Rectangle {
             screen.nextAnagram();
         }
     }
+
 //    WikiPage {
 //        id: wikiPage
 //        visible: false

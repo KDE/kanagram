@@ -63,6 +63,7 @@ class KanagramGame : public QObject
     Q_PROPERTY(QString dataLanguage READ dataLanguage WRITE setDataLanguage NOTIFY dataLanguageChanged)
 
     Q_PROPERTY(int currentPlayer READ getPlayerNumber WRITE setPlayerNumber NOTIFY currentPlayerChanged)
+    Q_PROPERTY(bool singlePlayer READ singlePlayerMode WRITE setSinglePlayerMode NOTIFY singlePlayerChanged)
 
     Q_PROPERTY(int score READ totalScore NOTIFY scoreChanged)
     Q_PROPERTY(int score2 READ totalScore2 NOTIFY scoreChanged)

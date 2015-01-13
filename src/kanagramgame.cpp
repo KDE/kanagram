@@ -117,12 +117,13 @@ void KanagramGame::loadDefaultVocabulary()
 
 void KanagramGame::setSinglePlayerMode(bool singlePlayer)
 {
-    return KanagramSettings::setSinglePlayerMode(singlePlayer);
+    KanagramSettings::setSinglePlayerMode(singlePlayer);
     emit singlePlayerModeChanged();
 }
 
 bool KanagramGame::singlePlayerMode()
 {
+  qCDebug(KANAGRAM) << "getting singlePlayerMode, value is "<< KanagramSettings::singlePlayerMode();
   return KanagramSettings::singlePlayerMode();
 }
 
