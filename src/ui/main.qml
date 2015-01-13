@@ -298,7 +298,7 @@ Rectangle {
             }
             radius: 8
             color: "black"
-            
+
             Text {
             id: currentPlayerText
             anchors{
