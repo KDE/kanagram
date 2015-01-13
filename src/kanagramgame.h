@@ -205,7 +205,7 @@ class KanagramGame : public QObject
         void currentPlayerChanged();
 
 	/** Signal the ui that the mode has changed*/
-	void singlePlayerModeChanged();
+	void singlePlayerChanged();
 
         /** Signal the ui that the current document title has changed */
         void titleChanged();

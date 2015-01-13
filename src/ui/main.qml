@@ -298,16 +298,16 @@ Rectangle {
             }
             radius: 8
             color: "black"
+            
             Text {
             id: currentPlayerText
             anchors{
                 verticalCenter: playerButton.verticalCenter
                 horizontalCenter: playerButton.horizontalCenter
              }
-
-            }
             color : "white"
             text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")
+            }
         }
     }
 

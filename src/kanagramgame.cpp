@@ -118,7 +118,7 @@ void KanagramGame::loadDefaultVocabulary()
 void KanagramGame::setSinglePlayerMode(bool singlePlayer)
 {
     KanagramSettings::setSinglePlayerMode(singlePlayer);
-    emit singlePlayerModeChanged();
+    emit singlePlayerChanged();
 }
 
 bool KanagramGame::singlePlayerMode()
