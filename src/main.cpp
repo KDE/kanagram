@@ -34,7 +34,7 @@ Q_LOGGING_CATEGORY(KANAGRAM, "org.kde.kanagram")
 int main(int argc, char **argv)
 {
     QApplication::setApplicationName("kanagram");
-    QApplication::setApplicationVersion("0.2");
+    QApplication::setApplicationVersion("1.1");
     QApplication::setOrganizationDomain("kde.org");
     KLocalizedString::setApplicationDomain("kanagram");
     QApplication::setApplicationDisplayName(i18n("kanagram"));
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 
     KAboutData about(I18N_NOOP("kanagram"),
                      i18n("Kanagram"),
-                     I18N_NOOP("0.2"),
+                     I18N_NOOP("1.1"),
                      i18n("An anagram game"),
                      KAboutLicense::GPL,
                      i18n("© 2005 Joshua Keel\n© 2005 Danny Allen\n© 2007 Jeremy Whiting\n© 2014 Debjit Mondal"));
