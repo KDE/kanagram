@@ -496,13 +496,14 @@ void KanagramGame::revealWord()
 bool KanagramGame::checkWord(QString answer)
 {
     QString enteredWord = answer.toLower().trimmed();
+    QString lowerOriginal = m_originalWord.toLower();
     QString strippedOriginal = stripAccents(m_originalWord);
     if (!enteredWord.isEmpty())
     {
-        if (enteredWord == m_originalWord ||
+        if (enteredWord == lowerOriginal ||
             stripAccents(enteredWord) == strippedOriginal ||
             (m_speller->isCorrect(enteredWord) && m_speller->isValid() &&
-               (isAnagram(enteredWord, m_originalWord) ||
+               (isAnagram(enteredWord, lowerOriginal) ||
                 isAnagram(enteredWord, strippedOriginal))))
         {
 #ifdef BUILD_WITH_SPEECH
