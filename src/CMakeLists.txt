@@ -25,6 +25,13 @@ ecm_add_app_icon(cantor_SRCS ICONS ${ICONS_SRCS})
 
 
 kconfig_add_kcfg_files(kanagram_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kanagramsettings.kcfgc)
+# qt5_add_dbus_interfaces(kanagram_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml )
+ecm_add_app_icon(kanagram_SRCS ICONS
+                ${CMAKE_SOURCE_DIR}/icons/16-apps-kanagram.png
+                ${CMAKE_SOURCE_DIR}/icons/32-apps-kanagram.png
+                ${CMAKE_SOURCE_DIR}/icons/64-apps-kanagram.png
+                ${CMAKE_SOURCE_DIR}/icons/128-app-kanagram.png
+)
 add_executable(kanagram ${kanagram_SRCS})
 
 target_link_libraries(kanagram
