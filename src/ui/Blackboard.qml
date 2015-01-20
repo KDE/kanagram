@@ -21,6 +21,7 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 1.2
+import QtQuick.Controls.Styles 1.3
 
 Rectangle {
 
@@ -40,6 +41,11 @@ Rectangle {
         revealButton.countDownTimerValue = 2
         showAnswerTimer.repeat = true
         showAnswerTimer.start()
+    }
+
+    ButtonStyle {
+        id: transparentButtonStyle
+        background: Rectangle { color: "transparent" }
     }
 
     Item {
@@ -100,6 +106,7 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectFit
         }
+        style: transparentButtonStyle
     }
 
     Action {
@@ -128,6 +135,7 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectFit
         }
+        style: transparentButtonStyle
     }
 
     Text {
@@ -186,6 +194,7 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectFit
         }
+        style: transparentButtonStyle
     }
 
     Action {
@@ -215,6 +224,7 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectFit
         }
+        style: transparentButtonStyle
     }
 
     Action {
@@ -248,6 +258,7 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectFit
         }
+        style: transparentButtonStyle
     }
 
     Rectangle {
