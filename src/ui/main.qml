@@ -34,7 +34,10 @@ Rectangle {
         if (kanagramGame.hintHideTime())
             blackboard.showHintTimeInterval = 1
         if (kanagramGame.useSounds)
-            chalkSound.play();
+            if (chalkSound.hasAudio)
+                chalkSound.play();
+            else
+                console.log("unable to play chalk sound " + chalkSound.error);
     }
 
     Image {
@@ -782,17 +785,17 @@ Rectangle {
 
     MediaPlayer {
         id: chalkSound
-        source: "sounds/chalk.ogg"
+        source: "sounds/chalk.wav"
     }
 
     MediaPlayer {
         id: rightSound
-        source: "sounds/right.ogg"
+        source: "sounds/right.wav"
     }
 
     MediaPlayer {
         id: wrongSound
-        source: "sounds/wrong.ogg"
+        source: "sounds/wrong.wav"
     }
 
     Blackboard {
