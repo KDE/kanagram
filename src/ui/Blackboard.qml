@@ -43,11 +43,6 @@ Rectangle {
         showAnswerTimer.start()
     }
 
-    ButtonStyle {
-        id: transparentButtonStyle
-        background: Rectangle { color: "transparent" }
-    }
-
     Item {
         width: parent.width
         height: parent.height
@@ -106,7 +101,9 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectFit
         }
-        style: transparentButtonStyle
+        style: ButtonStyle {
+            background: Rectangle { color: "transparent" }
+        }
     }
 
     Action {
@@ -135,7 +132,9 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectFit
         }
-        style: transparentButtonStyle
+        style: ButtonStyle {
+            background: Rectangle { color: "transparent" }
+        }
     }
 
     Text {
@@ -194,7 +193,9 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectFit
         }
-        style: transparentButtonStyle
+        style: ButtonStyle {
+            background: Rectangle { color: "transparent" }
+        }
     }
 
     Action {
@@ -224,7 +225,9 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectFit
         }
-        style: transparentButtonStyle
+        style: ButtonStyle {
+            background: Rectangle { color: "transparent" }
+        }
     }
 
     Action {
@@ -258,7 +261,9 @@ Rectangle {
             anchors.margins: 4
             fillMode: Image.PreserveAspectFit
         }
-        style: transparentButtonStyle
+        style: ButtonStyle {
+            background: Rectangle { color: "transparent" }
+        }
     }
 
     Rectangle {
