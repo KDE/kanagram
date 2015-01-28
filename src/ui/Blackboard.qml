@@ -463,7 +463,7 @@ Rectangle {
                             kanagramGame.setPlayerNumber(2);
                         else {
                             kanagramGame.setPlayerNumber(1);
-                            score2Box.score2Visible();
+                            score2Box.opacity = 1;
                         }
                 }
 
@@ -488,6 +488,7 @@ Rectangle {
             left: blackboard.left
             leftMargin: 130
         }
+        opacity: 0
 
         Rectangle {
             id: score2Button
@@ -498,61 +499,45 @@ Rectangle {
             }
             radius: 8
             color: "black"
-            opacity: 0
         }
 
         Text {
-        id: score2BoxText
-        anchors {
-            verticalCenter: score2Button.verticalCenter
-            horizontalCenter: score2Button.horizontalCenter
-        }
-        color: "white"
-        text: i18n(" Player 1 : ") + kanagramGame.score + i18n("\n Player 2 : ") + kanagramGame.score2
-        opacity: 0
+            id: score2BoxText
+            anchors {
+                verticalCenter: score2Button.verticalCenter
+                horizontalCenter: score2Button.horizontalCenter
+            }
+            color: "white"
+            text: i18n(" Player 1 : ") + kanagramGame.score + i18n("\n Player 2 : ") + kanagramGame.score2
         }
 
         ToolButton {
-        id: closeButton
-        action: closeAction
-        width: score2Button.width / 6
-        height: score2Button.height / 2
-        anchors {
-            top: score2Button.top
-            right: score2Button.right
-        }
-        opacity: 0
+            id: closeButton
+            action: closeAction
+            width: score2Button.width / 6
+            height: score2Button.height / 2
+            anchors {
+                top: score2Button.top
+                right: score2Button.right
+            }
 
-        Image {
-            source: "icons/close.png"
-            anchors.fill: parent
-            anchors.margins: 4
-            fillMode: Image.PreserveAspectFit
-        }
+            Image {
+                source: "icons/close.png"
+                anchors.fill: parent
+                anchors.margins: 4
+                fillMode: Image.PreserveAspectFit
+            }
+            style: ButtonStyle {
+                background: Rectangle { color: "transparent" }
+            }
         }
 
         Action {
-        id: closeAction
-        onTriggered: {
-            score2Box.score2Hidden();
-        }
-        tooltip: i18n("Close")
-    }
-
-    function score2Visible()
-        {
-            if (!kanagramGame.singlePlayerMode())
-            {
-                score2BoxText.opacity = 1
-                score2Button.opacity = 1
-                closeButton.opacity = 1
+            id: closeAction
+            onTriggered: {
+                score2Box.opacity = 0;
             }
-        }
-    function score2Hidden()
-        {
-                score2BoxText.opacity = 0
-                score2Button.opacity = 0
-                closeButton.opacity = 0
+            tooltip: i18n("Close")
         }
     }
 

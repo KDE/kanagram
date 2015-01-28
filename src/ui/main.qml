@@ -85,7 +85,7 @@ Rectangle {
             smooth: true
             fillMode: Image.PreserveAspectCrop
             function togglePlayerMode() {
-	    kanagramGame.singlePlayer = !kanagramGame.singlePlayer;
+                kanagramGame.singlePlayer = !kanagramGame.singlePlayer;
             }
 
             MouseArea {
@@ -117,7 +117,7 @@ Rectangle {
                     easing.period: 1
                 }
             }
-	}
+        }
 
         Image {
             id: powerButton
@@ -282,7 +282,7 @@ Rectangle {
     } // End of nextAnagram
 
     Item {
-	id: playerBox
+        id: playerBox
         anchors {
             top: blackboard.top
             right: blackboard.left
@@ -296,20 +296,21 @@ Rectangle {
             id: playerButton
             width: blackboard.width / 3
             height: blackboard.height / 7
-            MouseArea {
-                anchors.fill: parent
-            }
             radius: 8
             color: "black"
 
+            MouseArea {
+                anchors.fill: parent
+            }
+
             Text {
-            id: currentPlayerText
-            anchors{
-                verticalCenter: playerButton.verticalCenter
-                horizontalCenter: playerButton.horizontalCenter
-             }
-            color : "white"
-            text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")
+                id: currentPlayerText
+                anchors{
+                    verticalCenter: playerButton.verticalCenter
+                    horizontalCenter: playerButton.horizontalCenter
+                 }
+                color : "white"
+                text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")
             }
         }
     }
@@ -777,7 +778,7 @@ Rectangle {
                     if (kanagramGame.hintHideTime())
                         blackboard.showHintTimeInterval = 1
                 }
-		input.text = ""
+                input.text = ""
                 stop()
             }
         }

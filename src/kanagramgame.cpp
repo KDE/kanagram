@@ -123,7 +123,6 @@ void KanagramGame::setSinglePlayerMode(bool singlePlayer)
 
 bool KanagramGame::singlePlayerMode()
 {
-  qCDebug(KANAGRAM) << "getting singlePlayerMode, value is "<< KanagramSettings::singlePlayerMode();
   return KanagramSettings::singlePlayerMode();
 }
 
