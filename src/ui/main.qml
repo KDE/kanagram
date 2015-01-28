@@ -25,6 +25,8 @@ import QtMultimedia 5.0
 Rectangle {
 
     id: screen
+    property int countDownTimerValue: 0
+    property bool flagCorrectAnswer: true
 
     function nextAnagram() {
         kanagramGame.nextAnagram()
@@ -724,45 +726,6 @@ Rectangle {
         opacity: 0.35
     }
 
-    /*TextInput {
-        id: input
-        color: "white"
-        selectionColor: "white"
-        selectedTextColor: "black"
-        font.pixelSize: parent.width / 40
-        font.bold: true
-        width: inputField.width
-        anchors.centerIn: inputField
-        focus: true
-        property int countDownTimerValue: 0
-        property bool flagCorrectAnswer: true
-        onAccepted: {
-            if (kanagramGame.checkWord()) {
-                input.color = "green"
-                input.countDownTimerValue = 1
-                input.flagCorrectAnswer = true
-                if (kanagramGame.useSounds)
-                    rightSound.play();
-                if (blackboard.activeTimer) {
-                    kanagramGame.answerCorrect();
-                }
-                showAnswerTimer.repeat = true
-                showAnswerTimer.start()
-            } else {
-                input.color = "red"
-                input.countDownTimerValue = 1
-                input.flagCorrectAnswer = false
-                if (kanagramGame.useSounds)
-                    wrongSound.play();
-                if (blackboard.activeTimer) {
-                    kanagramGame.answerIncorrect();
-                }
-                showAnswerTimer.repeat = true
-                showAnswerTimer.start()
-            }
-        }
-    }*/
-
     Grid {
         id: answerGrid
         anchors {
@@ -782,21 +745,21 @@ Rectangle {
     }
 
     Timer {
-        id: showAnswerTimer
+        id: resetTimer
         interval: 1000
         repeat: true
         running: false
         triggeredOnStart: false
 
         onTriggered: {
-            if (--input.countDownTimerValue == 0) {
-                input.color = "white"
-                if (input.flagCorrectAnswer) {
+            if (--countDownTimerValue == 0) {
+                if (flagCorrectAnswer) {
                     kanagramGame.nextAnagram();
                     if (kanagramGame.hintHideTime())
                         blackboard.showHintTimeInterval = 1
+                } else {
+                    kanagramGame.resetAnagram();
                 }
-                input.text = ""
                 stop()
             }
         }

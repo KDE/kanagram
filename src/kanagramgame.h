@@ -128,6 +128,9 @@ class KanagramGame : public QObject
 
         Q_INVOKABLE void moveLetterToAnagram(int position);
 
+        /** Reset the anagram, move all userAnswer letters back to the anagram */
+        Q_INVOKABLE void resetAnagram();
+
         Q_INVOKABLE bool singlePlayerMode();
 
         /** Get the current score */

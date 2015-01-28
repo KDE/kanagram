@@ -479,6 +479,13 @@ void KanagramGame::moveLetterToAnagram(int position)
     emit userAnswerChanged();
 }
 
+void KanagramGame::resetAnagram()
+{
+    m_anagram = m_userAnswer;
+    m_userAnswer.clear();
+    emit wordChanged();
+    emit userAnswerChanged();
+}
 
 int KanagramGame::getNumericSetting(QString settingString)
 {

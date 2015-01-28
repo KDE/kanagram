@@ -43,6 +43,33 @@ Rectangle {
         showAnswerTimer.start()
     }
 
+    function letterButtonClicked(index) {
+        kanagramGame.moveLetterToUserAnswer(index);
+        if (kanagramGame.anagram.length == 0) {
+            if (kanagramGame.checkWord()) {
+                countDownTimerValue = 1;
+                flagCorrectAnswer = true;
+                if (kanagramGame.useSounds)
+                    rightSound.play();
+                if (blackboard.activeTimer) {
+                    kanagramGame.answerCorrect();
+                }
+                resetTimer.repeat = true
+                resetTimer.start()
+            } else {
+                countDownTimerValue = 1;
+                flagCorrectAnswer = false;
+                if (kanagramGame.useSounds)
+                    wrongSound.play();
+                if (blackboard.activeTimer) {
+                    kanagramGame.answerIncorrect();
+                }
+                resetTimer.repeat = true
+                resetTimer.start()
+            }
+        }
+    }
+
     Item {
         width: parent.width
         height: parent.height
@@ -306,7 +333,7 @@ Rectangle {
             model: kanagramGame.anagram
             LetterButton {
                 text: modelData
-                onClicked: kanagramGame.moveLetterToUserAnswer( index );
+                onClicked: letterButtonClicked( index );
             }
         }
     }
