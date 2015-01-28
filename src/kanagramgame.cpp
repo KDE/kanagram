@@ -487,6 +487,21 @@ void KanagramGame::resetAnagram()
     emit userAnswerChanged();
 }
 
+void KanagramGame::moveLetter(QString letter)
+{
+    int index = m_anagram.indexOf(letter);
+    if (index != -1)
+    {
+        moveLetterToUserAnswer(index);
+    }
+    else
+    {
+        index = m_userAnswer.indexOf(letter);
+        if (index != -1)
+            moveLetterToAnagram(index);
+    }
+}
+
 int KanagramGame::getNumericSetting(QString settingString)
 {
     int indexFound_setting = settingString.size();

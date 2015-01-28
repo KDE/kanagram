@@ -25,6 +25,7 @@ import QtMultimedia 5.0
 Rectangle {
 
     id: screen
+    focus: true
     property int countDownTimerValue: 0
     property bool flagCorrectAnswer: true
 
@@ -40,6 +41,32 @@ Rectangle {
                 chalkSound.play();
             else
                 console.log("unable to play chalk sound " + chalkSound.error);
+    }
+
+    function checkSolved() {
+        if (kanagramGame.anagram.length == 0) {
+            if (kanagramGame.checkWord()) {
+                countDownTimerValue = 1;
+                flagCorrectAnswer = true;
+                if (kanagramGame.useSounds)
+                    rightSound.play();
+                if (blackboard.activeTimer) {
+                    kanagramGame.answerCorrect();
+                }
+                resetTimer.repeat = true
+                resetTimer.start()
+            } else {
+                countDownTimerValue = 1;
+                flagCorrectAnswer = false;
+                if (kanagramGame.useSounds)
+                    wrongSound.play();
+                if (blackboard.activeTimer) {
+                    kanagramGame.answerIncorrect();
+                }
+                resetTimer.repeat = true
+                resetTimer.start()
+            }
+        }
     }
 
     Image {
@@ -799,6 +826,19 @@ Rectangle {
         }
         onNextAnagram: {
             screen.nextAnagram();
+        }
+    }
+
+    Keys.onPressed: {
+        if (event.text.length > 0) {
+            kanagramGame.moveLetter(event.text);
+            checkSolved();
+        }
+        if (event.key == Qt.Key_Backspace)
+        {
+            var length = kanagramGame.userAnswer.length;
+            if (length > 0)
+                kanagramGame.moveLetterToAnagram(length - 1);
         }
     }
 

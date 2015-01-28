@@ -131,6 +131,10 @@ class KanagramGame : public QObject
         /** Reset the anagram, move all userAnswer letters back to the anagram */
         Q_INVOKABLE void resetAnagram();
 
+        /** Move the given letter from anagram to answer or back if there's no
+         * instances of the given letter in the anagram currently */
+        Q_INVOKABLE void moveLetter(QString letter);
+
         Q_INVOKABLE bool singlePlayerMode();
 
         /** Get the current score */
