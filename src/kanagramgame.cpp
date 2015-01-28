@@ -250,6 +250,7 @@ void KanagramGame::nextAnagram()
             m_audioUrl = "";
             // TODO: add some error reporting here
         }
+        emit userAnswerChanged();
         emit wordChanged();
     }
 }
@@ -259,9 +260,15 @@ QString KanagramGame::filename() const
     return m_fileList.isEmpty() ? m_filename : m_fileList.at(m_fileIndex);
 }
 
-QString KanagramGame::anagram() const
+QStringList KanagramGame::anagram() const
 {
-    return m_anagram;
+    QStringList resultList;
+    foreach (const QChar &userLetter, m_anagram)
+    {
+        resultList.append(userLetter);
+    }
+
+    return resultList;
 }
 
 QString KanagramGame::hint() const
@@ -273,6 +280,17 @@ QString KanagramGame::word() const
 {
     return m_originalWord;
 }
+
+QStringList KanagramGame::userAnswer() const
+{
+    QStringList returnList;
+    foreach (const QChar &letter, m_userAnswer)
+    {
+        returnList.append(letter);
+    }
+    return returnList;
+}
+
 
 void KanagramGame::createAnagram()
 {
@@ -293,8 +311,10 @@ void KanagramGame::createAnagram()
         } while (anagram == m_originalWord);
 
         m_anagram = anagram;
+        m_userAnswer.clear();
     } else {
         m_anagram = m_originalWord;
+        m_userAnswer.clear();
     }
 }
 
@@ -443,6 +463,23 @@ int KanagramGame::scoreTime()
     return ((scoreTime + 1) * 15);
 }
 
+void KanagramGame::moveLetterToUserAnswer(int position)
+{
+    m_userAnswer.append(m_anagram[position]);
+    m_anagram.remove(position, 1);
+    emit wordChanged();
+    emit userAnswerChanged();
+}
+
+void KanagramGame::moveLetterToAnagram(int position)
+{
+    m_anagram.append(m_userAnswer[position]);
+    m_userAnswer.remove(position, 1);
+    emit wordChanged();
+    emit userAnswerChanged();
+}
+
+
 int KanagramGame::getNumericSetting(QString settingString)
 {
     int indexFound_setting = settingString.size();
@@ -492,9 +529,9 @@ void KanagramGame::revealWord()
     emit wordChanged();
 }
 
-bool KanagramGame::checkWord(QString answer)
+bool KanagramGame::checkWord()
 {
-    QString enteredWord = answer.toLower().trimmed();
+    QString enteredWord = m_userAnswer.toLower().trimmed();
     QString lowerOriginal = m_originalWord.toLower();
     QString strippedOriginal = stripAccents(m_originalWord);
     if (!enteredWord.isEmpty())

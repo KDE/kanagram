@@ -724,7 +724,7 @@ Rectangle {
         opacity: 0.35
     }
 
-    TextInput {
+    /*TextInput {
         id: input
         color: "white"
         selectionColor: "white"
@@ -737,7 +737,7 @@ Rectangle {
         property int countDownTimerValue: 0
         property bool flagCorrectAnswer: true
         onAccepted: {
-            if (kanagramGame.checkWord(text)) {
+            if (kanagramGame.checkWord()) {
                 input.color = "green"
                 input.countDownTimerValue = 1
                 input.flagCorrectAnswer = true
@@ -759,6 +759,24 @@ Rectangle {
                 }
                 showAnswerTimer.repeat = true
                 showAnswerTimer.start()
+            }
+        }
+    }*/
+
+    Grid {
+        id: answerGrid
+        anchors {
+            centerIn: inputField
+        }
+        spacing: 5
+        columns: 13
+        Repeater {
+            model: kanagramGame.userAnswer
+            LetterButton {
+                text: modelData
+                onClicked: {
+                    kanagramGame.moveLetterToAnagram( index )
+                }
             }
         }
     }

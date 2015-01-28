@@ -137,17 +137,6 @@ Rectangle {
         }
     }
 
-    Text {
-        id: anagram
-        text: kanagramGame.anagram
-        anchors {
-            verticalCenter: parent.verticalCenter
-            horizontalCenter: parent.horizontalCenter
-        }
-        color: "white"
-        font.pixelSize: parent.width / 12.5
-    }
-
     Rectangle {
         id: optionsBar
         width: parent.width
@@ -303,6 +292,22 @@ Rectangle {
             right: blackboard.left
             rightMargin: blackboard.width / 70
             leftMargin: blackboard.width / 70
+        }
+    }
+
+   Grid {
+        id: currentWordGrid;
+        anchors {
+            centerIn: parent;
+        }
+        spacing: 5;
+        columns: 10;
+        Repeater {
+            model: kanagramGame.anagram
+            LetterButton {
+                text: modelData
+                onClicked: kanagramGame.moveLetterToUserAnswer( index );
+            }
         }
     }
 
@@ -463,7 +468,7 @@ Rectangle {
                             kanagramGame.setPlayerNumber(2);
                         else {
                             kanagramGame.setPlayerNumber(1);
-                            score2Box.opacity = 1;
+                            score2Box.visible = true;
                         }
                 }
 
@@ -480,6 +485,7 @@ Rectangle {
             }
         }
     }
+
     Item {
         id: score2Box
         anchors {
@@ -488,7 +494,7 @@ Rectangle {
             left: blackboard.left
             leftMargin: 130
         }
-        opacity: 0
+        visible: false
 
         Rectangle {
             id: score2Button
@@ -535,7 +541,7 @@ Rectangle {
         Action {
             id: closeAction
             onTriggered: {
-                score2Box.opacity = 0;
+                score2Box.visible = false;
             }
             tooltip: i18n("Close")
         }

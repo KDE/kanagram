@@ -48,12 +48,13 @@ class KanagramGame : public QObject
 {
     Q_OBJECT
     // Get the current anagram, word, hint, picture, and audio
-    Q_PROPERTY(QString anagram READ anagram NOTIFY wordChanged)
+    Q_PROPERTY(QStringList anagram READ anagram NOTIFY wordChanged)
     Q_PROPERTY(QString word READ word NOTIFY wordChanged)
     Q_PROPERTY(QString hint READ hint NOTIFY wordChanged)
     Q_PROPERTY(QUrl picHint READ picHint NOTIFY wordChanged)
     Q_PROPERTY(QUrl audio READ audioFile NOTIFY wordChanged)
-
+    // Get the individual word list
+    Q_PROPERTY(QStringList userAnswer READ userAnswer NOTIFY userAnswerChanged)
     // Get the current title
     Q_PROPERTY(QString title READ documentTitle NOTIFY titleChanged)
 
@@ -78,7 +79,7 @@ class KanagramGame : public QObject
         ~KanagramGame();
 
         /** Get the anagram to show */
-        QString anagram() const;
+        QStringList anagram() const;
 
         /** Get this anagram's hint */
         QString hint() const;
@@ -97,6 +98,9 @@ class KanagramGame : public QObject
 
         /** Get the current vocabulary file's filename */
         QString filename() const;
+
+        /** Get the user's current guess */
+        QStringList userAnswer() const;
 
         /** Get the list of vocabularies */
         QStringList vocabularyList() const;
@@ -120,7 +124,11 @@ class KanagramGame : public QObject
 
         Q_INVOKABLE int scoreTime();
 
-	Q_INVOKABLE bool singlePlayerMode();
+        Q_INVOKABLE void moveLetterToUserAnswer(int position);
+
+        Q_INVOKABLE void moveLetterToAnagram(int position);
+
+        Q_INVOKABLE bool singlePlayerMode();
 
         /** Get the current score */
         int totalScore();
@@ -129,22 +137,22 @@ class KanagramGame : public QObject
         int totalScore2();
 
         /** Check word answer against the current word */
-        Q_INVOKABLE bool checkWord(QString answer);
+        Q_INVOKABLE bool checkWord();
 
         bool useSounds();
 
     public Q_SLOTS:
 
-	/** Checks if in single-player mode*/
+        /** Checks if in single-player mode*/
         void setSinglePlayerMode(bool);
 
-	/** Get */
+        /** Get */
         int getPlayerNumber();
 
-	/** Set */
+        /** Set */
         void setPlayerNumber(int);
 
-	/** Set the vocabulary to use according to the vocabulary name */
+        /** Set the vocabulary to use according to the vocabulary name */
         void useVocabulary(const QString &vocabularyname);
 
         /** Set the vocabulary to use according to the desired index value*/
@@ -201,11 +209,11 @@ class KanagramGame : public QObject
         /** Signal the ui that the data language has changed */
         void dataLanguageChanged();
 
-	/** Signal the ui that the player has changed when in 2-player Mode*/
+        /** Signal the ui that the player has changed when in 2-player Mode*/
         void currentPlayerChanged();
 
-	/** Signal the ui that the mode has changed*/
-	void singlePlayerChanged();
+        /** Signal the ui that the mode has changed*/
+        void singlePlayerChanged();
 
         /** Signal the ui that the current document title has changed */
         void titleChanged();
@@ -215,6 +223,13 @@ class KanagramGame : public QObject
 
         /** Signal the ui that the score has changed */
         void scoreChanged();
+
+
+        //Signal the UI that the word is broken into alphabets
+        void userAnswerChanged();
+
+        //Signal for the UI to give the list of alphabets rather than the single string
+        void wordResult();
 
         /** Signal the ui that sound enabled has changed */
         void useSoundsChanged();
@@ -254,6 +269,9 @@ class KanagramGame : public QObject
         /** The current scrambled word */
         QString m_anagram;
 
+        //The current word scambled word list
+        QString m_userAnswer;
+
         /** The current anagram's hint */
         QString m_hint;
 
@@ -292,11 +310,11 @@ class KanagramGame : public QObject
         /** current total score */
         int m_totalScore;
 
-	/** current total score of player 2*/
-	int m_totalScore2;
+        /** current total score of player 2*/
+        int m_totalScore2;
 
-	/** current player number in 2-player mode*/
-	int m_currentPlayerNumber;
+        /** current player number in 2-player mode*/
+        int m_currentPlayerNumber;
 
         /** Speller object to check correct spelling */
         Sonnet::Speller *m_speller;
