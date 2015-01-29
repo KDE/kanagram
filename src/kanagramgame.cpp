@@ -489,14 +489,15 @@ void KanagramGame::resetAnagram()
 
 void KanagramGame::moveLetter(QString letter)
 {
-    int index = m_anagram.indexOf(letter);
+    QString small = letter.toLower();
+    int index = m_anagram.toLower().indexOf(small);
     if (index != -1)
     {
         moveLetterToUserAnswer(index);
     }
     else
     {
-        index = m_userAnswer.indexOf(letter);
+        index = m_userAnswer.toLower().indexOf(letter);
         if (index != -1)
             moveLetterToAnagram(index);
     }
