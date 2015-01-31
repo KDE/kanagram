@@ -529,9 +529,8 @@ Rectangle {
         }
         color: "white"
         text: i18n(" Player 1 : ") + kanagramGame.score + i18n("\n Player 2 : ") + kanagramGame.score2 + i18n("\n Close dialog for new game ")
-        
         }
-        
+
         Text {
 
         id: showTurnText
@@ -541,7 +540,7 @@ Rectangle {
         }
         color: "white"
         text: i18n(" Time Up. \n Player 2's Turn")
-        
+
         }
 
         ToolButton {
