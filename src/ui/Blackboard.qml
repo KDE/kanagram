@@ -468,12 +468,20 @@ Rectangle {
                     timerSection.opacity = 0
                     timeRemaining.opacity = 0
                     scoreTimer.running = false
+
                     if(!(kanagramGame.singlePlayerMode())) {
-                        if((kanagramGame.getPlayerNumber())==1)
+                        if((kanagramGame.getPlayerNumber())==1) {
                             kanagramGame.setPlayerNumber(2);
+                            score2Box.visible = true;
+                            showTurnText.visible = true;
+                            score2BoxText.visible = false;
+                        }
+
                         else {
                             kanagramGame.setPlayerNumber(1);
                             score2Box.visible = true;
+                            showTurnText.visible = false;
+                            score2BoxText.visible = true;
                         }
                 }
 
@@ -503,7 +511,7 @@ Rectangle {
 
         Rectangle {
             id: score2Button
-            width: blackboard.width / 3
+            width: blackboard.width / 2
             height: blackboard.height / 5
             MouseArea {
                 anchors.fill: parent
@@ -513,13 +521,27 @@ Rectangle {
         }
 
         Text {
-            id: score2BoxText
-            anchors {
-                verticalCenter: score2Button.verticalCenter
-                horizontalCenter: score2Button.horizontalCenter
-            }
-            color: "white"
-            text: i18n(" Player 1 : ") + kanagramGame.score + i18n("\n Player 2 : ") + kanagramGame.score2
+
+        id: score2BoxText
+        anchors {
+            verticalCenter: score2Button.verticalCenter
+            horizontalCenter: score2Button.horizontalCenter
+        }
+        color: "white"
+        text: i18n(" Player 1 : ") + kanagramGame.score + i18n("\n Player 2 : ") + kanagramGame.score2 + i18n("\n Close dialog for new game ")
+        
+        }
+        
+        Text {
+
+        id: showTurnText
+        anchors {
+            verticalCenter: score2Button.verticalCenter
+            horizontalCenter: score2Button.horizontalCenter
+        }
+        color: "white"
+        text: i18n(" Time Up. \n Player 2's Turn")
+        
         }
 
         ToolButton {
