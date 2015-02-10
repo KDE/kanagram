@@ -26,6 +26,7 @@
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <Kdelibs4ConfigMigrator>
 
 #include "mainwindow.h"
 
@@ -33,6 +34,12 @@ Q_LOGGING_CATEGORY(KANAGRAM, "org.kde.kanagram")
 
 int main(int argc, char **argv)
 {
+    QStringList configFiles;
+    configFiles << QLatin1String("kanagramrc");
+    Kdelibs4ConfigMigrator migrator(QLatin1String("kanagram"));
+    migrator.setConfigFiles(configFiles);
+    migrator.migrate();
+
     QApplication::setApplicationName("kanagram");
     QApplication::setApplicationVersion("1.1");
     QApplication::setOrganizationDomain("kde.org");

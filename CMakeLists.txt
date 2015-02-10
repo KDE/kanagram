@@ -26,6 +26,7 @@ find_package(KF5 REQUIRED COMPONENTS
     Sonnet
     Config
     ConfigWidgets
+    CoreAddons
     Declarative
     DocTools
     KIO
