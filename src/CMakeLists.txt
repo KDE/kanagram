@@ -29,6 +29,7 @@ add_executable(kanagram ${kanagram_SRCS})
 target_link_libraries(kanagram
     Qt5::Quick
     Qt5::Core
+    KF5::CoreAddons
     KF5::I18n
     KF5::NewStuff
     KF5::SonnetCore
