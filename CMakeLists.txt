@@ -10,7 +10,12 @@ endif(NOT MSVC)
 
 include(FeatureSummary)
 find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick OpenGL)
-find_package(Qt5 OPTIONAL_COMPONENTS PrintSupport)
+find_package(Qt5 OPTIONAL_COMPONENTS TextToSpeech)
+if (NOT Qt5TextToSpeech_FOUND)
+    message(STATUS "Qt5TextToSpeech not found, speech feature will be disabled")
+else()
+    add_definitions(-DHAVE_SPEECH)
+endif()
 
 find_package(ECM 1.3.0 NO_MODULE REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})

@@ -29,8 +29,8 @@
 
 #include <krandomsequence.h>
 
-#ifdef BUILD_WITH_SPEECH
-#include "kspeechinterface.h"
+#ifdef HAVE_SPEECH
+class QTextToSpeech;
 #endif
 
 Q_DECLARE_LOGGING_CATEGORY(KANAGRAM)
@@ -186,7 +186,7 @@ class KanagramGame : public QObject
         /** Use the previous vocabulary file in the list */
         void previousVocabulary();
 
-#ifdef BUILD_WITH_SPEECH
+#ifdef HAVE_SPEECH 
         /** The word was revealed (or correctly entered), so play the audio, say it, or play right.ogg */
         void wordRevealed();
 #endif
@@ -248,10 +248,7 @@ class KanagramGame : public QObject
         /** Check the current file */
         bool checkFile();
 
-#ifdef BUILD_WITH_SPEECH
-        /** setup kde text-to-speech daemon */
-        void setupJovie();
-
+#ifdef HAVE_SPEECH
         /** speak the word
          *@param text the word that is to be converted from text to speech
          */
@@ -309,9 +306,9 @@ class KanagramGame : public QObject
         /** The hash of the language code and name */
         QHash<QString, QString> m_languageCodeNameHash;
 
-#ifdef BUILD_WITH_SPEECH
-        /** object to enable text to speech conversion */
-        org::kde::KSpeech *m_kspeech;
+#ifdef HAVE_SPEECH
+        /** Text to Speech API */
+        QTextToSpeech *m_speech;
 #endif
 
         /** current total score */

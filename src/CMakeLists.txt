@@ -37,6 +37,11 @@ target_link_libraries(kanagram
     LibKEduVocDocumentImport__KEduVocDocument
 )
 
+if (Qt5TextToSpeech_FOUND)
+    target_link_libraries(kanagram
+        Qt5::TextToSpeech)
+endif()
+
 install(
     FILES
     kanagram.kcfg

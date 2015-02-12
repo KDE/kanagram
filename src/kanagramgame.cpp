@@ -28,9 +28,8 @@
 #include <sharedkvtmlfiles.h>
 #include <keduvocdocument.h>
 #include <keduvocexpression.h>
-#ifdef BUILD_WITH_SPEECH
-#include <kspeech.h>
-#include <ktoolinvocation.h>
+#ifdef HAVE_SPEECH
+#include <QTextToSpeech>
 #endif
 
 #include <KLocalizedString>
@@ -43,8 +42,8 @@
 KanagramGame::KanagramGame()
     : m_fileIndex(-1)
       ,m_document(NULL)
-#ifdef BUILD_WITH_SPEECH
-      ,m_kspeech(NULL)
+#ifdef HAVE_SPEECH
+      ,m_speech(NULL)
 #endif
       ,m_totalScore(0)
       ,m_totalScore2(0)
@@ -58,8 +57,8 @@ KanagramGame::KanagramGame()
 
     // Load the default vocabulary
     loadDefaultVocabulary();
-#ifdef BUILD_WITH_SPEECH
-    setupJovie();
+#ifdef HAVE_SPEECH
+    m_speech = new QTextToSpeech(this);
 #endif
 
     m_speller = new Sonnet::Speller();
@@ -75,6 +74,10 @@ KanagramGame::~KanagramGame()
     m_document = NULL;
     delete m_speller;
     m_speller = NULL;
+#ifdef HAVE_SPEECH
+    delete m_speech;
+    m_speech = NULL;
+#endif
 }
 
 bool KanagramGame::checkFile()
@@ -387,42 +390,12 @@ QUrl KanagramGame::audioFile()
     return m_audioUrl;
 }
 
-#ifdef BUILD_WITH_SPEECH
+#ifdef HAVE_SPEECH
 void KanagramGame::wordRevealed()
 {
     if (KanagramSettings::enablePronunciation())
     {
         say(m_originalWord);
-    }
-}
-#endif
-
-#ifdef BUILD_WITH_SPEECH
-void KanagramGame::setupJovie()
-{
-    // If KTTSD not running, start it.
-    QDBusReply<bool> reply = QDBusConnection::sessionBus().interface()->isServiceRegistered( "org.kde.kttsd" );
-    bool kttsdactive = false;
-    if ( reply.isValid() )
-        kttsdactive = reply.value();
-    if ( !kttsdactive )
-    {
-        QString error;
-        if ( KToolInvocation::startServiceByDesktopName( "kttsd", QStringList(), &error ) )
-        {
-            QMessageBox::warning(NULL, i18n("Speech System Failure"), i18n( "Starting Jovie Text-to-Speech service Failed: %1", error ) );
-        }
-        else
-        {
-            kttsdactive = true;
-        }
-    }
-    if ( kttsdactive && m_kspeech==0)
-    {
-        // creating the connection to the kspeech interface
-        m_kspeech = new org::kde::KSpeech( "org.kde.kttsd", "/KSpeech", QDBusConnection::sessionBus() );
-        m_kspeech->setParent(this);
-        m_kspeech->setApplicationName( "Kanagram" );
     }
 }
 
@@ -431,10 +404,9 @@ void KanagramGame::say(QString text)
     if ( text.isEmpty() )
         return;
 
-    setupJovie();
-    if ( this->m_kspeech )
+    if ( m_speech )
     {
-        QDBusReply< int > reply = this->m_kspeech->say(text, KSpeech::soPlainText );
+        m_speech->say(text);
     }
 }
 #endif
@@ -565,10 +537,11 @@ bool KanagramGame::checkWord()
                (isAnagram(enteredWord, lowerOriginal) ||
                 isAnagram(enteredWord, strippedOriginal))))
         {
-#ifdef BUILD_WITH_SPEECH
+#ifdef HAVE_SPEECH
             if (KanagramSettings::enablePronunciation())
             {
                 // User wants words spoken
+                say(m_originalWord);
             }
 #endif
             return true;
