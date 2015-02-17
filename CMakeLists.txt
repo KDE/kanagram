@@ -10,7 +10,7 @@ endif(NOT MSVC)
 
 include(FeatureSummary)
 find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick OpenGL)
-find_package(Qt5 OPTIONAL_COMPONENTS TextToSpeech)
+find_package(Qt5 QUIET OPTIONAL_COMPONENTS TextToSpeech)
 if (NOT Qt5TextToSpeech_FOUND)
     message(STATUS "Qt5TextToSpeech not found, speech feature will be disabled")
 else()
