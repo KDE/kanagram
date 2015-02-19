@@ -11,7 +11,6 @@ set(kanagram_SRCS
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${QT_INCLUDES}
     ${LIBKEDUVOCDOCUMENT_INCLUDE_DIR}
 )
 
@@ -22,7 +21,6 @@ ki18n_wrap_ui(kanagram_SRCS
 )
 
 kconfig_add_kcfg_files(kanagram_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kanagramsettings.kcfgc)
-# qt5_add_dbus_interfaces(kanagram_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml )
 add_executable(kanagram ${kanagram_SRCS})
 
 target_link_libraries(kanagram
@@ -61,7 +59,7 @@ install(
     DESTINATION ${DATA_INSTALL_DIR}/kanagram/ui)
 
 install(
-    FILES kanagram.desktop
+    FILES org.kde.kanagram.desktop
     DESTINATION ${XDG_APPS_INSTALL_DIR}
 )
 
