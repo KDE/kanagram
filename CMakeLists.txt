@@ -17,9 +17,10 @@ else()
     add_definitions(-DHAVE_SPEECH)
 endif()
 
-find_package(ECM 1.3.0 NO_MODULE REQUIRED)
+find_package(ECM 1.7.0 NO_MODULE REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
+include(ECMAddAppIcon)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
@@ -46,6 +47,6 @@ add_subdirectory( doc )
 add_subdirectory( src )
 add_subdirectory( icons )
 
-install(FILES kanagram.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/appdata/)
+install(FILES kanagram.appdata.xml DESTINATION ${KDE_INSTALL_DATAROOTDIR}/appdata/)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

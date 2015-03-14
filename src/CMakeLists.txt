@@ -44,28 +44,28 @@ install(
     FILES
     kanagram.kcfg
     DESTINATION
-    ${KCFG_INSTALL_DIR}
+    ${KDE_INSTALL_KCFGDIR}
 )
 
 install(
     FILES
     kanagram.knsrc
     DESTINATION
-    ${CONFIG_INSTALL_DIR}
+    ${KDE_INSTALL_CONFDIR}
 )
 
 install(
     DIRECTORY ui/
-    DESTINATION ${DATA_INSTALL_DIR}/kanagram/ui)
+    DESTINATION ${KDE_INSTALL_DATADIR}/kanagram/ui)
 
 install(
     FILES org.kde.kanagram.desktop
-    DESTINATION ${XDG_APPS_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_APPDIR}
 )
 
 install(
     TARGETS
     kanagram
-    ${INSTALL_TARGETS_DEFAULT_ARGS}
+    ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
