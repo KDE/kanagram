@@ -20,6 +20,10 @@ ki18n_wrap_ui(kanagram_SRCS
     mainsettingswidget.ui
 )
 
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/*-apps-kanagram.png")
+ecm_add_app_icon(cantor_SRCS ICONS ${ICONS_SRCS})
+
+
 kconfig_add_kcfg_files(kanagram_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/kanagramsettings.kcfgc)
 add_executable(kanagram ${kanagram_SRCS})
 
