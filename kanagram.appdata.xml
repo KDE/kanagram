@@ -4,7 +4,6 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Kanagram</name>
-  <name xml:lang="ast">Kanagram</name>
   <name xml:lang="bs">Kanagram</name>
   <name xml:lang="ca">Kanagram</name>
   <name xml:lang="cs">Kanagram</name>
@@ -32,7 +31,6 @@
   <name xml:lang="zh-CN">Kanagram</name>
   <name xml:lang="zh-TW">語言_Kanagram</name>
   <summary>Letter Order Game</summary>
-  <summary xml:lang="ast">Xuegu d'ordenar lletres</summary>
   <summary xml:lang="bs">Igra redoslijeda slova</summary>
   <summary xml:lang="ca">Joc d'ordenació de lletres</summary>
   <summary xml:lang="cs">Hra uspořádání písmen</summary>
