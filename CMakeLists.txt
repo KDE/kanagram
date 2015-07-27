@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 2.8.9)
 project(kanagram)
 
 if(NOT MSVC)
@@ -11,6 +12,7 @@ include(KDE4Defaults)
 include_directories (${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE4_INCLUDES})
 
 find_package(LibKdeEdu REQUIRED)
+find_package(KDeclarative REQUIRED)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
 add_subdirectory( doc )
