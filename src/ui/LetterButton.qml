@@ -31,6 +31,7 @@ Button {
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             text: buttonText.text;
+            color: "black";
             font.pixelSize: 20
         }
     }
