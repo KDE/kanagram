@@ -51,6 +51,10 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
 
     // Connect after we set the current language from settings.
     connect(languageComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MainSettings::widgetModified);
+
+#ifndef HAVE_SPEECH
+    kcfg_enablePronunciation->hide();
+#endif
 }
 
 MainSettings::~MainSettings()
