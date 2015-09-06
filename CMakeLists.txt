@@ -25,7 +25,6 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
 include(ECMInstallIcons)
-include(ECMAddAppIcon)
 
 find_package(KF5 REQUIRED COMPONENTS
     I18n
