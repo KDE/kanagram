@@ -47,6 +47,6 @@ add_subdirectory( doc )
 add_subdirectory( src )
 add_subdirectory( icons )
 
-install(FILES kanagram.appdata.xml DESTINATION ${KDE_INSTALL_DATAROOTDIR}/appdata/)
+install(FILES org.kde.kanagram.appdata.xml DESTINATION ${KDE_INSTALL_DATAROOTDIR}/appdata/)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
