@@ -4,93 +4,30 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Kanagram</name>
-  <name xml:lang="ast">Kanagram</name>
-  <name xml:lang="bs">Kanagram</name>
   <name xml:lang="ca">Kanagram</name>
   <name xml:lang="ca-valencia">Kanagram</name>
-  <name xml:lang="cs">Kanagram</name>
-  <name xml:lang="da">Kanagram</name>
-  <name xml:lang="de">Kanagram</name>
-  <name xml:lang="en-GB">Kanagram</name>
-  <name xml:lang="es">Kanagram</name>
-  <name xml:lang="et">Kanagram</name>
   <name xml:lang="fi">Kanagram</name>
   <name xml:lang="fr">Kanagram</name>
-  <name xml:lang="gl">Kanagram</name>
-  <name xml:lang="hu">Kanagram</name>
-  <name xml:lang="id">Kanagram</name>
-  <name xml:lang="it">Kanagram</name>
-  <name xml:lang="ko">Kanagram</name>
-  <name xml:lang="lt">Kanagram</name>
-  <name xml:lang="nds">Kanagram</name>
   <name xml:lang="nl">Kanagram</name>
-  <name xml:lang="pl">Kanagram</name>
-  <name xml:lang="pt">Kanagram</name>
   <name xml:lang="pt-BR">Kanagram</name>
-  <name xml:lang="sk">Kanagram</name>
-  <name xml:lang="sl">Kanagram</name>
-  <name xml:lang="sv">Kanagram</name>
-  <name xml:lang="tr">Kanagram</name>
-  <name xml:lang="uk">Kanagram</name>
   <name xml:lang="x-test">xxKanagramxx</name>
-  <name xml:lang="zh-CN">Kanagram</name>
-  <name xml:lang="zh-TW">語言_Kanagram</name>
   <summary>Letter Order Game</summary>
-  <summary xml:lang="ast">Xuegu d'ordenar lletres</summary>
-  <summary xml:lang="bs">Igra redoslijeda slova</summary>
   <summary xml:lang="ca">Joc d'ordenació de lletres</summary>
   <summary xml:lang="ca-valencia">Joc d'ordenació de lletres</summary>
-  <summary xml:lang="cs">Hra uspořádání písmen</summary>
-  <summary xml:lang="de">Spielerisches Sortieren von Buchstaben</summary>
-  <summary xml:lang="en-GB">Letter Order Game</summary>
-  <summary xml:lang="es">Juego de ordenación de letras</summary>
-  <summary xml:lang="et">Tähtede järjestamine</summary>
   <summary xml:lang="fi">Kirjainten järjestyspeli</summary>
   <summary xml:lang="fr">Jeu sur l'ordre des lettres</summary>
-  <summary xml:lang="gl">Xogo de ordenar letras</summary>
-  <summary xml:lang="hu">Szókirakó játék</summary>
-  <summary xml:lang="id">Permainan Urutan Huruf</summary>
-  <summary xml:lang="it">Gioco di anagrammi</summary>
-  <summary xml:lang="ko">글자 순서 게임</summary>
-  <summary xml:lang="lt">Raidžių rūšiavimo žaidimas</summary>
-  <summary xml:lang="nds">Bookstaven ornen</summary>
   <summary xml:lang="nl">Letters ordenen</summary>
-  <summary xml:lang="pl">Gra w układanie słów</summary>
-  <summary xml:lang="pt">Jogo de Ordenação de Letras</summary>
   <summary xml:lang="pt-BR">Jogo de ordenação de letras</summary>
-  <summary xml:lang="sk">Hra o usporiadaní písmen</summary>
-  <summary xml:lang="sl">Igra vrstnega reda črk</summary>
-  <summary xml:lang="sv">Bokstavsordningsspel</summary>
-  <summary xml:lang="tr">Harf Sırası Oyunu</summary>
-  <summary xml:lang="uk">Гра з впорядкування літер</summary>
   <summary xml:lang="x-test">xxLetter Order Gamexx</summary>
-  <summary xml:lang="zh-TW">字母排序遊戲</summary>
   <description>
     <p>Kanagram is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the word. It features several included word lists, a hints-and-cheats help system, a word list editor, and allows for updating and distributing wordlists via KNewStuff. The interface is scalable and appropriate for children.</p>
     <p xml:lang="ca">El Kanagram és un joc basat en anagrames de paraules: el trencaclosques es resol quan les lletres de la paraula barrejada es col·loquen en l'ordre correcte. No hi ha cap límit en el temps, o en el nombre d'intents per resoldre la paraula. Inclou diverses llistes de paraules, un sistema d'ajuda de consells i trampes, un editor de llistes de paraules, i permet l'actualització i distribució de llistes de paraules via el KNewStuff. La interfície és escalable i adequada a la canalla.</p>
     <p xml:lang="ca-valencia">El Kanagram és un joc basat en anagrames de paraules: el trencaclosques es resol quan les lletres de la paraula barrejada es col·loquen en l'orde correcte. No hi ha cap límit en el temps, o en el nombre d'intents per resoldre la paraula. Inclou diverses llistes de paraules, un sistema d'ajuda de consells i trampes, un editor de llistes de paraules, i permet l'actualització i distribució de llistes de paraules via el KNewStuff. La interfície és escalable i adequada a la canalla.</p>
-    <p xml:lang="de">Kanagram ist ein auf Anagrammen von Wörtern basiertes Spiel. Dass Puzzle ist gelöst, wenn die verschlüsselten Wörter zurück in die richtige Reihenfolge gebracht wurden. Es gibt keine Grenze für die beanspruchte Zeit oder die Zahl an Versuchen für das Lösen des Wortes. Mehrere Wortlisten sind enthalten, es gibt Tipps und Lösungshilfen, ein Editor für Wortlisten und ermöglicht die Aktualisierung und Veröffentlichung von Wörterlisten mit „Neue Erweiterungen“. Kanagram hat eine skalierbare kindgerechte Benutzeroberfläche</p>
-    <p xml:lang="en-GB">Kanagram is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the word. It features several included word lists, a hints-and-cheats help system, a word list editor, and allows for updating and distributing wordlists via KNewStuff. The interface is scalable and appropriate for children.</p>
-    <p xml:lang="es">Kanagram es un juego basado en anagramas de palabras: el rompecabezas se resuelve cuando las letras de la palabra mezclada se vuelven a colocar en el orden correcto. No existe límite del tiempo necesario para conseguirlo ni de la cantidad de intentos para resolver la palabra. Incluye varias listas de palabras, un sistema de ayuda de pistas y trampas, un editor de listas de palabras y permite actualizar y distribuir listas de palabras usando KNewStuff. La interfaz es escalable y apropiada para niños.</p>
-    <p xml:lang="et">Kanagram on sõnade anagrammide põhjal äraarvamise mäng: mõistatus on lahendatud, kui oled asetanud sõna segiaetud järjekorras esitatud tähed taas õigesse järjekorda. Lahendamisele kuluvale ajale ega katsete arvule piiranguid ei seata. Rakendusega on kaasa mitu sõnaloendit, vajaduse korral pakutakse lahendajale kergenduseks ka vihjeid, kasutada saab sõnaloendite redaktorit ning loodud sõnaloendeid saab isegi internetti üles laadida ja teistega jagada. Kasutajaliidese suurust saab igati muuta, nii et mäng sobib ka väiksematele lastele.</p>
     <p xml:lang="fi">Kanagram on anagrammeihin perustuva peli: peli on ratkaistu, kun sanan sekoitetut kirjaimet on laitettu takaisin oikeille paikoilleen. Peli ei rajoita ratkaisemiseen kuluvaa aikaa eikä ratkaisuyrityksiä. Peliin kuuluu useita sanastoja, vihjeet sekä huijaamismahdollisuus ja sanastojen muokkaus. Sanastoja voi myös päivittää ja jakaa verkkoon KNewStuffin välityksellä. Käyttöliittymä on skaalautuva ja sopii lapsille.</p>
     <p xml:lang="fr">Kanagram est un jeu construit sur des anagrammes de mots : le puzzle est résolu quand les lettres mélangées d'un mot sont remise dans le bon ordre. Il n'y a pas de limite de temps ou de nombre de tentatives pour résoudre un mot. Il intègre un nombre important de listes de mots, un système de trucs-et-astuces pour aider, un éditeur de liste de mots et permet la distribution de vos listes grâce à KNewStuff. L'interface peut changer d'échelle et est approprié pour les enfants.</p>
-    <p xml:lang="gl">Kanagram é un xogo baseado en anagramas de palabras: o quebracabezas resólvese cando as letras da palabra desordenada se ordenan correctamente. Non existe ningún límite de tempo, nin de oportunidades para resolver a palabra. O xogo conta con varias listas de palabras, un sistema de axuda de consellos e trucos, un editor de listas de palabras, e permite actualizar e distribuír as listas de palabras mediante KNewStuff. As dimensións da interface poden cambiarse, e a interface está adaptada para nenos.</p>
-    <p xml:lang="hu">A Kanagram egy anagramma játék: a kirakós akkor van kész, ha az összekevert betűket helyes sorrendbe rakva összeáll az eredeti szó. A megfejtésre korlátlan idő és próbálkozás áll rendelkezésre. A játék tartalmaz beépített szólistákat, tipp- és csalásrendszert, szólistaszerkesztőt, és lehetővé teszi a szólisták frissítését és terjesztését a KNewStuffon keresztül. A program felülete nagyítható és gyerekeknek is ajánlott.</p>
-    <p xml:lang="id">Kanagram adalah permainan berbasis anagram dari kata: teka-teki diselesaikan ketika huruf dari kata teracak diurutkan kembali dalam urutan yang benar. Tidak ada batasan dari waktu maupun usaha yang digunakan untuk menyelesaikan kata. Menampilkan beberapa daftar kata-kata, sebuah sistem bantuan petunjuk-dan-tipuan, sebuah penyunting kata, dan memperbolehkan memperbarui dan mendistribusikan daftar kata melalui KNewStuff. Ukuran antarmuka dapat disetel dan cocok untuk anak-anak.</p>
-    <p xml:lang="it">Kanagram è un gioco basato sugli anagrammi di parole: il puzzle è risolto quando le lettere della parola mescolata sono messe nell'ordine corretto. Non c'è alcun limite di tempo o di numero di tentativi per risolvere la parola. Kanagram include diverse liste di parole, un sistema di aiuto con suggerimenti e trucchetti, un editor per le liste di parole, e permette di aggiornare e distribuire liste di parole usando KNewStuff. L'interfaccia può essere ridimensionata ed è adatta ai bambini.</p>
-    <p xml:lang="nds">Kanagram is Speel, dat op Woort-Anagramms opbuut: Dat Radel is lööst, wenn de Bookstaven in de richtige Reeg brocht wöörn. Dat gifft keen Grenz för de Tiet, de een bruukt, un ok nich för de Tall vun Versöök. Dat gifft en Reeg mitlevert Wöörlisten, en Tipps- un Tricks-Hülpsysteem un en Woortlisteditor. De Woortlisten laat sik över KNewStuff opfrischen un verdelen. De Böversiet lett sik ok vun Kinners bruken.</p>
     <p xml:lang="nl">Kanagram is een spel gebaseerd op anagrammen van woorden: de puzzel is opgelost wanneer de letters van het door elkaar gegooide woord terug zijn geplaatst in de juiste volgorde. Er is geen limiet aan ofwel de genomen tijd of het aantal pogingen om het woord op te lossen. Het biedt verschillende meegeleverde woordlijsten, een tips-en-vals-spelen helpsysteem, een bewerker van woordlijsten en maakt het mogelijk woordlijsten bij te werken en te verspreiden via KNewStuff. Het interface is schaalbaar en geschikt voor kinderen.</p>
-    <p xml:lang="pl">Kanagram jest grą opartą na anagramach słów: układanka jest uznana za rozwiązaną gdy litery z rozbitego słowa zostaną ustawione w poprawnej kolejności. Nie ma ograniczenia na czas ani na liczbę prób ułożenia słowa. Program zawiera kilka sposób słów, system pomocy i podpowiedzi, edytor spisu słów, a także umożliwia uaktualnianie i rozprowadzanie spisu słów poprzez KNewStuff. Układ sterowania programem jest skalowany i przystosowany dla dzieci.</p>
-    <p xml:lang="pt">O Kanagram é um jogo baseado nos anagramas de palavras: o 'puzzle' fica resolvido quando as letras da palavra baralhada forem colocadas na ordem correcta. Não existe nenhum limite para o tempo tomado ou para a quantidade de tentativas de resolução da palavra. Oferece diversas listas de palavras já incluídas, um sistema de ajuda por sugestões e batotas, um editor de listas de palavras, assim como a actualização e distribuição das listas de palavras através do KNewStuff. A interface é ajustável e apropriada para crianças.</p>
     <p xml:lang="pt-BR">Kanagram é um jogo baseado em anagramas de palavras: o puzzle é solucionado quando as letras da palavra embaralhada forem colocadas na ordem correta. Não existe nenhum limite de tempo ou quantidade de tentativas de resolução da palavra. Oferece diversas listas de palavras já incluídas, um sistema de ajuda por dicas e truques, um editor de listas de palavras, assim como a atualização e distribuição das listas de palavras através do KNewStuff. A interface é ajustável e apropriada para crianças.</p>
-    <p xml:lang="sk">Kanagram je gra založená na anagramoch slov: skladačka sa vyrieši, keď písmená rozbitého slova sa poskladajú v správnom poradí. Nie je žiadny obmedzenie v čase ani v počte pokusov na vyriešenie slova. Obsahuje niekoľko zoznamov slov, systém rád a pomôcok, editor zoznamu slov a umožní aktualizáciu a distribúciu zoznamu slov cez KNewStuff. Rozhranie je škálovateľné a vhodné pre deti.</p>
-    <p xml:lang="sl">Kanagram temelji na principu anagramov besed. Uganko rešite, če premešane črke besed postavite v pravilni vrstni red. Za reševanje ne obstajajo omejitve časa niti poskusov. Vsebuje številne sezname besed, sistem za pomoč, urejevalnik seznama besed in omogoča posodabljanje ter razširjanje teh seznamov preko KNewStuff. Vmesnik je prilagodljiv in primeren za otroke.</p>
-    <p xml:lang="sv">Kanagram är ett spel baserat på anagram av ord: pusslet är löst när bokstäverna i det hopblandade ordet är placerade i rätt ordning. Det finns varken någon gräns för hur lång tid det får ta, eller hur många försök som får göras för att lösa ordet. Funktioner som ingår är flera olika ordlistor, ett hjälpsystem med tips och fusk, en editor av ordlistor, och det tillåter att ordlistor uppdateras och distribueras via Heta nyheter. Gränssnittet är skalbart och lämpligt för barn.</p>
-    <p xml:lang="tr">Kanagram kelimelerin harflerin yer değiştirmesine dayanan bir oyundur: bulmaca kelimenin harfleri doğru sırayla yerleştirildiğinde tamamlanır. Harcanan zamanın veya deneme sayısının bir sınırlaması yoktur. Bir çok kelime listesi, bir ipucu ve yardım sistemi, kelime listesi düzenleyicisi vardır ve KNewStuff ile kelime listelerini güncellemeye ve dağıtmaya imkan sağlar. Arayüz ölçeklenebilir ve çocuklar için uygundur.</p>
-    <p xml:lang="uk">KAnagram — це гра, що заснована на розгадуванні анаграм: загадку буде розгадано, якщо розташувати переплутані літери слова у правильному порядку. Обмежень на час розв’язання немає, так само як і на кількість спроб вгадати слово. До пакунка KAnagram вже включено декілька словників підготованих для гри, але набагато більше таких словників ви можете знайти у інтернеті. У програмі передбачено систему підказок, редактор списків слів. Інтерфейс програми є масштабованим та адаптованим для дітей.</p>
     <p xml:lang="x-test">xxKanagram is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the word. It features several included word lists, a hints-and-cheats help system, a word list editor, and allows for updating and distributing wordlists via KNewStuff. The interface is scalable and appropriate for children.xx</p>
-    <p xml:lang="zh-TW">Kanagram 是一套字詞遊戲：將單字字母順序打亂，並將它排回正確的順序。沒有限制解題的時間或次數。它並且提供了一些功能，例如單字清單，提示系統，單字清單編輯器，並允許透過 KNewStuff 更新或散布。介面設計適合小朋友。</p>
   </description>
   <url type="homepage">http://edu.kde.org/kanagram/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kanagram</url>
