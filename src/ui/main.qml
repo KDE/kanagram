@@ -819,11 +819,6 @@ Rectangle {
             horizontalCenter: parent.horizontalCenter
             top: headerArea.bottom
         }
-        onShowWiki: {
-            wikiPage.url = wikiPage.url = "http://en.wikipedia.org/wiki/"
-                    + kanagramGame.word
-            wikiPage.visible = true
-        }
         onNextAnagram: {
             screen.nextAnagram();
         }
@@ -841,12 +836,4 @@ Rectangle {
                 kanagramGame.moveLetterToAnagram(length - 1);
         }
     }
-
-//    WikiPage {
-//        id: wikiPage
-//        visible: false
-//        onClosed: {
-//            blackboard.wikiClosed()
-//        }
-//    }
 }
