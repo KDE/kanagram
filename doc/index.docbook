@@ -30,8 +30,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2014-06-28</date>
-<releaseinfo>0.2 (&kde; 4.14)</releaseinfo>
+<date>2016-04-27</date>
+<releaseinfo>1.2 (Applications 16.04)</releaseinfo>
 
 <abstract>
 <para>
@@ -51,7 +51,11 @@
 </keywordset>
 
 </bookinfo>
-
+<!--FIXME 
+Debjit Mondal "Show Wiki Content" (hidden -> crash?) http://debjitmondal.blogspot.de/
+Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com/2015/01/13/kanagram-is-now-2-player/
+Hide 'Say correct words' option if built without QtSpeech/Jovie
+-->
 <chapter id="introduction">
 <title>Introduction</title>
 
@@ -84,7 +88,7 @@ Here is the screen that is presented on startup of &kanagram;, showing the main 
 <orderedlist>
 <listitem>
 <para>
-The <interface>Vocabulary Switcher</interface> allows the user to quickly <action>change the active vocabulary</action> by clicking on it: the &LMB; <action>advances to the next vocabulary</action>, with the &RMB; allowing you to <action>return to the previously-played vocabulary</action>.
+The <interface>Vocabulary Switcher</interface> (<keysym>PgUp</keysym> / <keysym>PgDown</keysym>) allows the user to quickly <action>change the active vocabulary</action> by clicking with the &LMB; on the arrows to <action>advance to the next vocabulary</action> or to <action>return to the previously-played vocabulary</action>.
 </para>
 </listitem>
 <listitem>
@@ -94,17 +98,17 @@ In the center of the <interface>blackboard</interface> is the anagram puzzle to 
 </listitem>
 <listitem>
 <para>
-This is the <guiicon>Start/Stop Timer</guiicon> button, and allows you to <action>start or stop scoring timer</action>.
+This is the <guiicon>Start Timer</guiicon> (<keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo>) button, and allows you to <action>start or stop scoring timer</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-When the <guibutton>Hint</guibutton> button is clicked, a short sentence will appear, <action>describing the current word puzzle</action>.
+When the <guibutton>Hint</guibutton> (<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>) button is clicked, a short sentence will appear, <action>describing the current word puzzle</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-The <guibutton>Reveal Word</guibutton> button <action>solves the current word puzzle</action>.
+The <guibutton>Reveal Word</guibutton> (<keycombo action="simul">&Ctrl;<keycap>R</keycap></keycombo>) button <action>solves the current word puzzle</action>.
 </para>
 </listitem>
 <listitem>
@@ -114,7 +118,7 @@ The <interface>Entry Box</interface> allows you to <action>input your attempts</
 </listitem>
 <listitem>
 <para>
-The <interface>Enter</interface> button lets you <action>check if your answer is correct</action>. This function is also provided by the &Enter; key.
+The <interface>Next Anagram</interface> (<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>) button lets you switch to the next guess.
 </para>
 </listitem>
 <listitem>
@@ -137,6 +141,11 @@ The <guiicon>Help</guiicon> button is special, in that it <action>reveals 3 sub-
 </textobject>
 </mediaobject>
 </screenshot>
+</para>
+</listitem>
+<listitem>
+<para>
+Use the <guiicon>Change mode</guiicon> button to switch between 1 and 2 player mode.
 </para>
 </listitem>
 <listitem>
@@ -178,25 +187,7 @@ If you cannot guess what the word is, press the <guibutton>Hint</guibutton> butt
 
 <step>
 <para>
-Once you think you know the correct answer, type it into the <interface>Entry Box</interface> below the <interface>blackboard</interface>. Either press the &Enter; key, or click on the <interface>Enter</interface> button to the right of the <interface>Entry Box</interface> to check your answer: it will <action>change green on a correct answer</action>, and <action>red on an incorrect attempt</action>:
-</para>
-
-<screenshot>
-<screeninfo>answer highlighted</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata fileref="answer-highlight.png" format="PNG"/>
-</imageobject>
-<textobject>
-<phrase>answer highlighted</phrase>
-</textobject>
-</mediaobject>
-</screenshot>
-</step>
-
-<step>
-<para>
-If you were correct, try and guess the next word! Alternatively, you can attempt one of the many other vocabularies bundled with &kanagram;.
+Once you think you know the correct answer, type the letters into the <interface>Entry Box</interface> below the <interface>blackboard</interface> or click them with the &LMB; and the letters move down to the entry box. If you were correct, the next anagram appears, otherwise all letters jump back into the blackboard.
 </para>
 </step>
 </procedure>
@@ -253,7 +244,7 @@ The <guilabel>Set timer for scoring purpose:</guilabel> drop down box allows you
 
 <listitem>
 <para>
-The <guilabel>Advanced Settings</guilabel> checkbox can be used to reveal or hide options to configure scoring of answers.
+The <guilabel>Score Point Settings</guilabel> checkbox can be used to reveal or hide options to configure scoring of answers.
 </para>
 </listitem>
 
@@ -394,49 +385,12 @@ The <guibutton>Close</guibutton> button <action>closes the <guilabel>Vocabulary 
 
 </sect1>
 
-<sect1 id="shortcuts-config">
-<title>Shortcuts</title>
-
-<para>
-The <guilabel>Shortcut</guilabel> configuration page allows you to assign shortcuts
-to &kanagram; action, and configure the shortcuts already assigned.</para>
-
-<screenshot>
-<screeninfo>&kanagram; shortcuts settings</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata fileref="shortcuts-settings.png" format="PNG"/>
-</imageobject>
-<textobject>
-<phrase>&kanagram; shortcuts settings</phrase>
-</textobject>
-</mediaobject>
-</screenshot>
-
-</sect1>
-
-<sect1 id="newstuff-config">
+<sect1 id="newstuff">
 <title>New Stuff</title>
 
 <para>
 The <guibutton>Download new vocabulary</guibutton> button on the <guilabel>Vocabularies</guilabel> 
 configuration page allows you to obtain new vocabulary files from the Internet:
-</para>
-
-<screenshot>
-<screeninfo>&kanagram; new stuff settings</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata fileref="newstuff-settings.png" format="PNG"/>
-</imageobject>
-<textobject>
-<phrase>&kanagram; newstuff settings</phrase>
-</textobject>
-</mediaobject>
-</screenshot>
-
-<para>
-Click the <guibutton>Download new vocabulary</guibutton> button to browse the available online content:
 </para>
 
 <screenshot>
@@ -492,25 +446,6 @@ Documentation copyright 2005 &Danny.Allen; &Danny.Allen.mail;
 &underGPL;
 
 </chapter>
-
-
-<appendix id="installation">
-<title>Installation</title>
-
-<sect1 id="getting-kanagram">
-<title>How to obtain &kanagram;</title>
-
-&install.intro.documentation;
-
-</sect1>
-
-<sect1 id="compilation">
-<title>Compilation and installation</title>
-
-&install.compile.documentation;
-
-</sect1>
-</appendix>
 
 &documentation.index;
 </book>
