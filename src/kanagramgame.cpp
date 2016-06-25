@@ -249,8 +249,8 @@ void KanagramGame::nextAnagram()
             // this file has no entries
             m_originalWord = "";
             m_hint = "";
-            m_picHintUrl = "";
-            m_audioUrl = "";
+            m_picHintUrl = QUrl();
+            m_audioUrl = QUrl();
             // TODO: add some error reporting here
         }
         emit userAnswerChanged();
