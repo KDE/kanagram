@@ -87,13 +87,12 @@ void VocabEdit::slotSave()
         doc->lesson()->appendEntry(&m_vocabList[i]);
     }
 
-    QString fileName = txtVocabName->text().toLower().remove(' ') + ".kvtml";
-    QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) +
-                   "/kvtml/" + KanagramSettings::dataLanguage();
+    const QString fileName = txtVocabName->text().toLower().remove(' ') + ".kvtml";
+    const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) +
+                   "/apps/kvtml/" + KanagramSettings::dataLanguage();
     QDir dir;
     dir.mkpath(path);
-    QUrl url =
-        QUrl::fromLocalFile(path +
+    const QUrl url = QUrl::fromLocalFile(path +
                             QLatin1Char('/') + fileName);
     qCDebug(KANAGRAM) << "Saving file as " << url;
     doc->saveAs(url, KEduVocDocument::Automatic);
