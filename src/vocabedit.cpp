@@ -175,7 +175,7 @@ void VocabEdit::slotTextChanged(const QString &changes)
 
 void VocabEdit::slotRemoveWord()
 {
-    if (lboxWords->count()) {
+    if (lboxWords->count() && lboxWords->currentRow() >= 0) {
         m_vocabList.erase(m_vocabList.begin() + lboxWords->currentRow());
         delete lboxWords->takeItem(lboxWords->currentRow());
     }
