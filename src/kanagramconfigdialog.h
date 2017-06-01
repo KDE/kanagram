@@ -63,7 +63,7 @@ protected Q_SLOTS:
      *
      * Example use: User clicks Ok or Apply button in a configure dialog.
      */
-    virtual void updateSettings();
+    void updateSettings() Q_DECL_OVERRIDE;
 
     /**
      * Update the dialog based on the settings.
@@ -72,7 +72,7 @@ protected Q_SLOTS:
      * Example use: Initialisation of dialog.
      * Example use: User clicks Reset button in a configure dialog.
      */
-    virtual void updateWidgets();
+    void updateWidgets() Q_DECL_OVERRIDE;
 
     /**
      * Update the dialog based on the default settings.
@@ -80,7 +80,7 @@ protected Q_SLOTS:
      *
      * Example use: User clicks Defaults button in a configure dialog.
      */
-    virtual void updateWidgetsDefault();
+    void updateWidgetsDefault() Q_DECL_OVERRIDE;
 
 protected:
 
@@ -89,13 +89,13 @@ protected:
      * different from the current configuration.
      * Virtual function for custom additions.
      */
-    virtual bool hasChanged();
+    bool hasChanged() Q_DECL_OVERRIDE;
 
     /**
      * Returns whether the current state of the dialog is
      * the same as the default configuration.
      */
-    virtual bool isDefault();
+    bool isDefault() Q_DECL_OVERRIDE;
 
 private slots:
     void settingsModified();
