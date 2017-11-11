@@ -28,6 +28,7 @@
   <name xml:lang="pl">Kanagram</name>
   <name xml:lang="pt">Kanagram</name>
   <name xml:lang="pt-BR">Kanagram</name>
+  <name xml:lang="ru">Kanagram</name>
   <name xml:lang="sk">Kanagram</name>
   <name xml:lang="sl">Kanagram</name>
   <name xml:lang="sv">Kanagram</name>
@@ -59,6 +60,7 @@
   <summary xml:lang="pl">Gra w układanie słów</summary>
   <summary xml:lang="pt">Jogo de Ordenação de Letras</summary>
   <summary xml:lang="pt-BR">Jogo de ordenação de letras</summary>
+  <summary xml:lang="ru">Игра с перестановкой букв</summary>
   <summary xml:lang="sk">Hra o usporiadaní písmen</summary>
   <summary xml:lang="sl">Igra vrstnega reda črk</summary>
   <summary xml:lang="sv">Bokstavsordningsspel</summary>
