@@ -67,6 +67,7 @@
   <summary xml:lang="tr">Harf Sırası Oyunu</summary>
   <summary xml:lang="uk">Гра з впорядкування літер</summary>
   <summary xml:lang="x-test">xxLetter Order Gamexx</summary>
+  <summary xml:lang="zh-CN">字母顺序游戏</summary>
   <summary xml:lang="zh-TW">字母排序遊戲</summary>
   <description>
     <p>Kanagram is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the word. It features several included word lists, a hints-and-cheats help system, a word list editor, and allows for updating and distributing wordlists via KNewStuff. The interface is scalable and appropriate for children.</p>
