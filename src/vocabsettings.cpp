@@ -27,7 +27,7 @@
 
 #include <QIcon>
 #include <QFileInfo>
-#include <QtCore/QPointer>
+#include <QPointer>
 
 #include "kanagramsettings.h"
 #include "vocabedit.h"

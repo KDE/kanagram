@@ -66,7 +66,7 @@ int main(int argc, char **argv)
     about.addCredit(i18n("Eric Krüse"), i18n("British English Data Files"), "bildvontux@yahoo.de");
     about.addCredit(i18n("Hanna Scott"), i18n("Swedish Data Files"), "hanna.et.scott@gmail.com");
     about.addCredit(i18n("Jure Repinc"), i18n("Slovenian Data Files"), "jlp@holodeck1.com");
-    about.addCredit(i18n("Yuri Chornoivan"), i18n("Ukranian Data Files"), "");
+    about.addCredit(i18n("Yuri Chornoivan"), i18n("Ukrainian Data Files"), "");
     about.addCredit(i18n("Kristóf Kiszel"), i18n("Hungarian Data Files"), "ulysses@kubuntu.org");
     about.addCredit(i18n("Souvik Das"), i18n("2-player mode"), "souvikdas728@gmail.com");
     about.addCredit(i18n("Sayan Biswas"), i18n("Letters turned to clickable buttons"), "techsayan01@gmail.com");

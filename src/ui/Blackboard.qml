@@ -1,7 +1,7 @@
 /***************************************************************************
  *   This file is part of the Kanagram project                             *
  *   Copyright 2014 Debjit Mondal <debjitmondal05@gmail.com>               *
- *   Copyright 2014 Jeremy Whiting <jpwhiting>kde.org>                     *
+ *   Copyright 2014 Jeremy Whiting <jpwhiting@kde.org>                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
