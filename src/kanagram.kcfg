@@ -9,7 +9,7 @@
     <label>This setting stores the currently selected Vocabulary.</label>
     <default>-1</default>
 </entry>
-<entry name="singlePlayerMode" type="bool">
+<entry name="singlePlayerMode" type="Bool">
     <label>This setting allows you to decide one-player or two-player mode</label>
     <default>true</default>
 </entry>
