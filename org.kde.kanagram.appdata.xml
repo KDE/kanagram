@@ -100,6 +100,7 @@
   <url type="help">http://docs.kde.org/stable/en/kdeedu/kanagram/index.html</url>
   <screenshots>
     <screenshot type="default">
+      <caption>Playing Kanagram</caption>
       <image>http://kde.org/images/screenshots/kanagram.png</image>
     </screenshot>
   </screenshots>
