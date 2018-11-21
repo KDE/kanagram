@@ -25,6 +25,7 @@
 #include <QLoggingCategory>
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedString>
 #include <Kdelibs4ConfigMigrator>
 
@@ -73,6 +74,8 @@ int main(int argc, char **argv)
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(about);
+
+    KCrash::initialize();
 
     MainWindow mainWindow;
     QSize size(800, 600);
