@@ -39,7 +39,7 @@
 
 MainWindow::MainWindow()
     : m_game(new KanagramGame())
-     ,m_helpMenu(new KHelpMenu(NULL))
+     ,m_helpMenu(new KHelpMenu(nullptr))
 {
     setResizeMode(QQuickView::SizeRootObjectToView);
 
@@ -76,6 +76,7 @@ MainWindow::~MainWindow()
     windowConfig.writeEntry("geometry", geometry());
     windowConfig.writeEntry("windowState", int(windowState()));
 
+    delete m_helpMenu;
     delete m_game;
 }
 
