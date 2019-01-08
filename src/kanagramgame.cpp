@@ -100,7 +100,7 @@ QString KanagramGame::sanitizedDataLanguage() const
         if (languageCodes.contains(QLocale::system().uiLanguages().at(0))) {
             dataLanguage = QLocale::system().uiLanguages().at(0);
         } else {
-            dataLanguage = "en";
+            dataLanguage = QStringLiteral("en");
         }
 
     }
@@ -247,8 +247,8 @@ void KanagramGame::nextAnagram()
         else
         {
             // this file has no entries
-            m_originalWord = "";
-            m_hint = "";
+            m_originalWord = QLatin1String("");
+            m_hint = QLatin1String("");
             m_picHintUrl = QUrl();
             m_audioUrl = QUrl();
             // TODO: add some error reporting here
@@ -486,7 +486,7 @@ int KanagramGame::getNumericSetting(QString settingString)
             break;
         }
     }
-    return settingString.left(indexFound_setting).toInt();
+    return settingString.leftRef(indexFound_setting).toInt();
 }
 
 void KanagramGame::resetTotalScore()
@@ -641,7 +641,7 @@ void KanagramGame::loadSettings()
             }
         }
 
-        KanagramSettings::setDataLanguage(!foundLanguage.isEmpty() ? foundLanguage : "en");
+        KanagramSettings::setDataLanguage(!foundLanguage.isEmpty() ? foundLanguage : QStringLiteral("en"));
     }
 }
 

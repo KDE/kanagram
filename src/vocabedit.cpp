@@ -32,7 +32,7 @@
 #include "vocabsettings.h"
 #include "kanagramgame.h"
 
-VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent), m_fileName("")
+VocabEdit::VocabEdit(QWidget *parent, const QString  &fileName) : QDialog(parent), m_fileName(QLatin1String(""))
 {
     setupUi(this);
 

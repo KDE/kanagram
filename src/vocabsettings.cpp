@@ -39,7 +39,7 @@ VocabSettings::VocabSettings(QWidget *parent)
 
     connect(lviewVocab, &QTreeWidget::currentItemChanged, this, &VocabSettings::slotSelectionChanged);
 
-    btnDownloadNew->setIcon(QIcon::fromTheme("get-hot-new-stuff"));
+    btnDownloadNew->setIcon(QIcon::fromTheme(QStringLiteral("get-hot-new-stuff")));
 
     refreshView();
 }
@@ -86,14 +86,14 @@ void VocabSettings::on_btnEdit_clicked()
 
 void VocabSettings::on_btnCreateNew_clicked()
 {
-    VocabEdit *vocabEdit = new VocabEdit(this, "");
+    VocabEdit *vocabEdit = new VocabEdit(this, QLatin1String(""));
     connect(vocabEdit, &VocabEdit::finished, this, &VocabSettings::refreshView);
     vocabEdit->show();
 }
 
 void VocabSettings::on_btnDownloadNew_clicked()
 {
-    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog( "kanagram.knsrc" );
+    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog( QStringLiteral("kanagram.knsrc") );
     dialog->exec();
     if ( dialog->changedEntries().size() > 0 ){
         refreshView();

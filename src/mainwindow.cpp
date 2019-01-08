@@ -44,9 +44,9 @@ MainWindow::MainWindow()
     setResizeMode(QQuickView::SizeRootObjectToView);
 
     qCDebug(KANAGRAM) << "Created game and engine helper";
-    rootContext()->setContextProperty("kanagramGame", m_game);
-    rootContext()->setContextProperty("application", qApp);
-    rootContext()->setContextProperty("mainwindow", this);
+    rootContext()->setContextProperty(QStringLiteral("kanagramGame"), m_game);
+    rootContext()->setContextProperty(QStringLiteral("application"), qApp);
+    rootContext()->setContextProperty(QStringLiteral("mainwindow"), this);
 
     qCDebug(KANAGRAM) << "Set all context properties";
 
@@ -56,13 +56,13 @@ MainWindow::MainWindow()
 
     qCDebug(KANAGRAM) << "Setup declarative engine";
 
-    KConfigGroup windowConfig = config("Window");
+    KConfigGroup windowConfig = config(QStringLiteral("Window"));
     if (windowConfig.hasKey("geometry")) {
         setGeometry(windowConfig.readEntry<QRect>("geometry", QRect()));
         setWindowState(Qt::WindowState(windowConfig.readEntry("windowState").toInt()));
     }
 
-    QString location = QStandardPaths::locate(QStandardPaths::DataLocation, "ui/main.qml");
+    QString location = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("ui/main.qml"));
     setSource(QUrl::fromLocalFile(location));
     qCDebug(KANAGRAM) << "Set qml file location";
 
@@ -72,7 +72,7 @@ MainWindow::MainWindow()
 
 MainWindow::~MainWindow()
 {
-    KConfigGroup windowConfig = config("Window");
+    KConfigGroup windowConfig = config(QStringLiteral("Window"));
     windowConfig.writeEntry("geometry", geometry());
     windowConfig.writeEntry("windowState", int(windowState()));
 
@@ -102,9 +102,9 @@ void MainWindow::showHandbook()
 
 void MainWindow::showSettings()
 {
-    if (!KConfigDialog::showDialog("settings"))
+    if (!KConfigDialog::showDialog(QStringLiteral("settings")))
     {
-        m_configDialog = new KanagramConfigDialog( NULL, "settings", KanagramSettings::self() );
+        m_configDialog = new KanagramConfigDialog( NULL, QStringLiteral("settings"), KanagramSettings::self() );
         connect(m_configDialog, &KConfigDialog::settingsChanged, m_game, &KanagramGame::reloadSettings);
 
         connect(m_configDialog, &KConfigDialog::accepted, m_game, &KanagramGame::refreshVocabularyList);
