@@ -43,6 +43,8 @@ KanagramConfigDialog::KanagramConfigDialog(QWidget *parent, const QString &name,
     connect(m_vocabSettingsPage, &VocabSettings::widgetModified, this, &KanagramConfigDialog::settingsModified);
 
     m_hasChanged = false;
+
+    setHelp(QStringLiteral("configuring"), QStringLiteral("kanagram"));
 }
 
 KanagramConfigDialog::~KanagramConfigDialog()

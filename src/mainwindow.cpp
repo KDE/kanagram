@@ -109,7 +109,6 @@ void MainWindow::showSettings()
 
         connect(m_configDialog, &KConfigDialog::accepted, m_game, &KanagramGame::refreshVocabularyList);
 
-        // m_configDialog->setHelp("kanagram/index.html");
         m_configDialog->resize(600, 500);
         m_configDialog->show();
     }
