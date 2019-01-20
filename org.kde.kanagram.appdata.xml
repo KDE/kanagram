@@ -49,7 +49,7 @@
   <summary xml:lang="fr">Jeu sur l'ordre des lettres</summary>
   <summary xml:lang="gl">Xogo de ordenar letras</summary>
   <summary xml:lang="hu">Szókirakó játék</summary>
-  <summary xml:lang="id">Game Urutan Huruf</summary>
+  <summary xml:lang="id">Permainan Urutan Huruf</summary>
   <summary xml:lang="it">Gioco di anagrammi</summary>
   <summary xml:lang="ko">글자 순서 게임</summary>
   <summary xml:lang="lt">Raidžių rūšiavimo žaidimas</summary>
@@ -108,6 +108,7 @@
       <caption xml:lang="en-GB">Playing Kanagram</caption>
       <caption xml:lang="es">Jugando a Kanagram</caption>
       <caption xml:lang="gl">Xogando a Kanagram</caption>
+      <caption xml:lang="id">Memainkan Kanagram</caption>
       <caption xml:lang="it">Giocare con Kanagram</caption>
       <caption xml:lang="nl">Kanagram spelen</caption>
       <caption xml:lang="pl">Granie w Kanagram</caption>
@@ -117,7 +118,7 @@
       <caption xml:lang="uk">Гра у Kanagram</caption>
       <caption xml:lang="x-test">xxPlaying Kanagramxx</caption>
       <caption xml:lang="zh-CN">正在玩 Kanagram</caption>
-      <caption xml:lang="zh-TW">正在遊玩 Kanagram</caption>
+      <caption xml:lang="zh-TW">Kanagram 遊玩畫面</caption>
       <image>http://kde.org/images/screenshots/kanagram.png</image>
     </screenshot>
   </screenshots>
