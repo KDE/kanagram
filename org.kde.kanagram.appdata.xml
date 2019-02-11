@@ -24,6 +24,7 @@
   <name xml:lang="nds">Kanagram</name>
   <name xml:lang="nl">Kanagram</name>
   <name xml:lang="nn">Kanagram</name>
+  <name xml:lang="pa">ਕਾਨਗਰਾਮ</name>
   <name xml:lang="pl">Kanagram</name>
   <name xml:lang="pt">Kanagram</name>
   <name xml:lang="pt-BR">Kanagram</name>
@@ -56,6 +57,7 @@
   <summary xml:lang="nds">Bookstaven ornen</summary>
   <summary xml:lang="nl">Letters ordenen</summary>
   <summary xml:lang="nn">Bokstavordningsspel</summary>
+  <summary xml:lang="pa">ਅੱਖਰ ਲੜੀਬੱਧ ਕਰਨ ਖੇਡ</summary>
   <summary xml:lang="pl">Gra w układanie słów</summary>
   <summary xml:lang="pt">Jogo de Ordenação de Letras</summary>
   <summary xml:lang="pt-BR">Jogo de ordenação de letras</summary>
@@ -111,6 +113,7 @@
       <caption xml:lang="id">Memainkan Kanagram</caption>
       <caption xml:lang="it">Giocare con Kanagram</caption>
       <caption xml:lang="nl">Kanagram spelen</caption>
+      <caption xml:lang="pa">ਕਾਨਾਗਰਾਮ ਖੇਡੋ</caption>
       <caption xml:lang="pl">Granie w Kanagram</caption>
       <caption xml:lang="pt">A jogar ao Kanagram</caption>
       <caption xml:lang="pt-BR">Jogando Kanagram</caption>
