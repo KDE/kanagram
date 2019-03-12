@@ -11,7 +11,6 @@ set(kanagram_SRCS
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${LIBKEDUVOCDOCUMENT_INCLUDE_DIR}
 )
 
 ki18n_wrap_ui(kanagram_SRCS
