@@ -266,7 +266,7 @@ QString KanagramGame::filename() const
 QStringList KanagramGame::anagram() const
 {
     QStringList resultList;
-    foreach (const QChar &userLetter, m_anagram)
+    for (const QChar &userLetter : qAsConst(m_anagram))
     {
         resultList.append(userLetter);
     }
@@ -287,7 +287,7 @@ QString KanagramGame::word() const
 QStringList KanagramGame::userAnswer() const
 {
     QStringList returnList;
-    foreach (const QChar &letter, m_userAnswer)
+    for (const QChar &letter : qAsConst(m_userAnswer))
     {
         returnList.append(letter);
     }
@@ -338,7 +338,7 @@ QString KanagramGame::documentTitle() const
 
 QStringList KanagramGame::languageNames()
 {
-    QStringList languageCodes = SharedKvtmlFiles::languages();
+    const QStringList languageCodes = SharedKvtmlFiles::languages();
     if (languageCodes.isEmpty()) {
         return QStringList();
     }
@@ -348,7 +348,7 @@ QStringList KanagramGame::languageNames()
     // Get the language names from the language codes
     KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
 
-    foreach (const QString& languageCode, languageCodes)
+    for (const QString& languageCode : languageCodes)
     {
         KConfigGroup group = entry.group(languageCode);
 
@@ -629,10 +629,10 @@ void KanagramGame::loadSettings()
 
     if (KanagramSettings::dataLanguage().isEmpty())
     {
-        QStringList userLanguagesCode = QLocale::system().uiLanguages();
+        const QStringList userLanguagesCode = QLocale::system().uiLanguages();
         QStringList sharedKvtmlFilesLanguages = SharedKvtmlFiles::languages();
         QString foundLanguage;
-        foreach (const QString &userLanguageCode, userLanguagesCode)
+        for (const QString &userLanguageCode : userLanguagesCode)
         {
             if (sharedKvtmlFilesLanguages.contains(userLanguageCode))
             {
