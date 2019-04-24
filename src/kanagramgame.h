@@ -133,7 +133,7 @@ class KanagramGame : public QObject
 
         /** Move the given letter from anagram to answer or back if there's no
          * instances of the given letter in the anagram currently */
-        Q_INVOKABLE void moveLetter(QString letter);
+        Q_INVOKABLE void moveLetter(const QString &letter);
 
         Q_INVOKABLE bool singlePlayerMode();
 
@@ -252,11 +252,11 @@ class KanagramGame : public QObject
         /** speak the word
          *@param text the word that is to be converted from text to speech
          */
-        void say(QString text);
+        void say(const QString &text);
 #endif
 
         /** Get the value of a numeric setting from it's string */
-        int getNumericSetting(QString settingString);
+        int getNumericSetting(const QString &settingString);
 
         /** Check if enteredword is an anagram of word */
         bool isAnagram(QString& enteredword, QString& word);

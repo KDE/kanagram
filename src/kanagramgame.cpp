@@ -399,7 +399,7 @@ void KanagramGame::wordRevealed()
     }
 }
 
-void KanagramGame::say(QString text)
+void KanagramGame::say(const QString &text)
 {
     if ( text.isEmpty() )
         return;
@@ -459,7 +459,7 @@ void KanagramGame::resetAnagram()
     emit userAnswerChanged();
 }
 
-void KanagramGame::moveLetter(QString letter)
+void KanagramGame::moveLetter(const QString &letter)
 {
     QString small = letter.toLower();
     int index = m_anagram.toLower().indexOf(small);
@@ -475,7 +475,7 @@ void KanagramGame::moveLetter(QString letter)
     }
 }
 
-int KanagramGame::getNumericSetting(QString settingString)
+int KanagramGame::getNumericSetting(const QString &settingString)
 {
     int indexFound_setting = settingString.size();
     for (int k = 0; k < indexFound_setting; ++k)
