@@ -30,7 +30,6 @@
 class KanagramGame;
 class KConfigDialog;
 class KHelpMenu;
-class QEvent;
 class VocabSettings;
 
 class MainWindow : public QQuickView

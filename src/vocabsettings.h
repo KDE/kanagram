@@ -23,7 +23,6 @@
 
 #include "ui_vocabsettingswidget.h"
 
-class KConfigDialog;
 
 /** @brief Vocabulary Settings class
  *  @author Joshua Keel <joshuakeel@gmail.com>
