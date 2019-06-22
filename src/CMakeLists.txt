@@ -1,3 +1,5 @@
+ecm_setup_version(${KDE_APPLICATIONS_VERSION} VARIABLE_PREFIX KANAGRAM VERSION_HEADER kanagram_version.h)
+
 set(kanagram_SRCS
     kanagramconfigdialog.cpp
     kanagramgame.cpp
