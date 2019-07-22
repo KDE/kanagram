@@ -33,7 +33,14 @@ ecm_add_app_icon(kanagram_SRCS ICONS
                 ${CMAKE_SOURCE_DIR}/icons/64-apps-kanagram.png
                 ${CMAKE_SOURCE_DIR}/icons/128-app-kanagram.png
 )
-add_executable(kanagram ${kanagram_SRCS})
+
+if (Qt5QuickCompiler_FOUND AND COMPILE_QML)
+    qtquick_compiler_add_resources(kanagram_qml_SRCS qml.qrc)
+else ()
+    qt5_add_resources(kanagram_qml_SRCS qml.qrc)
+endif()
+
+add_executable(kanagram ${kanagram_SRCS} ${kanagram_qml_SRCS})
 
 target_link_libraries(kanagram
     Qt5::Quick
@@ -65,10 +72,6 @@ install(
     DESTINATION
     ${KDE_INSTALL_CONFDIR}
 )
-
-install(
-    DIRECTORY ui/
-    DESTINATION ${KDE_INSTALL_DATADIR}/kanagram/ui)
 
 install(
     FILES org.kde.kanagram.desktop

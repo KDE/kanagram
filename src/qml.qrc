@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>ui/main.qml</file>
+        <file>ui/Blackboard.qml</file>
+        <file>ui/LetterButton.qml</file>
+        <file>ui/images/background.jpg</file>
+        <file>ui/images/chalkboard.png</file>
+        <file>ui/images/header.png</file>
+        <file>ui/icons/1player.png</file>
+        <file>ui/icons/2player.png</file>
+        <file>ui/icons/about-kanagram.png</file>
+        <file>ui/icons/about-kde.png</file>
+        <file>ui/icons/arrow-light.svgz</file>
+        <file>ui/icons/close.png</file>
+        <file>ui/icons/hint.png</file>
+        <file>ui/icons/kanagram-handbook.png</file>
+        <file>ui/icons/left-arrow.png</file>
+        <file>ui/icons/on-off-light.svgz</file>
+        <file>ui/icons/question-light.svgz</file>
+        <file>ui/icons/reveal.png</file>
+        <file>ui/icons/right-arrow.png</file>
+        <file>ui/icons/spanner-light.svgz</file>
+        <file>ui/icons/timer.png</file>
+        <file>ui/icons/wikipedia.png</file>
+    </qresource>
+</RCC>
