@@ -362,7 +362,7 @@ QStringList KanagramGame::languageNames()
         m_languageCodeNameHash.insert(languageCode, languageName);
     }
 
-    qSort(languageNames);
+    std::sort(languageNames.begin(), languageNames.end());
     return languageNames;
 }
 
