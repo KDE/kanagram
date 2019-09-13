@@ -85,7 +85,7 @@ void MainSettings::populateLanguageBox()
 
         // get the language name
         QString languageName = languageLocale.nativeLanguageName();
-        if (languageName.isEmpty() || languageName == QLatin1String("C"))
+        if (languageName.isEmpty() || languageName == QLatin1Char('C'))
         {
             languageName = i18nc("@item:inlistbox no language for that locale", "None");
         }
