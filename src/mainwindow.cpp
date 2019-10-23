@@ -52,7 +52,7 @@ MainWindow::MainWindow()
 
     KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(engine());
-    kdeclarative.setupBindings();
+    kdeclarative.setupContext();
 
     qCDebug(KANAGRAM) << "Setup declarative engine";
 
