@@ -60,7 +60,7 @@ int main(int argc, char **argv)
     about.addAuthor(i18n("Jeremy Whiting"), i18n("Maintainer"), QStringLiteral("jpwhiting@kde.org"));
     about.addAuthor(i18n("Debjit Mondal"), i18n("Coding & Design"), QStringLiteral("debjitmondal05@gmail.com"));
     about.addCredit(i18n("Laszlo Papp"), i18n("Modularization and porting to Mobile"), QStringLiteral("lpapp@kde.org"));
-    about.addCredit(i18n("Artemiy Pavlov"), i18n("Sound effects"), QString(), QStringLiteral("http://artemiolabs.com"));
+    about.addCredit(i18n("Artemiy Pavlov"), i18n("Sound effects"), QString());
     about.addCredit(i18n("Pino Toscano"), i18n("Italian Data Files"), QStringLiteral("pino@kde.org"));
     about.addCredit(i18n("Kris Thomsen"), i18n("Danish Data Files"), QStringLiteral("kris@scoutzone.dk"));
     about.addCredit(i18n("Patrick Spendrin"), i18n("German Data Files"), QStringLiteral("patrick_spendrin@gmx.de"));

@@ -97,9 +97,9 @@
     <p xml:lang="x-test">xxKanagram is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the word. It features several included word lists, a hints-and-cheats help system, a word list editor, and allows for updating and distributing wordlists via KNewStuff. The interface is scalable and appropriate for children.xx</p>
     <p xml:lang="zh-TW">Kanagram 是一套字詞遊戲：將單字字母順序打亂，並將它排回正確的順序。沒有限制解題的時間或次數。它並且提供了一些功能，例如單字清單，提示系統，單字清單編輯器，並允許透過 KNewStuff 更新或散布。介面設計適合小朋友。</p>
   </description>
-  <url type="homepage">http://edu.kde.org/kanagram/</url>
+  <url type="homepage">https://edu.kde.org/kanagram/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kanagram</url>
-  <url type="help">http://docs.kde.org/stable/en/kdeedu/kanagram/index.html</url>
+  <url type="help">https://docs.kde.org/stable/en/kdeedu/kanagram/index.html</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kanagram&amp;source=appdata</url>
   <screenshots>
     <screenshot type="default">
@@ -126,7 +126,7 @@
       <caption xml:lang="x-test">xxPlaying Kanagramxx</caption>
       <caption xml:lang="zh-CN">正在玩 Kanagram</caption>
       <caption xml:lang="zh-TW">Kanagram 遊玩畫面</caption>
-      <image>http://kde.org/images/screenshots/kanagram.png</image>
+      <image>https://kde.org/images/screenshots/kanagram.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
