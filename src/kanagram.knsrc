@@ -1,5 +1,4 @@
 [KNewStuff3]
-ProvidersUrl=https://download.kde.org/ocs/providers.xml
 Categories=Kanagram
 UploadCategories=Kanagram
 TargetDir=apps/kvtml
