@@ -50,11 +50,7 @@ MainSettings::MainSettings(QWidget *parent) : QWidget(parent)
     languageComboBox->setCurrentIndex(languageComboBox->findText(languageLocale.nativeLanguageName()));
 
     // Connect after we set the current language from settings.
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(languageComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MainSettings::widgetModified);
-#else
-    connect(languageComboBox, static_cast<void (QComboBox::*)(int, const QString &)>(&QComboBox::currentIndexChanged) , this, &MainSettings::widgetModified);
-#endif
 
 #ifndef HAVE_SPEECH
     kcfg_enablePronunciation->hide();
