@@ -26,8 +26,8 @@
 #include "kanagramsettings.h"
 
 #include <sharedkvtmlfiles.h>
-#include <keduvocdocument.h>
-#include <keduvocexpression.h>
+#include <KEduVocDocument>
+#include <KEduVocExpression>
 #ifdef HAVE_SPEECH
 #include <QTextToSpeech>
 #endif

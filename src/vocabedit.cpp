@@ -22,8 +22,8 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include <keduvocdocument.h>
-#include <keduvocexpression.h>
+#include <KEduVocDocument>
+#include <KEduVocExpression>
 
 #include <QDir>
 #include <QStandardPaths>
