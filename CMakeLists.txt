@@ -23,7 +23,7 @@ else()
     add_definitions(-DHAVE_SPEECH)
 endif()
 
-find_package(ECM 1.7.0 NO_MODULE REQUIRED)
+find_package(ECM 5.17.0 NO_MODULE REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 include(ECMAddAppIcon)
@@ -40,7 +40,6 @@ find_package(KF5 REQUIRED COMPONENTS
     Config
     ConfigWidgets
     CoreAddons
-    Declarative
     DocTools
     KIO
     NewStuff

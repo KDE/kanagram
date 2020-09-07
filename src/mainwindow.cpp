@@ -30,8 +30,8 @@
 #include <QQmlContext>
 #include <QQmlEngine>
 
-#include <KDeclarative/KDeclarative>
 #include <KHelpMenu>
+#include <KLocalizedContext>
 #include <KLocalizedString>
 #include <KSharedConfig>
 
@@ -48,13 +48,9 @@ MainWindow::MainWindow()
     rootContext()->setContextProperty(QStringLiteral("application"), qApp);
     rootContext()->setContextProperty(QStringLiteral("mainwindow"), this);
 
-    qCDebug(KANAGRAM) << "Set all context properties";
-
-    KDeclarative::KDeclarative kdeclarative;
-    kdeclarative.setDeclarativeEngine(engine());
-    kdeclarative.setupContext();
-
-    qCDebug(KANAGRAM) << "Setup declarative engine";
+    // prepare i18n
+    auto context = new KLocalizedContext(this);
+    engine()->rootContext()->setContextObject(context);
 
     KConfigGroup windowConfig = config(QStringLiteral("Window"));
     if (windowConfig.hasKey("geometry")) {
