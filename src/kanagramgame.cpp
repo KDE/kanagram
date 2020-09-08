@@ -462,6 +462,7 @@ void KanagramGame::resetAnagram()
 void KanagramGame::moveLetter(const QString &letter)
 {
     QString small = letter.toLower();
+    QString strippedAnagram = stripAccents(m_anagram);
     int index = m_anagram.toLower().indexOf(small);
     if (index != -1)
     {
@@ -469,9 +470,28 @@ void KanagramGame::moveLetter(const QString &letter)
     }
     else
     {
-        index = m_userAnswer.toLower().indexOf(letter);
+        index = strippedAnagram.toLower().indexOf(small);
         if (index != -1)
-            moveLetterToAnagram(index);
+        {
+             moveLetterToUserAnswer(index);
+        }
+        else
+        {
+            QString strippedAnswer = stripAccents(m_userAnswer);
+            index = m_userAnswer.toLower().indexOf(small);
+            if (index != -1)
+            {
+                moveLetterToAnagram(index);
+            }
+            else
+            {
+                index = strippedAnswer.toLower().indexOf(small);
+                if (index != -1)
+                {
+                    moveLetterToAnagram(index);
+                }
+            }
+        }
     }
 }
 
