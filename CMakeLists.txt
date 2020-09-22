@@ -24,7 +24,7 @@ else()
 endif()
 
 find_package(ECM 5.17.0 NO_MODULE REQUIRED)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} )
 
 include(ECMAddAppIcon)
 include(KDEInstallDirs)
