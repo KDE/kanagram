@@ -1,8 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
  <!ENTITY kanagram "<application>Kanagram</application>">
- <!ENTITY kappname "&kanagram;">
- <!ENTITY package "kdeedu">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
@@ -30,8 +28,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2016-04-27</date>
-<releaseinfo>1.2 (Applications 16.04)</releaseinfo>
+<date>2020-12-21</date>
+<releaseinfo>Applications 20.12</releaseinfo>
 
 <abstract>
 <para>
@@ -88,7 +86,7 @@ Here is the screen that is presented on startup of &kanagram;, showing the main 
 <orderedlist>
 <listitem>
 <para>
-The <interface>Vocabulary Switcher</interface> (<keysym>PgUp</keysym> / <keysym>PgDown</keysym>) allows the user to quickly <action>change the active vocabulary</action> by clicking with the &LMB; on the arrows to <action>advance to the next vocabulary</action> or to <action>return to the previously-played vocabulary</action>.
+The <interface>Vocabulary Switcher</interface> (&PgUp; / &PgDn;) allows the user to quickly <action>change the active vocabulary</action> by clicking with the &LMB; on the arrows to <action>advance to the next vocabulary</action> or to <action>return to the previously-played vocabulary</action>.
 </para>
 </listitem>
 <listitem>
@@ -332,12 +330,12 @@ The Vocabulary Editor allows you to create your own vocabularies, which &kanagra
 <itemizedlist>
 <listitem>
 <para>
-The <guilabel>Vocabulary Name</guilabel> field lets you <action>name your vocabulary</action>.
+The <guilabel>Vocabulary Name:</guilabel> field lets you <action>name your vocabulary</action>.
 </para>
 </listitem>
 <listitem>
 <para>
-The <guilabel>Description</guilabel> field enables you to <action>expand on your vocabulary name</action>, providing your user with more details of the content of your vocabulary.
+The <guilabel>Description:</guilabel> field enables you to <action>expand on your vocabulary name</action>, providing your user with more details of the content of your vocabulary.
 </para>
 <note>
 <para>
@@ -357,7 +355,7 @@ The <guibutton>New Word</guibutton> button <action>creates a new word entry in y
 </listitem>
 <listitem>
 <para>
-The <guilabel>Word</guilabel> field lets you <action>write word values into your vocabulary</action>.
+The <guilabel>Word:</guilabel> field lets you <action>write word values into your vocabulary</action>.
 </para>
 </listitem>
 <listitem>
