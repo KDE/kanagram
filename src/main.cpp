@@ -83,7 +83,7 @@ int main(int argc, char **argv)
     KCrash::initialize();
 
     MainWindow mainWindow;
-    QSize size(800, 600);
+    QSize size(400, 300);
     mainWindow.setMinimumSize(size);
     mainWindow.show();
 

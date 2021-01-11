@@ -23,7 +23,6 @@ import QtQuick.Controls 1.2
 import QtMultimedia 5.0
 
 Rectangle {
-
     id: screen
     focus: true
     property int countDownTimerValue: 0
@@ -79,7 +78,7 @@ Rectangle {
 
     Item {
         id: headerArea
-        width: parent.width;
+        width: parent.width
         height: parent.height / 6
         anchors.top: screen.top
 
@@ -92,15 +91,15 @@ Rectangle {
 
         Image {
             id: header
-            width: parent.width / 3.5
-            height: parent.height / 1.5
+            height: Math.round(parent.height * 0.8)
+            width: headerArea.width - playericon.width - powerButton.width - 80
             anchors {
                 verticalCenter: parent.verticalCenter
                 horizontalCenter: parent.horizontalCenter
             }
             source: "images/header.png"
             smooth: true
-            fillMode: Image.PreserveAspectCrop
+            fillMode: Image.PreserveAspectFit
         }
 
         Image {
@@ -108,7 +107,7 @@ Rectangle {
             width: 60
             height: 60
             anchors.left:parent.left
-            anchors.leftMargin:20
+            anchors.leftMargin: 20
             anchors.verticalCenter: parent.verticalCenter
             source: kanagramGame.singlePlayer ? "icons/1player.png" : "icons/2player.png"
             smooth: true
