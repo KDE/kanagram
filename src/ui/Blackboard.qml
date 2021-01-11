@@ -60,218 +60,214 @@ Rectangle {
         }
     }
 
-    Rectangle {
+    Item {
         id: categoryBar
-        width: parent.width
-        height: parent.height / 5
-        opacity: .25
-        color: "black"
         anchors.top: parent.top
-    }
-
-    Text {
-        id: categoryName
-        anchors {
-            verticalCenter: categoryBar.verticalCenter
-            horizontalCenter: categoryBar.horizontalCenter
-        }
-        color: "white"
-        text: kanagramGame.title
-        font.pixelSize: parent.width / 19.5
-    }
-
-    Action {
-        id: nextVocabularyAction
-        shortcut: "PgDown"
-        onTriggered: {
-            kanagramGame.nextVocabulary();
-            nextAnagram();
-        }
-        tooltip: i18n("Next Vocabulary")
-    }
-
-    ToolButton {
-        height: categoryBar.height
-        width: categoryBar.height
-        id: nextVocabularyButton
-        anchors {
-            verticalCenter: categoryBar.verticalCenter
-            right: categoryBar.right
-            rightMargin: parent.width / 20
-        }
-        action: nextVocabularyAction
-        Image {
-            source: "icons/right-arrow.png"
+        width: parent.width
+        height: Math.min(parent.height / 5, 4 * categoryName.height)
+        Rectangle {
             anchors.fill: parent
-            anchors.margins: 4
-            fillMode: Image.PreserveAspectFit
+            opacity: .25
+            color: "black"
         }
-        style: ButtonStyle {
-            background: Rectangle { color: "transparent" }
+
+        ToolButton {
+            height: categoryBar.height
+            width: categoryBar.height
+            id: nextVocabularyButton
+            anchors {
+                verticalCenter: categoryBar.verticalCenter
+                right: categoryBar.right
+                rightMargin: parent.width / 20
+            }
+            action: Action {
+                shortcut: "PgDown"
+                onTriggered: {
+                    kanagramGame.nextVocabulary();
+                    nextAnagram();
+                }
+                tooltip: i18n("Next Vocabulary")
+            }
+            Image {
+                source: "icons/right-arrow.png"
+                anchors.fill: parent
+                anchors.margins: 4
+                fillMode: Image.PreserveAspectFit
+            }
+            style: ButtonStyle {
+                background: Rectangle { color: "transparent" }
+            }
+        }
+
+        Text {
+            id: categoryName
+            anchors {
+                verticalCenter: categoryBar.verticalCenter
+                horizontalCenter: categoryBar.horizontalCenter
+            }
+            color: "white"
+            text: kanagramGame.title
+            font.pixelSize: Math.min(parent.width / 19.5, 32)
+        }
+
+        ToolButton {
+            id: previousVocabularyButton
+            height: categoryBar.height
+            width: categoryBar.height
+            anchors {
+                verticalCenter: categoryBar.verticalCenter
+                left: categoryBar.left
+                leftMargin: parent.width / 20
+            }
+            action: Action {
+                shortcut: "PgUp"
+                onTriggered: {
+                    kanagramGame.previousVocabulary();
+                    nextAnagram();
+                }
+                tooltip: i18n("Previous Vocabulary")
+            }
+            Image {
+                source: "icons/left-arrow.png"
+                anchors.fill: parent
+                anchors.margins: 4
+                fillMode: Image.PreserveAspectFit
+            }
+            style: ButtonStyle {
+                background: Rectangle { color: "transparent" }
+            }
         }
     }
 
-    Action {
-        id: previousVocabularyAction
-        shortcut: "PgUp"
-        onTriggered: {
-            kanagramGame.previousVocabulary();
-            nextAnagram();
-        }
-        tooltip: i18n("Previous Vocabulary")
-    }
-
-    ToolButton {
-        id: previousVocabularyButton
-        height: categoryBar.height
-        width: categoryBar.height
-        anchors {
-            verticalCenter: categoryBar.verticalCenter
-            left: categoryBar.left
-            leftMargin: parent.width / 20
-        }
-        action: previousVocabularyAction
-        Image {
-            source: "icons/left-arrow.png"
-            anchors.fill: parent
-            anchors.margins: 4
-            fillMode: Image.PreserveAspectFit
-        }
-        style: ButtonStyle {
-            background: Rectangle { color: "transparent" }
-        }
-    }
-
-    Rectangle {
+    Item {
         id: optionsBar
         width: parent.width
-        height: parent.height / 5
-        opacity: .25
-        color: "black"
+        height: categoryBar.height
         anchors.bottom: parent.bottom
-    }
+        Rectangle {
+            anchors.fill: parent
+            opacity: .25
+            color: "black"
+        }
 
-    Action {
-        id: scoreAction
-        shortcut: "Ctrl+S"
-        onTriggered: {
-            if (!scoreButton.flagToggleTimer) {
-                scoreButton.countDownTimerValue = kanagramGame.scoreTime();
-                scoreTimer.repeat = true;
-                scoreTimer.start();
-                kanagramGame.resetTotalScore();
-                scoreSection.opacity = 0.35;
-                score.opacity = 1;
-            } else {
-                scoreButton.countDownTimerValue = 1
+        ToolButton {
+            id: scoreButton
+            height: optionsBar.height
+            width: optionsBar.height
+            anchors {
+                verticalCenter: optionsBar.verticalCenter
+                left: optionsBar.left
             }
-            scoreButton.flagToggleTimer = !scoreButton.flagToggleTimer;
-        }
-        tooltip: i18n("Start Timer");
-    }
-
-    ToolButton {
-        id: scoreButton
-        height: optionsBar.height
-        width: optionsBar.height
-        anchors {
-            verticalCenter: optionsBar.verticalCenter
-            left: optionsBar.left
-        }
-        property int countDownTimerValue: 0
-        property bool flagToggleTimer: false
-        action: scoreAction
-        Image {
-            source: "icons/timer.png"
-            anchors.fill: parent
-            anchors.margins: 4
-            fillMode: Image.PreserveAspectFit
-        }
-        style: ButtonStyle {
-            background: Rectangle { color: "transparent" }
-        }
-    }
-
-    Action {
-        id: hintAction
-        shortcut: "Ctrl+H"
-        onTriggered: {
-            hintButton.countDownTimerValue = kanagramGame.hintHideTime()
-            hintTimer.repeat = true
-            hintTimer.start()
-        }
-        tooltip: i18n("Show Hint")
-    }
-
-    ToolButton {
-        id: hintButton
-        action: hintAction
-        width: optionsBar.height
-        height: optionsBar.height
-        property int countDownTimerValue: 0
-        anchors {
-            verticalCenter: optionsBar.verticalCenter
-            horizontalCenter: optionsBar.horizontalCenter
-        }
-        Image {
-            source: "icons/hint.png"
-            anchors.fill: parent
-            anchors.margins: 4
-            fillMode: Image.PreserveAspectFit
-        }
-        style: ButtonStyle {
-            background: Rectangle { color: "transparent" }
-        }
-    }
-
-    Action {
-        id: revealAction
-        shortcut: "Ctrl+R"
-        onTriggered: {
-            kanagramGame.revealWord();
-            if (blackboard.activeTimer) {
-                kanagramGame.answerRevealed();
+            property int countDownTimerValue: 0
+            property bool flagToggleTimer: false
+            action: Action {
+                id: scoreAction
+                shortcut: "Ctrl+S"
+                onTriggered: {
+                    if (!scoreButton.flagToggleTimer) {
+                        scoreButton.countDownTimerValue = kanagramGame.scoreTime();
+                        scoreTimer.repeat = true;
+                        scoreTimer.start();
+                        kanagramGame.resetTotalScore();
+                        scoreSection.opacity = 0.35;
+                        score.opacity = 1;
+                    } else {
+                        scoreButton.countDownTimerValue = 1
+                    }
+                    scoreButton.flagToggleTimer = !scoreButton.flagToggleTimer;
+                }
+                tooltip: i18n("Start Timer");
             }
-            revealButton.countDownTimerValue = 2
-            showAnswerTimer.repeat = true
-            showAnswerTimer.start()
+            Image {
+                source: "icons/timer.png"
+                anchors.fill: parent
+                anchors.margins: 4
+                fillMode: Image.PreserveAspectFit
+            }
+            style: ButtonStyle {
+                background: Rectangle { color: "transparent" }
+            }
         }
-        tooltip: i18n("Reveal Word")
-    }
 
-    ToolButton {
-        id: revealButton
-        action: revealAction
-        width: optionsBar.height
-        height: optionsBar.height
-        anchors {
-            verticalCenter: optionsBar.verticalCenter
-            right: optionsBar.right
+        ToolButton {
+            id: hintButton
+            action: Action {
+                id: hintAction
+                shortcut: "Ctrl+H"
+                onTriggered: {
+                    hintButton.countDownTimerValue = kanagramGame.hintHideTime()
+                    hintTimer.repeat = true
+                    hintTimer.start()
+                }
+                tooltip: i18n("Show Hint")
+            }
+            width: optionsBar.height
+            height: optionsBar.height
+            property int countDownTimerValue: 0
+            anchors {
+                verticalCenter: optionsBar.verticalCenter
+                horizontalCenter: optionsBar.horizontalCenter
+            }
+            Image {
+                source: "icons/hint.png"
+                anchors.fill: parent
+                anchors.margins: 4
+                fillMode: Image.PreserveAspectFit
+            }
+            style: ButtonStyle {
+                background: Rectangle { color: "transparent" }
+            }
         }
-        property int countDownTimerValue: 0
-        Image {
-            source: "icons/reveal.png"
-            anchors.fill: parent
-            anchors.margins: 4
-            fillMode: Image.PreserveAspectFit
-        }
-        style: ButtonStyle {
-            background: Rectangle { color: "transparent" }
-        }
-    }
 
-    Rectangle {
-        id: timerSection
-        width: blackboard.width / 9
-        height: blackboard.height / 7
-        anchors {
-            top: blackboard.top
-            topMargin: blackboard.height / 7
-            right: blackboard.left
-            rightMargin: blackboard.width / 68.5
+        Action {
+            id: revealAction
+            shortcut: "Ctrl+R"
+            onTriggered: {
+                kanagramGame.revealWord();
+                if (blackboard.activeTimer) {
+                    kanagramGame.answerRevealed();
+                }
+                revealButton.countDownTimerValue = 2
+                showAnswerTimer.repeat = true
+                showAnswerTimer.start()
+            }
+            tooltip: i18n("Reveal Word")
         }
-        color: "black"
-        opacity: 0
+
+        ToolButton {
+            id: revealButton
+            action: revealAction
+            width: optionsBar.height
+            height: optionsBar.height
+            anchors {
+                verticalCenter: optionsBar.verticalCenter
+                right: optionsBar.right
+            }
+            property int countDownTimerValue: 0
+            Image {
+                source: "icons/reveal.png"
+                anchors.fill: parent
+                anchors.margins: 4
+                fillMode: Image.PreserveAspectFit
+            }
+            style: ButtonStyle {
+                background: Rectangle { color: "transparent" }
+            }
+        }
+
+        Rectangle {
+            id: timerSection
+            width: blackboard.width / 9
+            height: blackboard.height / 7
+            anchors {
+                top: blackboard.top
+                topMargin: blackboard.height / 7
+                right: blackboard.left
+                rightMargin: blackboard.width / 68.5
+            }
+            color: "black"
+            opacity: 0
+        }
     }
 
     Text {
