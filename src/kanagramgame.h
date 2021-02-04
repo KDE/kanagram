@@ -235,9 +235,6 @@ class KanagramGame : public QObject
         //Signal the UI that the word is broken into alphabets
         void userAnswerChanged();
 
-        //Signal for the UI to give the list of alphabets rather than the single string
-        void wordResult();
-
         /** Signal the ui that sound enabled has changed */
         void useSoundsChanged();
     private:
