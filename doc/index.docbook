@@ -58,7 +58,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <title>Introduction</title>
 
 <para>
-&kanagram; is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the word. Included with &kanagram; are several vocabularies ready to play, with many more available from the Internet.
+&kanagram; is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the number of attempts to solve the word. Included with &kanagram; are several vocabularies ready to play, with many more available from the Internet.
 </para>
 
 </chapter>
@@ -68,7 +68,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <title>Using &kanagram;</title>
 
 <para>
-Here is the screen that is presented on startup of &kanagram;, showing the main interface to the application. Much of the window is taken up by the <interface>blackboard</interface>, where the puzzles are written onto, with the <interface>filing cabinet</interface> on the right containing application controls:
+Here is the screen that is presented on startup of &kanagram;, showing the main interface to the application. Much of the window is taken up by the <interface>blackboard</interface>, where the puzzles are written, with the <interface>filing cabinet</interface> on the right containing application controls.
 </para>
 
 <screenshot>
@@ -96,7 +96,7 @@ In the center of the <interface>blackboard</interface> is the anagram puzzle to 
 </listitem>
 <listitem>
 <para>
-This is the <guiicon>Start Timer</guiicon> (<keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo>) button, and allows you to <action>start or stop scoring timer</action>.
+This is the <guiicon>Start Timer</guiicon> (<keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo>) button, and allows you to <action>start or stop the scoring timer</action>.
 </para>
 </listitem>
 <listitem>
@@ -126,7 +126,7 @@ This is the <guiicon>Configure</guiicon> button, which <action>opens the <guilab
 </listitem>
 <listitem>
 <para>
-The <guiicon>Help</guiicon> button is special, in that it <action>reveals 3 sub-buttons</action>. These buttons are shown when the <guiicon>Help</guiicon> button is hovered over, and provide access to the <guilabel>&kanagram; Handbook</guilabel> (this document), the <guilabel>About &kanagram;</guilabel> and the <guilabel>About &kde;</guilabel> dialogs:
+The <guiicon>Help</guiicon> button is special, in that it <action>reveals 3 sub-buttons</action>. These buttons are shown when the <guiicon>Help</guiicon> button is hovered over, and provide access to the <guilabel>&kanagram; Handbook</guilabel> (this document), and the <guilabel>About &kanagram;</guilabel> and <guilabel>About &kde;</guilabel> dialogs:
 
 <screenshot>
 <screeninfo>The 3 different states of the <guiicon>Help</guiicon> button</screeninfo>
@@ -157,7 +157,7 @@ The <guiicon>Quit</guiicon> button <action>closes the application</action>.
 <title>Playing a game</title>
 
 <para>
-Now that you are familiar with the interface of &kanagram;, lets play a game!
+Now that you are familiar with the user interface of &kanagram;, lets play a game!
 </para>
 
 <procedure>
@@ -185,7 +185,7 @@ If you cannot guess what the word is, press the <guibutton>Hint</guibutton> butt
 
 <step>
 <para>
-Once you think you know the correct answer, type the letters into the <interface>Entry Box</interface> below the <interface>blackboard</interface> or click them with the &LMB; and the letters move down to the entry box. If you were correct, the next anagram appears, otherwise all letters jump back into the blackboard.
+Once you think you know the correct answer, type the letters into the <interface>Entry Box</interface> below the <interface>blackboard</interface>, or click them with the &LMB; and the letters will move down to the entry box. If you are correct, the next anagram appears, otherwise all the letters jump back onto the blackboard.
 </para>
 </step>
 </procedure>
@@ -224,7 +224,7 @@ The <guilabel>Auto-hide hints after:</guilabel> drop down box allows you to spec
 
 <listitem>
 <para>
-Use the <guilabel>Time for resolving the anagram:</guilabel> drop down box to specify the time you have to resolve each puzzle. By default  there is <quote>No time limit</quote>.
+Use the <guilabel>Time for resolving the anagram:</guilabel> drop down box to specify the time you have to resolve each puzzle. By default there is <quote>No time limit</quote>.
 </para>
 </listitem>
 
@@ -236,7 +236,7 @@ The <guilabel>Play Using:</guilabel> drop down box allows you to play &kanagram;
 
 <listitem>
 <para>
-The <guilabel>Set timer for scoring purpose:</guilabel> drop down box allows you to set in seconds the time interval of the score timer.
+The <guilabel>Set timer for scoring purpose:</guilabel> drop down box allows you to set in seconds the time interval of the scoring timer.
 </para>
 </listitem>
 
@@ -248,7 +248,7 @@ The <guilabel>Score Point Settings</guilabel> checkbox can be used to reveal or 
 
 <listitem>
 <para>
-The <guilabel>Use sounds</guilabel> check box allows you to either allow or suppress the &kanagram; sound effects.
+The <guilabel>Use sounds</guilabel> check box allows you to either allow or suppress sound effects.
 </para>
 </listitem>
 
@@ -260,7 +260,7 @@ The <guilabel>Only uppercase letters</guilabel> check box allows you to switch &
 
 <listitem>
 <para>
-The <guilabel>Say correct words</guilabel> check box allows you to turn off or on pronunciations. The audio files of the pronunciations should be included into the vocabulary being played or you should install and configure &jovie; for this option to work.
+The <guilabel>Say correct words</guilabel> check box allows you to turn pronunciations on or off. The audio files of the pronunciations should be included in the vocabulary being played, or else you should install and configure &jovie; for this option to work.
 </para>
 </listitem>
 </itemizedlist>
@@ -288,7 +288,7 @@ The <guilabel>Vocabularies</guilabel> configuration page allows you to manage yo
 <listitem>
 <para>
 The <guibutton>Create New</guibutton> button <action>opens the <link
-linkend="vocab-editor"><guilabel>Vocabulary Editor</guilabel></link> dialog</action> so that you can author your own vocabularies which you can then play.
+linkend="vocab-editor"><guilabel>Vocabulary Editor</guilabel></link> dialog</action> so that you can author your own vocabularies which you can then play with.
 </para>
 </listitem>
 <listitem>
@@ -335,11 +335,11 @@ The <guilabel>Vocabulary Name:</guilabel> field lets you <action>name your vocab
 </listitem>
 <listitem>
 <para>
-The <guilabel>Description:</guilabel> field enables you to <action>expand on your vocabulary name</action>, providing your user with more details of the content of your vocabulary.
+The <guilabel>Description:</guilabel> field enables you to <action>expand your vocabulary name</action>, providing the user with more details of the content of your vocabulary.
 </para>
 <note>
 <para>
-Try to keep both the name and description fields as short as possible. Effective vocabularies cover a narrow, focused set of words for a single subject. Try to write at least 20 words for your vocabulary, so that it will not be quickly finished by the user.
+Try to keep both the name and description fields as short as possible. Effective vocabularies cover a narrow, focused set of words for a single subject. Try to write at least 20 words for your vocabulary, so that it will not be finished too quickly.
 </para>
 </note>
 </listitem>
@@ -364,18 +364,18 @@ The <guilabel>Hint</guilabel> field allows you to <action>write hints to accompa
 </para>
 <note>
 <para>
-Good hints clearly, yet subtly describe the word, whilst increasing the knowledge of the vocabulary subject for your user. Also ensure that your hints are fairly short (under 40 characters in length).
+Good hints clearly yet subtly describe the word, while also increasing the knowledge of the user. Also ensure that your hints are fairly short (under 40 characters in length).
 </para>
 </note>
 </listitem>
 <listitem>
 <para>
-The <guibutton>Save</guibutton> button <action>saves your vocabulary content</action>, and enables its use directly in &kanagram; (it will immediately become available within the application, selectable via. the <interface>Vocabulary Selector</interface>).
+The <guibutton>Save</guibutton> button <action>saves your new vocabulary content</action>, and enables its use directly in &kanagram; (it will immediately become available within the application, selectable via. the <interface>Vocabulary Selector</interface>).
 </para>
 </listitem>
 <listitem>
 <para>
-The <guibutton>Close</guibutton> button <action>closes the <guilabel>Vocabulary Editor</guilabel> dialog</action> without saving the content of your vocabulary.
+The <guibutton>Close</guibutton> button <action>closes the <guilabel>Vocabulary Editor</guilabel> dialog</action> without saving the content of your new or modified vocabulary.
 </para>
 </listitem>
 </itemizedlist>
@@ -408,7 +408,7 @@ To install a vocabulary from the Internet, click on the vocabulary item in the l
 </para>
 <para>If you have already downloaded a vocabulary this button will change to <guibutton>Uninstall</guibutton> which allows you to remove a vocabulary.
 </para>
-<para>To get more information about a vocabulary like the author, a description about the content and the changelog press the <guibutton>Details</guibutton> button.
+<para>To get more information about a vocabulary like the author, a description about the content, and the changelog, press the <guibutton>Details</guibutton> button.
 </para>
 </sect1>
 </chapter>
