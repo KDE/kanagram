@@ -4,4 +4,3 @@ Categories=Kanagram
 UploadCategories=Kanagram
 TargetDir=apps/kvtml
 Uncompress=never
-AcceptHtmlDownloads=true
