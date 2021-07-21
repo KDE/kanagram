@@ -62,7 +62,7 @@ install(
     FILES
     kanagram.knsrc
     DESTINATION
-    ${KDE_INSTALL_CONFDIR}
+    ${KDE_INSTALL_KNSRCDIR}
 )
 
 install(
