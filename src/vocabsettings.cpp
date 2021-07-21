@@ -21,7 +21,7 @@
 #include "vocabsettings.h"
 
 #include <KConfigDialog>
-#include <KNS3/DownloadDialog>
+#include <KNS3/QtQuickDialogWrapper>
 
 #include <sharedkvtmlfiles.h>
 
@@ -93,13 +93,11 @@ void VocabSettings::on_btnCreateNew_clicked()
 
 void VocabSettings::on_btnDownloadNew_clicked()
 {
-    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog( QStringLiteral("kanagram.knsrc") );
-    dialog->exec();
-    if ( dialog->changedEntries().size() > 0 ){
+    KNS3::QtQuickDialogWrapper dialog(QStringLiteral("kanagram.knsrc") );
+    const QList<KNSCore::EntryInternal> entries = dialog.exec();
+    if ( entries.size() > 0 ){
         refreshView();
     }
-
-    delete dialog;
 }
 
 void VocabSettings::slotSelectionChanged(QTreeWidgetItem *item)
