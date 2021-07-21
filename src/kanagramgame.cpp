@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
- *             (C) 2007-2014 by Jeremy Whiting <jpwhiting@kde.org>         *
+ *             (C) 2007-2021 by Jeremy Whiting <jpwhiting@kde.org>         *
  *             (C) 2012 by Laszlo Papp <lpapp@kde.org>                     *
  *                                                                         *
  *   Portions of this code taken from KMessedWords by Reuben Sutton        *
@@ -37,6 +37,7 @@
 
 #include <QLocale>
 #include <QFileInfo>
+#include <QRandomGenerator>
 #include <QStandardPaths>
 
 KanagramGame::KanagramGame()
@@ -204,7 +205,7 @@ void KanagramGame::nextAnagram()
     if (checkFile())
     {
         int totalWords = m_document->lesson()->entryCount(KEduVocLesson::Recursive);
-        int randomWordIndex = m_random.getLong(totalWords);
+        int randomWordIndex = QRandomGenerator::global()->bounded(totalWords);
 
         if (totalWords == (int)m_answeredWords.size())
         {
@@ -218,7 +219,7 @@ void KanagramGame::nextAnagram()
             // Find the next word not used yet
             while (m_answeredWords.contains(translation->text()))
             {
-                randomWordIndex = m_random.getLong(totalWords);
+                randomWordIndex = QRandomGenerator::global()->bounded(totalWords);
                 translation =  m_document->lesson()->entries(KEduVocLesson::Recursive).at(randomWordIndex)->translation(0);
             }
 
@@ -307,7 +308,7 @@ void KanagramGame::createAnagram()
             letters = m_originalWord;
             while (!letters.isEmpty())
             {
-                randomIndex = m_random.getLong(letters.count());
+                randomIndex = QRandomGenerator::global()->bounded(letters.count());
                 anagram.append(letters.at(randomIndex));
                 letters.remove(randomIndex, 1);
             }

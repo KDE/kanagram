@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Joshua Keel <joshuakeel@gmail.com>              *
- *             (C) 2007-2014 by Jeremy Whiting <jpwhiting@kde.org>         *
+ *             (C) 2007-2021 by Jeremy Whiting <jpwhiting@kde.org>         *
  *             (C) 2012 by Laszlo Papp <lpapp@kde.org>                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -263,9 +263,6 @@ class KanagramGame : public QObject
 
         /** Load score settings into local variables */
         void loadSettings();
-
-        /** Random sequence used to scramble the letters */
-        KRandomSequence m_random;
 
         /** The current scrambled word */
         QString m_anagram;
