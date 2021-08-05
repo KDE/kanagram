@@ -32,7 +32,7 @@ Button {
             verticalAlignment: Text.AlignVCenter
             text: buttonText.text;
             color: "black";
-            font.pixelSize: 20
+            font.pixelSize: Math.max(screen.height / 20, screen.width / 30, 15)
         }
     }
 }
