@@ -21,7 +21,6 @@
 #include "vocabsettings.h"
 
 #include <KConfigDialog>
-#include <KNS3/DownloadDialog>
 
 #include <sharedkvtmlfiles.h>
 
@@ -39,7 +38,12 @@ VocabSettings::VocabSettings(QWidget *parent)
 
     connect(lviewVocab, &QTreeWidget::currentItemChanged, this, &VocabSettings::slotSelectionChanged);
 
-    btnDownloadNew->setIcon(QIcon::fromTheme(QStringLiteral("get-hot-new-stuff")));
+    connect(btnDownloadNew, &KNS3::Button::dialogFinished, this, [this] (const QList<KNS3::Entry> &changedEntries) {
+        if (!changedEntries.isEmpty()) {
+            refreshView();
+	}
+    });
+    btnDownloadNew->setConfigFile("kanagram.knsrc");
 
     refreshView();
 }
@@ -89,17 +93,6 @@ void VocabSettings::on_btnCreateNew_clicked()
     VocabEdit *vocabEdit = new VocabEdit(this, QLatin1String(""));
     connect(vocabEdit, &VocabEdit::finished, this, &VocabSettings::refreshView);
     vocabEdit->show();
-}
-
-void VocabSettings::on_btnDownloadNew_clicked()
-{
-    QPointer<KNS3::DownloadDialog> dialog = new KNS3::DownloadDialog( QStringLiteral("kanagram.knsrc") );
-    dialog->exec();
-    if ( dialog->changedEntries().size() > 0 ){
-        refreshView();
-    }
-
-    delete dialog;
 }
 
 void VocabSettings::slotSelectionChanged(QTreeWidgetItem *item)
