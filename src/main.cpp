@@ -50,9 +50,9 @@ int main(int argc, char **argv)
     KLocalizedString::setApplicationDomain("kanagram");
     QApplication::setApplicationDisplayName(i18n("kanagram"));
 
-    KAboutData about(I18N_NOOP("kanagram"),
+    KAboutData about(i18n("kanagram"),
                      i18n("Kanagram"),
-                     I18N_NOOP(KANAGRAM_VERSION_STRING),
+                     QStringLiteral(KANAGRAM_VERSION_STRING),
                      i18n("An anagram game"),
                      KAboutLicense::GPL,
                      i18n("© 2005 Joshua Keel\n© 2005 Danny Allen\n© 2007 Jeremy Whiting\n© 2014 Debjit Mondal"));
