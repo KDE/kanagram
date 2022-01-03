@@ -14,4 +14,4 @@ Dependencies:
     'frameworks/kdoctools': '@stable'
     'frameworks/kio': '@stable'
     'frameworks/knewstuff': '@stable'
-    'kdeedu/libkeduvocdocument': '@same'
+    'education/libkeduvocdocument': '@same'
