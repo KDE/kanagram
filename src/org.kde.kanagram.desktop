@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Kanagram
+Name[ar]=تقليب
 Name[be]=Kanagram
 Name[bg]=Kanagram
 Name[bn]=কে-অ্যানাগ্রাম
@@ -68,6 +69,7 @@ Icon=kanagram
 Type=Application
 X-DocPath=kanagram/index.html
 Comment=KDE Letter Order Game
+Comment[ar]=لعبة كدي لترتيب الحروف
 Comment[be]=Гульня з перамяшчэннем літар
 Comment[bg]=Игра за подредба на букви
 Comment[bn]=কে.ডি.ই. উপস্থাপিত অক্ষর সাজানোর খেলা
@@ -130,6 +132,7 @@ Comment[zh_CN]=字母顺序游戏
 Comment[zh_TW]=KDE 字母排序遊戲
 GenericName=Letter Order Game
 GenericName[af]=Lettervolgorde Speletjie
+GenericName[ar]=لعبة ترتيب الحروف
 GenericName[be]=Гульня з перамяшчэннем літар
 GenericName[bg]=Игра за подредба на букви
 GenericName[bn]=অক্ষর সাজানোর খেলা
