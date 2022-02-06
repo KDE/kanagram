@@ -54,7 +54,7 @@ KanagramConfigDialog::~KanagramConfigDialog()
 void KanagramConfigDialog::updateSettings()
 {
     if (m_mainSettingsPage->saveLanguage()) {
-        emit settingsChanged(objectName());
+        Q_EMIT settingsChanged(objectName());
         m_hasChanged = false;
     }
     KConfigDialog::updateSettings();

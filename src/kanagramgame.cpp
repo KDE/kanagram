@@ -85,7 +85,7 @@ bool KanagramGame::checkFile()
 {
     if (!QFile::exists(m_filename) && !QFile::exists(QStandardPaths::locate(QStandardPaths::GenericDataLocation, m_filename)))
     {
-        emit fileError(m_filename);
+        Q_EMIT fileError(m_filename);
         return false;
     }
 
@@ -122,7 +122,7 @@ void KanagramGame::loadDefaultVocabulary()
 void KanagramGame::setSinglePlayerMode(bool singlePlayer)
 {
     KanagramSettings::setSinglePlayerMode(singlePlayer);
-    emit singlePlayerChanged();
+    Q_EMIT singlePlayerChanged();
 }
 
 bool KanagramGame::singlePlayerMode()
@@ -138,7 +138,7 @@ int KanagramGame::getPlayerNumber()
 void KanagramGame::setPlayerNumber(int pnumber)
 {
     m_currentPlayerNumber = pnumber;
-    emit currentPlayerChanged();
+    Q_EMIT currentPlayerChanged();
 }
 
 bool KanagramGame::refreshVocabularyList()
@@ -186,7 +186,7 @@ void KanagramGame::useVocabulary(int index)
         // Save the setting
         KanagramSettings::setCurrentVocabulary(index);
         KanagramSettings::self()->save();
-        emit titleChanged();
+        Q_EMIT titleChanged();
     }
 }
 
@@ -254,8 +254,8 @@ void KanagramGame::nextAnagram()
             m_audioUrl = QUrl();
             // TODO: add some error reporting here
         }
-        emit userAnswerChanged();
-        emit wordChanged();
+        Q_EMIT userAnswerChanged();
+        Q_EMIT wordChanged();
     }
 }
 
@@ -378,7 +378,7 @@ void KanagramGame::setDataLanguage(const QString& dataLanguage)
     KanagramSettings::self()->save();
     // Update the speller's language accordingly
     m_speller->setLanguage(sanitizedDataLanguage());
-    emit dataLanguageChanged();
+    Q_EMIT dataLanguageChanged();
 }
 
 QUrl KanagramGame::picHint()
@@ -440,24 +440,24 @@ void KanagramGame::moveLetterToUserAnswer(int position)
 {
     m_userAnswer.append(m_anagram[position]);
     m_anagram.remove(position, 1);
-    emit wordChanged();
-    emit userAnswerChanged();
+    Q_EMIT wordChanged();
+    Q_EMIT userAnswerChanged();
 }
 
 void KanagramGame::moveLetterToAnagram(int position)
 {
     m_anagram.append(m_userAnswer[position]);
     m_userAnswer.remove(position, 1);
-    emit wordChanged();
-    emit userAnswerChanged();
+    Q_EMIT wordChanged();
+    Q_EMIT userAnswerChanged();
 }
 
 void KanagramGame::resetAnagram()
 {
     m_anagram = m_userAnswer;
     m_userAnswer.clear();
-    emit wordChanged();
-    emit userAnswerChanged();
+    Q_EMIT wordChanged();
+    Q_EMIT userAnswerChanged();
 }
 
 void KanagramGame::moveLetter(const QString &letter)
@@ -507,7 +507,11 @@ int KanagramGame::getNumericSetting(const QString &settingString)
             break;
         }
     }
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     return settingString.leftRef(indexFound_setting).toInt();
+#else
+    return QStringView(settingString).left(indexFound_setting).toInt();
+#endif
 }
 
 void KanagramGame::resetTotalScore()
@@ -516,7 +520,7 @@ void KanagramGame::resetTotalScore()
     {
         m_totalScore = 0;
         m_totalScore2 = 0;
-        emit scoreChanged();
+        Q_EMIT scoreChanged();
     }
 }
 
@@ -526,7 +530,7 @@ void KanagramGame::adjustScore(int points)
         m_totalScore += points;
     else
         m_totalScore2 += points;
-    emit scoreChanged();
+    Q_EMIT scoreChanged();
 }
 
 int KanagramGame::totalScore()
@@ -542,7 +546,7 @@ int KanagramGame::totalScore2()
 void KanagramGame::revealWord()
 {
     m_anagram = m_originalWord;
-    emit wordChanged();
+    Q_EMIT wordChanged();
 }
 
 bool KanagramGame::checkWord()
@@ -672,7 +676,7 @@ void KanagramGame::answerCorrect()
         m_totalScore += m_correctAnswerScore;
     else
         m_totalScore2 += m_correctAnswerScore;
-    emit scoreChanged();
+    Q_EMIT scoreChanged();
 }
 
 void KanagramGame::answerIncorrect()
@@ -681,7 +685,7 @@ void KanagramGame::answerIncorrect()
         m_totalScore += m_incorrectAnswerScore;
     else
         m_totalScore2 += m_incorrectAnswerScore;
-    emit scoreChanged();
+    Q_EMIT scoreChanged();
 }
 
 void KanagramGame::answerRevealed()
@@ -690,7 +694,7 @@ void KanagramGame::answerRevealed()
         m_totalScore += m_revealAnswerScore;
     else
         m_totalScore2 += m_revealAnswerScore;
-    emit scoreChanged();
+    Q_EMIT scoreChanged();
 }
 
 void KanagramGame::answerSkipped()
@@ -699,5 +703,5 @@ void KanagramGame::answerSkipped()
         m_totalScore += m_skippedWordScore;
     else
         m_totalScore2 += m_skippedWordScore;
-    emit scoreChanged();
+    Q_EMIT scoreChanged();
 }

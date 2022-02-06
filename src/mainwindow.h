@@ -39,7 +39,7 @@ public:
     MainWindow();
     ~MainWindow();
 
-public slots:
+public Q_SLOTS:
     void showAboutKanagram();
     void showAboutKDE();
     void showHandbook();
@@ -47,7 +47,7 @@ public slots:
     /** invoke the settings dialog */
     void showSettings();
 
-private slots:
+private Q_SLOTS:
     void categoryChanged();
 
 private:

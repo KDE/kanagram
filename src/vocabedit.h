@@ -35,7 +35,7 @@ Q_OBJECT
         VocabEdit(QWidget *parent, const QString &fileName);
         ~VocabEdit();
 
-    public slots:
+    public Q_SLOTS:
         void slotSave();
         void slotClose();
         void slotNewWord();

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 
 # KDE Application Version, managed by release script
 set(RELEASE_SERVICE_VERSION_MAJOR "22")
@@ -8,6 +8,17 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(kanagram VERSION ${RELEASE_SERVICE_VERSION})
 
+find_package(ECM 5.90.0 NO_MODULE REQUIRED)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} )
+set(KDE_COMPILERSETTINGS_LEVEL "5.82")
+include(ECMAddAppIcon)
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+include(ECMInstallIcons)
+include(ECMSetupVersion)
+
+
 if(NOT MSVC)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-Wall -Wno-switch -O2 -g")
     set(CMAKE_CXX_FLAGS_RELEASE "-Wall -Wno-switch -O2")
@@ -15,23 +26,14 @@ if(NOT MSVC)
 endif(NOT MSVC)
 
 include(FeatureSummary)
-find_package(Qt5 REQUIRED COMPONENTS Core Qml Quick)
-find_package(Qt5 QUIET OPTIONAL_COMPONENTS TextToSpeech)
-if (NOT Qt5TextToSpeech_FOUND)
+find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS Core Qml Quick)
+find_package(Qt${QT_MAJOR_VERSION} QUIET OPTIONAL_COMPONENTS TextToSpeech)
+if (NOT Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
     message(STATUS "Qt5TextToSpeech not found, speech feature will be disabled")
 else()
     add_definitions(-DHAVE_SPEECH)
 endif()
 
-find_package(ECM 5.17.0 NO_MODULE REQUIRED)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} )
-
-include(ECMAddAppIcon)
-include(KDEInstallDirs)
-include(KDECMakeSettings)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-include(ECMInstallIcons)
-include(ECMSetupVersion)
 
 find_package(KF5 REQUIRED COMPONENTS
     I18n

@@ -58,7 +58,7 @@ MainWindow::MainWindow()
         setWindowState(Qt::WindowState(windowConfig.readEntry("windowState").toInt()));
     }
 
-    QString location = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("ui/main.qml"));
+    QString location = QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("ui/main.qml"));
     setSource(QUrl::fromLocalFile(location));
     qCDebug(KANAGRAM) << "Set qml file location";
 

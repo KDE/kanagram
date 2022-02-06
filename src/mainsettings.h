@@ -42,12 +42,12 @@ public:
      */
     bool saveLanguage();
 
-public slots:
+public Q_SLOTS:
 
     /** toggle advanced settings */
     void slotToggleAdvancedSettings();
 
-signals:
+Q_SIGNALS:
 
     /** signifies the language widget has been changed */
     void widgetModified();

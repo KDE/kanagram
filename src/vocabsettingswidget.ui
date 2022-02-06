@@ -53,7 +53,7 @@
         </widget>
        </item>
        <item>
-        <widget class="KNS3::Button" name="btnDownloadNew">
+        <widget class="KNSWidgets::Button" name="btnDownloadNew">
          <property name="toolTip">
           <string>Download new vocabulary from &quot;Get hot new Stuff&quot;</string>
          </property>
@@ -105,9 +105,9 @@
  <connections/>
  <customwidgets>
   <customwidget>
-   <class>KNS3::Button</class>
+   <class>KNSWidgets::Button</class>
    <extends>QPushButton</extends>
-   <header>KNS3/Button</header>
+   <header>KNSWidgets/Button</header>
   </customwidget>
  </customwidgets>
 </ui>

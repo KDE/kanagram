@@ -8,6 +8,12 @@ set(kanagram_SRCS
     mainsettings.cpp
     vocabsettings.cpp
     vocabedit.cpp
+    kanagramconfigdialog.h
+    kanagramgame.h
+    mainwindow.h
+    mainsettings.h
+    vocabsettings.h
+    vocabedit.h
 )
 
 include_directories(
@@ -36,11 +42,11 @@ ecm_add_app_icon(kanagram_SRCS ICONS
 add_executable(kanagram ${kanagram_SRCS})
 
 target_link_libraries(kanagram
-    Qt5::Quick
-    Qt5::Core
+    Qt::Quick
+    Qt::Core
     KF5::CoreAddons
     KF5::I18n
-    KF5::NewStuff
+    KF5::NewStuffWidgets
     KF5::SonnetCore
     KF5::Crash
     LibKEduVocDocumentImport__KEduVocDocument

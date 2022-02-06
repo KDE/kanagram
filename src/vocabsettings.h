@@ -39,12 +39,12 @@ Q_OBJECT
         /** default destructor */
         virtual ~VocabSettings();
 
-    signals:
+    Q_SIGNALS:
 
         /** signifies the widget has been changed */
         void widgetModified();
 
-    private slots:
+    private Q_SLOTS:
 
         /** create a new vocabulary
          *  called when the btnCreateNew is clicked

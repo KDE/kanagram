@@ -21,12 +21,13 @@
 #include "vocabsettings.h"
 
 #include <KConfigDialog>
-
+#include <KNSWidgets/Button>
 #include <sharedkvtmlfiles.h>
 
 #include <QIcon>
 #include <QFileInfo>
 #include <QPointer>
+
 
 #include "kanagramsettings.h"
 #include "vocabedit.h"
@@ -38,7 +39,7 @@ VocabSettings::VocabSettings(QWidget *parent)
 
     connect(lviewVocab, &QTreeWidget::currentItemChanged, this, &VocabSettings::slotSelectionChanged);
 
-    connect(btnDownloadNew, &KNS3::Button::dialogFinished, this, [this] (const QList<KNS3::Entry> &changedEntries) {
+    connect(btnDownloadNew, &KNSWidgets::Button::dialogFinished, this, [this] (const QList<KNSCore::Entry> &changedEntries) {
         if (!changedEntries.isEmpty()) {
             refreshView();
 	}
@@ -74,7 +75,7 @@ void VocabSettings::loadView()
 void VocabSettings::refreshView()
 {
     loadView();
-    emit widgetModified();
+    Q_EMIT widgetModified();
 }
 
 void VocabSettings::on_btnEdit_clicked()
