@@ -186,7 +186,7 @@ class KanagramGame : public QObject
         /** Use the previous vocabulary file in the list */
         void previousVocabulary();
 
-#ifdef HAVE_SPEECH 
+#ifdef HAVE_SPEECH
         /** The word was revealed (or correctly entered), so play the audio, say it, or play right.ogg */
         void wordRevealed();
 #endif
@@ -256,10 +256,10 @@ class KanagramGame : public QObject
         int getNumericSetting(const QString &settingString);
 
         /** Check if enteredword is an anagram of word */
-        bool isAnagram(QString& enteredword, QString& word);
+        bool isAnagram(const QString &enteredword, const QString &word);
 
         /** Remove accent characters from a word */
-        QString stripAccents(QString& original);
+        QString stripAccents(const QString &original);
 
         /** Load score settings into local variables */
         void loadSettings();

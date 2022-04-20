@@ -582,7 +582,7 @@ bool KanagramGame::checkWord()
     }
 }
 
-bool KanagramGame::isAnagram(QString& enteredword, QString& word)
+bool KanagramGame::isAnagram(const QString& enteredword, const QString& word)
 {
     QString test = word;
     if (enteredword.length() <= word.length())
@@ -608,7 +608,7 @@ bool KanagramGame::isAnagram(QString& enteredword, QString& word)
         return false;
 }
 
-QString KanagramGame::stripAccents(QString& original)
+QString KanagramGame::stripAccents(const QString& original)
 {
     QString noAccents;
     QString decomposed = original.normalized(QString::NormalizationForm_D);
