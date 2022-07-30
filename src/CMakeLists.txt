@@ -52,9 +52,9 @@ target_link_libraries(kanagram
     LibKEduVocDocumentImport__KEduVocDocument
 )
 
-if (Qt5TextToSpeech_FOUND)
+if (Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
     target_link_libraries(kanagram
-        Qt5::TextToSpeech)
+        Qt${QT_MAJOR_VERSION}::TextToSpeech)
 endif()
 
 install(
