@@ -52,7 +52,6 @@ int main(int argc, char **argv)
     QApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("kanagram");
-    QApplication::setApplicationDisplayName(i18n("kanagram"));
 
     KAboutData about(i18n("kanagram"),
                      i18n("Kanagram"),
