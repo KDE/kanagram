@@ -51,6 +51,7 @@ int main(int argc, char **argv)
     QApplication::setApplicationVersion(QStringLiteral(KANAGRAM_VERSION_STRING));
     QApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QApplication app(argc, argv);
+    KLocalizedString::setApplicationDomain("kanagram");
     QApplication::setApplicationDisplayName(i18n("kanagram"));
 
     KAboutData about(i18n("kanagram"),
