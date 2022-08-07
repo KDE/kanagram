@@ -38,11 +38,13 @@ VocabSettings::VocabSettings(QWidget *parent)
     setupUi(this);
 
     connect(lviewVocab, &QTreeWidget::currentItemChanged, this, &VocabSettings::slotSelectionChanged);
+    connect(KanagramSettings::self(), &KCoreConfigSkeleton::configChanged,
+            this, &VocabSettings::refreshView);
 
     connect(btnDownloadNew, &KNSWidgets::Button::dialogFinished, this, [this] (const QList<KNSCore::Entry> &changedEntries) {
         if (!changedEntries.isEmpty()) {
             refreshView();
-	}
+        }
     });
     btnDownloadNew->setConfigFile("kanagram.knsrc");
 
@@ -70,6 +72,8 @@ void VocabSettings::loadView()
         item->setText( 1, m_commentList[i] );
         m_itemMap[item] = i;
     }
+
+    lviewVocab->resizeColumnToContents(0);
 }
 
 void VocabSettings::refreshView()
