@@ -1,0 +1,635 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY kanagram "<application
+>Kanagram</application
+>">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Dutch "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kanagram" lang="&language;">
+
+<bookinfo>
+<title
+>Het handbook van &kanagram;</title>
+
+<authorgroup>
+<author
+><firstname
+>Danny</firstname
+> <surname
+>Allen</surname
+> <affiliation
+> <address
+>&Danny.Allen.mail;</address>
+</affiliation>
+</author>
+&Freek.de.Kruijf; 
+</authorgroup>
+
+<copyright>
+<year
+>2005</year>
+<holder
+>&Danny.Allen;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2020-12-21</date>
+<releaseinfo
+>Applications 20.12</releaseinfo>
+
+<abstract>
+<para
+>&kanagram; brengt grappige anagram-puzzels in &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>Kanagram</keyword>
+<keyword
+>spel</keyword>
+<keyword
+>kind</keyword>
+<keyword
+>anagram</keyword>
+<keyword
+>woorden</keyword>
+<keyword
+>jumble</keyword>
+</keywordset>
+
+</bookinfo>
+<!--FIXME 
+Debjit Mondal "Show Wiki Content" (hidden -> crash?) https://debjitmondal.blogspot.com/
+Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com/2015/01/13/kanagram-is-now-2-player/
+Hide 'Say correct words' option if built without QtSpeech/Jovie
+-->
+<chapter id="introduction">
+<title
+>Inleiding</title>
+
+<para
+>&kanagram; is een spel dat gebaseerd is op anagrammen van woorden: de puzzel is opgelost wanneer de letters van het door elkaar gegooide woord teruggeplaatst zijn in de juiste volgorde. Er is geen limiet aan of de tijdsduur of het aantal pogingen om het woord te vinden. Met &kanagram; worden verschillende woordenlijsten meegeleverd, die klaar zijn om mee te spelen. Er zijn er op het internet nog veel meer te vinden. </para>
+
+</chapter>
+
+
+<chapter id="using-kanagram">
+<title
+>&kanagram; gebruiken</title>
+
+<para
+>Dit is het scherm dat wordt getoond bij het starten van &kanagram;; het toont het hoofdinterface van het programma. Het meeste van het venster wordt ingenomen door het <interface
+>schoolbord</interface
+>, waar de puzzels geschreven worden, met de <interface
+>ladenkast</interface
+> rechts die de besturing van het programma bevat: </para>
+
+<screenshot>
+<screeninfo
+>Dit is het scherm dat wordt getoond bij het starten van &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Schermafdruk van &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<orderedlist>
+<listitem>
+<para
+>De <interface
+>Woordenlijstomschakelaar</interface
+> stelt met (&PgUp; / &PgDn;) de gebruiker in staat om snel <action
+>de actieve woordenlijst te wijzigen</action
+> door met de &LMB; op de pijlen te klikken om <action
+>doorgaan naar de volgende woordenlijst</action
+> of om <action
+>teruggaan naar de vorige gespeelde woordenlijst</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>In het midden van het <interface
+>schoolbord</interface
+> is de op te lossen anagram-puzzel. </para>
+</listitem>
+<listitem>
+<para
+>Dit is de knop <guiicon
+>Timer starten</guiicon
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+>) en stelt u in staat om <action
+>timer voor de score starten of stoppen</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Als op de knop <guibutton
+>Tip</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+>)  wordt geklikt, dan wordt een kort zinnetje getoond, die <action
+>de huidige woordpuzzel beschrijft</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>De knop <guibutton
+>woord tonen</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+>) <action
+>lost de huidige woordpuzzel op</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Het <interface
+>Invoervak</interface
+> stelt u in staat om <action
+>uw pogingen in te voeren</action
+> om de huidige woordpuzzel op te lossen. </para>
+</listitem>
+<listitem>
+<para
+>De knop <interface
+>Volgende anagram</interface
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+>) laat u omschakelen naar het volgende raadsel. </para>
+</listitem>
+<listitem>
+<para
+>Dit is de knop <guiicon
+>instellen</guiicon
+>, die <action
+>de dialoog <guilabel
+>Instellingen</guilabel
+> van &kanagram; opent</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>De knop <guiicon
+>Help</guiicon
+> is speciaal, omdat het <action
+>3 sub-knoppen laat zien</action
+>. Deze knoppen worden getoond wanneer er met de muis over de knop <guiicon
+>Help</guiicon
+> gegaan wordt en levert toegang tot het <guilabel
+>Handbook van &kanagram;</guilabel
+> (dit document), en de dialogen <guilabel
+>Info &kanagram;</guilabel
+> en <guilabel
+>Info &kde;</guilabel
+>: <screenshot>
+<screeninfo
+>De 3 verschillende statussen van de knop <guiicon
+>Help</guiicon
+></screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="helpstates.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Schermafdruk van &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem>
+<para
+>Gebruik de knop <guiicon
+>Change mode</guiicon
+> om te schakelen tussen de modi 1 en 2 spelers. </para>
+</listitem>
+<listitem>
+<para
+>Met de knop <guiicon
+>Afsluiten</guiicon
+> <action
+>wordt de toepassing afgesloten</action
+>. </para>
+</listitem>
+</orderedlist>
+
+<sect1 id="playing-game">
+<title
+>Een spel spelen</title>
+
+<para
+>Nu je weet hoe het gebruikersinterface van &kanagram; in elkaar zit, kan je het spel spelen! </para>
+
+<procedure>
+<step>
+<para
+><action
+>Selecteer het thema van de woordenlijst</action
+> met de <interface
+>Woordenlijst schakelaar</interface
+>, die je wilt proberen. Uit deze woordenlijst zal dan in het midden van het <interface
+>schoolbord</interface
+> een verward woord worden geplaatst. Probeer dan dat woord te raden. <tip>
+<para
+>Als je het woord niet kan raden, druk dan op de knop <guibutton
+>Hint</guibutton
+> om een vriendelijk advies te krijgen van jouw vriend in de <interface
+>ladenkast</interface
+>. </para>
+<screenshot>
+<screeninfo
+>&kanagram; hint</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram-hint.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kanagram; hint</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</tip>
+</para>
+</step>
+
+<step>
+<para
+>Als je denkt het antwoord te weten, typ de letters dan in in het <interface
+>Invoervak</interface
+> onder het <interface
+>schoolbord</interface
+> of klik op ze met de &LMB; en de letters zullen zich verplaatsen naar het invoervak. Als het goed was dan verschijnt het volgende anagram, anders springen alle letters terug naar het schoolbord. </para>
+</step>
+</procedure>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuring">
+<title
+>&kanagram; instellen</title>
+
+<para
+>De dialoog <guilabel
+>Instellen</guilabel
+> wordt geopend door te klikken op de knop <guiicon
+>Instellen</guiicon
+>: </para>
+
+<screenshot>
+<screeninfo
+>Algemene instellingen van &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="general-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Algemene instellingen van &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+
+<listitem>
+<para
+>Het afrolmenu <guilabel
+>Automatisch verbergen van tips na:</guilabel
+> maakt het mogelijk om aan te geven hoe tips aan jou worden getoond. Hier kun je instellen dat het tipvak na een aantal seconden (&eg; 5 seconden) verdwijnt, of je kunt het standaard laten (<quote
+>Tips niet automatisch laten verdwijnen</quote
+>). </para>
+</listitem>
+
+<listitem>
+<para
+>Gebruik het afrolmenu <guilabel
+>Tijd voor het oplossen van het anagram:</guilabel
+> om de tijd te specificeren die u hebt om elke puzzel op te lossen. Standaard is er <quote
+>geen tijdslimiet</quote
+>. </para>
+</listitem>
+
+<listitem>
+<para
+>Het afrolmenu <guilabel
+>Spelen met:</guilabel
+> maakt het mogelijk in &kanagram; om te spelen  met woordenlijsten uit een andere taal. Hiervoor is het nodig om woordenlijsten uit een andere taal te installeren. </para>
+</listitem>
+
+<listitem>
+<para
+>Het afrolmenu <guilabel
+>Timer instellen voor scoren:</guilabel
+> stelt u in staat om in seconden het tijdsinterval van de timer voor de score in te stellen. </para>
+</listitem>
+
+<listitem>
+<para
+>Het keuzevakje <guilabel
+>Instellingen van scores</guilabel
+> kan gebruikt worden om opties voor instellingen voor scoren van antwoorden te tonen of te verbergen. </para>
+</listitem>
+
+<listitem>
+<para
+>Het keuzevakje <guilabel
+>Geluid gebruiken</guilabel
+> maakt het mogelijk om geluidseffecten te laten horen of de geluidseffecten te onderdrukken. </para>
+</listitem>
+
+<listitem>
+<para
+>Het keuzevakje <guilabel
+>Alleen hoofdletters gebruiken</guilabel
+> maakt het mogelijk om &kanagram; om te schakelen naar de modus alleen-hoofdletters op het schoolbord. </para>
+</listitem>
+
+<listitem>
+<para
+>Het keuzevakje <guilabel
+>Juiste woorden uitspreken</guilabel
+> maakt het mogelijk om uitspreken aan of uit te zetten. De audiobestanden voor de uitspraak moeten ingevoegd zijn in de te gebruiken woordenlijst of u moet &jovie; installeren en instellen om deze optie te laten werken. </para>
+</listitem>
+</itemizedlist>
+
+<sect1 id="vocabularies-config">
+<title
+>Woordenlijsten</title>
+
+<para
+>De instellingenpagina <guilabel
+>Woordenlijsten</guilabel
+> maakt het mogelijk om geïnstalleerde woordenlijsten te beheren. Met deze dialoog kun je gedownloade woordenlijsten <action
+>bewerken</action
+> en <action
+>verwijderen</action
+> alsook uw eigen lijsten <action
+>aanmaken</action
+>: </para>
+
+<screenshot>
+<screeninfo
+>Instellingen voor woordenlijsten van &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Instellingen voor woordenlijsten van &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>De knop <guibutton
+>Nieuwe aanmaken</guibutton
+> <action
+>opent de dialoog <link linkend="vocab-editor"
+><guilabel
+>Woordenlijstbewerker</guilabel
+></link
+> </action
+> zodat je de auteur van je eigen woordenlijsten kunt zijn en daarmee te spelen. </para>
+</listitem>
+<listitem>
+<para
+>De knop <guibutton
+>Bewerken</guibutton
+> maakt het mogelijk <action
+>wijzigingen aan te brengen in woordenlijsten die je hebt aangemaakt of van het internet hebt gedownload</action
+>. </para>
+</listitem>
+<!-- not in 4.5 listitem>
+<para>
+The <guibutton
+>Delete</guibutton
+> button allows you to <action
+>delete vocabularies that you have created or downloaded</action
+>.
+</para>
+</listitem-->
+<listitem>
+<para
+>Je kunt selecteren op welke woordenlijst je deze acties wilt toepassen door de <interface
+>lijst met woordenlijsten</interface
+> te gebruiken. </para>
+</listitem>
+</itemizedlist>
+
+<sect2 id="vocab-editor">
+<title
+>Woordenlijstbewerker</title>
+
+<para
+>De woordenlijstbewerker maakt het mogelijk om je eigen woordenlijsten aan te maken, die &kanagram; samen met jou kan testen: </para>
+
+<screenshot>
+<screeninfo
+>Woordenlijstbewerker van &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-editor.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Woordenlijstbewerker van &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Het veld <guilabel
+>Woordenlijstnaam:</guilabel
+> maakt het mogelijk een <action
+>naam aan jouw woordenlijst te geven</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Het veld <guilabel
+>Beschrijving:</guilabel
+> maakt het mogelijk <action
+>verdere uitleg over jouw woordenlijstnaam</action
+> te geven, waarmee de gebruiker meer details over de inhoud van jouw woordenlijst wordt gegeven. </para>
+<note>
+<para
+>Probeer zowel de naam als de beschrijving zo kort mogelijk te houden. Effectieve woordenlijsten bevatten een nauwe set woorden die gericht zijn op een enkel onderwerp. Probeer minstens 20 woorden in de woordenlijst op te nemen, zodat het niet te snel klaar is. </para>
+</note>
+</listitem>
+<listitem>
+<para
+>De knop <guibutton
+>Woord verwijderen</guibutton
+> <action
+>verwijdert woorden uit uw vocabulaire</action
+> op. </para>
+</listitem>
+<listitem>
+<para
+>De knop <guibutton
+>Nieuw woord</guibutton
+> <action
+>maakt een nieuw woord aan in jouw woordenlijst</action
+>, klaar om uitgewerkt te worden. </para>
+</listitem>
+<listitem>
+<para
+>Het veld <guilabel
+>Woord:</guilabel
+> maakt het mogelijk <action
+>woordwaarden in jouw woordenlijst te schrijven</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Het veld <guilabel
+>Tip</guilabel
+> maakt het mogelijk <action
+>tips aan woorden in jouw woordenlijst te hangen</action
+>. </para>
+<note>
+<para
+>Goede tips beschrijven het woord helder, maar ook subtiel, terwijl de kennis van de gebruiker wordt vergroot. Maak de tips tamelijk kort (minder dan 40 tekens). </para>
+</note>
+</listitem>
+<listitem>
+<para
+>De knop <guibutton
+>Opslaan</guibutton
+> <action
+>slaat jouw nieuwe inhoud van de woordenlijst op</action
+> en schakelt zijn gebruik direct in in &kanagram; (het zal onmiddellijk beschikbaar komen in de toepassing, te selecteren via <interface
+>Woordenlijsten</interface
+>). </para>
+</listitem>
+<listitem>
+<para
+>De knop <guibutton
+>Afsluiten</guibutton
+> <action
+>sluit de dialoog <guilabel
+>Woordenlijstbewerker</guilabel
+> af</action
+> zonder de inhoud van jouw nieuwe of gewijzigde woordenlijst op te slaan. </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
+</sect1>
+
+<sect1 id="newstuff">
+<title
+>Nieuwe zaken</title>
+
+<para
+>De knop <guibutton
+>Nieuwe woordenlijst downloaden</guibutton
+> op de instellingenpagina <guilabel
+>Woordenlijsten</guilabel
+> maakt het mogelijk nieuwe bestanden met woordenlijsten te downloaden vanaf het internet: </para>
+
+<screenshot>
+<screeninfo
+>Dialoog voor nieuwe dingen voor &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-dialog.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Dialoog voor nieuwe dingen voor &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Om een woordenlijst van het internet te installeren, klik op het woordenlijst-item in de lijst en druk dan op de knop <guibutton
+>Installeren</guibutton
+> om deze in je systeem te installeren. De gedownloade woordenlijst zal dan onmiddellijk beschikbaar zijn om het spel mee te spelen. </para>
+<para
+>Als u reeds een woordenlijst hebt gedownload zal deze knop wijzigen in <guibutton
+>Installatie ongedaan maken</guibutton
+> die u een woordenlijst laat verwijderen. </para>
+<para
+>Om meer informatie over een woordenlijst te krijgen, zoals de auteur, een beschrijving van de inhoud en de log van wijzigingen, druk op de knop <guibutton
+>Details</guibutton
+>. </para>
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Dankbetuiging en licentie</title>
+
+<para
+>&kanagram; </para>
+<para
+>Programma copyright 2007 Jeremy Whiting <email
+>jpwhiting@kde.org</email
+> 2005 Joshua Keel <email
+>joshuakeel@gmail.com</email
+> and &Danny.Allen; &Danny.Allen.mail; </para>
+<para
+>Met dank aan: </para>
+<itemizedlist>
+<listitem>
+<para
+>Geluidseffecten: Artemio <email
+>fillme</email
+> </para>
+</listitem>
+</itemizedlist>
+
+<para
+>Documentatie copyright 2005 &Danny.Allen; &Danny.Allen.mail; </para>
+
+&meld.fouten;&vertaling.freek; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet:noai
+-->

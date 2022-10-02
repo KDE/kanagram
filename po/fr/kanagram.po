@@ -1,0 +1,972 @@
+# translation of kanagram.po to Francais
+#
+# Matthieu Robin <matthieu@macolu.org>, 2005.
+# Matthieu Robin <kde@macolu.org>, 2005.
+# Guillaume COEUGNET <importepeu@free.fr>, 2007.
+# Mickael Sibelle <kimael@gmail.com>, 2008.
+# Guillaume Pujol <guill.p@gmail.com>, 2008.
+# Geoffray Levasseur <geoffray.levasseurbrandin@numericable.fr>, 2010, 2011, 2012, 2013, 2014.
+# Ludovic Grossard <grossard@kde.org>, 2011, 2014.
+# xavier <xavier.besnard@neuf.fr>, 2012, 2013.
+# Simon Depiets <sdepiets@gmail.com>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: kanagram\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-06 00:41+0000\n"
+"PO-Revision-Date: 2018-10-12 13:54+0800\n"
+"Last-Translator: Simon Depiets <sdepiets@gmail.com>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 2.0\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#. i18n: ectx: label, entry (currentVocabulary), group (kanagram)
+#: kanagram.kcfg:9
+#, kde-format
+msgid "This setting stores the currently selected Vocabulary."
+msgstr "Ce paramètre stocke la liste de mots actuellement sélectionnée."
+
+#. i18n: ectx: label, entry (singlePlayerMode), group (kanagram)
+#: kanagram.kcfg:13
+#, kde-format
+msgid "This setting allows you to decide one-player or two-player mode"
+msgstr ""
+"Ce paramètre vous permet de choisir entre le mode à un joueur et celui à "
+"deux joueurs"
+
+#. i18n: ectx: label, entry (hintHideTime), group (kanagram)
+#: kanagram.kcfg:17
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how long Kanagram's hint bubble is "
+"shown."
+msgstr ""
+"Ce paramètre vous permet de régler la durée d'affichage de la bulle d'indice "
+"de Kanagram."
+
+#. i18n: ectx: label, entry (resolveTime), group (kanagram)
+#: kanagram.kcfg:21
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds how much time is available for "
+"resolving the anagram."
+msgstr ""
+"Ce paramètre vous permet de régler en secondes la durée maximale de "
+"résolution d'un anagramme."
+
+#. i18n: ectx: label, entry (scoreTime), group (kanagram)
+#: kanagram.kcfg:26
+#, kde-format
+msgid ""
+"This setting allows you to set in seconds the time interval of the score "
+"timer."
+msgstr ""
+"Ce paramètre vous permet de régler en secondes l'intervalle de temps du "
+"chronomètre de score."
+
+#. i18n: ectx: label, entry (correctAnswerScore), group (kanagram)
+#: kanagram.kcfg:30
+#, kde-format
+msgid ""
+"This setting allows you to set the score associated with a correct answer."
+msgstr ""
+"Ce paramètre vous permet de régler le score associé à une réponse correcte."
+
+#. i18n: ectx: label, entry (incorrectAnswerScore), group (kanagram)
+#: kanagram.kcfg:34
+#, kde-format
+msgid ""
+"This setting allows you to set the score associated with an incorrect answer."
+msgstr ""
+"Ce paramètre vous permet de régler le score associé à une réponse incorrecte."
+
+#. i18n: ectx: label, entry (revealAnswerScore), group (kanagram)
+#: kanagram.kcfg:38
+#, kde-format
+msgid "This setting allows you to set the score associated with reveal answer."
+msgstr ""
+"Ce paramètre vous permet de régler le score associé à une réponse révélée."
+
+#. i18n: ectx: label, entry (skippedWordScore), group (kanagram)
+#: kanagram.kcfg:42
+#, kde-format
+msgid ""
+"This setting allows you to set the score associated with a skipped word."
+msgstr "Ce paramètre vous permet de régler le score associé à un mot évité."
+
+#. i18n: ectx: label, entry (useSounds), group (kanagram)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_useSounds)
+#: kanagram.kcfg:46 mainsettingswidget.ui:301
+#, kde-format
+msgid "Turns sounds on/off."
+msgstr "Active / désactive les effets sonores."
+
+#. i18n: ectx: label, entry (uppercaseOnly), group (kanagram)
+#: kanagram.kcfg:50
+#, kde-format
+msgid "Use uppercase."
+msgstr "Utiliser des majuscules."
+
+#. i18n: ectx: label, entry (enablePronunciation), group (kanagram)
+#: kanagram.kcfg:54
+#, kde-format
+msgid "Turns pronunciations on/off."
+msgstr "Active / désactive la prononciation."
+
+#. i18n: ectx: label, entry (dataLanguage), group (kanagram)
+#: kanagram.kcfg:58
+#, kde-format
+msgid "Set the default translation"
+msgstr "Règle la traduction par défaut"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, MainSettingsWidget)
+#: kanagramconfigdialog.cpp:37 mainsettingswidget.ui:14
+#, kde-format
+msgctxt "@title:group main settings page name"
+msgid "General"
+msgstr "Général"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, VocabSettingsWidget)
+#: kanagramconfigdialog.cpp:42 vocabsettingswidget.ui:20
+#, kde-format
+msgid "Vocabularies"
+msgstr "Liste de mots"
+
+#: kanagramgame.cpp:245
+#, kde-format
+msgid "No hint"
+msgstr "Pas d'indice"
+
+#: kanagramgame.cpp:359 mainsettings.cpp:90
+#, kde-format
+msgctxt "@item:inlistbox no language for that locale"
+msgid "None"
+msgstr "Aucune"
+
+#: main.cpp:56
+#, kde-format
+msgid "kanagram"
+msgstr "kanagram"
+
+#: main.cpp:57
+#, kde-format
+msgid "Kanagram"
+msgstr "Kanagram"
+
+#: main.cpp:59
+#, kde-format
+msgid "An anagram game"
+msgstr "Un jeu d'anagrammes"
+
+#: main.cpp:61
+#, kde-format
+msgid ""
+"© 2005 Joshua Keel\n"
+"© 2005 Danny Allen\n"
+"© 2007 Jeremy Whiting\n"
+"© 2014 Debjit Mondal"
+msgstr ""
+"© 2005 Joshua Keel\n"
+"© 2005 Danny Allen\n"
+"© 2007 Jeremy Whiting\n"
+"© 2014 Debjit Mondal"
+
+#: main.cpp:62
+#, kde-format
+msgid "Joshua Keel"
+msgstr "Joshua Keel"
+
+#: main.cpp:62
+#, kde-format
+msgid "Coding"
+msgstr "Développement"
+
+#: main.cpp:63
+#, kde-format
+msgid "Danny Allen"
+msgstr "Danny Allen"
+
+#: main.cpp:63
+#, kde-format
+msgid "Design, Graphics and many Vocabularies"
+msgstr "Conception, graphismes et listes de mots"
+
+#: main.cpp:64
+#, kde-format
+msgid "Jeremy Whiting"
+msgstr "Jeremy Whiting"
+
+#: main.cpp:64
+#, kde-format
+msgid "Maintainer"
+msgstr "Mainteneur"
+
+#: main.cpp:65
+#, kde-format
+msgid "Debjit Mondal"
+msgstr "Debjit Mondal"
+
+#: main.cpp:65
+#, kde-format
+msgid "Coding & Design"
+msgstr "Développement et apparence"
+
+#: main.cpp:66
+#, kde-format
+msgid "Laszlo Papp"
+msgstr "Laszlo Papp"
+
+#: main.cpp:66
+#, kde-format
+msgid "Modularization and porting to Mobile"
+msgstr "Modularité et portage sur mobiles"
+
+#: main.cpp:67
+#, kde-format
+msgid "Artemiy Pavlov"
+msgstr "Artemiy Pavlov"
+
+#: main.cpp:67
+#, kde-format
+msgid "Sound effects"
+msgstr "Effets sonores"
+
+#: main.cpp:68
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: main.cpp:68
+#, kde-format
+msgid "Italian Data Files"
+msgstr "Fichiers de données pour l'Italien"
+
+#: main.cpp:69
+#, kde-format
+msgid "Kris Thomsen"
+msgstr "Kris Thomsen"
+
+#: main.cpp:69
+#, kde-format
+msgid "Danish Data Files"
+msgstr "Fichiers de données pour le Danois"
+
+#: main.cpp:70
+#, kde-format
+msgid "Patrick Spendrin"
+msgstr "Patrick Spendrin"
+
+#: main.cpp:70
+#, kde-format
+msgid "German Data Files"
+msgstr "Fichiers de données pour l'Allemand"
+
+#: main.cpp:71
+#, kde-format
+msgid "Eric Krüse"
+msgstr "Eric Krüse"
+
+#: main.cpp:71
+#, kde-format
+msgid "British English Data Files"
+msgstr "Fichiers de données pour l'Anglais Britannique"
+
+#: main.cpp:72
+#, kde-format
+msgid "Hanna Scott"
+msgstr "Hanna Scott"
+
+#: main.cpp:72
+#, kde-format
+msgid "Swedish Data Files"
+msgstr "Fichier de données pour le Suédois"
+
+#: main.cpp:73
+#, kde-format
+msgid "Jure Repinc"
+msgstr "Jure Repinc"
+
+#: main.cpp:73
+#, kde-format
+msgid "Slovenian Data Files"
+msgstr "Fichier de données pour le Slovaque"
+
+#: main.cpp:74
+#, kde-format
+msgid "Yuri Chornoivan"
+msgstr "Yuri Chornoivan"
+
+#: main.cpp:74
+#, kde-format
+msgid "Ukrainian Data Files"
+msgstr "Fichiers de données pour l'Ukrainien"
+
+#: main.cpp:75
+#, kde-format
+msgid "Kristóf Kiszel"
+msgstr "Kristóf Kiszel"
+
+#: main.cpp:75
+#, kde-format
+msgid "Hungarian Data Files"
+msgstr "Fichiers de données pour le Hongrois"
+
+#: main.cpp:76
+#, kde-format
+msgid "Souvik Das"
+msgstr "Souvik Das"
+
+#: main.cpp:76
+#, kde-format
+msgid "2-player mode"
+msgstr "Mode 2 joueurs"
+
+#: main.cpp:77
+#, kde-format
+msgid "Sayan Biswas"
+msgstr "Sayan Biswas"
+
+#: main.cpp:77
+#, kde-format
+msgid "Letters turned to clickable buttons"
+msgstr "Les lettres se sont transformées en boutons cliquables"
+
+#: main.cpp:78
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Geoffray Levasseur, Guillaume Coeugnet, Simon Depiets"
+
+#: main.cpp:78
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"geoffray.levasseurbrandin@numericable.fr, importepeu@free.fr, sdepiets@gmail."
+"com"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, MainSettingsWidget)
+#: mainsettingswidget.ui:17
+#, kde-format
+msgid ""
+"This setting allows you to set the length of time Kanagram's hint bubble is "
+"shown."
+msgstr ""
+"Ce paramètre vous permet de régler la durée d'affichage de la bulle d'indice "
+"de Kanagram."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox1)
+#: mainsettingswidget.ui:23
+#, kde-format
+msgid "Hints"
+msgstr "Indices"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: mainsettingswidget.ui:29
+#, kde-format
+msgid "Auto-hide hints after:"
+msgstr "Cacher automatiquement les indices après :"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
+#: mainsettingswidget.ui:37
+#, kde-format
+msgid "Do Not Auto-Hide Hints"
+msgstr "Ne pas cacher automatiquement les indices"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
+#: mainsettingswidget.ui:42
+#, kde-format
+msgid "3 Seconds"
+msgstr "3 secondes"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
+#: mainsettingswidget.ui:47
+#, kde-format
+msgid "5 Seconds"
+msgstr "5 secondes"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
+#: mainsettingswidget.ui:52
+#, kde-format
+msgid "7 Seconds"
+msgstr "7 secondes"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
+#: mainsettingswidget.ui:57
+#, kde-format
+msgid "9 Seconds"
+msgstr "9 secondes"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabelResolveTime)
+#: mainsettingswidget.ui:65
+#, kde-format
+msgid "Time for resolving the anagram:"
+msgstr "Temps pour la résolution de l'anagramme :"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
+#: mainsettingswidget.ui:73
+#, kde-format
+msgid "No time limit"
+msgstr "Aucune limite de temps"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
+#: mainsettingswidget.ui:78 mainsettingswidget.ui:144
+#, kde-format
+msgid "15 Seconds"
+msgstr "15 secondes"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
+#: mainsettingswidget.ui:83 mainsettingswidget.ui:149
+#, kde-format
+msgid "30 Seconds"
+msgstr "30 secondes"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
+#: mainsettingswidget.ui:88 mainsettingswidget.ui:154
+#, kde-format
+msgid "45 Seconds"
+msgstr "45 secondes"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
+#: mainsettingswidget.ui:93 mainsettingswidget.ui:159
+#, kde-format
+msgid "60 Seconds"
+msgstr "60 secondes"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox3)
+#: mainsettingswidget.ui:104
+#, kde-format
+msgid "Vocabulary Options"
+msgstr "Options pour la liste de mots"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: mainsettingswidget.ui:112
+#, kde-format
+msgid "Play using:"
+msgstr "Jouer en utilisant :"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox4)
+#: mainsettingswidget.ui:130
+#, kde-format
+msgid "Scoring Options"
+msgstr "Options du système de scores"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabelScoreTime)
+#: mainsettingswidget.ui:136
+#, kde-format
+msgid "Set timer for scoring purpose:"
+msgstr "Définir un chronomètre pour la gestion des scores :"
+
+#. i18n: ectx: property (text), widget (QCheckBox, scoringPointCheckbox)
+#: mainsettingswidget.ui:167
+#, kde-format
+msgid "Score Point Settings"
+msgstr "Options du système de scores"
+
+#. i18n: ectx: property (text), widget (QLabel, textCorrectAnswer)
+#: mainsettingswidget.ui:174
+#, kde-format
+msgid "Assign score for correct answer : "
+msgstr "Donner ce score pour une réponse correcte :"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
+#: mainsettingswidget.ui:182
+#, kde-format
+msgid "+5 points"
+msgstr "+5 points"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
+#: mainsettingswidget.ui:187
+#, kde-format
+msgid "+10 points"
+msgstr "+10 points"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
+#: mainsettingswidget.ui:192
+#, kde-format
+msgid "+15 points"
+msgstr "+15 points"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
+#: mainsettingswidget.ui:197
+#, kde-format
+msgid "+20 points"
+msgstr "+20 points"
+
+#. i18n: ectx: property (text), widget (QLabel, textIncorrectAnswer)
+#: mainsettingswidget.ui:205
+#, kde-format
+msgid "Assign score for incorrect answer : "
+msgstr "Donner ce score pour une réponse incorrecte :"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
+#: mainsettingswidget.ui:213
+#, kde-format
+msgid "-1 point"
+msgstr "-1 point"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_skippedWordScore)
+#: mainsettingswidget.ui:218 mainsettingswidget.ui:244
+#: mainsettingswidget.ui:275
+#, kde-format
+msgid "-2 points"
+msgstr "-2 points"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
+#: mainsettingswidget.ui:223
+#, kde-format
+msgid "-3 points"
+msgstr "-3 points"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_skippedWordScore)
+#: mainsettingswidget.ui:228 mainsettingswidget.ui:249
+#: mainsettingswidget.ui:280
+#, kde-format
+msgid "-4 points"
+msgstr "-4 points"
+
+#. i18n: ectx: property (text), widget (QLabel, textRevealAnswer)
+#: mainsettingswidget.ui:236
+#, kde-format
+msgid "Assign score for reveal answer : "
+msgstr "Donner ce score pour une réponse révélée :"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_skippedWordScore)
+#: mainsettingswidget.ui:254 mainsettingswidget.ui:285
+#, kde-format
+msgid "-6 points"
+msgstr "-6 points"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_skippedWordScore)
+#: mainsettingswidget.ui:259 mainsettingswidget.ui:290
+#, kde-format
+msgid "-8 points"
+msgstr "-8 points"
+
+#. i18n: ectx: property (text), widget (QLabel, textSkippedWord)
+#: mainsettingswidget.ui:267
+#, kde-format
+msgid "Assign score for skipped word : "
+msgstr "Donner ce score pour un mot évité :"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_useSounds)
+#: mainsettingswidget.ui:304
+#, kde-format
+msgid "Use sou&nds"
+msgstr "Utiliser des so&ns"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_uppercaseOnly)
+#: mainsettingswidget.ui:311
+#, kde-format
+msgid "Use only uppercase letters."
+msgstr "N'utiliser que des majuscules."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_uppercaseOnly)
+#: mainsettingswidget.ui:314
+#, kde-format
+msgid "Only uppercase letters"
+msgstr "Seulement des majuscules"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_enablePronunciation)
+#: mainsettingswidget.ui:321
+#, kde-format
+msgid "Turn pronunciations on or off."
+msgstr "Active / désactive la prononciation."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_enablePronunciation)
+#: mainsettingswidget.ui:324
+#, kde-format
+msgid "Say correct words"
+msgstr "Dire les mots corrects"
+
+#: ui/Blackboard.qml:89
+#, kde-format
+msgid "Next Vocabulary"
+msgstr "Vocabulaire suivant"
+
+#: ui/Blackboard.qml:128
+#, kde-format
+msgid "Previous Vocabulary"
+msgstr "Vocabulaire précédent"
+
+#: ui/Blackboard.qml:179
+#, kde-format
+msgid "Start Timer"
+msgstr "Démarrer le chronomètre"
+
+#: ui/Blackboard.qml:202
+#, kde-format
+msgid "Show Hint"
+msgstr "Afficher un indice"
+
+#: ui/Blackboard.qml:234
+#, kde-format
+msgid "Reveal Word"
+msgstr "Révéler le mot"
+
+#: ui/Blackboard.qml:280
+#, kde-format
+msgid " "
+msgstr " "
+
+#: ui/Blackboard.qml:397
+#, kde-format
+msgid "Show Wiki Content"
+msgstr "Afficher le contenu du Wiki"
+
+#: ui/Blackboard.qml:423
+#, kde-format
+msgid "Score : "
+msgstr "Score : "
+
+#: ui/Blackboard.qml:526
+#, kde-format
+msgid " Player 1 : "
+msgstr " Joueur 1 : "
+
+#: ui/Blackboard.qml:526
+#, kde-format
+msgid ""
+"\n"
+" Player 2 : "
+msgstr ""
+"\n"
+" Joueur 2 : "
+
+#: ui/Blackboard.qml:526
+#, kde-format
+msgid ""
+"\n"
+" Close dialog for new game "
+msgstr ""
+"\n"
+" Fermez la boîte de dialogue pour lancer une nouvelle partie "
+
+#: ui/Blackboard.qml:536
+#, kde-format
+msgid ""
+" Time Up. \n"
+" Player 2's Turn"
+msgstr ""
+" Le temps est écoulé. \n"
+" C'est au tour du joueur 2"
+
+#: ui/Blackboard.qml:565
+#, kde-format
+msgid "Close"
+msgstr "Fermer"
+
+#: ui/main.qml:200
+#, kde-format
+msgid "Quit"
+msgstr "Quitter"
+
+#: ui/main.qml:213
+#, kde-format
+msgid "Change mode"
+msgstr "Changer de mode"
+
+#: ui/main.qml:293
+#, kde-format
+msgid "Next Anagram"
+msgstr "Anagramme suivante"
+
+#: ui/main.qml:341
+#, kde-format
+msgid "1st Player"
+msgstr "Premier joueur"
+
+#: ui/main.qml:341
+#, kde-format
+msgid "2nd Player"
+msgstr "Deuxième joueur"
+
+#: ui/main.qml:419
+#, kde-format
+msgid "Configure"
+msgstr "Configurer"
+
+#: ui/main.qml:556
+#, kde-format
+msgid "  "
+msgstr "  "
+
+#: ui/main.qml:568
+#, kde-format
+msgid "About"
+msgstr "À propos"
+
+#: ui/main.qml:616
+#, kde-format
+msgid "About KDE"
+msgstr "À propos de KDE"
+
+#: ui/main.qml:666
+#, kde-format
+msgid "About Kanagram"
+msgstr "À propos de Kanagram"
+
+#: ui/main.qml:717
+#, kde-format
+msgid "Kanagram Handbook"
+msgstr "Manuel de Kanagram"
+
+#: vocabedit.cpp:108
+#, kde-format
+msgid "Would you like to save your changes?"
+msgstr "Voulez-vous enregistrer vos modifications ?"
+
+#: vocabedit.cpp:108
+#, kde-format
+msgid "Save Changes Dialog"
+msgstr "Boîte de dialogue pour l'enregistrement des modifications"
+
+#: vocabedit.cpp:127
+#, kde-format
+msgid "New Item"
+msgstr "Nouvel élément"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, VocabEditWidget)
+#: vocabeditwidget.ui:13
+#, kde-format
+msgid "Vocabulary Editor"
+msgstr "Éditeur de listes de mots"
+
+#. i18n: ectx: property (text), widget (QPushButton, btnSave)
+#: vocabeditwidget.ui:74
+#, kde-format
+msgid "&Save"
+msgstr "Enregi&strer"
+
+#. i18n: ectx: property (text), widget (QPushButton, btnClose)
+#: vocabeditwidget.ui:81
+#, kde-format
+msgid "&Close"
+msgstr "&Fermer"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#: vocabeditwidget.ui:127
+#, kde-format
+msgid ""
+"The description of the vocabulary. If you are creating a new vocabulary, add "
+"a description so that users of your vocabulary will know what kinds of words "
+"it contains."
+msgstr ""
+"Description de la liste de mots. Si vous créez une nouvelle liste, ajoutez "
+"une description afin que les utilisateurs de cette liste sachent quelle "
+"sorte de mots elle contient."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: vocabeditwidget.ui:130
+#, kde-format
+msgid "&Description:"
+msgstr "&Description :"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#: vocabeditwidget.ui:143
+#, kde-format
+msgid "The name of the vocabulary you are editing."
+msgstr "Le nom de la liste de mots que vous éditez actuellement."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: vocabeditwidget.ui:146
+#, kde-format
+msgid "Vocabulary &name:"
+msgstr "&Nom de la liste de mots :"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, btnRemoveWord)
+#: vocabeditwidget.ui:195
+#, kde-format
+msgid "Removes the selected word."
+msgstr "Retire le mot sélectionné."
+
+#. i18n: ectx: property (text), widget (QPushButton, btnRemoveWord)
+#: vocabeditwidget.ui:198
+#, kde-format
+msgid "&Remove Word"
+msgstr "Supprime&r un mot"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, btnNewWord)
+#: vocabeditwidget.ui:205
+#, kde-format
+msgid "Creates a new word."
+msgstr "Crée un nouveau mot."
+
+#. i18n: ectx: property (text), widget (QPushButton, btnNewWord)
+#: vocabeditwidget.ui:208
+#, kde-format
+msgid "&New Word"
+msgstr "&Nouveau mot"
+
+#. i18n: ectx: property (whatsThis), widget (QListWidget, lboxWords)
+#: vocabeditwidget.ui:217
+#, kde-format
+msgid "The list of words in the vocabulary."
+msgstr "La listes de mots."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
+#: vocabeditwidget.ui:246
+#, kde-format
+msgid "The selected word. This box allows you to edit the selected word."
+msgstr ""
+"Le mot sélectionné. Cette boîte vous permet de modifier le mot sélectionné."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: vocabeditwidget.ui:249
+#, kde-format
+msgid "&Word:"
+msgstr "&Mot :"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: vocabeditwidget.ui:265
+#, kde-format
+msgid "The selected hint. Add a hint to aid in guessing the word."
+msgstr ""
+"L'indice sélectionné. Ajoute un indice pour vous aider à deviner le mot."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: vocabeditwidget.ui:268
+#, kde-format
+msgid "&Hint:"
+msgstr "&Indice :"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, btnCreateNew)
+#: vocabsettingswidget.ui:48
+#, kde-format
+msgid "Creates a new vocabulary."
+msgstr "Crée une nouvelle liste de mots."
+
+#. i18n: ectx: property (text), widget (QPushButton, btnCreateNew)
+#: vocabsettingswidget.ui:51
+#, kde-format
+msgid "Create &New"
+msgstr "&Créer une nouvelle liste"
+
+#. i18n: ectx: property (toolTip), widget (KNSWidgets::Button, btnDownloadNew)
+#: vocabsettingswidget.ui:58
+#, kde-format
+msgid "Download new vocabulary from \"Get hot new Stuff\""
+msgstr ""
+"Télécharger de nouvelles listes de mots avec « Obtenir les dernières "
+"nouveautés »"
+
+#. i18n: ectx: property (text), widget (KNSWidgets::Button, btnDownloadNew)
+#: vocabsettingswidget.ui:61
+#, kde-format
+msgid "Download new vocabulary"
+msgstr "Télécharger de nouvelles listes de mots"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, btnEdit)
+#: vocabsettingswidget.ui:73
+#, kde-format
+msgid "Edits the selected vocabulary."
+msgstr "Modifie la liste de mots sélectionnée."
+
+#. i18n: ectx: property (text), widget (QPushButton, btnEdit)
+#: vocabsettingswidget.ui:76
+#, kde-format
+msgid "&Edit"
+msgstr "&Édition"
+
+#. i18n: ectx: property (whatsThis), widget (QTreeWidget, lviewVocab)
+#: vocabsettingswidget.ui:83
+#, kde-format
+msgid "The list of installed vocabularies."
+msgstr "Les listes de mots installées."
+
+#. i18n: ectx: property (text), widget (QTreeWidget, lviewVocab)
+#: vocabsettingswidget.ui:90
+#, kde-format
+msgid "Title"
+msgstr "Titre"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, lviewVocab)
+#: vocabsettingswidget.ui:95
+#, kde-format
+msgid "Description"
+msgstr "Description"
+
+#~ msgid "Speech System Failure"
+#~ msgstr "Échec du système de prononciation"
+
+#~ msgid "Starting Jovie Text-to-Speech service Failed: %1"
+#~ msgstr "Le démarrage du service Text-to-Speech de Jovie à échoué : %1"
+
+#~ msgid "Stop Timer"
+#~ msgstr "Arrêter le chronomètre"
+
+#~ msgid "Hint"
+#~ msgstr "Indice"
+
+#~ msgid "Advanced Settings"
+#~ msgstr "Paramètres avancés"
+
+#~ msgid "Set the default vocabulary"
+#~ msgstr "Règle le vocabulaire par défaut"
+
+#~ msgid "use a QGLWidget for the viewport"
+#~ msgstr "utiliser un composant QGL pour l'affichage de la fenêtre"
+
+#~ msgid "Shortcuts"
+#~ msgstr "Raccourcis"
+
+#~ msgid "hint"
+#~ msgstr "indice"
+
+#~ msgid "picture hint"
+#~ msgstr "indice d'image"
+
+#~ msgid "Reveal Anagram"
+#~ msgstr "Révéler l'anagramme"
+
+#~ msgid "Quit Kanagram"
+#~ msgstr "Quitter Kanagram"
+
+#~ msgid ""
+#~ "File %1 cannot be found.\n"
+#~ " Please ensure that Kanagram is properly installed."
+#~ msgstr ""
+#~ "Le fichier %1 est introuvable.\n"
+#~ "Veuillez vérifier que Kanagram est installé correctement."
+
+#~ msgid "Error"
+#~ msgstr "Erreur"
+
+#~ msgid "120 Seconds"
+#~ msgstr "120 secondes"
+
+#~ msgid "300 Seconds"
+#~ msgstr "300 secondes"
+
+#~ msgid "New Stuff"
+#~ msgstr "Nouveau contenu"
+
+#~ msgid ""
+#~ "Kanagram allows you to download\n"
+#~ "new data from the Internet.\n"
+#~ "\n"
+#~ "If you are connected to the Internet, press \n"
+#~ "the button to get new vocabulary files."
+#~ msgstr ""
+#~ "Kanagram vous permet de télécharger\n"
+#~ "de nouvelles données depuis Internet.\n"
+#~ "\n"
+#~ "Si un accès Internet est disponible, cliquez sur\n"
+#~ "le bouton pour obtenir de nouvelles listes de vocabulaire."

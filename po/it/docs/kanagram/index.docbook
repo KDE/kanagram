@@ -1,0 +1,671 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY kanagram "<application
+>Kanagram</application
+>">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Italian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kanagram" lang="&language;">
+
+<bookinfo>
+<title
+>Manuale di &kanagram;</title>
+
+<authorgroup>
+<author
+><firstname
+>Danny</firstname
+> <surname
+>Allen</surname
+> <affiliation
+> <address
+>&Danny.Allen.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Pino</firstname
+><surname
+>Toscano</surname
+><affiliation
+><address
+><email
+>toscano.pino@tiscali.it</email
+></address
+></affiliation
+><contrib
+>Traduzione italiana</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Paolo</firstname
+><surname
+>Zamponi</surname
+><affiliation
+><address
+><email
+>zapaolo@email.it</email
+></address
+></affiliation
+><contrib
+>Aggiornamento della traduzione italiana</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2005</year>
+<holder
+>&Danny.Allen;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>21/12/2020</date>
+<releaseinfo
+>Applications 20.12</releaseinfo>
+
+<abstract>
+<para
+>&kanagram; porta in &kde; degli anagrammi divertenti. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>Kanagram</keyword>
+<keyword
+>gioco</keyword>
+<keyword
+>bambino</keyword>
+<keyword
+>anagramma</keyword>
+<keyword
+>parole</keyword>
+<keyword
+>mescolare</keyword>
+</keywordset>
+
+</bookinfo>
+<!--FIXME 
+Debjit Mondal "Show Wiki Content" (hidden -> crash?) https://debjitmondal.blogspot.com/
+Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com/2015/01/13/kanagram-is-now-2-player/
+Hide 'Say correct words' option if built without QtSpeech/Jovie
+-->
+<chapter id="introduction">
+<title
+>Introduzione</title>
+
+<para
+>&kanagram; è un gioco basato sugli anagrammi di parole: il puzzle è risolto quando le lettere della parola mescolata sono messe nell'ordine corretto. Non c'è alcun limite di tempo o di numero di tentativi per risolvere la parola. Insieme a &kanagram; vi sono diversi vocabolari già pronti con cui giocare, e molti altri sono disponibili su Internet. </para>
+
+</chapter>
+
+
+<chapter id="using-kanagram">
+<title
+>Uso di &kanagram;</title>
+
+<para
+>Qui vi è lo schermo che si presenta all'avvio di &kanagram;, che mostra l'interfaccia principale dell'applicazione. Una parte della finestra è occupata dalla <interface
+>lavagna</interface
+>, su cui sono scritti i puzzle, e lo <interface
+>schedario</interface
+>, che contiene i controlli dell'applicazione, a destra: </para>
+
+<screenshot>
+<screeninfo
+>Qui vi è lo schermo che si presenta all'avvio di &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Schermata di &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<orderedlist>
+<listitem>
+<para
+>Il <interface
+>cambia vocabolario</interface
+> (&PgUp; / &PgDn;) permette all'utente di <action
+>cambiare velocemente il vocabolario attivo</action
+> facendo clic con il &LMB; sulle frecce per <action
+>passare al successivo</action
+>, oppure per <action
+>ritornare a quello con cui si aveva giocato precedentemente</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Al centro della <interface
+>lavagna</interface
+> c'è l'anagramma da risolvere. </para>
+</listitem>
+<listitem>
+<para
+>Questo è il pulsante <guiicon
+>Avvia timer</guiicon
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+>), che ti permette di <action
+>avviare o di fermare il timer del punteggio</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Quando viene premuto il pulsante <guibutton
+>Suggerimento</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+>), appare una breve frase che <action
+>descrive la parola corrente</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Il pulsante <guibutton
+>Rivela parola</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+>) <action
+>risolve il puzzle della parola corrente</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>La <interface
+>casella di inserimento</interface
+> ti permette di <action
+>inserire i tuoi tentativi</action
+> per risolvere la parola corrente. </para>
+</listitem>
+<listitem>
+<para
+>Il pulsante <interface
+>Anagramma successivo</interface
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+>) ti permette di passare all'anagramma successivo. </para>
+</listitem>
+<listitem>
+<para
+>Questo è il pulsante <guiicon
+>Configura</guiicon
+>, che <action
+>apre la finestra <guilabel
+>Configura</guilabel
+></action
+> di &kanagram;. </para>
+</listitem>
+<listitem>
+<para
+>Il pulsante <guiicon
+>Aiuto</guiicon
+> è speciale, dato che <action
+>rivela 3 sotto-pulsanti</action
+>. Questi vengono mostrati quando il mouse si trova sul pulsante <guiicon
+>Aiuto</guiicon
+>, e permettono di accedere al <guilabel
+>Manuale di &kanagram;</guilabel
+> (questo documento), alle <guilabel
+>Informazioni su &kanagram;</guilabel
+> e alle <guilabel
+>Informazioni su &kde;</guilabel
+>: <screenshot>
+<screeninfo
+>I 3 diversi stati del pulsante <guiicon
+>Aiuto</guiicon
+></screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="helpstates.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Schermata di &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem>
+<para
+>Usa il pulsante <guiicon
+>Cambia modalità</guiicon
+> per passare da 1 a 2 giocatori, e viceversa. </para>
+</listitem>
+<listitem>
+<para
+>Il pulsante <guiicon
+>Esci</guiicon
+> <action
+>chiude l'applicazione</action
+>. </para>
+</listitem>
+</orderedlist>
+
+<sect1 id="playing-game">
+<title
+>Giocare una partita</title>
+
+<para
+>Adesso che ha preso familiarità con l'interfaccia utente di &kanagram;, giochiamo! </para>
+
+<procedure>
+<step>
+<para
+>Usando il <interface
+>cambia vocabolario</interface
+>, <action
+>scegli il tema del vocabolario</action
+> con cui vuoi giocare. Verrà mostrata, in mezzo alla <interface
+>lavagna</interface
+>, una parola da questo vocabolario. Adesso prova ad indovinare quale parola rappresenta questo intrigo di lettere. <tip>
+<para
+>Se non riesci ad indovinare qual è la parola, premi il pulsante <guibutton
+>Suggerimento</guibutton
+>: avrai un suggerimento dal tuo amico nello <interface
+>schedario</interface
+>: </para>
+<screenshot>
+<screeninfo
+>Suggerimento di &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram-hint.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Suggerimento di &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</tip>
+</para>
+</step>
+
+<step>
+<para
+>Appena pensi di sapere la risposta corretta, scrivi le lettere nella <interface
+>casella di inserimento</interface
+> sotto alla <interface
+>lavagna</interface
+>, oppure fai clic sulle lettere con il &LMB;: si spostano nella casella d'inserimento. Se hai fatto bene appare l'anagramma successivo, altrimenti tutte le lettere ritornano nella lavagna. </para>
+</step>
+</procedure>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuring">
+<title
+>Configurazione di &kanagram;</title>
+
+<para
+>La finestra <guilabel
+>Configura</guilabel
+> si apre facendo clic sul pulsante <guiicon
+>Configura</guiicon
+>: </para>
+
+<screenshot>
+<screeninfo
+>Le impostazioni generali di &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="general-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Le impostazioni generali di &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+
+<listitem>
+<para
+>La casella a comparsa <guilabel
+>Nascondi automaticamente i suggerimenti dopo:</guilabel
+> ti permette di specificare per quanto tempo mostrare i suggerimenti. Qui puoi impostare che la casella dei suggerimenti venga nascosta dopo un certo tempo (&eg; 5 secondi), oppure puoi lasciare l'impostazione predefinita (<quote
+>Non nascondere automaticamente i suggerimenti</quote
+>). </para>
+</listitem>
+
+<listitem>
+<para
+>Usa la casella a comparsa <guilabel
+>Tempo di risoluzione dell'anagramma:</guilabel
+> per specificare il tempo a disposizione per risolvere ciascun anagramma. Come impostazione predefinita c'è <quote
+>Nessun limite</quote
+>. </para>
+</listitem>
+
+<listitem>
+<para
+>La casella a comparsa <guilabel
+>Gioca usando:</guilabel
+> ti permette di giocare a &kanagram; usando i vocabolari di una lingua diversa. Per poter fare ciò, devi avere installato i vocabolari di una lingua diversa. </para>
+</listitem>
+
+<listitem>
+<para
+>La casella a comparsa <guilabel
+>Imposta timer per i punteggi:</guilabel
+> ti permette di impostare il tempo in secondi per il timer del punteggio. </para>
+</listitem>
+
+<listitem>
+<para
+>La casella <guilabel
+>Opzioni dei punteggi</guilabel
+> può essere usata per mostrare o per nascondere le opzioni di configurazione dei punteggi per le risposte. </para>
+</listitem>
+
+<listitem>
+<para
+>La casella <guilabel
+>Usa suoni</guilabel
+> ti permette di attivare o di disattivare gli effetti sonori. </para>
+</listitem>
+
+<listitem>
+<para
+>La casella <guilabel
+>Solo lettere maiuscole</guilabel
+> ti permette di attivare o di disattivare l'uso esclusivo delle lettere maiuscole per le parole sulla lavagna. </para>
+</listitem>
+
+<listitem>
+<para
+>La casella <guilabel
+>Pronuncia le parole corrette</guilabel
+> ti permette di attivare o di disattivare la pronuncia. Affinché questa opzione funzioni, i file audio con le pronunce dovrebbero essere inclusi nel vocabolario con cui si gioca, oppure dovresti installare e configurare &jovie;. </para>
+</listitem>
+</itemizedlist>
+
+<sect1 id="vocabularies-config">
+<title
+>Vocabolari</title>
+
+<para
+>La scheda di configurazione <guilabel
+>Vocabolari</guilabel
+> ti permette di gestire i vocabolari installati. Con questa finestra puoi <action
+>modificare</action
+> e <action
+>rimuovere</action
+> i vocabolari scaricati, oppure puoi <action
+>crearne</action
+> di nuovi: </para>
+
+<screenshot>
+<screeninfo
+>Le impostazioni dei vocabolari &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Le impostazioni dei vocabolari &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Il pulsante <guibutton
+>Crea nuovo</guibutton
+> <action
+> apre la finestra <link linkend="vocab-editor"
+><guilabel
+>Editor di vocabolari</guilabel
+></link
+></action
+>, per mezzo del quale cui puoi creare i vocabolari con cui giocare. </para>
+</listitem>
+<listitem>
+<para
+>Il pulsante <guibutton
+>Modifica</guibutton
+> ti permette di <action
+>modificare i vocabolari che hai creato o scaricato da Internet</action
+>. </para>
+</listitem>
+<!-- not in 4.5 listitem>
+<para>
+The <guibutton
+>Delete</guibutton
+> button allows you to <action
+>delete vocabularies that you have created or downloaded</action
+>.
+</para>
+</listitem-->
+<listitem>
+<para
+>Puoi selezionare su quale vocabolario agire usando la <interface
+>lista dei vocabolari</interface
+>. </para>
+</listitem>
+</itemizedlist>
+
+<sect2 id="vocab-editor">
+<title
+>Editor di vocabolari</title>
+
+<para
+>L'editor dei vocabolari ti permette di creare i tuoi vocabolari, con cui potrai giocare in &kanagram;: </para>
+
+<screenshot>
+<screeninfo
+>L'<guilabel
+>editor di vocabolari</guilabel
+> di &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-editor.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>L'<guilabel
+>editor di vocabolari</guilabel
+> di &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Il campo <guilabel
+>Nome del vocabolario:</guilabel
+> ti permette di <action
+>dare un nome al vocabolario</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Il campo <guilabel
+>Descrizione:</guilabel
+> ti permette di <action
+>espandere il nome di un vocabolario</action
+>, fornendo all'utente maggiori informazioni su cosa contiene. </para>
+<note>
+<para
+>Cerca di mantenere il nome e la descrizione più corti che puoi. Normalmente i vocabolari coprono un ristretto insieme di parole di un singolo argomento. Nel vocabolario, prova scrivere almeno una ventina di parole, in modo che non verrà terminato troppo velocemente. </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Il pulsante <guibutton
+>Rimuovi parola</guibutton
+> ti permette di <action
+>rimuovere le parole dal vocabolario</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Il pulsante <guibutton
+>Nuova parola</guibutton
+> <action
+>crea una nuova voce nel vocabolario</action
+>, pronta per essere espansa. </para>
+</listitem>
+<listitem>
+<para
+>Il campo <guilabel
+>Parola:</guilabel
+> ti permette di <action
+>scrivere le parole da inserire nel vocabolario</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Il campo <guilabel
+>Suggerimento</guilabel
+> ti permette di <action
+>scrivere dei suggerimenti da accompagnare alle parole</action
+>. </para>
+<note>
+<para
+>I buoni suggerimenti descrivono la parola senza farla indovinare troppo facilmente, e aumentano la conoscenza dell'utente. Assicurati anche che i suggerimenti siano abbastanza brevi (meno di circa 40 caratteri). </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Il pulsante <guibutton
+>Salva</guibutton
+> <action
+>salva il nuovo contenuto del vocabolario</action
+>, e ti permette di usarlo direttamente in &kanagram; (sarà immediatamente disponibile nell'applicazione stessa, selezionabile tramite il <interface
+>selettore di vocabolari</interface
+>). </para>
+</listitem>
+<listitem>
+<para
+>Il pulsante <guibutton
+>Chiudi</guibutton
+> <action
+>chiude l'<guilabel
+>editor di vocabolari</guilabel
+></action
+> senza salvare il contenuto del vocabolario nuovo o modificato. </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
+</sect1>
+
+<sect1 id="newstuff">
+<title
+>Cose nuove</title>
+
+<para
+>Il pulsante <guibutton
+>Scarica nuovo vocabolario</guibutton
+> nella pagina di configurazione <guilabel
+>Vocabolari</guilabel
+> ti permette di scaricare nuovi file di vocabolario da Internet: </para>
+
+<screenshot>
+<screeninfo
+>La finestra delle cose nuove di &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-dialog.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>La finestra delle cose nuove di &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Per installare un vocabolario da Internet, fai clic nella lista sul vocabolario che vuoi, e premi il pulsante <guibutton
+>Installa</guibutton
+>. Il vocabolario scaricato sarà immediatamente disponibile per giocarvi. </para>
+<para
+>Se hai già scaricato un vocabolario, questo pulsante verrà modificato in <guibutton
+>Disinstalla</guibutton
+>: potrai così rimuovere un vocabolario. </para>
+<para
+>Per avere ulteriori informazioni su un vocabolario, quali l'autore, una descrizione del contenuto e il registro delle modifiche, premi il pulsante <guibutton
+>Dettagli</guibutton
+>. </para>
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Riconoscimenti e licenza</title>
+
+<para
+>&kanagram; </para>
+<para
+>Copyright del programma 2007 Jeremy Whiting <email
+>jpwhiting@kde.org</email
+> 2005 Joshua Keel <email
+>joshuakeel@gmail.com</email
+> e &Danny.Allen; &Danny.Allen.mail; </para>
+<para
+>Contributi: </para>
+<itemizedlist>
+<listitem>
+<para
+>Effetti sonori: Artemio <email
+>fillme</email
+> </para>
+</listitem>
+</itemizedlist>
+
+<para
+>Copyright della documentazione 2005 &Danny.Allen; &Danny.Allen.mail; </para>
+
+<para
+>Traduzione italiana di Pino Toscano <email
+>toscano.pino@tiscali.it</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet:noai
+-->

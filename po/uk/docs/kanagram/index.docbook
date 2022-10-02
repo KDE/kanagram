@@ -1,0 +1,662 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY kanagram "<application
+>Kanagram</application
+>">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Ukrainian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kanagram" lang="&language;">
+
+<bookinfo>
+<title
+>Підручник з &kanagram;</title>
+
+<authorgroup>
+<author
+><firstname
+>Danny</firstname
+> <surname
+>Allen</surname
+> <affiliation
+> <address
+>&Danny.Allen.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2005</year>
+<holder
+>&Danny.Allen;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>21 грудня 2020 року</date>
+<releaseinfo
+>Програми 20.12</releaseinfo>
+
+<abstract>
+<para
+>&kanagram; надасть вам змогу бавитися у анаграми у &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>Kanagram</keyword>
+<keyword
+>гра</keyword>
+<keyword
+>дитина</keyword>
+<keyword
+>анаграма</keyword>
+<keyword
+>слова</keyword>
+<keyword
+>плутанина</keyword>
+</keywordset>
+
+</bookinfo>
+<!--FIXME 
+Debjit Mondal "Show Wiki Content" (hidden -> crash?) https://debjitmondal.blogspot.com/
+Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com/2015/01/13/kanagram-is-now-2-player/
+Hide 'Say correct words' option if built without QtSpeech/Jovie
+-->
+<chapter id="introduction">
+<title
+>Вступ</title>
+
+<para
+>&kanagram; — це гра, що заснована на розгадуванні анаграм: загадку буде розгадано, якщо розташувати переплутані літери слова у правильному порядку. Обмежень на час розв’язання немає, так само як і на кількість спроб вгадати слово. У пакунок &kanagram; вже включено декілька словників підготованих для гри, але набагато більше таких словників ви можете знайти у інтернеті. </para>
+
+</chapter>
+
+
+<chapter id="using-kanagram">
+<title
+>Користування &kanagram;</title>
+
+<para
+>На цьому знімку вікна програми показано &kanagram; після першого запуску. Ви можете бачити інтерфейс головного вікна програми. Більшу частину вікна програми займає <interface
+>дошка</interface
+>, на яку записуються загадки, разом з <interface
+>картотекою</interface
+> праворуч, у картотеці містяться засоби керування програмою. </para>
+
+<screenshot>
+<screeninfo
+>Ось вікно, яке ви побачите на початку роботи &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Знімок вікна &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<orderedlist>
+<listitem>
+<para
+><interface
+>Перемикач словників</interface
+> (<keysym
+>PgUp</keysym
+> / <keysym
+>PgDown</keysym
+>) надає користувачеві змогу <action
+>змінити активний словник</action
+>, слід просто навести на його стрілочки вказівник миші і натиснути ліву кнопку миші, щоб <action
+>перейти до наступного словника</action
+> або щоб <action
+>повернутися до попереднього словника</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>У центрі <interface
+>дошки</interface
+> знаходиться загадка-анаграма, яку потрібно розв’язати. </para>
+</listitem>
+<listitem>
+<para
+>Це кнопка <guiicon
+>Почати відлік</guiicon
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+>), за її допомогою ви можете <action
+>запустити або зупинити таймер оцінювання</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Якщо ви натиснете на слові <guibutton
+>Підказка</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+>), з’явиться речення, у якому <action
+>описано поточне слово-загадка</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Кнопка <guibutton
+>Відкрити слово</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+>) <action
+>показує вирішення поточної загадки</action
+>. </para>
+</listitem>
+<listitem>
+<para
+><interface
+>Блок вводу</interface
+> — це місце куди вам слід <action
+>вводити ваші варіанти</action
+> розв’язання поточної загадки. </para>
+</listitem>
+<listitem>
+<para
+>За допомогою кнопки <interface
+>Наступна анаграма</interface
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+>) можна перейти до вгадування наступного слова. </para>
+</listitem>
+<listitem>
+<para
+>Це кнопка <guiicon
+>Налаштувати</guiicon
+>, яка <action
+>відкриває діалогове вікно <guilabel
+>Налаштувати &kanagram;</guilabel
+></action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Кнопка <guiicon
+>Довідка</guiicon
+> є особливою, під цією назвою <action
+>ховаються 3 кнопочки</action
+>. Ці кнопочки з’являться, коли ви наведете вказівник миші на кнопку <guiicon
+>Довідка</guiicon
+>. Вони надають доступ до <guilabel
+>Підручника з &kanagram;</guilabel
+> (цього документа), діалогових вікон <guilabel
+>Про &kanagram;</guilabel
+> і <guilabel
+>Про &kde;</guilabel
+>: <screenshot>
+<screeninfo
+>3 різних стани кнопки <guiicon
+>Довідка</guiicon
+></screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="helpstates.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Знімок вікна &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem>
+<para
+>За допомогою кнопки <guiicon
+>Змінити режим</guiicon
+> можна перемикатися між режимом із одним гравцем і режимом із двома гравцями. </para>
+</listitem>
+<listitem>
+<para
+>Кнопка <guiicon
+>Вийти</guiicon
+> <action
+>завершує роботу програми</action
+>. </para>
+</listitem>
+</orderedlist>
+
+<sect1 id="playing-game">
+<title
+>Як гратися</title>
+
+<para
+>Тепер, коли ви ознайомилися з інтерфейсом &kanagram;, саме час погратися! </para>
+
+<procedure>
+<step>
+<para
+>За допомогою <interface
+>Перемикача словників</interface
+>, <action
+>виберіть тему словника</action
+>, яку ви маєте намір спробувати. Посередині <interface
+>дошки</interface
+> з’явиться слово з цього словника. Тепер ви маєте вгадати слово, яке складається з тієї плутанини літер, яку ви бачите. <tip>
+<para
+>Якщо ви навіть не маєте гадки що це за слово, натисніть кнопку <guibutton
+>Підказка</guibutton
+>, щоб отримати дружню пораду, яка з’явиться над <interface
+>картотекою</interface
+>: </para>
+<screenshot>
+<screeninfo
+>Підказка &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram-hint.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Підказка &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</tip>
+</para>
+</step>
+
+<step>
+<para
+>Тільки-но вам здалося, що ви знаєте правильну відповідь, наберіть її у <interface
+>блоці введення</interface
+>, який розміщено під <interface
+>дошкою</interface
+>, або натисніть кнопки літер за допомогою лівої кнопки миші так, щоб вони перемістилися до блоку введення. Якщо відповідь була правильною, з’явиться наступна анаграма. Якщо ж ви помилилися, літери вискочать назад на дошку. </para>
+</step>
+</procedure>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuring">
+<title
+>Налаштування &kanagram;</title>
+
+<para
+>Діалогове вікно <guilabel
+>Налаштування</guilabel
+> відкриється, якщо навести вказівник миші на кнопку <guiicon
+>Налаштувати</guiicon
+> і клацнути лівою кнопкою миші: </para>
+
+<screenshot>
+<screeninfo
+>Загальні параметри &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="general-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Загальні параметри &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+
+<listitem>
+<para
+>Спадний список <guilabel
+>Автоматично ховати підказки після:</guilabel
+> надає вам змогу вказати спосіб, у який вам буде показано підказки. У цьому списку ви можете встановити час, за який підказка зникатиме у секундах (наприклад, 5 секунд), або можете залишити типове значення (<quote
+>Не ховати підказки автоматично</quote
+>). </para>
+</listitem>
+
+<listitem>
+<para
+>За допомогою спадного списку <guilabel
+>Час на розв’язання анаграми:</guilabel
+> ви можете вказати час, за який вам слід розв’язати кожну головоломку. Типовим режимом є «Без обмеження часу». </para>
+</listitem>
+
+<listitem>
+<para
+>Спадний список <guilabel
+>Використати в грі:</guilabel
+> надає вам змогу грати у &kanagram; зі словниками інших мов. Щоб запрацювала ця можливість, вам слід встановити словники відповідної мови. </para>
+</listitem>
+
+<listitem>
+<para
+>За допомогою спадного списку <guilabel
+>Встановити таймер з метою оцінювання</guilabel
+> ви можете встановити інтервал часу для таймера оцінювання у секундах. </para>
+</listitem>
+
+<listitem>
+<para
+>За допомогою поля для позначки <guilabel
+>Параметри оцінювання</guilabel
+> ви можете наказати програмі показати або приховати параметри налаштовування оцінювання відповідей. </para>
+</listitem>
+
+<listitem>
+<para
+>Поле для позначки з написом <guilabel
+>Використовувати звуки</guilabel
+> надає вам змогу увімкнути або вимкнути звукові ефекти у &kanagram;. </para>
+</listitem>
+
+<listitem>
+<para
+>Поле для позначки з написом <guilabel
+>Лише літери верхнього регістру</guilabel
+> надає вам змогу увімкнути режим використання лише літер верхнього регістру (великих літер) для слів на дошці &kanagram;. </para>
+</listitem>
+
+<listitem>
+<para
+>За допомогою поля для позначки <guilabel
+>Вимовляти правильні слова</guilabel
+> ви можете вимкнути або увімкнути вимову вгаданих вами слів. Звукові файли вимови має бути включено до словника або вам слід встановити і налаштувати &jovie;, інакше ви почуєте лише типовий звук. </para>
+</listitem>
+</itemizedlist>
+
+<sect1 id="vocabularies-config">
+<title
+>Словники</title>
+
+<para
+>Сторінка налаштування <guilabel
+>Словники</guilabel
+> надає вам змогу керувати встановленими вами словниками. За допомогою цього діалогового вікна ви можете <action
+>редагувати</action
+> або <action
+>вилучати</action
+> отримані словники, а також <action
+>створювати</action
+> ваші власні: </para>
+
+<screenshot>
+<screeninfo
+>Параметри словників &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Параметри словників &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Кнопка <guibutton
+>Створити новий</guibutton
+> <action
+>відкриває діалогове вікно <link linkend="vocab-editor"
+><guilabel
+>Редактора словників</guilabel
+></link
+></action
+>, у якому ви можете створити власні словники, з якими потім зможете гратися. </para>
+</listitem>
+<listitem>
+<para
+>Кнопка <guibutton
+>Редагувати</guibutton
+> надає вам змогу <action
+>змінювати словники, які ви або створили, або отримали з інтернету</action
+>. </para>
+</listitem>
+<!-- not in 4.5 listitem>
+<para>
+The <guibutton
+>Delete</guibutton
+> button allows you to <action
+>delete vocabularies that you have created or downloaded</action
+>.
+</para>
+</listitem-->
+<listitem>
+<para
+>Ви можете вибрати словник, до якого ви бажаєте застосувати ці дії за допомогою <interface
+>списку словників</interface
+>. </para>
+</listitem>
+</itemizedlist>
+
+<sect2 id="vocab-editor">
+<title
+>Редактор словників</title>
+
+<para
+>Редактор словників надає вам змогу створювати власні словники, якими &kanagram; потім може перевірити ваше знання слів. </para>
+
+<screenshot>
+<screeninfo
+><guilabel
+>Редактор словників</guilabel
+> &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-editor.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+><guilabel
+>Редактор словників</guilabel
+> &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Поле <guilabel
+>Назви словника</guilabel
+> надає вам змогу <action
+>вказати назву вашого словника</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Поле <guilabel
+>Опис</guilabel
+> надає вам змогу <action
+>доповнити назву вашого словника</action
+>, надавши його користувачеві докладнішу інформацію щодо вашого словника. </para>
+<note>
+<para
+>Намагайтеся зробити поля назви і опису якомога коротшими. Гарні словники містять вузьке, сконцентроване коло слів, що стосуються окремої теми. Намагайтеся додати до вашого словника принаймні 20 слів, якщо ви цього не зробите, гра зі словником швидко закінчиться. </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Кнопка <guibutton
+>Вилучити слово</guibutton
+> надає вам змогу <action
+>вилучати слова з вашого словника</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Кнопка <guibutton
+>Нове слово</guibutton
+> <action
+>створює новий запис для слова у вашому словнику</action
+>, після її натискання ви отримаєте змогу заповнити характеристики вашого слова. </para>
+</listitem>
+<listitem>
+<para
+>Поле <guilabel
+>Слово</guilabel
+> надає вам можливість <action
+>поповнювати ваш словник новими словами</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Поле <guilabel
+>Підказка</guilabel
+> надає вам змогу <action
+>записувати підказки, що супроводжуватимуть ваші слова</action
+>. </para>
+<note>
+<para
+>Хороші підказки витончено описують слово, одночасно збільшуючи знання словника гравцем. Також вам слід переконатися, що ваші підказки достатньо короткі (до 40 символів у довжину). </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Кнопка <guibutton
+>Зберегти</guibutton
+> <action
+>зберігає вміст вашого нового словника</action
+>, і надає змогу використовувати його безпосередньо у &kanagram; (він негайно стає доступним з програми, його можна вибрати за допомогою панелі <interface
+>Вибір словників</interface
+>). </para>
+</listitem>
+<listitem>
+<para
+>Кнопка <quote
+><guibutton
+>Закрити</guibutton
+></quote
+> <action
+>закриває діалогове вікно <guilabel
+>Редактора словників</guilabel
+></action
+> без збереження вмісту вашого нового або зміненого словника. </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
+</sect1>
+
+<sect1 id="newstuff">
+<title
+>Нові словники</title>
+
+<para
+>За допомогою кнопки <guibutton
+>Отримати новий словник</guibutton
+> на сторінці налаштування <guilabel
+>Нові словники</guilabel
+> ви зможете отримувати файли нових словників з інтернету: </para>
+
+<screenshot>
+<screeninfo
+>Діалогове вікно нових словників &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-dialog.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Діалогове вікно нових словників &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Щоб встановити словник з інтернету, наведіть вказівник на запис словника у списку і клацніть лівою кнопкою миші, а потім натисніть кнопку <guibutton
+>Встановити</guibutton
+>, щоб встановити цей словник на вашу систему. Отриманий словник одразу буде готовий до гри. </para>
+<para
+>Якщо вами вже завантажено словник, напис на цій кнопці буде замінено на <guibutton
+>Вилучити</guibutton
+>. За допомогою цієї кнопки ви можете вилучити словник. </para>
+<para
+>Щоб дізнатися більше про словник, ознайомитися із записом автора словника, описом його вмісту та журналом змін у словнику, натисніть кнопку <guibutton
+>Подробиці</guibutton
+>. </para>
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Подяки і ліцензія</title>
+
+<para
+>&kanagram; </para>
+<para
+>Авторські права на програму належать Jeremy Whiting <email
+>jpwhiting@kde.org</email
+>, 2007, Joshua Keel <email
+>joshuakeel@gmail.com</email
+> і &Danny.Allen; &Danny.Allen.mail;, 2005 </para>
+<para
+>Учасники розробки: </para>
+<itemizedlist>
+<listitem>
+<para
+>Звукові ефекти: Artemio <email
+>fillme</email
+> </para>
+</listitem>
+</itemizedlist>
+
+<para
+>Авторські права на документацію належать &Danny.Allen; &Danny.Allen.mail;, ©2005 </para>
+
+<para
+>Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet:noai
+-->

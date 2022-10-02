@@ -1,0 +1,641 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY kanagram "<application
+>Kanagram</application
+>">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Catalan  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kanagram" lang="&language;">
+
+<bookinfo>
+<title
+>El manual del &kanagram;</title>
+
+<authorgroup>
+<author
+><firstname
+>Danny</firstname
+> <surname
+>Allen</surname
+> <affiliation
+> <address
+>&Danny.Allen.mail;</address>
+</affiliation>
+</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<copyright>
+<year
+>2005</year>
+<holder
+>&Danny.Allen;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>21 de desembre de 2020</date>
+<releaseinfo
+>Aplicacions 20.12</releaseinfo>
+
+<abstract>
+<para
+>El &kanagram; porta la diversió dels trencaclosques d'anagrames al &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>Kanagram</keyword>
+<keyword
+>joc</keyword>
+<keyword
+>canalla</keyword>
+<keyword
+>anagrama</keyword>
+<keyword
+>paraules</keyword>
+<keyword
+>desordena</keyword>
+</keywordset>
+
+</bookinfo>
+<!--FIXME 
+Debjit Mondal "Show Wiki Content" (hidden -> crash?) https://debjitmondal.blogspot.com/
+Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com/2015/01/13/kanagram-is-now-2-player/
+Hide 'Say correct words' option if built without QtSpeech/Jovie
+-->
+<chapter id="introduction">
+<title
+>Introducció</title>
+
+<para
+>El &kanagram; és un joc basat en anagrames de paraules: el trencaclosques es resol quan les lletres desordenades de la paraula es tornen a col·locar en l'ordre correcte. No hi ha límit en el temps que us preneu, o el nombre d'intents per a resoldre la paraula. Inclosos amb el &kanagram; hi ha diversos vocabularis llestos per a jugar, amb molts més disponibles des d'Internet. </para>
+
+</chapter>
+
+
+<chapter id="using-kanagram">
+<title
+>Usar el &kanagram;</title>
+
+<para
+>Aquesta és la pantalla que es presenta a l'inici del &kanagram;, mostrant la interfície principal de l'aplicació. Gran part de la finestra està ocupada per la <interface
+>pissarra</interface
+>, on s'escriuen els trencaclosques, amb l'<interface
+>arxivador</interface
+> al costat dret contenint els controls de l'aplicació. </para>
+
+<screenshot>
+<screeninfo
+>Aquesta és la pantalla que es presenta a l'inici del &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Captura de pantalla del &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<orderedlist>
+<listitem>
+<para
+>El <interface
+>canviador de vocabulari</interface
+> (&PgUp; / &PgDn;) permet a l'usuari <action
+>canviar ràpidament el vocabulari actiu</action
+> fent clic sobre seu amb el &BER; sobre les fletxes <action
+>s'avançarà al vocabulari següent</action
+> o <action
+>es tornarà al vocabulari anterior</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Al centre de la <interface
+>pissarra</interface
+> hi ha el trencaclosques d'anagrama que cal resoldre. </para>
+</listitem>
+<listitem>
+<para
+>Aquest és el botó <guiicon
+>Inicia el temporitzador</guiicon
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+>), i permet <action
+>iniciar o aturar el temporitzador de la puntuació</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Quan es fa clic al botó <guibutton
+>Suggeriment</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+>), apareixerà una frase curta, <action
+>descrivint el trencaclosques de la paraula actual</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>El botó <guibutton
+>Mostra la paraula</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+>) <action
+>resol el trencaclosques de la paraula actual</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>El <interface
+>Quadre d'entrada</interface
+> permet <action
+>introduir els vostres intents</action
+> per a resoldre el trencaclosques de la paraula actual. </para>
+</listitem>
+<listitem>
+<para
+>El botó <interface
+>Anagrama següent</interface
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+>) permet canviar a la conjectura següent. </para>
+</listitem>
+<listitem>
+<para
+>Aquest és el botó <guiicon
+>Configura</guiicon
+>, el qual <action
+>obre el diàleg <guilabel
+>Configuració</guilabel
+> del &kanagram;</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>El botó <guiicon
+>Ajuda</guiicon
+> és especial, ja que <action
+>revela 3 subbotons</action
+>. Aquests botons es mostren quan es passa per sobre del botó <guiicon
+>Ajuda</guiicon
+>, i faciliten l'accés al <guilabel
+>Manual del &kanagram;</guilabel
+> (aquest document), els diàlegs <guilabel
+>Quant al &kanagram;</guilabel
+> i <guilabel
+>Quant al &kde;</guilabel
+>: <screenshot>
+<screeninfo
+>Els tres estats del botó <guiicon
+>Ajuda</guiicon
+></screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="helpstates.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Captura de pantalla del &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem>
+<para
+>Utilitzeu el botó <guiicon
+>Canvia el mode</guiicon
+> per a canviar entre els modes 1 i 2 jugadors. </para>
+</listitem>
+<listitem>
+<para
+>El botó <guiicon
+>Surt</guiicon
+> <action
+>tanca l'aplicació</action
+>. </para>
+</listitem>
+</orderedlist>
+
+<sect1 id="playing-game">
+<title
+>Jugar una partida</title>
+
+<para
+>Ara que esteu familiaritzat amb la interfície d'usuari del &kanagram;, podeu jugar una partida! </para>
+
+<procedure>
+<step>
+<para
+>Utilitzant el <interface
+>canviador de vocabulari</interface
+>, <action
+>seleccioneu el tema de vocabulari</action
+> que us agradaria intentar. Després es presentarà una paraula des d'aquest vocabulari al centre de la <interface
+>pissarra</interface
+>. Ara, mireu d'endevinar quina paraula representa les lletres barrejades. <tip>
+<para
+>Si no podeu endevinar quina paraula és, premeu el botó <guibutton
+>Suggeriment</guibutton
+> per a obtenir un consell d'amic des de l'<interface
+>arxivador</interface
+>: </para>
+<screenshot>
+<screeninfo
+>Consell del &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram-hint.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Consell del &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</tip>
+</para>
+</step>
+
+<step>
+<para
+>Quan creieu que coneixeu la resposta correcta, escriviu les lletres al <interface
+>Quadre d'entrada</interface
+> a sota de la <interface
+>pissarra</interface
+> o feu-hi clic amb el &BER; i les lletres es mouran avall en el quadre d'entrada. Si fos correcta, apareixerà el següent anagrama, si no totes les lletres saltaran de nou a la pissarra. </para>
+</step>
+</procedure>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuring">
+<title
+>Configurar el &kanagram;</title>
+
+<para
+>El diàleg <guilabel
+>Configuració</guilabel
+> s'obre fent clic al botó <guiicon
+>Configura</guiicon
+>: </para>
+
+<screenshot>
+<screeninfo
+>Configuració general del &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="general-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Configuració general del &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+
+<listitem>
+<para
+>La llista desplegable <guilabel
+>Oculta automàticament els suggeriments al cap de:</guilabel
+> permet especificar com es presentaran els suggeriments. Aquí, podreu configurar el text del suggeriment que desapareixerà després d'una certa quantitat de segons (&pex;, 5 segons), o ho podeu deixar com a predeterminat (<quote
+>No ocultis automàticament els suggeriments</quote
+>). </para>
+</listitem>
+
+<listitem>
+<para
+>Utilitzeu la llista desplegable <guilabel
+>Temps per a resoldre l'anagrama:</guilabel
+> per a especificar el temps en què haureu de resoldre cada trencaclosques. De manera predeterminada és <quote
+>Sense límit de temps</quote
+>. </para>
+</listitem>
+
+<listitem>
+<para
+>La llista desplegable <guilabel
+>Juga emprant:</guilabel
+> permet jugar al &kanagram; utilitzant vocabularis d'un idioma diferent. Perquè aquesta característica funcioni, haureu de tenir instal·lats els vocabularis per a un altre idioma. </para>
+</listitem>
+
+<listitem>
+<para
+>La llista desplegable <guilabel
+>Estableix un temporitzador amb finalitat de puntuació:</guilabel
+> permet establir en segons l'interval de temps del temporitzador per a fins de puntuació. </para>
+</listitem>
+
+<listitem>
+<para
+>La casella de selecció <guilabel
+>Configuració de la puntuació</guilabel
+> es pot utilitzar per a mostrar o ocultar les opcions per a configurar la puntuació de les respostes. </para>
+</listitem>
+
+<listitem>
+<para
+>La casella de selecció <guilabel
+>Empra els sons</guilabel
+> permet o suprimeix els efectes de so. </para>
+</listitem>
+
+<listitem>
+<para
+>La casella de selecció <guilabel
+>Només lletres majúscules</guilabel
+> permet canviar el &kanagram; al mode de només majúscules per a les paraules a la pissarra. </para>
+</listitem>
+
+<listitem>
+<para
+>La casella de selecció <guilabel
+>Pronuncia les paraules correctes</guilabel
+> permet activar o desactivar la pronunciació. Perquè aquesta opció funcioni, els fitxers d'àudio de les pronunciacions hauran d'estar inclosos dins del vocabulari que s'està reproduint o també haureu d'instal·lar el &jovie;. </para>
+</listitem>
+</itemizedlist>
+
+<sect1 id="vocabularies-config">
+<title
+>Vocabularis</title>
+
+<para
+>La pàgina de configuració <guilabel
+>Vocabularis</guilabel
+> permet gestionar els vocabularis instal·lats. Utilitzant aquest diàleg, podreu <action
+>editar</action
+> i <action
+>eliminar</action
+> els vocabularis descarregats, així com <action
+>crear</action
+> el vostre propi: </para>
+
+<screenshot>
+<screeninfo
+>Configuració del vocabulari al &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Configuració del vocabulari al &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>El botó <guibutton
+>Crea nou</guibutton
+> <action
+>obre el diàleg <link linkend="vocab-editor"
+><guilabel
+>Editor de vocabularis</guilabel
+></link
+></action
+>, per a crear els vostres propis vocabularis amb els quals podreu jugar després. </para>
+</listitem>
+<listitem>
+<para
+>El botó <guibutton
+>Edita</guibutton
+> permet <action
+>modificar els vocabularis que s'han creat o descarregat des d'Internet</action
+>. </para>
+</listitem>
+<!-- not in 4.5 listitem>
+<para>
+The <guibutton
+>Delete</guibutton
+> button allows you to <action
+>delete vocabularies that you have created or downloaded</action
+>.
+</para>
+</listitem-->
+<listitem>
+<para
+>Podeu seleccionar el vocabulari sobre el qual voleu aplicar aquestes accions utilitzant la <interface
+>llista de vocabularis</interface
+>. </para>
+</listitem>
+</itemizedlist>
+
+<sect2 id="vocab-editor">
+<title
+>Editor de vocabularis</title>
+
+<para
+>L'editor de vocabularis permet crear els vostres propis vocabularis, els quals podreu provar amb el &kanagram;: </para>
+
+<screenshot>
+<screeninfo
+><guilabel
+>Editor de vocabularis</guilabel
+> del &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-editor.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+><guilabel
+>Editor de vocabularis</guilabel
+> del &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>El camp <guilabel
+>Nom del vocabulari:</guilabel
+> permet <action
+>anomenar el vostre vocabulari</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>El camp <guilabel
+>Descripció:</guilabel
+> permet <action
+>explicar la idea sobre la qual tracta el vostre vocabulari</action
+>, de manera que l'usuari disposarà de més detalls sobre el contingut del vostre vocabulari. </para>
+<note>
+<para
+>Intenteu mantenir els camps nom i descripció tan curts com sigui possible. Els vocabularis efectius són petits, i s'enfoquen a un conjunt de paraules per a un sol tema. Mireu d'escriure com a mínim 20 paraules per al vostre vocabulari, de manera que no s'acabi ràpidament. </para>
+</note>
+</listitem>
+<listitem>
+<para
+>El botó <guibutton
+>Elimina la paraula</guibutton
+> permet <action
+>eliminar paraules del vostre vocabulari</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>El botó <guibutton
+>Paraula nova</guibutton
+> <action
+>crea una entrada de paraula nova al vostre vocabulari</action
+>, a punt per a ser utilitzada. </para>
+</listitem>
+<listitem>
+<para
+>El camp <guilabel
+>Paraula:</guilabel
+> permet <action
+>escriure valors de paraules al vostre vocabulari</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>El camp <guilabel
+>Suggeriment:</guilabel
+> permet <action
+>escriure els suggeriments que acompanyen les vostres paraules</action
+>. </para>
+<note>
+<para
+>Els bons suggeriments han de ser clars i descriure subtilment la paraula, amb l'objectiu de millorar el coneixement de l'usuari. També haureu d'assegurar-vos que els vostres suggeriments són ben curts (menys de 40 caràcters de longitud). </para>
+</note>
+</listitem>
+<listitem>
+<para
+>El botó <guibutton
+>Desa</guibutton
+>, <action
+>desarà el contingut del vostre vocabulari nou</action
+>, i permet la seva utilització directa al &kanagram; (estarà disponible immediatament a l'aplicació, podent-lo seleccionar mitjançant el <interface
+>selector de vocabulari</interface
+>). </para>
+</listitem>
+<listitem>
+<para
+>El botó <guibutton
+>Tanca</guibutton
+>, <action
+>tancarà el diàleg <guilabel
+>Editor de vocabularis</guilabel
+></action
+> sense desar el contingut del vostre vocabulari nou o modificat. </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
+</sect1>
+
+<sect1 id="newstuff">
+<title
+>Material nou</title>
+
+<para
+>El botó <guibutton
+>Descarrega un vocabulari nou</guibutton
+> a la pàgina de configuració <guilabel
+>Vocabularis</guilabel
+> permet obtenir fitxers de vocabulari nous des d'Internet: </para>
+
+<screenshot>
+<screeninfo
+>Diàleg de novetats candents al &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-dialog.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Diàleg de novetats candents al &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Per a instal·lar un vocabulari des d'Internet, feu clic sobre l'element de vocabulari a la llista, després premeu el botó <guibutton
+>Instal·la</guibutton
+> per a instal·lar-lo al vostre sistema. El vocabulari descarregat estarà immediatament disponible per a jugar. </para>
+<para
+>Si ja heu descarregat un vocabulari, aquest botó canviarà a <guibutton
+>Desinstal·la</guibutton
+>, el qual permetrà eliminar un vocabulari. </para>
+<para
+>Per a obtenir més informació sobre un vocabulari; com l'autor, una descripció sobre el contingut i la llista de canvis, premeu el botó <guibutton
+>Detalls</guibutton
+>. </para>
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Crèdits i llicència</title>
+
+<para
+>&kanagram; </para>
+<para
+>Copyright del programa 2007 Jeremy Whiting <email
+>jpwhiting@kde.org</email
+> 2005 Joshua Keel <email
+>joshuakeel@gmail.com</email
+> i &Danny.Allen; &Danny.Allen.mail; </para>
+<para
+>Col·laboradors: </para>
+<itemizedlist>
+<listitem>
+<para
+>Efectes de so: Artemio <email
+>ompliu-me</email
+> </para>
+</listitem>
+</itemizedlist>
+
+<para
+>Copyright de la documentació 2005 &Danny.Allen; &Danny.Allen.mail; </para>
+
+<para
+>Traductor/Revisor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet:noai
+-->

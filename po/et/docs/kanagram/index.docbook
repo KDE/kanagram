@@ -1,0 +1,727 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY kanagram "<application
+>Kanagram</application
+>">
+ <!ENTITY kappname "&kanagram;">
+ <!ENTITY package "kdeedu">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Estonian  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kanagram" lang="&language;">
+
+<bookinfo>
+<title
+>&kanagram;i käsiraamat</title>
+
+<authorgroup>
+<author
+><firstname
+>Danny</firstname
+> <surname
+>Allen</surname
+> <affiliation
+> <address
+>&Danny.Allen.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@starman.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2005</year>
+<holder
+>&Danny.Allen;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2014-06-28</date>
+<releaseinfo
+>0.2 (&kde; 4.14)</releaseinfo>
+
+<abstract>
+<para
+>&kanagram; kujutab endast &kde; lahedat sõnamõistatamismängu. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>Kanagram</keyword>
+<keyword
+>mäng</keyword>
+<keyword
+>laps</keyword>
+<keyword
+>anagramm</keyword>
+<keyword
+>sõnad</keyword>
+<keyword
+>segiajamine</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Sissejuhatus</title>
+
+<para
+>&kanagram; on sõnade anagrammidel põhinev mäng: äraarvamiseks pakutava sõna tähed aetakse segi ja sa pead nende põhjal välja nuputama õige sõna. Ajapiirangut ei ole, samuti võid pakkuda variante nii palju kordi, kui soovid. &kanagram;iga on kaasas mitu sõnastikku, veel rohkem leiab neid aga internetist. </para>
+
+</chapter>
+
+
+<chapter id="using-kanagram">
+<title
+>&kanagram;i kasutamine</title>
+
+<para
+>Selline näeb &kanagram; välja käivitamisel. Suurema osa aknast hõivab <interface
+>tahvel</interface
+>, kuhu on kirjutatud äraarvatava sõna segiaetud tähed, paremal aga paiknevad <interface
+>riiulid</interface
+>, kust saab rakendust juhtida: </para>
+
+<screenshot>
+<screeninfo
+>Selline näeb &kanagram; välja käivitamisel</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kanagram;i pilt</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<orderedlist>
+<listitem>
+<para
+><interface
+>Sõnastiku vahetaja</interface
+> võimaldab kiiresti <action
+>muuta aktiivset sõnastikku</action
+> lihtsalt sellele klõpsates: klõps &HVNga; <action
+>liigub järgmisele sõnastikule</action
+>, klõps &HPNga; aga võimaldab <action
+>naasta eelnevalt kasutatud sõnastiku juurde</action
+>. </para>
+</listitem>
+<listitem>
+<para
+><interface
+>Tahvli</interface
+> keskel on segiaetud tähtedega sõna, mis sul tuleb ära arvata. </para>
+</listitem>
+<listitem>
+<para
+>Nupuga <guiicon
+>Käivita/Peata taimer</guiicon
+> saab vastavalt <action
+>käima panna või peatada skooritaimeri</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Klõpsuga nupule <guibutton
+>Vihje</guibutton
+> näeb lühikest lauset, mis <action
+>kirjeldab äraarvatavat sõna</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Klõps nupule <guibutton
+>Näita sõna</guibutton
+> <action
+>lahendab mõistatuse</action
+>. </para>
+</listitem>
+<listitem>
+<para
+><interface
+>Sisestamiskast</interface
+> on koht, kuhu saad <action
+>kirjutada oma sõna</action
+>, mis sinu arvates peaks sobima anagrammi äraarvamiseks. </para>
+</listitem>
+<listitem>
+<para
+>Nupp <interface
+>Sisesta</interface
+> võimaldab <action
+>kontrollida vastuse õigsust</action
+>. Sama tulemuse annab klahvi &Enter; vajutamine. </para>
+</listitem>
+<listitem>
+<para
+>Nupp <guiicon
+>Seadista</guiicon
+> <action
+>avab &kanagram;i <guilabel
+>seadistamise</guilabel
+> dialoogi</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Nupp <guiicon
+>Abi</guiicon
+> on eriline selles mõttes, et selle sees <action
+>on 3 nuppu</action
+>. Neid näeb siis, kui hiir nupu <guiicon
+>Abi</guiicon
+> kohale hetkeks seisma jätta, ning nendega saab avada järgmised abivahendid: <guilabel
+>&kanagram;i käsiraamat</guilabel
+> (seesama, mida sa praegu loed), <guilabel
+>&kanagram;i info</guilabel
+> ja <guilabel
+>&kde; info</guilabel
+>: <screenshot>
+<screeninfo
+>Nupu <guiicon
+>Abi</guiicon
+> kolm erinevat võimalust</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="helpstates.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kanagram;i pilt</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem>
+<para
+>Nupp <guiicon
+>Välju</guiicon
+> <action
+>lõpetab rakenduse töö</action
+>. </para>
+</listitem>
+</orderedlist>
+
+<sect1 id="playing-game">
+<title
+>Mängimine</title>
+
+<para
+>&kanagram;i väljanägemine on nüüd sulle tuttav, nii et hakkame mängima! </para>
+
+<procedure>
+<step>
+<para
+><interface
+>Sõnastiku vahetaja</interface
+> abil <action
+>vali sõnavarateema</action
+>, mille sõnu soovid hakata ära arvama. Sõnastikus leiduvat sõna näidatakse <interface
+>tahvli</interface
+> keskel. Nüüd ürita lihtsalt tähtedest õige sõna kokku panna. <tip>
+<para
+>Kui sul ei teki ainsatki mõtet, mis sõnaga võiks tegemist olla, klõpsa nupule <guibutton
+>Vihje</guibutton
+>, misjärel näed <interface
+>riiulis</interface
+> äraarvatava sõna lühikest kirjeldust: </para>
+<screenshot>
+<screeninfo
+>&kanagram;i vihje</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram-hint.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kanagram;i vihje</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</tip>
+</para>
+</step>
+
+<step>
+<para
+>Kui arvad, et tead õiget vastust, kirjuta see <interface
+>sisestamiskasti</interface
+>, mis asub <interface
+>tahvli</interface
+> all. Seejärel vajuta klahvi &Enter; või <interface
+>sisestamiskastist</interface
+> paremal paiknevale nupule <interface
+>Sisesta</interface
+>, et kontrollida oma vastuse õigsust: see <action
+>muutub roheliseks õige</action
+> ja <action
+>punaseks vale vastuse korral</action
+>: </para>
+
+<screenshot>
+<screeninfo
+>esiletõstetud vastus</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="answer-highlight.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>esiletõstetud vastus</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</step>
+
+<step>
+<para
+>Kui arvasid õigesti, võid asuda järgmise sõna nuputamise kallale! Kui aga soovid, võid valida ka mõne muu sõnastiku, mida &kanagram; pakub. </para>
+</step>
+</procedure>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuring">
+<title
+>&kanagram;i seadistamine</title>
+
+<para
+><guilabel
+>Seadistamis</guilabel
+>dialoogi saab avada klõpsuga nupule <guiicon
+>Seadista</guiicon
+>: </para>
+
+<screenshot>
+<screeninfo
+>&kanagram;i üldised seadistused</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="general-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kanagram;i üldised seadistused</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+
+<listitem>
+<para
+><guilabel
+>Vihjeid näidatakse:</guilabel
+> <interface
+>hüpikkast</interface
+> võimaldab määrata, kuidas sulle vihjeid näidatakse: vihjekasti võib panna kaduma teatud arvu sekundite pärast (&eg; 5 sekundit) või siis jätta kehtima vaikeväärtuse (<quote
+>Vihjeid ei peideta automaatselt</quote
+>). </para>
+</listitem>
+
+<listitem>
+<para
+>Rippmenüüga <guilabel
+>Anagrammi lahendamise aeg</guilabel
+> saab määrata iga mõistatuse lahendamiseks ettenähtud aja. Vaikimisi kehtib valik <quote
+>Ajapiirang puudub</quote
+>. </para>
+</listitem>
+
+<listitem>
+<para
+><interface
+>Hüpikkast</interface
+> <guilabel
+>Kasutatav keel</guilabel
+> võimaldab &kanagram;is kasutada erinevate keelte sõnastikke. Et seda võimalust pruukida, peab sul olema paigaldatud mitme keele sõnastikke. </para>
+</listitem>
+
+<listitem>
+<para
+>Rippmenüüs <guilabel
+>Taimer skoori arvestamiseks</guilabel
+> saab määrata sekundites skooritaimeri intervalli. </para>
+</listitem>
+
+<listitem>
+<para
+>Kastikese <guilabel
+>Muud seadistused</guilabel
+> märkimisel ilmuvad nähtavale valikud, millega saab täpsustada skoori arvestamise võimalusi. </para>
+</listitem>
+
+<listitem>
+<para
+>Märkekast <guilabel
+>Helide kasutamine</guilabel
+> võimaldab &kanagram;i heliefektid sisse või välja lülitada. </para>
+</listitem>
+
+<listitem>
+<para
+>Märkekast <guilabel
+>Ainult suurtähed</guilabel
+> võimaldab lülitada &kanagram;i režiimi, kus tahvlil näidatavate sõnade puhul kasutatakse ainult suurtähti. </para>
+</listitem>
+
+<listitem>
+<para
+>Märkekast <guilabel
+>Õigete sõnade väljaütlemine</guilabel
+> võimaldab sõnade kõnelemise sisse või välja lülitada. Hääldamise helifailid peavad olema esitatava sõnastikuga kaasas või siis tuleb paigaldada ja seadistada &jovie;. </para>
+</listitem>
+</itemizedlist>
+
+<sect1 id="vocabularies-config">
+<title
+>Sõnastikud</title>
+
+<para
+>Seadistustekaart <guilabel
+>Sõnastikud</guilabel
+> võimaldab hallata paigaldatud sõnastikke. Selles dialoogis saab allalaaditud sõnastikke <action
+>muuta</action
+> ja <action
+>eemaldada</action
+>, samuti <action
+>luua</action
+> omaenda sõnastikke: </para>
+
+<screenshot>
+<screeninfo
+>&kanagram;i sõnastikuseadistused</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kanagram;i sõnastikuseadistused</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Klõps nupule <guibutton
+>Loo uus</guibutton
+> <action
+>avab <link linkend="vocab-editor"
+><guilabel
+>sõnastikuredaktori</guilabel
+></link
+>i</action
+>, kus saad luua omaenda sõnastiku, mille sõnu seejärel ära arvama asuda. </para>
+</listitem>
+<listitem>
+<para
+>Nupuga <guibutton
+>Muuda</guibutton
+> saab <action
+>muuta sõnastikke, mille oled ise loonud või internetist tõmmanud</action
+>. </para>
+</listitem>
+<!-- not in 4.5 listitem>
+<para>
+The <guibutton
+>Delete</guibutton
+> button allows you to <action
+>delete vocabularies that you have created or downloaded</action
+>.
+</para>
+</listitem-->
+<listitem>
+<para
+>Seda, millise sõnastikuga mainitud toiminguid ette võtta, saab valida <interface
+>sõnastike nimekirjast</interface
+>. </para>
+</listitem>
+</itemizedlist>
+
+<sect2 id="vocab-editor">
+<title
+>Sõnastikuredaktor</title>
+
+<para
+>Sõnastikuredaktor võimaldab luua omaenda sõnastikke, mida &kanagram; seejärel laseb sul läbi mängida: </para>
+
+<screenshot>
+<screeninfo
+>&kanagram;i <guilabel
+>sõnastikuredaktor</guilabel
+></screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-editor.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kanagram;i <guilabel
+>sõnastikuredaktor</guilabel
+></phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Väljale <guilabel
+>Sõnastiku nimi</guilabel
+> saad <action
+>kirjutada sõnastiku nime</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Väljal <guilabel
+>Kirjeldus</guilabel
+> saad <action
+>laiendada sõnastiku nime</action
+>, andes selle kasutajatele rohkem infot sõnastiku sisu kohta. </para>
+<note>
+<para
+>Proovi jätta nii nimi kui kirjeldus võimalikult lühikeseks. Head sõnastikud sisaldavad üsna kitsalt konkreetse teemaga määratletud sõnu. Ürita sõnastikku lisada vähemalt 20 sõna, et selle läbimängimine liiga kiiresti ei läheks. </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Nupp <guibutton
+>Eemalda sõna</guibutton
+> võimaldab <action
+>eemaldada sõna sõnastikust</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Nupp <guibutton
+>Uus sõna</guibutton
+> <action
+>loob sõnastikku uue kirje ehk sõna</action
+>, mida saad seejärel täpsustada. </para>
+</listitem>
+<listitem>
+<para
+>Väljale <guilabel
+>Sõna</guilabel
+> saad <action
+>kirjutada sõna enda</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Väljale <guilabel
+>Vihje</guilabel
+> saad <action
+>kirjutada sõnaga kaasneva vihje</action
+>. </para>
+<note>
+<para
+>Head vihjed on sellised, mis iseloomustavad sõna ühemõtteliselt, kuid jätavad siiski mõtlemisruumi ja ühtlasi laiendavad teadmisi antud sõna kohta. Ka vihjed peaksid olema suhteliselt lühikesed (mitte pikemad kui 40 tähemärki). </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Nupp <guibutton
+>Salvesta</guibutton
+> <action
+>salvestab sõnastiku</action
+> ja võimaldab &kanagram;il seda kohe kasutama hakata (seda saab kohe hakata kasutama <interface
+>sõnastiku valija</interface
+> abil). </para>
+</listitem>
+<listitem>
+<para
+>Nupp <guibutton
+>Sulge</guibutton
+> <action
+>sulgeb <guilabel
+>sõnastikuredaktori</guilabel
+></action
+> ilma sõnastiku sisu salvestamata. </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
+</sect1>
+
+<sect1 id="shortcuts-config">
+<title
+>Kiirklahvid</title>
+
+<para
+>Kaardil <guilabel
+>Kiirklahv</guilabel
+> saab omistada &kanagram;i toimingutele kiirklahve ning seadistada juba omistatud kiirklahve.</para>
+
+<screenshot>
+<screeninfo
+>&kanagram;i kiirklahvide seadistused</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="shortcuts-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kanagram;i kiirklahvide seadistused</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="newstuff-config">
+<title
+>Uus kraam</title>
+
+<para
+>Nupp <guibutton
+>Laadi alla uus sõnaraamat</guibutton
+> kaardil <guilabel
+>Sõnaraamatud</guilabel
+> võimaldab uusi sõnastikefaile internetist hankida: </para>
+
+<screenshot>
+<screeninfo
+>&kanagram;i uue kraami seadistused</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kanagram;i uue kraami seadistused</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Klõpsuga nupule <guibutton
+>Laadi alla uus sõnaraamat</guibutton
+> saad uurida, millised sõnastikud on saadaval: </para>
+
+<screenshot>
+<screeninfo
+>&kanagram;i uue kraami dialoog</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-dialog.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kanagram;i uue kraami dialoog</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Sõnastiku paigaldamiseks internetist klõpsa nimekirjas huvipakkuval sõnastikul ja vajuta seejärel nuppu <guibutton
+>Paigalda</guibutton
+>. Tõmmatud ja paigaldatud sõnastikku saab otsekohe kasutama hakata. </para>
+<para
+>Kui oled juba mõne sõnastiku alla laadinud, võtab see nupp kuju <guibutton
+>Eemalda</guibutton
+>, millega saab sõnastiku eemaldada. </para>
+<para
+>Täpsemat teavet sõnastiku kohta, näiteks autori, sisu kirjelduse ja muudatuste logi, annab klõps nupule <guibutton
+>Üksikasjad</guibutton
+>. </para>
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Autorid ja litsents</title>
+
+<para
+>&kanagram; </para>
+<para
+>Rakenduse autoriõigus 2007: Jeremy Whiting <email
+>jpwhiting@kde.org</email
+>, 2005: Joshua Keel <email
+>joshuakeel@gmail.com</email
+> ja &Danny.Allen; &Danny.Allen.mail; </para>
+<para
+>Kaasautorid: </para>
+<itemizedlist>
+<listitem>
+<para
+>Heliefektid: Artemio <email
+>fillme</email
+> </para>
+</listitem>
+</itemizedlist>
+
+<para
+>Dokumentatsiooni autoriõigus 2005: &Danny.Allen; &Danny.Allen.mail; </para>
+
+<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@smail.ee</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+
+<appendix id="installation">
+<title
+>Paigaldamine</title>
+
+<sect1 id="getting-kanagram">
+<title
+>&kanagram;i hankimine</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>Kompileerimine ja paigaldamine</title>
+&install.compile.documentation; </sect1>
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet:noai
+-->

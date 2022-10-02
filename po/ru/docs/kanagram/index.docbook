@@ -1,0 +1,684 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY kanagram "<application
+>Kanagram</application
+>">
+ <!ENTITY kappname "&kanagram;">
+ <!ENTITY package "kdeedu">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Russian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kanagram" lang="&language;">
+
+<bookinfo>
+<title
+>Руководство пользователя &kanagram;</title>
+
+<authorgroup>
+<author
+><firstname
+>Danny</firstname
+> <surname
+>Allen</surname
+> <affiliation
+> <address
+>&Danny.Allen.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Стас</firstname
+><surname
+>Иванов</surname
+> <affiliation
+><address
+><email
+>f0ma@smtp.ru</email
+></address
+></affiliation
+> <contrib
+>Перевод на русский язык</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Олеся</firstname
+><surname
+>Герасименко</surname
+> <affiliation
+><address
+><email
+>gammaray@basealt.ru</email
+></address
+></affiliation
+> <contrib
+>Перевод на русский язык</contrib
+> </othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2005</year>
+<holder
+>&Danny.Allen;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>27 апреля 2016 г.</date>
+<releaseinfo
+>1.2 (Приложения 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&kanagram; — весёлая игра по разгадыванию словесных ребусов (анаграмм) от &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>Kanagram</keyword>
+<keyword
+>игра</keyword>
+<keyword
+>детская</keyword>
+<keyword
+>анаграмма</keyword>
+<keyword
+>слова</keyword>
+<keyword
+>вперемежку</keyword>
+</keywordset>
+
+</bookinfo>
+<!--FIXME 
+Debjit Mondal "Show Wiki Content" (hidden -> crash?) http://debjitmondal.blogspot.de/
+Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com/2015/01/13/kanagram-is-now-2-player/
+Hide 'Say correct words' option if built without QtSpeech/Jovie
+-->
+<chapter id="introduction">
+<title
+>Введение</title>
+
+<para
+>Игроку предлагается набор букв в произвольном порядке, из которого он должен составить слово. Задание даётся без ограничения по времени и числу попыток. Несколько словарей уже встроено в &kanagram;. Дополнительные словари возможно автоматически загрузить через Интернет или создать самостоятельно. </para>
+
+</chapter>
+
+
+<chapter id="using-kanagram">
+<title
+>Использование &kanagram;</title>
+
+<para
+>Так выглядит окно игры сразу после запуска &kanagram;. Большую часть экрана занимает <interface
+>доска</interface
+>, на ней показываются анаграммы. Справа расположена <interface
+>картотека</interface
+>, содержащая элементы управления игрой. </para>
+
+<screenshot>
+<screeninfo
+>Так выглядит окно игры сразу после запуска &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Снимок экрана &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<orderedlist>
+<listitem>
+<para
+><interface
+>Переключатель словарей</interface
+> (<keysym
+>PgUp</keysym
+> / <keysym
+>PgDown</keysym
+>) позволяет быстро <action
+>сменить текущий словарь</action
+>, щёлкнув левой кнопкой мыши по соответствующей стрелке для <action
+>перехода к следующему</action
+> или <action
+>возврата к предыдущему словарю</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Анаграммы показываются в центре <interface
+>доски</interface
+>. </para>
+</listitem>
+<listitem>
+<para
+>Кнопка <guiicon
+>Запустить таймер</guiicon
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+>) позволяет <action
+>запускать или останавливать таймер для начисления очков</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>При нажатии кнопки <guibutton
+>Показать подсказку</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+>) <action
+>показывается краткое описание загаданного слова</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>При нажатии кнопки <guibutton
+>Показать ответ</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+>) <action
+>показывается разгадка анаграммы</action
+>. </para>
+</listitem>
+<listitem>
+<para
+><interface
+>Поле ввода</interface
+> служит для <action
+>ввода ответа</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>При нажатии кнопки <interface
+>Следующая анаграмма</interface
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+>) показывается следующее загаданное слово. </para>
+</listitem>
+<listitem>
+<para
+>Это кнопка <guiicon
+>Настроить</guiicon
+>. При нажатии этой кнопки <action
+>открывается диалоговое окно <guilabel
+>Настройка</guilabel
+> программы &kanagram;</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Кнопка <guiicon
+>Справка</guiicon
+> <action
+>открывает меню из 3 дополнительных кнопок</action
+>: <guilabel
+>Руководство пользователя &kanagram;</guilabel
+> (настоящий документ), <guilabel
+>О программе</guilabel
+> и <guilabel
+>О &kde;</guilabel
+>. <screenshot>
+<screeninfo
+>Три различных состояния кнопки <guiicon
+>Справка</guiicon
+></screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="helpstates.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Снимок экрана &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem>
+<para
+>Кнопка <guiicon
+>Сменить режим</guiicon
+> предназначена для переключения между режимами игры для одного и двух игроков. </para>
+</listitem>
+<listitem>
+<para
+>Кнопка <guiicon
+>Выход</guiicon
+> <action
+>завершает работу приложения</action
+>. </para>
+</listitem>
+</orderedlist>
+
+<sect1 id="playing-game">
+<title
+>Игровой процесс</title>
+
+<para
+>Знакомство с интерфейсом &kanagram; завершено, теперь начнём игру! </para>
+
+<procedure>
+<step>
+<para
+>При помощи <interface
+>Переключателя словарей</interface
+> <action
+>выберите тот тематический словарь</action
+>, из которого будут браться слова. Слово из этого словаря появится в середине <interface
+>доски</interface
+>, но порядок букв в нём будет перепутан. Теперь попытайтесь определить, что же это за слово. <tip>
+<para
+>Если не удаётся найти разгадку анаграммы, нажмите кнопку <guibutton
+>Показать подсказку</guibutton
+>. Будет показан совет из <interface
+>картотеки</interface
+>: </para>
+<screenshot>
+<screeninfo
+>Подсказка &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram-hint.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Подсказка &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</tip>
+</para>
+</step>
+
+<step>
+<para
+>Если правильный ответ найден, введите буквы в <interface
+>Поле ввода</interface
+>, расположенное под <interface
+>доской</interface
+>, или последовательно щёлкните их левой кнопкой мыши (тогда буквы переместятся в поле ввода). Если слово разгадано, появится следующая анаграмма. Если нет — буквы вернутся обратно на доску. </para>
+</step>
+</procedure>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuring">
+<title
+>Настройка &kanagram;</title>
+
+<para
+>Нажатие кнопки <guiicon
+>Настроить</guiicon
+> открывает диалоговое окно <guilabel
+>Настройка</guilabel
+>: </para>
+
+<screenshot>
+<screeninfo
+>Основные параметры &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="general-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Основные параметры &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+
+<listitem>
+<para
+>Раскрывающийся список <guilabel
+>Показывать подсказку</guilabel
+> позволяет установить время, в течение которого будет видна подсказка. Возможно выбрать вариант скрытия подсказки через определённое количество секунд (например, 5 секунд), или оставить значение по умолчанию (<quote
+>Всегда</quote
+>), тогда подсказка не будет автоматически скрываться. </para>
+</listitem>
+
+<listitem>
+<para
+>При помощи раскрывающегося списка <guilabel
+>Время на решение анаграммы</guilabel
+> возможно установить время на разгадывание каждого слова. По умолчанию установлено значение <quote
+>Без ограничения по времени</quote
+>. </para>
+</listitem>
+
+<listitem>
+<para
+>Раскрывающийся список <guilabel
+>Язык словарей</guilabel
+> позволяет играть, используя словари на разных языках. Чтобы эта функция работала, должны быть установлены соответствующие словари. </para>
+</listitem>
+
+<listitem>
+<para
+>При помощи раскрывающегося списка <guilabel
+>Установить таймер для начисления очков</guilabel
+> возможно установить интервал срабатывания таймера (в секундах). </para>
+</listitem>
+
+<listitem>
+<para
+>Флажок <guilabel
+>Параметры начисления очков</guilabel
+> позволяет показать или скрыть параметры настройки начисления очков за ответы. </para>
+</listitem>
+
+<listitem>
+<para
+>Флажок <guilabel
+>Звуковые эффекты</guilabel
+> позволяет включить или отключить звуковое сопровождение &kanagram;. </para>
+</listitem>
+
+<listitem>
+<para
+>Флажок <guilabel
+>Только прописные буквы</guilabel
+> позволяет переключить &kanagram; в режим показа прописных букв на доске. </para>
+</listitem>
+
+<listitem>
+<para
+>Флажок <guilabel
+>Произносить правильные ответы</guilabel
+> позволяет включить или отключить произношение ответов. Для работы этого параметра необходимо, чтобы в используемом словаре содержались соответствующие аудиофайлы (либо следует установить и настроить &jovie;). </para>
+</listitem>
+</itemizedlist>
+
+<sect1 id="vocabularies-config">
+<title
+>Словари</title>
+
+<para
+>Страница диалогового окна настройки <guilabel
+>Словари</guilabel
+> позволяет управлять установленными словарями: возможно <action
+>изменять</action
+> и <action
+>удалять</action
+> загруженные из Интернета словари, а также <action
+>создавать</action
+> новые: </para>
+
+<screenshot>
+<screeninfo
+>Параметры словарей &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Параметры словарей &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Кнопка <guibutton
+>Создать</guibutton
+> <action
+>открывает диалоговое окно <link linkend="vocab-editor"
+><guilabel
+>Редактор словаря</guilabel
+></link
+></action
+> для создания и редактирования нового словаря &kanagram;. </para>
+</listitem>
+<listitem>
+<para
+>Кнопка <guibutton
+>Изменить</guibutton
+> предоставляет возможность <action
+>вносить изменения</action
+> в созданные пользователем или загруженные из Интернета словари. </para>
+</listitem>
+<!-- not in 4.5 listitem>
+<para>
+The <guibutton
+>Delete</guibutton
+> button allows you to <action
+>delete vocabularies that you have created or downloaded</action
+>.
+</para>
+</listitem-->
+<listitem>
+<para
+>Выберите словарь, в который следует внести изменения, в <interface
+>списке словарей</interface
+>. </para>
+</listitem>
+</itemizedlist>
+
+<sect2 id="vocab-editor">
+<title
+>Редактор словаря</title>
+
+<para
+>Редактор словаря позволяет создавать и вносить изменения в словари &kanagram;: </para>
+
+<screenshot>
+<screeninfo
+><guilabel
+>Редактор словаря</guilabel
+> &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-editor.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+><guilabel
+>Редактор словаря</guilabel
+> &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Поле <guilabel
+>Название словаря</guilabel
+> предназначено для <action
+>указания имени создаваемого словаря</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Поле <guilabel
+>Описание</guilabel
+> предназначено для <action
+>создания комментария к словарю</action
+>: здесь возможно указать дополнительные сведения о содержании словаря. </para>
+<note>
+<para
+>Делайте имя и описание словаря максимально короткими. Хороший словарь должен быть посвящён одной теме. Попробуйте включить в словарь хотя бы 20 слов, чтобы игрок не проходил его слишком быстро. </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Кнопка <guibutton
+>Удалить слово</guibutton
+> служит для <action
+>удаления слова из словаря</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Кнопка <guibutton
+>Добавить слово</guibutton
+> служит для <action
+>создания нового слова</action
+>, она позволяет расширить словарь. </para>
+</listitem>
+<listitem>
+<para
+>Поле <guilabel
+>Слово</guilabel
+> предназначено для <action
+>ввода слова, которое будет добавлено в словарь</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Поле <guilabel
+>Подсказка</guilabel
+> предназначено для <action
+>ввода фразы, которая будет служить подсказкой для добавляемого слова</action
+>. </para>
+<note>
+<para
+>Хорошая подсказка ясно описывает суть слова, сообщая какой-либо связанный с ним интересный факт, но не делает разгадку слишком явной. Также она должна быть достаточно короткой (до 40 символов). </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Нажатие кнопки <guibutton
+>Сохранить</guibutton
+> <action
+>сохраняет изменения в словаре</action
+> и делает его доступным в <interface
+>списке словарей</interface
+> &kanagram; (словарь сразу появится в <interface
+>списке словарей</interface
+> и станет доступен для выбора в <interface
+>переключателе словарей</interface
+>). </para>
+</listitem>
+<listitem>
+<para
+>Нажатие кнопки <guibutton
+>Закрыть</guibutton
+> <action
+>закрывает диалоговое окно <guilabel
+>Редактор словаря</guilabel
+></action
+> без сохранения изменений в словаре. </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
+</sect1>
+
+<sect1 id="newstuff">
+<title
+>Загрузка словарей</title>
+
+<para
+>Кнопка <guilabel
+>Загрузить новые словари...</guilabel
+> на странице настройки <guilabel
+>Словари</guilabel
+> предоставляет доступ к функции автоматической загрузки словарей из Интернета: </para>
+
+<screenshot>
+<screeninfo
+>Диалоговое окно «Загрузка материалов из Интернета» в &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-dialog.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Диалоговое окно «Загрузка материалов из Интернета» в &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Чтобы установить словарь из Интернета, выберите его в списке и нажмите кнопку <guibutton
+>Установить</guibutton
+>. Сразу после загрузки словарь станет доступен в игре. </para>
+<para
+>Если словарь уже был загружен, эта кнопка будет называться <guibutton
+>Удалить</guibutton
+> (соответственно, она позволит удалить загруженный словарь). </para>
+<para
+>Для получения дополнительных сведений о словаре (например, автор, описание содержания словаря и журнал изменений) нажмите кнопку <guibutton
+>Сведения</guibutton
+>. </para>
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Авторские права и лицензия</title>
+
+<para
+>&kanagram; </para>
+<para
+>&copy; Jeremy Whiting <email
+>jpwhiting@kde.org</email
+>, разработка, 2007 &copy; Joshua Keel <email
+>joshuakeel@gmail.com</email
+> и &Danny.Allen; &Danny.Allen.mail;, разработка, 2005 </para>
+<para
+>Участники проекта: </para>
+<itemizedlist>
+<listitem>
+<para
+>Звуковые эффекты: Artemio <email
+>fillme</email
+> </para>
+</listitem>
+</itemizedlist>
+
+<para
+>&copy; &Danny.Allen; &Danny.Allen.mail;, документация, 2005 </para>
+
+<para
+>Перевод на русский язык: Иванов Стас <email
+>f0ma@smtp.ru</email
+></para
+> <para
+>Перевод на русский язык: Олеся Герасименко <email
+>gammaray@basealt.ru</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet:noai
+-->

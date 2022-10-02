@@ -1,0 +1,661 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY kanagram "<application
+>Kanagram</application
+>">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Swedish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kanagram" lang="&language;">
+
+<bookinfo>
+<title
+>Handbok &kanagram;</title>
+
+<authorgroup>
+<author
+><firstname
+>Danny</firstname
+> <surname
+>Allen</surname
+> <affiliation
+> <address
+>&Danny.Allen.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2005</year>
+<holder
+>&Danny.Allen;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2020-12-21</date>
+<releaseinfo
+>Program 20.12</releaseinfo>
+
+<abstract>
+<para
+>Programmet &kanagram; bringar roliga anagrampussel till &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>Kanagram</keyword>
+<keyword
+>spel</keyword>
+<keyword
+>barn</keyword>
+<keyword
+>anagram</keyword>
+<keyword
+>ord</keyword>
+<keyword
+>tilltrasslade</keyword>
+</keywordset>
+
+</bookinfo>
+<!--FIXME 
+Debjit Mondal "Show Wiki Content" (hidden -> crash?) https://debjitmondal.blogspot.com/
+Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com/2015/01/13/kanagram-is-now-2-player/
+Hide 'Say correct words' option if built without QtSpeech/Jovie
+-->
+<chapter id="introduction">
+<title
+>Inledning</title>
+
+<para
+>&kanagram; är ett spel baserat på anagram av ord: pusslet är löst när bokstäverna i det hopblandade ordet är placerade i rätt ordning. Det finns varken någon gräns för hur lång tid det får ta, eller hur många försök som får göras för att lösa ordet. Flera ordförråd ingår i &kanagram;, klara att spela med, och många fler är tillgängliga via Internet. </para>
+
+</chapter>
+
+
+<chapter id="using-kanagram">
+<title
+>Använda &kanagram;</title>
+
+<para
+>Här är skärmen som presenteras vid start av &kanagram;, där programmets huvudgränssnitt visas. En stor del av fönstret upptas av <interface
+>svarta tavlan</interface
+>, där pusslet är skrivet, med <interface
+>arkivskåpet</interface
+> till höger som innehåller programmets styrning. </para>
+
+<screenshot>
+<screeninfo
+>Här är skärmen som visas vid start av &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Skärmbild av &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<orderedlist>
+<listitem>
+<para
+><interface
+>Ordförrådsväxlaren</interface
+> (<keysym
+>Page Up</keysym
+> och <keysym
+>Page Down</keysym
+>) låter användaren snabbt <action
+>ändra det aktiva ordförrådet</action
+> genom att klicka med vänster musknapp på pilarna för att <action
+>går vidare till nästa ordförråd</action
+> eller <action
+>återgå till ordförrådet som tidigare spelades</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>I mitten av <interface
+>svarta tavlan</interface
+> finns anagrampusslet som ska lösas. </para>
+</listitem>
+<listitem>
+<para
+>Detta är knappen <guiicon
+>Starta tidtagning</guiicon
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+>) som låter dig <action
+>starta eller stoppa poängtidtagningen</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>När knappen <guibutton
+>Tips</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+>) klickas, visas en kort mening, som <action
+>beskriver det nuvarande ordpusslet</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Knappen <guibutton
+>Avslöja ord</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+>) <action
+>löser det nuvarande ordpusslet</action
+>. </para>
+</listitem>
+<listitem>
+<para
+><interface
+>Inmatningsrutan</interface
+> låter dig <action
+>mata in dina försök</action
+> att lösa det nuvarande ordpusslet. </para>
+</listitem>
+<listitem>
+<para
+>Knappen <interface
+>Nästa anagram</interface
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+>) låter dig gå till nästa gissning. </para>
+</listitem>
+<listitem>
+<para
+>Detta är knappen <guiicon
+>Anpassa</guiicon
+> som <action
+>öppnar dialogrutan <guilabel
+>Anpassa</guilabel
+> &kanagram;</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Knappen <guiicon
+>Hjälp</guiicon
+> är speciell, eftersom den <action
+>avslöjar tre andra knappar</action
+>. Dessa knappar visas när musen hålls över knappen <guiicon
+>Hjälp</guiicon
+>, och ger möjlighet att komma åt <guilabel
+>Handbok &kanagram;</guilabel
+> (det här dokumentet), och dialogrutorna <guilabel
+>Om &kanagram;</guilabel
+> och <guilabel
+>Om &kde;</guilabel
+>: <screenshot>
+<screeninfo
+>De tre olika tillstånden hos knappen <guiicon
+>Hjälp</guiicon
+></screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="helpstates.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Skärmbild av &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem>
+<para
+>Använd knappen <guiicon
+>Ändra spelare</guiicon
+> för att byta mellan en eller två spelare. </para>
+</listitem>
+<listitem>
+<para
+>Knappen <guiicon
+>Avsluta</guiicon
+> <action
+>stänger programmet</action
+>. </para>
+</listitem>
+</orderedlist>
+
+<sect1 id="playing-game">
+<title
+>Spela ett spel</title>
+
+<para
+>Nu när du är bekant med &kanagram;s gränssnitt, låt oss spela ett spel! </para>
+
+<procedure>
+<step>
+<para
+><action
+>Välj ordförrådstemat</action
+> du vill försöka med genom att använda <interface
+>Ordförrådsväxlaren</interface
+>. Ett ord från detta ordförråd visas då i mitten av <interface
+>svarta tavlan</interface
+>. Försök nu att gissa vilket ord som de hopblandade bokstäverna representerar. <tip>
+<para
+>Om du inte kan gissa vad ordet är, klicka på knappen <guibutton
+>Tips</guibutton
+> för att få ett vänligt råd från din vän i <interface
+>arkivskåpet</interface
+>: </para>
+<screenshot>
+<screeninfo
+>&kanagram; tips</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram-hint.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kanagram; tips</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</tip>
+</para>
+</step>
+
+<step>
+<para
+>När du tror att du kan rätt svar, skriv in bokstäverna i <interface
+>inmatningsrutan</interface
+> under <interface
+>svarta tavlan</interface
+>, eller klicka på dem med vänster musknapp så flyttas bokstäverna ner till inmatningsrutan. Om du har rätt visas nästa anagram, annars hoppar alla bokstäver tillbaka till svarta tavlan. </para>
+</step>
+</procedure>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuring">
+<title
+>Anpassa &kanagram;</title>
+
+<para
+>Dialogrutan <guilabel
+>Anpassa</guilabel
+> visas genom att klicka på knappen <guiicon
+>Anpassa</guiicon
+>: </para>
+
+<screenshot>
+<screeninfo
+>Allmänna inställningar i &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="general-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Allmänna inställningar i &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+
+<listitem>
+<para
+>Kombinationsrutan <guilabel
+>Dölj tips automatiskt efter:</guilabel
+> låter dig ange hur tips visas för dig. Här kan du ställa in att tipsrutan försvinner efter ett visst antal sekunder (t.ex. 5 sekunder), eller kan du lämna den som förvald (<quote
+>Dölj inte tips automatiskt</quote
+>). </para>
+</listitem>
+
+<listitem>
+<para
+>Använd kombinationsrutan <guilabel
+>Tid för att lösa anagrammet</guilabel
+> för att ange tiden man har på sig att lösa varje uppgift. Normalt finns det <quote
+>Ingen tidsgräns</quote
+>. </para>
+</listitem>
+
+<listitem>
+<para
+>Kombinationsrutan <guilabel
+>Spela med</guilabel
+> låter dig spela &kanagram; med ordförråd på ett annat språk. För att funktionen ska fungera, måste du ha installerat ordförråd på ett separat språk. </para>
+</listitem>
+
+<listitem>
+<para
+>Kombinationsrutan <guilabel
+>Ställ in tidtagning i poängsyfte:</guilabel
+> låter dig stilla in poängtidtagningens tidsintervall i sekunder. </para>
+</listitem>
+
+<listitem>
+<para
+>Kryssrutan <guilabel
+>Inställningar av poäng</guilabel
+> kan användas för att visa eller dölja alternativ för att anpassa poängsättning av svar. </para>
+</listitem>
+
+<listitem>
+<para
+>Kryssrutan <guilabel
+>Använd ljud</guilabel
+> låter dig antingen tillåta ljudeffekter eller undertrycka dem. </para>
+</listitem>
+
+<listitem>
+<para
+>Kryssrutan <guilabel
+>Använd bara stora bokstäver</guilabel
+> låter dig ändra &kanagram; till att bara använda stora bokstäver för ord på svarta tavlan. </para>
+</listitem>
+
+<listitem>
+<para
+>Kryssrutan <guilabel
+>Läs rätt ord</guilabel
+> låter dig stänga av eller sätta på uttal. Ljudfilerna för uttalet måste ingå i ordförrådet som används, eller så måste &jovie; installeras, för att alternativet ska fungera. </para>
+</listitem>
+</itemizedlist>
+
+<sect1 id="vocabularies-config">
+<title
+>Ordförråd</title>
+
+<para
+>Inställningssidan <guilabel
+>Ordförråd</guilabel
+> låter dig hantera dina installerade ordförråd. Genom att använda dialogrutan kan du <action
+>redigera</action
+> och <action
+>ta bort</action
+> nerladdade ordförråd, samt <action
+>skapa</action
+> dina alldeles egna: </para>
+
+<screenshot>
+<screeninfo
+>Ordförrådsinställningar i &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Ordförrådsinställningar i &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Knappen <guibutton
+>Skapa ny</guibutton
+> <action
+>öppnar <link linkend="vocab-editor"
+><guilabel
+>Ordförrådseditorn</guilabel
+></link
+> </action
+> så att du kan författa dina egna ordförråd som du sedan kan spela med. </para>
+</listitem>
+<listitem>
+<para
+>Knappen <guibutton
+>Redigera</guibutton
+> låter dig <action
+>göra ändringar i ordförråd som du antingen har skapat eller laddat ner från Internet</action
+>. </para>
+</listitem>
+<!-- not in 4.5 listitem>
+<para>
+The <guibutton
+>Delete</guibutton
+> button allows you to <action
+>delete vocabularies that you have created or downloaded</action
+>.
+</para>
+</listitem-->
+<listitem>
+<para
+>Du kan välja vilket ordförråd du vill att åtgärderna ska gälla genom att använda <interface
+>ordförrådslistan</interface
+>. </para>
+</listitem>
+</itemizedlist>
+
+<sect2 id="vocab-editor">
+<title
+>Ordförrådseditor</title>
+
+<para
+>Ordförrådseditorn låter dig skapa dina egna ordförråd, som &kanagram; sedan kan testa dig med: </para>
+
+<screenshot>
+<screeninfo
+><guilabel
+>Ordförrådseditorn</guilabel
+> i &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-editor.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+><guilabel
+>Ordförrådseditorn</guilabel
+> i &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Fältet <guilabel
+>Ordförrådsnamn:</guilabel
+> <action
+>låter dig namnge ditt ordförråd</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Fältet <guilabel
+>Beskrivning:</guilabel
+> låter dig <action
+>expandera ordförrådets namn</action
+>, för att ge användare mer information om innehållet i ordförrådet. </para>
+<note>
+<para
+>Försök att hålla både namn och beskrivningsfälten så korta som möjligt. Effektiva ordförråd täcker en smal, fokuserad ordmängd med ett enda ämne. Försök att skriva minst 20 ord i ordförrådet, så att det inte klaras av för snabbt. </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Knappen <guibutton
+>Ta bort ord</guibutton
+> låter dig <action
+>ta bort ord från ordförrådet</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Knappen <guibutton
+>Nytt ord</guibutton
+> <action
+>skapar plats för ett nytt ord i ordförrådet</action
+>, klar att expandera. </para>
+</listitem>
+<listitem>
+<para
+>Fältet <guilabel
+>Ord:</guilabel
+> låter dig <action
+>skriva in ord i ditt ordförråd</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Fältet <guilabel
+>Tips</guilabel
+> låter dig <action
+>skriva tips som hör ihop med orden</action
+>. </para>
+<note>
+<para
+>Bra tips beskriver ordet klart, men ändå subtilt, medan det ökar användarens kunskap. Försäkra dig också om att tipsen är ganska korta (under 40 tecken långa). </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Knappen <guibutton
+>Spara</guibutton
+> <action
+>sparar det nya ordförrådets innehåll</action
+>, och gör det direkt möjligt att använda det i &kanagram; (det blir omedelbart tillgängligt i programmet, valbart via <interface
+>Ordförrådsväxlaren</interface
+>). </para>
+</listitem>
+<listitem>
+<para
+>Knappen <guibutton
+>Stäng</guibutton
+> <action
+>stänger dialogrutan <guilabel
+>Ordförrådseditor</guilabel
+></action
+> utan att spara det nya eller ändrade ordförrådets innehåll. </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
+</sect1>
+
+<sect1 id="newstuff">
+<title
+>Nyheter</title>
+
+<para
+>Knappen <guibutton
+>Ladda ner nytt ordförråd</guibutton
+> på inställningssidan <guilabel
+>Ordförråd</guilabel
+> låter dig hämta nya ordförrådsfiler från Internet: </para>
+
+<screenshot>
+<screeninfo
+>Dialogrutan Nyheter i &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-dialog.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Dialogrutan Nyheter i &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>För att installera ett ordförråd från Internet, klicka på ordförrådets objekt i listan, och klicka på knappen <guibutton
+>Installera</guibutton
+> för att installera det på systemet. Det nerladdade ordförrådet är därefter omedelbart tillgängligt att spela med. </para>
+<para
+>Om du redan har laddat ner ett ordförråd ändras knappen till <guibutton
+>Avinstallera</guibutton
+>, vilket låter dig ta bort ett ordförråd. </para>
+<para
+>För att få mer information om ett ordförråd, som författare, en beskrivning av innehållet och ändringsloggen, klicka på knappen <guibutton
+>Detaljinformation</guibutton
+>. </para>
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Tack till och licens</title>
+
+<para
+>&kanagram; </para>
+<para
+>Program copyright 2007 Jeremy Whiting <email
+>jpwhiting@kde.org</email
+> 2005 Joshua Keel <email
+>joshuakeel@gmail.com</email
+> och &Danny.Allen; &Danny.Allen.mail; </para>
+<para
+>Bidragsgivare: </para>
+<itemizedlist>
+<listitem>
+<para
+>Ljudeffekter: Artemio <email
+>fyll i</email
+> </para>
+</listitem>
+</itemizedlist>
+
+<para
+>Dokumentation copyright 2005 &Danny.Allen; &Danny.Allen.mail; </para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet:noai
+-->
