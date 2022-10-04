@@ -22,6 +22,7 @@
 #ifndef KANAGRAMGAME_H
 #define KANAGRAMGAME_H
 
+#include <QObject>
 #include <QHash>
 #include <QLoggingCategory>
 #include <QStringList>
