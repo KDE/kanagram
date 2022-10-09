@@ -833,8 +833,8 @@ msgstr "&Paraula:"
 #, kde-format
 msgid "The selected hint. Add a hint to aid in guessing the word."
 msgstr ""
-"El suggeriment seleccionat. Afegiu un suggeriment per ajudar a endevinar la "
-"paraula."
+"El suggeriment seleccionat. Afegiu un suggeriment per a ajudar a endevinar "
+"la paraula."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: vocabeditwidget.ui:268
