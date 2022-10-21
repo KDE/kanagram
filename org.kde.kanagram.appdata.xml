@@ -21,6 +21,7 @@
   <name xml:lang="hu">Kanagram</name>
   <name xml:lang="id">Kanagram</name>
   <name xml:lang="it">Kanagram</name>
+  <name xml:lang="ka">Kanagram</name>
   <name xml:lang="ko">Kanagram</name>
   <name xml:lang="lt">Kanagram</name>
   <name xml:lang="nds">Kanagram</name>
@@ -56,6 +57,7 @@
   <summary xml:lang="hu">Szókirakó játék</summary>
   <summary xml:lang="id">Permainan Urutan Huruf</summary>
   <summary xml:lang="it">Gioco di anagrammi</summary>
+  <summary xml:lang="ka">სიმბოლოების მიმდევრობის თამაში</summary>
   <summary xml:lang="ko">글자 순서 게임</summary>
   <summary xml:lang="lt">Raidžių rūšiavimo žaidimas</summary>
   <summary xml:lang="nds">Bookstaven ornen</summary>
@@ -127,6 +129,7 @@
       <caption xml:lang="gl">Xogando a Kanagram</caption>
       <caption xml:lang="id">Memainkan Kanagram</caption>
       <caption xml:lang="it">Giocare con Kanagram</caption>
+      <caption xml:lang="ka">Kanagram-ის თამაში</caption>
       <caption xml:lang="ko">Kanagram 플레이</caption>
       <caption xml:lang="nl">Kanagram spelen</caption>
       <caption xml:lang="nn">Spelar Kanagram</caption>
