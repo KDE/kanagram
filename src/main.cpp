@@ -53,7 +53,7 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("kanagram");
 
-    KAboutData about(i18n("kanagram"),
+    KAboutData about(QStringLiteral("kanagram"),
                      i18n("Kanagram"),
                      QStringLiteral(KANAGRAM_VERSION_STRING),
                      i18n("An anagram game"),
