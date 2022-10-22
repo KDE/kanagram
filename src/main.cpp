@@ -47,12 +47,8 @@ int main(int argc, char **argv)
     migrator.migrate();
 #endif
 
-    QApplication::setApplicationName(QStringLiteral("kanagram"));
-    QApplication::setApplicationVersion(QStringLiteral(KANAGRAM_VERSION_STRING));
-    QApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("kanagram");
-    QApplication::setApplicationDisplayName(i18n("kanagram"));
 
     KAboutData about(QStringLiteral("kanagram"),
                      i18n("Kanagram"),
