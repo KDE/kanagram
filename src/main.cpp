@@ -55,7 +55,9 @@ int main(int argc, char **argv)
                      QStringLiteral(KANAGRAM_VERSION_STRING),
                      i18n("An anagram game"),
                      KAboutLicense::GPL,
-                     i18n("© 2005 Joshua Keel\n© 2005 Danny Allen\n© 2007 Jeremy Whiting\n© 2014 Debjit Mondal"));
+                     i18n("© 2005 Joshua Keel\n© 2005 Danny Allen\n© 2007 Jeremy Whiting\n© 2014 Debjit Mondal"),
+                     QString(),
+                     QStringLiteral("https://edu.kde.org/kanagram"));
     about.addAuthor(i18n("Joshua Keel"), i18n("Coding"), QStringLiteral("joshuakeel@gmail.com"));
     about.addAuthor(i18n("Danny Allen"), i18n("Design, Graphics and many Vocabularies"), QStringLiteral("danny@dannyallen.co.uk"));
     about.addAuthor(i18n("Jeremy Whiting"), i18n("Maintainer"), QStringLiteral("jpwhiting@kde.org"));
