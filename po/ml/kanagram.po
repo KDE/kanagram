@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-06 00:41+0000\n"
+"POT-Creation-Date: 2022-10-23 00:40+0000\n"
 "PO-Revision-Date: 2019-12-03 10:51+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc."
@@ -130,22 +130,17 @@ msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr ""
 
-#: main.cpp:56
-#, kde-format
-msgid "kanagram"
-msgstr ""
-
-#: main.cpp:57
+#: main.cpp:54
 #, kde-format
 msgid "Kanagram"
 msgstr ""
 
-#: main.cpp:59
+#: main.cpp:56
 #, kde-format
 msgid "An anagram game"
 msgstr ""
 
-#: main.cpp:61
+#: main.cpp:58
 #, kde-format
 msgid ""
 "© 2005 Joshua Keel\n"
@@ -154,173 +149,173 @@ msgid ""
 "© 2014 Debjit Mondal"
 msgstr ""
 
-#: main.cpp:62
+#: main.cpp:61
 #, kde-format
 msgid "Joshua Keel"
 msgstr ""
 
-#: main.cpp:62
+#: main.cpp:61
 #, kde-format
 msgid "Coding"
 msgstr ""
 
-#: main.cpp:63
+#: main.cpp:62
 #, kde-format
 msgid "Danny Allen"
 msgstr ""
 
-#: main.cpp:63
+#: main.cpp:62
 #, kde-format
 msgid "Design, Graphics and many Vocabularies"
 msgstr ""
 
-#: main.cpp:64
+#: main.cpp:63
 #, kde-format
 msgid "Jeremy Whiting"
 msgstr ""
 
-#: main.cpp:64
+#: main.cpp:63
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: main.cpp:65
+#: main.cpp:64
 #, kde-format
 msgid "Debjit Mondal"
 msgstr ""
 
-#: main.cpp:65
+#: main.cpp:64
 #, kde-format
 msgid "Coding & Design"
 msgstr ""
 
-#: main.cpp:66
+#: main.cpp:65
 #, kde-format
 msgid "Laszlo Papp"
 msgstr ""
 
-#: main.cpp:66
+#: main.cpp:65
 #, kde-format
 msgid "Modularization and porting to Mobile"
 msgstr ""
 
-#: main.cpp:67
+#: main.cpp:66
 #, kde-format
 msgid "Artemiy Pavlov"
 msgstr ""
 
-#: main.cpp:67
+#: main.cpp:66
 #, kde-format
 msgid "Sound effects"
 msgstr ""
 
-#: main.cpp:68
+#: main.cpp:67
 #, kde-format
 msgid "Pino Toscano"
 msgstr ""
 
-#: main.cpp:68
+#: main.cpp:67
 #, kde-format
 msgid "Italian Data Files"
 msgstr ""
 
-#: main.cpp:69
+#: main.cpp:68
 #, kde-format
 msgid "Kris Thomsen"
 msgstr ""
 
-#: main.cpp:69
+#: main.cpp:68
 #, kde-format
 msgid "Danish Data Files"
 msgstr ""
 
-#: main.cpp:70
+#: main.cpp:69
 #, kde-format
 msgid "Patrick Spendrin"
 msgstr ""
 
-#: main.cpp:70
+#: main.cpp:69
 #, kde-format
 msgid "German Data Files"
 msgstr ""
 
-#: main.cpp:71
+#: main.cpp:70
 #, kde-format
 msgid "Eric Krüse"
 msgstr ""
 
-#: main.cpp:71
+#: main.cpp:70
 #, kde-format
 msgid "British English Data Files"
 msgstr ""
 
-#: main.cpp:72
+#: main.cpp:71
 #, kde-format
 msgid "Hanna Scott"
 msgstr ""
 
-#: main.cpp:72
+#: main.cpp:71
 #, kde-format
 msgid "Swedish Data Files"
 msgstr ""
 
-#: main.cpp:73
+#: main.cpp:72
 #, kde-format
 msgid "Jure Repinc"
 msgstr ""
 
-#: main.cpp:73
+#: main.cpp:72
 #, kde-format
 msgid "Slovenian Data Files"
 msgstr ""
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Yuri Chornoivan"
 msgstr ""
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Ukrainian Data Files"
 msgstr ""
 
-#: main.cpp:75
+#: main.cpp:74
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr ""
 
-#: main.cpp:75
+#: main.cpp:74
 #, kde-format
 msgid "Hungarian Data Files"
 msgstr ""
 
-#: main.cpp:76
+#: main.cpp:75
 #, kde-format
 msgid "Souvik Das"
 msgstr ""
 
-#: main.cpp:76
+#: main.cpp:75
 #, kde-format
 msgid "2-player mode"
 msgstr ""
 
-#: main.cpp:77
+#: main.cpp:76
 #, kde-format
 msgid "Sayan Biswas"
 msgstr ""
 
-#: main.cpp:77
+#: main.cpp:76
 #, kde-format
 msgid "Letters turned to clickable buttons"
 msgstr ""
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -694,17 +689,17 @@ msgstr ""
 msgid "Kanagram Handbook"
 msgstr ""
 
-#: vocabedit.cpp:108
+#: vocabedit.cpp:114
 #, kde-format
 msgid "Would you like to save your changes?"
 msgstr ""
 
-#: vocabedit.cpp:108
+#: vocabedit.cpp:115
 #, kde-format
 msgid "Save Changes Dialog"
 msgstr ""
 
-#: vocabedit.cpp:127
+#: vocabedit.cpp:140
 #, kde-format
 msgid "New Item"
 msgstr ""

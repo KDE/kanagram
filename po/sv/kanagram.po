@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-06 00:41+0000\n"
+"POT-Creation-Date: 2022-10-23 00:40+0000\n"
 "PO-Revision-Date: 2018-09-27 18:42+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -137,22 +137,17 @@ msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Inget"
 
-#: main.cpp:56
-#, kde-format
-msgid "kanagram"
-msgstr "kanagram"
-
-#: main.cpp:57
+#: main.cpp:54
 #, kde-format
 msgid "Kanagram"
 msgstr "Kanagram"
 
-#: main.cpp:59
+#: main.cpp:56
 #, kde-format
 msgid "An anagram game"
 msgstr "Ett anagramspel"
 
-#: main.cpp:61
+#: main.cpp:58
 #, kde-format
 msgid ""
 "© 2005 Joshua Keel\n"
@@ -165,173 +160,173 @@ msgstr ""
 "© 2007 Jeremy Whiting\n"
 "© 2014 Debjit Mondal"
 
-#: main.cpp:62
+#: main.cpp:61
 #, kde-format
 msgid "Joshua Keel"
 msgstr "Joshua Keel"
 
-#: main.cpp:62
+#: main.cpp:61
 #, kde-format
 msgid "Coding"
 msgstr "Kodning"
 
-#: main.cpp:63
+#: main.cpp:62
 #, kde-format
 msgid "Danny Allen"
 msgstr "Danny Allen"
 
-#: main.cpp:63
+#: main.cpp:62
 #, kde-format
 msgid "Design, Graphics and many Vocabularies"
 msgstr "Design, grafik och många ordförråd"
 
-#: main.cpp:64
+#: main.cpp:63
 #, kde-format
 msgid "Jeremy Whiting"
 msgstr "Jeremy Whiting"
 
-#: main.cpp:64
+#: main.cpp:63
 #, kde-format
 msgid "Maintainer"
 msgstr "Underhåll"
 
-#: main.cpp:65
+#: main.cpp:64
 #, kde-format
 msgid "Debjit Mondal"
 msgstr "Debjit Mondal"
 
-#: main.cpp:65
+#: main.cpp:64
 #, kde-format
 msgid "Coding & Design"
 msgstr "Kodning och konstruktion"
 
-#: main.cpp:66
+#: main.cpp:65
 #, kde-format
 msgid "Laszlo Papp"
 msgstr "Laszlo Papp"
 
-#: main.cpp:66
+#: main.cpp:65
 #, kde-format
 msgid "Modularization and porting to Mobile"
 msgstr "Modularisering och överföring till mobil"
 
-#: main.cpp:67
+#: main.cpp:66
 #, kde-format
 msgid "Artemiy Pavlov"
 msgstr "Artemiy Pavlov"
 
-#: main.cpp:67
+#: main.cpp:66
 #, kde-format
 msgid "Sound effects"
 msgstr "Ljudeffekter"
 
-#: main.cpp:68
+#: main.cpp:67
 #, kde-format
 msgid "Pino Toscano"
 msgstr "Pino Toscano"
 
-#: main.cpp:68
+#: main.cpp:67
 #, kde-format
 msgid "Italian Data Files"
 msgstr "Italienska datafiler"
 
-#: main.cpp:69
+#: main.cpp:68
 #, kde-format
 msgid "Kris Thomsen"
 msgstr "Kris Thomsen"
 
-#: main.cpp:69
+#: main.cpp:68
 #, kde-format
 msgid "Danish Data Files"
 msgstr "Danska datafiler"
 
-#: main.cpp:70
+#: main.cpp:69
 #, kde-format
 msgid "Patrick Spendrin"
 msgstr "Patrick Spendrin"
 
-#: main.cpp:70
+#: main.cpp:69
 #, kde-format
 msgid "German Data Files"
 msgstr "Tyska datafiler"
 
-#: main.cpp:71
+#: main.cpp:70
 #, kde-format
 msgid "Eric Krüse"
 msgstr "Eric Krüse"
 
-#: main.cpp:71
+#: main.cpp:70
 #, kde-format
 msgid "British English Data Files"
 msgstr "Brittisk engelska datafiler"
 
-#: main.cpp:72
+#: main.cpp:71
 #, kde-format
 msgid "Hanna Scott"
 msgstr "Hanna Scott"
 
-#: main.cpp:72
+#: main.cpp:71
 #, kde-format
 msgid "Swedish Data Files"
 msgstr "Svenska datafiler"
 
-#: main.cpp:73
+#: main.cpp:72
 #, kde-format
 msgid "Jure Repinc"
 msgstr "Jure Repinc"
 
-#: main.cpp:73
+#: main.cpp:72
 #, kde-format
 msgid "Slovenian Data Files"
 msgstr "Slovenska datafiler"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Yuri Chornoivan"
 msgstr "Yuri Chornoivan"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Ukrainian Data Files"
 msgstr "Ukrainska datafiler"
 
-#: main.cpp:75
+#: main.cpp:74
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr "Kristóf Kiszel"
 
-#: main.cpp:75
+#: main.cpp:74
 #, kde-format
 msgid "Hungarian Data Files"
 msgstr "Ungerska datafiler"
 
-#: main.cpp:76
+#: main.cpp:75
 #, kde-format
 msgid "Souvik Das"
 msgstr "Souvik Das"
 
-#: main.cpp:76
+#: main.cpp:75
 #, kde-format
 msgid "2-player mode"
 msgstr "Två spelare"
 
-#: main.cpp:77
+#: main.cpp:76
 #, kde-format
 msgid "Sayan Biswas"
 msgstr "Sayan Biswas"
 
-#: main.cpp:77
+#: main.cpp:76
 #, kde-format
 msgid "Letters turned to clickable buttons"
 msgstr "Bokstäver ändrade till klickbara knappar"
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -712,17 +707,17 @@ msgstr "Om Kanagram"
 msgid "Kanagram Handbook"
 msgstr "Handbok Kanagram"
 
-#: vocabedit.cpp:108
+#: vocabedit.cpp:114
 #, kde-format
 msgid "Would you like to save your changes?"
 msgstr "Vill du spara dina ändringar?"
 
-#: vocabedit.cpp:108
+#: vocabedit.cpp:115
 #, kde-format
 msgid "Save Changes Dialog"
 msgstr "Dialogruta för att spara ändringar"
 
-#: vocabedit.cpp:127
+#: vocabedit.cpp:140
 #, kde-format
 msgid "New Item"
 msgstr "Nytt objekt"
@@ -883,6 +878,9 @@ msgstr "Titel"
 #, kde-format
 msgid "Description"
 msgstr "Beskrivning"
+
+#~ msgid "kanagram"
+#~ msgstr "kanagram"
 
 #~ msgid "1.1"
 #~ msgstr "1.1"

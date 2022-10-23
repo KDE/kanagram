@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-06 00:41+0000\n"
+"POT-Creation-Date: 2022-10-23 00:40+0000\n"
 "PO-Revision-Date: 2021-07-10 10:57+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -165,23 +165,17 @@ msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "कुछ नहीं"
 
-#: main.cpp:56
-#, fuzzy, kde-format
-#| msgid "Kanagram"
-msgid "kanagram"
-msgstr "के-अनाग्राम"
-
-#: main.cpp:57
+#: main.cpp:54
 #, kde-format
 msgid "Kanagram"
 msgstr "के-अनाग्राम"
 
-#: main.cpp:59
+#: main.cpp:56
 #, kde-format
 msgid "An anagram game"
 msgstr "एनाग्राम खेल"
 
-#: main.cpp:61
+#: main.cpp:58
 #, fuzzy, kde-format
 #| msgid ""
 #| "© 2005 Joshua Keel\n"
@@ -197,177 +191,177 @@ msgstr ""
 "© 2005 डैनी एलन\n"
 "© 2007 जेरेमी व्हाइटिंग"
 
-#: main.cpp:62
+#: main.cpp:61
 #, kde-format
 msgid "Joshua Keel"
 msgstr "जोशुआ कील"
 
-#: main.cpp:62
+#: main.cpp:61
 #, kde-format
 msgid "Coding"
 msgstr "कोडिंग"
 
-#: main.cpp:63
+#: main.cpp:62
 #, kde-format
 msgid "Danny Allen"
 msgstr "डैनी एलन"
 
-#: main.cpp:63
+#: main.cpp:62
 #, kde-format
 msgid "Design, Graphics and many Vocabularies"
 msgstr "ग्राफ़िक्स, डिज़ाइन तथा बहुत से शब्द संग्रह"
 
-#: main.cpp:64
+#: main.cpp:63
 #, kde-format
 msgid "Jeremy Whiting"
 msgstr "जेरेमी व्हिटिंग"
 
-#: main.cpp:64
+#: main.cpp:63
 #, kde-format
 msgid "Maintainer"
 msgstr "मेंटेनर"
 
-#: main.cpp:65
+#: main.cpp:64
 #, kde-format
 msgid "Debjit Mondal"
 msgstr ""
 
-#: main.cpp:65
+#: main.cpp:64
 #, kde-format
 msgid "Coding & Design"
 msgstr ""
 
-#: main.cpp:66
+#: main.cpp:65
 #, kde-format
 msgid "Laszlo Papp"
 msgstr ""
 
-#: main.cpp:66
+#: main.cpp:65
 #, kde-format
 msgid "Modularization and porting to Mobile"
 msgstr ""
 
-#: main.cpp:67
+#: main.cpp:66
 #, kde-format
 msgid "Artemiy Pavlov"
 msgstr "आर्टेमिटी पावलोव"
 
-#: main.cpp:67
+#: main.cpp:66
 #, kde-format
 msgid "Sound effects"
 msgstr "ध्वनि प्रभाव"
 
-#: main.cpp:68
+#: main.cpp:67
 #, kde-format
 msgid "Pino Toscano"
 msgstr "पिनो टोसकानो"
 
-#: main.cpp:68
+#: main.cpp:67
 #, kde-format
 msgid "Italian Data Files"
 msgstr "इतालवी डाटा फ़ाइलें"
 
-#: main.cpp:69
+#: main.cpp:68
 #, kde-format
 msgid "Kris Thomsen"
 msgstr "क्रिस थॉमसन"
 
-#: main.cpp:69
+#: main.cpp:68
 #, kde-format
 msgid "Danish Data Files"
 msgstr "दानिश डाटा फ़ाइल"
 
-#: main.cpp:70
+#: main.cpp:69
 #, kde-format
 msgid "Patrick Spendrin"
 msgstr "पैट्रिक स्पैंड्रीन"
 
-#: main.cpp:70
+#: main.cpp:69
 #, kde-format
 msgid "German Data Files"
 msgstr "जर्मनी डाटा फ़ाइलें"
 
-#: main.cpp:71
+#: main.cpp:70
 #, kde-format
 msgid "Eric Krüse"
 msgstr "एरिक क्रूस"
 
-#: main.cpp:71
+#: main.cpp:70
 #, kde-format
 msgid "British English Data Files"
 msgstr "ब्रितानी अंग्रेजी डाटा फ़ाइलें"
 
-#: main.cpp:72
+#: main.cpp:71
 #, kde-format
 msgid "Hanna Scott"
 msgstr ""
 
-#: main.cpp:72
+#: main.cpp:71
 #, fuzzy, kde-format
 #| msgid "Danish Data Files"
 msgid "Swedish Data Files"
 msgstr "दानिश डाटा फ़ाइल"
 
-#: main.cpp:73
+#: main.cpp:72
 #, kde-format
 msgid "Jure Repinc"
 msgstr ""
 
-#: main.cpp:73
+#: main.cpp:72
 #, fuzzy, kde-format
 #| msgid "Italian Data Files"
 msgid "Slovenian Data Files"
 msgstr "इतालवी डाटा फ़ाइलें"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgid "Yuri Chornoivan"
 msgstr ""
 
-#: main.cpp:74
+#: main.cpp:73
 #, fuzzy, kde-format
 #| msgid "Italian Data Files"
 msgid "Ukrainian Data Files"
 msgstr "इतालवी डाटा फ़ाइलें"
 
-#: main.cpp:75
+#: main.cpp:74
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr ""
 
-#: main.cpp:75
+#: main.cpp:74
 #, fuzzy, kde-format
 #| msgid "Italian Data Files"
 msgid "Hungarian Data Files"
 msgstr "इतालवी डाटा फ़ाइलें"
 
-#: main.cpp:76
+#: main.cpp:75
 #, kde-format
 msgid "Souvik Das"
 msgstr ""
 
-#: main.cpp:76
+#: main.cpp:75
 #, kde-format
 msgid "2-player mode"
 msgstr ""
 
-#: main.cpp:77
+#: main.cpp:76
 #, kde-format
 msgid "Sayan Biswas"
 msgstr ""
 
-#: main.cpp:77
+#: main.cpp:76
 #, kde-format
 msgid "Letters turned to clickable buttons"
 msgstr ""
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "रविशंकर श्रीवास्तव, जी. करूणाकर"
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -761,17 +755,17 @@ msgstr "एनाग्राम के बारे में"
 msgid "Kanagram Handbook"
 msgstr "के-एनाग्राम हैंड-बुक"
 
-#: vocabedit.cpp:108
+#: vocabedit.cpp:114
 #, kde-format
 msgid "Would you like to save your changes?"
 msgstr "क्या आप परिवर्तनों को सहेजना चाहेंगे?"
 
-#: vocabedit.cpp:108
+#: vocabedit.cpp:115
 #, kde-format
 msgid "Save Changes Dialog"
 msgstr "परिवर्तनों को सहेजें संवाद"
 
-#: vocabedit.cpp:127
+#: vocabedit.cpp:140
 #, kde-format
 msgid "New Item"
 msgstr ""
@@ -930,6 +924,11 @@ msgstr "शीर्षक"
 #, kde-format
 msgid "Description"
 msgstr "वर्णन"
+
+#, fuzzy
+#~| msgid "Kanagram"
+#~ msgid "kanagram"
+#~ msgstr "के-अनाग्राम"
 
 #, fuzzy
 #~| msgid "Hints"
