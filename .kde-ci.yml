@@ -7,7 +7,7 @@ Dependencies:
     'frameworks/extra-cmake-modules': '@stable'
     'frameworks/ki18n': '@stable'
     'frameworks/kcrash': '@stable'
-    'frameworks/ksonnet': '@stable'
+    'frameworks/sonnet': '@stable'
     'frameworks/kconfig': '@stable'
     'frameworks/kconfigwidgets': '@stable'
     'frameworks/kcoreaddons': '@stable'
