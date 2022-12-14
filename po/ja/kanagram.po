@@ -912,8 +912,3 @@ msgstr "タイトル"
 #, kde-format
 msgid "Description"
 msgstr "説明"
-
-#, fuzzy
-#~| msgid "Kanagram"
-#~ msgid "kanagram"
-#~ msgstr "Kanagram"
