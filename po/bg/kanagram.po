@@ -855,7 +855,3 @@ msgstr "Заглавие"
 #, kde-format
 msgid "Description"
 msgstr "Описание"
-
-#, fuzzy
-#~ msgid "kanagram"
-#~ msgstr "Kanagram"
