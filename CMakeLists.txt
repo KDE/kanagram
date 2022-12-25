@@ -8,7 +8,7 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(kanagram VERSION ${RELEASE_SERVICE_VERSION})
 
-find_package(ECM 5.90.0 NO_MODULE REQUIRED)
+find_package(ECM 5.91.0 NO_MODULE REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} )
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 include(ECMAddAppIcon)
@@ -17,6 +17,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMInstallIcons)
 include(ECMSetupVersion)
+include(ECMDeprecationSettings)
 
 
 if(NOT MSVC)
@@ -52,7 +53,7 @@ find_package(LibKEduVocDocument REQUIRED)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
-
+ecm_set_disabled_deprecation_versions(QT 5.15.2  KF 5.101.0)
 
 add_subdirectory( doc )
 add_subdirectory( src )
