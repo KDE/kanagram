@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-23 00:40+0000\n"
-"PO-Revision-Date: 2022-09-30 15:43+0200\n"
+"PO-Revision-Date: 2022-12-25 07:55+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,19 +16,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. i18n: ectx: label, entry (currentVocabulary), group (kanagram)
 #: kanagram.kcfg:9
 #, kde-format
 msgid "This setting stores the currently selected Vocabulary."
-msgstr ""
+msgstr "ეს პარამეტრი ამჟამად არჩეულ ლექსიკონს შეიცავს."
 
 #. i18n: ectx: label, entry (singlePlayerMode), group (kanagram)
 #: kanagram.kcfg:13
 #, kde-format
 msgid "This setting allows you to decide one-player or two-player mode"
-msgstr ""
+msgstr "ეს პარამეტრი ერთ ან ორ-კაციან რეჟიმს შორის გადართავს"
 
 #. i18n: ectx: label, entry (hintHideTime), group (kanagram)
 #: kanagram.kcfg:17
@@ -37,6 +37,8 @@ msgid ""
 "This setting allows you to set in seconds how long Kanagram's hint bubble is "
 "shown."
 msgstr ""
+"ეს პარამეტრი განსაზღვრავს, რამდენ ხანს იქნება Kanagram-ის მინიშნების ბუშტი "
+"ნაჩვენები."
 
 #. i18n: ectx: label, entry (resolveTime), group (kanagram)
 #: kanagram.kcfg:21
@@ -45,6 +47,8 @@ msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the anagram."
 msgstr ""
+"ეს პარამეტრის საშუალებას გაძლევთ, დააყენოთ დრო წამებში, რამდენი ხანია "
+"ხელმისაწვდომი ანაგრამის ამოსახსნელად."
 
 #. i18n: ectx: label, entry (scoreTime), group (kanagram)
 #: kanagram.kcfg:26
@@ -53,6 +57,8 @@ msgid ""
 "This setting allows you to set in seconds the time interval of the score "
 "timer."
 msgstr ""
+"ეს პარამეტრი საუკეთესო ქულების ტაიმერში დროის ინტერვალის წამებში დაყენების "
+"საშუალებას გაძლევთ."
 
 #. i18n: ectx: label, entry (correctAnswerScore), group (kanagram)
 #: kanagram.kcfg:30
@@ -60,6 +66,8 @@ msgstr ""
 msgid ""
 "This setting allows you to set the score associated with a correct answer."
 msgstr ""
+"ეს პარამეტრი სწორ პასუხთან დაკავშირებული ქულების დაყენების საშუალებას "
+"გაძლევთ."
 
 #. i18n: ectx: label, entry (incorrectAnswerScore), group (kanagram)
 #: kanagram.kcfg:34
@@ -67,12 +75,16 @@ msgstr ""
 msgid ""
 "This setting allows you to set the score associated with an incorrect answer."
 msgstr ""
+"ეს პარამეტრი არასწორ პასუხთან დაკავშირებული ქულების დაყენების საშუალებას "
+"გაძლევთ."
 
 #. i18n: ectx: label, entry (revealAnswerScore), group (kanagram)
 #: kanagram.kcfg:38
 #, kde-format
 msgid "This setting allows you to set the score associated with reveal answer."
 msgstr ""
+"ეს პარამეტრი სწორი პასუხის ჩვენებასთან დაკავშირებული ქულების დაყენების "
+"საშუალებას გაძლევთ."
 
 #. i18n: ectx: label, entry (skippedWordScore), group (kanagram)
 #: kanagram.kcfg:42
@@ -80,6 +92,8 @@ msgstr ""
 msgid ""
 "This setting allows you to set the score associated with a skipped word."
 msgstr ""
+"ეს პარამეტრი გამოტოვებულ პასუხთან დაკავშირებული ქულების დაყენების საშუალებას "
+"გაძლევთ."
 
 #. i18n: ectx: label, entry (useSounds), group (kanagram)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_useSounds)
@@ -201,7 +215,7 @@ msgstr "Laszlo Papp"
 #: main.cpp:65
 #, kde-format
 msgid "Modularization and porting to Mobile"
-msgstr ""
+msgstr "მოდულარიზაცია და მობილურზე გადატანა"
 
 #: main.cpp:66
 #, kde-format
@@ -311,7 +325,7 @@ msgstr "Sayan Biswas"
 #: main.cpp:76
 #, kde-format
 msgid "Letters turned to clickable buttons"
-msgstr ""
+msgstr "ასოები დაწკაპუნებად ღილაკებად იქცნენ"
 
 #: main.cpp:77
 #, kde-format
@@ -332,24 +346,26 @@ msgid ""
 "This setting allows you to set the length of time Kanagram's hint bubble is "
 "shown."
 msgstr ""
+"ეს პარამეტრი განსაზღვრავს, რამდენ ხანს იქნება Kanagram-ის მინიშნების ბუშტი "
+"ნაჩვენები."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox1)
 #: mainsettingswidget.ui:23
 #, kde-format
 msgid "Hints"
-msgstr ""
+msgstr "მინიშნებები"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: mainsettingswidget.ui:29
 #, kde-format
 msgid "Auto-hide hints after:"
-msgstr ""
+msgstr "მინიშნებების დამალვის დრო:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
 #: mainsettingswidget.ui:37
 #, kde-format
 msgid "Do Not Auto-Hide Hints"
-msgstr ""
+msgstr "მინიშნებები არ დაიმალება"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
 #: mainsettingswidget.ui:42
@@ -379,7 +395,7 @@ msgstr "9 წამი"
 #: mainsettingswidget.ui:65
 #, kde-format
 msgid "Time for resolving the anagram:"
-msgstr ""
+msgstr "ანაგრამის ამოხსნის დრო:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #: mainsettingswidget.ui:73
@@ -419,37 +435,37 @@ msgstr "60 წამი"
 #: mainsettingswidget.ui:104
 #, kde-format
 msgid "Vocabulary Options"
-msgstr ""
+msgstr "ლექსიკონის მორგება"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: mainsettingswidget.ui:112
 #, kde-format
 msgid "Play using:"
-msgstr ""
+msgstr "დაკვრა:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox4)
 #: mainsettingswidget.ui:130
 #, kde-format
 msgid "Scoring Options"
-msgstr ""
+msgstr "ქულების მორგება"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabelScoreTime)
 #: mainsettingswidget.ui:136
 #, kde-format
 msgid "Set timer for scoring purpose:"
-msgstr ""
+msgstr "დააყენეთ ტაიმერი ქულების მიზნით:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, scoringPointCheckbox)
 #: mainsettingswidget.ui:167
 #, kde-format
 msgid "Score Point Settings"
-msgstr ""
+msgstr "ქულების მორგება"
 
 #. i18n: ectx: property (text), widget (QLabel, textCorrectAnswer)
 #: mainsettingswidget.ui:174
 #, kde-format
 msgid "Assign score for correct answer : "
-msgstr ""
+msgstr "მინიჭებული ქულა სწორი პასუხისთვის : "
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:182
@@ -479,7 +495,7 @@ msgstr "+20 ქულა"
 #: mainsettingswidget.ui:205
 #, kde-format
 msgid "Assign score for incorrect answer : "
-msgstr ""
+msgstr "მინიჭებული ქულა არასწორი პასუხისთვის : "
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
 #: mainsettingswidget.ui:213
@@ -515,7 +531,7 @@ msgstr "-4 ქულა"
 #: mainsettingswidget.ui:236
 #, kde-format
 msgid "Assign score for reveal answer : "
-msgstr ""
+msgstr "მინიჭებული ქულა ნაჩვენები პასუხისთვის : "
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_skippedWordScore)
@@ -535,7 +551,7 @@ msgstr "-8 ქულა"
 #: mainsettingswidget.ui:267
 #, kde-format
 msgid "Assign score for skipped word : "
-msgstr ""
+msgstr "მინიჭებული ქულა გამოტოვებული სიტყვისთვის : "
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_useSounds)
 #: mainsettingswidget.ui:304
@@ -547,19 +563,19 @@ msgstr "&ხმის გამოყენება"
 #: mainsettingswidget.ui:311
 #, kde-format
 msgid "Use only uppercase letters."
-msgstr ""
+msgstr "მაღალი რეგისტრის სიმბოლოების გამოყენება."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_uppercaseOnly)
 #: mainsettingswidget.ui:314
 #, kde-format
 msgid "Only uppercase letters"
-msgstr ""
+msgstr "მაღალი რეგისტრის სიმბოლოების გამოყენება"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:321
 #, kde-format
 msgid "Turn pronunciations on or off."
-msgstr ""
+msgstr "გამოთქმის ჩართვა ან გამორთვა."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:324
@@ -600,7 +616,7 @@ msgstr " "
 #: ui/Blackboard.qml:397
 #, kde-format
 msgid "Show Wiki Content"
-msgstr ""
+msgstr "Wiki-ის შემცველობის ჩვენება"
 
 #: ui/Blackboard.qml:423
 #, kde-format
@@ -627,6 +643,8 @@ msgid ""
 "\n"
 " Close dialog for new game "
 msgstr ""
+"\n"
+"ახალი თამაშისთვის დახურეთ ფანჯარა "
 
 #: ui/Blackboard.qml:536
 #, kde-format
@@ -634,6 +652,8 @@ msgid ""
 " Time Up. \n"
 " Player 2's Turn"
 msgstr ""
+" დრო გავიდა. \n"
+" მეორე მოთამაშის ჯერია"
 
 #: ui/Blackboard.qml:565
 #, kde-format
@@ -693,17 +713,17 @@ msgstr "Kanagram-ის შეახებ"
 #: ui/main.qml:717
 #, kde-format
 msgid "Kanagram Handbook"
-msgstr ""
+msgstr "Kanagram -ის სახელმძღვანელო"
 
 #: vocabedit.cpp:114
 #, kde-format
 msgid "Would you like to save your changes?"
-msgstr ""
+msgstr "გნებავთ თქვენი ცვლილებების შენახვა?"
 
 #: vocabedit.cpp:115
 #, kde-format
 msgid "Save Changes Dialog"
-msgstr ""
+msgstr "ცვლილებების შენახვის ფანჯარა"
 
 #: vocabedit.cpp:140
 #, kde-format
@@ -736,6 +756,8 @@ msgid ""
 "a description so that users of your vocabulary will know what kinds of words "
 "it contains."
 msgstr ""
+"ლექსიკონის აღწერა. თუ ახალ ლექსიკონს ქმნით, დაამატეთ აღწერა, რათა "
+"მომხმარებლებმა იცოდნენ, რა ტიპის სიტყვებს შეიცავს."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: vocabeditwidget.ui:130
@@ -747,7 +769,7 @@ msgstr "&აღწერილობა:"
 #: vocabeditwidget.ui:143
 #, kde-format
 msgid "The name of the vocabulary you are editing."
-msgstr ""
+msgstr "ჩასწორებადი ლექსიკონის სახელი."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: vocabeditwidget.ui:146
@@ -759,7 +781,7 @@ msgstr "ლექსიკონის &სახელი:"
 #: vocabeditwidget.ui:195
 #, kde-format
 msgid "Removes the selected word."
-msgstr ""
+msgstr "მონიშნული სიტყვის წაშლა."
 
 #. i18n: ectx: property (text), widget (QPushButton, btnRemoveWord)
 #: vocabeditwidget.ui:198
@@ -783,13 +805,14 @@ msgstr "&ახალი სიტყვა"
 #: vocabeditwidget.ui:217
 #, kde-format
 msgid "The list of words in the vocabulary."
-msgstr ""
+msgstr "ლექსიკონის სიტყვების სია."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #: vocabeditwidget.ui:246
 #, kde-format
 msgid "The selected word. This box allows you to edit the selected word."
 msgstr ""
+"მონიშნული სიტყვა. ეს ფანჯარა საშუალებას გაძლევთ, მონიშნული სიტყვა ჩაასწოროთ."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: vocabeditwidget.ui:249
@@ -802,6 +825,7 @@ msgstr "&სიტყვა:"
 #, kde-format
 msgid "The selected hint. Add a hint to aid in guessing the word."
 msgstr ""
+"არჩეული მინიშნება. დაამატეთ მინიშნებები, რათა სიტყვის გამოცნობაში დაეხმაროთ."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: vocabeditwidget.ui:268
@@ -825,19 +849,19 @@ msgstr "&ახლის შექმნა"
 #: vocabsettingswidget.ui:58
 #, kde-format
 msgid "Download new vocabulary from \"Get hot new Stuff\""
-msgstr ""
+msgstr "ახალი ლექსიკონის \"ახალი რამერუმეების მიღებიდან\" ჩატვირთვა"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:61
 #, kde-format
 msgid "Download new vocabulary"
-msgstr ""
+msgstr "ახალი ლექსიკონის გადმოწერა"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, btnEdit)
 #: vocabsettingswidget.ui:73
 #, kde-format
 msgid "Edits the selected vocabulary."
-msgstr ""
+msgstr "მონიშნული ლექსიკონის ჩასწორება."
 
 #. i18n: ectx: property (text), widget (QPushButton, btnEdit)
 #: vocabsettingswidget.ui:76
@@ -849,7 +873,7 @@ msgstr "&ჩასწორება"
 #: vocabsettingswidget.ui:83
 #, kde-format
 msgid "The list of installed vocabularies."
-msgstr ""
+msgstr "დაყენებული ლექსიკონების სია."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, lviewVocab)
 #: vocabsettingswidget.ui:90
