@@ -871,6 +871,3 @@ msgstr "Název"
 #, kde-format
 msgid "Description"
 msgstr "Popis"
-
-#~ msgid "kanagram"
-#~ msgstr "kanagram"
