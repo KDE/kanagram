@@ -1,14 +1,16 @@
 # translation of kanagram.po to esperanto
-#
+# Copyright (C) 2007 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2007, 2009.
 # Pierre-Marie Pédrot <pedrotpmx@wanadoo.fr>, 2007.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-23 00:40+0000\n"
-"PO-Revision-Date: 2009-12-19 05:40-0500\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-01-04 22:00+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -20,15 +22,15 @@ msgstr ""
 
 #. i18n: ectx: label, entry (currentVocabulary), group (kanagram)
 #: kanagram.kcfg:9
-#, fuzzy, kde-format
+#, kde-format
 msgid "This setting stores the currently selected Vocabulary."
-msgstr "Redakti la elektitan vortoprovizon."
+msgstr "Tiu agordo konservas la aktuale elektitan Vortoprovizon."
 
 #. i18n: ectx: label, entry (singlePlayerMode), group (kanagram)
 #: kanagram.kcfg:13
-#, fuzzy, kde-format
+#, kde-format
 msgid "This setting allows you to decide one-player or two-player mode"
-msgstr "Tiu parametro permesas al vi decidi ĉu estas unu aǔ du ludantoj"
+msgstr "Tiu agordo permesas al vi decidi inter unu- aŭ du-ludanta reĝimo"
 
 #. i18n: ectx: label, entry (hintHideTime), group (kanagram)
 #: kanagram.kcfg:17
@@ -52,48 +54,43 @@ msgstr ""
 
 #. i18n: ectx: label, entry (scoreTime), group (kanagram)
 #: kanagram.kcfg:26
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This setting allows you to set in seconds the time interval of the score "
 "timer."
 msgstr ""
-"Tiu parametro permesas al vi agordi kiel longe la indika globeto de Kanagram "
-"montriĝas."
+"Tiu agordo permesas al vi difini en sekundoj la intervalon de la poentara "
+"tempigilo."
 
 #. i18n: ectx: label, entry (correctAnswerScore), group (kanagram)
 #: kanagram.kcfg:30
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with a correct answer."
 msgstr ""
-"Tiu parametro permesas al vi agordi kiel longe la indika globeto de Kanagram "
-"montriĝas."
+"Tiu agordo permesas al vi difini la poentaron rilate al korekta respondo."
 
 #. i18n: ectx: label, entry (incorrectAnswerScore), group (kanagram)
 #: kanagram.kcfg:34
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with an incorrect answer."
 msgstr ""
-"Tiu parametro permesas al vi agordi kiel longe la indika globeto de Kanagram "
-"montriĝas."
+"Tiu agordo permesas al vi difini la poentaron rilate al nekorekta respondo."
 
 #. i18n: ectx: label, entry (revealAnswerScore), group (kanagram)
 #: kanagram.kcfg:38
-#, fuzzy, kde-format
+#, kde-format
 msgid "This setting allows you to set the score associated with reveal answer."
 msgstr ""
-"Tiu parametro permesas al vi agordi kiel longe la indika globeto de Kanagram "
-"montriĝas."
+"Tiu agordo permesas al vi difini la poentaron rilate al malkaŝa respondo."
 
 #. i18n: ectx: label, entry (skippedWordScore), group (kanagram)
 #: kanagram.kcfg:42
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with a skipped word."
-msgstr ""
-"Tiu parametro permesas al vi agordi kiel longe la indika globeto de Kanagram "
-"montriĝas."
+msgstr "Tiu agordo permesas al vi difini la poentaron rilate al saltata vorto."
 
 #. i18n: ectx: label, entry (useSounds), group (kanagram)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_useSounds)
@@ -110,9 +107,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (enablePronunciation), group (kanagram)
 #: kanagram.kcfg:54
-#, fuzzy, kde-format
+#, kde-format
 msgid "Turns pronunciations on/off."
-msgstr "Malŝalti/ŝalti la sonoron."
+msgstr "Malŝaltas/enŝaltas prononcojn."
 
 #. i18n: ectx: label, entry (dataLanguage), group (kanagram)
 #: kanagram.kcfg:58
@@ -293,8 +290,7 @@ msgid "Yuri Chornoivan"
 msgstr "Yuri Chornoivan"
 
 #: main.cpp:73
-#, fuzzy, kde-format
-#| msgid "Ukranian Data Files"
+#, kde-format
 msgid "Ukrainian Data Files"
 msgstr "Ukrainaj datumaj dosieroj"
 
@@ -304,9 +300,9 @@ msgid "Kristóf Kiszel"
 msgstr ""
 
 #: main.cpp:74
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hungarian Data Files"
-msgstr "Italaj datumaj dosieroj"
+msgstr "Hungaraj datumaj dosieroj"
 
 #: main.cpp:75
 #, kde-format
@@ -352,7 +348,7 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox1)
 #: mainsettingswidget.ui:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hints"
 msgstr "Helpindikoj"
 
@@ -407,30 +403,30 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:78 mainsettingswidget.ui:144
-#, fuzzy, kde-format
+#, kde-format
 msgid "15 Seconds"
-msgstr "5 sekundoj"
+msgstr "15 sekundoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:83 mainsettingswidget.ui:149
-#, fuzzy, kde-format
+#, kde-format
 msgid "30 Seconds"
-msgstr "3 sekundoj"
+msgstr "30 sekundoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:88 mainsettingswidget.ui:154
-#, fuzzy, kde-format
+#, kde-format
 msgid "45 Seconds"
-msgstr "5 sekundoj"
+msgstr "45 sekundoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:93 mainsettingswidget.ui:159
-#, fuzzy, kde-format
+#, kde-format
 msgid "60 Seconds"
-msgstr "3 sekundoj"
+msgstr "60 sekundoj"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox3)
 #: mainsettingswidget.ui:104
@@ -446,9 +442,9 @@ msgstr "Ludi per:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox4)
 #: mainsettingswidget.ui:130
-#, fuzzy, kde-format
+#, kde-format
 msgid "Scoring Options"
-msgstr "Priskribo"
+msgstr "Poentaraj Opcioj"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabelScoreTime)
 #: mainsettingswidget.ui:136
@@ -458,9 +454,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, scoringPointCheckbox)
 #: mainsettingswidget.ui:167
-#, fuzzy, kde-format
+#, kde-format
 msgid "Score Point Settings"
-msgstr "Priskribo"
+msgstr "Poentaraj Poent-Agordoj"
 
 #. i18n: ectx: property (text), widget (QLabel, textCorrectAnswer)
 #: mainsettingswidget.ui:174
@@ -574,9 +570,9 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:321
-#, fuzzy, kde-format
+#, kde-format
 msgid "Turn pronunciations on or off."
-msgstr "Malŝalti/ŝalti la sonoron."
+msgstr "Malŝalti/enŝalti prononcojn."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:324
@@ -585,14 +581,14 @@ msgid "Say correct words"
 msgstr ""
 
 #: ui/Blackboard.qml:89
-#, fuzzy, kde-format
+#, kde-format
 msgid "Next Vocabulary"
-msgstr "Vortprovizo"
+msgstr "Sekva Vortprovizo"
 
 #: ui/Blackboard.qml:128
-#, fuzzy, kde-format
+#, kde-format
 msgid "Previous Vocabulary"
-msgstr "Vortprovizo"
+msgstr "Antaŭa Vortprovizo"
 
 #: ui/Blackboard.qml:179
 #, kde-format
@@ -600,14 +596,14 @@ msgid "Start Timer"
 msgstr ""
 
 #: ui/Blackboard.qml:202
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show Hint"
-msgstr "Montri indikon"
+msgstr "Montri Helpindikon"
 
 #: ui/Blackboard.qml:234
-#, fuzzy, kde-format
+#, kde-format
 msgid "Reveal Word"
-msgstr "malkaŝi vorton"
+msgstr "Malkaŝi Vorton"
 
 #: ui/Blackboard.qml:280
 #, kde-format
@@ -615,9 +611,9 @@ msgid " "
 msgstr " "
 
 #: ui/Blackboard.qml:397
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show Wiki Content"
-msgstr "Montri indikon"
+msgstr "Montri Wiki-Enhavon"
 
 #: ui/Blackboard.qml:423
 #, kde-format
@@ -651,19 +647,19 @@ msgid ""
 msgstr ""
 
 #: ui/Blackboard.qml:565
-#, fuzzy, kde-format
+#, kde-format
 msgid "Close"
-msgstr "F&ermi"
+msgstr "Fermi"
 
 #: ui/main.qml:200
 #, kde-format
 msgid "Quit"
-msgstr ""
+msgstr "Forlasi"
 
 #: ui/main.qml:213
 #, kde-format
 msgid "Change mode"
-msgstr ""
+msgstr "Ŝanĝi Reĝimon"
 
 #: ui/main.qml:293
 #, kde-format
@@ -681,7 +677,7 @@ msgid "2nd Player"
 msgstr ""
 
 #: ui/main.qml:419
-#, fuzzy, kde-format
+#, kde-format
 msgid "Configure"
 msgstr "Agordi Kanagram"
 
@@ -691,9 +687,9 @@ msgid "  "
 msgstr "  "
 
 #: ui/main.qml:568
-#, fuzzy, kde-format
+#, kde-format
 msgid "About"
-msgstr "Pri KDE"
+msgstr "Pri"
 
 #: ui/main.qml:616
 #, kde-format
@@ -840,15 +836,15 @@ msgstr "Krei &novan..."
 
 #. i18n: ectx: property (toolTip), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:58
-#, fuzzy, kde-format
+#, kde-format
 msgid "Download new vocabulary from \"Get hot new Stuff\""
-msgstr "Elŝuti novajn vortoprovizojn"
+msgstr "Elŝuti novan vortoprovizon de \"Get hot new Stuff\""
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:61
-#, fuzzy, kde-format
+#, kde-format
 msgid "Download new vocabulary"
-msgstr "Elŝuti novajn vortoprovizojn"
+msgstr "Elŝuti novan vortoprovizon"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, btnEdit)
 #: vocabsettingswidget.ui:73
@@ -879,7 +875,3 @@ msgstr "Titolo"
 #, kde-format
 msgid "Description"
 msgstr "Priskribo"
-
-#, fuzzy
-#~ msgid "kanagram"
-#~ msgstr "Kanagram"
