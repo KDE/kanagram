@@ -1,84 +1,51 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
- <!ENTITY kanagram "<application
->Kanagram</application
->">
+ <!ENTITY kanagram "<application>Kanagram</application>">
  <!ENTITY % addindex "IGNORE">
- <!ENTITY % German "INCLUDE"
-><!-- change language only here -->
+ <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
 
 <book id="kanagram" lang="&language;">
 
 <bookinfo>
-<title
->Das Handbuch zu &kanagram;</title>
+<title>The &kanagram; Handbook</title>
 
 <authorgroup>
-<author
-><firstname
->Danny</firstname
-> <surname
->Allen</surname
-> <affiliation
-> <address
->&Danny.Allen.mail;</address>
+<author>
+<firstname>Danny</firstname>
+<surname>Allen</surname>
+<affiliation>
+<address>&Danny.Allen.mail;</address>
 </affiliation>
 </author>
-<othercredit role="translator"
-><firstname
->Burkhard</firstname
-><surname
->Lück</surname
-><affiliation
-><address
-><email
->lueck@hube-lueck.de</email
-></address
-></affiliation
-><contrib
->Übersetzung</contrib
-></othercredit
-> 
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
 <copyright>
-<year
->2005</year>
-<holder
->&Danny.Allen;</holder>
+<year>2005</year>
+<holder>&Danny.Allen;</holder>
 </copyright>
 
-<legalnotice
->&FDLNotice;</legalnotice>
+<legalnotice>&FDLNotice;</legalnotice>
 
-<date
->2020-12-21</date>
-<releaseinfo
->Anwendungen 20.12</releaseinfo>
+<date>2020-12-21</date>
+<releaseinfo>Applications 20.12</releaseinfo>
 
 <abstract>
-<para
->&kanagram;, ein Buchstabenrätsel für &kde;. </para>
+<para>
+&kanagram; brings fun anagram puzzles to &kde;.
+</para>
 </abstract>
 
 <keywordset>
-<keyword
->KDE</keyword>
-<keyword
->kdeedu</keyword>
-<keyword
->Kanagram</keyword>
-<keyword
->Spiel</keyword>
-<keyword
->Kind</keyword>
-<keyword
->Buchstabenrätsel</keyword>
-<keyword
->Worte</keyword>
-<keyword
->durcheinander</keyword>
+<keyword>KDE</keyword>
+<keyword>kdeedu</keyword>
+<keyword>Kanagram</keyword>
+<keyword>game</keyword>
+<keyword>child</keyword>
+<keyword>anagram</keyword>
+<keyword>words</keyword>
+<keyword>jumble</keyword>
 </keywordset>
 
 </bookinfo>
@@ -88,189 +55,127 @@ Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com
 Hide 'Say correct words' option if built without QtSpeech/Jovie
 -->
 <chapter id="introduction">
-<title
->Einführung</title>
+<title>Introduction</title>
 
-<para
->&kanagram; ist ein Buchstabenrätselspiel: Zur Lösung müssen Sie die durcheinandergewürfelten Buchstaben eines Wortes wieder in die richtige Reihenfolge bringen und damit das Wort finden. Es gibt keine Zeitbegrenzung und Sie haben beliebig viele Versuche zur Lösung des Rätsels. Zusammen mit &kanagram; erhalten Sie einige Vokabeldateien zum Spielen, weitere können Sie aus dem Internet laden. </para>
+<para>
+&kanagram; is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the number of attempts to solve the word. Included with &kanagram; are several vocabularies ready to play, with many more available from the Internet.
+</para>
 
 </chapter>
 
 
 <chapter id="using-kanagram">
-<title
->&kanagram; spielen</title>
+<title>Using &kanagram;</title>
 
-<para
->Hier sehen Sie das Programmfenster beim Start von &kanagram; mit den wichtigsten Elementen der Benutzeroberfläche. Den größten Bereich des Fenster nimmt die <interface
->Tafel</interface
-> ein, auf der die Worträtsel angezeigt werden. Auf der rechten Seite befindet sich der <interface
->Aktenschrank</interface
-> zur Bedienung des Programms: </para>
+<para>
+Here is the screen that is presented on startup of &kanagram;, showing the main interface to the application. Much of the window is taken up by the <interface>blackboard</interface>, where the puzzles are written, with the <interface>filing cabinet</interface> on the right containing application controls.
+</para>
 
 <screenshot>
-<screeninfo
->Bidschirmfoto vom Start von &kanagram;</screeninfo>
+<screeninfo>Here is the screen that is presented on startup of &kanagram;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="kanagram.png" format="PNG"/>
 </imageobject>
 <textobject>
-<phrase
->Bildschirmfoto von &kanagram;</phrase>
+<phrase>&kanagram; screenshot</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
 
 <orderedlist>
 <listitem>
-<para
->Mit der <interface
->Vokabelauswahl</interface
-> (&PgUp; / &PgDn;) können Sie schnell die Vokabeldatei wechseln, indem Sie mit der &LMBn; auf den Pfeil klicken, um <action
-> zur nächsten Vokabeldatei zu wechseln</action
-> oder um <action
->zur vorher benutzten Vokabeldatei zurückzugehen</action
->. </para>
+<para>
+The <interface>Vocabulary Switcher</interface> (&PgUp; / &PgDn;) allows the user to quickly <action>change the active vocabulary</action> by clicking with the &LMB; on the arrows to <action>advance to the next vocabulary</action> or to <action>return to the previously-played vocabulary</action>.
+</para>
 </listitem>
 <listitem>
-<para
->Mitten auf der <interface
->Tafel</interface
-> steht das Buchstabenrätsel, das zu lösen ist. </para>
+<para>
+In the center of the <interface>blackboard</interface> is the anagram puzzle to be solved.
+</para>
 </listitem>
 <listitem>
-<para
->Mit dem Knopf <guiicon
->Zeitmesser starten/anhalten</guiicon
-> (<keycombo action="simul"
->&Ctrl;<keycap
->S</keycap
-></keycombo
->) können Sie den <action
->Zeitmesser für die Bewertung starten oder anhalten</action
->. </para>
+<para>
+This is the <guiicon>Start Timer</guiicon> (<keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo>) button, and allows you to <action>start or stop the scoring timer</action>.
+</para>
 </listitem>
 <listitem>
-<para
->Wenn Sie auf <guibutton
->Tipp</guibutton
->(<keycombo action="simul"
->&Ctrl;<keycap
->H</keycap
-></keycombo
->) klicken, wird ein kurzer Hinweis mit einer Beschreibung des Lösungswortes gegeben. </para>
+<para>
+When the <guibutton>Hint</guibutton> (<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>) button is clicked, a short sentence will appear, <action>describing the current word puzzle</action>.
+</para>
 </listitem>
 <listitem>
-<para
->Mit <guibutton
->Wort aufdecken</guibutton
->(<keycombo action="simul"
->&Ctrl;<keycap
->R</keycap
-></keycombo
->) <action
->wird die das gesuchte Wort angezeigt</action
->. </para>
+<para>
+The <guibutton>Reveal Word</guibutton> (<keycombo action="simul">&Ctrl;<keycap>R</keycap></keycombo>) button <action>solves the current word puzzle</action>.
+</para>
 </listitem>
 <listitem>
-<para
->Im <interface
->Eingabefeld</interface
-> geben Sie Ihre Versuche zur Lösung des Rätsels ein. </para>
+<para>
+The <interface>Entry Box</interface> allows you to <action>input your attempts</action> to solve the current word puzzle.
+</para>
 </listitem>
 <listitem>
-<para
->Mit <interface
->Nächstes Anagramm</interface
-> (<keycombo action="simul"
->&Ctrl;<keycap
->N</keycap
-></keycombo
->) können Sie zur nächsten Frage wechseln. </para>
+<para>
+The <interface>Next Anagram</interface> (<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>) button lets you switch to the next guess.
+</para>
 </listitem>
 <listitem>
-<para
->Mit diesem Knopf <guiicon
->Einstellungen</guiicon
-> öffnen Sie den Dialog <guilabel
->&kanagram; Einrichten</guilabel
->. </para>
+<para>
+This is the <guiicon>Configure</guiicon> button, which <action>opens the <guilabel>Configure</guilabel> &kanagram; dialog</action>.
+</para>
 </listitem>
 <listitem>
-<para
->Der Knopf <guilabel
->Hilfe</guilabel
-> enthält drei ausgeblendete Knöpfe. Diese zusätzlichen Knöpfe werden angezeigt, wenn Sie den Mauszeiger darauf bewegen. Dann können Sie das <guilabel
->Handbuch zu &kanagram;</guilabel
-> (diese Dokument), den Dialog <guilabel
->Über &kanagram;</guilabel
-> und <guilabel
->Über &kde;</guilabel
-> öffnen. <screenshot>
-<screeninfo
->Die drei verschiedenen Zustände des Knopfes <guiicon
->Hilfe</guiicon
-></screeninfo>
+<para>
+The <guiicon>Help</guiicon> button is special, in that it <action>reveals 3 sub-buttons</action>. These buttons are shown when the <guiicon>Help</guiicon> button is hovered over, and provide access to the <guilabel>&kanagram; Handbook</guilabel> (this document), and the <guilabel>About &kanagram;</guilabel> and <guilabel>About &kde;</guilabel> dialogs:
+
+<screenshot>
+<screeninfo>The 3 different states of the <guiicon>Help</guiicon> button</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="helpstates.png" format="PNG"/>
 </imageobject>
 <textobject>
-<phrase
->Bildschirmfoto von &kanagram;</phrase>
+<phrase>&kanagram; screenshot</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
 </para>
 </listitem>
 <listitem>
-<para
->Mit <guiicon
->Modus ändern</guiicon
-> können Sie zwischen einem und zwei Spielern wechseln. </para>
+<para>
+Use the <guiicon>Change mode</guiicon> button to switch between 1 and 2 player mode.
+</para>
 </listitem>
 <listitem>
-<para
->Mit dem Knopf <guiicon
->Beenden</guiicon
-> <action
->schließen Sie das Programm</action
->. </para>
+<para>
+The <guiicon>Quit</guiicon> button <action>closes the application</action>.
+</para>
 </listitem>
 </orderedlist>
 
 <sect1 id="playing-game">
-<title
->Spielablauf</title>
+<title>Playing a game</title>
 
-<para
->Jetzt kennen Sie die Benutzeroberfläche von &kanagram; und können mit dem Spiel beginnen. </para>
+<para>
+Now that you are familiar with the user interface of &kanagram;, lets play a game!
+</para>
 
 <procedure>
 <step>
-<para
->Mit der <interface
->Vokabelauswahl</interface
-> wechseln Sie zu einem anderen Thema. Dann wird ein Wort aus der neuen Vokabeldatei mitten auf der <interface
->Tafel</interface
-> angezeigt. Versuchen Sie nun, aus den durcheinander gewürfelten Buchstaben die Lösung zu erraten. <tip>
-<para
->Wenn Sie das gesuchte Wort nicht erraten können, klicken Sie auf den Knopf <guibutton
->Tipp</guibutton
->, dann sehen Sie im <interface
->Aktenschrank</interface
-> eine Hilfe beim Raten. </para>
+<para>
+Using the <interface>Vocabulary Switcher</interface>, <action>select the vocabulary theme</action> that you would like to attempt. A word from this vocabulary will then be presented in the middle of the <interface>blackboard</interface>. Now, try and guess what word the jumble of letters represents.
+<tip>
+<para>
+If you cannot guess what the word is, press the <guibutton>Hint</guibutton> button to get some friendly advice from your friend in the <interface>filing cabinet</interface>:
+</para>
 <screenshot>
-<screeninfo
->&kanagram;s Tipp</screeninfo>
+<screeninfo>&kanagram; hint</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="kanagram-hint.png" format="PNG"/>
 </imageobject>
 <textobject>
-<phrase
->&kanagram;s Tipp</phrase>
+<phrase>&kanagram; hint</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -279,12 +184,9 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 </step>
 
 <step>
-<para
->Wenn Sie glauben, die richtige Antwort zu wissen, geben Sie sie im <interface
->Eingabefeld</interface
-> unterhalb der <interface
->Tafel</interface
-> ein oder klicken Sie mit der &LMBn; auf die Buchstaben, um sie in das Eingabefeld zu verschieben. Ist Ihre Antwort richtig, erscheint das nächste Anagramm, ansonsten springen die Buchstaben zurück in die Tafel. </para>
+<para>
+Once you think you know the correct answer, type the letters into the <interface>Entry Box</interface> below the <interface>blackboard</interface>, or click them with the &LMB; and the letters will move down to the entry box. If you are correct, the next anagram appears, otherwise all the letters jump back onto the blackboard.
+</para>
 </step>
 </procedure>
 
@@ -294,26 +196,20 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 
 
 <chapter id="configuring">
-<title
->&kanagram; einrichten</title>
+<title>Configuring &kanagram;</title>
 
-<para
->Den Dialog <guilabel
->Einrichten</guilabel
-> öffnen Sie durch Klicken auf den Knopf <guiicon
->&kanagram; einrichten ...</guiicon
->: </para>
+<para>
+The <guilabel>Configure</guilabel> dialog is opened by clicking on the <guiicon>Configure</guiicon> button:
+</para>
 
 <screenshot>
-<screeninfo
->Allgemeine Einstellungen für &kanagram;</screeninfo>
+<screeninfo>&kanagram; general settings</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="general-settings.png" format="PNG"/>
 </imageobject>
 <textobject>
-<phrase
->Allgemeine Einstellungen für &kanagram;</phrase>
+<phrase>&kanagram; general settings</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -321,218 +217,166 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <itemizedlist>
 
 <listitem>
-<para
->Im Auswahlfeld <guilabel
->Tipps ausblenden nach:</guilabel
-> bestimmen Sie, wie lange ein Tipp angezeigt wird. Hier können Sie einstellen, ob der Tipp nach einer bestimmten Zeit (&eg; 5 Sekunden) ausgeblendet wird, oder die Voreinstellung (<quote
->Tipps nicht automatisch ausblenden</quote
->) unverändert lassen. </para>
+<para>
+The <guilabel>Auto-hide hints after:</guilabel> drop down box allows you to specify how hints are presented to you. Here, you can set the hint box to disappear after a certain amount of seconds (&eg; 5 seconds), or you can leave it as default (<quote>Do Not Auto-Hide Hints</quote>).
+</para>
 </listitem>
 
 <listitem>
-<para
->Benutzen Sie das Auswahlfeld <guilabel
->Zeit für das Lösen des Anagramms</guilabel
->, um eine Zeit für die Auflösung des Rätsels einzustellen. In der Voreinstellung gibt es <quote
->Keine Zeitbegrenzung</quote
->. </para>
+<para>
+Use the <guilabel>Time for resolving the anagram:</guilabel> drop down box to specify the time you have to resolve each puzzle. By default there is <quote>No time limit</quote>.
+</para>
 </listitem>
 
 <listitem>
-<para
->Im Auswahlfeld rechts neben <guilabel
->Spielen in:</guilabel
-> wählen Sie die Sprache aus, in der Sie &kanagram; spielen wollen. Das ist aber erst möglich, wenn Sie Vokabeldateien in einer anderen Sprache installiert haben. </para>
+<para>
+The <guilabel>Play Using:</guilabel> drop down box allows you to play &kanagram; using vocabularies of a different language. For this feature to work, you must have vocabularies of a separate language installed.
+</para>
 </listitem>
 
 <listitem>
-<para
->Im Auswahlfeld <guilabel
->Zeitmesser für die Bewertung einstellen</guilabel
-> können Sie das Intervall für die Zeitmessung für die Bewertung in Sekunden einstellen. </para>
+<para>
+The <guilabel>Set timer for scoring purpose:</guilabel> drop down box allows you to set in seconds the time interval of the scoring timer.
+</para>
 </listitem>
 
 <listitem>
-<para
->Mit dem Ankreuzfeld <guilabel
->Bewertungspunkt-Einstellungen</guilabel
-> können Sie Einstellungen für die Bewertung von Antworten ein- und ausblenden. </para>
+<para>
+The <guilabel>Score Point Settings</guilabel> checkbox can be used to reveal or hide options to configure scoring of answers.
+</para>
 </listitem>
 
 <listitem>
-<para
->Mit dem Ankreuzfeld <guilabel
->Töne benutzen</guilabel
-> können Sie Klangeffekte ein- und ausschalten. </para>
+<para>
+The <guilabel>Use sounds</guilabel> check box allows you to either allow or suppress sound effects.
+</para>
 </listitem>
 
 <listitem>
-<para
->Ist <guilabel
->Nur groß geschriebene Zeichen benutzen</guilabel
-> angekreuzt, werden in &kanagram; nur groß geschriebenen Wörter auf der Tafel verwendet. </para>
+<para>
+The <guilabel>Only uppercase letters</guilabel> check box allows you to switch &kanagram; to the uppercase only mode for words on the blackboard.
+</para>
 </listitem>
 
 <listitem>
-<para
->Mit <guilabel
->Richtiges Wort vorlesen</guilabel
-> können Sie das Vorlesen der Wörter ein und ausschalten. Dazu müssen die Audio-Dateien in den verwendeten Vokabeldaten enthalten sein oder Sie müssen &jovie; installieren und einrichten. </para>
+<para>
+The <guilabel>Say correct words</guilabel> check box allows you to turn pronunciations on or off. The audio files of the pronunciations should be included in the vocabulary being played, or else you should install and configure &jovie; for this option to work.
+</para>
 </listitem>
 </itemizedlist>
 
 <sect1 id="vocabularies-config">
-<title
->Vokabeldateien</title>
+<title>Vocabularies</title>
 
-<para
->Auf der Einrichtungsseite <guilabel
->Vokabeln</guilabel
-> können Sie die installierten Vokabeldateien verwalten. Sie können heruntergeladene Vokabeldateien <action
->bearbeiten</action
-> und <action
->löschen</action
->, aber auch eigene Dateien <action
->erstellen</action
->: </para>
+<para>
+The <guilabel>Vocabularies</guilabel> configuration page allows you to manage your installed vocabularies. Using this dialog, you can <action>edit</action> and <action>remove</action> downloaded vocabularies, as well as <action>create</action> your very own:
+</para>
 
 <screenshot>
-<screeninfo
->&kanagram; Einrichtung der Vokabeln</screeninfo>
+<screeninfo>&kanagram; vocabulary settings</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="vocab-settings.png" format="PNG"/>
 </imageobject>
 <textobject>
-<phrase
->&kanagram; Einrichtung der Vokabeln</phrase>
+<phrase>&kanagram; vocabulary settings</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
 
 <itemizedlist>
 <listitem>
-<para
->Mit <guibutton
->Neu erstellen</guibutton
-> <action
->öffnen Sie den Dialog <link linkend="vocab-editor"
-><guilabel
->Vokabeleditor</guilabel
-></link
-></action
->, in dem Sie eigene Vokabeldateien für das Spiel eingeben können. </para>
+<para>
+The <guibutton>Create New</guibutton> button <action>opens the <link
+linkend="vocab-editor"><guilabel>Vocabulary Editor</guilabel></link> dialog</action> so that you can author your own vocabularies which you can then play with.
+</para>
 </listitem>
 <listitem>
-<para
->Mit <guibutton
->Bearbeiten</guibutton
-> können Sie vorhandene Vokabeldateien ändern, die Sie selbst erstellt oder aus dem Internet heruntergeladen haben. </para>
+<para>
+The <guibutton>Edit</guibutton> button allows you to <action>make changes to vocabularies that you have either created or downloaded off the Internet</action>.
+</para>
 </listitem>
 <!-- not in 4.5 listitem>
 <para>
-The <guibutton
->Delete</guibutton
-> button allows you to <action
->delete vocabularies that you have created or downloaded</action
->.
+The <guibutton>Delete</guibutton> button allows you to <action>delete vocabularies that you have created or downloaded</action>.
 </para>
 </listitem-->
 <listitem>
-<para
->Das Vokabeldatei für diese Aktionen wählen Sie aus der <interface
->Liste der vorhandenen Vokabeldateien</interface
->. </para>
+<para>
+You can select which vocabulary you would like to apply these actions to by using the <interface>list of vocabularies</interface>.
+</para>
 </listitem>
 </itemizedlist>
 
 <sect2 id="vocab-editor">
-<title
->Vokabeleditor</title>
+<title>Vocabulary Editor</title>
 
-<para
->Mit dem Vokabeleditor können Sie Ihre eigenen Vokabeldateien eingeben und dann damit in &kanagram; spielen. </para>
+<para>
+The Vocabulary Editor allows you to create your own vocabularies, which &kanagram; can then test you with:
+</para>
 
 <screenshot>
-<screeninfo
->&kanagram; <guilabel
->Vokabeleditor</guilabel
-></screeninfo>
+<screeninfo>&kanagram; <guilabel>Vocabulary Editor</guilabel></screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="vocab-editor.png" format="PNG"/>
 </imageobject>
 <textobject>
-<phrase
->&kanagram; <guilabel
->Vokabeleditor</guilabel
-></phrase>
+<phrase>&kanagram; <guilabel>Vocabulary Editor</guilabel></phrase>
 </textobject>
 </mediaobject>
 </screenshot>
 
 <itemizedlist>
 <listitem>
-<para
->Geben Sie einen Namen in das Feld <guilabel
->Name der Vokabeldatei</guilabel
-> ein. </para>
+<para>
+The <guilabel>Vocabulary Name:</guilabel> field lets you <action>name your vocabulary</action>.
+</para>
 </listitem>
 <listitem>
-<para
->Im Feld <guilabel
->Beschreibung</guilabel
-> können Sie weitere Informationen für Ihre Vokabeldatei mit zusätzlichen Erklärungen zum Inhalt eintragen. </para>
+<para>
+The <guilabel>Description:</guilabel> field enables you to <action>expand your vocabulary name</action>, providing the user with more details of the content of your vocabulary.
+</para>
 <note>
-<para
->Verwenden Sie möglichst kurze Namen und Beschreibungen. Gute Vokabeldateien bestehen aus einer begrenzten Anzahl von Wörtern zu einem einzelnen Themenbereich. Geben Sie mindestens 20 Wörter für jede Vokabeldatei ein. sodass ein Spieler das Thema nicht so schnell bis zum Ende gespielt hat. </para>
+<para>
+Try to keep both the name and description fields as short as possible. Effective vocabularies cover a narrow, focused set of words for a single subject. Try to write at least 20 words for your vocabulary, so that it will not be finished too quickly.
+</para>
 </note>
 </listitem>
 <listitem>
-<para
->Mit <guibutton
->Wort entfernen</guibutton
-> können Sie <action
->Wörter aus Ihrer Vokabeldatei löschen</action
->. </para>
+<para>
+The <guibutton>Remove Word</guibutton> button lets you <action>remove words from your vocabulary</action>.
+</para>
 </listitem>
 <listitem>
-<para
->Mit <guibutton
->Neues Wort</guibutton
-> fügen Sie einen neuen Eintrag in Ihre Vokabeldatei ein, um dann die Daten dazu einzugeben. </para>
+<para>
+The <guibutton>New Word</guibutton> button <action>creates a new word entry in your vocabulary</action>, ready for you to expand.
+</para>
 </listitem>
 <listitem>
-<para
->Im Feld <guilabel
->Wort</guilabel
-> geben Sie das zu erratende Wort für Ihre Vokabeldatei ein. </para>
+<para>
+The <guilabel>Word:</guilabel> field lets you <action>write word values into your vocabulary</action>.
+</para>
 </listitem>
 <listitem>
-<para
->Im Feld <guilabel
->Tipp</guilabel
-> geben Sie als Hilfe beim Raten Hinweise für das Wort ein. </para>
+<para>
+The <guilabel>Hint</guilabel> field allows you to <action>write hints to accompany your words</action>.
+</para>
 <note>
-<para
->Gute Tipps umschreiben das Ratewort eindeutig, aber raffiniert, um dem Spieler weitere Erkenntnisse über das Thema des Rateworts zu geben. Halten Sie die Tipps ziemlich kurz (weniger als 40 Buchstaben). </para>
+<para>
+Good hints clearly yet subtly describe the word, while also increasing the knowledge of the user. Also ensure that your hints are fairly short (under 40 characters in length).
+</para>
 </note>
 </listitem>
 <listitem>
-<para
->Mit dem Knopf <guibutton
->Speichern</guibutton
-> wird der Inhalt der neuen Vokabeldatei gespeichert und Sie können dann damit in &kanagram; spielen. Im Programm können Sie die neue Vokabeldatei sofort mit der <interface
->Vokabelauswahl</interface
-> zum Spielen laden. </para>
+<para>
+The <guibutton>Save</guibutton> button <action>saves your new vocabulary content</action>, and enables its use directly in &kanagram; (it will immediately become available within the application, selectable via. the <interface>Vocabulary Selector</interface>).
+</para>
 </listitem>
 <listitem>
-<para
->Mit dem Knopf <guibutton
->Schließen</guibutton
-> beenden Sie den Dialog <guilabel
->Vokabeleditor</guilabel
->. ohne die neue oder geänderte Vokabeldatei zu speichern. </para>
+<para>
+The <guibutton>Close</guibutton> button <action>closes the <guilabel>Vocabulary Editor</guilabel> dialog</action> without saving the content of your new or modified vocabulary.
+</para>
 </listitem>
 </itemizedlist>
 </sect2>
@@ -540,81 +384,66 @@ The <guibutton
 </sect1>
 
 <sect1 id="newstuff">
-<title
->Neue Daten</title>
+<title>New Stuff</title>
 
-<para
->Mit <guibutton
->Neue Vokabelsammlungen herunterladen</guibutton
-> auf der Seite <guilabel
->Vokabeln</guilabel
-> des Einrichtungsdialogs können Sie neue Vokabeldateien aus dem Internet herunterladen: </para>
+<para>
+The <guibutton>Download new vocabulary</guibutton> button on the <guilabel>Vocabularies</guilabel> 
+configuration page allows you to obtain new vocabulary files from the Internet:
+</para>
 
 <screenshot>
-<screeninfo
->&kanagram;-Dialog <quote
->Neue Sachen</quote
-></screeninfo>
+<screeninfo>&kanagram; new stuff dialog</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="newstuff-dialog.png" format="PNG"/>
 </imageobject>
 <textobject>
-<phrase
->&kanagram;-Dialog <quote
->Neue Sachen</quote
-></phrase>
+<phrase>&kanagram; new stuff dialog</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
 
-<para
->Um Vokabeldateien aus dem Internet zu installieren, wählen Sie einen Eintrag aus der Liste und drücken dann auf <guibutton
->Installieren</guibutton
->, um diese Vokabeldateien herunterzuladen. Sie können sofort damit spielen. </para>
-<para
->Wenn Sie eine Vokabeldatei bereits heruntergeladen haben, ändert sich die Beschriftung des Knopfs zu <guibutton
->Deinstalliert</guibutton
->. Damit können Sie dann die Daten wieder entfernen. </para>
-<para
->Um weitere Informationen über eine Vokabeldatei wie den Autor, eine Beschreibung des Inhalts und die Änderungen zu sehen, drücken Sie auf den Knopf <guibutton
->Details</guibutton
->. </para>
+<para>
+To install a vocabulary from the Internet, click on the vocabulary item in the list, then press the <guibutton>Install</guibutton> button to install to your system. The downloaded vocabulary will then be available to play immediately.
+</para>
+<para>If you have already downloaded a vocabulary this button will change to <guibutton>Uninstall</guibutton> which allows you to remove a vocabulary.
+</para>
+<para>To get more information about a vocabulary like the author, a description about the content, and the changelog, press the <guibutton>Details</guibutton> button.
+</para>
 </sect1>
 </chapter>
 
 
 <chapter id="credits">
-<title
->Danksagungen und Lizenz</title>
+<title>Credits and License</title>
 
-<para
->&kanagram; </para>
-<para
->Programm Copyright 2007 Jeremy Whiting <email
->jpwhiting@kde.org</email
-> 2005 Joshua Keel <email
->joshuakeel@gmail.com</email
-> and &Danny.Allen; &Danny.Allen.mail; </para>
-<para
->Mitwirkende: </para>
+<para>
+&kanagram;
+</para>
+<para>
+Program copyright 2007 Jeremy Whiting <email>jpwhiting@kde.org</email> 2005 Joshua Keel <email>joshuakeel@gmail.com</email> and &Danny.Allen; &Danny.Allen.mail;
+</para>
+<para>
+Contributors:
+</para>
 <itemizedlist>
 <listitem>
-<para
->Sound Effekte: Artemio <email
->unbekannt</email
-> </para>
+<para>Sound effects: Artemio
+<email>fillme</email>
+</para>
 </listitem>
 </itemizedlist>
 
-<para
->Copyright der Dokumentation 2005 &Danny.Allen; &Danny.Allen.mail; </para>
+<para>
+Documentation copyright 2005 &Danny.Allen; &Danny.Allen.mail;
+</para>
 
-<para
->Übersetzung Burkhard Lück<email
->lueck@hube-lueck.de</email
-></para
-> &underFDL; &underGPL; </chapter>
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+&underFDL;
+&underGPL;
+
+</chapter>
 
 &documentation.index;
 </book>
