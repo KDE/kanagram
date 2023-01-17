@@ -461,7 +461,7 @@ msgstr "Establix un temporitzador amb finalitat de puntuació:"
 #: mainsettingswidget.ui:167
 #, kde-format
 msgid "Score Point Settings"
-msgstr "Configuració de la puntuació"
+msgstr "Configureu la puntuació"
 
 #. i18n: ectx: property (text), widget (QLabel, textCorrectAnswer)
 #: mainsettingswidget.ui:174
