@@ -15,6 +15,7 @@
   <name xml:lang="en-GB">Kanagram</name>
   <name xml:lang="es">Kanagram</name>
   <name xml:lang="et">Kanagram</name>
+  <name xml:lang="eu">Kanagram</name>
   <name xml:lang="fi">Kanagram</name>
   <name xml:lang="fr">Kanagram</name>
   <name xml:lang="gl">Kanagram</name>
@@ -51,6 +52,7 @@
   <summary xml:lang="en-GB">Letter Order Game</summary>
   <summary xml:lang="es">Juego de ordenación de letras</summary>
   <summary xml:lang="et">Tähtede järjestamine</summary>
+  <summary xml:lang="eu">Letrak ordenatzeko jokoa</summary>
   <summary xml:lang="fi">Kirjainten järjestyspeli</summary>
   <summary xml:lang="fr">Jeu sur l'ordre des lettres</summary>
   <summary xml:lang="gl">Xogo de ordenar letras</summary>
@@ -86,6 +88,7 @@
     <p xml:lang="en-GB">Kanagram is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the word. It features several included word lists, a hints-and-cheats help system, a word list editor, and allows for updating and distributing wordlists via KNewStuff. The interface is scalable and appropriate for children.</p>
     <p xml:lang="es">Kanagram es un juego basado en anagramas de palabras: el rompecabezas se resuelve cuando las letras de la palabra mezclada se vuelven a colocar en el orden correcto. No existe límite del tiempo necesario para conseguirlo ni de la cantidad de intentos para resolver la palabra. Incluye varias listas de palabras, un sistema de ayuda de pistas y trampas, un editor de listas de palabras y permite actualizar y distribuir listas de palabras usando KNewStuff. La interfaz es escalable y apropiada para niños.</p>
     <p xml:lang="et">Kanagram on sõnade anagrammide põhjal äraarvamise mäng: mõistatus on lahendatud, kui oled asetanud sõna segiaetud järjekorras esitatud tähed taas õigesse järjekorda. Lahendamisele kuluvale ajale ega katsete arvule piiranguid ei seata. Rakendusega on kaasa mitu sõnaloendit, vajaduse korral pakutakse lahendajale kergenduseks ka vihjeid, kasutada saab sõnaloendite redaktorit ning loodud sõnaloendeid saab isegi internetti üles laadida ja teistega jagada. Kasutajaliidese suurust saab igati muuta, nii et mäng sobib ka väiksematele lastele.</p>
+    <p xml:lang="eu">«Kanagram» hitzen anagramatan oinarritutako joko bat da: jokoa ebatzi da nahastutako hitzaren letrak, atzera, hurrenkera zuzenean ipintzen direnean. Ez dago hitza ebazteko mugarik, ez denbora aldetik, ez eta saiakera kopuruan ere. Barneratutako hitz zerrenda batzuk ditu, zehar-esan eta amarru laguntza sistema bat, hitz-zerrenda editore bat, eta hitz-zerrendak «KNewStuff» bidez eguneratu eta banatzen uzten du. Interfazea eskalagarria da, haurrentzako egokia.</p>
     <p xml:lang="fi">Kanagram on anagrammeihin perustuva peli: peli on ratkaistu, kun sanan sekoitetut kirjaimet on laitettu takaisin oikeille paikoilleen. Peli ei rajoita ratkaisemiseen kuluvaa aikaa eikä ratkaisuyrityksiä. Peliin kuuluu useita sanastoja, vihjeet sekä huijaamismahdollisuus ja sanastojen muokkaus. Sanastoja voi myös päivittää ja jakaa verkkoon KNewStuffin välityksellä. Käyttöliittymä on skaalautuva ja sopii lapsille.</p>
     <p xml:lang="fr">Kanagram est un jeu construit sur des anagrammes de mots : le puzzle est résolu quand les lettres mélangées d'un mot sont remise dans le bon ordre. Il n'y a pas de limite de temps ou de nombre de tentatives pour résoudre un mot. Il intègre un nombre important de listes de mots, un système de trucs-et-astuces pour aider, un éditeur de liste de mots et permet la distribution de vos listes grâce à KNewStuff. L'interface peut changer d'échelle et est approprié pour les enfants.</p>
     <p xml:lang="gl">Kanagram é un xogo baseado en anagramas de palabras: o quebracabezas resólvese cando as letras da palabra desordenada se ordenan correctamente. Non existe ningún límite de tempo, nin de oportunidades para resolver a palabra. O xogo goza de varias listas de palabras, un sistema de axuda de consellos e trucos, un editor de listas de palabras, e permite actualizar e distribuír as listas de palabras mediante KNewStuff. As dimensións da interface poden cambiarse, e a interface é axeitada para nenos.</p>
@@ -126,6 +129,7 @@
       <caption xml:lang="en-GB">Playing Kanagram</caption>
       <caption xml:lang="es">Jugando a Kanagram</caption>
       <caption xml:lang="et">Kanagramis mängimine</caption>
+      <caption xml:lang="eu">«Kanagrame»ra jokatzen</caption>
       <caption xml:lang="fr">Partie de Kanagram en cours</caption>
       <caption xml:lang="gl">Xogando a Kanagram</caption>
       <caption xml:lang="id">Memainkan Kanagram</caption>
