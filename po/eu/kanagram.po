@@ -6,141 +6,115 @@
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # marcos <marcos@euskalgnu.org>, 2006.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
-# Iñigo Salvador Azurmendi <xalbani.eus>, 2010, 2011.
+# Iñigo Salvador Azurmendi <xalbani.eus>, 2010, 2011, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-23 00:40+0000\n"
-"PO-Revision-Date: 2011-10-12 17:56+0200\n"
-"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"PO-Revision-Date: 2023-01-22 19:59+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 22.12.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. i18n: ectx: label, entry (currentVocabulary), group (kanagram)
 #: kanagram.kcfg:9
-#, fuzzy, kde-format
-#| msgid "Edits the selected vocabulary."
+#, kde-format
 msgid "This setting stores the currently selected Vocabulary."
-msgstr "Hautatutako hiztegia editatzen du."
+msgstr "Ezarpen honek unean hautatutako hiztegia gordetzen du."
 
 #. i18n: ectx: label, entry (singlePlayerMode), group (kanagram)
 #: kanagram.kcfg:13
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid "This setting allows you to decide one-player or two-player mode"
-msgstr ""
-"Ezarpen honek Kanagram-en argibidearen burbuila zenbat denboraz erakutsiko "
-"den ezartzeko aukera ematen dizu."
+msgstr "Ezarpen honek jokalari-bat edo bi-jokalari modua hautatzen uzten dizu."
 
 #. i18n: ectx: label, entry (hintHideTime), group (kanagram)
 #: kanagram.kcfg:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set in seconds how long Kanagram's hint bubble is "
 "shown."
 msgstr ""
-"Ezarpen honek Kanagram-en argibidearen burbuila zenbat denboraz erakutsiko "
-"den ezartzeko aukera ematen dizu."
+"Ezarpen honek «Kanagram»en argibide-burbuila zenbat denboraz, segundotan, "
+"erakutsiko den ezartzeko aukera ematen dizu."
 
 #. i18n: ectx: label, entry (resolveTime), group (kanagram)
 #: kanagram.kcfg:21
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the anagram."
 msgstr ""
-"Ezarpen honek Kanagram-en argibidearen burbuila zenbat denboraz erakutsiko "
-"den ezartzeko aukera ematen dizu."
+"Ezarpen honek anagrama ebazteko zenbat denbora, segundotan, erabilgarri "
+"dagoen ezartzen uzten dizu."
 
 #. i18n: ectx: label, entry (scoreTime), group (kanagram)
 #: kanagram.kcfg:26
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set in seconds the time interval of the score "
 "timer."
 msgstr ""
-"Ezarpen honek Kanagram-en argibidearen burbuila zenbat denboraz erakutsiko "
-"den ezartzeko aukera ematen dizu."
+"Ezarpen honek puntuazio tenporizadorearen denbora tartea segundotan ezartzen "
+"uzten dizu."
 
 #. i18n: ectx: label, entry (correctAnswerScore), group (kanagram)
 #: kanagram.kcfg:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with a correct answer."
 msgstr ""
-"Ezarpen honek Kanagram-en argibidearen burbuila zenbat denboraz erakutsiko "
-"den ezartzeko aukera ematen dizu."
+"Ezarpen honek erantzun zuzen bati dagokion puntuazioa ezartzen uzten dizu."
 
 #. i18n: ectx: label, entry (incorrectAnswerScore), group (kanagram)
 #: kanagram.kcfg:34
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with an incorrect answer."
 msgstr ""
-"Ezarpen honek Kanagram-en argibidearen burbuila zenbat denboraz erakutsiko "
-"den ezartzeko aukera ematen dizu."
+"Ezarpen honek erantzun oker bati dagokion puntuazioa ezartzen uzten dizu."
 
 #. i18n: ectx: label, entry (revealAnswerScore), group (kanagram)
 #: kanagram.kcfg:38
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid "This setting allows you to set the score associated with reveal answer."
 msgstr ""
-"Ezarpen honek Kanagram-en argibidearen burbuila zenbat denboraz erakutsiko "
-"den ezartzeko aukera ematen dizu."
+"Ezarpen honek erakutsitako erantzun bati dagokion puntuazioa ezartzen uzten "
+"dizu."
 
 #. i18n: ectx: label, entry (skippedWordScore), group (kanagram)
 #: kanagram.kcfg:42
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with a skipped word."
 msgstr ""
-"Ezarpen honek Kanagram-en argibidearen burbuila zenbat denboraz erakutsiko "
-"den ezartzeko aukera ematen dizu."
+"Ezarpen honek jauzi egindako erantzun bati dagokion puntuazioa ezartzen "
+"uzten dizu."
 
 #. i18n: ectx: label, entry (useSounds), group (kanagram)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_useSounds)
 #: kanagram.kcfg:46 mainsettingswidget.ui:301
 #, kde-format
 msgid "Turns sounds on/off."
-msgstr "Soinua aktibatu/desaktibatzen du."
+msgstr "Soinua pizten/itzaltzen du."
 
 #. i18n: ectx: label, entry (uppercaseOnly), group (kanagram)
 #: kanagram.kcfg:50
 #, kde-format
 msgid "Use uppercase."
-msgstr ""
+msgstr "Erabili letra larriak."
 
 #. i18n: ectx: label, entry (enablePronunciation), group (kanagram)
 #: kanagram.kcfg:54
-#, fuzzy, kde-format
-#| msgid "Turns sounds on/off."
+#, kde-format
 msgid "Turns pronunciations on/off."
-msgstr "Soinua aktibatu/desaktibatzen du."
+msgstr "Ahoskatzea pizten/itzaltzen du."
 
 #. i18n: ectx: label, entry (dataLanguage), group (kanagram)
 #: kanagram.kcfg:58
@@ -183,11 +157,7 @@ msgid "An anagram game"
 msgstr "Anagrama joko bat"
 
 #: main.cpp:58
-#, fuzzy, kde-format
-#| msgid ""
-#| "© 2005 Joshua Keel\n"
-#| "© 2005 Danny Allen\n"
-#| "© 2007 Jeremy Whiting"
+#, kde-format
 msgid ""
 "© 2005 Joshua Keel\n"
 "© 2005 Danny Allen\n"
@@ -196,7 +166,8 @@ msgid ""
 msgstr ""
 "© 2005 Joshua Keel\n"
 "© 2005 Danny Allen\n"
-"© 2007 Jeremy Whiting"
+"© 2007 Jeremy Whiting\n"
+"© 2014 Debjit Mondal"
 
 #: main.cpp:61
 #, kde-format
@@ -231,22 +202,22 @@ msgstr "Mantentzailea"
 #: main.cpp:64
 #, kde-format
 msgid "Debjit Mondal"
-msgstr ""
+msgstr "Debjit Mondal"
 
 #: main.cpp:64
 #, kde-format
 msgid "Coding & Design"
-msgstr ""
+msgstr "Kodetzea eta diseinua"
 
 #: main.cpp:65
 #, kde-format
 msgid "Laszlo Papp"
-msgstr ""
+msgstr "Laszlo Papp"
 
 #: main.cpp:65
 #, kde-format
 msgid "Modularization and porting to Mobile"
-msgstr ""
+msgstr "Modulutan zatitzea eta Mugikorrera eratortzea"
 
 #: main.cpp:66
 #, kde-format
@@ -324,41 +295,39 @@ msgid "Yuri Chornoivan"
 msgstr "Yuri Chornoivan"
 
 #: main.cpp:73
-#, fuzzy, kde-format
-#| msgid "Ukranian Data Files"
+#, kde-format
 msgid "Ukrainian Data Files"
-msgstr "Datuen fitxategia ukranieraz"
+msgstr "Ukrainerako datu-fitxategiak"
 
 #: main.cpp:74
 #, kde-format
 msgid "Kristóf Kiszel"
-msgstr ""
+msgstr "Kristóf Kiszel"
 
 #: main.cpp:74
-#, fuzzy, kde-format
-#| msgid "Italian Data Files"
+#, kde-format
 msgid "Hungarian Data Files"
-msgstr "Datuen fitxategia italieraz"
+msgstr "Hungarierako datu-fitxategiak"
 
 #: main.cpp:75
 #, kde-format
 msgid "Souvik Das"
-msgstr ""
+msgstr "Souvik Das"
 
 #: main.cpp:75
 #, kde-format
 msgid "2-player mode"
-msgstr ""
+msgstr "2-jokalari modua"
 
 #: main.cpp:76
 #, kde-format
 msgid "Sayan Biswas"
-msgstr ""
+msgstr "Sayan Biswas"
 
 #: main.cpp:76
 #, kde-format
 msgid "Letters turned to clickable buttons"
-msgstr ""
+msgstr "Letrak botoi klikagarri bihurtuta"
 
 #: main.cpp:77
 #, kde-format
@@ -374,20 +343,17 @@ msgstr "igaztanaga@gmail.com"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, MainSettingsWidget)
 #: mainsettingswidget.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the length of time Kanagram's hint bubble is "
 "shown."
 msgstr ""
-"Ezarpen honek Kanagram-en argibidearen burbuila zenbat denboraz erakutsiko "
-"den ezartzeko aukera ematen dizu."
+"Ezarpen honek «Kanagram»en argibide-burbuila erakutsiko den denbora "
+"ezartzeko aukera ematen dizu."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox1)
 #: mainsettingswidget.ui:23
-#, fuzzy, kde-format
-#| msgid "Hints"
+#, kde-format
 msgid "Hints"
 msgstr "Argibideak"
 
@@ -407,69 +373,65 @@ msgstr "Ez auto-ezkutatu argibideak"
 #: mainsettingswidget.ui:42
 #, kde-format
 msgid "3 Seconds"
-msgstr "3 segundu"
+msgstr "3 segundo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
 #: mainsettingswidget.ui:47
 #, kde-format
 msgid "5 Seconds"
-msgstr "5 segundu"
+msgstr "5 segundo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
 #: mainsettingswidget.ui:52
 #, kde-format
 msgid "7 Seconds"
-msgstr "7 segundu"
+msgstr "7 segundo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
 #: mainsettingswidget.ui:57
 #, kde-format
 msgid "9 Seconds"
-msgstr "9 segundu"
+msgstr "9 segundo"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabelResolveTime)
 #: mainsettingswidget.ui:65
 #, kde-format
 msgid "Time for resolving the anagram:"
-msgstr ""
+msgstr "Anagrama ebazteko denbora:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #: mainsettingswidget.ui:73
 #, kde-format
 msgid "No time limit"
-msgstr ""
+msgstr "Denbora mugarik gabe"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:78 mainsettingswidget.ui:144
-#, fuzzy, kde-format
-#| msgid "5 Seconds"
+#, kde-format
 msgid "15 Seconds"
-msgstr "5 segundu"
+msgstr "15 segundo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:83 mainsettingswidget.ui:149
-#, fuzzy, kde-format
-#| msgid "3 Seconds"
+#, kde-format
 msgid "30 Seconds"
-msgstr "3 segundu"
+msgstr "30 segundo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:88 mainsettingswidget.ui:154
-#, fuzzy, kde-format
-#| msgid "5 Seconds"
+#, kde-format
 msgid "45 Seconds"
-msgstr "5 segundu"
+msgstr "45 segundo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:93 mainsettingswidget.ui:159
-#, fuzzy, kde-format
-#| msgid "3 Seconds"
+#, kde-format
 msgid "60 Seconds"
-msgstr "3 segundu"
+msgstr "60 segundo"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox3)
 #: mainsettingswidget.ui:104
@@ -485,65 +447,63 @@ msgstr "Jokatu hau erabiliz:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox4)
 #: mainsettingswidget.ui:130
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Scoring Options"
-msgstr "Deskribapena"
+msgstr "Puntuatzeko aukerak"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabelScoreTime)
 #: mainsettingswidget.ui:136
 #, kde-format
 msgid "Set timer for scoring purpose:"
-msgstr ""
+msgstr "Ezarri tenporizadorea puntuazio helburuarekin:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, scoringPointCheckbox)
 #: mainsettingswidget.ui:167
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Score Point Settings"
-msgstr "Deskribapena"
+msgstr "Puntu-markagailuaren ezarpenak"
 
 #. i18n: ectx: property (text), widget (QLabel, textCorrectAnswer)
 #: mainsettingswidget.ui:174
 #, kde-format
 msgid "Assign score for correct answer : "
-msgstr ""
+msgstr "Esleitu erantzun zuzenaren puntuazioa: "
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:182
 #, kde-format
 msgid "+5 points"
-msgstr ""
+msgstr "+5 puntu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:187
 #, kde-format
 msgid "+10 points"
-msgstr ""
+msgstr "+10 puntu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:192
 #, kde-format
 msgid "+15 points"
-msgstr ""
+msgstr "+15 puntu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:197
 #, kde-format
 msgid "+20 points"
-msgstr ""
+msgstr "+20 puntu"
 
 #. i18n: ectx: property (text), widget (QLabel, textIncorrectAnswer)
 #: mainsettingswidget.ui:205
 #, kde-format
 msgid "Assign score for incorrect answer : "
-msgstr ""
+msgstr "Esleitu erantzun okerraren puntuazioa: "
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
 #: mainsettingswidget.ui:213
 #, kde-format
 msgid "-1 point"
-msgstr ""
+msgstr "-1 puntu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
@@ -552,13 +512,13 @@ msgstr ""
 #: mainsettingswidget.ui:275
 #, kde-format
 msgid "-2 points"
-msgstr ""
+msgstr "-2 puntu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
 #: mainsettingswidget.ui:223
 #, kde-format
 msgid "-3 points"
-msgstr ""
+msgstr "-3 puntu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
@@ -567,33 +527,33 @@ msgstr ""
 #: mainsettingswidget.ui:280
 #, kde-format
 msgid "-4 points"
-msgstr ""
+msgstr "-4 puntu"
 
 #. i18n: ectx: property (text), widget (QLabel, textRevealAnswer)
 #: mainsettingswidget.ui:236
 #, kde-format
 msgid "Assign score for reveal answer : "
-msgstr ""
+msgstr "Esleitu erakutsitako erantzunaren puntuazioa: "
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_skippedWordScore)
 #: mainsettingswidget.ui:254 mainsettingswidget.ui:285
 #, kde-format
 msgid "-6 points"
-msgstr ""
+msgstr "-6 puntu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_skippedWordScore)
 #: mainsettingswidget.ui:259 mainsettingswidget.ui:290
 #, kde-format
 msgid "-8 points"
-msgstr ""
+msgstr "-8 puntu"
 
 #. i18n: ectx: property (text), widget (QLabel, textSkippedWord)
 #: mainsettingswidget.ui:267
 #, kde-format
 msgid "Assign score for skipped word : "
-msgstr ""
+msgstr "Esleitu jauzi egindako hitzaren puntuazioa: "
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_useSounds)
 #: mainsettingswidget.ui:304
@@ -605,26 +565,25 @@ msgstr "Erabili soi&nuak"
 #: mainsettingswidget.ui:311
 #, kde-format
 msgid "Use only uppercase letters."
-msgstr ""
+msgstr "Erabili letra larriak bakarrik."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_uppercaseOnly)
 #: mainsettingswidget.ui:314
 #, kde-format
 msgid "Only uppercase letters"
-msgstr ""
+msgstr "Letra larriak bakarrik"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:321
-#, fuzzy, kde-format
-#| msgid "Turns sounds on/off."
+#, kde-format
 msgid "Turn pronunciations on or off."
-msgstr "Soinua aktibatu/desaktibatzen du."
+msgstr "Ahoskatzea piztu edo itzali."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:324
 #, kde-format
 msgid "Say correct words"
-msgstr ""
+msgstr "Esan hitz zuzenak"
 
 #: ui/Blackboard.qml:89
 #, kde-format
@@ -639,40 +598,37 @@ msgstr "Aurreko hiztegia"
 #: ui/Blackboard.qml:179
 #, kde-format
 msgid "Start Timer"
-msgstr ""
+msgstr "Abiatu tenporizadorea"
 
 #: ui/Blackboard.qml:202
-#, fuzzy, kde-format
-#| msgid "Show Hint"
+#, kde-format
 msgid "Show Hint"
 msgstr "Erakutsi argibidea"
 
 #: ui/Blackboard.qml:234
-#, fuzzy, kde-format
-#| msgid "reveal word"
+#, kde-format
 msgid "Reveal Word"
-msgstr "erakutsi hitza"
+msgstr "Erakutsi hitza"
 
 #: ui/Blackboard.qml:280
 #, kde-format
 msgid " "
-msgstr ""
+msgstr " "
 
 #: ui/Blackboard.qml:397
-#, fuzzy, kde-format
-#| msgid "Show Hint"
+#, kde-format
 msgid "Show Wiki Content"
-msgstr "Erakutsi argibidea"
+msgstr "Erakutsi Wikiaren edukia"
 
 #: ui/Blackboard.qml:423
 #, kde-format
 msgid "Score : "
-msgstr ""
+msgstr "Puntuazioa : "
 
 #: ui/Blackboard.qml:526
 #, kde-format
 msgid " Player 1 : "
-msgstr ""
+msgstr " 1 jokalaria : "
 
 #: ui/Blackboard.qml:526
 #, kde-format
@@ -680,6 +636,8 @@ msgid ""
 "\n"
 " Player 2 : "
 msgstr ""
+"\n"
+" 2 jokalaria : "
 
 #: ui/Blackboard.qml:526
 #, kde-format
@@ -687,6 +645,8 @@ msgid ""
 "\n"
 " Close dialog for new game "
 msgstr ""
+"\n"
+" Itxi joko berrirako elkarrizketa-koadroa "
 
 #: ui/Blackboard.qml:536
 #, kde-format
@@ -694,22 +654,23 @@ msgid ""
 " Time Up. \n"
 " Player 2's Turn"
 msgstr ""
+" Denbora bete da. \n"
+" 2. jokalariaren txanda"
 
 #: ui/Blackboard.qml:565
-#, fuzzy, kde-format
-#| msgid "&Close"
+#, kde-format
 msgid "Close"
-msgstr "It&xi"
+msgstr "Itxi"
 
 #: ui/main.qml:200
 #, kde-format
 msgid "Quit"
-msgstr ""
+msgstr "Irten"
 
 #: ui/main.qml:213
 #, kde-format
 msgid "Change mode"
-msgstr ""
+msgstr "Aldatu modua"
 
 #: ui/main.qml:293
 #, kde-format
@@ -719,29 +680,27 @@ msgstr "Hurrengo anagrama"
 #: ui/main.qml:341
 #, kde-format
 msgid "1st Player"
-msgstr ""
+msgstr "1. jokalaria"
 
 #: ui/main.qml:341
 #, kde-format
 msgid "2nd Player"
-msgstr ""
+msgstr "2. jokalaria"
 
 #: ui/main.qml:419
-#, fuzzy, kde-format
-#| msgid "Configure Kanagram"
+#, kde-format
 msgid "Configure"
-msgstr "Konfiguratu Kanagram"
+msgstr "Konfiguratu"
 
 #: ui/main.qml:556
 #, kde-format
 msgid "  "
-msgstr ""
+msgstr "  "
 
 #: ui/main.qml:568
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgid "About"
-msgstr "KDE-ri buruz"
+msgstr "Honi buruz"
 
 #: ui/main.qml:616
 #, kde-format
@@ -891,10 +850,9 @@ msgstr "Sortu &berria"
 
 #. i18n: ectx: property (toolTip), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:58
-#, fuzzy, kde-format
-#| msgid "Download new vocabulary from  \"Get hot new Stuff\""
+#, kde-format
 msgid "Download new vocabulary from \"Get hot new Stuff\""
-msgstr "Jaitsi hiztegi berria \"Berrikuntzak eskuratu\" bitartez"
+msgstr "Zama-jaitsi hiztegi berria \"Berrikuntzak eskuratu\" bitartez"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:61
