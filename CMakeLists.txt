@@ -18,6 +18,13 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(ECMDeprecationSettings)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_REQUIRED_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
 
 
 if(NOT MSVC)
@@ -36,7 +43,7 @@ else()
 endif()
 
 
-find_package(KF5 REQUIRED COMPONENTS
+find_package(KF${KF_MAJOR_VERSION} REQUIRED COMPONENTS
     I18n
     Crash
     Sonnet
@@ -53,7 +60,7 @@ find_package(LibKEduVocDocument REQUIRED)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
-ecm_set_disabled_deprecation_versions(QT 5.15.2  KF 5.101.0)
+ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.101.0)
 
 add_subdirectory( doc )
 add_subdirectory( src )

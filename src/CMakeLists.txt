@@ -44,11 +44,14 @@ add_executable(kanagram ${kanagram_SRCS})
 target_link_libraries(kanagram
     Qt::Quick
     Qt::Core
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::NewStuffWidgets
-    KF5::SonnetCore
-    KF5::Crash
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::NewStuffWidgets
+    KF${KF_MAJOR_VERSION}::SonnetCore
+    KF${KF_MAJOR_VERSION}::Crash
+    KF${KF_MAJOR_VERSION}::ConfigCore
+    KF${KF_MAJOR_VERSION}::ConfigWidgets
+    KF${KF_MAJOR_VERSION}::XmlGui
     LibKEduVocDocumentImport__KEduVocDocument
 )
 
