@@ -28,8 +28,6 @@
 #include <QStringList>
 #include <QUrl>
 
-#include <krandomsequence.h>
-
 #ifdef HAVE_SPEECH
 class QTextToSpeech;
 #endif

@@ -308,7 +308,7 @@ void KanagramGame::createAnagram()
             letters = m_originalWord;
             while (!letters.isEmpty())
             {
-                randomIndex = QRandomGenerator::global()->bounded(letters.count());
+                randomIndex = QRandomGenerator::global()->bounded(letters.length());
                 anagram.append(letters.at(randomIndex));
                 letters.remove(randomIndex, 1);
             }
