@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-23 00:40+0000\n"
-"PO-Revision-Date: 2022-12-25 08:24+0100\n"
+"PO-Revision-Date: 2023-02-11 07:06+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -658,7 +658,7 @@ msgstr ""
 #: ui/Blackboard.qml:565
 #, kde-format
 msgid "Close"
-msgstr "დაკეტვა"
+msgstr "დახურვა"
 
 #: ui/main.qml:200
 #, kde-format
@@ -746,7 +746,7 @@ msgstr "&შენახვა"
 #: vocabeditwidget.ui:81
 #, kde-format
 msgid "&Close"
-msgstr "დაკე&ტვა"
+msgstr "&დახურვა"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #: vocabeditwidget.ui:127
