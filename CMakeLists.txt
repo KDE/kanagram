@@ -67,7 +67,7 @@ add_subdirectory( src )
 add_subdirectory( icons )
 
 ki18n_install(po)
-if (KF5DocTools_FOUND)
+if (KF${KF_MAJOR_VERSION}DocTools_FOUND)
     kdoctools_install(po)
 endif()
 install(FILES org.kde.kanagram.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
