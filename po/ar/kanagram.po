@@ -690,7 +690,7 @@ msgstr "عن"
 #: ui/main.qml:616
 #, kde-format
 msgid "About KDE"
-msgstr "حَوْل كدي"
+msgstr "حَوْل كِيدِي"
 
 #: ui/main.qml:666
 #, kde-format
