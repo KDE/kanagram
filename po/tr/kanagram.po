@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-23 00:40+0000\n"
-"PO-Revision-Date: 2023-01-18 22:29+0300\n"
+"PO-Revision-Date: 2023-03-09 13:51+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #. i18n: ectx: label, entry (currentVocabulary), group (kanagram)
 #: kanagram.kcfg:9
@@ -182,7 +182,7 @@ msgstr "Danny Allen"
 #: main.cpp:62
 #, kde-format
 msgid "Design, Graphics and many Vocabularies"
-msgstr "Tasarım, Grafikler ve birçok sözcük dağarcığı"
+msgstr "Tasarım, Grafikler ve birçok söz dağarcığı"
 
 #: main.cpp:63
 #, kde-format
@@ -730,7 +730,7 @@ msgstr "Yeni Öge"
 #: vocabeditwidget.ui:13
 #, kde-format
 msgid "Vocabulary Editor"
-msgstr "Sözcük Dağarcığı Düzenleyici"
+msgstr "Söz Dağarcığı Düzenleyici"
 
 #. i18n: ectx: property (text), widget (QPushButton, btnSave)
 #: vocabeditwidget.ui:74
@@ -752,9 +752,9 @@ msgid ""
 "a description so that users of your vocabulary will know what kinds of words "
 "it contains."
 msgstr ""
-"Sözlük paketinin açıklaması. Yeni bir sözcük dağarcığı oluşturuyorsanız "
-"paketin açıklamasını girin. Böylece bu paketi kullananlar paketin ne tür "
-"sözcükler içerdiği öğrenebilir."
+"Sözlük paketinin açıklaması. Yeni bir söz dağarcığı oluşturuyorsanız paketin "
+"açıklamasını girin. Böylece bu paketi kullananlar paketin ne tür sözcükler "
+"içerdiği öğrenebilir."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: vocabeditwidget.ui:130
@@ -766,13 +766,13 @@ msgstr "&Açıklama:"
 #: vocabeditwidget.ui:143
 #, kde-format
 msgid "The name of the vocabulary you are editing."
-msgstr "Düzenlediğiniz sözcük dağarcığının adı."
+msgstr "Düzenlediğiniz söz dağarcığının adı."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: vocabeditwidget.ui:146
 #, kde-format
 msgid "Vocabulary &name:"
-msgstr "Sözcük dağarcığı a&dı:"
+msgstr "Söz dağarcığı a&dı:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, btnRemoveWord)
 #: vocabeditwidget.ui:195
@@ -802,7 +802,7 @@ msgstr "&Yeni Sözcük"
 #: vocabeditwidget.ui:217
 #, kde-format
 msgid "The list of words in the vocabulary."
-msgstr "Sözcük dağarcığındaki sözcüklerin listesi."
+msgstr "Söz dağarcığındaki sözcüklerin listesi."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #: vocabeditwidget.ui:246
@@ -832,7 +832,7 @@ msgstr "İ&pucu:"
 #: vocabsettingswidget.ui:48
 #, kde-format
 msgid "Creates a new vocabulary."
-msgstr "Yeni bir sözcük dağarcığı oluşturur."
+msgstr "Yeni bir söz dağarcığı oluşturur."
 
 #. i18n: ectx: property (text), widget (QPushButton, btnCreateNew)
 #: vocabsettingswidget.ui:51
@@ -844,7 +844,7 @@ msgstr "Ye&ni Oluştur"
 #: vocabsettingswidget.ui:58
 #, kde-format
 msgid "Download new vocabulary from \"Get hot new Stuff\""
-msgstr "\"Yeni Çıkanlar\"dan yeni sözcük dağarcığı indir"
+msgstr "\"Yeni Şeyler İndir\"den yeni söz dağarcığı indir"
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:61
@@ -856,7 +856,7 @@ msgstr "Yeni Sözcük Dağarcıkları İndir"
 #: vocabsettingswidget.ui:73
 #, kde-format
 msgid "Edits the selected vocabulary."
-msgstr "Seçili sözcük dağarcığını düzenler."
+msgstr "Seçili söz dağarcığını düzenler."
 
 #. i18n: ectx: property (text), widget (QPushButton, btnEdit)
 #: vocabsettingswidget.ui:76
