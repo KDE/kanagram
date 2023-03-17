@@ -19,9 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-import QtQuick 2.0
-import QtQuick.Controls 1.2
-import QtQuick.Controls.Styles 1.2
+import QtQuick
+import QtQuick.Controls
 
 Rectangle {
 
@@ -86,7 +85,7 @@ Rectangle {
                     kanagramGame.nextVocabulary();
                     nextAnagram();
                 }
-                tooltip: i18n("Next Vocabulary")
+                text: i18n("Next Vocabulary")
             }
             Image {
                 source: "icons/right-arrow.png"
@@ -94,9 +93,7 @@ Rectangle {
                 anchors.margins: 4
                 fillMode: Image.PreserveAspectFit
             }
-            style: ButtonStyle {
-                background: Rectangle { color: "transparent" }
-            }
+            background: Rectangle { color: "transparent" }
         }
 
         Text {
@@ -125,7 +122,7 @@ Rectangle {
                     kanagramGame.previousVocabulary();
                     nextAnagram();
                 }
-                tooltip: i18n("Previous Vocabulary")
+                text: i18n("Previous Vocabulary")
             }
             Image {
                 source: "icons/left-arrow.png"
@@ -133,9 +130,7 @@ Rectangle {
                 anchors.margins: 4
                 fillMode: Image.PreserveAspectFit
             }
-            style: ButtonStyle {
-                background: Rectangle { color: "transparent" }
-            }
+            background: Rectangle { color: "transparent" }
         }
     }
 
@@ -176,7 +171,7 @@ Rectangle {
                     }
                     scoreButton.flagToggleTimer = !scoreButton.flagToggleTimer;
                 }
-                tooltip: i18n("Start Timer");
+                text: i18n("Start Timer");
             }
             Image {
                 source: "icons/timer.png"
@@ -184,9 +179,7 @@ Rectangle {
                 anchors.margins: 4
                 fillMode: Image.PreserveAspectFit
             }
-            style: ButtonStyle {
-                background: Rectangle { color: "transparent" }
-            }
+            background: Rectangle { color: "transparent" }
         }
 
         ToolButton {
@@ -199,7 +192,7 @@ Rectangle {
                     hintTimer.repeat = true
                     hintTimer.start()
                 }
-                tooltip: i18n("Show Hint")
+                text: i18n("Show Hint")
             }
             width: optionsBar.height
             height: optionsBar.height
@@ -214,9 +207,7 @@ Rectangle {
                 anchors.margins: 4
                 fillMode: Image.PreserveAspectFit
             }
-            style: ButtonStyle {
-                background: Rectangle { color: "transparent" }
-            }
+            background: Rectangle { color: "transparent" }
         }
 
         Action {
@@ -231,7 +222,7 @@ Rectangle {
                 showAnswerTimer.repeat = true
                 showAnswerTimer.start()
             }
-            tooltip: i18n("Reveal Word")
+            text: i18n("Reveal Word")
         }
 
         ToolButton {
@@ -250,9 +241,7 @@ Rectangle {
                 anchors.margins: 4
                 fillMode: Image.PreserveAspectFit
             }
-            style: ButtonStyle {
-                background: Rectangle { color: "transparent" }
-            }
+            background: Rectangle { color: "transparent" }
         }
 
         Rectangle {
@@ -552,9 +541,7 @@ Rectangle {
                 anchors.margins: 4
                 fillMode: Image.PreserveAspectFit
             }
-            style: ButtonStyle {
-                background: Rectangle { color: "transparent" }
-            }
+            background: Rectangle { color: "transparent" }
         }
 
         Action {
@@ -562,7 +549,7 @@ Rectangle {
             onTriggered: {
                 score2Box.visible = false;
             }
-            tooltip: i18n("Close")
+            text: i18n("Close")
         }
     }
 

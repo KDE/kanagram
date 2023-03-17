@@ -18,21 +18,24 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-import QtQuick 2.3
-import QtQuick.Controls 1.2
-import QtQuick.Controls.Styles 1.2
+import QtQuick
+import QtQuick.Controls
 
 Button {
     id: buttonText
     width: height
-    style: ButtonStyle {
-        label: Label {
-            anchors.fill: parent
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            text: buttonText.text;
-            color: "black";
-            font.pixelSize: Math.max(screen.height / 20, screen.width / 30, 15)
-        }
+    font.pixelSize: Math.max(screen.height / 20, screen.width / 30, 15)
+    contentItem: Text {
+        text: buttonText.text
+        font: buttonText.font
+        color: "black"
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    background: Rectangle {
+        color: "white"
+        border.width: 1
+        radius: 2
     }
 }
