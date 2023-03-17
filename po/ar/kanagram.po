@@ -100,7 +100,7 @@ msgstr "استعمل الأحرف الكبيرة."
 #: kanagram.kcfg:54
 #, kde-format
 msgid "Turns pronunciations on/off."
-msgstr "يشغّل و يطفئ التهجئة"
+msgstr "يشغّل و يطفئ التهجية"
 
 #. i18n: ectx: label, entry (dataLanguage), group (kanagram)
 #: kanagram.kcfg:58
@@ -562,7 +562,7 @@ msgstr "فقط الحروف الكبيرة"
 #: mainsettingswidget.ui:321
 #, kde-format
 msgid "Turn pronunciations on or off."
-msgstr "يشغّل و يطفئ التهجئة"
+msgstr "يشغّل و يطفئ التهجية"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:324
