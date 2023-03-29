@@ -1,0 +1,57 @@
+{
+    "id": "org.kde.kanagram",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "5.15-22.08",
+    "rename-icon": "kanagram",
+    "sdk": "org.kde.Sdk",
+    "command": "kanagram",
+    "cleanup": [
+        "/include",
+        "/lib/cmake"
+    ],
+    "finish-args": [
+        "--share=network",
+        "--device=dri",
+        "--socket=pulseaudio",
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland"
+    ],
+    "modules": [
+        {
+            "name": "libkeduvocdocument",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/education/libkeduvocdocument",
+                    "branch": "master"
+                }
+            ],
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ]
+        },
+        {
+            "name": "kdeedu-data",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/education/kdeedu-data",
+                    "branch": "master"
+                }
+            ]
+        },
+        {
+            "name": "kanagram",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "."
+                }
+            ]
+        }
+    ]
+}
