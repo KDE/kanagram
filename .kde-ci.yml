@@ -14,6 +14,7 @@ Dependencies:
     'frameworks/kdoctools': '@latest-kf6'
     'frameworks/kio': '@latest-kf6'
     'frameworks/knewstuff': '@latest-kf6'
+    'frameworks/kxmlgui': '@latest-kf6'
     'education/libkeduvocdocument': '@same'
 
 - 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
@@ -28,4 +29,5 @@ Dependencies:
     'frameworks/kdoctools': '@stable'
     'frameworks/kio': '@stable'
     'frameworks/knewstuff': '@stable'
+    'frameworks/kxmlgui': '@stable'
     'education/libkeduvocdocument': '@same'
