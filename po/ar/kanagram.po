@@ -394,28 +394,28 @@ msgstr "بلا حد"
 #: mainsettingswidget.ui:78 mainsettingswidget.ui:144
 #, kde-format
 msgid "15 Seconds"
-msgstr "١٥ ثانية"
+msgstr "15 ثانية"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:83 mainsettingswidget.ui:149
 #, kde-format
 msgid "30 Seconds"
-msgstr "٣٠ ثانية"
+msgstr "30 ثانية"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:88 mainsettingswidget.ui:154
 #, kde-format
 msgid "45 Seconds"
-msgstr "٤٥ ثانية"
+msgstr "45 ثانية"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:93 mainsettingswidget.ui:159
 #, kde-format
 msgid "60 Seconds"
-msgstr "٦٠ ثانية"
+msgstr "60 ثانية"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox3)
 #: mainsettingswidget.ui:104
@@ -458,25 +458,25 @@ msgstr "عين نقاط للإجابة الصحيحة: "
 #: mainsettingswidget.ui:182
 #, kde-format
 msgid "+5 points"
-msgstr "+٥ نقطة"
+msgstr "+5 نقطة"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:187
 #, kde-format
 msgid "+10 points"
-msgstr "+١٠ نقاط"
+msgstr "+10 نقاط"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:192
 #, kde-format
 msgid "+15 points"
-msgstr "+١٥ نقطة"
+msgstr "+15 نقطة"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:197
 #, kde-format
 msgid "+20 points"
-msgstr "+٢٠ نقطة"
+msgstr "+20 نقطة"
 
 #. i18n: ectx: property (text), widget (QLabel, textIncorrectAnswer)
 #: mainsettingswidget.ui:205
@@ -488,7 +488,7 @@ msgstr "تعيين درجة للإجابة الخاطئة: "
 #: mainsettingswidget.ui:213
 #, kde-format
 msgid "-1 point"
-msgstr "-١ نقطة"
+msgstr "-1 نقطة"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
@@ -503,7 +503,7 @@ msgstr "- نقطتين"
 #: mainsettingswidget.ui:223
 #, kde-format
 msgid "-3 points"
-msgstr "-٣ نقاط"
+msgstr "-3 نقاط"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
@@ -512,7 +512,7 @@ msgstr "-٣ نقاط"
 #: mainsettingswidget.ui:280
 #, kde-format
 msgid "-4 points"
-msgstr "-٤ نقاط"
+msgstr "-4 نقاط"
 
 #. i18n: ectx: property (text), widget (QLabel, textRevealAnswer)
 #: mainsettingswidget.ui:236
@@ -525,14 +525,14 @@ msgstr "تعيين درجة للكشف عن الإجابة: "
 #: mainsettingswidget.ui:254 mainsettingswidget.ui:285
 #, kde-format
 msgid "-6 points"
-msgstr "-٦ درجات"
+msgstr "-6 درجات"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_skippedWordScore)
 #: mainsettingswidget.ui:259 mainsettingswidget.ui:290
 #, kde-format
 msgid "-8 points"
-msgstr "-٨ نقاط"
+msgstr "-8 نقاط"
 
 #. i18n: ectx: property (text), widget (QLabel, textSkippedWord)
 #: mainsettingswidget.ui:267
@@ -640,7 +640,7 @@ msgid ""
 " Player 2's Turn"
 msgstr ""
 " انتهى الوقت. \n"
-" حان دور اللاعب ٢"
+" حان دور اللاعب 2"
 
 #: ui/Blackboard.qml:565
 #, kde-format
