@@ -764,7 +764,8 @@ Rectangle {
             LetterButton {
                 text: modelData
                 onClicked: {
-                    kanagramGame.moveLetterToAnagram( index )
+                    if (countDownTimerValue == 0)
+                        kanagramGame.moveLetterToAnagram( index )
                 }
             }
         }
@@ -824,6 +825,9 @@ Rectangle {
     }
 
     Keys.onPressed: {
+        if (countDownTimerValue != 0)
+            return;
+
         if (event.text.length > 0) {
             kanagramGame.moveLetter(event.text);
             checkSolved();
