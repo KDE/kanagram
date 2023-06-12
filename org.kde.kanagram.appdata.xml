@@ -13,6 +13,7 @@
   <name xml:lang="de">Kanagram</name>
   <name xml:lang="el">Kanagram</name>
   <name xml:lang="en-GB">Kanagram</name>
+  <name xml:lang="eo">Kanagram</name>
   <name xml:lang="es">Kanagram</name>
   <name xml:lang="et">Kanagram</name>
   <name xml:lang="eu">Kanagram</name>
@@ -50,6 +51,7 @@
   <summary xml:lang="de">Spielerisches Sortieren von Buchstaben</summary>
   <summary xml:lang="el">Παιχνίδι αναγραμματισμού</summary>
   <summary xml:lang="en-GB">Letter Order Game</summary>
+  <summary xml:lang="eo">Liter-ordiga ludo</summary>
   <summary xml:lang="es">Juego de ordenación de letras</summary>
   <summary xml:lang="et">Tähtede järjestamine</summary>
   <summary xml:lang="eu">Letrak ordenatzeko jokoa</summary>
@@ -127,6 +129,7 @@
       <caption xml:lang="de">Kanagram spielen</caption>
       <caption xml:lang="el">Παίζω με το Kanagram</caption>
       <caption xml:lang="en-GB">Playing Kanagram</caption>
+      <caption xml:lang="eo">Ludante Kanagram</caption>
       <caption xml:lang="es">Jugando a Kanagram</caption>
       <caption xml:lang="et">Kanagramis mängimine</caption>
       <caption xml:lang="eu">«Kanagrame»ra jokatzen</caption>
