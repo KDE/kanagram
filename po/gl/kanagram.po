@@ -118,7 +118,7 @@ msgstr "Activa ou desactiva as pronuncias."
 #: kanagram.kcfg:58
 #, kde-format
 msgid "Set the default translation"
-msgstr "Estabelecer a tradución predeterminada"
+msgstr "Definir a tradución predeterminada"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, MainSettingsWidget)
 #: kanagramconfigdialog.cpp:37 mainsettingswidget.ui:14
@@ -602,7 +602,7 @@ msgstr "Iniciar o temporizador"
 #: ui/Blackboard.qml:202
 #, kde-format
 msgid "Show Hint"
-msgstr "Mostrar unha pista"
+msgstr "Amosar unha pista"
 
 #: ui/Blackboard.qml:234
 #, kde-format
@@ -617,7 +617,7 @@ msgstr " "
 #: ui/Blackboard.qml:397
 #, kde-format
 msgid "Show Wiki Content"
-msgstr "Mostrar o contido do wiki"
+msgstr "Amosar o contido do wiki"
 
 #: ui/Blackboard.qml:423
 #, kde-format
