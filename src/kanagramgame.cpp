@@ -42,14 +42,14 @@
 
 KanagramGame::KanagramGame()
     : m_fileIndex(-1)
-      ,m_document(NULL)
+      ,m_document(nullptr)
 #ifdef HAVE_SPEECH
-      ,m_speech(NULL)
+      ,m_speech(nullptr)
 #endif
       ,m_totalScore(0)
       ,m_totalScore2(0)
       ,m_currentPlayerNumber(1)
-      ,m_speller(NULL)
+      ,m_speller(nullptr)
 {
     loadSettings();
 
@@ -72,12 +72,12 @@ KanagramGame::~KanagramGame()
     KanagramSettings::self()->save();
 
     delete m_document;
-    m_document = NULL;
+    m_document = nullptr;
     delete m_speller;
-    m_speller = NULL;
+    m_speller = nullptr;
 #ifdef HAVE_SPEECH
     delete m_speech;
-    m_speech = NULL;
+    m_speech = nullptr;
 #endif
 }
 

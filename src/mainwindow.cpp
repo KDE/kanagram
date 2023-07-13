@@ -100,7 +100,7 @@ void MainWindow::showSettings()
 {
     if (!KConfigDialog::showDialog(QStringLiteral("settings")))
     {
-        m_configDialog = new KanagramConfigDialog( NULL, QStringLiteral("settings"), KanagramSettings::self() );
+        m_configDialog = new KanagramConfigDialog( nullptr, QStringLiteral("settings"), KanagramSettings::self() );
         connect(m_configDialog, &KConfigDialog::settingsChanged, m_game, &KanagramGame::reloadSettings);
 
         connect(m_configDialog, &KConfigDialog::accepted, m_game, &KanagramGame::refreshVocabularyList);
