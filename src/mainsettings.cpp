@@ -105,3 +105,5 @@ bool MainSettings::saveLanguage()
     }
     return false;
 }
+
+#include "moc_mainsettings.cpp"

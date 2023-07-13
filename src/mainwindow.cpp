@@ -115,3 +115,4 @@ void MainWindow::categoryChanged()
     setTitle(m_game->documentTitle());
 }
 
+#include "moc_mainwindow.cpp"

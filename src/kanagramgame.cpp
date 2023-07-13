@@ -705,3 +705,5 @@ void KanagramGame::answerSkipped()
         m_totalScore2 += m_skippedWordScore;
     Q_EMIT scoreChanged();
 }
+
+#include "moc_kanagramgame.cpp"

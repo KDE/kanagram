@@ -194,3 +194,5 @@ void VocabEdit::slotRemoveWord()
 
     m_textChanged = true;
 }
+
+#include "moc_vocabedit.cpp"
