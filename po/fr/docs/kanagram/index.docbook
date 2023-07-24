@@ -1,0 +1,673 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY kanagram "<application
+>Kanagram</application
+>">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % French "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kanagram" lang="&language;">
+
+<bookinfo>
+<title
+>Le manuel utilisateur de &kanagram;</title>
+
+<authorgroup>
+<author
+><firstname
+>Danny</firstname
+> <surname
+>Allen</surname
+> <affiliation
+> <address
+>&Danny.Allen.mail;</address>
+</affiliation>
+</author>
+&traducteurAnneMarieMahfouf; &traducteurXavierBesnard; <othercredit role="translator"
+> <firstname
+>Sabine</firstname
+> <surname
+>Faure</surname
+> <affiliation
+><address
+><email
+>sabine@kde.org</email
+></address
+></affiliation
+> <contrib
+>Traduction française&nbsp;</contrib
+></othercredit
+> <othercredit role="translator"
+> <firstname
+>Sophie</firstname
+> <surname
+>Daulé</surname
+> <affiliation
+><address
+><email
+>lafolierevelatrice@hotmail.fr</email
+></address
+></affiliation
+> <contrib
+>Traduction française&nbsp;</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2005</year>
+<holder
+>&Danny.Allen;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>21/12/2020</date>
+<releaseinfo
+>Applications 20.12</releaseinfo>
+
+<abstract>
+<para
+>&kanagram; est un programme amusant de casse-têtes avec des anagrammes pour &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>Kanagram</keyword>
+<keyword
+>jeu</keyword>
+<keyword
+>enfant</keyword>
+<keyword
+>anagramme</keyword>
+<keyword
+>mots</keyword>
+<keyword
+>mélanger</keyword>
+</keywordset>
+
+</bookinfo>
+<!--FIXME 
+Debjit Mondal "Show Wiki Content" (hidden -> crash?) https://debjitmondal.blogspot.com/
+Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com/2015/01/13/kanagram-is-now-2-player/
+Hide 'Say correct words' option if built without QtSpeech/Jovie
+-->
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<para
+>&kanagram; est un jeu fondé sur des anagrammes de mots : l'énigme est résolue lorsque le mot mélangé est remis dans le bon ordre. Il n'y a pas de limite de temps ni de limites d'essais pour essayer de résoudre le mot. Dans &kanagram; se trouvent plusieurs fichiers de mots prêts pour jouer, d'autres sont disponibles depuis l'Internet. </para>
+
+</chapter>
+
+
+<chapter id="using-kanagram">
+<title
+>Utiliser &kanagram;</title>
+
+<para
+>Voici l'écran qui vous est présenté au démarrage de &kanagram;, montrant l'interface principale de l'application. Presque toute la fenêtre est occupée par le <interface
+>tableau noir</interface
+>, sur lequel sont écrites les énigmes, avec le <interface
+>meuble de classement</interface
+> sur la droite contenant les contrôles de l'application : </para>
+
+<screenshot>
+<screeninfo
+>Voici l'écran qui vous est présenté au démarrage de &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Capture de &kanagram; </phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<orderedlist>
+<listitem>
+<para
+>Le <interface
+>Sélecteur de vocabulaire</interface
+> (&PgUp; / &PgDn;) permet à l'utilisateur de <action
+>changer raidement le fichier de mots actif</action
+> en cliquant avec le &BGS; sur les flèches pour <action
+>avancer vers le prochain mot</action
+> ou pour <action
+>retourner au mot précédemment joué.</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Dans le centre du <interface
+>tableau noir</interface
+> se trouve l'anagramme à résoudre. </para>
+</listitem>
+<listitem>
+<para
+>Le bouton <guiicon
+>Démarrer le compteur</guiicon
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+>) vous permet <action
+>de démarrer ou d'arrêter le compteur</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Lors d'un clic sur le bouton <guibutton
+>Indice</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+>), une courte phrase apparaîtra, <action
+>décrivant l'anagramme actif</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Le bouton <guibutton
+>Révéler le mot</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+>) <action
+> vous permet de révéler l'anagramme</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Le <interface
+>champ de saisie</interface
+> vous permet <action
+>de saisir vos tentatives</action
+> pour résoudre l'anagramme. </para>
+</listitem>
+<listitem>
+<para
+>Le bouton <interface
+>Anagramme suivante</interface
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+>) vous permet de passer au tour suivant. </para>
+</listitem>
+<listitem>
+<para
+>Voici le bouton <guiicon
+>Configurer Kanagram</guiicon
+>, qui <action
+>lance la boîte de dialogue de <guilabel
+>Configuration</guilabel
+> de &kanagram;</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Le bouton <guiicon
+>Aide</guiicon
+> est spécial car il <action
+>révèle trois sous-boutons</action
+>. Ces boutons apparaissent lorsque la souris passe sur le bouton <guiicon
+>Aide</guiicon
+> et permettent d'accéder au <guilabel
+>Manuel de &kanagram;</guilabel
+> (ce document) et aux boîtes de dialogue <guilabel
+>À propos de &kanagram;</guilabel
+> et <guilabel
+>À propos de &kde;</guilabel
+> : <screenshot>
+<screeninfo
+>Les trois modes différents du bouton <guiicon
+>Aide</guiicon
+></screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="helpstates.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Capture de &kanagram; </phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem>
+<para
+>Utiliser le bouton <guiicon
+>Changer de mode</guiicon
+> pou basculer entre le mode à 1 ou 2 joueurs. </para>
+</listitem>
+<listitem>
+<para
+>Le bouton <guiicon
+>Quitter</guiicon
+> <action
+>ferme le programme</action
+>. </para>
+</listitem>
+</orderedlist>
+
+<sect1 id="playing-game">
+<title
+>Jouer</title>
+
+<para
+>Maintenant que vous vous êtes familiarisés avec l'interface de &kanagram;, commençons un jeu ! </para>
+
+<procedure>
+<step>
+<para
+>En utilisant le bouton pour <interface
+>changer les fichiers de mots</interface
+>, <action
+>choisissez le thème de mots</action
+> avec lequel vous voulez jouer. Un mot de cette liste sera écrit au milieu du <interface
+>tableau noir</interface
+>. Maintenant, essayez de deviner quel mot représente les lettres mélangées.  <tip>
+<para
+>Si vous ne pouvez pas deviner le mot, appuyez sur le bouton <guibutton
+>indice</guibutton
+> pour obtenir quelques indices de votre ami dans le <interface
+>meuble de classement</interface
+> : </para>
+<screenshot>
+<screeninfo
+>indice dans &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram-hint.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>indice dans &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</tip>
+</para>
+</step>
+
+<step>
+<para
+>Une fois que vous pensez avoir la réponse correcte, saisissez-la dans le <interface
+>champ de saisie</interface
+> sous le <interface
+>tableau noir</interface
+> ou cliquez dessus avec le &BGS; et les lettres vont se déplacer dans le champ de saisie. Si vous avez trouvé, la prochaine anagramme va apparaître. Sinon, toutes les lettres vont revenir sur le tableau noir. </para>
+</step>
+</procedure>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuring">
+<title
+>Configurer &kanagram;</title>
+
+<para
+>La boîte de dialogue <guilabel
+>Configuration</guilabel
+> s'ouvre lorsqu'on clique sur le bouton <guiicon
+>Configurer &kanagram;</guiicon
+> : </para>
+
+<screenshot>
+<screeninfo
+>Les options de configuration générales de &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="general-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Les options de configuration générales de &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+
+<listitem>
+<para
+>La liste déroulante <guilabel
+>Cacher automatiquement les indices après :</guilabel
+> vous permet de choisir comment les indices vous seront présentés. Vous pouvez choisir de cacher la bulle des indices après un certain nombre de secondes (&pex; 5 secondes), ou vous pouvez laisser la configuration par défaut (<quote
+>Ne pas cacher automatiquement les indices</quote
+>). </para>
+</listitem>
+
+<listitem>
+<para
+>Utilisez la liste déroulante <guilabel
+>Temps pour la résolution de l'anagramme</guilabel
+> pour indiquer le temps dont vous disposez pour résoudre chaque énigme. Par défaut, il n'y a <quote
+>aucune limite de temps</quote
+>. </para>
+</listitem>
+
+<listitem>
+<para
+>Le menu déroulant <guilabel
+>Jouer en utilisant :</guilabel
+> vous permet de jouer à &kanagram; en utilisant les mots d'une autre langue. Pour que cette caractéristique soit disponible, vous devez avoir installé des listes de mots d'une autre langue. </para>
+</listitem>
+
+<listitem>
+<para
+>La liste déroulante <guilabel
+>Définir le compteur pour calculer le score :</guilabel
+> vous permet de définir un intervalle de temps en secondes pour le compteur de score. </para>
+</listitem>
+
+<listitem>
+<para
+>La boîte à cocher <guilabel
+>Paramètres des points de score</guilabel
+> peut être utilisée pour vous révéler ou cacher des options pour configurer le calcul du score des réponses. </para>
+</listitem>
+
+<listitem>
+<para
+>L'option <guilabel
+>Utiliser des sons</guilabel
+> vous permet ou non d'inclure les sons. </para>
+</listitem>
+
+<listitem>
+<para
+>La boîte à cocher <guilabel
+>Uniquement les lettres majuscules</guilabel
+> vous permet de basculer &kanagram; en mode majuscules uniquement pour les mots sur le tableau noir. </para>
+</listitem>
+
+<listitem>
+<para
+>La boîte à cocher <guilabel
+>Dire les mots corrects</guilabel
+> vous permet de d'activer ou de désactiver les prononciations. Les fichiers audio des prononciations doivent être inclus dans le vocabulaire allant être jouer ou vous devez installer et configurer &jovie; pour que cette option fonctionne. </para>
+</listitem>
+</itemizedlist>
+
+<sect1 id="vocabularies-config">
+<title
+>Listes de mots</title>
+
+<para
+>La page de configuration des <guilabel
+>listes de mots</guilabel
+> vous permet de gérer les listes de mots installées. En utilisant cette boîte de dialogue, vous pouvez <action
+>éditer</action
+> et <action
+>supprimer</action
+> des listes de mots téléchargées, ainsi que <action
+>créer</action
+> la vôtre : </para>
+
+<screenshot>
+<screeninfo
+>Configuration des listes de mots dans &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Configuration des listes de mots dans &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Le bouton <guibutton
+>Créer une nouvelle liste</guibutton
+> <action
+>ouvre la boîte de dialogue <link linkend="vocab-editor"
+><guilabel
+>Éditeur de listes de mots</guilabel
+></link
+></action
+> pour que vous puissiez créer vos propres listes avec lesquelles jouer. </para>
+</listitem>
+<listitem>
+<para
+>Le bouton <guibutton
+>Édition</guibutton
+> vous permet de <action
+>changer les listes que vous avez soit créées soit téléchargées depuis l'Internet</action
+>. </para>
+</listitem>
+<!-- not in 4.5 listitem>
+<para>
+The <guibutton
+>Delete</guibutton
+> button allows you to <action
+>delete vocabularies that you have created or downloaded</action
+>.
+</para>
+</listitem-->
+<listitem>
+<para
+>Vous pouvez sélectionner la liste de mots à laquelle vous aimeriez appliquer ces actions en utilisant le dossier des <interface
+>listes des mots</interface
+>. </para>
+</listitem>
+</itemizedlist>
+
+<sect2 id="vocab-editor">
+<title
+>L'éditeur de listes de mots</title>
+
+<para
+>L'éditeur de listes de mots vous permet de créer vos propres listes de mots avec lesquelles vous pouvez ensuite jouer à &kanagram; : </para>
+
+<screenshot>
+<screeninfo
+><guilabel
+>L'éditeur de listes de mots</guilabel
+> de &kanagram; </screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-editor.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+><guilabel
+>L'éditeur de listes de mots</guilabel
+> de &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>Le champ <guilabel
+>Nom de la liste de mots :</guilabel
+> vous permet de <action
+>donner un titre à la liste de mots</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Le champ <guilabel
+>Description :</guilabel
+> vous permet de <action
+>mieux décrire le nom de votre liste</action
+>, en fournissant plus de détails à l'utilisateur sur le contenu de votre liste de mots. </para>
+<note>
+<para
+>Essayez de conserver les champs de nom et description les plus courts possible. Des listes de mots efficaces se réfèrent à un ensemble de mots qui se rapportent à un même sujet. Essayez d'inclure au moins 20 mots dans votre liste afin que l'utilisateur ne la finisse pas trop vite. </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Le bouton <guibutton
+>Retirer le mot</guibutton
+> vous permet de <action
+>supprimer les mots de la liste</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Le bouton <guibutton
+>Nouveau mot</guibutton
+> <action
+>crée un nouveau champ de mot dans la liste</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Le champ <guilabel
+>Mot :</guilabel
+> vous permet <action
+>de saisir le mot pour l'inclure dans votre liste</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>Le champ <guilabel
+>indice</guilabel
+> vous permet <action
+>de saisir les indices qui accompagnent vos mots</action
+>. </para>
+<note>
+<para
+>De bons indices décrivent le mot clairement mais avec subtilité et permettent d'enrichir le vocabulaire de l'utilisateur. Veuillez vous assurer que vos indices sont assez courts (en-dessous de 40 lettres). </para>
+</note>
+</listitem>
+<listitem>
+<para
+>Le bouton <guibutton
+>Enregistrer</guibutton
+> <action
+>enregistre le contenu de votre nouvelle liste de mots</action
+> et permet son utilisation directe dans &kanagram; (elle sera disponible immédiatement dans l'application, par l'intermédiaire du <interface
+>sélecteur de listes de mots</interface
+>). </para>
+</listitem>
+<listitem>
+<para
+>Le bouton <guibutton
+>Fermer</guibutton
+><action
+> ferme la boîte de dialogue de <guilabel
+>l'éditeur de listes de mots</guilabel
+> </action
+> sans enregistrer le contenu de votre nouvelle liste de mots. </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
+</sect1>
+
+<sect1 id="newstuff">
+<title
+>Nouveau contenu</title>
+
+<para
+>Le bouton <guibutton
+>Télécharger de nouvelles listes de mots</guibutton
+> sur la page<guilabel
+>Liste de mots</guilabel
+> vous permet d'obtenir des nouveaux fichiers de mots depuis Internet : </para>
+
+<screenshot>
+<screeninfo
+>La boîte de dialogue de réception de nouveau contenu pour &kanagram;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-dialog.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>La boîte de dialogue de réception de nouveau contenu pour &kanagram;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Pour installer une liste de mots depuis l'Internet, cliquez sur le nom de la liste dans le dossier, puis cliquez le bouton <guibutton
+>Installer</guibutton
+> pour l'installer. La liste de mots téléchargée sera disponible immédiatement.  </para>
+<para
+>Si une liste de mots a déjà été installée, le bouton <guibutton
+>Désinstaller</guibutton
+> vous permet de désinstaller la liste de mots. </para>
+<para
+>Pour obtenir des informations supplémentaires à propos d'une liste de mots, tel que le nom de l'auteur, une description du contenu ou le journal des modifications, cliquez sur le bouton <guibutton
+>Détails</guibutton
+>. </para>
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Remerciements et licence</title>
+
+<para
+>&kanagram; </para>
+<para
+>Programme sous copyright 2007par Jeremy Whiting <email
+>jpwhiting@kde.org</email
+> 2005 Joshua Keel <email
+>joshuakeel@gmail.com</email
+> et &Danny.Allen; &Danny.Allen.mail; </para>
+<para
+>Contributeurs : </para>
+<itemizedlist>
+<listitem>
+<para
+>Effets de sons : <email
+>Artemio</email
+> </para>
+</listitem>
+</itemizedlist>
+
+<para
+>Documentation copyright 2005 &Danny.Allen; &Danny.Allen.mail; </para>
+
+<para
+>Traduction française par &AnneMarieMahfouf;, Sabine Faure <email
+>sabine@kde.org</email
+> &XavierBesnard; et Sophie Daulé <email
+>lafolierevelatrice@hotmail.fr</email
+>.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet:noai
+-->
