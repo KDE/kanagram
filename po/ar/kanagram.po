@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-23 00:40+0000\n"
+"POT-Creation-Date: 2023-09-29 01:38+0000\n"
 "PO-Revision-Date: 2022-01-03 22:00+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -570,52 +570,52 @@ msgstr "يشغّل و يطفئ التهجية"
 msgid "Say correct words"
 msgstr "انطق الكلمات الصحيحة"
 
-#: ui/Blackboard.qml:89
+#: ui/Blackboard.qml:88
 #, kde-format
 msgid "Next Vocabulary"
 msgstr "المفردات التالية"
 
-#: ui/Blackboard.qml:128
+#: ui/Blackboard.qml:125
 #, kde-format
 msgid "Previous Vocabulary"
 msgstr "المفردات السابقة"
 
-#: ui/Blackboard.qml:179
+#: ui/Blackboard.qml:174
 #, kde-format
 msgid "Start Timer"
 msgstr "ابدأ المؤقت"
 
-#: ui/Blackboard.qml:202
+#: ui/Blackboard.qml:195
 #, kde-format
 msgid "Show Hint"
 msgstr "اعرض التلميح"
 
-#: ui/Blackboard.qml:234
+#: ui/Blackboard.qml:225
 #, kde-format
 msgid "Reveal Word"
 msgstr "اكشف الكلمة"
 
-#: ui/Blackboard.qml:280
+#: ui/Blackboard.qml:269
 #, kde-format
 msgid " "
 msgstr " "
 
-#: ui/Blackboard.qml:397
+#: ui/Blackboard.qml:386
 #, kde-format
 msgid "Show Wiki Content"
 msgstr "اعرض محتوى الويكي"
 
-#: ui/Blackboard.qml:423
+#: ui/Blackboard.qml:412
 #, kde-format
 msgid "Score : "
 msgstr "النتيجة : "
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid " Player 1 : "
 msgstr " اللاعب 1 : "
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid ""
 "\n"
@@ -624,7 +624,7 @@ msgstr ""
 "\n"
 " اللاعب 2 : "
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid ""
 "\n"
@@ -633,7 +633,7 @@ msgstr ""
 "\n"
 " أغلق الحواري للعبة جديدة "
 
-#: ui/Blackboard.qml:536
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid ""
 " Time Up. \n"
@@ -642,7 +642,7 @@ msgstr ""
 " انتهى الوقت. \n"
 " حان دور اللاعب 2"
 
-#: ui/Blackboard.qml:565
+#: ui/Blackboard.qml:552
 #, kde-format
 msgid "Close"
 msgstr "أغلق"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-23 00:40+0000\n"
+"POT-Creation-Date: 2023-09-29 01:38+0000\n"
 "PO-Revision-Date: 2018-10-14 11:14+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -578,52 +578,52 @@ msgstr "Włącz/wyłącz wymowę."
 msgid "Say correct words"
 msgstr "Wypowiedz poprawne słowa"
 
-#: ui/Blackboard.qml:89
+#: ui/Blackboard.qml:88
 #, kde-format
 msgid "Next Vocabulary"
 msgstr "Następne słownictwo"
 
-#: ui/Blackboard.qml:128
+#: ui/Blackboard.qml:125
 #, kde-format
 msgid "Previous Vocabulary"
 msgstr "Poprzednie słownictwo"
 
-#: ui/Blackboard.qml:179
+#: ui/Blackboard.qml:174
 #, kde-format
 msgid "Start Timer"
 msgstr "Uruchom czasomierz"
 
-#: ui/Blackboard.qml:202
+#: ui/Blackboard.qml:195
 #, kde-format
 msgid "Show Hint"
 msgstr "Pokaż podpowiedź"
 
-#: ui/Blackboard.qml:234
+#: ui/Blackboard.qml:225
 #, kde-format
 msgid "Reveal Word"
 msgstr "Odkryj słowo"
 
-#: ui/Blackboard.qml:280
+#: ui/Blackboard.qml:269
 #, kde-format
 msgid " "
 msgstr " "
 
-#: ui/Blackboard.qml:397
+#: ui/Blackboard.qml:386
 #, kde-format
 msgid "Show Wiki Content"
 msgstr "Pokaż zawartość Wiki"
 
-#: ui/Blackboard.qml:423
+#: ui/Blackboard.qml:412
 #, kde-format
 msgid "Score : "
 msgstr "Wynik : "
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid " Player 1 : "
 msgstr " Gracz 1 : "
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid ""
 "\n"
@@ -632,7 +632,7 @@ msgstr ""
 "\n"
 " Gracz 2 : "
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid ""
 "\n"
@@ -641,7 +641,7 @@ msgstr ""
 "\n"
 " Zamknij okno dialogowe nowej gry "
 
-#: ui/Blackboard.qml:536
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid ""
 " Time Up. \n"
@@ -650,7 +650,7 @@ msgstr ""
 " Czas minął. \n"
 " Kolejka drugiego gracza"
 
-#: ui/Blackboard.qml:565
+#: ui/Blackboard.qml:552
 #, kde-format
 msgid "Close"
 msgstr "Zamknij"

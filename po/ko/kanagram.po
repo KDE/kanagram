@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-23 00:40+0000\n"
+"POT-Creation-Date: 2023-09-29 01:38+0000\n"
 "PO-Revision-Date: 2021-05-24 16:55+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -566,52 +566,52 @@ msgstr "발음을 켜거나 끕니다."
 msgid "Say correct words"
 msgstr "단어 발음 말하기"
 
-#: ui/Blackboard.qml:89
+#: ui/Blackboard.qml:88
 #, kde-format
 msgid "Next Vocabulary"
 msgstr "다음 단어"
 
-#: ui/Blackboard.qml:128
+#: ui/Blackboard.qml:125
 #, kde-format
 msgid "Previous Vocabulary"
 msgstr "이전 단어"
 
-#: ui/Blackboard.qml:179
+#: ui/Blackboard.qml:174
 #, kde-format
 msgid "Start Timer"
 msgstr "타이머 시작"
 
-#: ui/Blackboard.qml:202
+#: ui/Blackboard.qml:195
 #, kde-format
 msgid "Show Hint"
 msgstr "힌트 표시"
 
-#: ui/Blackboard.qml:234
+#: ui/Blackboard.qml:225
 #, kde-format
 msgid "Reveal Word"
 msgstr "단어 표시"
 
-#: ui/Blackboard.qml:280
+#: ui/Blackboard.qml:269
 #, kde-format
 msgid " "
 msgstr " "
 
-#: ui/Blackboard.qml:397
+#: ui/Blackboard.qml:386
 #, kde-format
 msgid "Show Wiki Content"
 msgstr "위키 내용 표시"
 
-#: ui/Blackboard.qml:423
+#: ui/Blackboard.qml:412
 #, kde-format
 msgid "Score : "
 msgstr "점수: "
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid " Player 1 : "
 msgstr " 플레이어 1: "
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid ""
 "\n"
@@ -620,7 +620,7 @@ msgstr ""
 "\n"
 " 플레이어 2: "
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid ""
 "\n"
@@ -629,7 +629,7 @@ msgstr ""
 "\n"
 " 대화 상자를 닫으면 새 게임을 시작합니다"
 
-#: ui/Blackboard.qml:536
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid ""
 " Time Up. \n"
@@ -638,7 +638,7 @@ msgstr ""
 " 시간이 지났습니다. \n"
 " 플레이어 2 차례입니다"
 
-#: ui/Blackboard.qml:565
+#: ui/Blackboard.qml:552
 #, kde-format
 msgid "Close"
 msgstr "닫기"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeedu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-23 00:40+0000\n"
+"POT-Creation-Date: 2023-09-29 01:38+0000\n"
 "PO-Revision-Date: 2013-10-18 20:14+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -585,73 +585,73 @@ msgstr "Uključuje i isključuje zvukove."
 msgid "Say correct words"
 msgstr ""
 
-#: ui/Blackboard.qml:89
+#: ui/Blackboard.qml:88
 #, kde-format
 msgid "Next Vocabulary"
 msgstr "Naredni rječnik"
 
-#: ui/Blackboard.qml:128
+#: ui/Blackboard.qml:125
 #, kde-format
 msgid "Previous Vocabulary"
 msgstr "Prethodni rječnik"
 
-#: ui/Blackboard.qml:179
+#: ui/Blackboard.qml:174
 #, kde-format
 msgid "Start Timer"
 msgstr ""
 
-#: ui/Blackboard.qml:202
+#: ui/Blackboard.qml:195
 #, kde-format
 msgid "Show Hint"
 msgstr "Prikaži savjet"
 
-#: ui/Blackboard.qml:234
+#: ui/Blackboard.qml:225
 #, fuzzy, kde-format
 msgid "Reveal Word"
 msgstr "otkrij riječ"
 
-#: ui/Blackboard.qml:280
+#: ui/Blackboard.qml:269
 #, kde-format
 msgid " "
 msgstr ""
 
-#: ui/Blackboard.qml:397
+#: ui/Blackboard.qml:386
 #, fuzzy, kde-format
 msgid "Show Wiki Content"
 msgstr "Prikaži savjet"
 
-#: ui/Blackboard.qml:423
+#: ui/Blackboard.qml:412
 #, kde-format
 msgid "Score : "
 msgstr ""
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid " Player 1 : "
 msgstr ""
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid ""
 "\n"
 " Player 2 : "
 msgstr ""
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid ""
 "\n"
 " Close dialog for new game "
 msgstr ""
 
-#: ui/Blackboard.qml:536
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid ""
 " Time Up. \n"
 " Player 2's Turn"
 msgstr ""
 
-#: ui/Blackboard.qml:565
+#: ui/Blackboard.qml:552
 #, fuzzy, kde-format
 msgid "Close"
 msgstr "&Zatvori"

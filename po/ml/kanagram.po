@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-23 00:40+0000\n"
+"POT-Creation-Date: 2023-09-29 01:38+0000\n"
 "PO-Revision-Date: 2019-12-03 10:51+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc."
@@ -563,73 +563,73 @@ msgstr ""
 msgid "Say correct words"
 msgstr ""
 
-#: ui/Blackboard.qml:89
+#: ui/Blackboard.qml:88
 #, kde-format
 msgid "Next Vocabulary"
 msgstr ""
 
-#: ui/Blackboard.qml:128
+#: ui/Blackboard.qml:125
 #, kde-format
 msgid "Previous Vocabulary"
 msgstr ""
 
-#: ui/Blackboard.qml:179
+#: ui/Blackboard.qml:174
 #, kde-format
 msgid "Start Timer"
 msgstr ""
 
-#: ui/Blackboard.qml:202
+#: ui/Blackboard.qml:195
 #, kde-format
 msgid "Show Hint"
 msgstr ""
 
-#: ui/Blackboard.qml:234
+#: ui/Blackboard.qml:225
 #, kde-format
 msgid "Reveal Word"
 msgstr ""
 
-#: ui/Blackboard.qml:280
+#: ui/Blackboard.qml:269
 #, kde-format
 msgid " "
 msgstr ""
 
-#: ui/Blackboard.qml:397
+#: ui/Blackboard.qml:386
 #, kde-format
 msgid "Show Wiki Content"
 msgstr ""
 
-#: ui/Blackboard.qml:423
+#: ui/Blackboard.qml:412
 #, kde-format
 msgid "Score : "
 msgstr ""
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid " Player 1 : "
 msgstr ""
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid ""
 "\n"
 " Player 2 : "
 msgstr ""
 
-#: ui/Blackboard.qml:526
+#: ui/Blackboard.qml:515
 #, kde-format
 msgid ""
 "\n"
 " Close dialog for new game "
 msgstr ""
 
-#: ui/Blackboard.qml:536
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid ""
 " Time Up. \n"
 " Player 2's Turn"
 msgstr ""
 
-#: ui/Blackboard.qml:565
+#: ui/Blackboard.qml:552
 #, kde-format
 msgid "Close"
 msgstr ""
