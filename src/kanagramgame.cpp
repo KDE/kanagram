@@ -507,11 +507,7 @@ int KanagramGame::getNumericSetting(const QString &settingString)
             break;
         }
     }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    return settingString.leftRef(indexFound_setting).toInt();
-#else
     return QStringView(settingString).left(indexFound_setting).toInt();
-#endif
 }
 
 void KanagramGame::resetTotalScore()

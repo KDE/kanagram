@@ -8,9 +8,13 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(kanagram VERSION ${RELEASE_SERVICE_VERSION})
 
-find_package(ECM 5.91.0 NO_MODULE REQUIRED)
+set(QT_REQUIRED_VERSION "6.4.0")
+set(KF_MIN_VERSION "5.240.0")
+
+find_package(ECM 5.240.0 NO_MODULE REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} )
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
+
 include(ECMAddAppIcon)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
@@ -18,14 +22,6 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(ECMDeprecationSettings)
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.4.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
-
 
 if(NOT MSVC)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-Wall -Wno-switch -O2 -g")
@@ -34,16 +30,16 @@ if(NOT MSVC)
 endif(NOT MSVC)
 
 include(FeatureSummary)
-find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS Core Qml Quick)
-find_package(Qt${QT_MAJOR_VERSION} QUIET OPTIONAL_COMPONENTS TextToSpeech)
-if (NOT Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
-    message(STATUS "Qt${QT_MAJOR_VERSION}TextToSpeech not found, speech feature will be disabled")
+find_package(Qt6 REQUIRED COMPONENTS Core Qml Quick)
+find_package(Qt6 QUIET OPTIONAL_COMPONENTS TextToSpeech)
+if (NOT Qt6TextToSpeech_FOUND)
+    message(STATUS "Qt6TextToSpeech not found, speech feature will be disabled")
 else()
     add_definitions(-DHAVE_SPEECH)
 endif()
 
 
-find_package(KF${KF_MAJOR_VERSION} REQUIRED COMPONENTS
+find_package(KF6 REQUIRED COMPONENTS
     I18n
     Crash
     Sonnet
@@ -68,7 +64,7 @@ add_subdirectory( src )
 add_subdirectory( icons )
 
 ki18n_install(po)
-if (KF${KF_MAJOR_VERSION}DocTools_FOUND)
+if (KF6DocTools_FOUND)
     kdoctools_install(po)
 endif()
 install(FILES org.kde.kanagram.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})

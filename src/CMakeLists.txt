@@ -44,20 +44,20 @@ add_executable(kanagram ${kanagram_SRCS})
 target_link_libraries(kanagram
     Qt::Quick
     Qt::Core
-    KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::NewStuffWidgets
-    KF${KF_MAJOR_VERSION}::SonnetCore
-    KF${KF_MAJOR_VERSION}::Crash
-    KF${KF_MAJOR_VERSION}::ConfigCore
-    KF${KF_MAJOR_VERSION}::ConfigWidgets
-    KF${KF_MAJOR_VERSION}::XmlGui
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::NewStuffWidgets
+    KF6::SonnetCore
+    KF6::Crash
+    KF6::ConfigCore
+    KF6::ConfigWidgets
+    KF6::XmlGui
     LibKEduVocDocumentImport__KEduVocDocument
 )
 
-if (Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
+if (Qt6TextToSpeech_FOUND)
     target_link_libraries(kanagram
-        Qt${QT_MAJOR_VERSION}::TextToSpeech)
+        Qt6::TextToSpeech)
 endif()
 
 install(

@@ -16,18 +16,3 @@ Dependencies:
     'frameworks/knewstuff': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
     'education/libkeduvocdocument': '@same'
-
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
-  'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'frameworks/ki18n': '@stable'
-    'frameworks/kcrash': '@stable'
-    'frameworks/sonnet': '@stable'
-    'frameworks/kconfig': '@stable'
-    'frameworks/kconfigwidgets': '@stable'
-    'frameworks/kcoreaddons': '@stable'
-    'frameworks/kdoctools': '@stable'
-    'frameworks/kio': '@stable'
-    'frameworks/knewstuff': '@stable'
-    'frameworks/kxmlgui': '@stable'
-    'education/libkeduvocdocument': '@same'
