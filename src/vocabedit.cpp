@@ -106,20 +106,12 @@ void VocabEdit::slotClose()
     //Has anything in the dialog changed?
     if (m_textChanged && lboxWords->count() > 0)
     {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         int code = KMessageBox::warningTwoActions(this,
-#else
-        int code = KMessageBox::warningYesNo(this,
-#endif
                                              i18n("Would you like to save your changes?"),
                                              i18n("Save Changes Dialog"),
                                              KStandardGuiItem::save(),
                                              KStandardGuiItem::discard());
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         if (code == KMessageBox::PrimaryAction)
-#else
-        if (code == KMessageBox::Yes)
-#endif
         {
             slotSave();
             close();

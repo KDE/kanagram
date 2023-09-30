@@ -28,9 +28,6 @@
 #include <KAboutData>
 #include <KCrash>
 #include <KLocalizedString>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <Kdelibs4ConfigMigrator>
-#endif
 
 #include "mainwindow.h"
 #include "kanagram_version.h"
@@ -41,11 +38,6 @@ int main(int argc, char **argv)
 {
     QStringList configFiles;
     configFiles << QStringLiteral("kanagramrc");
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Kdelibs4ConfigMigrator migrator(QStringLiteral("kanagram"));
-    migrator.setConfigFiles(configFiles);
-    migrator.migrate();
-#endif
 
     QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("kanagram");
