@@ -558,7 +558,7 @@ msgstr "Asignar unha puntuación para saltarse palabras: "
 #: mainsettingswidget.ui:304
 #, kde-format
 msgid "Use sou&nds"
-msgstr "Utilizar so&ns"
+msgstr "Usar so&ns"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_uppercaseOnly)
 #: mainsettingswidget.ui:311
