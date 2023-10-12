@@ -37,7 +37,7 @@
 ></address
 ></affiliation
 > <contrib
->Traducción</contrib
+>Traductora</contrib
 ></othercredit
 ><othercredit role="translator"
 ><firstname
@@ -67,6 +67,20 @@
 ><contrib
 >Traductor</contrib
 ></othercredit
+><othercredit role="translator"
+><firstname
+>Eloy</firstname
+> <surname
+>Cuadra</surname
+> <affiliation
+><address
+><email
+>ecuadra@eloihr.net</email
+></address
+></affiliation
+> <contrib
+>Corrección de la traducción</contrib
+></othercredit
 > 
 </authorgroup>
 
@@ -87,7 +101,7 @@
 
 <abstract>
 <para
->&kanagram; trae divertidos anagramas para &kde;. </para>
+>&kanagram; proporciona divertidos puzles de anagramas para &kde;. </para>
 </abstract>
 
 <keywordset>
@@ -120,32 +134,32 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 >Introducción</title>
 
 <para
->&kanagram; es un juego basado en anagramas. El juego de ingenio se soluciona cuando las letras de una palabra desordenada se colocan en el orden correcto. No hay límite de tiempo o del número de intentos para resolver una palabra. Incluidos con &kanagram; hay varios vocabularios listos para el juego, y además cuenta con algunos otros disponibles desde Internet. </para>
+>&kanagram; es un juego basado en anagramas. El puzle se resuelve cuando las letras de una palabra desordenada se colocan en el orden correcto. No hay límite de tiempo o del número de intentos para resolver una palabra. &kanagram; incluye varios vocabularios listos para jugar y cuenta con algunos más disponibles en internet. </para>
 
 </chapter>
 
 
 <chapter id="using-kanagram">
 <title
->Usar &kanagram;</title>
+>Uso de &kanagram;</title>
 
 <para
 >Esta es una captura de pantalla que presenta el inicio de &kanagram; mostrando la interfaz principal de la aplicación. La mayor parte de la ventana la ocupa la <interface
 >pizarra</interface
->, donde se escriben los juegos, con el <interface
+>, donde se escriben los puzles, con el <interface
 >archivador</interface
-> en la parte derecha conteniendo los controles de la aplicación. </para>
+> de la parte derecha que contiene los controles de la aplicación. </para>
 
 <screenshot>
 <screeninfo
->He aquí la pantalla que se presenta al inicio de &kanagram;</screeninfo>
+>Esta es la pantalla que se presenta al inicio de &kanagram;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="kanagram.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase
->Pantallazo de &kanagram;</phrase>
+>Captura de pantalla de &kanagram;</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -154,7 +168,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <listitem>
 <para
 >El <interface
->Conmutador de vocabulario</interface
+>Selector de vocabulario</interface
 > (&PgUp; / &PgDn;) nos permite <action
 >cambiar el vocabulario activo</action
 > rápidamente al pulsar con el &LMB; en las flechas para <action
@@ -167,7 +181,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <para
 >En el centro de la <interface
 >pizarra</interface
-> se encuentra el anagrama a  resolver. </para>
+> se encuentra el puzle del anagrama que se debe resolver. </para>
 </listitem>
 <listitem>
 <para
@@ -177,20 +191,20 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 >&Ctrl;<keycap
 >S</keycap
 ></keycombo
->), que le permite <action
+>), que permite <action
 >poner en marcha o detener el temporizador</action
 >. </para>
 </listitem>
 <listitem>
 <para
->Cuando se pulse el botón <guibutton
+>Cuando se pulsa el botón <guibutton
 >Pista</guibutton
 > (<keycombo action="simul"
 >&Ctrl;<keycap
 >H</keycap
 ></keycombo
->) , aparecerá una frase <action
->describiendo la palabra a deducir</action
+>), aparecerá una frase que <action
+>describe la palabra que se debe resolver</action
 >. </para>
 </listitem>
 <listitem>
@@ -202,7 +216,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 >R</keycap
 ></keycombo
 >) <action
->resuelve la incógnita</action
+>resuelve la palabra actual</action
 >. </para>
 </listitem>
 <listitem>
@@ -221,7 +235,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 >&Ctrl;<keycap
 >N</keycap
 ></keycombo
->) le permite cambiar a la siguiente incógnita. </para>
+>) permite cambiar a la siguiente incógnita. </para>
 </listitem>
 <listitem>
 <para
@@ -229,8 +243,8 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 >Configurar</guiicon
 > <action
 >abre el dialogo <guilabel
->Configurar</guilabel
-> &kanagram;</action
+>Configurar &kanagram;</guilabel
+></action
 >. </para>
 </listitem>
 <listitem>
@@ -238,18 +252,18 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 >El botón <guiicon
 >Ayuda</guiicon
 > es especial, ya que <action
->revela 3 subbotones</action
+>revela 3 botones más</action
 >. Estos botones se muestran cuando el puntero del ratón pasa por encima del botón <guiicon
 >Ayuda</guiicon
 > y proporciona acceso al <guilabel
 >Manual de &kanagram;</guilabel
 > (este documento) y a los diálogos <guilabel
-> Acerca de &kanagram;</guilabel
+>Acerca de &kanagram;</guilabel
 > y <guilabel
 >Acerca de &kde;</guilabel
 >: <screenshot>
 <screeninfo
->Los tres estados del botón <guiicon
+>Los tres diferentes estados del botón <guiicon
 >Ayuda</guiicon
 ></screeninfo>
 <mediaobject>
@@ -258,7 +272,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 </imageobject>
 <textobject>
 <phrase
->Pantallazo de &kanagram;</phrase>
+>Captura de pantalla de &kanagram;</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -266,7 +280,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 </listitem>
 <listitem>
 <para
->Use el botón <guiicon
+>Usa el botón <guiicon
 >Cambiar modo</guiicon
 > para cambiar entre los modos de 1 y 2 jugadores. </para>
 </listitem>
@@ -282,37 +296,37 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 
 <sect1 id="playing-game">
 <title
->Jugando </title>
+>Cómo jugar</title>
 
 <para
->Ahora que ya se ha familiarizado con la interfaz de &kanagram;, ¡vamos a jugar! </para>
+>Ahora que ya te has familiarizado con la interfaz de &kanagram;, ¡vamos a jugar! </para>
 
 <procedure>
 <step>
 <para
->Usando el <interface
+>Usa el <interface
 >Selector de Vocabulario</interface
->, <action
-> seleccione el tema de vocabulario</action
-> que le gustaría probar. Se presentará una palabra de este vocabulario en medio de la <interface
+> para <action
+>seleccionar el tema del vocabulario</action
+> que te gustaría probar. Se mostrará una palabra de este vocabulario en medio de la <interface
 >pizarra</interface
->. Ahora, intente adivinar qué palabra representa la mezcla de las letras. <tip>
+>. Ahora, intenta adivinar qué palabra representa la mezcla de letras. <tip>
 <para
->Si no pudiéramos adivinar la palabra, podemos pulsar <guibutton
+>Si no puedes adivinar la palabra, pulsa <guibutton
 >Pista</guibutton
-> para obtener para obtener una <interface
->ayudita</interface
+> para obtener una ayudita en el <interface
+>archivador</interface
 >: </para>
 <screenshot>
 <screeninfo
->Pista &kanagram;</screeninfo>
+>Pista de &kanagram;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="kanagram-hint.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase
->Pista &kanagram;</phrase>
+>Pista de &kanagram;</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -322,11 +336,11 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 
 <step>
 <para
->Una vez deducida la respuesta correcta, escriba las letras en el <interface
+>Cuando creas que tienes la respuesta correcta, escribe las letras en el <interface
 >Cuadro de entrada</interface
 > situado debajo de la <interface
 >pizarra</interface
-> o pulse sobre ellas con el &LMB; para que se muevan al cuadro de entrada. Si ha acertado, aparecerá el siguiente anagrama. En caso contrario, todas las letras vuelven a la pizarra. </para>
+> o pulsa sobre ellas con el &LMB; para que se muevan al cuadro de entrada. Si has acertado, aparecerá el siguiente anagrama. En caso contrario, todas las letras vuelven a la pizarra. </para>
 </step>
 </procedure>
 
@@ -348,14 +362,14 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 
 <screenshot>
 <screeninfo
->opciones generales de &kanagram;</screeninfo>
+>Opciones generales de &kanagram;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="general-settings.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase
->opciones generales de &kanagram;</phrase>
+>Opciones generales de &kanagram;</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -365,29 +379,29 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <listitem>
 <para
 >La lista desplegable <guilabel
->Esconder automáticamente las pistas después de:</guilabel
-> le permite especificar cuántas pistas le serán mostradas. Aquí, puede configurar si la pista desaparecerá después de cierto número de segundos (&eg; 5 segundos) o puede dejar el valor predeterminado («No esconder automáticamente laspistas»). </para>
+>Ocultar automáticamente las pistas después de:</guilabel
+> permite indicar cómo se mostrarán las pistas. Aquí puede configurar si la pista desaparecerá después de cierto número de segundos (por ejemplo, 5 segundos) o puede dejar el valor predeterminado («No ocultar automáticamente las pistas»). </para>
 </listitem>
 
 <listitem>
 <para
->Utilice la lista desplegable <guilabel
+>Usa la lista desplegable <guilabel
 >Tiempo para resolver el anagrama</guilabel
-> para especificar el tiempo que tiene para resolver cada rompecabezas. De manera predeterminada, «no hay límite de tiempo». </para>
+> para indicar el tiempo que tienes para resolver cada puzle. De manera predeterminada, «no hay límite de tiempo». </para>
 </listitem>
 
 <listitem>
 <para
 >La lista desplegable <guilabel
->Jugar usando</guilabel
-> permite jugar en &kanagram; usando vocabularios de diferentes idiomas. Para que esta opción funcione debe tener instalados vocabularios de idiomas separados. </para>
+>Jugar usando:</guilabel
+> permite jugar en &kanagram; usando vocabularios de diferentes idiomas. Para que esta opción funcione debes tener instalados vocabularios de un idioma independiente. </para>
 </listitem>
 
 <listitem>
 <para
 >El desplegable <guilabel
 >Establecer temporizador para la puntuación</guilabel
-> permite establecer el intervalo de tiempo en segundos del temporizador de puntuación. </para>
+> permite definir el intervalo de tiempo en segundos del temporizador de puntuación. </para>
 </listitem>
 
 <listitem>
@@ -400,21 +414,21 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <listitem>
 <para
 >La casilla <guilabel
->Usar sonido</guilabel
-> le permite agregar o suspender los efectos sonoros. </para>
+>Usar sonidos</guilabel
+> permite activar o desactivar los efectos de sonido. </para>
 </listitem>
 
 <listitem>
 <para
->La casilla de verificación <guilabel
+>La casilla <guilabel
 >Solo letras mayúsculas</guilabel
 > permite cambiar la pizarra de &kanagram; al modo de solo mayúsculas. </para>
 </listitem>
 
 <listitem>
 <para
->La casilla de verificación <guilabel
->Decir palabras correctas</guilabel
+>La casilla <guilabel
+>Pronunciar palabras correctas</guilabel
 > permite activar o desactivar la pronunciación. Para que esta opción funcione, se deberán incluir en el vocabulario que se esté utilizando los archivos de sonido de pronunciación o instalar y configurar &jovie;. </para>
 </listitem>
 </itemizedlist>
@@ -426,24 +440,24 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <para
 >La página de configuración de <guilabel
 >Vocabularios</guilabel
-> le permite manejar los vocabularios instalados. Usando este diálogo puede <action
+> permite gestionar los vocabularios instalados. En este diálogo se pueden <action
 >editar</action
 > y <action
 >eliminar</action
-> los vocabularios descargados así como <action
+> los vocabularios descargados, así como <action
 >crear</action
 > los propios: </para>
 
 <screenshot>
 <screeninfo
->configuración de vocabulario de &kanagram;</screeninfo>
+>Preferencias de vocabulario de &kanagram;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="vocab-settings.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase
->configuración de vocabulario de &kanagram;</phrase>
+>Preferencias de vocabulario de &kanagram;</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -452,21 +466,21 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <listitem>
 <para
 >El botón <guibutton
->Crear Nuevo</guibutton
+>Crear nuevo</guibutton
 > <action
 >abre el diálogo</action
-><link linkend="vocab-editor"
+> del <link linkend="vocab-editor"
 ><guilabel
 >Editor de vocabulario</guilabel
 ></link
-> con el cual puede ser autor de sus propios vocabularios que puede emplear después para jugar. </para>
+>, donde puedes crear tus propios vocabularios que luego podrás usar para jugar. </para>
 </listitem>
 <listitem>
 <para
 >El botón <guibutton
 >Editar</guibutton
-> le permite <action
->hacer cambios a los vocabularios que ha creado o descargado de Internet</action
+> permite <action
+>hacer cambios en los vocabularios que hayas creado o descargado de internet</action
 >. </para>
 </listitem>
 <!-- not in 4.5 listitem>
@@ -480,8 +494,8 @@ The <guibutton
 </listitem-->
 <listitem>
 <para
->Puede seleccionar a cual vocabulario desea aplicar estas acciones mediante el uso de <interface
->la lista de vocabularios</interface
+>Puedes seleccionar el vocabulario al que quieres aplicar estas acciones usando la <interface
+>lista de vocabularios</interface
 >. </para>
 </listitem>
 </itemizedlist>
@@ -491,13 +505,13 @@ The <guibutton
 >Editor de vocabularios</title>
 
 <para
->El editor de vocabularios le permite crear sus propios vocabularios con los cuales &kanagram; puede probarle: </para>
+>El editor de vocabulario te permite crear tus propios vocabularios con los que &kanagram; te pondrá a prueba: </para>
 
 <screenshot>
 <screeninfo
 ><guilabel
->Editor de vocabularios</guilabel
->de &kanagram;</screeninfo>
+>Editor de vocabulario</guilabel
+> de &kanagram;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="vocab-editor.png" format="PNG"/>
@@ -505,8 +519,8 @@ The <guibutton
 <textobject>
 <phrase
 ><guilabel
->Editor de vocabularios</guilabel
->de &kanagram;</phrase>
+>Editor de vocabulario</guilabel
+> de &kanagram;</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -515,57 +529,57 @@ The <guibutton
 <listitem>
 <para
 >El campo <guilabel
->Nombre de vocabulario:</guilabel
-> le permite <action
->dar nombre a su vocabulario</action
+>Nombre del vocabulario:</guilabel
+> te permite <action
+>dar un nombre a tu vocabulario</action
 >. </para>
 </listitem>
 <listitem>
 <para
 >El campo <guilabel
 >Descripción:</guilabel
-> le permite <action
+> te permite <action
 >expandir el nombre del vocabulario</action
->, proporcionando a los usuarios mayor detalle acerca del contenido de su vocabulario. </para>
+> para proporcionar a los usuarios un mayor detalle sobre el contenido del vocabulario. </para>
 <note>
 <para
->Intente que los campos de nombre y descripción sean más cortos posible. Los vocabularios efectivos son pequeños, y se enfocan a un tema sencillo. Intente escribir al menos 20 palabras acerca de su vocabulario, para que el usuario no acabe tan rápidamente. </para>
+>Intenta que los campos del nombre y de la descripción sean lo más cortos posible. Los vocabularios efectivos son concisos y se centran en un único tema. Intenta escribir al menos 20 palabras del vocabulario, para que no se acabe tan rápidamente. </para>
 </note>
 </listitem>
 <listitem>
 <para
 >El botón <guibutton
 >Eliminar palabra</guibutton
-> le permite <action
->eliminar palabras de su vocabulario</action
+> te permite <action
+>eliminar palabras del vocabulario</action
 >. </para>
 </listitem>
 <listitem>
 <para
 >El botón <guibutton
->Nueva Palabra</guibutton
+>Nueva palabra</guibutton
 > <action
-> crea una nueva entrada de palabra en su vocabulario</action
-> lista para ser utilizada. </para>
+>crea una nueva entrada de palabra en el vocabulario</action
+> lista para usar. </para>
 </listitem>
 <listitem>
 <para
 >El campo <guilabel
 >Palabra:</guilabel
-> le permite <action
->escribir valores de palabras en su vocabulario</action
+> te permite <action
+>escribir valores de palabras en el vocabulario</action
 >. </para>
 </listitem>
 <listitem>
 <para
 >El campo <guilabel
 >Pista</guilabel
-> le permite <action
->escribir la pista que acompaña a sus palabras</action
+> te permite <action
+>escribir las pistas que acompañan a tus palabras</action
 >. </para>
 <note>
 <para
->Las buenas pistas deben ser claras y describir sutilmente la palabra, con el objeto de mejorar el conocimiento del usuario. También debe asegurarse de que sus pistas sean lo suficientemente cortas (menos de 40 caracteres de extensión). </para>
+>Las buenas pistas deben ser claras y describir sutilmente la palabra, con el objeto de mejorar el conocimiento del usuario. También debes asegurarte de que las pistas sean lo suficientemente cortas (menos de 40 caracteres de extensión). </para>
 </note>
 </listitem>
 <listitem>
@@ -602,32 +616,32 @@ The <guibutton
 >Descargar nuevo vocabulario</guibutton
 > de la página de configuración de <guilabel
 >Vocabularios</guilabel
-> le permite obtener nuevos archivos de vocabulario desde Internet: </para>
+> te permite obtener nuevos archivos de vocabulario de internet: </para>
 
 <screenshot>
 <screeninfo
->diálogo de novedades de &kanagram;</screeninfo>
+>Diálogo de novedades de &kanagram;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="newstuff-dialog.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase
->diálogo de novedades &kanagram;</phrase>
+>Diálogo de novedades &kanagram;</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
 
 <para
->Para instalar un archivo de vocabulario desde internet, pulse en uno de los elementos de la lista, y a continuación pulse el botón <guibutton
+>Para instalar un archivo de vocabulario de internet, pulsa en uno de los elementos de la lista; a continuación, pulsa el botón <guibutton
 >Instalar</guibutton
->. Una vez hecho esto, el nuevo vocabulario está disponible para jugar. </para>
+>. El nuevo vocabulario estará disponible para jugar de forma inmediata. </para>
 <para
->Si ya ha descargado un vocabulario, este botón cambiará a <guibutton
+>Si ya has descargado un vocabulario, este botón cambiará a <guibutton
 >Desinstalar</guibutton
->, lo cual le permite eliminar un vocabulario. </para>
+> para permitirte eliminar un vocabulario. </para>
 <para
->Para obtener más información sobre un vocabulario, como el autor, una descripción sobre el contenido o el historial de cambios, pulse el botón <guibutton
+>Para obtener más información sobre un vocabulario (como su autor, una descripción del contenido o el historial de cambios), pulsa el botón <guibutton
 >Detalles</guibutton
 >. </para>
 </sect1>
@@ -656,18 +670,22 @@ The <guibutton
 </itemizedlist>
 
 <para
->Derechos de autor de la documentación 2005. &Danny.Allen; &Danny.Allen.mail;. </para>
+>Copyright de la documentación 2005. &Danny.Allen; &Danny.Allen.mail;. </para>
 
 <para
 >Traducido por Rocío Gallego <email
 >traducciones@rociogallego.com</email
->, Jeffrey Steve Borbón Sanabria<email
+>, Jeffrey Steve Borbón Sanabria <email
 >jeff_kerokid@yahoo.com</email
-> Santiago Fernández Sancho <email
+>, Santiago Fernández Sancho <email
 >santi@kde-es.org</email
-> yMauricio José Adonis Carrasco <email
+> y Mauricio José Adonis Carrasco <email
 >mike.alfa.2007@gmail.com</email
-></para
+>.</para
+><para
+>Corregido por Eloy Cuadra <email
+>ecuadra@eloihr.net</email
+>.</para
 > &underFDL; &underGPL; </chapter>
 
 &documentation.index;
