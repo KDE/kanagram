@@ -21,6 +21,7 @@
   <name xml:lang="fr">Kanagram</name>
   <name xml:lang="gl">Kanagram</name>
   <name xml:lang="hu">Kanagram</name>
+  <name xml:lang="ia">Kanagram</name>
   <name xml:lang="id">Kanagram</name>
   <name xml:lang="it">Kanagram</name>
   <name xml:lang="ka">Kanagram</name>
@@ -137,6 +138,7 @@
       <caption xml:lang="fi">Miten Kanagramia pelataan</caption>
       <caption xml:lang="fr">Partie de Kanagram en cours</caption>
       <caption xml:lang="gl">Xogando a Kanagram</caption>
+      <caption xml:lang="ia">Jocar Kanagram</caption>
       <caption xml:lang="id">Memainkan Kanagram</caption>
       <caption xml:lang="it">Giocare con Kanagram</caption>
       <caption xml:lang="ka">Kanagram-ის თამაში</caption>
