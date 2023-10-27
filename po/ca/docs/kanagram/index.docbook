@@ -324,18 +324,14 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <para
 >La llista desplegable <guilabel
 >Oculta automàticament els suggeriments al cap de:</guilabel
-> permet especificar com es presentaran els suggeriments. Aquí, podreu configurar el text del suggeriment que desapareixerà després d'una certa quantitat de segons (&pex;, 5 segons), o ho podeu deixar com a predeterminat (<quote
->No ocultis automàticament els suggeriments</quote
->). </para>
+> permet especificar com es presentaran els suggeriments. Aquí, podreu configurar el text del suggeriment que desapareixerà després d'una certa quantitat de segons (&pex;, 5 segons), o ho podeu deixar com a predeterminat («No ocultis automàticament els suggeriments»). </para>
 </listitem>
 
 <listitem>
 <para
 >Utilitzeu la llista desplegable <guilabel
 >Temps per a resoldre l'anagrama:</guilabel
-> per a especificar el temps en què haureu de resoldre cada trencaclosques. De manera predeterminada és <quote
->Sense límit de temps</quote
->. </para>
+> per a especificar el temps en què haureu de resoldre cada trencaclosques. De manera predeterminada és «Sense límit de temps». </para>
 </listitem>
 
 <listitem>
