@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 01:38+0000\n"
-"PO-Revision-Date: 2023-01-04 22:00+0100\n"
+"PO-Revision-Date: 2023-11-14 20:51+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -60,7 +60,7 @@ msgid ""
 "timer."
 msgstr ""
 "Tiu agordo permesas al vi difini en sekundoj la intervalon de la poentara "
-"tempigilo."
+"tempumilo."
 
 #. i18n: ectx: label, entry (correctAnswerScore), group (kanagram)
 #: kanagram.kcfg:30
@@ -103,7 +103,7 @@ msgstr "Malŝalti/ŝalti la sonoron."
 #: kanagram.kcfg:50
 #, kde-format
 msgid "Use uppercase."
-msgstr ""
+msgstr "Uzi majusklojn."
 
 #. i18n: ectx: label, entry (enablePronunciation), group (kanagram)
 #: kanagram.kcfg:54
@@ -202,7 +202,7 @@ msgstr "Debjit Mondal"
 #: main.cpp:64
 #, kde-format
 msgid "Coding & Design"
-msgstr ""
+msgstr "Kodigo & Dezajno"
 
 #: main.cpp:65
 #, kde-format
@@ -212,7 +212,7 @@ msgstr "Laszlo Papp"
 #: main.cpp:65
 #, kde-format
 msgid "Modularization and porting to Mobile"
-msgstr ""
+msgstr "Moduligo kaj portado al Poŝtelefono"
 
 #: main.cpp:66
 #, kde-format
@@ -297,7 +297,7 @@ msgstr "Ukrainaj datumaj dosieroj"
 #: main.cpp:74
 #, kde-format
 msgid "Kristóf Kiszel"
-msgstr ""
+msgstr "Kristóf Kiszel"
 
 #: main.cpp:74
 #, kde-format
@@ -307,22 +307,22 @@ msgstr "Hungaraj datumaj dosieroj"
 #: main.cpp:75
 #, kde-format
 msgid "Souvik Das"
-msgstr ""
+msgstr "Souvik Das"
 
 #: main.cpp:75
 #, kde-format
 msgid "2-player mode"
-msgstr ""
+msgstr "2-ludanta reĝimo"
 
 #: main.cpp:76
 #, kde-format
 msgid "Sayan Biswas"
-msgstr ""
+msgstr "Sayan Biswas"
 
 #: main.cpp:76
 #, kde-format
 msgid "Letters turned to clickable buttons"
-msgstr ""
+msgstr "Literoj fariĝis klakeblaj butonoj"
 
 #: main.cpp:77
 #, kde-format
@@ -392,13 +392,13 @@ msgstr "9 sekundoj"
 #: mainsettingswidget.ui:65
 #, kde-format
 msgid "Time for resolving the anagram:"
-msgstr ""
+msgstr "Tempo por solvi la anagramon:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #: mainsettingswidget.ui:73
 #, kde-format
 msgid "No time limit"
-msgstr ""
+msgstr "Neniu tempolimo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
@@ -450,7 +450,7 @@ msgstr "Poentaraj Opcioj"
 #: mainsettingswidget.ui:136
 #, kde-format
 msgid "Set timer for scoring purpose:"
-msgstr ""
+msgstr "Agordi tempumilon celante poentadon:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, scoringPointCheckbox)
 #: mainsettingswidget.ui:167
@@ -462,43 +462,43 @@ msgstr "Poentaraj Poent-Agordoj"
 #: mainsettingswidget.ui:174
 #, kde-format
 msgid "Assign score for correct answer : "
-msgstr ""
+msgstr "Atribui poentaron por ĝusta respondo:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:182
 #, kde-format
 msgid "+5 points"
-msgstr ""
+msgstr "+5 poentoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:187
 #, kde-format
 msgid "+10 points"
-msgstr ""
+msgstr "+10 poentoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:192
 #, kde-format
 msgid "+15 points"
-msgstr ""
+msgstr "+15 poentoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_correctAnswerScore)
 #: mainsettingswidget.ui:197
 #, kde-format
 msgid "+20 points"
-msgstr ""
+msgstr "+20 poentoj"
 
 #. i18n: ectx: property (text), widget (QLabel, textIncorrectAnswer)
 #: mainsettingswidget.ui:205
 #, kde-format
 msgid "Assign score for incorrect answer : "
-msgstr ""
+msgstr "Atribui poentaron por malĝusta respondo:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
 #: mainsettingswidget.ui:213
 #, kde-format
 msgid "-1 point"
-msgstr ""
+msgstr "-1 poento"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
@@ -507,13 +507,13 @@ msgstr ""
 #: mainsettingswidget.ui:275
 #, kde-format
 msgid "-2 points"
-msgstr ""
+msgstr "-2 poentoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
 #: mainsettingswidget.ui:223
 #, kde-format
 msgid "-3 points"
-msgstr ""
+msgstr "-3 poentoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_incorrectAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
@@ -522,33 +522,33 @@ msgstr ""
 #: mainsettingswidget.ui:280
 #, kde-format
 msgid "-4 points"
-msgstr ""
+msgstr "-4 poentoj"
 
 #. i18n: ectx: property (text), widget (QLabel, textRevealAnswer)
 #: mainsettingswidget.ui:236
 #, kde-format
 msgid "Assign score for reveal answer : "
-msgstr ""
+msgstr "Atribui poentaron por malkaŝa respondo:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_skippedWordScore)
 #: mainsettingswidget.ui:254 mainsettingswidget.ui:285
 #, kde-format
 msgid "-6 points"
-msgstr ""
+msgstr "-6 poentoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_revealAnswerScore)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_skippedWordScore)
 #: mainsettingswidget.ui:259 mainsettingswidget.ui:290
 #, kde-format
 msgid "-8 points"
-msgstr ""
+msgstr "-8 poentoj"
 
 #. i18n: ectx: property (text), widget (QLabel, textSkippedWord)
 #: mainsettingswidget.ui:267
 #, kde-format
 msgid "Assign score for skipped word : "
-msgstr ""
+msgstr "Atribui poentaron por preterlasita vorto:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_useSounds)
 #: mainsettingswidget.ui:304
@@ -560,13 +560,13 @@ msgstr "Uzi so&norojn"
 #: mainsettingswidget.ui:311
 #, kde-format
 msgid "Use only uppercase letters."
-msgstr ""
+msgstr "Uzi nur majusklojn."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_uppercaseOnly)
 #: mainsettingswidget.ui:314
 #, kde-format
 msgid "Only uppercase letters"
-msgstr ""
+msgstr "Nur majuskloj"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:321
@@ -578,7 +578,7 @@ msgstr "Malŝalti/enŝalti prononcojn."
 #: mainsettingswidget.ui:324
 #, kde-format
 msgid "Say correct words"
-msgstr ""
+msgstr "Diri ĝustajn vortojn"
 
 #: ui/Blackboard.qml:88
 #, kde-format
@@ -593,7 +593,7 @@ msgstr "Antaŭa Vortprovizo"
 #: ui/Blackboard.qml:174
 #, kde-format
 msgid "Start Timer"
-msgstr ""
+msgstr "Komenci Tempumilon"
 
 #: ui/Blackboard.qml:195
 #, kde-format
@@ -618,12 +618,12 @@ msgstr "Montri Wiki-Enhavon"
 #: ui/Blackboard.qml:412
 #, kde-format
 msgid "Score : "
-msgstr ""
+msgstr "Poentaro : "
 
 #: ui/Blackboard.qml:515
 #, kde-format
 msgid " Player 1 : "
-msgstr ""
+msgstr " Ludanto 1 : "
 
 #: ui/Blackboard.qml:515
 #, kde-format
@@ -631,6 +631,8 @@ msgid ""
 "\n"
 " Player 2 : "
 msgstr ""
+"\n"
+" Ludanto 2 :"
 
 #: ui/Blackboard.qml:515
 #, kde-format
@@ -638,6 +640,8 @@ msgid ""
 "\n"
 " Close dialog for new game "
 msgstr ""
+"\n"
+" Fermi dialogon por nova ludo"
 
 #: ui/Blackboard.qml:525
 #, kde-format
@@ -645,6 +649,8 @@ msgid ""
 " Time Up. \n"
 " Player 2's Turn"
 msgstr ""
+" Tempo Finiĝis. \n"
+" Vico de Ludanto 2"
 
 #: ui/Blackboard.qml:552
 #, kde-format
@@ -669,12 +675,12 @@ msgstr "Sekva anagramo"
 #: ui/main.qml:341
 #, kde-format
 msgid "1st Player"
-msgstr ""
+msgstr "1-a Ludanto"
 
 #: ui/main.qml:341
 #, kde-format
 msgid "2nd Player"
-msgstr ""
+msgstr "2-a Ludanto"
 
 #: ui/main.qml:419
 #, kde-format
