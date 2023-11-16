@@ -102,7 +102,7 @@ msgstr ""
 #: kanagram.kcfg:46 mainsettingswidget.ui:301
 #, kde-format
 msgid "Turns sounds on/off."
-msgstr "Activa/desactiva els sons."
+msgstr "Activa o desactiva els sons."
 
 #. i18n: ectx: label, entry (uppercaseOnly), group (kanagram)
 #: kanagram.kcfg:50
@@ -114,7 +114,7 @@ msgstr "Utilitza majúscules."
 #: kanagram.kcfg:54
 #, kde-format
 msgid "Turns pronunciations on/off."
-msgstr "Activa/desactiva les pronunciacions."
+msgstr "Activa o desactiva les pronunciacions."
 
 #. i18n: ectx: label, entry (dataLanguage), group (kanagram)
 #: kanagram.kcfg:58
