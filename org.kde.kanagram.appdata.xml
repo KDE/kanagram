@@ -118,7 +118,7 @@
     <p xml:lang="zh-CN">Kanagram 是一个基于单词组词的游戏：当被拼写的单词的字母按照正确的顺序被放回时，谜题就被解决了。游戏没有时间限制，也没有解题次数限制。它的特点是包含多个单词列表，一个提示和攻略帮助系统，一个单词列表编辑器，并允许通过 KNewStuff 更新和分发单词列表。界面可扩展，适合儿童使用。</p>
     <p xml:lang="zh-TW">Kanagram 是一套字詞遊戲：將單字字母順序打亂，並將它排回正確的順序。沒有限制解題的時間或次數。它並且提供了一些功能，例如單字清單，提示系統，單字清單編輯器，並允許透過 KNewStuff 更新或散布。介面設計適合小朋友。</p>
   </description>
-  <url type="homepage">https://edu.kde.org/kanagram/</url>
+  <url type="homepage">https://apps.kde.org/kanagram</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kanagram</url>
   <url type="help">https://docs.kde.org/?application=kanagram</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kanagram&amp;source=appdata</url>
