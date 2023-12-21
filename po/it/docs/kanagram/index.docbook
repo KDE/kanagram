@@ -96,11 +96,7 @@
 </keywordset>
 
 </bookinfo>
-<!--FIXME 
-Debjit Mondal "Show Wiki Content" (hidden -> crash?) https://debjitmondal.blogspot.com/
-Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com/2015/01/13/kanagram-is-now-2-player/
-Hide 'Say correct words' option if built without QtSpeech/Jovie
--->
+
 <chapter id="introduction">
 <title
 >Introduzione</title>
