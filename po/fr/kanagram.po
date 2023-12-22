@@ -7,7 +7,7 @@
 # Guillaume Pujol <guill.p@gmail.com>, 2008.
 # Geoffray Levasseur <geoffray.levasseurbrandin@numericable.fr>, 2010, 2011, 2012, 2013, 2014.
 # Ludovic Grossard <grossard@kde.org>, 2011, 2014.
-# xavier <xavier.besnard@neuf.fr>, 2012, 2013.
+# Xavier Besnard <xavier.besnard@kde.org>, 2012, 2013.
 # Simon Depiets <sdepiets@gmail.com>, 2018.
 msgid ""
 msgstr ""
