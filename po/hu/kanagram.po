@@ -2,20 +2,21 @@
 # Tamas Szanto <tszanto@interware.hu>, 2005.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2011, 2012, 2014.
 # Balázs Úr <urbalazs@gmail.com>, 2013, 2014.
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 01:38+0000\n"
-"PO-Revision-Date: 2014-09-08 10:31+0200\n"
-"Last-Translator: Kristóf Kiszel <ulysses@kubuntu.org>\n"
+"PO-Revision-Date: 2024-02-12 11:28+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #. i18n: ectx: label, entry (currentVocabulary), group (kanagram)
 #: kanagram.kcfg:9
@@ -25,12 +26,10 @@ msgstr "Ez a beállítás tárolja a jelenleg kiválasztott szótárat."
 
 #. i18n: ectx: label, entry (singlePlayerMode), group (kanagram)
 #: kanagram.kcfg:13
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set in seconds the time interval of the score "
-#| "timer."
+#, kde-format
 msgid "This setting allows you to decide one-player or two-player mode"
-msgstr "Itt állíthatja be a pontszámláló időközét másodpercekben megadva."
+msgstr ""
+"Ez a beállítás lehetővé teszi az egy- vagy kétjátékos mód kiválasztását"
 
 #. i18n: ectx: label, entry (hintHideTime), group (kanagram)
 #: kanagram.kcfg:17
@@ -282,8 +281,7 @@ msgid "Yuri Chornoivan"
 msgstr "Yuri Chornoivan"
 
 #: main.cpp:73
-#, fuzzy, kde-format
-#| msgid "Ukranian Data Files"
+#, kde-format
 msgid "Ukrainian Data Files"
 msgstr "Ukrán adatfájlok"
 
@@ -300,22 +298,22 @@ msgstr "Magyar adatfájlok"
 #: main.cpp:75
 #, kde-format
 msgid "Souvik Das"
-msgstr ""
+msgstr "Souvik Das"
 
 #: main.cpp:75
 #, kde-format
 msgid "2-player mode"
-msgstr ""
+msgstr "Kétjátékos mód"
 
 #: main.cpp:76
 #, kde-format
 msgid "Sayan Biswas"
-msgstr ""
+msgstr "Sayan Biswas"
 
 #: main.cpp:76
 #, kde-format
 msgid "Letters turned to clickable buttons"
-msgstr ""
+msgstr "A betűk kattintható gombokká váltak"
 
 #: main.cpp:77
 #, kde-format
@@ -614,7 +612,7 @@ msgstr "Pontszám: "
 #: ui/Blackboard.qml:515
 #, kde-format
 msgid " Player 1 : "
-msgstr ""
+msgstr " 1. játékos : "
 
 #: ui/Blackboard.qml:515
 #, kde-format
@@ -622,6 +620,8 @@ msgid ""
 "\n"
 " Player 2 : "
 msgstr ""
+"\n"
+" 2. játékos : "
 
 #: ui/Blackboard.qml:515
 #, kde-format
@@ -629,6 +629,8 @@ msgid ""
 "\n"
 " Close dialog for new game "
 msgstr ""
+"\n"
+" Zárja be az ablakot új játékhoz"
 
 #: ui/Blackboard.qml:525
 #, kde-format
@@ -636,12 +638,13 @@ msgid ""
 " Time Up. \n"
 " Player 2's Turn"
 msgstr ""
+" Lejárt az idő. \n"
+" A 2. játékos következik"
 
 #: ui/Blackboard.qml:552
-#, fuzzy, kde-format
-#| msgid "&Close"
+#, kde-format
 msgid "Close"
-msgstr "&Bezárás"
+msgstr "Bezárás"
 
 #: ui/main.qml:200
 #, kde-format
@@ -651,7 +654,7 @@ msgstr "Kilépés"
 #: ui/main.qml:213
 #, kde-format
 msgid "Change mode"
-msgstr ""
+msgstr "Módváltás"
 
 #: ui/main.qml:293
 #, kde-format
@@ -661,12 +664,12 @@ msgstr "Következő szó"
 #: ui/main.qml:341
 #, kde-format
 msgid "1st Player"
-msgstr ""
+msgstr "1. játékos"
 
 #: ui/main.qml:341
 #, kde-format
 msgid "2nd Player"
-msgstr ""
+msgstr "2. játékos"
 
 #: ui/main.qml:419
 #, kde-format
