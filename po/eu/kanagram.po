@@ -1,12 +1,12 @@
 # Translation for kanagram.po to Euskara/Basque (eu)
-# Copyright (C) 2005-2023 This file is copyright:
+# Copyright (C) 2005-2024 This file is copyright:
 # This file is distributed under the same license as the kanagram package.
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # marcos <marcos@euskalgnu.org>, 2006.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
-# Iñigo Salvador Azurmendi <xalbani.eus>, 2010, 2011, 2023.
+# Iñigo Salvador Azurmendi <xalbani.eus>, 2010, 2011, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
