@@ -85,6 +85,15 @@
   <summary xml:lang="zh-CN">字母顺序游戏</summary>
   <summary xml:lang="zh-TW">字母排序遊戲</summary>
   <developer_name translate="no">KDE</developer_name>
+  <developer_name translate="no" xml:lang="ca">KDE</developer_name>
+  <developer_name translate="no" xml:lang="eo">KDE</developer_name>
+  <developer_name translate="no" xml:lang="eu">KDE</developer_name>
+  <developer_name translate="no" xml:lang="he">KDE</developer_name>
+  <developer_name translate="no" xml:lang="ka">KDE</developer_name>
+  <developer_name translate="no" xml:lang="nl">KDE</developer_name>
+  <developer_name translate="no" xml:lang="sl">KDE</developer_name>
+  <developer_name translate="no" xml:lang="uk">KDE</developer_name>
+  <developer_name translate="no" xml:lang="x-test">xxKDExx</developer_name>
   <description>
     <p>Kanagram is a game based on anagrams of words: the puzzle is solved when the letters of the scrambled word are put back in the correct order. There is no limit on either time taken, or the amount of attempts to solve the word. It features several included word lists, a hints-and-cheats help system, a word list editor, and allows for updating and distributing wordlists via KNewStuff. The interface is scalable and appropriate for children.</p>
     <p xml:lang="ar">تقليب هي لعبة تعتمد على تقليب الحروف: يحل اللغز عند إعادة ترتيب أحرف الكلمة بشكل صحيح. لا يوجد حد للوقت المستغرق، أو مقدار محاولات حل الكلمة. تتضمن اللعبة قوائم كلمات جاهزة ، ونظام مساعدة وتلميحات، ومحرر قائمة الكلمات، و كذلك يسمح بتحديث قوائم الكلمات وتوزيعها عبر KNewStuff. تمتلك اللعبة واجهة قابلة للتطوير ومناسبة للأطفال.</p>
