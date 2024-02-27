@@ -794,16 +794,19 @@ Rectangle {
 
     MediaPlayer {
         id: chalkSound
+        audioOutput: AudioOutput {}
         source: "sounds/chalk.wav"
     }
 
     MediaPlayer {
         id: rightSound
+        audioOutput: AudioOutput {}
         source: "sounds/right.wav"
     }
 
     MediaPlayer {
         id: wrongSound
+        audioOutput: AudioOutput {}
         source: "sounds/wrong.wav"
     }
 
