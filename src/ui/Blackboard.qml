@@ -85,8 +85,10 @@ Rectangle {
                     kanagramGame.nextVocabulary();
                     nextAnagram();
                 }
-                text: i18n("Next Vocabulary")
             }
+            ToolTip.delay: 700 // default SH_ToolTip_WakeUpDelay value, not possible to get in QML :/
+            ToolTip.visible: hovered
+            ToolTip.text: i18n("Next Vocabulary")
             Image {
                 source: "icons/right-arrow.png"
                 anchors.fill: parent
@@ -122,8 +124,10 @@ Rectangle {
                     kanagramGame.previousVocabulary();
                     nextAnagram();
                 }
-                text: i18n("Previous Vocabulary")
             }
+            ToolTip.delay: 700 // default SH_ToolTip_WakeUpDelay value, not possible to get in QML :/
+            ToolTip.visible: hovered
+            ToolTip.text: i18n("Previous Vocabulary")
             Image {
                 source: "icons/left-arrow.png"
                 anchors.fill: parent
@@ -171,8 +175,10 @@ Rectangle {
                     }
                     scoreButton.flagToggleTimer = !scoreButton.flagToggleTimer;
                 }
-                text: i18n("Start Timer");
             }
+            ToolTip.delay: 700 // default SH_ToolTip_WakeUpDelay value, not possible to get in QML :/
+            ToolTip.visible: hovered
+            ToolTip.text: i18n("Start Timer");
             Image {
                 source: "icons/timer.png"
                 anchors.fill: parent
@@ -192,8 +198,10 @@ Rectangle {
                     hintTimer.repeat = true
                     hintTimer.start()
                 }
-                text: i18n("Show Hint")
             }
+            ToolTip.delay: 700 // default SH_ToolTip_WakeUpDelay value, not possible to get in QML :/
+            ToolTip.visible: hovered
+            ToolTip.text: i18n("Show Hint")
             width: optionsBar.height
             height: optionsBar.height
             property int countDownTimerValue: 0
@@ -222,7 +230,6 @@ Rectangle {
                 showAnswerTimer.repeat = true
                 showAnswerTimer.start()
             }
-            text: i18n("Reveal Word")
         }
 
         ToolButton {
@@ -234,6 +241,9 @@ Rectangle {
                 verticalCenter: optionsBar.verticalCenter
                 right: optionsBar.right
             }
+            ToolTip.delay: 700 // default SH_ToolTip_WakeUpDelay value, not possible to get in QML :/
+            ToolTip.visible: hovered
+            ToolTip.text: i18n("Reveal Word")
             property int countDownTimerValue: 0
             Image {
                 source: "icons/reveal.png"
