@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:38+0000\n"
+"POT-Creation-Date: 2024-02-28 00:35+0000\n"
 "PO-Revision-Date: 2023-01-26 14:25+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -147,17 +147,17 @@ msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Geen"
 
-#: main.cpp:54
+#: main.cpp:46
 #, kde-format
 msgid "Kanagram"
 msgstr "Kanagram"
 
-#: main.cpp:56
+#: main.cpp:48
 #, kde-format
 msgid "An anagram game"
 msgstr "Een anagramspel"
 
-#: main.cpp:58
+#: main.cpp:50
 #, kde-format
 msgid ""
 "© 2005 Joshua Keel\n"
@@ -170,173 +170,173 @@ msgstr ""
 "© 2007 Jeremy Whiting\n"
 "© 2014 Debjit Mondal"
 
-#: main.cpp:61
+#: main.cpp:53
 #, kde-format
 msgid "Joshua Keel"
 msgstr "Joshua Keel"
 
-#: main.cpp:61
+#: main.cpp:53
 #, kde-format
 msgid "Coding"
 msgstr "Programmeren"
 
-#: main.cpp:62
+#: main.cpp:54
 #, kde-format
 msgid "Danny Allen"
 msgstr "Danny Allen"
 
-#: main.cpp:62
+#: main.cpp:54
 #, kde-format
 msgid "Design, Graphics and many Vocabularies"
 msgstr "Ontwerp, illustraties en veel woordenlijsten"
 
-#: main.cpp:63
+#: main.cpp:55
 #, kde-format
 msgid "Jeremy Whiting"
 msgstr "Jeremy Whiting"
 
-#: main.cpp:63
+#: main.cpp:55
 #, kde-format
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: main.cpp:64
+#: main.cpp:56
 #, kde-format
 msgid "Debjit Mondal"
 msgstr "Debjit Mondal"
 
-#: main.cpp:64
+#: main.cpp:56
 #, kde-format
 msgid "Coding & Design"
 msgstr "Codering & ontwerp"
 
-#: main.cpp:65
+#: main.cpp:57
 #, kde-format
 msgid "Laszlo Papp"
 msgstr "Laszlo Papp"
 
-#: main.cpp:65
+#: main.cpp:57
 #, kde-format
 msgid "Modularization and porting to Mobile"
 msgstr "Modularisatie en overbrengen naar Mobile"
 
-#: main.cpp:66
+#: main.cpp:58
 #, kde-format
 msgid "Artemiy Pavlov"
 msgstr "Artemiy Pavlov"
 
-#: main.cpp:66
+#: main.cpp:58
 #, kde-format
 msgid "Sound effects"
 msgstr "Geluidseffecten"
 
-#: main.cpp:67
+#: main.cpp:59
 #, kde-format
 msgid "Pino Toscano"
 msgstr "Pino Toscano"
 
-#: main.cpp:67
+#: main.cpp:59
 #, kde-format
 msgid "Italian Data Files"
 msgstr "Italiaanse gegevensbestanden"
 
-#: main.cpp:68
+#: main.cpp:60
 #, kde-format
 msgid "Kris Thomsen"
 msgstr "Kris Thomsen"
 
-#: main.cpp:68
+#: main.cpp:60
 #, kde-format
 msgid "Danish Data Files"
 msgstr "Deense gegevensbestanden"
 
-#: main.cpp:69
+#: main.cpp:61
 #, kde-format
 msgid "Patrick Spendrin"
 msgstr "Patrick Spendrin"
 
-#: main.cpp:69
+#: main.cpp:61
 #, kde-format
 msgid "German Data Files"
 msgstr "Duitse gegevensbestanden"
 
-#: main.cpp:70
+#: main.cpp:62
 #, kde-format
 msgid "Eric Krüse"
 msgstr "Eric Krüse"
 
-#: main.cpp:70
+#: main.cpp:62
 #, kde-format
 msgid "British English Data Files"
 msgstr "Brits-Engelse gegevensbestanden"
 
-#: main.cpp:71
+#: main.cpp:63
 #, kde-format
 msgid "Hanna Scott"
 msgstr "Hanna Scott"
 
-#: main.cpp:71
+#: main.cpp:63
 #, kde-format
 msgid "Swedish Data Files"
 msgstr "Zweedse gegevensbestanden"
 
-#: main.cpp:72
+#: main.cpp:64
 #, kde-format
 msgid "Jure Repinc"
 msgstr "Jure Repinc"
 
-#: main.cpp:72
+#: main.cpp:64
 #, kde-format
 msgid "Slovenian Data Files"
 msgstr "Sloveense gegevensbestanden"
 
-#: main.cpp:73
+#: main.cpp:65
 #, kde-format
 msgid "Yuri Chornoivan"
 msgstr "Yuri Chornoivan"
 
-#: main.cpp:73
+#: main.cpp:65
 #, kde-format
 msgid "Ukrainian Data Files"
 msgstr "Oekraïense gegevensbestanden"
 
-#: main.cpp:74
+#: main.cpp:66
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr "Kristóf Kiszel"
 
-#: main.cpp:74
+#: main.cpp:66
 #, kde-format
 msgid "Hungarian Data Files"
 msgstr "Hongaarse gegevensbestanden"
 
-#: main.cpp:75
+#: main.cpp:67
 #, kde-format
 msgid "Souvik Das"
 msgstr "Souvik Das"
 
-#: main.cpp:75
+#: main.cpp:67
 #, kde-format
 msgid "2-player mode"
 msgstr "Modus twee-spelers"
 
-#: main.cpp:76
+#: main.cpp:68
 #, kde-format
 msgid "Sayan Biswas"
 msgstr "Sayan Biswas"
 
-#: main.cpp:76
+#: main.cpp:68
 #, kde-format
 msgid "Letters turned to clickable buttons"
 msgstr "Letters omgevormd tot aan te klikken knoppen"
 
-#: main.cpp:77
+#: main.cpp:69
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Rinse de Vries,Ruurd Pels,Antoon Tolboom,Freek de Kruijf"
 
-#: main.cpp:77
+#: main.cpp:69
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -585,52 +585,52 @@ msgstr "Uitspraak aan of uitzetten."
 msgid "Say correct words"
 msgstr "De juiste woorden spreken"
 
-#: ui/Blackboard.qml:88
+#: ui/Blackboard.qml:91
 #, kde-format
 msgid "Next Vocabulary"
 msgstr "Volgende woordenlijst"
 
-#: ui/Blackboard.qml:125
+#: ui/Blackboard.qml:130
 #, kde-format
 msgid "Previous Vocabulary"
 msgstr "Vorige woordenlijst"
 
-#: ui/Blackboard.qml:174
+#: ui/Blackboard.qml:181
 #, kde-format
 msgid "Start Timer"
 msgstr "Timer starten"
 
-#: ui/Blackboard.qml:195
+#: ui/Blackboard.qml:204
 #, kde-format
 msgid "Show Hint"
 msgstr "Tip tonen"
 
-#: ui/Blackboard.qml:225
+#: ui/Blackboard.qml:246
 #, kde-format
 msgid "Reveal Word"
 msgstr "Woord tonen"
 
-#: ui/Blackboard.qml:269
+#: ui/Blackboard.qml:279
 #, kde-format
 msgid " "
 msgstr " "
 
-#: ui/Blackboard.qml:386
+#: ui/Blackboard.qml:396
 #, kde-format
 msgid "Show Wiki Content"
 msgstr "Wiki-inhoud tonen"
 
-#: ui/Blackboard.qml:412
+#: ui/Blackboard.qml:422
 #, kde-format
 msgid "Score : "
 msgstr "Score : "
 
-#: ui/Blackboard.qml:515
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid " Player 1 : "
 msgstr " Speler 1 : "
 
-#: ui/Blackboard.qml:515
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid ""
 "\n"
@@ -639,7 +639,7 @@ msgstr ""
 "\n"
 " Speler 2 : "
 
-#: ui/Blackboard.qml:515
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid ""
 "\n"
@@ -648,7 +648,7 @@ msgstr ""
 "\n"
 " Sluit dialoog voor nieuw spel "
 
-#: ui/Blackboard.qml:525
+#: ui/Blackboard.qml:535
 #, kde-format
 msgid ""
 " Time Up. \n"
@@ -657,7 +657,7 @@ msgstr ""
 " Tijd is op. \n"
 " Beurt aan speler 2"
 
-#: ui/Blackboard.qml:552
+#: ui/Blackboard.qml:562
 #, kde-format
 msgid "Close"
 msgstr "Sluiten"
@@ -717,17 +717,17 @@ msgstr "Over Kanagram"
 msgid "Kanagram Handbook"
 msgstr "Kanagram- handboek"
 
-#: vocabedit.cpp:114
+#: vocabedit.cpp:110
 #, kde-format
 msgid "Would you like to save your changes?"
 msgstr "Wilt u uw wijzigingen opslaan?"
 
-#: vocabedit.cpp:115
+#: vocabedit.cpp:111
 #, kde-format
 msgid "Save Changes Dialog"
 msgstr "Wijzigingen opslaan"
 
-#: vocabedit.cpp:140
+#: vocabedit.cpp:132
 #, kde-format
 msgid "New Item"
 msgstr "Nieuw item"

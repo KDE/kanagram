@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:38+0000\n"
+"POT-Creation-Date: 2024-02-28 00:35+0000\n"
 "PO-Revision-Date: 2024-02-09 17:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -143,17 +143,17 @@ msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr "Yok"
 
-#: main.cpp:54
+#: main.cpp:46
 #, kde-format
 msgid "Kanagram"
 msgstr "Kanagram"
 
-#: main.cpp:56
+#: main.cpp:48
 #, kde-format
 msgid "An anagram game"
 msgstr "Bir anagram oyunu"
 
-#: main.cpp:58
+#: main.cpp:50
 #, kde-format
 msgid ""
 "© 2005 Joshua Keel\n"
@@ -166,173 +166,173 @@ msgstr ""
 "© 2007 Jeremy Whiting\n"
 "© 2014 Debjit Mondal"
 
-#: main.cpp:61
+#: main.cpp:53
 #, kde-format
 msgid "Joshua Keel"
 msgstr "Joshua Keel"
 
-#: main.cpp:61
+#: main.cpp:53
 #, kde-format
 msgid "Coding"
 msgstr "Kodlama"
 
-#: main.cpp:62
+#: main.cpp:54
 #, kde-format
 msgid "Danny Allen"
 msgstr "Danny Allen"
 
-#: main.cpp:62
+#: main.cpp:54
 #, kde-format
 msgid "Design, Graphics and many Vocabularies"
 msgstr "Tasarım, Grafikler ve birçok söz dağarcığı"
 
-#: main.cpp:63
+#: main.cpp:55
 #, kde-format
 msgid "Jeremy Whiting"
 msgstr "Jeremy Whiting"
 
-#: main.cpp:63
+#: main.cpp:55
 #, kde-format
 msgid "Maintainer"
 msgstr "Yürüten"
 
-#: main.cpp:64
+#: main.cpp:56
 #, kde-format
 msgid "Debjit Mondal"
 msgstr "Debjit Mondal"
 
-#: main.cpp:64
+#: main.cpp:56
 #, kde-format
 msgid "Coding & Design"
 msgstr "Kodlama ve Tasarım"
 
-#: main.cpp:65
+#: main.cpp:57
 #, kde-format
 msgid "Laszlo Papp"
 msgstr "Laszlo Papp"
 
-#: main.cpp:65
+#: main.cpp:57
 #, kde-format
 msgid "Modularization and porting to Mobile"
 msgstr "Modülleştirme ve mobil sürüme geçiş"
 
-#: main.cpp:66
+#: main.cpp:58
 #, kde-format
 msgid "Artemiy Pavlov"
 msgstr "Artemiy Pavlov"
 
-#: main.cpp:66
+#: main.cpp:58
 #, kde-format
 msgid "Sound effects"
 msgstr "Ses efektleri"
 
-#: main.cpp:67
+#: main.cpp:59
 #, kde-format
 msgid "Pino Toscano"
 msgstr "Pino Toscano"
 
-#: main.cpp:67
+#: main.cpp:59
 #, kde-format
 msgid "Italian Data Files"
 msgstr "İtalyanca Veri Dosyaları"
 
-#: main.cpp:68
+#: main.cpp:60
 #, kde-format
 msgid "Kris Thomsen"
 msgstr "Kris Thomsen"
 
-#: main.cpp:68
+#: main.cpp:60
 #, kde-format
 msgid "Danish Data Files"
 msgstr "Danca Veri Dosyaları"
 
-#: main.cpp:69
+#: main.cpp:61
 #, kde-format
 msgid "Patrick Spendrin"
 msgstr "Patrick Spendrin"
 
-#: main.cpp:69
+#: main.cpp:61
 #, kde-format
 msgid "German Data Files"
 msgstr "Almanca Veri Dosyaları"
 
-#: main.cpp:70
+#: main.cpp:62
 #, kde-format
 msgid "Eric Krüse"
 msgstr "Eric Krüse"
 
-#: main.cpp:70
+#: main.cpp:62
 #, kde-format
 msgid "British English Data Files"
 msgstr "Britanya İngilizcesi Veri Dosyaları"
 
-#: main.cpp:71
+#: main.cpp:63
 #, kde-format
 msgid "Hanna Scott"
 msgstr "Hanna Scott"
 
-#: main.cpp:71
+#: main.cpp:63
 #, kde-format
 msgid "Swedish Data Files"
 msgstr "İsveççe Veri Dosyaları"
 
-#: main.cpp:72
+#: main.cpp:64
 #, kde-format
 msgid "Jure Repinc"
 msgstr "Jure Repinc"
 
-#: main.cpp:72
+#: main.cpp:64
 #, kde-format
 msgid "Slovenian Data Files"
 msgstr "Slovence Veri Dosyaları"
 
-#: main.cpp:73
+#: main.cpp:65
 #, kde-format
 msgid "Yuri Chornoivan"
 msgstr "Yuri Çornoivan"
 
-#: main.cpp:73
+#: main.cpp:65
 #, kde-format
 msgid "Ukrainian Data Files"
 msgstr "Ukraynaca Veri Dosyaları"
 
-#: main.cpp:74
+#: main.cpp:66
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr "Kristóf Kiszel"
 
-#: main.cpp:74
+#: main.cpp:66
 #, kde-format
 msgid "Hungarian Data Files"
 msgstr "Macarca Veri Dosyaları"
 
-#: main.cpp:75
+#: main.cpp:67
 #, kde-format
 msgid "Souvik Das"
 msgstr "Souvik Das"
 
-#: main.cpp:75
+#: main.cpp:67
 #, kde-format
 msgid "2-player mode"
 msgstr "2 oyuncu kipi"
 
-#: main.cpp:76
+#: main.cpp:68
 #, kde-format
 msgid "Sayan Biswas"
 msgstr "Sayan Biswas"
 
-#: main.cpp:76
+#: main.cpp:68
 #, kde-format
 msgid "Letters turned to clickable buttons"
 msgstr "Harfler tıklanabilir düğmelere dönüştü"
 
-#: main.cpp:77
+#: main.cpp:69
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Engin Çağatay"
 
-#: main.cpp:77
+#: main.cpp:69
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -581,52 +581,52 @@ msgstr "Telaffuzu aç veya kapat."
 msgid "Say correct words"
 msgstr "Doğru sözcükleri söyle"
 
-#: ui/Blackboard.qml:88
+#: ui/Blackboard.qml:91
 #, kde-format
 msgid "Next Vocabulary"
 msgstr "Sonraki Söz Dağarcığı"
 
-#: ui/Blackboard.qml:125
+#: ui/Blackboard.qml:130
 #, kde-format
 msgid "Previous Vocabulary"
 msgstr "Önceki Söz Dağarcığı"
 
-#: ui/Blackboard.qml:174
+#: ui/Blackboard.qml:181
 #, kde-format
 msgid "Start Timer"
 msgstr "Sayacı Başlat"
 
-#: ui/Blackboard.qml:195
+#: ui/Blackboard.qml:204
 #, kde-format
 msgid "Show Hint"
 msgstr "İpucunu Göster"
 
-#: ui/Blackboard.qml:225
+#: ui/Blackboard.qml:246
 #, kde-format
 msgid "Reveal Word"
 msgstr "Sözcüğü Ortaya Çıkar"
 
-#: ui/Blackboard.qml:269
+#: ui/Blackboard.qml:279
 #, kde-format
 msgid " "
 msgstr " "
 
-#: ui/Blackboard.qml:386
+#: ui/Blackboard.qml:396
 #, kde-format
 msgid "Show Wiki Content"
 msgstr "Wiki İçeriği Göster"
 
-#: ui/Blackboard.qml:412
+#: ui/Blackboard.qml:422
 #, kde-format
 msgid "Score : "
 msgstr "Puan: "
 
-#: ui/Blackboard.qml:515
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid " Player 1 : "
 msgstr " Oyuncu 1 : "
 
-#: ui/Blackboard.qml:515
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid ""
 "\n"
@@ -635,7 +635,7 @@ msgstr ""
 "\n"
 " Oyuncu 2 : "
 
-#: ui/Blackboard.qml:515
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid ""
 "\n"
@@ -644,7 +644,7 @@ msgstr ""
 "\n"
 " Yeni oyun için pencereyi kapat "
 
-#: ui/Blackboard.qml:525
+#: ui/Blackboard.qml:535
 #, kde-format
 msgid ""
 " Time Up. \n"
@@ -653,7 +653,7 @@ msgstr ""
 " Zaman Doldu. \n"
 " 2. Oyuncunun Sırası"
 
-#: ui/Blackboard.qml:552
+#: ui/Blackboard.qml:562
 #, kde-format
 msgid "Close"
 msgstr "Kapat"
@@ -713,17 +713,17 @@ msgstr "Kanagram Hakkında"
 msgid "Kanagram Handbook"
 msgstr "Kanagram Elkitabı"
 
-#: vocabedit.cpp:114
+#: vocabedit.cpp:110
 #, kde-format
 msgid "Would you like to save your changes?"
 msgstr "Değişiklikleri kaydetmek ister misiniz?"
 
-#: vocabedit.cpp:115
+#: vocabedit.cpp:111
 #, kde-format
 msgid "Save Changes Dialog"
 msgstr "Değişiklikleri Kaydetme Penceresi"
 
-#: vocabedit.cpp:140
+#: vocabedit.cpp:132
 #, kde-format
 msgid "New Item"
 msgstr "Yeni Öge"

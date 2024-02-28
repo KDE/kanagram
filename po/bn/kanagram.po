@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KAnagram (KDE 3.5)\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:38+0000\n"
+"POT-Creation-Date: 2024-02-28 00:35+0000\n"
 "PO-Revision-Date: 2006-03-28 21:30+0600\n"
 "Last-Translator: Progga <progga@BengaLinux.Org>\n"
 "Language-Team: Bangla <kde-translation@BengaLinux.Org>\n"
@@ -150,17 +150,17 @@ msgctxt "@item:inlistbox no language for that locale"
 msgid "None"
 msgstr ""
 
-#: main.cpp:54
+#: main.cpp:46
 #, kde-format
 msgid "Kanagram"
 msgstr "কে-অ্যানাগ্রাম"
 
-#: main.cpp:56
+#: main.cpp:48
 #, kde-format
 msgid "An anagram game"
 msgstr "অ্যানাগ্রাম খেলা"
 
-#: main.cpp:58
+#: main.cpp:50
 #, kde-format
 msgid ""
 "© 2005 Joshua Keel\n"
@@ -169,174 +169,174 @@ msgid ""
 "© 2014 Debjit Mondal"
 msgstr ""
 
-#: main.cpp:61
+#: main.cpp:53
 #, kde-format
 msgid "Joshua Keel"
 msgstr ""
 
-#: main.cpp:61
+#: main.cpp:53
 #, kde-format
 msgid "Coding"
 msgstr "কোড লিখন"
 
-#: main.cpp:62
+#: main.cpp:54
 #, kde-format
 msgid "Danny Allen"
 msgstr ""
 
-#: main.cpp:62
+#: main.cpp:54
 #, kde-format
 msgid "Design, Graphics and many Vocabularies"
 msgstr "ডিজাইন, গ্রাফিক্স ও অনেক শব্দভাণ্ডার"
 
-#: main.cpp:63
+#: main.cpp:55
 #, kde-format
 msgid "Jeremy Whiting"
 msgstr ""
 
-#: main.cpp:63
+#: main.cpp:55
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: main.cpp:64
+#: main.cpp:56
 #, kde-format
 msgid "Debjit Mondal"
 msgstr ""
 
-#: main.cpp:64
+#: main.cpp:56
 #, kde-format
 msgid "Coding & Design"
 msgstr ""
 
-#: main.cpp:65
+#: main.cpp:57
 #, kde-format
 msgid "Laszlo Papp"
 msgstr ""
 
-#: main.cpp:65
+#: main.cpp:57
 #, kde-format
 msgid "Modularization and porting to Mobile"
 msgstr ""
 
-#: main.cpp:66
+#: main.cpp:58
 #, kde-format
 msgid "Artemiy Pavlov"
 msgstr ""
 
 # FIXME
-#: main.cpp:66
+#: main.cpp:58
 #, kde-format
 msgid "Sound effects"
 msgstr "শব্দ ক্রিয়া"
 
-#: main.cpp:67
+#: main.cpp:59
 #, kde-format
 msgid "Pino Toscano"
 msgstr ""
 
-#: main.cpp:67
+#: main.cpp:59
 #, kde-format
 msgid "Italian Data Files"
 msgstr ""
 
-#: main.cpp:68
+#: main.cpp:60
 #, kde-format
 msgid "Kris Thomsen"
 msgstr ""
 
-#: main.cpp:68
+#: main.cpp:60
 #, kde-format
 msgid "Danish Data Files"
 msgstr ""
 
-#: main.cpp:69
+#: main.cpp:61
 #, kde-format
 msgid "Patrick Spendrin"
 msgstr ""
 
-#: main.cpp:69
+#: main.cpp:61
 #, kde-format
 msgid "German Data Files"
 msgstr ""
 
-#: main.cpp:70
+#: main.cpp:62
 #, kde-format
 msgid "Eric Krüse"
 msgstr ""
 
-#: main.cpp:70
+#: main.cpp:62
 #, kde-format
 msgid "British English Data Files"
 msgstr ""
 
-#: main.cpp:71
+#: main.cpp:63
 #, kde-format
 msgid "Hanna Scott"
 msgstr ""
 
-#: main.cpp:71
+#: main.cpp:63
 #, kde-format
 msgid "Swedish Data Files"
 msgstr ""
 
-#: main.cpp:72
+#: main.cpp:64
 #, kde-format
 msgid "Jure Repinc"
 msgstr ""
 
-#: main.cpp:72
+#: main.cpp:64
 #, kde-format
 msgid "Slovenian Data Files"
 msgstr ""
 
-#: main.cpp:73
+#: main.cpp:65
 #, kde-format
 msgid "Yuri Chornoivan"
 msgstr ""
 
-#: main.cpp:73
+#: main.cpp:65
 #, kde-format
 msgid "Ukrainian Data Files"
 msgstr ""
 
-#: main.cpp:74
+#: main.cpp:66
 #, kde-format
 msgid "Kristóf Kiszel"
 msgstr ""
 
-#: main.cpp:74
+#: main.cpp:66
 #, kde-format
 msgid "Hungarian Data Files"
 msgstr ""
 
-#: main.cpp:75
+#: main.cpp:67
 #, kde-format
 msgid "Souvik Das"
 msgstr ""
 
-#: main.cpp:75
+#: main.cpp:67
 #, kde-format
 msgid "2-player mode"
 msgstr ""
 
-#: main.cpp:76
+#: main.cpp:68
 #, kde-format
 msgid "Sayan Biswas"
 msgstr ""
 
-#: main.cpp:76
+#: main.cpp:68
 #, kde-format
 msgid "Letters turned to clickable buttons"
 msgstr ""
 
-#: main.cpp:77
+#: main.cpp:69
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "প্রজ্ঞা"
 
-#: main.cpp:77
+#: main.cpp:69
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -594,78 +594,78 @@ msgstr "শব্দ সক্রিয়/নিষ্ক্রিয় করে।
 msgid "Say correct words"
 msgstr ""
 
-#: ui/Blackboard.qml:88
+#: ui/Blackboard.qml:91
 #, fuzzy, kde-format
 #| msgid "Vocabularies"
 msgid "Next Vocabulary"
 msgstr "শব্দভাণ্ডার"
 
-#: ui/Blackboard.qml:125
+#: ui/Blackboard.qml:130
 #, fuzzy, kde-format
 #| msgid "Vocabularies"
 msgid "Previous Vocabulary"
 msgstr "শব্দভাণ্ডার"
 
-#: ui/Blackboard.qml:174
+#: ui/Blackboard.qml:181
 #, kde-format
 msgid "Start Timer"
 msgstr ""
 
-#: ui/Blackboard.qml:195
+#: ui/Blackboard.qml:204
 #, fuzzy, kde-format
 #| msgid "hint"
 msgid "Show Hint"
 msgstr "ইঙ্গিত"
 
-#: ui/Blackboard.qml:225
+#: ui/Blackboard.qml:246
 #, fuzzy, kde-format
 #| msgid "reveal word"
 msgid "Reveal Word"
 msgstr "শব্দ বলে দাও"
 
-#: ui/Blackboard.qml:269
+#: ui/Blackboard.qml:279
 #, kde-format
 msgid " "
 msgstr ""
 
-#: ui/Blackboard.qml:386
+#: ui/Blackboard.qml:396
 #, fuzzy, kde-format
 #| msgid "hint"
 msgid "Show Wiki Content"
 msgstr "ইঙ্গিত"
 
-#: ui/Blackboard.qml:412
+#: ui/Blackboard.qml:422
 #, kde-format
 msgid "Score : "
 msgstr ""
 
-#: ui/Blackboard.qml:515
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid " Player 1 : "
 msgstr ""
 
-#: ui/Blackboard.qml:515
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid ""
 "\n"
 " Player 2 : "
 msgstr ""
 
-#: ui/Blackboard.qml:515
+#: ui/Blackboard.qml:525
 #, kde-format
 msgid ""
 "\n"
 " Close dialog for new game "
 msgstr ""
 
-#: ui/Blackboard.qml:525
+#: ui/Blackboard.qml:535
 #, kde-format
 msgid ""
 " Time Up. \n"
 " Player 2's Turn"
 msgstr ""
 
-#: ui/Blackboard.qml:552
+#: ui/Blackboard.qml:562
 #, kde-format
 msgid "Close"
 msgstr ""
@@ -728,17 +728,17 @@ msgstr "কে-অ্যানাগ্রাম পরিচিতি"
 msgid "Kanagram Handbook"
 msgstr "কে-অ্যানাগ্রাম নির্দেশিকা"
 
-#: vocabedit.cpp:114
+#: vocabedit.cpp:110
 #, kde-format
 msgid "Would you like to save your changes?"
 msgstr "যা কিছু পরিবর্তন করেছেন, তা কি আপনি সংরক্ষণ করতে চান?"
 
-#: vocabedit.cpp:115
+#: vocabedit.cpp:111
 #, kde-format
 msgid "Save Changes Dialog"
 msgstr "পরিবর্তন সংরক্ষণকারী ডায়ালগ"
 
-#: vocabedit.cpp:140
+#: vocabedit.cpp:132
 #, kde-format
 msgid "New Item"
 msgstr ""
