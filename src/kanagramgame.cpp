@@ -267,7 +267,7 @@ QString KanagramGame::filename() const
 QStringList KanagramGame::anagram() const
 {
     QStringList resultList;
-    for (const QChar &userLetter : qAsConst(m_anagram))
+    for (const QChar &userLetter : std::as_const(m_anagram))
     {
         resultList.append(userLetter);
     }
@@ -288,7 +288,7 @@ QString KanagramGame::word() const
 QStringList KanagramGame::userAnswer() const
 {
     QStringList returnList;
-    for (const QChar &letter : qAsConst(m_userAnswer))
+    for (const QChar &letter : std::as_const(m_userAnswer))
     {
         returnList.append(letter);
     }
