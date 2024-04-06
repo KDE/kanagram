@@ -23,7 +23,7 @@
 
 #include "ui_vocabeditwidget.h"
 
-#include <QVector>
+#include <QList>
 
 class KEduVocExpression;
 
@@ -46,7 +46,7 @@ Q_OBJECT
         void slotTextChanged(const QString &changes);
 
     private:
-        QVector<KEduVocExpression> m_vocabList;
+        QList<KEduVocExpression> m_vocabList;
         QString m_fileName;
         bool m_textChanged;
 };
