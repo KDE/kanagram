@@ -16,3 +16,6 @@ Dependencies:
     'frameworks/knewstuff': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
     'education/libkeduvocdocument': '@same'
+
+Options:
+  require-passing-tests-on: ['Linux', 'FreeBSD', 'Windows']
