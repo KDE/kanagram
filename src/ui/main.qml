@@ -292,7 +292,7 @@ Rectangle {
             color: "white"
             text: i18n("Next Anagram")
             opacity: 0
-            font.pixelSize: parent.width / 68.5
+            font.pixelSize: screen.width / 68.5
         }
 
         Image {
@@ -418,7 +418,7 @@ Rectangle {
             color: "white"
             text: i18n("Configure")
             opacity: 0
-            font.pixelSize: parent.width / 68.5
+            font.pixelSize: screen.width / 68.5
         }
 
         Image {
