@@ -555,7 +555,7 @@ Rectangle {
             color: "white"
             text: i18n("  ")
             opacity: 0
-            font.pixelSize: parent.width / 91
+            font.pixelSize: screen.width / 91
         }
 
         Text {
