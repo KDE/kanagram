@@ -309,37 +309,34 @@ Rectangle {
         }
     } // End of nextAnagram
 
-    Item {
-        id: playerBox
+    Rectangle {
+        id: playerButton
+        width: blackboard.width / 3
+        height: blackboard.height / 7
+        radius: 8
+        color: "black"
+
+        visible: !kanagramGame.singlePlayer
+
         anchors {
             top: blackboard.top
             right: blackboard.left
-            rightMargin: 185
             topMargin: blackboard.height / 7
         }
 
-        visible: kanagramGame.singlePlayer ? false : true
+        MouseArea {
+            anchors.fill: parent
+        }
 
-        Rectangle {
-            id: playerButton
-            width: blackboard.width / 3
-            height: blackboard.height / 7
-            radius: 8
-            color: "black"
-
-            MouseArea {
-                anchors.fill: parent
+        Text {
+            id: currentPlayerText
+            anchors {
+                verticalCenter: playerButton.verticalCenter
+                horizontalCenter: playerButton.horizontalCenter
             }
-
-            Text {
-                id: currentPlayerText
-                anchors{
-                    verticalCenter: playerButton.verticalCenter
-                    horizontalCenter: playerButton.horizontalCenter
-                 }
-                color : "white"
-                text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")
-            }
+            color : "white"
+            text: kanagramGame.currentPlayer == 1 ? i18n("1st Player") : i18n("2nd Player")
+            font.pixelSize: screen.width / 68.5
         }
     }
 
