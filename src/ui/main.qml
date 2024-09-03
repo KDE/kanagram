@@ -105,7 +105,7 @@ Rectangle {
         Image {
             id: playericon
             smooth: true
-            height: parent.height / 2
+            height: parent.height / 1.5
             anchors {
                 verticalCenter: parent.verticalCenter
                 left: parent.left
