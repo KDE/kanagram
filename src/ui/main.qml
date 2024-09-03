@@ -211,6 +211,10 @@ Rectangle {
             }
             color: "white"
             text: i18n("Change mode")
+            width: playericon.width + 20  // 20 = left margin of playericon
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
             opacity: 0
             font.pixelSize: parent.width / 91
         }
