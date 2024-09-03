@@ -292,6 +292,11 @@ Rectangle {
             color: "white"
             text: i18n("Next Anagram")
             opacity: 0
+            width: blackboard.width / 2.5
+            rightPadding: nextAnagramIcon.width * 1.5
+            fontSizeMode: Text.HorizontalFit
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
             font.pixelSize: screen.width / 68.5
         }
 
@@ -299,7 +304,6 @@ Rectangle {
             id: nextAnagramIcon
             smooth: true
             height: nextAnagramButton.height / 2
-            width: nextAnagramText.width / 4
             anchors {
                 verticalCenter: nextAnagramButton.verticalCenter
                 horizontalCenter: nextAnagramButton.horizontalCenter
