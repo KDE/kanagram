@@ -104,14 +104,16 @@ Rectangle {
 
         Image {
             id: playericon
-            width: 60
-            height: 60
-            anchors.left:parent.left
-            anchors.leftMargin: 20
-            anchors.verticalCenter: parent.verticalCenter
-            source: kanagramGame.singlePlayer ? "icons/1player.png" : "icons/2player.png"
             smooth: true
-            fillMode: Image.PreserveAspectCrop
+            height: parent.height / 2
+            anchors {
+                verticalCenter: parent.verticalCenter
+                left: parent.left
+                leftMargin: parent.width / 42
+            }
+            source: kanagramGame.singlePlayer ? "icons/1player.png" : "icons/2player.png"
+            fillMode: Image.PreserveAspectFit
+
             function togglePlayerMode() {
                 kanagramGame.singlePlayer = !kanagramGame.singlePlayer;
             }
@@ -193,7 +195,7 @@ Rectangle {
             id: quitText
             anchors {
                 top: powerButton.bottom
-                topMargin: 10
+                topMargin: 12
                 horizontalCenter: powerButton.horizontalCenter
             }
             color: "white"
