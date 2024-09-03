@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-28 00:35+0000\n"
+"POT-Creation-Date: 2024-09-03 00:36+0000\n"
 "PO-Revision-Date: 2022-09-06 12:22+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -681,42 +681,42 @@ msgstr "Сменить режим"
 msgid "Next Anagram"
 msgstr "Следующая анаграмма"
 
-#: ui/main.qml:341
+#: ui/main.qml:338
 #, kde-format
 msgid "1st Player"
 msgstr "Игрок 1"
 
-#: ui/main.qml:341
+#: ui/main.qml:338
 #, kde-format
 msgid "2nd Player"
 msgstr "Игрок 2"
 
-#: ui/main.qml:419
+#: ui/main.qml:416
 #, kde-format
 msgid "Configure"
 msgstr "Настроить"
 
-#: ui/main.qml:556
+#: ui/main.qml:553
 #, kde-format
 msgid "  "
 msgstr "  "
 
-#: ui/main.qml:568
+#: ui/main.qml:565
 #, kde-format
 msgid "About"
 msgstr "Справка"
 
-#: ui/main.qml:616
+#: ui/main.qml:613
 #, kde-format
 msgid "About KDE"
 msgstr "О KDE"
 
-#: ui/main.qml:666
+#: ui/main.qml:663
 #, kde-format
 msgid "About Kanagram"
 msgstr "О программе"
 
-#: ui/main.qml:717
+#: ui/main.qml:714
 #, kde-format
 msgid "Kanagram Handbook"
 msgstr "Руководство пользователя Kanagram"

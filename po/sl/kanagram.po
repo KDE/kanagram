@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-28 00:35+0000\n"
+"POT-Creation-Date: 2024-09-03 00:36+0000\n"
 "PO-Revision-Date: 2020-06-08 11:42+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -673,42 +673,42 @@ msgstr "Spremeni način"
 msgid "Next Anagram"
 msgstr "Naslednji anagram"
 
-#: ui/main.qml:341
+#: ui/main.qml:338
 #, kde-format
 msgid "1st Player"
 msgstr "Igralec 1"
 
-#: ui/main.qml:341
+#: ui/main.qml:338
 #, kde-format
 msgid "2nd Player"
 msgstr "Igralec 2"
 
-#: ui/main.qml:419
+#: ui/main.qml:416
 #, kde-format
 msgid "Configure"
 msgstr "Nastavi"
 
-#: ui/main.qml:556
+#: ui/main.qml:553
 #, kde-format
 msgid "  "
 msgstr "  "
 
-#: ui/main.qml:568
+#: ui/main.qml:565
 #, kde-format
 msgid "About"
 msgstr "O"
 
-#: ui/main.qml:616
+#: ui/main.qml:613
 #, kde-format
 msgid "About KDE"
 msgstr "O KDE"
 
-#: ui/main.qml:666
+#: ui/main.qml:663
 #, kde-format
 msgid "About Kanagram"
 msgstr "O Kanagram"
 
-#: ui/main.qml:717
+#: ui/main.qml:714
 #, kde-format
 msgid "Kanagram Handbook"
 msgstr "Priročnik za Kanagram"

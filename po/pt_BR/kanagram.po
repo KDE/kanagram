@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-28 00:35+0000\n"
+"POT-Creation-Date: 2024-09-03 00:36+0000\n"
 "PO-Revision-Date: 2022-08-19 15:26-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -673,42 +673,42 @@ msgstr "Alterar modo"
 msgid "Next Anagram"
 msgstr "Próximo anagrama"
 
-#: ui/main.qml:341
+#: ui/main.qml:338
 #, kde-format
 msgid "1st Player"
 msgstr "1° jogador"
 
-#: ui/main.qml:341
+#: ui/main.qml:338
 #, kde-format
 msgid "2nd Player"
 msgstr "2° jogador"
 
-#: ui/main.qml:419
+#: ui/main.qml:416
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
 
-#: ui/main.qml:556
+#: ui/main.qml:553
 #, kde-format
 msgid "  "
 msgstr "  "
 
-#: ui/main.qml:568
+#: ui/main.qml:565
 #, kde-format
 msgid "About"
 msgstr "Sobre"
 
-#: ui/main.qml:616
+#: ui/main.qml:613
 #, kde-format
 msgid "About KDE"
 msgstr "Sobre o KDE"
 
-#: ui/main.qml:666
+#: ui/main.qml:663
 #, kde-format
 msgid "About Kanagram"
 msgstr "Sobre o Kanagram"
 
-#: ui/main.qml:717
+#: ui/main.qml:714
 #, kde-format
 msgid "Kanagram Handbook"
 msgstr "Manual do Kanagram"

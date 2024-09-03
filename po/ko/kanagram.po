@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-28 00:35+0000\n"
+"POT-Creation-Date: 2024-09-03 00:36+0000\n"
 "PO-Revision-Date: 2021-05-24 16:55+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -658,42 +658,42 @@ msgstr "모드 변경"
 msgid "Next Anagram"
 msgstr "다음 애너그램"
 
-#: ui/main.qml:341
+#: ui/main.qml:338
 #, kde-format
 msgid "1st Player"
 msgstr "첫 번째 플레이어"
 
-#: ui/main.qml:341
+#: ui/main.qml:338
 #, kde-format
 msgid "2nd Player"
 msgstr "두 번째 플레이어"
 
-#: ui/main.qml:419
+#: ui/main.qml:416
 #, kde-format
 msgid "Configure"
 msgstr "설정"
 
-#: ui/main.qml:556
+#: ui/main.qml:553
 #, kde-format
 msgid "  "
 msgstr "  "
 
-#: ui/main.qml:568
+#: ui/main.qml:565
 #, kde-format
 msgid "About"
 msgstr "정보"
 
-#: ui/main.qml:616
+#: ui/main.qml:613
 #, kde-format
 msgid "About KDE"
 msgstr "KDE 정보"
 
-#: ui/main.qml:666
+#: ui/main.qml:663
 #, kde-format
 msgid "About Kanagram"
 msgstr "Kanagram 정보"
 
-#: ui/main.qml:717
+#: ui/main.qml:714
 #, kde-format
 msgid "Kanagram Handbook"
 msgstr "Kanagram 도움말"
