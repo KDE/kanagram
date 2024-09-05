@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-03 00:36+0000\n"
+"POT-Creation-Date: 2024-09-05 00:36+0000\n"
 "PO-Revision-Date: 2024-02-12 11:28+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -646,57 +646,57 @@ msgstr ""
 msgid "Close"
 msgstr "Bezárás"
 
-#: ui/main.qml:200
+#: ui/main.qml:202
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
 
-#: ui/main.qml:213
+#: ui/main.qml:215
 #, kde-format
 msgid "Change mode"
 msgstr "Módváltás"
 
-#: ui/main.qml:293
+#: ui/main.qml:299
 #, kde-format
 msgid "Next Anagram"
 msgstr "Következő szó"
 
-#: ui/main.qml:338
+#: ui/main.qml:348
 #, kde-format
 msgid "1st Player"
 msgstr "1. játékos"
 
-#: ui/main.qml:338
+#: ui/main.qml:348
 #, kde-format
 msgid "2nd Player"
 msgstr "2. játékos"
 
-#: ui/main.qml:416
+#: ui/main.qml:426
 #, kde-format
 msgid "Configure"
 msgstr "Beállítások"
 
-#: ui/main.qml:553
+#: ui/main.qml:563
 #, kde-format
 msgid "  "
 msgstr "  "
 
-#: ui/main.qml:565
+#: ui/main.qml:575
 #, kde-format
 msgid "About"
 msgstr "Névjegy"
 
-#: ui/main.qml:613
+#: ui/main.qml:623
 #, kde-format
 msgid "About KDE"
 msgstr "Névjegy: KDE"
 
-#: ui/main.qml:663
+#: ui/main.qml:673
 #, kde-format
 msgid "About Kanagram"
 msgstr "Névjegy: Kanagram"
 
-#: ui/main.qml:714
+#: ui/main.qml:724
 #, kde-format
 msgid "Kanagram Handbook"
 msgstr "Kanagram kézikönyv"

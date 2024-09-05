@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-03 00:36+0000\n"
+"POT-Creation-Date: 2024-09-05 00:36+0000\n"
 "PO-Revision-Date: 2013-03-05 17:10+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -638,59 +638,59 @@ msgstr ""
 msgid "Close"
 msgstr "बंद करा (&C)"
 
-#: ui/main.qml:200
+#: ui/main.qml:202
 #, kde-format
 msgid "Quit"
 msgstr ""
 
-#: ui/main.qml:213
+#: ui/main.qml:215
 #, kde-format
 msgid "Change mode"
 msgstr ""
 
-#: ui/main.qml:293
+#: ui/main.qml:299
 #, kde-format
 msgid "Next Anagram"
 msgstr ""
 
-#: ui/main.qml:338
+#: ui/main.qml:348
 #, kde-format
 msgid "1st Player"
 msgstr ""
 
-#: ui/main.qml:338
+#: ui/main.qml:348
 #, kde-format
 msgid "2nd Player"
 msgstr ""
 
-#: ui/main.qml:416
+#: ui/main.qml:426
 #, kde-format
 msgid "Configure"
 msgstr ""
 
-#: ui/main.qml:553
+#: ui/main.qml:563
 #, kde-format
 msgid "  "
 msgstr ""
 
-#: ui/main.qml:565
+#: ui/main.qml:575
 #, fuzzy, kde-format
 #| msgid "About KDE"
 msgid "About"
 msgstr "केडीई विषयी"
 
-#: ui/main.qml:613
+#: ui/main.qml:623
 #, kde-format
 msgid "About KDE"
 msgstr "केडीई विषयी"
 
-#: ui/main.qml:663
+#: ui/main.qml:673
 #, fuzzy, kde-format
 #| msgid "About KDE"
 msgid "About Kanagram"
 msgstr "केडीई विषयी"
 
-#: ui/main.qml:714
+#: ui/main.qml:724
 #, kde-format
 msgid "Kanagram Handbook"
 msgstr ""

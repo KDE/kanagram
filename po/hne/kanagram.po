@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-03 00:36+0000\n"
+"POT-Creation-Date: 2024-09-05 00:36+0000\n"
 "PO-Revision-Date: 2009-02-22 11:43+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -691,59 +691,59 @@ msgstr ""
 msgid "Close"
 msgstr "बंद करव (&C)"
 
-#: ui/main.qml:200
+#: ui/main.qml:202
 #, kde-format
 msgid "Quit"
 msgstr ""
 
-#: ui/main.qml:213
+#: ui/main.qml:215
 #, kde-format
 msgid "Change mode"
 msgstr ""
 
-#: ui/main.qml:293
+#: ui/main.qml:299
 #, kde-format
 msgid "Next Anagram"
 msgstr "अगला एनाग्राम"
 
-#: ui/main.qml:338
+#: ui/main.qml:348
 #, kde-format
 msgid "1st Player"
 msgstr ""
 
-#: ui/main.qml:338
+#: ui/main.qml:348
 #, kde-format
 msgid "2nd Player"
 msgstr ""
 
-#: ui/main.qml:416
+#: ui/main.qml:426
 #, fuzzy, kde-format
 #| msgid "Configure Kanagram"
 msgid "Configure"
 msgstr "एनाग्राम कान्फिगर करव..."
 
-#: ui/main.qml:553
+#: ui/main.qml:563
 #, kde-format
 msgid "  "
 msgstr ""
 
-#: ui/main.qml:565
+#: ui/main.qml:575
 #, fuzzy, kde-format
 #| msgid "About KDE"
 msgid "About"
 msgstr "केडीई परिचय"
 
-#: ui/main.qml:613
+#: ui/main.qml:623
 #, kde-format
 msgid "About KDE"
 msgstr "केडीई परिचय"
 
-#: ui/main.qml:663
+#: ui/main.qml:673
 #, kde-format
 msgid "About Kanagram"
 msgstr "एनाग्राम के बारे में"
 
-#: ui/main.qml:714
+#: ui/main.qml:724
 #, kde-format
 msgid "Kanagram Handbook"
 msgstr "के-एनाग्राम हेंड-बुक"

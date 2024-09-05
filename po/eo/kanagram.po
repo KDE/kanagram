@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-03 00:36+0000\n"
+"POT-Creation-Date: 2024-09-05 00:36+0000\n"
 "PO-Revision-Date: 2024-01-03 14:17+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -657,57 +657,57 @@ msgstr ""
 msgid "Close"
 msgstr "Fermi"
 
-#: ui/main.qml:200
+#: ui/main.qml:202
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
 
-#: ui/main.qml:213
+#: ui/main.qml:215
 #, kde-format
 msgid "Change mode"
 msgstr "Ŝanĝi Reĝimon"
 
-#: ui/main.qml:293
+#: ui/main.qml:299
 #, kde-format
 msgid "Next Anagram"
 msgstr "Sekva anagramo"
 
-#: ui/main.qml:338
+#: ui/main.qml:348
 #, kde-format
 msgid "1st Player"
 msgstr "1-a Ludanto"
 
-#: ui/main.qml:338
+#: ui/main.qml:348
 #, kde-format
 msgid "2nd Player"
 msgstr "2-a Ludanto"
 
-#: ui/main.qml:416
+#: ui/main.qml:426
 #, kde-format
 msgid "Configure"
 msgstr "Agordi Kanagram"
 
-#: ui/main.qml:553
+#: ui/main.qml:563
 #, kde-format
 msgid "  "
 msgstr "  "
 
-#: ui/main.qml:565
+#: ui/main.qml:575
 #, kde-format
 msgid "About"
 msgstr "Pri"
 
-#: ui/main.qml:613
+#: ui/main.qml:623
 #, kde-format
 msgid "About KDE"
 msgstr "Pri KDE"
 
-#: ui/main.qml:663
+#: ui/main.qml:673
 #, kde-format
 msgid "About Kanagram"
 msgstr "Pri Kanagram"
 
-#: ui/main.qml:714
+#: ui/main.qml:724
 #, kde-format
 msgid "Kanagram Handbook"
 msgstr "Kanagram manlibro"
