@@ -78,7 +78,7 @@ MainWindow::~MainWindow()
 
 KConfigGroup MainWindow::config(const QString &group)
 {
-    return KConfigGroup(KSharedConfig::openConfig(qApp->applicationName() + "rc"), group);
+    return KConfigGroup(KSharedConfig::openConfig(qApp->applicationName() + QStringLiteral("rc")), group);
 }
 
 void MainWindow::showAboutKanagram()

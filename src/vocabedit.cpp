@@ -88,9 +88,9 @@ void VocabEdit::slotSave()
         doc->lesson()->appendEntry(&m_vocabList[i]);
     }
 
-    const QString fileName = txtVocabName->text().toLower().remove(' ') + ".kvtml";
+    const QString fileName = txtVocabName->text().toLower().remove(QLatin1Char(' ')) + QStringLiteral(".kvtml");
     const QString path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) +
-                   "/apps/kvtml/" + KanagramSettings::dataLanguage();
+                   QStringLiteral("/apps/kvtml/") + KanagramSettings::dataLanguage();
     QDir dir;
     dir.mkpath(path);
     const QUrl url = QUrl::fromLocalFile(path +

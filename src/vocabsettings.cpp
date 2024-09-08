@@ -46,7 +46,7 @@ VocabSettings::VocabSettings(QWidget *parent)
             refreshView();
         }
     });
-    btnDownloadNew->setConfigFile("kanagram.knsrc");
+    btnDownloadNew->setConfigFile(QStringLiteral("kanagram.knsrc"));
 
     refreshView();
 }

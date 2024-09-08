@@ -97,7 +97,7 @@ protected:
      */
     bool isDefault() Q_DECL_OVERRIDE;
 
-private slots:
+private Q_SLOTS:
     void settingsModified();
 
 private:

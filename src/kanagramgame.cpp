@@ -347,7 +347,7 @@ QStringList KanagramGame::languageNames()
     QStringList languageNames;
 
     // Get the language names from the language codes
-    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + "all_languages"));
+    KConfig entry(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("locale/") + QStringLiteral("all_languages")));
 
     for (const QString& languageCode : languageCodes)
     {
