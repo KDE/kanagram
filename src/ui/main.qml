@@ -42,6 +42,21 @@ Rectangle {
                 console.log("unable to play chalk sound " + chalkSound.error);
     }
 
+    Transition {
+        id: easingTransition
+
+        AnchorAnimation {
+            duration: 250
+        }
+
+        PropertyAnimation {
+            properties: "x,y,width,opacity"
+            easing.type: Easing.Linear
+            easing.amplitude: 5.0
+            easing.period: 1
+        }
+    }
+    
     function checkSolved() {
         if (kanagramGame.anagram.length == 0) {
             if (kanagramGame.checkWord()) {
@@ -67,7 +82,7 @@ Rectangle {
             }
         }
     }
-
+    
     Image {
         id: background
         anchors.fill: parent
@@ -460,33 +475,12 @@ Rectangle {
             color: "black"
             opacity: 0.5
 
-            property bool flag: true
-
-            function toggleMoreOptions() {
-                if (flag) {
-                    moreOptionsButton.opacity = 0.5
-                    moreOptionsButton.width = blackboard.width / 2.5
-                    kanagramHandbookIcon.visible = true
-                    aboutKdeIcon.visible = true
-                    aboutKanagramIcon.visible = true
-                    flag = false
-                } else {
-                    moreOptionsButton.opacity = 0
-                    moreOptionsTextBar.opacity = 0
-                    moreOptionsText.opacity = 0
-                    kanagramHandbookIcon.visible = false
-                    aboutKdeIcon.visible = false
-                    aboutKanagramIcon.visible = false
-                    flag = true
-                }
-            }
-
             MouseArea {
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: helpButton.state = "onEntered"
                 onExited: helpButton.state = "onExited"
-                onClicked: helpButton.toggleMoreOptions()
+                onClicked: moreOptionsButton.visible = !moreOptionsButton.visible
             }
 
             states: State {
@@ -525,46 +519,7 @@ Rectangle {
                 }
             }
         }
-
-        Rectangle {
-            id: moreOptionsButton
-            width: blackboard.width / 9
-            height: blackboard.height / 7
-            anchors {
-                top: helpButton.bottom
-                topMargin: blackboard.height / 50
-                left: parent.left
-            }
-            radius: 8
-            color: "black"
-            opacity: 0
-        }
-
-        Rectangle {
-            id: moreOptionsTextBar
-            width: blackboard.width / 4
-            height: blackboard.height / 16
-            anchors {
-                top: moreOptionsButton.bottom
-                horizontalCenter: moreOptionsButton.horizontalCenter
-            }
-            radius: 8
-            color: "black"
-            opacity: 0
-        }
-
-        Text {
-            id: moreOptionsText
-            anchors {
-                verticalCenter: moreOptionsTextBar.verticalCenter
-                horizontalCenter: moreOptionsTextBar.horizontalCenter
-            }
-            color: "white"
-            text: i18n("  ")
-            opacity: 0
-            font.pixelSize: screen.width / 91
-        }
-
+        
         Text {
             id: helpText
             anchors {
@@ -589,155 +544,122 @@ Rectangle {
             visible: true
             fillMode: Image.PreserveAspectFit
         }
+            
+        Rectangle {
+            id: moreOptionsButton
 
-        Image {
-            id: aboutKdeIcon
-            smooth: true
-            height: blackboard.height / 14
+            width: blackboard.width / 2.5
+            height: blackboard.height / 7
+            
             anchors {
-                verticalCenter: moreOptionsButton.verticalCenter
-                right: moreOptionsButton.right
-                rightMargin: moreOptionsButton.width / 8
+                top: helpButton.bottom
+                topMargin: blackboard.height / 50
+                left: parent.left
             }
-            source: "icons/about-kde.png"
+            
             visible: false
-            fillMode: Image.PreserveAspectFit
 
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: aboutKdeIcon.state = "onEntered"
-                onExited: aboutKdeIcon.state = "onExited"
-                onClicked: mainwindow.showAboutKDE()
-                preventStealing: true
-            }
-
-            states: State {
-                name: "onEntered"
-                PropertyChanges {
-                    target: moreOptionsTextBar
-                    opacity: 0.5
+            radius: 8
+            color: Qt.rgba(0, 0, 0, 0.5)  // Using rgba prevents opacity from being transferred to children
+            
+            Rectangle {
+                id: moreOptionsTextBar
+                width: blackboard.width / 4
+                height: blackboard.height / 16
+                anchors {
+                    top: moreOptionsButton.bottom
+                    horizontalCenter: moreOptionsButton.horizontalCenter
                 }
-                PropertyChanges {
-                    target: moreOptionsText
-                    text: i18n("About KDE")
-                    opacity: 1
-                }
-            }
-            State {
-                name: "onExited"
+                radius: 8
+                color: "black"
+                opacity: 0
             }
 
-            transitions: Transition {
-                AnchorAnimation {
-                    duration: 250
+            Text {
+                id: moreOptionsText
+                anchors {
+                    verticalCenter: moreOptionsTextBar.verticalCenter
+                    horizontalCenter: moreOptionsTextBar.horizontalCenter
                 }
-                PropertyAnimation {
-                    properties: "x,y,width,opacity"
-                    easing.type: Easing.Linear
-                    easing.amplitude: 5.0
-                    easing.period: 1
-                }
+                color: "white"
+                text: i18n("  ")
+                opacity: 0
+                font.pixelSize: screen.width / 91
             }
-        }
+            
+            Row {
+                anchors.centerIn: moreOptionsButton
+                spacing: moreOptionsButton.width / 8
+                
+                anchors {
+                    horizontalCenter: moreOptionsButton.horizontalCenter
+                    verticalCenter: moreOptionsButton.verticalCenter
+                }
 
-        Image {
-            id: aboutKanagramIcon
-            height: blackboard.height / 14
-            anchors {
-                verticalCenter: moreOptionsButton.verticalCenter
-                horizontalCenter: moreOptionsButton.horizontalCenter
-            }
-            source: "icons/about-kanagram.png"
-            smooth: true
-            visible: false
-            fillMode: Image.PreserveAspectFit
-
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: aboutKanagramIcon.state = "onEntered"
-                onExited: aboutKanagramIcon.state = "onExited"
-                onClicked: mainwindow.showAboutKanagram()
-                preventStealing: true
-            }
-
-            states: State {
-                name: "onEntered"
-                PropertyChanges {
-                    target: moreOptionsTextBar
-                    opacity: 0.5
+                IconButton {
+                    id: kanagramHandbookIcon
+                    source: "icons/kanagram-handbook.png"
+                    iconContainer: moreOptionsButton
+                    onClicked: mainwindow.showHandbook()
+                    
+                    states: State {
+                        name: "onEntered"
+                        PropertyChanges {
+                            target: moreOptionsTextBar
+                            opacity: 0.5
+                        }
+                        PropertyChanges {
+                            target: moreOptionsText
+                            text: i18n("Kanagram Handbook")
+                            opacity: 1
+                        }
+                    }
+                
+                    transitions: easingTransition
                 }
-                PropertyChanges {
-                    target: moreOptionsText
-                    text: i18n("About Kanagram")
-                    opacity: 1
-                }
-            }
-            State {
-                name: "onExited"
-            }
 
-            transitions: Transition {
-                AnchorAnimation {
-                    duration: 250
-                }
-                PropertyAnimation {
-                    properties: "x,y,width,opacity"
-                    easing.type: Easing.Linear
-                    easing.amplitude: 5.0
-                    easing.period: 1
-                }
-            }
-        }
+                IconButton {
+                    id: aboutKanagramIcon
+                    source: "icons/about-kanagram.png"
+                    iconContainer: moreOptionsButton
+                    onClicked: mainwindow.showAboutKanagram()
+                    
+                    states: State {
+                        name: "onEntered"
+                        PropertyChanges {
+                            target: moreOptionsTextBar
+                            opacity: 0.5
+                        }
+                        PropertyChanges {
+                            target: moreOptionsText
+                            text: i18n("About Kanagram")
+                            opacity: 1
+                        }
+                    }
 
-        Image {
-            id: kanagramHandbookIcon
-            smooth: true
-            height: blackboard.height / 14
-            anchors {
-                verticalCenter: moreOptionsButton.verticalCenter
-                left: moreOptionsButton.left
-                leftMargin: moreOptionsButton.width / 8
-            }
-            source: "icons/kanagram-handbook.png"
-            visible: false
-            fillMode: Image.PreserveAspectFit
-
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: kanagramHandbookIcon.state = "onEntered"
-                onExited: kanagramHandbookIcon.state = "onExited"
-                onClicked: mainwindow.showHandbook()
-                preventStealing: true
-            }
-
-            states: State {
-                name: "onEntered"
-                PropertyChanges {
-                    target: moreOptionsTextBar
-                    opacity: 0.5
+                    transitions: easingTransition
                 }
-                PropertyChanges {
-                    target: moreOptionsText
-                    text: i18n("Kanagram Handbook")
-                    opacity: 1
-                }
-            }
-            State {
-                name: "onExited"
-            }
+                
+                IconButton {
+                    id: aboutKdeIcon
+                    source: "icons/about-kde.png"
+                    iconContainer: moreOptionsButton
+                    onClicked: mainwindow.showAboutKDE()
+                    
+                    states: State {
+                        name: "onEntered"
+                        PropertyChanges {
+                            target: moreOptionsTextBar
+                            opacity: 0.5
+                        }
+                        PropertyChanges {
+                            target: moreOptionsText
+                            text: i18n("About KDE")
+                            opacity: 1
+                        }
+                    }
 
-            transitions: Transition {
-                AnchorAnimation {
-                    duration: 250
-                }
-                PropertyAnimation {
-                    properties: "x,y,width,opacity"
-                    easing.type: Easing.Linear
-                    easing.amplitude: 5.0
-                    easing.period: 1
+                    transitions: easingTransition
                 }
             }
         }
