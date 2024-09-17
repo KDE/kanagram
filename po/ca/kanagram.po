@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-05 00:36+0000\n"
+"POT-Creation-Date: 2024-09-17 00:36+0000\n"
 "PO-Revision-Date: 2023-08-08 16:51+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -663,60 +663,60 @@ msgstr ""
 msgid "Close"
 msgstr "Tanca"
 
-#: ui/main.qml:202
+#: ui/main.qml:217
 #, kde-format
 msgid "Quit"
 msgstr "Surt"
 
-#: ui/main.qml:215
+#: ui/main.qml:230
 #, kde-format
 msgid "Change mode"
 msgstr "Canvia el mode"
 
-#: ui/main.qml:299
+#: ui/main.qml:314
 #, kde-format
 msgid "Next Anagram"
 msgstr "Anagrama següent"
 
-#: ui/main.qml:348
+#: ui/main.qml:363
 #, kde-format
 msgid "1st Player"
 msgstr "1r jugador"
 
-#: ui/main.qml:348
+#: ui/main.qml:363
 #, kde-format
 msgid "2nd Player"
 msgstr "2n jugador"
 
-#: ui/main.qml:426
+#: ui/main.qml:441
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
 
-#: ui/main.qml:563
-#, kde-format
-msgid "  "
-msgstr "  "
-
-#: ui/main.qml:575
+#: ui/main.qml:530
 #, kde-format
 msgid "About"
 msgstr "Quant al"
 
-#: ui/main.qml:623
+#: ui/main.qml:585
 #, kde-format
-msgid "About KDE"
-msgstr "Quant al KDE"
+msgid "  "
+msgstr "  "
 
-#: ui/main.qml:673
+#: ui/main.qml:613
+#, kde-format
+msgid "Kanagram Handbook"
+msgstr "Manual del Kanagram"
+
+#: ui/main.qml:635
 #, kde-format
 msgid "About Kanagram"
 msgstr "Quant al Kanagram"
 
-#: ui/main.qml:724
+#: ui/main.qml:657
 #, kde-format
-msgid "Kanagram Handbook"
-msgstr "Manual del Kanagram"
+msgid "About KDE"
+msgstr "Quant al KDE"
 
 #: vocabedit.cpp:110
 #, kde-format

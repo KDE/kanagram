@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-05 00:36+0000\n"
+"POT-Creation-Date: 2024-09-17 00:36+0000\n"
 "PO-Revision-Date: 2024-02-27 06:14+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -647,60 +647,60 @@ msgstr ""
 msgid "Close"
 msgstr "關閉"
 
-#: ui/main.qml:202
+#: ui/main.qml:217
 #, kde-format
 msgid "Quit"
 msgstr "離開"
 
-#: ui/main.qml:215
+#: ui/main.qml:230
 #, kde-format
 msgid "Change mode"
 msgstr "變更模式"
 
-#: ui/main.qml:299
+#: ui/main.qml:314
 #, kde-format
 msgid "Next Anagram"
 msgstr "下一個字謎"
 
-#: ui/main.qml:348
+#: ui/main.qml:363
 #, kde-format
 msgid "1st Player"
 msgstr "玩家 1"
 
-#: ui/main.qml:348
+#: ui/main.qml:363
 #, kde-format
 msgid "2nd Player"
 msgstr "玩家 2"
 
-#: ui/main.qml:426
+#: ui/main.qml:441
 #, kde-format
 msgid "Configure"
 msgstr "設定"
 
-#: ui/main.qml:563
-#, kde-format
-msgid "  "
-msgstr "  "
-
-#: ui/main.qml:575
+#: ui/main.qml:530
 #, kde-format
 msgid "About"
 msgstr "關於"
 
-#: ui/main.qml:623
+#: ui/main.qml:585
 #, kde-format
-msgid "About KDE"
-msgstr "關於 KDE"
+msgid "  "
+msgstr "  "
 
-#: ui/main.qml:673
+#: ui/main.qml:613
+#, kde-format
+msgid "Kanagram Handbook"
+msgstr "Kanagram 手冊"
+
+#: ui/main.qml:635
 #, kde-format
 msgid "About Kanagram"
 msgstr "關於 Kanagram"
 
-#: ui/main.qml:724
+#: ui/main.qml:657
 #, kde-format
-msgid "Kanagram Handbook"
-msgstr "Kanagram 手冊"
+msgid "About KDE"
+msgstr "關於 KDE"
 
 #: vocabedit.cpp:110
 #, kde-format

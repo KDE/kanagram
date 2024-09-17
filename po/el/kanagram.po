@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-05 00:36+0000\n"
+"POT-Creation-Date: 2024-09-17 00:36+0000\n"
 "PO-Revision-Date: 2020-05-05 08:16+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -662,60 +662,60 @@ msgstr ""
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: ui/main.qml:202
+#: ui/main.qml:217
 #, kde-format
 msgid "Quit"
 msgstr "Έξοδος"
 
-#: ui/main.qml:215
+#: ui/main.qml:230
 #, kde-format
 msgid "Change mode"
 msgstr "Αλλαγή λειτουργίας"
 
-#: ui/main.qml:299
+#: ui/main.qml:314
 #, kde-format
 msgid "Next Anagram"
 msgstr "Επόμενος αναγραμματισμός"
 
-#: ui/main.qml:348
+#: ui/main.qml:363
 #, kde-format
 msgid "1st Player"
 msgstr "1ος παίκτης"
 
-#: ui/main.qml:348
+#: ui/main.qml:363
 #, kde-format
 msgid "2nd Player"
 msgstr "2ος παίκτης"
 
-#: ui/main.qml:426
+#: ui/main.qml:441
 #, kde-format
 msgid "Configure"
 msgstr "Διαμόρφωση"
 
-#: ui/main.qml:563
-#, kde-format
-msgid "  "
-msgstr "  "
-
-#: ui/main.qml:575
+#: ui/main.qml:530
 #, kde-format
 msgid "About"
 msgstr "Περίγραμμα"
 
-#: ui/main.qml:623
+#: ui/main.qml:585
 #, kde-format
-msgid "About KDE"
-msgstr "Σχετικά με το KDE"
+msgid "  "
+msgstr "  "
 
-#: ui/main.qml:673
+#: ui/main.qml:613
+#, kde-format
+msgid "Kanagram Handbook"
+msgstr "Εγχειρίδιο του Kanagram"
+
+#: ui/main.qml:635
 #, kde-format
 msgid "About Kanagram"
 msgstr "Σχετικά με το Kanagram"
 
-#: ui/main.qml:724
+#: ui/main.qml:657
 #, kde-format
-msgid "Kanagram Handbook"
-msgstr "Εγχειρίδιο του Kanagram"
+msgid "About KDE"
+msgstr "Σχετικά με το KDE"
 
 #: vocabedit.cpp:110
 #, kde-format

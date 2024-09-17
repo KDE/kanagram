@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-05 00:36+0000\n"
+"POT-Creation-Date: 2024-09-17 00:36+0000\n"
 "PO-Revision-Date: 2022-12-25 07:55+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -660,60 +660,60 @@ msgstr ""
 msgid "Close"
 msgstr "დაკეტვა"
 
-#: ui/main.qml:202
+#: ui/main.qml:217
 #, kde-format
 msgid "Quit"
 msgstr "&გასვლა"
 
-#: ui/main.qml:215
+#: ui/main.qml:230
 #, kde-format
 msgid "Change mode"
 msgstr "რეჟიმის შეცვლა"
 
-#: ui/main.qml:299
+#: ui/main.qml:314
 #, kde-format
 msgid "Next Anagram"
 msgstr "შემდეგი ანაგრამა"
 
-#: ui/main.qml:348
+#: ui/main.qml:363
 #, kde-format
 msgid "1st Player"
 msgstr "პირველი მოთამაშე"
 
-#: ui/main.qml:348
+#: ui/main.qml:363
 #, kde-format
 msgid "2nd Player"
 msgstr "მეორე მოთამაშე"
 
-#: ui/main.qml:426
+#: ui/main.qml:441
 #, kde-format
 msgid "Configure"
 msgstr "მორგება"
 
-#: ui/main.qml:563
-#, kde-format
-msgid "  "
-msgstr "  "
-
-#: ui/main.qml:575
+#: ui/main.qml:530
 #, kde-format
 msgid "About"
 msgstr "შესახებ"
 
-#: ui/main.qml:623
+#: ui/main.qml:585
 #, kde-format
-msgid "About KDE"
-msgstr "KDE-ს შესახებ"
+msgid "  "
+msgstr "  "
 
-#: ui/main.qml:673
+#: ui/main.qml:613
+#, kde-format
+msgid "Kanagram Handbook"
+msgstr "Kanagram -ის სახელმძღვანელო"
+
+#: ui/main.qml:635
 #, kde-format
 msgid "About Kanagram"
 msgstr "Kanagram-ის შეახებ"
 
-#: ui/main.qml:724
+#: ui/main.qml:657
 #, kde-format
-msgid "Kanagram Handbook"
-msgstr "Kanagram -ის სახელმძღვანელო"
+msgid "About KDE"
+msgstr "KDE-ს შესახებ"
 
 #: vocabedit.cpp:110
 #, kde-format

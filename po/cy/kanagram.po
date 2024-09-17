@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-05 00:36+0000\n"
+"POT-Creation-Date: 2024-09-17 00:36+0000\n"
 "PO-Revision-Date: 2005-01-28 17:54+0000\n"
 "Last-Translator: KDE <kde-i18n-doc@kde.org>\n"
 "Language-Team: KDE <kde-i18n-doc@kde.org>\n"
@@ -637,64 +637,64 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ui/main.qml:202
+#: ui/main.qml:217
 #, kde-format
 msgid "Quit"
 msgstr ""
 
-#: ui/main.qml:215
+#: ui/main.qml:230
 #, kde-format
 msgid "Change mode"
 msgstr ""
 
-#: ui/main.qml:299
+#: ui/main.qml:314
 #, fuzzy, kde-format
 #| msgid "Kanagram"
 msgid "Next Anagram"
 msgstr "blinKen"
 
-#: ui/main.qml:348
+#: ui/main.qml:363
 #, kde-format
 msgid "1st Player"
 msgstr ""
 
-#: ui/main.qml:348
+#: ui/main.qml:363
 #, kde-format
 msgid "2nd Player"
 msgstr ""
 
-#: ui/main.qml:426
+#: ui/main.qml:441
 #, kde-format
 msgid "Configure"
 msgstr ""
 
-#: ui/main.qml:563
-#, kde-format
-msgid "  "
-msgstr ""
-
-#: ui/main.qml:575
+#: ui/main.qml:530
 #, fuzzy, kde-format
 #| msgid "About KDE"
 msgid "About"
 msgstr "Ynglyn a Kde"
 
-#: ui/main.qml:623
+#: ui/main.qml:585
 #, kde-format
-msgid "About KDE"
-msgstr "Ynglyn a Kde"
+msgid "  "
+msgstr ""
 
-#: ui/main.qml:673
+#: ui/main.qml:613
+#, fuzzy, kde-format
+#| msgid "Kanagram"
+msgid "Kanagram Handbook"
+msgstr "blinKen"
+
+#: ui/main.qml:635
 #, fuzzy, kde-format
 #| msgid "Kanagram"
 msgid "About Kanagram"
 msgstr "blinKen"
 
-#: ui/main.qml:724
-#, fuzzy, kde-format
-#| msgid "Kanagram"
-msgid "Kanagram Handbook"
-msgstr "blinKen"
+#: ui/main.qml:657
+#, kde-format
+msgid "About KDE"
+msgstr "Ynglyn a Kde"
 
 #: vocabedit.cpp:110
 #, kde-format
