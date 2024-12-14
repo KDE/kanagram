@@ -38,6 +38,7 @@
   <name xml:lang="pt">Kanagram</name>
   <name xml:lang="pt-BR">Kanagram</name>
   <name xml:lang="ru">Kanagram</name>
+  <name xml:lang="sa">कनाग्राम</name>
   <name xml:lang="sk">Kanagram</name>
   <name xml:lang="sl">Kanagram</name>
   <name xml:lang="sv">Kanagram</name>
@@ -78,6 +79,7 @@
   <summary xml:lang="pt">Jogo de Ordenação de Letras</summary>
   <summary xml:lang="pt-BR">Jogo de ordenação de letras</summary>
   <summary xml:lang="ru">Игра с перестановкой букв</summary>
+  <summary xml:lang="sa">पत्रक्रम खेल</summary>
   <summary xml:lang="sk">Hra o usporiadaní písmen</summary>
   <summary xml:lang="sl">Igra vrstnega reda črk</summary>
   <summary xml:lang="sv">Bokstavsordningsspel</summary>
@@ -117,6 +119,7 @@
     <p xml:lang="pt">O Kanagram é um jogo baseado nos anagramas de palavras: o 'puzzle' fica resolvido quando as letras da palavra baralhada forem colocadas na ordem correcta. Não existe nenhum limite para o tempo tomado ou para a quantidade de tentativas de resolução da palavra. Oferece diversas listas de palavras já incluídas, um sistema de ajuda por sugestões e batotas, um editor de listas de palavras, assim como a actualização e distribuição das listas de palavras através do KNewStuff. A interface é ajustável e apropriada para crianças.</p>
     <p xml:lang="pt-BR">Kanagram é um jogo baseado em anagramas de palavras: o puzzle é solucionado quando as letras da palavra embaralhada forem colocadas na ordem correta. Não existe nenhum limite de tempo ou quantidade de tentativas de resolução da palavra. Oferece diversas listas de palavras já incluídas, um sistema de ajuda por dicas e truques, um editor de listas de palavras, assim como a atualização e distribuição das listas de palavras através do KNewStuff. A interface é ajustável e apropriada para crianças.</p>
     <p xml:lang="ru">Kanagram — игра, основанная на анаграммах слов. Загадка решается путём расстановки букв в правильном порядке. Ограничений по времени или количеству попыток разгадывания слова не предусмотрено. Программа содержит несколько списков слов, систему подсказок и редактор списка слов. Возможно обновлять и распространять списки слов с помощью KNewStuff. Интерфейс масштабируется и подходит для детей.</p>
+    <p xml:lang="sa">कानाग्रामः शब्दानां एनाग्रामेषु आधारितः क्रीडा अस्ति : यदा स्क्रैम्ब्ल्ड् शब्दस्य अक्षराणि सम्यक् क्रमेण पुनः स्थापितानि भवन्ति तदा प्रहेलिका समाधानं भवति। न कश्चित् कालः, शब्दस्य समाधानार्थं प्रयत्नस्य परिमाणं वा सीमा नास्ति । अस्मिन् अनेकाः समाविष्टाः शब्दसूचिकाः, संकेत-धोखाधड़ी-सहायता-प्रणाली, शब्दसूची-सम्पादकः च सन्ति, तथा च KNewStuff-माध्यमेन शब्दसूचीनां अद्यतनीकरणस्य वितरणस्य च अनुमतिं ददाति । अन्तरफलकं स्केलयोग्यं बालकानां कृते उपयुक्तं च अस्ति ।</p>
     <p xml:lang="sk">Kanagram je gra založená na anagramoch slov: skladačka sa vyrieši, keď písmená rozbitého slova sa poskladajú v správnom poradí. Nie je žiadny obmedzenie v čase ani v počte pokusov na vyriešenie slova. Obsahuje niekoľko zoznamov slov, systém rád a pomôcok, editor zoznamu slov a umožní aktualizáciu a distribúciu zoznamu slov cez KNewStuff. Rozhranie je škálovateľné a vhodné pre deti.</p>
     <p xml:lang="sl">Kanagram temelji na principu anagramov besed. Uganko rešite, če premešane črke besed postavite v pravilni vrstni red. Za reševanje ne obstajajo omejitve časa niti poskusov. Vsebuje številne sezname besed, sistem za pomoč, urejevalnik seznama besed in omogoča posodabljanje ter razširjanje teh seznamov preko KNewStuff. Vmesnik je prilagodljiv in primeren za otroke.</p>
     <p xml:lang="sv">Kanagram är ett spel baserat på anagram av ord: pusslet är löst när bokstäverna i det hopblandade ordet är placerade i rätt ordning. Det finns varken någon gräns för hur lång tid det får ta, eller hur många försök som får göras för att lösa ordet. Funktioner som ingår är flera olika ordlistor, ett hjälpsystem med tips och fusk, en editor av ordlistor, och det tillåter att ordlistor uppdateras och distribueras via Heta nyheter. Gränssnittet är skalbart och lämpligt för barn.</p>
@@ -162,6 +165,7 @@
       <caption xml:lang="pt">A jogar ao Kanagram</caption>
       <caption xml:lang="pt-BR">Jogando Kanagram</caption>
       <caption xml:lang="ru">Игра в Kanagram</caption>
+      <caption xml:lang="sa">कनाग्रामं क्रीडन्</caption>
       <caption xml:lang="sk">Hranie Kanagram</caption>
       <caption xml:lang="sl">Igra Kanagram</caption>
       <caption xml:lang="sv">Spela Kanagram</caption>
