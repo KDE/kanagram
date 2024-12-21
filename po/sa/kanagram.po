@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-17 00:36+0000\n"
-"PO-Revision-Date: 2024-12-19 21:41+0530\n"
+"PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -350,7 +350,7 @@ msgstr "संकेताः"
 #: mainsettingswidget.ui:29
 #, kde-format
 msgid "Auto-hide hints after:"
-msgstr "ततः परं स्वतः गोपनं संकेताः : १."
+msgstr "ततः परं स्वतः गोपनं संकेताः :"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
 #: mainsettingswidget.ui:37
@@ -386,7 +386,7 @@ msgstr "९ सेकण्ड्"
 #: mainsettingswidget.ui:65
 #, kde-format
 msgid "Time for resolving the anagram:"
-msgstr "अनाग्रामस्य समाधानस्य समयः : १."
+msgstr "अनाग्रामस्य समाधानस्य समयः :"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #: mainsettingswidget.ui:73
@@ -432,7 +432,7 @@ msgstr "शब्दावली विकल्प"
 #: mainsettingswidget.ui:112
 #, kde-format
 msgid "Play using:"
-msgstr "उपयोगेन क्रीडन्तु : १."
+msgstr "उपयोगेन क्रीडन्तु :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox4)
 #: mainsettingswidget.ui:130
