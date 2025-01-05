@@ -16,6 +16,8 @@ apps:
     command: usr/bin/kanagram
     plugs:
       - audio-record
+    environment:
+      ALSA_CONFIG_PATH: "$SNAP/kf6/etc/asound.conf"
 slots:
   session-dbus-interface:
     interface: dbus
