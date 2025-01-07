@@ -69,6 +69,7 @@ int main(int argc, char **argv)
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     KAboutData::setApplicationData(about);
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kanagram")));
     QCommandLineParser parser;
     about.setupCommandLine(&parser);
     parser.process(app);
