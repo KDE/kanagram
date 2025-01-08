@@ -1,4 +1,4 @@
-s# SPDX-FileCopyrightText: 2024 Scarlett Moore <sgmoore@kde.org>
+# SPDX-FileCopyrightText: 2024, 2025 Scarlett Moore <sgmoore@kde.org>
 #
 # SPDX-License-Identifier: CC0-1.0
 ---
@@ -16,6 +16,8 @@ apps:
     command: usr/bin/kanagram
     plugs:
       - audio-record
+    environment:
+      ALSA_CONFIG_PATH: "$SNAP/kf6/etc/asound.conf"
 slots:
   session-dbus-interface:
     interface: dbus
@@ -102,10 +104,9 @@ parts:
     build-snaps:
       - core22
       - kf6-core22
-      - qt-common-themes
     override-prime: |
       set -eux
-      for snap in "core22" "kf6-core22" "qt-common-themes"; do
+      for snap in "core22" "kf6-core22"; do
           cd "/snap/$snap/current" && find . -type f,l -exec rm -rf "${CRAFT_PRIME}/{}" \;
       done
 
