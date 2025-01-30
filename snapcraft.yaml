@@ -61,7 +61,7 @@ parts:
         rsync -a --ignore-existing $CRAFT_PART_INSTALL/ /
   kanagram:
     after:
-    - libkeduvocdocument
+      - libkeduvocdocument
     parse-info:
       - usr/share/metainfo/org.kde.kanagram.appdata.xml
     plugin: cmake
@@ -109,4 +109,3 @@ parts:
       for snap in "core22" "kf6-core22"; do
           cd "/snap/$snap/current" && find . -type f,l -exec rm -rf "${CRAFT_PRIME}/{}" \;
       done
-
