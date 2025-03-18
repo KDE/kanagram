@@ -1,14 +1,13 @@
-# translation of kanagram.po to Spanish
-# Translation of kanagram to Spanish
+# Spanish translations for kanagram.po package.
 #
-# Rafael Beccar <rafael.beccar@kdemail.net>, 2005.
-# Pablo de Vicente <pablo.devicente@gmail.com>, 2005.
-# Santiago Fernández Sancho <santi@kde-es.org>, 2007, 2008.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
-# Enrique Matias Sanchez (Quique) <cronopios@gmail.com>, 2009.
+# SPDX-FileCopyrightText: 2005 Rafael Beccar <rafael.beccar@kdemail.net>
+# SPDX-FileCopyrightText: 2005 Pablo de Vicente <pablo.devicente@gmail.com>
+# SPDX-FileCopyrightText: 2007, 2008 Santiago Fernández Sancho <santi@kde-es.org>
+# SPDX-FileCopyrightText: 2007 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2009 Enrique Matias Sanchez (Quique) <cronopios@gmail.com>
 # SPDX-FileCopyrightText: 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2018, 2023 Eloy Cuadra <ecuadra@eloihr.net>
-# Rocio Gallego <traducciones@rociogallego.com>, 2014.
-# Sofía Priego <spriego@darksylvania.net>, %Y.
+# SPDX-FileCopyrightText: 2014 Rocio Gallego <traducciones@rociogallego.com>
+# SPDX-FileCopyrightText: 2023, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
@@ -895,60 +894,3 @@ msgstr "Título"
 #, kde-format
 msgid "Description"
 msgstr "Descripción"
-
-#~ msgid "kanagram"
-#~ msgstr "kanagram"
-
-#~ msgid "1.1"
-#~ msgstr "1.1"
-
-#~ msgid "Speech System Failure"
-#~ msgstr "Fallo del sistema de voz"
-
-#~ msgid "Starting Jovie Text-to-Speech service Failed: %1"
-#~ msgstr " Ha fallado el inicio del servicio Jovie de texto a voz: %1"
-
-#~ msgid "0.2"
-#~ msgstr "0.2"
-
-#~ msgid "Stop Timer"
-#~ msgstr "Detener temporizador"
-
-#~ msgid "Hint"
-#~ msgstr "Pista"
-
-#~ msgid "Advanced Settings"
-#~ msgstr "Preferencias avanzadas"
-
-#, fuzzy
-#~| msgid "Edits the selected vocabulary."
-#~ msgid "Set the default vocabulary"
-#~ msgstr "Edita el vocabulario seleccionado."
-
-#~ msgid "Shortcuts"
-#~ msgstr "Accesos rápidos"
-
-#~ msgid "picture hint"
-#~ msgstr "imagen de pista"
-
-#~ msgid "Reveal Anagram"
-#~ msgstr "Revelar el anagrama"
-
-#~ msgid "Quit Kanagram"
-#~ msgstr "Salir de Kanagram"
-
-#~ msgid ""
-#~ "File %1 cannot be found.\n"
-#~ " Please ensure that Kanagram is properly installed."
-#~ msgstr ""
-#~ "No se encontró el archivo %1.\n"
-#~ "Asegúrese de que Kanagram se encuentra correctamente instalado."
-
-#~ msgid "Error"
-#~ msgstr "Error"
-
-#~ msgid "120 Seconds"
-#~ msgstr "120 segundos"
-
-#~ msgid "300 Seconds"
-#~ msgstr "300 segundos"
