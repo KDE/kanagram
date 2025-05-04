@@ -54,7 +54,7 @@ include_directories (${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} )
 
 find_package(LibKEduVocDocument REQUIRED)
 
-ecm_set_disabled_deprecation_versions(QT 6.8.0  KF 6.5.0)
+ecm_set_disabled_deprecation_versions(QT 6.9.0  KF 6.5.0)
 
 add_subdirectory( doc )
 add_subdirectory( src )
