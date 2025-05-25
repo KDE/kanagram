@@ -327,7 +327,7 @@ msgstr "Sayan Biswas"
 #: main.cpp:68
 #, kde-format
 msgid "Letters turned to clickable buttons"
-msgstr "Fer que les lletres siguen botons on es puga fer clic"
+msgstr "Fer que les lletres siguen botons on es puga clicar"
 
 #: main.cpp:69
 #, kde-format
