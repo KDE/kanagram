@@ -118,7 +118,7 @@ msgstr "გამოთქმის ჩართ/გამორთ."
 #: kanagram.kcfg:58
 #, kde-format
 msgid "Set the default translation"
-msgstr "ნაგულისხმები თარგმანის დაყენება"
+msgstr "ნაგულისხმევი თარგმანის დაყენება"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, MainSettingsWidget)
 #: kanagramconfigdialog.cpp:37 mainsettingswidget.ui:14
