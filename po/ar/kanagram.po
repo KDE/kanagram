@@ -182,7 +182,7 @@ msgstr "Jeremy Whiting"
 #: main.cpp:55
 #, kde-format
 msgid "Maintainer"
-msgstr "المصين"
+msgstr "الصائن"
 
 #: main.cpp:56
 #, kde-format
@@ -344,13 +344,13 @@ msgstr "تلميحات"
 #: mainsettingswidget.ui:29
 #, kde-format
 msgid "Auto-hide hints after:"
-msgstr "أزل التلميحات تلقائياً بعْد:"
+msgstr "أزل التلميحات آليّاً بعْد:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
 #: mainsettingswidget.ui:37
 #, kde-format
 msgid "Do Not Auto-Hide Hints"
-msgstr "لا تخفي التلميحات تلقائياً"
+msgstr "لا تخفي التلميحات آليّاً"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
 #: mainsettingswidget.ui:42
