@@ -742,7 +742,7 @@ msgid ""
 "a description so that users of your vocabulary will know what kinds of words "
 "it contains."
 msgstr ""
-"وصف المفردات. إذا كنت تقوم بإنشاء مفردات جديدة ، أضف وصفًا حتى يعرف مستخدمو "
+"وصف المفردات. إذا كنت تقوم بإنشاء مفردات جديدة، أضف وصفًا حتى يعرف مستخدمو "
 "مفرداتك أنواع الكلمات التي تحتوي عليها."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
