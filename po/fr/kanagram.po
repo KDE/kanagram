@@ -652,7 +652,7 @@ msgid ""
 " Close dialog for new game "
 msgstr ""
 "\n"
-" Fermez la boîte de dialogue pour lancer une nouvelle partie "
+" Fermez la boite de dialogue pour lancer une nouvelle partie "
 
 #: ui/Blackboard.qml:535
 #, kde-format
@@ -821,7 +821,7 @@ msgstr "La listes de mots."
 #, kde-format
 msgid "The selected word. This box allows you to edit the selected word."
 msgstr ""
-"Le mot sélectionné. Cette boîte vous permet de modifier le mot sélectionné."
+"Le mot sélectionné. Cette boite vous permet de modifier le mot sélectionné."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: vocabeditwidget.ui:249
