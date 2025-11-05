@@ -171,7 +171,7 @@
 >&Ctrl;<keycap
 >H</keycap
 ></keycombo
->), une courte phrase apparaîtra, <action
+>), une courte phrase apparaitra, <action
 >décrivant l'anagramme actif</action
 >. </para>
 </listitem>
@@ -210,7 +210,7 @@
 >Voici le bouton <guiicon
 >Configurer Kanagram</guiicon
 >, qui <action
->lance la boîte de dialogue de <guilabel
+>lance la boite de dialogue de <guilabel
 >Configuration</guilabel
 > de &kanagram;</action
 >. </para>
@@ -225,7 +225,7 @@
 >Aide</guiicon
 > et permettent d'accéder au <guilabel
 >Manuel de &kanagram;</guilabel
-> (ce document) et aux boîtes de dialogue <guilabel
+> (ce document) et aux boites de dialogue <guilabel
 >À propos de &kanagram;</guilabel
 > et <guilabel
 >À propos de &kde;</guilabel
@@ -308,7 +308,7 @@
 >champ de saisie</interface
 > sous le <interface
 >tableau noir</interface
-> ou cliquez dessus avec le &BGS; et les lettres vont se déplacer dans le champ de saisie. Si vous avez trouvé, la prochaine anagramme va apparaître. Sinon, toutes les lettres vont revenir sur le tableau noir. </para>
+> ou cliquez dessus avec le &BGS; et les lettres vont se déplacer dans le champ de saisie. Si vous avez trouvé, la prochaine anagramme va apparaitre. Sinon, toutes les lettres vont revenir sur le tableau noir. </para>
 </step>
 </procedure>
 
@@ -322,7 +322,7 @@
 >Configurer &kanagram;</title>
 
 <para
->La boîte de dialogue <guilabel
+>La boite de dialogue <guilabel
 >Configuration</guilabel
 > s'ouvre lorsqu'on clique sur le bouton <guiicon
 >Configurer &kanagram;</guiicon
@@ -378,7 +378,7 @@
 
 <listitem>
 <para
->La boîte à cocher <guilabel
+>La boite à cocher <guilabel
 >Paramètres des points de score</guilabel
 > peut être utilisée pour vous révéler ou cacher des options pour configurer le calcul du score des réponses. </para>
 </listitem>
@@ -392,14 +392,14 @@
 
 <listitem>
 <para
->La boîte à cocher <guilabel
+>La boite à cocher <guilabel
 >Uniquement les lettres majuscules</guilabel
 > vous permet de basculer &kanagram; en mode majuscules uniquement pour les mots sur le tableau noir. </para>
 </listitem>
 
 <listitem>
 <para
->La boîte à cocher <guilabel
+>La boite à cocher <guilabel
 >Dire les mots corrects</guilabel
 > vous permet de d'activer ou de désactiver les prononciations. Les fichiers audio des prononciations doivent être inclus dans le vocabulaire allant être jouer ou vous devez installer et configurer &jovie; pour que cette option fonctionne. </para>
 </listitem>
@@ -412,7 +412,7 @@
 <para
 >La page de configuration des <guilabel
 >listes de mots</guilabel
-> vous permet de gérer les listes de mots installées. En utilisant cette boîte de dialogue, vous pouvez <action
+> vous permet de gérer les listes de mots installées. En utilisant cette boite de dialogue, vous pouvez <action
 >éditer</action
 > et <action
 >supprimer</action
@@ -440,7 +440,7 @@
 >Le bouton <guibutton
 >Créer une nouvelle liste</guibutton
 > <action
->ouvre la boîte de dialogue <link linkend="vocab-editor"
+>ouvre la boite de dialogue <link linkend="vocab-editor"
 ><guilabel
 >Éditeur de listes de mots</guilabel
 ></link
@@ -569,7 +569,7 @@ The <guibutton
 >Le bouton <guibutton
 >Fermer</guibutton
 ><action
-> ferme la boîte de dialogue de <guilabel
+> ferme la boite de dialogue de <guilabel
 >l'éditeur de listes de mots</guilabel
 > </action
 > sans enregistrer le contenu de votre nouvelle liste de mots. </para>
@@ -592,14 +592,14 @@ The <guibutton
 
 <screenshot>
 <screeninfo
->La boîte de dialogue de réception de nouveau contenu pour &kanagram;</screeninfo>
+>La boite de dialogue de réception de nouveau contenu pour &kanagram;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="newstuff-dialog.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase
->La boîte de dialogue de réception de nouveau contenu pour &kanagram;</phrase>
+>La boite de dialogue de réception de nouveau contenu pour &kanagram;</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
