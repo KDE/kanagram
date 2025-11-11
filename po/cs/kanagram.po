@@ -2,13 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014, 2015, 2019, 2023.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
+# SPDX-FileCopyrightText: 2025 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-17 00:36+0000\n"
-"PO-Revision-Date: 2023-01-13 09:22+0100\n"
+"PO-Revision-Date: 2025-11-10 10:34+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #. i18n: ectx: label, entry (currentVocabulary), group (kanagram)
 #: kanagram.kcfg:9
@@ -834,7 +835,7 @@ msgstr "Vytvořit &nový"
 #: vocabsettingswidget.ui:58
 #, kde-format
 msgid "Download new vocabulary from \"Get hot new Stuff\""
-msgstr "Stáhnout nový slovník z \"Get hot new Stuff\""
+msgstr "Stáhnout nový slovník z \"Získejte žhavé novinkyf\""
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:61
