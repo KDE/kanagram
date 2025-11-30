@@ -3,8 +3,6 @@
  <!ENTITY kanagram "<application
 >Kanagram</application
 >">
- <!ENTITY kappname "&kanagram;">
- <!ENTITY package "kdeedu">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % Brazilian-Portuguese "INCLUDE"
 ><!-- change language only here -->
@@ -69,9 +67,9 @@
 >&FDLNotice;</legalnotice>
 
 <date
->27/04/2016</date>
+>21/12/2020</date>
 <releaseinfo
->1.2 (Applications 16.04)</releaseinfo>
+>Applications 20.12</releaseinfo>
 
 <abstract>
 <para
@@ -98,17 +96,13 @@
 </keywordset>
 
 </bookinfo>
-<!--FIXME 
-Debjit Mondal "Show Wiki Content" (hidden -> crash?) https://debjitmondal.blogspot.com/
-Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com/2015/01/13/kanagram-is-now-2-player/
-Hide 'Say correct words' option if built without QtSpeech/Jovie
--->
+
 <chapter id="introduction">
 <title
 >Introdução</title>
 
 <para
->O &kanagram; é um jogo baseado em anagramas de palavras: o quebra-cabeça é resolvido quando as letras da palavra embaralhada são colocadas novamente na ordem correta. Não existe limite de tempo ou tentativas para resolver a palavra. Incluído com o &kanagram; estão vários vocabulários prontos para jogar, com muitos mais disponíveis na Internet. </para>
+>O &kanagram; é um jogo baseado em anagramas de palavras: o quebra-cabeça é resolvido quando as letras da palavra embaralhada são colocadas novamente na ordem correta. Não existe limite de tempo ou número de tentativas para resolver a palavra. Incluído com o &kanagram; estão vários vocabulários prontos para jogar, com muitos mais disponíveis na Internet. </para>
 
 </chapter>
 
@@ -142,12 +136,8 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <listitem>
 <para
 >O <interface
->Seletor de Vocabulário</interface
-> (<keysym
->PgUp</keysym
-> / <keysym
->PgDown</keysym
->) permite ao usuário rapidamente <action
+>Seletor de vocabulário</interface
+> (&PgUp; / &PgDn;) permite ao usuário rapidamente <action
 >alterar o vocabulário ativo</action
 > clicando com o &LMB; nas setas para <action
 >avançar para o próximo vocabulário</action
@@ -170,7 +160,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 >S</keycap
 ></keycombo
 >), que permite-lhe <action
->controlar o temporizador de pontuações</action
+>iniciar ou parar o temporizador de pontuações</action
 >. </para>
 </listitem>
 <listitem>
@@ -283,7 +273,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <step>
 <para
 >Ao usar o <interface
->Seletor do Vocabulário</interface
+>Seletor de vocabulário</interface
 >, <action
 >selecione o tema do vocabulário</action
 > que deseja experimentar. Uma palavra deste vocabulário será então apresentada no meio do <interface
@@ -318,7 +308,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 >campo de texto</interface
 > abaixo do <interface
 >quadro</interface
-> ou clique nelas com o &LMB;, para que apareçam no campo de texto. Se estiver correto, o próximo anagrama irá aparecer. Caso contrário, todas as letras voltam para o quadro. </para>
+> ou clique nelas com o &LMB; e as letras aparecerão no campo de texto. Se estiver correto, o próximo anagrama irá aparecer. Caso contrário, todas as letras voltam para o quadro. </para>
 </step>
 </procedure>
 
@@ -397,7 +387,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <para
 >A opção <guilabel
 >Usar os sons</guilabel
-> permite-lhe ativar ou retirar os efeitos sonoros do &kanagram;. </para>
+> permite-lhe ativar ou retirar os efeitos sonoros. </para>
 </listitem>
 
 <listitem>
@@ -511,7 +501,7 @@ The <guibutton
 <listitem>
 <para
 >O campo <guilabel
->Nome do vocabulário</guilabel
+>Nome do vocabulário:</guilabel
 > permite a você <action
 >nomear seu vocabulário</action
 >. </para>
@@ -519,13 +509,13 @@ The <guibutton
 <listitem>
 <para
 >O campo da <guilabel
->Descrição</guilabel
+>Descrição:</guilabel
 > permite-lhe <action
 >expandir o nome do seu vocabulário</action
 >, oferecendo ao seu usuário mais detalhes sobre o conteúdo do seu vocabulário. </para>
 <note>
 <para
->Tente manter tanto o nome como a descrição o mais breves possíveis. Os bons vocabulários cobrem um conjunto restrito e bem focado de palavras sobre um único assunto. Tente escrever pelo menos 20 palavras para o seu vocabulário, de modo que não seja terminado rapidamente pelo usuário. </para>
+>Tente manter tanto o nome como a descrição o mais breves possíveis. Os bons vocabulários cobrem um conjunto restrito e bem focado de palavras sobre um único assunto. Tente escrever pelo menos 20 palavras para o seu vocabulário, de modo que não seja terminado muito rapidamente. </para>
 </note>
 </listitem>
 <listitem>
@@ -547,7 +537,7 @@ The <guibutton
 <listitem>
 <para
 >O campo <guilabel
->Palavra</guilabel
+>Palavra:</guilabel
 > permite-lhe <action
 >escrever os valores das palavras no seu vocabulário</action
 >. </para>
@@ -561,7 +551,7 @@ The <guibutton
 >. </para>
 <note>
 <para
->As boas sugestões descrevem claramente, ainda que de forma subtil, a palavra, da mesma forma que aumentam o conhecimento sobre o assunto do vocabulário do seu usuário. Certifique-se de que as suas dicas são relativamente curtas (abaixo de 40 caracteres de tamanho). </para>
+>As boas sugestões descrevem claramente, ainda que de forma sutil, a palavra, da mesma forma que aumentam o conhecimento do usuário. Certifique-se de que as suas dicas são relativamente curtas (abaixo de 40 caracteres de tamanho). </para>
 </note>
 </listitem>
 <listitem>
@@ -569,7 +559,7 @@ The <guibutton
 >O botão <guibutton
 >Salvar</guibutton
 > <action
->grava o conteúdo do seu vocabulário</action
+>grava o conteúdo do seu novo vocabulário</action
 >, e permite-lhe usá-lo diretamente no &kanagram; (ele ficará imediatamente disponível dentro da aplicação, selecionando-o no <interface
 >Seletor do Vocabulário</interface
 >). </para>
@@ -582,7 +572,7 @@ The <guibutton
 >fecha a janela do <guilabel
 >Editor de Vocabulários</guilabel
 ></action
-> sem salvar o conteúdo do seu vocabulário. </para>
+> sem salvar o conteúdo do seu vocabulário novo ou modificado. </para>
 </listitem>
 </itemizedlist>
 </sect2>
