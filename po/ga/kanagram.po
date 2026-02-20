@@ -19,103 +19,66 @@ msgstr ""
 
 #. i18n: ectx: label, entry (currentVocabulary), group (kanagram)
 #: kanagram.kcfg:9
-#, fuzzy, kde-format
-#| msgid "Deletes the selected vocabulary."
+#, kde-format
 msgid "This setting stores the currently selected Vocabulary."
-msgstr "Scrios an stór focal roghnaithe."
+msgstr ""
 
 #. i18n: ectx: label, entry (singlePlayerMode), group (kanagram)
 #: kanagram.kcfg:13
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid "This setting allows you to decide one-player or two-player mode"
 msgstr ""
-"Leis an rogha seo is féidir a shocrú cá fhad a thaispeánfar bolgán leide "
-"Kanagram."
 
 #. i18n: ectx: label, entry (hintHideTime), group (kanagram)
 #: kanagram.kcfg:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set in seconds how long Kanagram's hint bubble is "
 "shown."
 msgstr ""
-"Leis an rogha seo is féidir a shocrú cá fhad a thaispeánfar bolgán leide "
-"Kanagram."
 
 #. i18n: ectx: label, entry (resolveTime), group (kanagram)
 #: kanagram.kcfg:21
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the anagram."
 msgstr ""
-"Leis an rogha seo is féidir a shocrú cá fhad a thaispeánfar bolgán leide "
-"Kanagram."
 
 #. i18n: ectx: label, entry (scoreTime), group (kanagram)
 #: kanagram.kcfg:26
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set in seconds the time interval of the score "
 "timer."
 msgstr ""
-"Leis an rogha seo is féidir a shocrú cá fhad a thaispeánfar bolgán leide "
-"Kanagram."
 
 #. i18n: ectx: label, entry (correctAnswerScore), group (kanagram)
 #: kanagram.kcfg:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with a correct answer."
 msgstr ""
-"Leis an rogha seo is féidir a shocrú cá fhad a thaispeánfar bolgán leide "
-"Kanagram."
 
 #. i18n: ectx: label, entry (incorrectAnswerScore), group (kanagram)
 #: kanagram.kcfg:34
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with an incorrect answer."
 msgstr ""
-"Leis an rogha seo is féidir a shocrú cá fhad a thaispeánfar bolgán leide "
-"Kanagram."
 
 #. i18n: ectx: label, entry (revealAnswerScore), group (kanagram)
 #: kanagram.kcfg:38
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid "This setting allows you to set the score associated with reveal answer."
 msgstr ""
-"Leis an rogha seo is féidir a shocrú cá fhad a thaispeánfar bolgán leide "
-"Kanagram."
 
 #. i18n: ectx: label, entry (skippedWordScore), group (kanagram)
 #: kanagram.kcfg:42
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with a skipped word."
 msgstr ""
-"Leis an rogha seo is féidir a shocrú cá fhad a thaispeánfar bolgán leide "
-"Kanagram."
 
 #. i18n: ectx: label, entry (useSounds), group (kanagram)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_useSounds)
@@ -132,10 +95,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (enablePronunciation), group (kanagram)
 #: kanagram.kcfg:54
-#, fuzzy, kde-format
-#| msgid "Turns sounds on/off."
+#, kde-format
 msgid "Turns pronunciations on/off."
-msgstr "Cuir fuaimeanna ann/as."
+msgstr ""
 
 #. i18n: ectx: label, entry (dataLanguage), group (kanagram)
 #: kanagram.kcfg:58
@@ -178,20 +140,13 @@ msgid "An anagram game"
 msgstr "Cluiche anagram"
 
 #: main.cpp:50
-#, fuzzy, kde-format
-#| msgid ""
-#| "© 2005 Joshua Keel\n"
-#| "© 2005 Danny Allen\n"
-#| "© 2007 Jeremy Whiting"
+#, kde-format
 msgid ""
 "© 2005 Joshua Keel\n"
 "© 2005 Danny Allen\n"
 "© 2007 Jeremy Whiting\n"
 "© 2014 Debjit Mondal"
 msgstr ""
-"© 2005 Joshua Keel\n"
-"© 2005 Danny Allen\n"
-"© 2007 Jeremy Whiting"
 
 #: main.cpp:53
 #, kde-format
@@ -319,10 +274,9 @@ msgid "Yuri Chornoivan"
 msgstr "Yuri Chornoivan"
 
 #: main.cpp:65
-#, fuzzy, kde-format
-#| msgid "Ukranian Data Files"
+#, kde-format
 msgid "Ukrainian Data Files"
-msgstr "Sonraí na hÚcráinise"
+msgstr ""
 
 #: main.cpp:66
 #, kde-format
@@ -368,22 +322,17 @@ msgstr "kscanne@gmail.com"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, MainSettingsWidget)
 #: mainsettingswidget.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the length of time Kanagram's hint bubble is "
 "shown."
 msgstr ""
-"Leis an rogha seo is féidir a shocrú cá fhad a thaispeánfar bolgán leide "
-"Kanagram."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox1)
 #: mainsettingswidget.ui:23
-#, fuzzy, kde-format
-#| msgid "Hints"
+#, kde-format
 msgid "Hints"
-msgstr "Leideanna"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: mainsettingswidget.ui:29
@@ -436,10 +385,9 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:78 mainsettingswidget.ui:144
-#, fuzzy, kde-format
-#| msgid "5 Seconds"
+#, kde-format
 msgid "15 Seconds"
-msgstr "5 Shoicind"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
@@ -451,10 +399,9 @@ msgstr "30 Soicind"
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:88 mainsettingswidget.ui:154
-#, fuzzy, kde-format
-#| msgid "5 Seconds"
+#, kde-format
 msgid "45 Seconds"
-msgstr "5 Shoicind"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
@@ -477,10 +424,9 @@ msgstr "Seinn le:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox4)
 #: mainsettingswidget.ui:130
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Scoring Options"
-msgstr "Cur Síos"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabelScoreTime)
 #: mainsettingswidget.ui:136
@@ -490,10 +436,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, scoringPointCheckbox)
 #: mainsettingswidget.ui:167
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Score Point Settings"
-msgstr "Cur Síos"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textCorrectAnswer)
 #: mainsettingswidget.ui:174
@@ -607,10 +552,9 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:321
-#, fuzzy, kde-format
-#| msgid "Turns sounds on/off."
+#, kde-format
 msgid "Turn pronunciations on or off."
-msgstr "Cuir fuaimeanna ann/as."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:324
@@ -634,16 +578,14 @@ msgid "Start Timer"
 msgstr ""
 
 #: ui/Blackboard.qml:204
-#, fuzzy, kde-format
-#| msgid "Show Hint"
+#, kde-format
 msgid "Show Hint"
-msgstr "Taispeáin Leid"
+msgstr ""
 
 #: ui/Blackboard.qml:246
-#, fuzzy, kde-format
-#| msgid "reveal word"
+#, kde-format
 msgid "Reveal Word"
-msgstr "nocht an focal"
+msgstr ""
 
 #: ui/Blackboard.qml:279
 #, kde-format
@@ -651,10 +593,9 @@ msgid " "
 msgstr ""
 
 #: ui/Blackboard.qml:396
-#, fuzzy, kde-format
-#| msgid "Show Hint"
+#, kde-format
 msgid "Show Wiki Content"
-msgstr "Taispeáin Leid"
+msgstr ""
 
 #: ui/Blackboard.qml:422
 #, kde-format
@@ -688,10 +629,9 @@ msgid ""
 msgstr ""
 
 #: ui/Blackboard.qml:562
-#, fuzzy, kde-format
-#| msgid "&Close"
+#, kde-format
 msgid "Close"
-msgstr "&Dún"
+msgstr ""
 
 #: ui/main.qml:217
 #, kde-format
@@ -719,16 +659,14 @@ msgid "2nd Player"
 msgstr ""
 
 #: ui/main.qml:441
-#, fuzzy, kde-format
-#| msgid "Configure Kanagram"
+#, kde-format
 msgid "Configure"
-msgstr "Cumraigh Kanagram"
+msgstr ""
 
 #: ui/main.qml:530
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgid "About"
-msgstr "Maidir le KDE"
+msgstr ""
 
 #: ui/main.qml:585
 #, kde-format
@@ -885,10 +823,9 @@ msgstr "Cruthaigh Stór Focal &Nua"
 
 #. i18n: ectx: property (toolTip), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:58
-#, fuzzy, kde-format
-#| msgid "Download new vocabulary from  \"Get hot new Stuff\""
+#, kde-format
 msgid "Download new vocabulary from \"Get hot new Stuff\""
-msgstr "Íosluchtaigh stór focal nua ó \"Faigh Stuif Nua\""
+msgstr ""
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:61
@@ -925,96 +862,3 @@ msgstr "Teideal"
 #, kde-format
 msgid "Description"
 msgstr "Cur Síos"
-
-#, fuzzy
-#~| msgid "Kanagram"
-#~ msgid "kanagram"
-#~ msgstr "Kanagram"
-
-#, fuzzy
-#~| msgid "Hints"
-#~ msgid "Hint"
-#~ msgstr "Leideanna"
-
-#~ msgid "Set the default vocabulary"
-#~ msgstr "Roghnaigh stór focal réamhshocraithe"
-
-#~ msgid "Shortcuts"
-#~ msgstr "Aicearraí"
-
-#~ msgid "hint"
-#~ msgstr "leid"
-
-#~ msgid "Reveal Anagram"
-#~ msgstr "Nocht an tAnagram"
-
-#~ msgid "Quit Kanagram"
-#~ msgstr "Scoir Kanagram"
-
-#~ msgid ""
-#~ "File %1 cannot be found.\n"
-#~ " Please ensure that Kanagram is properly installed."
-#~ msgstr ""
-#~ "Comhad %1 gan aimsiú.\n"
-#~ " Bí cinnte go bhfuil Kanagram suiteáilte mar is ceart."
-
-#~ msgid "Error"
-#~ msgstr "Earráid"
-
-#~ msgid "120 Seconds"
-#~ msgstr "120 Soicind"
-
-#~ msgid "300 Seconds"
-#~ msgstr "300 Soicind"
-
-#~ msgid "New Stuff"
-#~ msgstr "Stuif Nua"
-
-#~ msgid ""
-#~ "Kanagram allows you to download\n"
-#~ "new data from the Internet.\n"
-#~ "\n"
-#~ "If you are connected to the Internet, press \n"
-#~ "the button to get new vocabulary files."
-#~ msgstr ""
-#~ "Ceadaíonn Kanagram duit sonraí nua\n"
-#~ "a íosluchtú ón Idirlíon.\n"
-#~ "\n"
-#~ "Má tá tú ceangailte leis an Idirlíon, brúigh \n"
-#~ "an cnaipe chun comhaid nua foclóra a fháil."
-
-#~ msgid "General"
-#~ msgstr "Ginearálta"
-
-#~ msgid "Next Word"
-#~ msgstr "An Chéad Fhocal Eile"
-
-#~ msgid "Delete"
-#~ msgstr "Scrios"
-
-#~ msgid "Cyrillic"
-#~ msgstr "Coireallach"
-
-#~ msgid "Latin"
-#~ msgstr "Laidin"
-
-#~ msgid "Use standard fonts"
-#~ msgstr "Úsáid clónna caighdeánacha"
-
-#~ msgid "Future"
-#~ msgstr "Fáistineach"
-
-#~ msgid "<qt>Cannot open file<br><b>%1</b></qt>"
-#~ msgstr "<qt>Ní féidir comhad a oscailt<br><b>%1</b></qt>"
-
-#~ msgid "&Retry"
-#~ msgstr "At&riail"
-
-#~ msgid "<qt>Cannot write to file<br><b>%1</b></qt>"
-#~ msgstr "<qt>Ní féidir an comhad<br><b>%1</b> a scríobh</qt>"
-
-#~ msgid "File:\t%1\n"
-#~ msgstr "Comhad:\t%1\n"
-
-#~ msgid "Unknown Element"
-#~ msgstr "Eilimint Anaithnid"
