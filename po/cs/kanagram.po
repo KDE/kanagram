@@ -3,21 +3,22 @@
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014, 2015, 2019, 2023.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
 # SPDX-FileCopyrightText: 2025 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <filipek.libor@protonmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:48+0000\n"
-"PO-Revision-Date: 2025-11-10 10:34+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
-"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-04-03 22:27+0200\n"
+"Last-Translator: Libor Filípek <filipek.libor@protonmail.com>\n"
+"Language-Team: \n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #. i18n: ectx: label, entry (currentVocabulary), group (kanagram)
 #: kanagram.kcfg:9
@@ -302,34 +303,35 @@ msgstr "Soubory s maďarštinou"
 #: main.cpp:67
 #, kde-format
 msgid "Souvik Das"
-msgstr ""
+msgstr "Souvik Das"
 
 #: main.cpp:67
 #, kde-format
 msgid "2-player mode"
-msgstr ""
+msgstr "Režim 2 hráčů"
 
 #: main.cpp:68
 #, kde-format
 msgid "Sayan Biswas"
-msgstr ""
+msgstr "Sayan Biswas"
 
 #: main.cpp:68
 #, kde-format
 msgid "Letters turned to clickable buttons"
-msgstr ""
+msgstr "Písmena se změnila na klikatelná tlačítka"
 
 #: main.cpp:69
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Klára Cihlářová, Jakub Friedl, Pavel Fric"
+msgstr "Klára Cihlářová,Jakub Friedl,Pavel Fric,Libor Filípek"
 
 #: main.cpp:69
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "koty@seznam.cz, jfriedl@centrum.cz, pavelfric@seznam.cz"
+msgstr ""
+"koty@seznam.cz,jfriedl@centrum.cz,pavelfric@seznam.cz,libor.filipek@gmail.com"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, MainSettingsWidget)
 #: mainsettingswidget.ui:17
@@ -439,19 +441,19 @@ msgstr "Pravidla hry:"
 #: mainsettingswidget.ui:130
 #, kde-format
 msgid "Scoring Options"
-msgstr ""
+msgstr "Možnosti bodování"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabelScoreTime)
 #: mainsettingswidget.ui:136
 #, kde-format
 msgid "Set timer for scoring purpose:"
-msgstr ""
+msgstr "Nastavit časomíru pro účely bodování:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, scoringPointCheckbox)
 #: mainsettingswidget.ui:167
 #, kde-format
 msgid "Score Point Settings"
-msgstr ""
+msgstr "Nastavení bodového hodnocení"
 
 #. i18n: ectx: property (text), widget (QLabel, textCorrectAnswer)
 #: mainsettingswidget.ui:174
@@ -555,7 +557,7 @@ msgstr "Použít &zvuk"
 #: mainsettingswidget.ui:311
 #, kde-format
 msgid "Use only uppercase letters."
-msgstr ""
+msgstr "Použít pouze velká písmena."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_uppercaseOnly)
 #: mainsettingswidget.ui:314
@@ -573,7 +575,7 @@ msgstr "Vypnout nebo zapnout výslovnost."
 #: mainsettingswidget.ui:324
 #, kde-format
 msgid "Say correct words"
-msgstr ""
+msgstr "Říkat správná slova"
 
 #: ui/Blackboard.qml:91
 #, kde-format
@@ -635,6 +637,8 @@ msgid ""
 "\n"
 " Close dialog for new game "
 msgstr ""
+"\n"
+" Zavřít dialogové okno pro novou hru "
 
 #: ui/Blackboard.qml:535
 #, kde-format
@@ -642,6 +646,8 @@ msgid ""
 " Time Up. \n"
 " Player 2's Turn"
 msgstr ""
+" Čas vypršel. \n"
+" Je na tahu hráč 2"
 
 #: ui/Blackboard.qml:562
 #, kde-format
