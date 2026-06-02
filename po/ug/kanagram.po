@@ -8,110 +8,78 @@ msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:48+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-30 16:49-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #. i18n: ectx: label, entry (currentVocabulary), group (kanagram)
 #: kanagram.kcfg:9
-#, fuzzy, kde-format
-#| msgid "Edits the selected vocabulary."
+#, kde-format
 msgid "This setting stores the currently selected Vocabulary."
-msgstr "تاللانغان سۆزلۈكنى تەھرىرلەيدۇ."
+msgstr ""
 
 #. i18n: ectx: label, entry (singlePlayerMode), group (kanagram)
 #: kanagram.kcfg:13
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid "This setting allows you to decide one-player or two-player mode"
 msgstr ""
-"بۇ تەڭشەك Kanagram نىڭ ئەسكەرتىشىنىڭ كۆرسىتىش ۋاقتىنى تەڭشىشىڭىزگە يول "
-"قويىدۇ."
 
 #. i18n: ectx: label, entry (hintHideTime), group (kanagram)
 #: kanagram.kcfg:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set in seconds how long Kanagram's hint bubble is "
 "shown."
 msgstr ""
-"بۇ تەڭشەك Kanagram نىڭ ئەسكەرتىشىنىڭ ئۇزۇنلۇقىنى ئۆزگەرتىشىڭىزگە يول قويىدۇ."
 
 #. i18n: ectx: label, entry (resolveTime), group (kanagram)
 #: kanagram.kcfg:21
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set in seconds how much time is available for "
 "resolving the anagram."
 msgstr ""
-"بۇ تەڭشەك Kanagram نىڭ ئەسكەرتىشىنىڭ كۆرسىتىش ۋاقتىنى تەڭشىشىڭىزگە يول "
-"قويىدۇ."
 
 #. i18n: ectx: label, entry (scoreTime), group (kanagram)
 #: kanagram.kcfg:26
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set in seconds the time interval of the score "
 "timer."
 msgstr ""
-"بۇ تەڭشەك Kanagram نىڭ ئەسكەرتىشىنىڭ كۆرسىتىش ۋاقتىنى تەڭشىشىڭىزگە يول "
-"قويىدۇ."
 
 #. i18n: ectx: label, entry (correctAnswerScore), group (kanagram)
 #: kanagram.kcfg:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with a correct answer."
 msgstr ""
-"بۇ تەڭشەك Kanagram نىڭ ئەسكەرتىشىنىڭ ئۇزۇنلۇقىنى ئۆزگەرتىشىڭىزگە يول قويىدۇ."
 
 #. i18n: ectx: label, entry (incorrectAnswerScore), group (kanagram)
 #: kanagram.kcfg:34
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set the length of time Kanagram's hint bubble "
-#| "is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with an incorrect answer."
 msgstr ""
-"بۇ تەڭشەك Kanagram نىڭ ئەسكەرتىشىنىڭ كۆرسىتىش ۋاقتىنى تەڭشىشىڭىزگە يول "
-"قويىدۇ."
 
 #. i18n: ectx: label, entry (revealAnswerScore), group (kanagram)
 #: kanagram.kcfg:38
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid "This setting allows you to set the score associated with reveal answer."
 msgstr ""
-"بۇ تەڭشەك Kanagram نىڭ ئەسكەرتىشىنىڭ ئۇزۇنلۇقىنى ئۆزگەرتىشىڭىزگە يول قويىدۇ."
 
 #. i18n: ectx: label, entry (skippedWordScore), group (kanagram)
 #: kanagram.kcfg:42
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the score associated with a skipped word."
 msgstr ""
-"بۇ تەڭشەك Kanagram نىڭ ئەسكەرتىشىنىڭ ئۇزۇنلۇقىنى ئۆزگەرتىشىڭىزگە يول قويىدۇ."
 
 #. i18n: ectx: label, entry (useSounds), group (kanagram)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_useSounds)
@@ -128,10 +96,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (enablePronunciation), group (kanagram)
 #: kanagram.kcfg:54
-#, fuzzy, kde-format
-#| msgid "Turns sounds on/off."
+#, kde-format
 msgid "Turns pronunciations on/off."
-msgstr "ئاۋازنى ئاچ/تاقا."
+msgstr ""
 
 #. i18n: ectx: label, entry (dataLanguage), group (kanagram)
 #: kanagram.kcfg:58
@@ -174,25 +141,18 @@ msgid "An anagram game"
 msgstr "بىر anagram ئويۇنى"
 
 #: main.cpp:50
-#, fuzzy, kde-format
-#| msgid ""
-#| "© 2005 Joshua Keel\n"
-#| "© 2005 Danny Allen\n"
-#| "© 2007 Jeremy Whiting"
+#, kde-format
 msgid ""
 "© 2005 Joshua Keel\n"
 "© 2005 Danny Allen\n"
 "© 2007 Jeremy Whiting\n"
 "© 2014 Debjit Mondal"
 msgstr ""
-"© 2005 Joshua Keel\n"
-"© 2005 Danny Allen\n"
-"© 2007 Jeremy Whiting"
 
 #: main.cpp:53
 #, kde-format
 msgid "Joshua Keel"
-msgstr "Joshua Keel"
+msgstr ""
 
 #: main.cpp:53
 #, kde-format
@@ -202,7 +162,7 @@ msgstr "كودلاش"
 #: main.cpp:54
 #, kde-format
 msgid "Danny Allen"
-msgstr "Danny Allen"
+msgstr ""
 
 #: main.cpp:54
 #, kde-format
@@ -217,7 +177,7 @@ msgstr "Jeremy Whiting"
 #: main.cpp:55
 #, kde-format
 msgid "Maintainer"
-msgstr "مەسئۇل كىشى"
+msgstr "ئاسرىغۇچى"
 
 #: main.cpp:56
 #, kde-format
@@ -242,7 +202,7 @@ msgstr ""
 #: main.cpp:58
 #, kde-format
 msgid "Artemiy Pavlov"
-msgstr "Artemiy Pavlov"
+msgstr ""
 
 #: main.cpp:58
 #, kde-format
@@ -257,68 +217,67 @@ msgstr "Pino Toscano"
 #: main.cpp:59
 #, kde-format
 msgid "Italian Data Files"
-msgstr "ئىتاليانچە سانلىق-مەلۇمات ھۆججەتلىرى"
+msgstr "ئىتاليانچە سانلىق مەلۇمات ھۆججەتلىرى"
 
 #: main.cpp:60
 #, kde-format
 msgid "Kris Thomsen"
-msgstr "Kris Thomsen"
+msgstr ""
 
 #: main.cpp:60
 #, kde-format
 msgid "Danish Data Files"
-msgstr "دانىشچە سانلىق-مەلۇمات ھۆججەتلىرى"
+msgstr "دانىشچە سانلىق مەلۇمات ھۆججەتلىرى"
 
 #: main.cpp:61
 #, kde-format
 msgid "Patrick Spendrin"
-msgstr "Patrick Spendrin"
+msgstr ""
 
 #: main.cpp:61
 #, kde-format
 msgid "German Data Files"
-msgstr "گېرمانچە سانلىق-مەلۇمات ھۆججەتلىرى"
+msgstr "گېرمانچە سانلىق مەلۇمات ھۆججەتلىرى"
 
 #: main.cpp:62
 #, kde-format
 msgid "Eric Krüse"
-msgstr "Eric Krüse"
+msgstr ""
 
 #: main.cpp:62
 #, kde-format
 msgid "British English Data Files"
-msgstr "ئەنگلىيەچە ئىنگلىزچە سانلىق-مەلۇمات ھۆججەتلىرى"
+msgstr "ئەنگلىيەچە ئىنگلىزچە سانلىق مەلۇمات ھۆججەتلىرى"
 
 #: main.cpp:63
 #, kde-format
 msgid "Hanna Scott"
-msgstr "Hanna Scott"
+msgstr ""
 
 #: main.cpp:63
 #, kde-format
 msgid "Swedish Data Files"
-msgstr "شۋېدچە سانلىق-مەلۇمات ھۆججەتلىرى"
+msgstr "شۋېدچە سانلىق مەلۇمات ھۆججەتلىرى"
 
 #: main.cpp:64
 #, kde-format
 msgid "Jure Repinc"
-msgstr "Jure Repinc"
+msgstr ""
 
 #: main.cpp:64
 #, kde-format
 msgid "Slovenian Data Files"
-msgstr "سىلوۋېنىيەچە سانلىق-مەلۇمات ھۆججەتلىرى"
+msgstr "سىلوۋېنىيەچە سانلىق مەلۇمات ھۆججەتلىرى"
 
 #: main.cpp:65
 #, kde-format
 msgid "Yuri Chornoivan"
-msgstr "Yuri Chornoivan"
+msgstr ""
 
 #: main.cpp:65
-#, fuzzy, kde-format
-#| msgid "Ukranian Data Files"
+#, kde-format
 msgid "Ukrainian Data Files"
-msgstr "ئۇكرائىنچە سانلىق-مەلۇمات ھۆججەتلىرى"
+msgstr ""
 
 #: main.cpp:66
 #, kde-format
@@ -354,31 +313,27 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #: main.cpp:69
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, MainSettingsWidget)
 #: mainsettingswidget.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting allows you to set how long Kanagram's hint bubble is shown."
+#, kde-format
 msgid ""
 "This setting allows you to set the length of time Kanagram's hint bubble is "
 "shown."
 msgstr ""
-"بۇ تەڭشەك Kanagram نىڭ ئەسكەرتىشىنىڭ ئۇزۇنلۇقىنى ئۆزگەرتىشىڭىزگە يول قويىدۇ."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox1)
 #: mainsettingswidget.ui:23
-#, fuzzy, kde-format
-#| msgid "Hints"
+#, kde-format
 msgid "Hints"
-msgstr "ئەسكەرتىش"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: mainsettingswidget.ui:29
@@ -431,34 +386,30 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:78 mainsettingswidget.ui:144
-#, fuzzy, kde-format
-#| msgid "5 Seconds"
+#, kde-format
 msgid "15 Seconds"
-msgstr "5 سېكۇنت"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:83 mainsettingswidget.ui:149
-#, fuzzy, kde-format
-#| msgid "3 Seconds"
+#, kde-format
 msgid "30 Seconds"
-msgstr "3 سېكۇنت"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:88 mainsettingswidget.ui:154
-#, fuzzy, kde-format
-#| msgid "5 Seconds"
+#, kde-format
 msgid "45 Seconds"
-msgstr "5 سېكۇنت"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:93 mainsettingswidget.ui:159
-#, fuzzy, kde-format
-#| msgid "3 Seconds"
+#, kde-format
 msgid "60 Seconds"
-msgstr "3 سېكۇنت"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox3)
 #: mainsettingswidget.ui:104
@@ -474,10 +425,9 @@ msgstr "چېلىشتا ئىشلىتىدىغىنى:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox4)
 #: mainsettingswidget.ui:130
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Scoring Options"
-msgstr "چۈشەندۈرۈش"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabelScoreTime)
 #: mainsettingswidget.ui:136
@@ -487,10 +437,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, scoringPointCheckbox)
 #: mainsettingswidget.ui:167
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Score Point Settings"
-msgstr "چۈشەندۈرۈش"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textCorrectAnswer)
 #: mainsettingswidget.ui:174
@@ -604,10 +553,9 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:321
-#, fuzzy, kde-format
-#| msgid "Turns sounds on/off."
+#, kde-format
 msgid "Turn pronunciations on or off."
-msgstr "ئاۋازنى ئاچ/تاقا."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:324
@@ -628,30 +576,27 @@ msgstr "ئالدىنقى سۆزلۈك"
 #: ui/Blackboard.qml:181
 #, kde-format
 msgid "Start Timer"
-msgstr ""
+msgstr "ۋاقىت خاتىرىلىگۈچنى باشلا"
 
 #: ui/Blackboard.qml:204
-#, fuzzy, kde-format
-#| msgid "Show Hint"
+#, kde-format
 msgid "Show Hint"
-msgstr "ئەسكەرتىش كۆرسەت"
+msgstr ""
 
 #: ui/Blackboard.qml:246
-#, fuzzy, kde-format
-#| msgid "reveal word"
+#, kde-format
 msgid "Reveal Word"
-msgstr "سۆز كۆرسەت"
+msgstr ""
 
 #: ui/Blackboard.qml:279
 #, kde-format
 msgid " "
-msgstr ""
+msgstr " "
 
 #: ui/Blackboard.qml:396
-#, fuzzy, kde-format
-#| msgid "Show Hint"
+#, kde-format
 msgid "Show Wiki Content"
-msgstr "ئەسكەرتىش كۆرسەت"
+msgstr ""
 
 #: ui/Blackboard.qml:422
 #, kde-format
@@ -685,20 +630,19 @@ msgid ""
 msgstr ""
 
 #: ui/Blackboard.qml:562
-#, fuzzy, kde-format
-#| msgid "&Close"
+#, kde-format
 msgid "Close"
-msgstr "ياپ(&C)"
+msgstr "ياپ"
 
 #: ui/main.qml:217
 #, kde-format
 msgid "Quit"
-msgstr ""
+msgstr "چىكىن"
 
 #: ui/main.qml:230
 #, kde-format
 msgid "Change mode"
-msgstr ""
+msgstr "ھالەت ئۆزگەرت"
 
 #: ui/main.qml:314
 #, kde-format
@@ -716,21 +660,19 @@ msgid "2nd Player"
 msgstr ""
 
 #: ui/main.qml:441
-#, fuzzy, kde-format
-#| msgid "Configure Kanagram"
+#, kde-format
 msgid "Configure"
-msgstr "Kanagram سەپلىمىسى"
+msgstr "سەپلە"
 
 #: ui/main.qml:530
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgid "About"
-msgstr "ك د ئې(KDE) ھەققىدە"
+msgstr "ھەققىدە"
 
 #: ui/main.qml:585
 #, kde-format
 msgid "  "
-msgstr ""
+msgstr "  "
 
 #: ui/main.qml:613
 #, kde-format
@@ -745,7 +687,7 @@ msgstr "Kanagram ھەققىدە"
 #: ui/main.qml:657
 #, kde-format
 msgid "About KDE"
-msgstr "ك د ئې(KDE) ھەققىدە"
+msgstr "KDE ھەققىدە"
 
 #: vocabedit.cpp:110
 #, kde-format
@@ -879,10 +821,9 @@ msgstr "يېڭىدىن قۇر(&N)"
 
 #. i18n: ectx: property (toolTip), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:58
-#, fuzzy, kde-format
-#| msgid "Download new vocabulary"
+#, kde-format
 msgid "Download new vocabulary from \"Get hot new Stuff\""
-msgstr "يېڭى سۆزلۈكلەرنى چۈشۈر"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:61
@@ -920,12 +861,10 @@ msgstr "ماۋزۇ"
 msgid "Description"
 msgstr "چۈشەندۈرۈش"
 
-#, fuzzy
 #~| msgid "Kanagram"
 #~ msgid "kanagram"
 #~ msgstr "Kanagram"
 
-#, fuzzy
 #~| msgid "Hints"
 #~ msgid "Hint"
 #~ msgstr "ئەسكەرتىش"
