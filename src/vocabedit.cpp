@@ -19,7 +19,6 @@
 
 #include "vocabedit.h"
 
-#include <kwidgetsaddons_version.h>
 #include <KLocalizedString>
 #include <KMessageBox>
 
