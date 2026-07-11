@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-07-11 00:38+0000\n"
 "PO-Revision-Date: 2014-09-18 16:22+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -715,17 +715,17 @@ msgstr "Över Kanagram"
 msgid "About KDE"
 msgstr "Över KDE"
 
-#: vocabedit.cpp:110
+#: vocabedit.cpp:109
 #, kde-format
 msgid "Would you like to save your changes?"
 msgstr "Wullt Du Dien Ännern sekern?"
 
-#: vocabedit.cpp:111
+#: vocabedit.cpp:110
 #, kde-format
 msgid "Save Changes Dialog"
 msgstr "Dialoog för't Sekern vun Ännern"
 
-#: vocabedit.cpp:132
+#: vocabedit.cpp:131
 #, kde-format
 msgid "New Item"
 msgstr "Nieg Indrag"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-07-11 00:38+0000\n"
 "PO-Revision-Date: 2023-01-22 19:59+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -717,17 +717,17 @@ msgstr "Kanagram-i buruz"
 msgid "About KDE"
 msgstr "KDE-ri buruz"
 
-#: vocabedit.cpp:110
+#: vocabedit.cpp:109
 #, kde-format
 msgid "Would you like to save your changes?"
 msgstr "Zure aldaketak gorde nahi dituzu?"
 
-#: vocabedit.cpp:111
+#: vocabedit.cpp:110
 #, kde-format
 msgid "Save Changes Dialog"
 msgstr "Aldaketak gordetzeko elkarrizketa"
 
-#: vocabedit.cpp:132
+#: vocabedit.cpp:131
 #, kde-format
 msgid "New Item"
 msgstr "Elementu berria"

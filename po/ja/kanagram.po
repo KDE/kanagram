@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-07-11 00:38+0000\n"
 "PO-Revision-Date: 2010-09-25 18:19-0700\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -742,17 +742,17 @@ msgstr "Kanagram について"
 msgid "About KDE"
 msgstr "KDE について"
 
-#: vocabedit.cpp:110
+#: vocabedit.cpp:109
 #, kde-format
 msgid "Would you like to save your changes?"
 msgstr "変更を保存しますか？"
 
-#: vocabedit.cpp:111
+#: vocabedit.cpp:110
 #, kde-format
 msgid "Save Changes Dialog"
 msgstr "変更保存ダイアログ"
 
-#: vocabedit.cpp:132
+#: vocabedit.cpp:131
 #, kde-format
 msgid "New Item"
 msgstr ""

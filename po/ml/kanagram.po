@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-07-11 00:38+0000\n"
 "PO-Revision-Date: 2019-12-03 10:51+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc."
@@ -689,17 +689,17 @@ msgstr ""
 msgid "About KDE"
 msgstr ""
 
-#: vocabedit.cpp:110
+#: vocabedit.cpp:109
 #, kde-format
 msgid "Would you like to save your changes?"
 msgstr ""
 
-#: vocabedit.cpp:111
+#: vocabedit.cpp:110
 #, kde-format
 msgid "Save Changes Dialog"
 msgstr ""
 
-#: vocabedit.cpp:132
+#: vocabedit.cpp:131
 #, kde-format
 msgid "New Item"
 msgstr ""

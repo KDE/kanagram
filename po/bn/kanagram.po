@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KAnagram (KDE 3.5)\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:48+0000\n"
+"POT-Creation-Date: 2026-07-11 00:38+0000\n"
 "PO-Revision-Date: 2006-03-28 21:30+0600\n"
 "Last-Translator: Progga <progga@BengaLinux.Org>\n"
 "Language-Team: Bangla <kde-translation@BengaLinux.Org>\n"
@@ -728,17 +728,17 @@ msgstr "কে-অ্যানাগ্রাম পরিচিতি"
 msgid "About KDE"
 msgstr "কে.ডি.ই. পরিচিতি"
 
-#: vocabedit.cpp:110
+#: vocabedit.cpp:109
 #, kde-format
 msgid "Would you like to save your changes?"
 msgstr "যা কিছু পরিবর্তন করেছেন, তা কি আপনি সংরক্ষণ করতে চান?"
 
-#: vocabedit.cpp:111
+#: vocabedit.cpp:110
 #, kde-format
 msgid "Save Changes Dialog"
 msgstr "পরিবর্তন সংরক্ষণকারী ডায়ালগ"
 
-#: vocabedit.cpp:132
+#: vocabedit.cpp:131
 #, kde-format
 msgid "New Item"
 msgstr ""
