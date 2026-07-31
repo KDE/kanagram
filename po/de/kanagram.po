@@ -559,19 +559,19 @@ msgstr "Bewertung für übersprungene Wörter zuweisen: "
 #: mainsettingswidget.ui:304
 #, kde-format
 msgid "Use sou&nds"
-msgstr "Tö&ne benutzen"
+msgstr "Tö&ne verwenden"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_uppercaseOnly)
 #: mainsettingswidget.ui:311
 #, kde-format
 msgid "Use only uppercase letters."
-msgstr "Es werden nur groß geschriebene Zeichen benutzt."
+msgstr "Es werden nur groß geschriebene Zeichen verwendet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_uppercaseOnly)
 #: mainsettingswidget.ui:314
 #, kde-format
 msgid "Only uppercase letters"
-msgstr "Nur groß geschriebene Zeichen benutzen"
+msgstr "Nur groß geschriebene Zeichen verwenden"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, kcfg_enablePronunciation)
 #: mainsettingswidget.ui:321

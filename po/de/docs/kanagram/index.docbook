@@ -327,7 +327,7 @@
 
 <listitem>
 <para
->Benutzen Sie das Auswahlfeld <guilabel
+>Verwenden Sie das Auswahlfeld <guilabel
 >Zeit für das Lösen des Anagramms</guilabel
 >, um eine Zeit für die Auflösung des Rätsels einzustellen. In der Voreinstellung gibt es <quote
 >Keine Zeitbegrenzung</quote
@@ -338,7 +338,7 @@
 <para
 >Im Auswahlfeld rechts neben <guilabel
 >Spielen in:</guilabel
-> wählen Sie die Sprache aus, in der Sie &kanagram; spielen wollen. Das ist aber erst möglich, wenn Sie Vokabeldateien in einer anderen Sprache installiert haben. </para>
+> wählen Sie die Sprache aus, in der Sie &kanagram; spielen möchten. Das ist aber erst möglich, wenn Sie Vokabeldateien in einer anderen Sprache installiert haben. </para>
 </listitem>
 
 <listitem>
@@ -358,14 +358,14 @@
 <listitem>
 <para
 >Mit dem Ankreuzfeld <guilabel
->Töne benutzen</guilabel
+>Töne verwenden</guilabel
 > können Sie Klangeffekte ein- und ausschalten. </para>
 </listitem>
 
 <listitem>
 <para
 >Ist <guilabel
->Nur groß geschriebene Zeichen benutzen</guilabel
+>Nur groß geschriebene Zeichen verwenden</guilabel
 > angekreuzt, werden in &kanagram; nur groß geschriebenen Wörter auf der Tafel verwendet. </para>
 </listitem>
 
