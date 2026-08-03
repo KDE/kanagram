@@ -1,5 +1,6 @@
 # Translation of kanagram to Norwegian Nynorsk
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2010, 2018, 2019, 2021, 2026.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2008.
 msgid ""
 msgstr ""
