@@ -345,13 +345,13 @@ msgstr "تلميحات"
 #: mainsettingswidget.ui:29
 #, kde-format
 msgid "Auto-hide hints after:"
-msgstr "أزل التلميحات آليّاً بعْد:"
+msgstr "أزل التلميحات آليًّا بعْد:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
 #: mainsettingswidget.ui:37
 #, kde-format
 msgid "Do Not Auto-Hide Hints"
-msgstr "لا تخفي التلميحات آليّاً"
+msgstr "لا تخفي التلميحات آليًّا"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_hintHideTime)
 #: mainsettingswidget.ui:42
@@ -828,7 +828,7 @@ msgstr "يُنْشئُ مفردات جديدا."
 #: vocabsettingswidget.ui:51
 #, kde-format
 msgid "Create &New"
-msgstr "أ&نشئ واحداً جديداً"
+msgstr "أ&نشئ واحدًا جديدًا"
 
 #. i18n: ectx: property (toolTip), widget (KNSWidgets::Button, btnDownloadNew)
 #: vocabsettingswidget.ui:58
