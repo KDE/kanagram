@@ -731,7 +731,7 @@ msgstr "Voulez-vous enregistrer vos modifications ?"
 #: vocabedit.cpp:111
 #, kde-format
 msgid "Save Changes Dialog"
-msgstr "Boîte de dialogue pour l'enregistrement des modifications"
+msgstr "Boite de dialogue pour l'enregistrement des modifications"
 
 #: vocabedit.cpp:132
 #, kde-format
