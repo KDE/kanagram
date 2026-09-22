@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: kanagram\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-11 00:38+0000\n"
-"PO-Revision-Date: 2026-05-30 16:49-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -133,7 +133,7 @@ msgstr "يوق"
 #: main.cpp:46
 #, kde-format
 msgid "Kanagram"
-msgstr "Kanagram"
+msgstr ""
 
 #: main.cpp:48
 #, kde-format
@@ -172,7 +172,7 @@ msgstr "لايىھە، گرافىك ۋە نۇرغۇن سۆزلۈكلەر"
 #: main.cpp:55
 #, kde-format
 msgid "Jeremy Whiting"
-msgstr "Jeremy Whiting"
+msgstr ""
 
 #: main.cpp:55
 #, kde-format
@@ -212,7 +212,7 @@ msgstr "ئاۋاز ئۈنۈمى"
 #: main.cpp:59
 #, kde-format
 msgid "Pino Toscano"
-msgstr "Pino Toscano"
+msgstr ""
 
 #: main.cpp:59
 #, kde-format
@@ -388,28 +388,28 @@ msgstr ""
 #: mainsettingswidget.ui:78 mainsettingswidget.ui:144
 #, kde-format
 msgid "15 Seconds"
-msgstr ""
+msgstr "15 سېكۇنت"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:83 mainsettingswidget.ui:149
 #, kde-format
 msgid "30 Seconds"
-msgstr ""
+msgstr "30 سېكۇنت"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:88 mainsettingswidget.ui:154
 #, kde-format
 msgid "45 Seconds"
-msgstr ""
+msgstr "45 سېكۇنت"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_resolveTime)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_scoreTime)
 #: mainsettingswidget.ui:93 mainsettingswidget.ui:159
 #, kde-format
 msgid "60 Seconds"
-msgstr ""
+msgstr "60 سېكۇنت"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox3)
 #: mainsettingswidget.ui:104
@@ -628,6 +628,8 @@ msgid ""
 " Time Up. \n"
 " Player 2's Turn"
 msgstr ""
+" Time Up. \n"
+" Player 2's Turn"
 
 #: ui/Blackboard.qml:562
 #, kde-format
@@ -730,8 +732,6 @@ msgid ""
 "a description so that users of your vocabulary will know what kinds of words "
 "it contains."
 msgstr ""
-"سۆزلۈك چۈشەندۈرۈشى. ئەگەر سىز يېڭى بىر سۆزلۈك قۇرۇۋاتقان بولسىڭىز، "
-"چۈشەندۈرۈشنى قوشۇپ، ئىشلەتكۈچىلەرنىڭ سۆزلۈك تىپىنى بىلىشىگە قۇلايلىق يارىتىڭ."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: vocabeditwidget.ui:130
@@ -785,7 +785,7 @@ msgstr "سۆزلۈكتىكى سۆزلەر تىزىمى."
 #: vocabeditwidget.ui:246
 #, kde-format
 msgid "The selected word. This box allows you to edit the selected word."
-msgstr "تاللانغان سۆز. بۇ قۇتىدا تاللىغان سۆزنى تەھرىرلىيەلەيسىز."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: vocabeditwidget.ui:249
@@ -798,8 +798,6 @@ msgstr "سۆز(&W):"
 #, kde-format
 msgid "The selected hint. Add a hint to aid in guessing the word."
 msgstr ""
-"تاللانغان ئەسكەرتىش. سۆزنى قىياس قىلىشقا ياردەم بېرىدىغان ئەسكەرتىش مەزمۇنى "
-"قوشىدۇ."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: vocabeditwidget.ui:268
