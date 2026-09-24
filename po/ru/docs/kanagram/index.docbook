@@ -3,8 +3,6 @@
  <!ENTITY kanagram "<application
 >Kanagram</application
 >">
- <!ENTITY kappname "&kanagram;">
- <!ENTITY package "kdeedu">
  <!ENTITY % addindex "IGNORE">
  <!ENTITY % Russian "INCLUDE"
 ><!-- change language only here -->
@@ -69,9 +67,9 @@
 >&FDLNotice;</legalnotice>
 
 <date
->27 апреля 2016 г.</date>
+>21 декабря 2020 г.</date>
 <releaseinfo
->1.2 (Приложения 16.04)</releaseinfo>
+>Приложения KDE 20.12</releaseinfo>
 
 <abstract>
 <para
@@ -98,17 +96,13 @@
 </keywordset>
 
 </bookinfo>
-<!--FIXME 
-Debjit Mondal "Show Wiki Content" (hidden -> crash?) http://debjitmondal.blogspot.de/
-Souvik Das   SoK Project- 2player Implementation https://dassouvik.wordpress.com/2015/01/13/kanagram-is-now-2-player/
-Hide 'Say correct words' option if built without QtSpeech/Jovie
--->
+
 <chapter id="introduction">
 <title
 >Введение</title>
 
 <para
->Игроку предлагается набор букв в произвольном порядке, из которого он должен составить слово. Задание даётся без ограничения по времени и числу попыток. Несколько словарей уже встроено в &kanagram;. Дополнительные словари возможно автоматически загрузить через Интернет или создать самостоятельно. </para>
+>Игроку предлагается набор букв в произвольном порядке, из которого он должен составить слово. Задание даётся без ограничения по времени и числу попыток. Несколько словарей уже встроены в &kanagram;. Дополнительные словари возможно загрузить из Интернета. </para>
 
 </chapter>
 
@@ -143,13 +137,9 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <para
 ><interface
 >Переключатель словарей</interface
-> (<keysym
->PgUp</keysym
-> / <keysym
->PgDown</keysym
->) позволяет быстро <action
+> (&PgUp; / &PgDn;) позволяет быстро <action
 >сменить текущий словарь</action
->, щёлкнув левой кнопкой мыши по соответствующей стрелке для <action
+>, щёлкнув &LMB; по соответствующей стрелке для <action
 >перехода к следующему</action
 > или <action
 >возврата к предыдущему словарю</action
@@ -229,15 +219,17 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <para
 >Кнопка <guiicon
 >Справка</guiicon
-> <action
->открывает меню из 3 дополнительных кнопок</action
->: <guilabel
->Руководство пользователя &kanagram;</guilabel
-> (настоящий документ), <guilabel
->О программе</guilabel
+> особая: она <action
+>показывает 3 дополнительные кнопки</action
+>. Эти кнопки показываются при наведении указателя на кнопку <guiicon
+>Справка</guiicon
+> и обеспечивают доступ к <guilabel
+>Руководству пользователя &kanagram;</guilabel
+> (настоящему документу), а также к диалоговым окнам <guilabel
+>О программе &kanagram;</guilabel
 > и <guilabel
 >О &kde;</guilabel
->. <screenshot>
+>: <screenshot>
 <screeninfo
 >Три различных состояния кнопки <guiicon
 >Справка</guiicon
@@ -275,7 +267,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 >Игровой процесс</title>
 
 <para
->Знакомство с интерфейсом &kanagram; завершено, теперь начнём игру! </para>
+>Теперь, после знакомства с интерфейсом &kanagram;, можно сыграть в игру. </para>
 
 <procedure>
 <step>
@@ -312,11 +304,11 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 
 <step>
 <para
->Если правильный ответ найден, введите буквы в <interface
+>Когда вы считаете, что знаете правильный ответ, введите буквы в <interface
 >Поле ввода</interface
 >, расположенное под <interface
 >доской</interface
->, или последовательно щёлкните их левой кнопкой мыши (тогда буквы переместятся в поле ввода). Если слово разгадано, появится следующая анаграмма. Если нет — буквы вернутся обратно на доску. </para>
+>, или последовательно щёлкните по ним &LMB; (тогда буквы переместятся в поле ввода). Если слово разгадано, появится следующая анаграмма. Если нет — буквы вернутся обратно на доску. </para>
 </step>
 </procedure>
 
@@ -395,7 +387,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 <para
 >Флажок <guilabel
 >Звуковые эффекты</guilabel
-> позволяет включить или отключить звуковое сопровождение &kanagram;. </para>
+> позволяет включить или отключить звуковые эффекты. </para>
 </listitem>
 
 <listitem>
@@ -453,7 +445,7 @@ Hide 'Say correct words' option if built without QtSpeech/Jovie
 >Редактор словаря</guilabel
 ></link
 ></action
-> для создания и редактирования нового словаря &kanagram;. </para>
+>, позволяющее создать собственный словарь, с которым затем можно играть. </para>
 </listitem>
 <listitem>
 <para
@@ -517,13 +509,13 @@ The <guibutton
 <listitem>
 <para
 >Поле <guilabel
->Описание</guilabel
+>Описание:</guilabel
 > предназначено для <action
 >создания комментария к словарю</action
 >: здесь возможно указать дополнительные сведения о содержании словаря. </para>
 <note>
 <para
->Делайте имя и описание словаря максимально короткими. Хороший словарь должен быть посвящён одной теме. Попробуйте включить в словарь хотя бы 20 слов, чтобы игрок не проходил его слишком быстро. </para>
+>Старайтесь делать поля «Имя» и «Описание» максимально короткими. Эффективный словарь охватывает узкий, ограниченный набор слов, посвящённых одной теме. Попробуйте включить в словарь хотя бы 20 слов, чтобы его нельзя было пройти слишком быстро. </para>
 </note>
 </listitem>
 <listitem>
@@ -545,7 +537,7 @@ The <guibutton
 <listitem>
 <para
 >Поле <guilabel
->Слово</guilabel
+>Слово:</guilabel
 > предназначено для <action
 >ввода слова, которое будет добавлено в словарь</action
 >. </para>
@@ -567,13 +559,9 @@ The <guibutton
 >Нажатие кнопки <guibutton
 >Сохранить</guibutton
 > <action
->сохраняет изменения в словаре</action
-> и делает его доступным в <interface
->списке словарей</interface
-> &kanagram; (словарь сразу появится в <interface
->списке словарей</interface
-> и станет доступен для выбора в <interface
->переключателе словарей</interface
+>сохраняет содержимое нового словаря</action
+> и делает его доступным непосредственно в &kanagram; (словарь сразу появится в приложении и станет доступен для выбора в <interface
+>Переключателе словарей</interface
 >). </para>
 </listitem>
 <listitem>
@@ -584,7 +572,7 @@ The <guibutton
 >закрывает диалоговое окно <guilabel
 >Редактор словаря</guilabel
 ></action
-> без сохранения изменений в словаре. </para>
+> без сохранения содержимого нового или изменённого словаря. </para>
 </listitem>
 </itemizedlist>
 </sect2>
@@ -625,8 +613,8 @@ The <guibutton
 >Удалить</guibutton
 > (соответственно, она позволит удалить загруженный словарь). </para>
 <para
->Для получения дополнительных сведений о словаре (например, автор, описание содержания словаря и журнал изменений) нажмите кнопку <guibutton
->Сведения</guibutton
+>Для получения дополнительных сведений о словаре (например, автор, описание содержания и журнал изменений) нажмите кнопку <guibutton
+>Подробности</guibutton
 >. </para>
 </sect1>
 </chapter>
@@ -666,8 +654,7 @@ The <guibutton
 >Перевод на русский язык: Олеся Герасименко <email
 >gammaray@basealt.ru</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index;
 </book>
