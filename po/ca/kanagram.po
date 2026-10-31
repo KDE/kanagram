@@ -891,6 +891,3 @@ msgstr "Títol"
 #, kde-format
 msgid "Description"
 msgstr "Descripció"
-
-#~ msgid "kanagram"
-#~ msgstr "kanagram"
