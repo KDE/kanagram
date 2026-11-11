@@ -88,7 +88,7 @@ msgstr ""
 #: kanagram.kcfg:46 mainsettingswidget.ui:301
 #, kde-format
 msgid "Turns sounds on/off."
-msgstr "Skru lyder av/på"
+msgstr "Skru lyder på/av"
 
 #. i18n: ectx: label, entry (uppercaseOnly), group (kanagram)
 #: kanagram.kcfg:50
