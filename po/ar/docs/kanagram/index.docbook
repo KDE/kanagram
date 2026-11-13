@@ -1,0 +1,653 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+ <!ENTITY kanagram "<application
+>Kanagram</application
+>">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Arabic "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="kanagram" lang="&language;">
+
+<bookinfo>
+<title
+>دليل لعبة تقليب</title>
+
+<authorgroup>
+<author
+><firstname
+>Danny</firstname
+> <surname
+>Allen</surname
+> <affiliation
+> <address
+>&Danny.Allen.mail;</address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2005</year>
+<holder
+>&Danny.Allen;</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2020-12-21</date>
+<releaseinfo
+>تطبيقات 20.12</releaseinfo>
+
+<abstract>
+<para
+>يقدم تقليب ألغاز الجناس المسلية لـ &kde;. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>kdeedu</keyword>
+<keyword
+>تقليب</keyword>
+<keyword
+>لعبة</keyword>
+<keyword
+>طفل</keyword>
+<keyword
+>لفظ مقلوب</keyword>
+<keyword
+>كلمات</keyword>
+<keyword
+>تخليط</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>مقدمة</title>
+
+<para
+>تقليب هي لعبة قائمة على الجناس اللفظي للكلمات: يُحل اللغز عند إعادة ترتيب أحرف الكلمة المشوشة بالترتيب الصحيح. لا يوجد حد زمني أو عدد محاولات لحل الكلمة. تتضمن تقليب عدة مفردات جاهزة للعب، مع المزيد المتاح من الإنترنت. </para>
+
+</chapter>
+
+
+<chapter id="using-kanagram">
+<title
+>استخدام تقليب</title>
+
+<para
+>هذه هي الشاشة التي تظهر عند بدء تشغيل تقليب، وتعرض الواجهة الرئيسة للتطبيق. معظم النافذة تشغلها <interface
+>السبورة</interface
+>، حيث تُكتب الألغاز، مع <interface
+>خزانة الملفات</interface
+> على اليمين التي تحتوي على عناصر التحكم في التطبيق. </para>
+
+<screenshot>
+<screeninfo
+>هذه هي الشاشة التي تظهر عند بدء تشغيل تقليب</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>لقطة شاشة تقليب</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<orderedlist>
+<listitem>
+<para
+>يسمح <interface
+>مبدل المفردات</interface
+> (&PgUp; / &PgDn;) للمستخدم <action
+>بتغيير المفردات النشطة</action
+> بسرعة بالنقر بالزر الأيسر للفأرة على الأسهم <action
+>للتقدم إلى المفردة التالية</action
+> أو <action
+>للعودة إلى المفردة التي لعبت سابقًا</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>في وسط <interface
+>السبورة</interface
+> يوجد لغز الجناس اللفظي المراد حله. </para>
+</listitem>
+<listitem>
+<para
+>هذا هو زر <guiicon
+>بدء المؤقت</guiicon
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+>)، ويتيح لك <action
+>بدء أو إيقاف مؤقت التسجيل</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>عند النقر على زر <guibutton
+>تلميح</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+>)، ستظهر جملة قصيرة <action
+>تصف لغز الكلمة الحالي</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>زر <guibutton
+>كشف الكلمة</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+>) <action
+>يحل لغز الكلمة الحالي</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>يسمح لك <interface
+>مربع الإدخال</interface
+> <action
+>بإدخال محاولاتك</action
+> لحل لغز الكلمة الحالي. </para>
+</listitem>
+<listitem>
+<para
+>يتيح لك زر <interface
+>الجناس التالي</interface
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+>) التبديل إلى التخمين التالي. </para>
+</listitem>
+<listitem>
+<para
+>هذا هو زر <guiicon
+>ضبط</guiicon
+>، الذي <action
+>يفتح حوار <guilabel
+>ضبط</guilabel
+> تقليب</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>زر <guiicon
+>مساعدة</guiicon
+> مميز، إذ <action
+>يكشف عن 3 أزرار فرعية</action
+>. تظهر هذه الأزرار عند التمرير فوق زر <guiicon
+>مساعدة</guiicon
+>، وتوفر الوصول إلى <guilabel
+>دليل تقليب</guilabel
+> (هذه الوثيقة)، وحواري <guilabel
+>حول تقليب</guilabel
+> و <guilabel
+>حول &kde;</guilabel
+>: <screenshot>
+<screeninfo
+>الحالات الثلاث المختلفة لزر <guiicon
+>مساعدة</guiicon
+></screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="helpstates.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>لقطة شاشة تقليب</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem>
+<para
+>استخدم زر <guiicon
+>تغيير الوضع</guiicon
+> للتبديل بين وضع لاعب واحد ولاعبين. </para>
+</listitem>
+<listitem>
+<para
+>زر <guiicon
+>خروج</guiicon
+> <action
+>يغلق التطبيق</action
+>. </para>
+</listitem>
+</orderedlist>
+
+<sect1 id="playing-game">
+<title
+>لعب لعبة</title>
+
+<para
+>الآن بعد أن أصبحت على دراية بواجهة مستخدم تقليب، فلنلعب لعبة! </para>
+
+<procedure>
+<step>
+<para
+>باستخدام <interface
+>مبدل المفردات</interface
+>، <action
+>اختر موضوع المفردات</action
+> الذي ترغب في تجربته. ستُعرض كلمة من هذه المفردات في منتصف <interface
+>السبورة</interface
+>. الآن، حاول تخمين الكلمة التي تمثلها الأحرف المشوشة. <tip>
+<para
+>إذا لم تستطع تخمين الكلمة، اضغط على زر <guibutton
+>تلميح</guibutton
+> للحصول على نصيحة ودية من صديقك في <interface
+>خزانة الملفات</interface
+>: </para>
+<screenshot>
+<screeninfo
+>تلميح تقليب</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kanagram-hint.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>تلميح تقليب</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</tip>
+</para>
+</step>
+
+<step>
+<para
+>بمجرد أن تعتقد أنك تعرف الإجابة الصحيحة، اكتب الأحرف في <interface
+>مربع الإدخال</interface
+> أسفل <interface
+>السبورة</interface
+>، أو انقر عليها بالزر الأيسر للفأرة وستتحرك الأحرف إلى مربع الإدخال. إذا كنت مصيبًا، يظهر الجناس التالي، وإلا تقفز جميع الأحرف عائدة إلى السبورة. </para>
+</step>
+</procedure>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuring">
+<title
+>ضبط تقليب</title>
+
+<para
+>يُفتح حوار <guilabel
+>ضبط</guilabel
+> بالنقر على زر <guiicon
+>ضبط</guiicon
+>: </para>
+
+<screenshot>
+<screeninfo
+>الإعدادات العامة لـ تقليب</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="general-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>الإعدادات العامة لـ تقليب</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+
+<listitem>
+<para
+>يسمح لك المربع المنسدل <guilabel
+>إخفاء التلميحات آليًا بعد:</guilabel
+> بتحديد كيفية عرض التلميحات لك. هنا، يمكنك ضبط مربع التلميح ليختفي بعد عدد معين من الثواني (مثل 5 ثوانٍ)، أو يمكنك تركه على الإعداد المبدئي (<quote
+>لا تخفِ التلميحات آليًا</quote
+>). </para>
+</listitem>
+
+<listitem>
+<para
+>استخدم القائمة المنسدلة <guilabel
+>الوقت لحل الجناس:</guilabel
+> لتحديد الوقت المتاح لحل كل لغز. مبدئيًا، الخيار هو <quote
+>لا حد زمني</quote
+>. </para>
+</listitem>
+
+<listitem>
+<para
+>تتيح لك القائمة المنسدلة <guilabel
+>اللعب باستخدام:</guilabel
+> تشغيل تقليب باستخدام مفردات بلغة مختلفة. لكي تعمل هذه الميزة، يجب أن تكون لديك مفردات بلغة منفصلة مثبتة. </para>
+</listitem>
+
+<listitem>
+<para
+>تتيح لك القائمة المنسدلة <guilabel
+>ضبط المؤقت لأغراض التسجيل:</guilabel
+> ضبط الفاصل الزمني لمؤقت التسجيل بالثواني. </para>
+</listitem>
+
+<listitem>
+<para
+>يمكن استخدام مربع الاختيار <guilabel
+>إعدادات نقاط التسجيل</guilabel
+> لإظهار أو إخفاء خيارات ضبط تسجيل الإجابات. </para>
+</listitem>
+
+<listitem>
+<para
+>يتيح لك مربع الاختيار <guilabel
+>استخدام الأصوات</guilabel
+> إما السماح بالمؤثرات الصوتية أو كتمها. </para>
+</listitem>
+
+<listitem>
+<para
+>يتيح لك مربع الاختيار <guilabel
+>أحرف كبيرة فقط</guilabel
+> تحويل تقليب إلى وضع الأحرف الكبيرة فقط للكلمات على السبورة. </para>
+</listitem>
+
+<listitem>
+<para
+>يتيح لك مربع الاختيار <guilabel
+>نطق الكلمات الصحيحة</guilabel
+> تشغيل النطق أو إيقاف تشغيله. يجب تضمين ملفات صوتية للنطق في المفردات التي يتم تشغيلها، وإلا يجب تثبيت وضبط &jovie; لكي يعمل هذا الخيار. </para>
+</listitem>
+</itemizedlist>
+
+<sect1 id="vocabularies-config">
+<title
+>المفردات</title>
+
+<para
+>تتيح لك صفحة الضبط <guilabel
+>المفردات</guilabel
+> إدارة مفرداتك المثبتة. باستخدام هذا الحوار، يمكنك <action
+>تعديل</action
+> و<action
+>إزالة</action
+> المفردات التي تم تنزيلها، بالإضافة إلى <action
+>إنشاء</action
+> مفرداتك الخاصة: </para>
+
+<screenshot>
+<screeninfo
+>إعدادات مفردات تقليب</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>إعدادات مفردات تقليب</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>يفتح الزر <guibutton
+>إنشاء جديد</guibutton
+> <action
+>حوار <link linkend="vocab-editor"
+><guilabel
+>محرر المفردات</guilabel
+></link
+></action
+> لتتمكن من تأليف مفرداتك الخاصة التي يمكنك اللعب بها لاحقًا. </para>
+</listitem>
+<listitem>
+<para
+>يتيح لك الزر <guibutton
+>تعديل</guibutton
+> <action
+>إجراء تغييرات على المفردات التي إما أنشأتها أو نزلتها من الإنترنت</action
+>. </para>
+</listitem>
+<!-- not in 4.5 listitem>
+<para>
+The <guibutton
+>Delete</guibutton
+> button allows you to <action
+>delete vocabularies that you have created or downloaded</action
+>.
+</para>
+</listitem-->
+<listitem>
+<para
+>يمكنك تحديد المفردات التي ترغب في تطبيق هذه الإجراءات عليها باستخدام <interface
+>قائمة المفردات</interface
+>. </para>
+</listitem>
+</itemizedlist>
+
+<sect2 id="vocab-editor">
+<title
+>محرر المفردات</title>
+
+<para
+>يتيح لك محرر المفردات إنشاء مفرداتك الخاصة، والتي يمكن لـ تقليب اختبارك بها: </para>
+
+<screenshot>
+<screeninfo
+>تقليب <guilabel
+>محرر المفردات</guilabel
+></screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="vocab-editor.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>تقليب <guilabel
+>محرر المفردات</guilabel
+></phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem>
+<para
+>يتيح لك الحقل <guilabel
+>اسم المفردات:</guilabel
+> <action
+>تسمية مفرداتك</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>يتيح لك الحقل <guilabel
+>الوصف:</guilabel
+> <action
+>توسيع اسم مفرداتك</action
+>، مما يوفر للمستخدم تفاصيل إضافية عن محتوى مفرداتك. </para>
+<note>
+<para
+>حاول إبقاء حقلي الاسم والوصف قصيرين قدر الإمكان. تغطي المفردات الفعالة مجموعة ضيقة ومركزة من الكلمات لموضوع واحد. حاول كتابة 20 كلمة على الأقل لمفرداتك، حتى لا تنتهي بسرعة كبيرة. </para>
+</note>
+</listitem>
+<listitem>
+<para
+>يتيح لك الزر <guibutton
+>إزالة كلمة</guibutton
+> <action
+>إزالة كلمات من مفرداتك</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>ينشئ الزر <guibutton
+>كلمة جديدة</guibutton
+> <action
+>إدخال كلمة جديدة في مفرداتك</action
+>، جاهزة للتوسيع. </para>
+</listitem>
+<listitem>
+<para
+>يتيح لك الحقل <guilabel
+>الكلمة:</guilabel
+> <action
+>كتابة قيم الكلمات في مفرداتك</action
+>. </para>
+</listitem>
+<listitem>
+<para
+>يتيح لك الحقل <guilabel
+>التلميح</guilabel
+> <action
+>كتابة تلميحات لمرافقة كلماتك</action
+>. </para>
+<note>
+<para
+>تصف التلميحات الجيدة الكلمة بوضوح وبشكل غير مباشر، مع زيادة معرفة المستخدم أيضًا. تأكد أيضًا من أن تلميحاتك قصيرة إلى حد ما (أقل من 40 حرفًا في الطول). </para>
+</note>
+</listitem>
+<listitem>
+<para
+>يحفظ الزر <guibutton
+>حفظ</guibutton
+> <action
+>محتوى مفرداتك الجديدة</action
+>، ويمكّن استخدامها مباشرة في تقليب (ستصبح متاحة فورًا داخل التطبيق، قابلة للتحديد عبر <interface
+>محدد المفردات</interface
+>). </para>
+</listitem>
+<listitem>
+<para
+>يغلق الزر <guibutton
+>إغلاق</guibutton
+> <action
+>حوار <guilabel
+>محرر المفردات</guilabel
+></action
+> دون حفظ محتوى مفرداتك الجديدة أو المعدلة. </para>
+</listitem>
+</itemizedlist>
+</sect2>
+
+</sect1>
+
+<sect1 id="newstuff">
+<title
+>أشياء جديدة</title>
+
+<para
+>يتيح لك الزر <guibutton
+>تنزيل مفردات جديدة</guibutton
+> في صفحة الضبط <guilabel
+>المفردات</guilabel
+> الحصول على ملفات مفردات جديدة من الإنترنت: </para>
+
+<screenshot>
+<screeninfo
+>حوار الأشياء الجديدة لـ تقليب</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="newstuff-dialog.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>حوار الأشياء الجديدة لـ تقليب</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>لتثبيت مفردات من الإنترنت، انقر على عنصر المفردات في القائمة، ثم اضغط على الزر <guibutton
+>تثبيت</guibutton
+> لتثبيتها في نظامك. ستكون المفردات المُنزّلة متاحة للعب فورًا. </para>
+<para
+>إذا كنت قد نزّلت مفردات مسبقًا، سيتغير هذا الزر إلى <guibutton
+>إزالة التثبيت</guibutton
+> الذي يسمح لك بإزالة مفردات. </para>
+<para
+>للحصول على مزيد من المعلومات حول مفردات مثل المؤلف، ووصف المحتوى، وسجل التغييرات، اضغط على الزر <guibutton
+>تفاصيل</guibutton
+>. </para>
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>الحقوق والترخيص</title>
+
+<para
+>تقليب </para>
+<para
+>حقوق البرنامج 2007 Jeremy Whiting <email
+>jpwhiting@kde.org</email
+> 2005 Joshua Keel <email
+>joshuakeel@gmail.com</email
+> و &Danny.Allen; &Danny.Allen.mail; </para>
+<para
+>المساهمون: </para>
+<itemizedlist>
+<listitem>
+<para
+>المؤثرات الصوتية: Artemio <email
+>fillme</email
+> </para>
+</listitem>
+</itemizedlist>
+
+<para
+>حقوق نشر التوثيق 2005 &Danny.Allen; &Danny.Allen.mail; </para>
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet:noai
+-->
